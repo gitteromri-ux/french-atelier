@@ -26,6 +26,27 @@
     v.play().catch(function(){});
   });
 
+  // Interactive course worlds (accordion)
+  document.querySelectorAll('[data-world] .world-head').forEach(function(head){
+    head.addEventListener('click',function(){
+      var world=head.closest('[data-world]');
+      if(!world)return;
+      var open=world.classList.contains('is-open');
+      // close all others
+      document.querySelectorAll('[data-world].is-open').forEach(function(w){
+        if(w!==world){w.classList.remove('is-open');var h=w.querySelector('.world-head');if(h)h.setAttribute('aria-expanded','false');}
+      });
+      world.classList.toggle('is-open',!open);
+      head.setAttribute('aria-expanded',String(!open));
+    });
+  });
+
+  // Pillar motion videos (autoplay muted loop)
+  document.querySelectorAll('.pillar video').forEach(function(v){
+    v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline','');
+    v.loop=true; v.play().catch(function(){});
+  });
+
   // Video sound opt-in (autoplay muted -> click to unmute)
   document.querySelectorAll('[data-soundvideo]').forEach(function(container){
     var v=container.querySelector('video');
