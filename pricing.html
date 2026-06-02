@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrollment &amp; Pricing — The French Atelier by Acadomia</title>
+<meta name="description" content="Enroll in The French Atelier — live French classes from $39/week. Three plans: monthly, annual, and annual best-seller with weekly study groups.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/fa.css">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<style>
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start;margin-top:3.4rem}
+.plan-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.6rem 2.2rem;position:relative;transition:box-shadow .3s}
+.plan-card:hover{box-shadow:0 8px 40px rgba(8,14,43,.1)}
+.plan-card.featured{border-color:var(--gold-deep);background:var(--navy-deep);color:var(--on-dark)}
+.plan-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold-deep);color:var(--navy-deep);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1.2rem;white-space:nowrap}
+.plan-eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.8rem}
+.plan-eyebrow.light{color:var(--gold-soft)}
+.plan-eyebrow.dark{color:var(--gold-deep)}
+.plan-name{font-family:var(--serif);font-size:1.7rem;line-height:1.1;margin-bottom:.4rem}
+.plan-price-wrap{margin:1.4rem 0 1rem}
+.plan-price{font-family:var(--serif);font-size:3.6rem;line-height:1;color:var(--gold-deep)}
+.plan-card.featured .plan-price{color:var(--gold-soft)}
+.plan-per{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-left:.3rem}
+.plan-was{font-size:.88rem;margin-top:.3rem;opacity:.55;text-decoration:line-through}
+.plan-saving{font-size:.82rem;font-weight:600;color:var(--gold-deep);margin-top:.2rem}
+.plan-card.featured .plan-saving{color:var(--gold-soft)}
+.plan-divider{border:none;border-top:1px solid var(--gold-line-soft);margin:1.4rem 0}
+.plan-card.featured .plan-divider{border-color:var(--gold-line)}
+.plan-includes-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;opacity:.55;margin-bottom:.8rem}
+.plan-includes{list-style:none;padding:0;margin:0 0 1.6rem}
+.plan-includes li{font-size:.92rem;padding:.4rem 0;display:flex;align-items:flex-start;gap:.6rem;border-bottom:1px solid var(--gold-line-soft);line-height:1.4}
+.plan-card.featured .plan-includes li{border-color:rgba(200,165,96,.18)}
+.plan-includes li::before{content:"◆";font-size:.45rem;color:var(--gold-deep);flex-shrink:0;margin-top:.5rem}
+.plan-card.featured .plan-includes li::before{color:var(--gold-soft)}
+.plan-extra{background:rgba(200,165,96,.12);border-left:3px solid var(--gold-deep);padding:.7rem 1rem;margin-bottom:1.2rem;font-size:.9rem;font-weight:600}
+.plan-cta{display:block;text-align:center;width:100%;box-sizing:border-box}
+.inclusions-note{margin-top:2.6rem;padding:1.8rem 2rem;background:var(--paper);border:1px solid var(--gold-line-soft);text-align:center}
+.inclusions-note p{font-size:.88rem;color:var(--on-light-soft)}
+.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--gold-line-soft);border-bottom:1px solid var(--gold-line-soft);margin-top:3rem}
+.trust-item{padding:1.8rem 1.2rem;text-align:center;border-right:1px solid var(--gold-line-soft)}
+.trust-item:last-child{border-right:none}
+.trust-icon{font-family:var(--serif);font-size:1.5rem;color:var(--gold-deep);display:block;margin-bottom:.4rem}
+.trust-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)}
+@media(max-width:980px){.pricing-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}.trust-strip{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(2){border-right:none}}
+@media(max-width:600px){.trust-strip{grid-template-columns:1fr}.trust-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+        <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+        <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
+      <span class="logo-text">
+        <span class="lt-main">The French Atelier</span>
+        <span class="lt-sub">by Acadomia</span>
+      </span>
+    </a>
+    <nav class="nav-menu" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="index.html">Home</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="courses.html">All Courses</a>
+          <a href="courses/fa-foundation.html">FA Foundation · A0→A1.1</a>
+          <a href="courses/fa-beginner.html">FA Beginner · A1.1→A1.2</a>
+          <a href="courses/fa-elementary.html">FA Elementary · A1.2→A2.1</a>
+          <a href="courses/fa-intermediate.html">FA Intermediate · A2.1→A2.2</a>
+          <a href="courses/lsf-foundation.html">LSF · Let's Speak French</a>
+          <a href="map.html">Interactive Map of France</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
+      <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
+      <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="culture.html">French Culture</a>
+          <a href="teachers.html">Our Teachers</a>
+          <a href="blog.html">Cultural Journal</a>
+          <a href="capsules.html">Culture Capsules</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link active" href="about.html">About <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="about.html">About French Atelier</a>
+          <a href="acadomia.html">The Acadomia Group</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <a class="btn btn-gold nav-cta" href="pricing.html">Enroll Now</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-drawer" aria-hidden="true">
+  <button class="nav-drawer-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <span class="drawer-group-label">Courses</span>
+  <div class="drawer-sub">
+    <a href="courses.html">All Courses</a>
+    <a href="courses/fa-foundation.html">FA Foundation</a>
+    <a href="courses/fa-beginner.html">FA Beginner</a>
+    <a href="courses/fa-elementary.html">FA Elementary</a>
+    <a href="courses/fa-intermediate.html">FA Intermediate</a>
+    <a href="courses/lsf-foundation.html">LSF Foundation</a>
+    <a href="courses/lsf-beginner.html">LSF Beginner</a>
+    <a href="courses/lsf-elementary.html">LSF Elementary</a>
+    <a href="map.html">Interactive Map of France</a>
+  </div>
+  <a href="method.html">Our Method</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="juliane.html">Juliane · AI Tutor</a>
+  <span class="drawer-group-label">Culture</span>
+  <div class="drawer-sub">
+    <a href="culture.html">French Culture</a>
+    <a href="teachers.html">Our Teachers</a>
+    <a href="blog.html">Cultural Journal</a>
+    <a href="capsules.html">Culture Capsules</a>
+  </div>
+  <span class="drawer-group-label">About</span>
+  <div class="drawer-sub">
+    <a href="about.html">About French Atelier</a>
+    <a href="acadomia.html">The Acadomia Group</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+</div>
+
+<!-- ===== HERO (video-bg) ===== -->
+<section class="page-hero">
+  <div class="video-bg">
+    <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap hero-content">
+    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Enrollment</p>
+    <h1 class="display-xl reveal reveal-d1">Begin Your<br>Journey in <span class="gold-ital">French</span></h1>
+    <p class="hero-sub reveal reveal-d2" style="max-width:50ch">Live classes from France. Native certified teachers. A CEFR-aligned certificate by Acadomia. From <strong style="color:var(--gold-soft)">$39/week</strong>.</p>
+  </div>
+</section>
+
+<!-- ===== WHAT'S INCLUDED — HEADER ===== -->
+<section class="section-pad-sm bg-ivory">
+  <div class="wrap-narrow" style="text-align:center">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Every Plan Includes</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin:1rem 0">A complete, <span class="gold-ital">immersive</span> French education</h2>
+    <p class="lede reveal reveal-d2">Choose the plan that suits your rhythm. Every French Atelier enrollment includes the same exceptional standard of live instruction, cultural depth, and community.</p>
+  </div>
+</section>
+
+<!-- ===== PRICING CARDS ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap">
+    <div class="pricing-grid">
+
+      <!-- PLAN 1: PAY MONTHLY -->
+      <div class="plan-card reveal">
+        <p class="plan-eyebrow dark">Plan 1</p>
+        <p class="plan-name">Pay Monthly</p>
+        <div class="plan-price-wrap">
+          <span class="plan-price">$59</span><span class="plan-per">/week</span>
+          <p class="plan-was">Was $69/week</p>
+          <p class="plan-saving">15% off — monthly flexibility</p>
+        </div>
+        <hr class="plan-divider">
+        <p class="plan-includes-label">Everything included</p>
+        <ul class="plan-includes">
+          <li>20 live classes (85 min each)</li>
+          <li>Certified native French instructor</li>
+          <li>Small groups — 8 to 10 learners</li>
+          <li>Private community access</li>
+          <li>Lifetime on-demand recordings</li>
+          <li>A1/A2 certificate by ACADOMIA</li>
+          <li>$100 credits upon completion</li>
+          <li>Cultural benefits &amp; resources</li>
+          <li>24/7 learner support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline plan-cta">Enroll Now</a>
+      </div>
+
+      <!-- PLAN 2: ANNUAL BEST SELLER -->
+      <div class="plan-card featured reveal reveal-d1">
+        <span class="plan-badge">✦ Best Seller</span>
+        <p class="plan-eyebrow light">Plan 2 · Annual</p>
+        <p class="plan-name" style="color:var(--on-dark)">Annual — <span class="gold-ital">Best Value</span></p>
+        <div class="plan-price-wrap">
+          <span class="plan-price">$42</span><span class="plan-per" style="color:var(--on-dark-soft)">/week</span>
+          <p class="plan-was" style="color:var(--on-dark-soft)">Save 25%</p>
+          <p class="plan-saving">Our most popular plan</p>
+        </div>
+        <hr class="plan-divider">
+        <div class="plan-extra">
+          <span style="color:var(--gold-soft)">✦</span> Includes 2 weekly study groups
+        </div>
+        <p class="plan-includes-label">Everything included</p>
+        <ul class="plan-includes">
+          <li>20 live classes (85 min each)</li>
+          <li>Certified native French instructor</li>
+          <li>Small groups — 8 to 10 learners</li>
+          <li>Private community access</li>
+          <li>Lifetime on-demand recordings</li>
+          <li>A1/A2 certificate by ACADOMIA</li>
+          <li>$100 credits upon completion</li>
+          <li>Cultural benefits &amp; resources</li>
+          <li>24/7 learner support</li>
+          <li><strong style="color:var(--gold-soft)">+ 2 weekly live study groups</strong></li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold plan-cta" style="font-size:1rem;padding:1rem 1.4rem">Enroll Now</a>
+      </div>
+
+      <!-- PLAN 3: ANNUAL -->
+      <div class="plan-card reveal reveal-d2">
+        <p class="plan-eyebrow dark">Plan 3</p>
+        <p class="plan-name">Annual</p>
+        <div class="plan-price-wrap">
+          <span class="plan-price">$39</span><span class="plan-per">/week</span>
+          <p class="plan-was">Was $44/week</p>
+          <p class="plan-saving">10% off — annual commitment</p>
+        </div>
+        <hr class="plan-divider">
+        <p class="plan-includes-label">Everything included</p>
+        <ul class="plan-includes">
+          <li>20 live classes (85 min each)</li>
+          <li>Certified native French instructor</li>
+          <li>Small groups — 8 to 10 learners</li>
+          <li>Private community access</li>
+          <li>Lifetime on-demand recordings</li>
+          <li>A1/A2 certificate by ACADOMIA</li>
+          <li>$100 credits upon completion</li>
+          <li>Cultural benefits &amp; resources</li>
+          <li>24/7 learner support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline plan-cta">Enroll Now</a>
+      </div>
+    </div>
+
+    <!-- INCLUSIONS NOTE -->
+    <div class="inclusions-note reveal" style="margin-top:2.4rem">
+      <p><strong>All prices in USD.</strong> Plans billed annually or in monthly installments as selected at enrollment. For questions about which plan is right for you, contact our advisors at <a href="mailto:advisor@eTeacherGroup.com" style="color:var(--gold-deep)">advisor@eTeacherGroup.com</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="section-pad-sm bg-ivory">
+  <div class="wrap">
+    <div class="trust-strip reveal">
+      <div class="trust-item">
+        <span class="trust-icon">20</span>
+        <span class="trust-label">Live 85-min classes</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">8–10</span>
+        <span class="trust-label">Learners per group</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">A1/A2</span>
+        <span class="trust-label">Certificate by Acadomia</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">$100</span>
+        <span class="trust-label">Credits on completion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS MINI ===== -->
+<section class="section-pad bg-navy">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Journey</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">From enrollment to <span class="gold-ital">certification</span></h2>
+    </div>
+    <div class="grid g4" style="gap:2rem">
+      <div class="reveal"><div class="numeral" style="font-size:2.8rem">01</div><h3 style="font-size:1.3rem;margin:.6rem 0;color:var(--on-dark)">Choose Your Plan</h3><p class="muted" style="font-size:.9rem">Select the plan that suits your pace — monthly or annual.</p></div>
+      <div class="reveal reveal-d1"><div class="numeral" style="font-size:2.8rem">02</div><h3 style="font-size:1.3rem;margin:.6rem 0;color:var(--on-dark)">Placement Call</h3><p class="muted" style="font-size:.9rem">A live call confirms your starting level and the right course track for you.</p></div>
+      <div class="reveal reveal-d2"><div class="numeral" style="font-size:2.8rem">03</div><h3 style="font-size:1.3rem;margin:.6rem 0;color:var(--on-dark)">Join Live Classes</h3><p class="muted" style="font-size:.9rem">Attend weekly 85-minute live lessons with your native teacher, broadcast from France.</p></div>
+      <div class="reveal reveal-d3"><div class="numeral" style="font-size:2.8rem">04</div><h3 style="font-size:1.3rem;margin:.6rem 0;color:var(--on-dark)">Earn Your Certificate</h3><p class="muted" style="font-size:.9rem">Complete 20 lessons and receive your CEFR A1/A2 certificate by Acadomia, plus $100 in credits.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO BAND — Cultural Benefits ===== -->
+<section class="video-band">
+  <div class="video-bg">
+    <video poster="assets/video/wine-tasting-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/wine-tasting.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Cultural Benefits</p>
+    <h2 class="display-md">Language and culture,<br><span class="gold-ital">inseparable</span></h2>
+    <p class="lede">Every plan includes cultural resources that extend far beyond the classroom — gastronomy, art, fashion, music, and the rituals that make French life what it is. You don’t just learn to speak French. You learn to live it.</p>
+  </div></div>
+</section>
+
+<!-- ===== FAQ TEASER ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap-narrow" style="text-align:center">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Questions?</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin:1rem 0">We're here to <span class="gold-ital">guide you</span></h2>
+    <p class="lede reveal reveal-d2" style="max-width:52ch;margin:0 auto 2rem">Have questions about which plan suits you, what a live class feels like, or how the certificate works?</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="faq.html" class="btn btn-outline reveal reveal-d2">Read the FAQ</a>
+      <a href="contact.html" class="btn btn-gold reveal reveal-d3">Speak to an Advisor</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+          <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+        </svg>
+        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
+        <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="courses/fa-foundation.html">FA Foundation</a>
+        <a href="courses/fa-beginner.html">FA Beginner</a>
+        <a href="courses/fa-elementary.html">FA Elementary</a>
+        <a href="courses/fa-intermediate.html">FA Intermediate</a>
+        <a href="courses.html">Let's Speak French</a>
+        <a href="map.html">Map of France</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="method.html">Our Method</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="juliane.html">Juliane · AI Tutor</a>
+        <a href="teachers.html">Our Teachers</a>
+        <a href="culture.html">French Culture</a>
+        <a href="blog.html">Cultural Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="acadomia.html">Acadomia Group</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>7 rue de la Baume, 75008 Paris, France &nbsp;·&nbsp; +1-888-230-5110 &nbsp;·&nbsp; advisor@eTeacherGroup.com</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577106456673" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.8.3-1.5 1.5-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14V9z"/></svg></a>
+        <a href="https://www.instagram.com/livefrenchatelier" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="js/fa.js"></script>
+</body>
+</html>

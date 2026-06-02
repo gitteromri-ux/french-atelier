@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>French Culture — The French Atelier by Acadomia</title>
+<meta name="description" content="Learn French through culture. Six pillars — Art & Architecture, Gastronomy & Wine, Travel & Landmarks, Fashion & Film, Music & Poetry, Tradition & History — each a world of vocabulary, aesthetics, and living French.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/fa.css">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<style>
+/* ===== CULTURE HERO override ===== */
+.culture-hero{min-height:90vh;position:relative;display:flex;align-items:center;overflow:hidden}
+/* stronger left-weighted scrim so light hero text stays legible over the bright city video */
+.culture-hero .video-bg::after{background:linear-gradient(100deg,rgba(8,14,43,.92) 0%,rgba(8,14,43,.78) 40%,rgba(8,14,43,.5) 70%,rgba(8,14,43,.4) 100%)}
+.culture-hero-content{position:relative;z-index:3;padding:9rem 0 6rem;max-width:60ch}
+.culture-hero .lede{color:var(--on-dark)}
+.culture-hero h1{font-size:clamp(3.4rem,8vw,7rem);margin-bottom:1.2rem;line-height:1.02;color:var(--on-dark);-webkit-text-fill-color:var(--on-dark)}
+.culture-hero .breadcrumb,.culture-hero .breadcrumb a,.culture-hero .breadcrumb span{color:var(--on-dark-soft)}
+
+/* ===== THESIS BAND ===== */
+.thesis-band{background:var(--ivory);padding:4.8rem 0;text-align:center;border-bottom:1px solid var(--gold-line-soft)}
+
+/* ===== PILLAR SECTIONS ===== */
+.pillar-section{padding:7rem 0}
+.pillar-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.pillar-label{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
+.pillar-label .pl-num{font-family:var(--serif);font-size:5rem;color:var(--gold-line);line-height:1}
+.pillar-img-main{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--gold-line-soft);display:block}
+.pillar-subpoints{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.4rem;margin-top:2.4rem}
+.sp-item{border-left:2px solid var(--gold-deep);padding-left:1.2rem}
+.sp-item strong{font-family:var(--serif);font-size:1.05rem;display:block;margin-bottom:.3rem}
+.sp-item p{font-size:.9rem;color:var(--on-light-soft);line-height:1.65;margin:0}
+
+/* dark section subpoints */
+.on-dark .sp-item{border-left-color:var(--gold-soft)}
+.on-dark .sp-item p{color:var(--on-dark-soft)}
+
+/* ===== VIDEO TRIO GRID ===== */
+.video-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+
+/* ===== PILLAR NAV ===== */
+.pillar-nav{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--gold-line-soft);margin-bottom:0}
+.pillar-nav a{flex:1;min-width:0;padding:1.2rem .8rem;text-align:center;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft);border-right:1px solid var(--gold-line-soft);text-decoration:none;transition:background .2s,color .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pillar-nav a:last-child{border-right:none}
+.pillar-nav a:hover{background:var(--navy);color:var(--gold-soft)}
+
+/* ===== TRAVEL ambient ===== */
+.travel-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem}
+
+@media(max-width:1000px){.pillar-intro{grid-template-columns:1fr}.pillar-subpoints{grid-template-columns:1fr}.video-trio{grid-template-columns:1fr 1fr}.travel-pair{grid-template-columns:1fr}}
+@media(max-width:700px){.pillar-nav a{font-size:.65rem;padding:.9rem .5rem}.culture-hero h1{font-size:3.2rem}.video-trio{grid-template-columns:1fr}.pillar-nav{flex-direction:column}.pillar-nav a{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.pillar-nav a:last-child{border-bottom:none}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+        <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+        <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
+      <span class="logo-text">
+        <span class="lt-main">The French Atelier</span>
+        <span class="lt-sub">by Acadomia</span>
+      </span>
+    </a>
+    <nav class="nav-menu" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="index.html">Home</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="courses.html">All Courses</a>
+          <a href="courses/fa-foundation.html">FA Foundation · A0→A1.1</a>
+          <a href="courses/fa-beginner.html">FA Beginner · A1.1→A1.2</a>
+          <a href="courses/fa-elementary.html">FA Elementary · A1.2→A2.1</a>
+          <a href="courses/fa-intermediate.html">FA Intermediate · A2.1→A2.2</a>
+          <a href="courses/lsf-foundation.html">LSF · Let's Speak French</a>
+          <a href="map.html">Interactive Map of France</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
+      <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
+      <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI</a></div>
+      <div class="nav-item">
+        <a class="nav-link active" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="culture.html">French Culture</a>
+          <a href="teachers.html">Our Teachers</a>
+          <a href="blog.html">Cultural Journal</a>
+          <a href="capsules.html">Culture Capsules</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="about.html">About <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="about.html">About French Atelier</a>
+          <a href="acadomia.html">The Acadomia Group</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <a class="btn btn-gold nav-cta" href="pricing.html">Enroll Now</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-drawer" aria-hidden="true">
+  <button class="nav-drawer-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <span class="drawer-group-label">Courses</span>
+  <div class="drawer-sub">
+    <a href="courses.html">All Courses</a>
+    <a href="courses/fa-foundation.html">FA Foundation</a>
+    <a href="courses/fa-beginner.html">FA Beginner</a>
+    <a href="courses/fa-elementary.html">FA Elementary</a>
+    <a href="courses/fa-intermediate.html">FA Intermediate</a>
+    <a href="courses/lsf-foundation.html">LSF Foundation</a>
+    <a href="courses/lsf-beginner.html">LSF Beginner</a>
+    <a href="courses/lsf-elementary.html">LSF Elementary</a>
+    <a href="map.html">Interactive Map of France</a>
+  </div>
+  <a href="method.html">Our Method</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="juliane.html">Juliane · AI Tutor</a>
+  <span class="drawer-group-label">Culture</span>
+  <div class="drawer-sub">
+    <a href="culture.html">French Culture</a>
+    <a href="teachers.html">Our Teachers</a>
+    <a href="blog.html">Cultural Journal</a>
+    <a href="capsules.html">Culture Capsules</a>
+  </div>
+  <span class="drawer-group-label">About</span>
+  <div class="drawer-sub">
+    <a href="about.html">About French Atelier</a>
+    <a href="acadomia.html">The Acadomia Group</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+</div>
+
+<!-- ===== CINEMATIC HERO — paris-sunset-street video-bg ===== -->
+<section class="culture-hero">
+  <div class="video-bg">
+    <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-sunset-street.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap">
+    <div class="culture-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>French Culture</span>
+      </nav>
+      <p class="eyebrow eyebrow-line reveal">Live French to Learn French</p>
+      <h1 class="reveal reveal-d1">Culture speaks <span class="gold-ital">French.</span><br>What about you?</h1>
+      <p class="lede reveal reveal-d2" style="max-width:50ch">At The French Atelier, you don't learn <em>about</em> French culture — you learn French <em>through</em> it. Six worlds, one language, one extraordinary journey.</p>
+      <div class="reveal reveal-d3" style="margin-top:2rem">
+        <a href="pricing.html" class="btn btn-gold btn-lg">Begin Your Journey</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PILLAR NAVIGATION ===== -->
+<nav class="pillar-nav" aria-label="Cultural pillars">
+  <a href="#art">Art &amp; Architecture</a>
+  <a href="#gastronomy">Gastronomy &amp; Wine</a>
+  <a href="#travel">Travel &amp; Landmarks</a>
+  <a href="#fashion">Fashion &amp; Film</a>
+  <a href="#music">Music &amp; Poetry</a>
+  <a href="#tradition">Tradition &amp; History</a>
+</nav>
+
+<!-- ===== THESIS BAND ===== -->
+<section class="thesis-band">
+  <div class="wrap-narrow">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The French Atelier Philosophy</p>
+    <h2 class="display-md reveal reveal-d1" style="margin:1.4rem 0">You don't learn French <em>then</em> live it.<br>You live it <span class="gold-ital">to</span> learn it.</h2>
+    <p class="lede reveal reveal-d2" style="max-width:66ch;margin:0 auto">Every French Atelier course is organised around six cultural worlds — each one a universe of vocabulary, social grace, aesthetic sensibility, and lived meaning. Grammar emerges from culture. Vocabulary is anchored to experience. The language becomes inseparable from the life it describes.</p>
+    <div class="diamond-rule reveal reveal-d3" style="margin-top:2.4rem"><span class="d"></span></div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR I — ART & ARCHITECTURE
+==================================================================== -->
+<section id="art" class="pillar-section bg-ivory">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num">I</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar One</p>
+            <h2 class="display-sm" style="margin:0">Art &amp; <span class="gold-ital">Architecture</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">France has produced more enduring art and architecture per square kilometre than any civilisation in modern history. To speak French is to speak the language of the canvas, the cathedral, and the grand salon — a vocabulary of beauty that is entirely its own.</p>
+        <p style="color:var(--on-light-soft);line-height:1.75">At the Atelier, art and architecture are not cultural supplements. They are the classroom itself. A Monet lesson is a lesson in colour, light, and the verb <em>voir</em>. A visit to the Palais Garnier is a lesson in superlatives, in history, in the French love of the operatic in all things.</p>
+      </div>
+      <div>
+        <img src="assets/categories/art-architecture.jpg" alt="French art and architecture" class="pillar-img-main">
+        <p class="img-caption">From the ateliers of Montmartre to the grands projets of the Louvre.</p>
+      </div>
+    </div>
+    <div class="pillar-subpoints reveal">
+      <div class="sp-item">
+        <strong>The Impressionists &amp; Modern Vision</strong>
+        <p>Monet, Renoir, Degas — the artists who taught France to see differently, and whose vocabulary of light, colour, and sensation is a living resource for the French learner.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Haussmann, Garnier &amp; the Built Language of France</strong>
+        <p>The grand boulevards, the ornate facades, the iron and glass of the Belle Époque — Paris is an argument in stone, and learning to read it is learning to understand France.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Salon &amp; the Atelier</strong>
+        <p>French artistic culture is inseparable from its social forms — the salon, the vernissage, the opening night. These are spaces with their own grammar, their own ritual, their own register of French.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Reading a French Museum in French</strong>
+        <p>Every museum is a language lesson waiting to happen. The vocabulary of the catalogue note, the conversation with a conservator, the opinion shared over a café crème — all taught in context.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Contemporary French Art &amp; Architecture</strong>
+        <p>From the Centre Pompidou to the Grand Louvre pyramid — France continues to make provocative architectural statements, each one a window into contemporary French cultural debate.</p>
+      </div>
+    </div>
+    <figure class="video-frame reveal" style="margin-top:3rem">
+      <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
+        <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
+      </video>
+      <figcaption>Paris — the city that invented the idea of the beautiful.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR II — GASTRONOMY & WINE
+==================================================================== -->
+<section id="gastronomy" class="pillar-section bg-navy">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num" style="color:rgba(200,165,96,.25)">II</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Two</p>
+            <h2 class="display-sm" style="margin:0">Gastronomy <span class="gold-ital">&amp; Wine</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">French gastronomy is a UNESCO-designated cultural heritage. It is also the most democratic of all French cultural forms — every French person, regardless of class or region, participates in it, argues about it, and is shaped by it. To speak about food in France is to speak about everything.</p>
+        <p style="color:var(--on-dark-soft);line-height:1.75">The Atelier's gastronomy pillar is taught at the table — vocabulary of the market, the <em>boucherie</em>, the <em>fromagerie</em>, the cellar. Every unit begins with a real place, a real ingredient, a real ritual of French food culture. The grammar follows the appetite.</p>
+      </div>
+      <div>
+        <img src="assets/categories/gastronomy-wine.jpg" alt="French gastronomy and wine" class="pillar-img-main">
+        <p class="img-caption" style="color:var(--on-dark-soft)">The table is where French is most fully itself.</p>
+      </div>
+    </div>
+    <div class="video-trio reveal">
+      <figure class="video-frame">
+        <video poster="assets/video/vineyard-poster.jpg" loop muted playsinline preload="metadata">
+          <source src="assets/video/vineyard.mp4" type="video/mp4">
+        </video>
+        <figcaption style="color:var(--on-dark-soft)">The vineyards of France — a language of terroir and taste</figcaption>
+      </figure>
+      <figure class="video-frame">
+        <video poster="assets/video/wine-tasting-poster.jpg" loop muted playsinline preload="metadata">
+          <source src="assets/video/wine-tasting.mp4" type="video/mp4">
+        </video>
+        <figcaption style="color:var(--on-dark-soft)">The vocabulary of the glass, the nose, the finish</figcaption>
+      </figure>
+      <figure class="video-frame">
+        <video poster="assets/video/pastry-poster.jpg" loop muted playsinline preload="metadata">
+          <source src="assets/video/pastry.mp4" type="video/mp4">
+        </video>
+        <figcaption style="color:var(--on-dark-soft)">Pâtisserie — where precision meets poetry</figcaption>
+      </figure>
+    </div>
+    <div class="pillar-subpoints reveal" style="margin-top:3rem">
+      <div class="sp-item on-dark">
+        <strong>The Market, the Boulangerie, the Fromagerie</strong>
+        <p>Daily food vocabulary in its natural habitat — the morning market, the queue at the baker's, the conversation with the <em>fromager</em> about which Brie is at its peak.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>French Table Etiquette &amp; the Grammar of the Meal</strong>
+        <p>How to accept an invitation, how to compliment the host, how to decline a second glass with grace — the social ritual of the French table has its own complete grammar.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>Wine Regions, Appellations &amp; Tasting Language</strong>
+        <p>From Bordeaux to Burgundy, from Champagne to the Côtes du Rhône — the vocabulary of French wine is a cultural and linguistic world in itself, essential to any serious speaker.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>The Art of the Menu &amp; the Restaurant</strong>
+        <p>Reading a French menu fluently, understanding the categories, knowing the vocabulary of the <em>carte</em> and the <em>formule</em> — skills that transform every French restaurant experience.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>Gastronomy as UNESCO Cultural Heritage</strong>
+        <p>France's culinary tradition is globally recognised as intangible heritage — its philosophy, its rituals, its relationship to the seasons, its reverence for the local. A feast for the language.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR III — TRAVEL & LANDMARKS
+==================================================================== -->
+<section id="travel" class="pillar-section bg-paper">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num">III</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Three</p>
+            <h2 class="display-sm" style="margin:0">Travel &amp; <span class="gold-ital">Landmarks</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">France welcomed over 100 million visitors in a recent year — more than any other country on earth. The world goes to France to feel something. The French Atelier teaches you to feel it in French — to read the city, name the monument, and speak your way across a country of almost incomprehensible beauty.</p>
+        <p style="color:var(--on-light-soft);line-height:1.75">The travel pillar is not a list of tourist phrases. It is a complete vocabulary for navigating France — from the arrondissements of Paris to the winding lanes of Provence, from the ferry crossing to Corsica to the TGV south to Marseille. Language gives you access to France that no guidebook can.</p>
+      </div>
+      <div>
+        <img src="assets/categories/travel-landmarks.jpg" alt="French travel and landmarks" class="pillar-img-main">
+        <p class="img-caption">France — the most visited country on earth, and the most rewarding in French.</p>
+      </div>
+    </div>
+    <div class="travel-pair reveal">
+      <figure class="video-frame">
+        <video poster="assets/video/paris-seine-poster.jpg" loop muted playsinline preload="metadata">
+          <source src="assets/video/paris-seine.mp4" type="video/mp4">
+        </video>
+        <figcaption>The Seine at night — the soul of Paris in motion</figcaption>
+      </figure>
+      <figure class="video-frame">
+        <video poster="assets/video/paris-eiffel-poster.jpg" loop muted playsinline preload="metadata">
+          <source src="assets/video/paris-eiffel.mp4" type="video/mp4">
+        </video>
+        <figcaption>The Eiffel Tower — learned not just as an icon but as a conversation</figcaption>
+      </figure>
+    </div>
+    <div class="pillar-subpoints reveal" style="margin-top:3rem">
+      <div class="sp-item">
+        <strong>Navigating France — Cities, Regions &amp; Transport</strong>
+        <p>Buying a train ticket, reading a metro map, asking for directions in a village — the full vocabulary of movement through France, taught in the contexts where you will actually need it.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Monument, the Museum, the Village</strong>
+        <p>From the grandeur of Versailles to the intimacy of a Dordogne village market — reading each place in French transforms it from a spectacle into a conversation.</p>
+      </div>
+      <div class="sp-item">
+        <strong>French Geography as Cultural Itinerary</strong>
+        <p>The Loire Valley, Brittany, the Basque Country, the French Alps — each region is a distinct cultural world with its own vocabulary, its own rhythm, its own French.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Speaking French on Arrival, in Transit, at the Table</strong>
+        <p>The practical language of the traveller — check-in, the taxi, the question to the hotel concierge — made natural through contextual practice before you ever board the plane.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Reading the City — Paris, Lyon, Marseille, Bordeaux</strong>
+        <p>Each French city is a text. Every arrondissement, every quartier, every street name is an argument about history, class, and aspiration. Learning to read them transforms a visit into an immersion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR IV — FASHION & FILM
+==================================================================== -->
+<section id="fashion" class="pillar-section bg-ivory">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num">IV</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Four</p>
+            <h2 class="display-sm" style="margin:0">Fashion <span class="gold-ital">&amp; Film</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">France invented modern fashion and reimagined cinema as an art form. The grandes maisons — Chanel, Dior, Saint Laurent, Hermès, Givenchy — did not merely make clothes; they articulated a philosophy. La Nouvelle Vague did not merely make films; it changed the grammar of how stories are told.</p>
+        <p style="color:var(--on-light-soft);line-height:1.75">At the Atelier, fashion and film are living resources. A Coco Chanel interview is a lesson in idiom, in confidence, in the French art of the aphorism. A scene from Godard is a lesson in register, in Paris, in the way language reflects a generation's discontents. The screen and the salon are classrooms of a different kind.</p>
+      </div>
+      <div>
+        <img src="assets/categories/fashion-film.jpg" alt="French fashion and film" class="pillar-img-main">
+        <p class="img-caption">Elegance on screen, elegance in the street — the same French sensibility, the same vocabulary.</p>
+      </div>
+    </div>
+    <div class="pillar-subpoints reveal">
+      <div class="sp-item">
+        <strong>The Grandes Maisons — Chanel, Dior, Saint Laurent</strong>
+        <p>The houses of French haute couture are not merely brands; they are manifestos. Each one encodes a philosophy of beauty, femininity, and modernity that can only be fully understood in French.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Codes of French Elegance</strong>
+        <p>Chic is not a look — it is a social practice with its own vocabulary. How the French dress, how they discuss dress, and the distinction between <em>élégant</em>, <em>chic</em>, <em>classe</em>, and <em>soigné</em>.</p>
+      </div>
+      <div class="sp-item">
+        <strong>La Nouvelle Vague &amp; the Cinema of Ideas</strong>
+        <p>Godard, Truffaut, Varda — filmmakers who used the camera as a pen, and whose scripts are among the richest repositories of contemporary spoken French in existence.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Film Dialogue as Living Grammar</strong>
+        <p>French cinema is the most natural of all language classrooms — real people, real registers, real contexts, real emotion. Every scene is a lesson in how French actually sounds when it is fully alive.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Fashion Week Vocabulary</strong>
+        <p>Collections, silhouettes, <em>défilés</em>, <em>tendances</em> — the vocabulary of Paris Fashion Week is a world unto itself, and one that every lover of French elegance will delight in mastering.</p>
+      </div>
+    </div>
+    <figure class="video-frame reveal" style="margin-top:3rem">
+      <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted playsinline preload="metadata">
+        <source src="assets/video/paris-sunset-street.mp4" type="video/mp4">
+      </video>
+      <figcaption>Golden-hour Paris — where fashion and film have always found their light.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR V — MUSIC & POETRY
+==================================================================== -->
+<section id="music" class="pillar-section bg-navy">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num" style="color:rgba(200,165,96,.25)">V</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Five</p>
+            <h2 class="display-sm" style="margin:0">Music <span class="gold-ital">&amp; Poetry</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">French is one of the world's great musical languages — not by accident, but by design. The French have always believed that sound and meaning are inseparable, that the way a word sounds is part of what it means. La chanson française is the most direct encounter with this truth.</p>
+        <p style="color:var(--on-dark-soft);line-height:1.75">At the Atelier, music and poetry are treated as primary linguistic texts. A song by Édith Piaf teaches vowel sounds and emotional register simultaneously. A poem by Verlaine teaches the music of the language at its most concentrated. The ear that learns French through music learns it in a way that the eye reading grammar cannot reach.</p>
+      </div>
+      <div>
+        <img src="assets/categories/music-poetry.jpg" alt="French music and poetry" class="pillar-img-main">
+        <p class="img-caption" style="color:var(--on-dark-soft)">From the <em>chanson</em> to the <em>vers libre</em> — the music of French thinking.</p>
+      </div>
+    </div>
+    <div class="pillar-subpoints reveal" style="margin-top:2rem">
+      <div class="sp-item on-dark">
+        <strong>La Chanson Française — Piaf, Brel, Gainsbourg, Stromae</strong>
+        <p>The canon of the French song is a complete language curriculum — from Piaf's operatic vowels to Gainsbourg's sardonic wordplay to Stromae's contemporary Belgian-French bilingual poetry.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>The Sonority of French — How Rhythm Shapes Meaning</strong>
+        <p>French is not stressed the way English is — its rhythm is syllabic, its melody is rising. Learning to feel this rhythm is learning to speak French rather than merely saying French words.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>Verlaine, Rimbaud, Prévert — Listening to the Language Think</strong>
+        <p>French poetry is not ornamentation; it is the language thinking aloud at maximum concentration. Every poem is a lesson in grammar, syntax, and the aesthetic ambition of the French language.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>Song Lyrics as Living Grammar Lessons</strong>
+        <p>The present tense of love songs, the conditional of regret, the imperative of desire — grammar is always more memorable when it arrives through music than through a textbook exercise.</p>
+      </div>
+      <div class="sp-item on-dark">
+        <strong>French Music as Cultural Passport</strong>
+        <p>To arrive in France knowing the songs that matter — <em>Non, je ne regrette rien</em>, <em>La Mer</em>, <em>Formidable</em> — is to arrive with something to offer, a passport to shared cultural memory.</p>
+      </div>
+    </div>
+    <figure class="video-frame reveal" style="margin-top:3rem">
+      <video poster="assets/video/paris-river-boats-poster.jpg" loop muted playsinline preload="metadata">
+        <source src="assets/video/paris-river-boats.mp4" type="video/mp4">
+      </video>
+      <figcaption style="color:var(--on-dark-soft)">The Seine — the river that has inspired more French poetry than any other.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================================================================
+     PILLAR VI — TRADITION & HISTORY
+==================================================================== -->
+<section id="tradition" class="pillar-section bg-paper">
+  <div class="wrap">
+    <div class="pillar-intro reveal">
+      <div>
+        <div class="pillar-label">
+          <span class="pl-num">VI</span>
+          <div>
+            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Six</p>
+            <h2 class="display-sm" style="margin:0">Tradition <span class="gold-ital">&amp; History</span></h2>
+          </div>
+        </div>
+        <p class="lede" style="margin-bottom:1.4rem">Every French word carries history. <em>Liberté, égalité, fraternité</em> are not abstract values; they are the residue of a revolution that remade the world. The French language is a living archive of everything France has been — and a map of everything it still aspires to become.</p>
+        <p style="color:var(--on-light-soft);line-height:1.75">The tradition and history pillar is the deepest of all six — the one that explains why the other five exist as they do. Why is French food elevated to the sacred? Why does French fashion claim a moral dimension? Why does the French cinema take itself seriously as philosophy? The answers are all historical, and they are all linguistic.</p>
+      </div>
+      <div>
+        <img src="assets/categories/tradition-history.jpg" alt="French tradition and history" class="pillar-img-main">
+        <p class="img-caption">The weight of history in every French sentence — and the lightness to carry it with grace.</p>
+      </div>
+    </div>
+    <figure class="video-frame reveal" style="margin-bottom:3rem">
+      <video poster="assets/video/coast-chateau-poster.jpg" loop muted playsinline preload="metadata">
+        <source src="assets/video/coast-chateau.mp4" type="video/mp4">
+      </video>
+      <figcaption>The châteaux of France — history made architectural, and architectural language made French.</figcaption>
+    </figure>
+    <div class="pillar-subpoints reveal">
+      <div class="sp-item">
+        <strong>The Revolution, the Republic &amp; the Values Encoded in the Language</strong>
+        <p>The French Revolution did not merely change the government; it changed the language. New words, new forms of address, new civic vocabulary — all still alive in modern French.</p>
+      </div>
+      <div class="sp-item">
+        <strong>French Holidays, Ceremonies &amp; Their Social Vocabulary</strong>
+        <p>Bastille Day, Armistice Day, La Toussaint — the calendar of French civic life is a calendar of language opportunities, each with its own rituals, its own register, its own emotional register.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Rituals of Daily French Life</strong>
+        <p>The <em>bise</em>, the <em>vous/tu</em> distinction, the protocol of the first name — the daily rituals of French social life encode centuries of values about respect, intimacy, and the proper distance between strangers.</p>
+      </div>
+      <div class="sp-item">
+        <strong>Proverbs, Idioms &amp; the Historical Roots of Modern Speech</strong>
+        <p>Every French idiom is a small history lesson. <em>Chercher midi à quatorze heures</em>, <em>noyer le poisson</em>, <em>les carottes sont cuites</em> — the wit and wisdom of centuries compressed into a phrase.</p>
+      </div>
+      <div class="sp-item">
+        <strong>The Story of the French Language Itself</strong>
+        <p>From Vulgar Latin to Old French, from the Serments de Strasbourg to the Académie française — the history of the French language is one of the great cultural narratives of the Western world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO BAND — coast-chateau ambient ===== -->
+<section class="video-band">
+  <div class="video-bg">
+    <video poster="assets/video/coast-chateau-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/coast-chateau.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Live French to Learn French</p>
+    <h2 class="display-md">Culture is not the context.<br>It is the <span class="gold-ital">curriculum.</span></h2>
+    <p class="lede">Every unit of every French Atelier course begins here — in a real cultural moment, in a real French place — and the language grows outward from it like roots from a living thing.</p>
+    <a href="courses.html" class="btn btn-gold" style="margin-top:1.6rem">Explore Our Courses</a>
+  </div></div>
+</section>
+
+<!-- ===== CTA ENROLL ===== -->
+<section class="section-pad bg-ivory" style="text-align:center">
+  <div class="wrap-narrow">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Begin</p>
+    <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Six worlds. One <span class="gold-ital">language.</span><br>One enrollment.</h2>
+    <p class="lede reveal reveal-d2" style="max-width:52ch;margin:0 auto 2.2rem">All six cultural pillars are woven through every French Atelier course. From your first lesson to your certificate, culture is not a supplement — it is the programme.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
+      <a href="pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
+      <a href="method.html" class="btn btn-outline btn-lg">Discover the Method</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+          <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+        </svg>
+        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
+        <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="courses/fa-foundation.html">FA Foundation</a>
+        <a href="courses/fa-beginner.html">FA Beginner</a>
+        <a href="courses/fa-elementary.html">FA Elementary</a>
+        <a href="courses/fa-intermediate.html">FA Intermediate</a>
+        <a href="courses.html">Let's Speak French</a>
+        <a href="map.html">Map of France</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="method.html">Our Method</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="juliane.html">Juliane · AI Tutor</a>
+        <a href="teachers.html">Our Teachers</a>
+        <a href="culture.html">French Culture</a>
+        <a href="blog.html">Cultural Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="acadomia.html">Acadomia Group</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>7 rue de la Baume, 75008 Paris, France &nbsp;·&nbsp; +1-888-230-5110 &nbsp;·&nbsp; advisor@eTeacherGroup.com</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577106456673" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.8.3-1.5 1.5-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14V9z"/></svg></a>
+        <a href="https://www.instagram.com/livefrenchatelier" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="js/fa.js"></script>
+</body>
+</html>

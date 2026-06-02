@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — The French Atelier by Acadomia</title>
+<meta name="description" content="Five elegant steps from placement to CEFR certification. Discover how The French Atelier's live French program works — assessment, live classes, recordings, study groups, and your Acadomia certificate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/fa.css">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<style>
+/* Timeline layout */
+.hiw-timeline{position:relative;padding:0 0 2rem}
+.hiw-timeline::before{content:"";position:absolute;left:3.4rem;top:0;bottom:0;width:1px;background:var(--gold-line-soft)}
+.tl-step{display:grid;grid-template-columns:6.8rem 1fr;gap:2.4rem;margin-bottom:4.8rem;position:relative}
+.tl-step:last-child{margin-bottom:0}
+.tl-num-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding-top:.3rem}
+.tl-circle{width:3.4rem;height:3.4rem;border-radius:50%;border:1px solid var(--gold-line);background:var(--white);display:flex;align-items:center;justify-content:center;z-index:2;position:relative}
+.tl-circle .numeral{font-size:1.3rem;line-height:1}
+.tl-step-body{padding-bottom:2.4rem;border-bottom:1px solid var(--gold-line-soft)}
+.tl-step:last-child .tl-step-body{border-bottom:none;padding-bottom:0}
+.tl-step-body h2{font-size:clamp(1.8rem,3vw,2.6rem);margin:.2rem 0 1rem}
+.tl-step-body .step-lede{font-size:1.05rem;color:var(--on-light-soft);line-height:1.75;max-width:64ch;margin-bottom:1.4rem}
+.tl-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:var(--gold-soft);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1rem;border-radius:2px;margin-bottom:.8rem}
+.step-detail-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.step-chip{background:var(--paper);border:1px solid var(--gold-line-soft);padding:.5rem 1rem;font-size:.82rem;color:var(--on-light-soft)}
+
+/* Supporting Trio */
+.trio-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--gold-line-soft)}
+.tb-item{padding:3rem 2.4rem;border-right:1px solid var(--gold-line-soft);text-align:center}
+.tb-item:last-child{border-right:none}
+.tb-item .tb-icon{font-family:var(--serif);font-size:2.6rem;color:var(--gold-deep);margin-bottom:1.2rem}
+.tb-item h3{font-size:1.4rem;margin:.4rem 0 .9rem}
+.tb-item p{font-size:.93rem;color:var(--on-light-soft);line-height:1.7}
+
+/* Stat strip */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(200,165,96,.15);border-bottom:1px solid rgba(200,165,96,.15)}
+.ss-item{padding:2.4rem 1.5rem;text-align:center;border-right:1px solid rgba(200,165,96,.15)}
+.ss-item:last-child{border-right:none}
+.ss-num{font-family:var(--serif);font-size:3rem;color:var(--gold-soft);line-height:1}
+.ss-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);margin-top:.5rem}
+
+@media(max-width:900px){.trio-band{grid-template-columns:1fr}.tb-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.tb-item:last-child{border-bottom:none}.stat-strip{grid-template-columns:repeat(2,1fr)}.ss-item:nth-child(2){border-right:none}.ss-item:nth-child(3),.ss-item:nth-child(4){border-top:1px solid rgba(200,165,96,.15)}}
+@media(max-width:600px){.hiw-timeline::before{left:1.7rem}.tl-step{grid-template-columns:3.4rem 1fr;gap:1.2rem}.tl-circle{width:2.8rem;height:2.8rem}.stat-strip{grid-template-columns:1fr}.ss-item{border-right:none;border-bottom:1px solid rgba(200,165,96,.15)}.ss-item:last-child{border-bottom:none}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="index.html">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+        <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+        <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
+      <span class="logo-text">
+        <span class="lt-main">The French Atelier</span>
+        <span class="lt-sub">by Acadomia</span>
+      </span>
+    </a>
+    <nav class="nav-menu" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="index.html">Home</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="courses.html">All Courses</a>
+          <a href="courses/fa-foundation.html">FA Foundation · A0→A1.1</a>
+          <a href="courses/fa-beginner.html">FA Beginner · A1.1→A1.2</a>
+          <a href="courses/fa-elementary.html">FA Elementary · A1.2→A2.1</a>
+          <a href="courses/fa-intermediate.html">FA Intermediate · A2.1→A2.2</a>
+          <a href="courses/lsf-foundation.html">LSF · Let's Speak French</a>
+          <a href="map.html">Interactive Map of France</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
+      <div class="nav-item"><a class="nav-link active" href="how-it-works.html">How It Works</a></div>
+      <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="culture.html">French Culture</a>
+          <a href="teachers.html">Our Teachers</a>
+          <a href="blog.html">Cultural Journal</a>
+          <a href="capsules.html">Culture Capsules</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="about.html">About <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="about.html">About French Atelier</a>
+          <a href="acadomia.html">The Acadomia Group</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <a class="btn btn-gold nav-cta" href="pricing.html">Enroll Now</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-drawer" aria-hidden="true">
+  <button class="nav-drawer-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <span class="drawer-group-label">Courses</span>
+  <div class="drawer-sub">
+    <a href="courses.html">All Courses</a>
+    <a href="courses/fa-foundation.html">FA Foundation</a>
+    <a href="courses/fa-beginner.html">FA Beginner</a>
+    <a href="courses/fa-elementary.html">FA Elementary</a>
+    <a href="courses/fa-intermediate.html">FA Intermediate</a>
+    <a href="courses/lsf-foundation.html">LSF Foundation</a>
+    <a href="courses/lsf-beginner.html">LSF Beginner</a>
+    <a href="courses/lsf-elementary.html">LSF Elementary</a>
+    <a href="map.html">Interactive Map of France</a>
+  </div>
+  <a href="method.html">Our Method</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="juliane.html">Juliane · AI Tutor</a>
+  <span class="drawer-group-label">Culture</span>
+  <div class="drawer-sub">
+    <a href="culture.html">French Culture</a>
+    <a href="teachers.html">Our Teachers</a>
+    <a href="blog.html">Cultural Journal</a>
+    <a href="capsules.html">Culture Capsules</a>
+  </div>
+  <span class="drawer-group-label">About</span>
+  <div class="drawer-sub">
+    <a href="about.html">About French Atelier</a>
+    <a href="acadomia.html">The Acadomia Group</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero bg-navy">
+  <div class="page-hero-bg">
+    <img src="assets/gen/hero-paris.png" alt="Paris — the beginning of your French journey">
+  </div>
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>How It Works</span>
+    </nav>
+    <p class="eyebrow eyebrow-line reveal">The Journey</p>
+    <h1 class="display-lg reveal reveal-d1">From <span class="gold-ital">premier bonjour</span><br>to certification</h1>
+    <p class="lede reveal reveal-d2" style="max-width:52ch">Five beautifully sequenced steps — from your first placement call to a CEFR-aligned certificate and beyond.</p>
+  </div>
+</section>
+
+<!-- ===== QUICK STATS ===== -->
+<section class="section-pad-sm bg-navy-deep">
+  <div class="wrap">
+    <div class="stat-strip reveal">
+      <div class="ss-item"><div class="ss-num">20</div><div class="ss-label">Live Lessons</div></div>
+      <div class="ss-item"><div class="ss-num">85</div><div class="ss-label">Minutes Each Class</div></div>
+      <div class="ss-item"><div class="ss-num">8–10</div><div class="ss-label">Learners Per Group</div></div>
+      <div class="ss-item"><div class="ss-num">$100</div><div class="ss-label">Cashback on Completion</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIVE-STEP TIMELINE ===== -->
+<section class="section-pad bg-ivory">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:4.8rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Five Steps</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Your complete <span class="gold-ital">Atelier</span> journey</h2>
+    </div>
+    <div class="hiw-timeline">
+
+      <!-- Step 1 -->
+      <div class="tl-step reveal">
+        <div class="tl-num-wrap">
+          <div class="tl-circle"><span class="numeral">01</span></div>
+        </div>
+        <div class="tl-step-body">
+          <span class="tl-tag">Step One · Before You Begin</span>
+          <h2>Assessment &amp; <span class="gold-ital">Enrollment</span></h2>
+          <p class="step-lede">Choose your track — FA1 Beginner or FA2 Advanced — after a live placement call with a French Atelier advisor. This is not a written test; it is a conversation. Our advisors listen for where you are in your French life, and place you in the course where you will thrive, not merely survive.</p>
+          <p style="color:var(--on-light-soft);line-height:1.7;font-size:.95rem">Whether you are arriving at French for the very first time or returning after years away, the placement call ensures that your first live class is a moment of confidence — not confusion. The right track from the start is the foundation of everything that follows.</p>
+          <div class="step-detail-row">
+            <span class="step-chip">Live placement call</span>
+            <span class="step-chip">FA Foundation / Beginner / Elementary / Intermediate tracks</span>
+            <span class="step-chip">Let's Speak French (LSF) evening track</span>
+            <span class="step-chip">Advisor-guided enrollment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="tl-step reveal">
+        <div class="tl-num-wrap">
+          <div class="tl-circle"><span class="numeral">02</span></div>
+        </div>
+        <div class="tl-step-body">
+          <span class="tl-tag">Step Two · Your Digital Home</span>
+          <h2>Join the <span class="gold-ital">Learning Platform</span></h2>
+          <p class="step-lede">Access your dashboard, schedule, course materials, and community — all in one elegant, purpose-built learning environment. No downloads. No complexity. Just a laptop and a microphone, and France opens to you.</p>
+          <p style="color:var(--on-light-soft);line-height:1.7;font-size:.95rem">Your platform is the Atelier beyond the live class — where recordings live, where study materials await, where the community gathers between sessions, and where Juliane, your 24/7 AI French coach, is always on call. From the moment you log in for the first time, you are inside the French Atelier world.</p>
+          <div class="step-detail-row">
+            <span class="step-chip">Personal dashboard</span>
+            <span class="step-chip">Class schedule &amp; calendar</span>
+            <span class="step-chip">Course materials &amp; cultural resources</span>
+            <span class="step-chip">Community forum</span>
+            <span class="step-chip">Juliane AI tutor access</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="tl-step reveal">
+        <div class="tl-num-wrap">
+          <div class="tl-circle"><span class="numeral">03</span></div>
+        </div>
+        <div class="tl-step-body">
+          <span class="tl-tag">Step Three · The Heart of It</span>
+          <h2>Attend Weekly <span class="gold-ital">Live Classes</span></h2>
+          <p class="step-lede">85-minute live lessons with native certified teachers, broadcast from iconic locations in France. Small groups of 8–10 learners ensure that every class is a genuine conversation — not a lecture.</p>
+          <p style="color:var(--on-light-soft);line-height:1.7;font-size:.95rem">Classes run Sunday through Friday, with times calibrated across timezones so that wherever you are in the world, France is always accessible. Each lesson begins in a real cultural place — a market, a gallery, a village square — and uses that context to teach the French of lived experience. You will speak more in one French Atelier class than in weeks of conventional study.</p>
+          <div class="step-detail-row">
+            <span class="step-chip">85 minutes per session</span>
+            <span class="step-chip">8–10 learners per group</span>
+            <span class="step-chip">Native certified teachers</span>
+            <span class="step-chip">Broadcast live from France</span>
+            <span class="step-chip">Sunday – Friday scheduling</span>
+            <span class="step-chip">Timezone-friendly times</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEMO CLASS VIDEO — Step 3 supplement -->
+      <div style="margin-bottom:4.8rem;padding-left:9.2rem" class="reveal">
+        <div style="text-align:left;margin-bottom:1.4rem">
+          <p class="eyebrow eyebrow-line">Watch a Real Live Class</p>
+          <p style="color:var(--on-light-soft);font-size:.95rem;line-height:1.65;max-width:60ch;margin:.6rem 0 1.2rem">Discover French with Philippe from West Paris — a real French Atelier live class, as it happens. Click Sound to hear the class in action.</p>
+        </div>
+        <div class="sound-video" data-soundvideo style="max-width:760px">
+          <video poster="assets/video/demo-class-poster.jpg" loop muted playsinline preload="metadata">
+            <source src="assets/video/demo-class.mp4" type="video/mp4">
+          </video>
+          <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
+            <span class="si-muted">▶ Sound</span><span class="si-on">❚❚ Mute</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="tl-step reveal">
+        <div class="tl-num-wrap">
+          <div class="tl-circle"><span class="numeral">04</span></div>
+        </div>
+        <div class="tl-step-body">
+          <span class="tl-tag">Step Four · Deepening the Learning</span>
+          <h2>Practice &amp; <span class="gold-ital">Reinforcement</span></h2>
+          <p class="step-lede">Each lesson is recorded and available on-demand inside your platform. Between live classes, complete structured micro-tasks and join a weekly study group to consolidate what you have learned and keep your momentum alive.</p>
+          <p style="color:var(--on-light-soft);line-height:1.7;font-size:.95rem">The study group — a twice-weekly peer session available on annual plans — is where ideas from the live class are rehearsed, debated, and made permanent. Juliane bridges the gaps: available at any hour for pronunciation drills, vocabulary practice, cultural questions, and spontaneous conversation. The French Atelier experience does not end when the live class closes. It continues until the next one begins.</p>
+          <div class="step-detail-row">
+            <span class="step-chip">All classes recorded</span>
+            <span class="step-chip">On-demand replay</span>
+            <span class="step-chip">Structured micro-tasks</span>
+            <span class="step-chip">Weekly study groups (annual plan)</span>
+            <span class="step-chip">Juliane AI · 24/7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="tl-step reveal">
+        <div class="tl-num-wrap">
+          <div class="tl-circle"><span class="numeral">05</span></div>
+        </div>
+        <div class="tl-step-body">
+          <span class="tl-tag">Step Five · Your Achievement</span>
+          <h2>Mastery &amp; <span class="gold-ital">Certification</span></h2>
+          <p class="step-lede">Complete 20 lessons to earn a CEFR-aligned certificate from ACADOMIA — and receive a $100 cashback credit toward your next course. This is not a participation ribbon. It is a verified mark of communicative attainment, internationally recognised.</p>
+          <p style="color:var(--on-light-soft);line-height:1.7;font-size:.95rem">The French Atelier certificate, issued by Acadomia — France's leading private learning institute — carries the weight of a 35-year institution behind it. It marks a genuine milestone: a new relationship with the French language, with French culture, and with the world that French unlocks. Many learners continue immediately into the next course. France, once entered, is difficult to leave.</p>
+          <div class="step-detail-row">
+            <span class="step-chip">20 lessons to completion</span>
+            <span class="step-chip">CEFR-aligned certificate</span>
+            <span class="step-chip">Issued by Acadomia</span>
+            <span class="step-chip">$100 cashback credit</span>
+            <span class="step-chip">Pathway to next level</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== LILLE AMBIENT VIDEO BAND ===== -->
+<section class="video-band">
+  <div class="video-bg">
+    <video poster="assets/video/lille-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/lille.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Community &amp; Connection</p>
+    <h2 class="display-md">You don't learn alone.<br>You learn <span class="gold-ital">together.</span></h2>
+    <p class="lede">The French Atelier is a living community of learners across the globe — connected by a shared love of France, supported by the platform, the forum, and one another. Language acquisition is a social act.</p>
+  </div></div>
+</section>
+
+<!-- ===== SUPPORTING TRIO ===== -->
+<section class="section-pad bg-navy">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:3.2rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">What Supports the Journey</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin:1rem 0">Three pillars, <span class="gold-ital">always present</span></h2>
+    </div>
+    <div class="trio-band reveal">
+      <div class="tb-item">
+        <div class="tb-icon">◈</div>
+        <h3>Live Lessons with World-Class Experts</h3>
+        <p>Every class is led by a native, certified French teacher broadcasting live from their region of France. These are not tutors. They are cultural guides, language artists, and dedicated educators who make every 85 minutes extraordinary.</p>
+      </div>
+      <div class="tb-item">
+        <div class="tb-icon">◈</div>
+        <h3>Online Forum Support</h3>
+        <p>The French Atelier community forum connects learners across the globe — a space to practise, to ask, to celebrate, and to find the companions who make language learning a shared adventure rather than a solitary task.</p>
+      </div>
+      <div class="tb-item">
+        <div class="tb-icon">◈</div>
+        <h3>Wealth of Academic &amp; Cultural Content</h3>
+        <p>Beyond the live class, an ever-growing library of cultural resources — articles, readings, audio, and video — deepens your relationship with the French world. Language and culture are, at the Atelier, inseparable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PULLQUOTE ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap-narrow" style="text-align:center">
+    <div class="pullquote reveal" style="max-width:72ch;margin:0 auto">
+      <p>"The journey is not twenty lessons. It is a new relationship with a language, a culture, and a way of seeing the world."</p>
+    </div>
+    <div class="diamond-rule reveal reveal-d1" style="margin-top:2.4rem"><span class="d"></span></div>
+  </div>
+</section>
+
+<!-- ===== FAQ TEASER ===== -->
+<section class="section-pad bg-ivory">
+  <div class="wrap">
+    <div class="split split-wide reveal">
+      <div>
+        <p class="eyebrow eyebrow-line">Common Questions</p>
+        <h2 class="display-sm" style="margin:1.4rem 0">Everything you need to <span class="gold-ital">know before you begin</span></h2>
+        <p style="color:var(--on-light-soft);line-height:1.75;max-width:44ch">From class format to scheduling, from what you need to join to what happens when you're done — all questions answered, clearly and completely.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem">
+          <a href="faq.html" class="btn btn-outline">Read the FAQ</a>
+          <a href="pricing.html" class="btn btn-gold">Enroll Now</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.6rem">
+        <div style="border-bottom:1px solid var(--gold-line-soft);padding-bottom:1.4rem">
+          <p style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.5rem">Are the classes live or pre-recorded?</p>
+          <p style="color:var(--on-light-soft);font-size:.93rem;line-height:1.65">All classes are live — never pre-recorded. You learn in real time with a native, certified teacher broadcasting live from France.</p>
+        </div>
+        <div style="border-bottom:1px solid var(--gold-line-soft);padding-bottom:1.4rem">
+          <p style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.5rem">How big are the groups?</p>
+          <p style="color:var(--on-light-soft);font-size:.93rem;line-height:1.65">Small Zoom groups of 8–10 learners for maximum speaking time and personal attention.</p>
+        </div>
+        <div style="border-bottom:1px solid var(--gold-line-soft);padding-bottom:1.4rem">
+          <p style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.5rem">What do I need to join?</p>
+          <p style="color:var(--on-light-soft);font-size:.93rem;line-height:1.65">Just a laptop and a microphone. No downloads or special software required.</p>
+        </div>
+        <div>
+          <p style="font-family:var(--serif);font-size:1.1rem;margin-bottom:.5rem">Can I watch classes I missed?</p>
+          <p style="color:var(--on-light-soft);font-size:.93rem;line-height:1.65">Yes. Every live class is recorded and available on-demand inside your learning platform — with lifetime access.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section-pad bg-navy-deep" style="text-align:center">
+  <div class="wrap-narrow">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Begin Your Journey</p>
+    <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Culture speaks French.<br><span class="gold-ital">What about you?</span></h2>
+    <p class="lede reveal reveal-d2" style="max-width:50ch;margin:0 auto 2.2rem">Join a live class broadcasting from France this week. Twenty lessons. A certificate. A language. A culture. A new life in French.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
+      <a href="pricing.html" class="btn btn-gold btn-lg">View Plans &amp; Enroll</a>
+      <a href="method.html" class="btn btn-outline btn-lg">Discover the Method</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
+          <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+        </svg>
+        <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
+        <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="courses/fa-foundation.html">FA Foundation</a>
+        <a href="courses/fa-beginner.html">FA Beginner</a>
+        <a href="courses/fa-elementary.html">FA Elementary</a>
+        <a href="courses/fa-intermediate.html">FA Intermediate</a>
+        <a href="courses.html">Let's Speak French</a>
+        <a href="map.html">Map of France</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="method.html">Our Method</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="juliane.html">Juliane · AI Tutor</a>
+        <a href="teachers.html">Our Teachers</a>
+        <a href="culture.html">French Culture</a>
+        <a href="blog.html">Cultural Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="acadomia.html">Acadomia Group</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>7 rue de la Baume, 75008 Paris, France &nbsp;·&nbsp; +1-888-230-5110 &nbsp;·&nbsp; advisor@eTeacherGroup.com</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577106456673" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.8.3-1.5 1.5-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14V9z"/></svg></a>
+        <a href="https://www.instagram.com/livefrenchatelier" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+  </div>
+</footer>
+<script src="js/fa.js"></script>
+</body>
+</html>
