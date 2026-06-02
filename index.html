@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
+<link rel="stylesheet" href="css/mapstr.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO (kept verbatim) ===== */
@@ -684,6 +685,584 @@
   </div>
 </section>
 
+<!-- ============================================================
+     MAPSTR SIGNATURE FOLD — "French is learned where it is lived"
+     The real pedagogy: every course is a journey across real French
+     places; every unit anchors to a real landmark that opens up.
+     Data spine: data/courses_geo.json  ·  Styles: css/mapstr.css  ·  Logic: js/mapstr.js
+     ============================================================ -->
+<section class="mp-fold" id="mapstr" aria-labelledby="mp-title" data-mp data-mp-json='{"pins":[{"x":533.7,"y":309.0},{"x":404.4,"y":233.6},{"x":356.0,"y":665.9},{"x":816.5,"y":569.5},{"x":537.2,"y":309.1},{"x":546.4,"y":473.9},{"x":639.1,"y":340.8}],"seg":[0,22,44,66,88,110,132],"total":138,"cam":[{"id":"fa-foundation","x":533.7,"y":309.0,"seg":0,"accent":"#C8A560","bg":"#10193A","tint":"#E7D9B8","zoom":2.05},{"id":"fa-beginner","x":404.4,"y":233.6,"seg":22,"accent":"#D98C7A","bg":"#1A2740","tint":"#F0D2C8","zoom":1.85},{"id":"fa-elementary","x":356.0,"y":665.9,"seg":44,"accent":"#9A5560","bg":"#241A30","tint":"#E3C9CE","zoom":1.85},{"id":"fa-intermediate","x":816.5,"y":569.5,"seg":66,"accent":"#C97A4E","bg":"#2A1E18","tint":"#EFD3BE","zoom":1.85},{"id":"lsf-foundation","x":537.2,"y":309.1,"seg":88,"accent":"#E4A6B8","bg":"#1C1730","tint":"#F5DCE4","zoom":1.85},{"id":"lsf-beginner","x":546.4,"y":473.9,"seg":110,"accent":"#D98C9E","bg":"#221A2E","tint":"#F1D6DD","zoom":1.85},{"id":"lsf-elementary","x":639.1,"y":340.8,"seg":132,"accent":"#CE8458","bg":"#2A1F1A","tint":"#EED5C2","zoom":1.85}]}'>
+
+  <!-- Intro -->
+  <div class="mp-intro neon-splash reveal">
+    <span class="mp-kicker"><span class="mp-kicker-rule"></span>The French Atelier · Mapstr</span>
+    <h2 class="mp-title" id="mp-title">French is learned <em>where it is lived</em></h2>
+    <p class="mp-lede">In the street, at the counter, in the queue, on the quay. Every course is a real journey across France — and every unit opens up at a real place. Scroll to travel the route, from your first <em>bonjour</em> in Paris to fluent conversation across the regions.</p>
+    <span class="mp-scrollcue" aria-hidden="true">Begin the journey
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-opacity=".5"/><circle class="mp-scrollcue-dot" cx="8" cy="7" r="2" fill="currentColor"/></svg>
+    </span>
+  </div>
+
+  <!-- ===== Desktop scroll-pinned stage ===== -->
+  <div class="mp-scroller" data-scroller>
+    <div class="mp-sticky">
+      <div class="mp-stage">
+
+        <!-- chapter rail -->
+        <nav class="mp-rail" aria-label="Course journeys">
+          <div class="mp-rail-head">The Route · A0 → A2.2</div>
+      <button class="mp-stop" data-stop="0" data-course="fa-foundation" type="button" aria-label="Go to chapter 1: FA Foundation, Paris">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">01</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">FA Foundation</span><span class="mp-stop-reg">Paris</span></span>
+      </button>
+      <button class="mp-stop" data-stop="1" data-course="fa-beginner" type="button" aria-label="Go to chapter 2: FA Beginner, Normandy → Paris &amp; Versailles">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">02</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">FA Beginner</span><span class="mp-stop-reg">Normandy → Paris &amp; Versailles</span></span>
+      </button>
+      <button class="mp-stop" data-stop="2" data-course="fa-elementary" type="button" aria-label="Go to chapter 3: FA Elementary, Loire → Bordeaux → Basque Country">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">03</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">FA Elementary</span><span class="mp-stop-reg">Loire → Bordeaux → Basque Country</span></span>
+      </button>
+      <button class="mp-stop" data-stop="3" data-course="fa-intermediate" type="button" aria-label="Go to chapter 4: FA Intermediate, Marseille → Chamonix → Alsace &amp; Champagne">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">04</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">FA Intermediate</span><span class="mp-stop-reg">Marseille → Chamonix → Alsace &amp; Champagne</span></span>
+      </button>
+      <button class="mp-stop" data-stop="4" data-course="lsf-foundation" type="button" aria-label="Go to chapter 5: LSF Foundation, Paris (evening, live &amp; online)">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">05</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">LSF Foundation</span><span class="mp-stop-reg">Paris (evening, live &amp; online)</span></span>
+      </button>
+      <button class="mp-stop" data-stop="5" data-course="lsf-beginner" type="button" aria-label="Go to chapter 6: LSF Beginner, Daily life in France (live &amp; online)">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">06</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">LSF Beginner</span><span class="mp-stop-reg">Daily life in France (live &amp; online)</span></span>
+      </button>
+      <button class="mp-stop" data-stop="6" data-course="lsf-elementary" type="button" aria-label="Go to chapter 7: LSF Elementary, Settling into French life (live &amp; online)">
+        <span class="mp-stop-dot"></span>
+        <span class="mp-stop-idx">07</span>
+        <span class="mp-stop-tt"><span class="mp-stop-name">LSF Elementary</span><span class="mp-stop-reg">Settling into French life (live &amp; online)</span></span>
+      </button>
+          <div class="mp-rail-foot">
+            <span class="mp-rail-loop">Language → culture → real places → back to language</span>
+          </div>
+        </nav>
+
+        <!-- map -->
+        <div class="mp-mapwrap">
+          <div class="mp-viewport">
+            <div class="mp-camera" data-camera>
+              <div class="mp-map">
+                <svg viewBox="0 0 1000 1000" class="mp-svg" role="img" aria-label="Stylised map of France tracing the student journey across real French places">
+  <defs>
+    <radialGradient id="mp-sea" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#FFFDF8"/>
+      <stop offset="100%" stop-color="#F1E7D6"/>
+    </radialGradient>
+    <filter id="mp-soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+  <g class="mp-grid" aria-hidden="true">
+    <line x1="150" y1="60" x2="150" y2="940"/><line x1="300" y1="60" x2="300" y2="940"/><line x1="450" y1="60" x2="450" y2="940"/><line x1="600" y1="60" x2="600" y2="940"/><line x1="750" y1="60" x2="750" y2="940"/><line x1="850" y1="60" x2="850" y2="940"/>
+    <line x1="60" y1="150" x2="940" y2="150"/><line x1="60" y1="300" x2="940" y2="300"/><line x1="60" y1="450" x2="940" y2="450"/><line x1="60" y1="600" x2="940" y2="600"/><line x1="60" y1="750" x2="940" y2="750"/><line x1="60" y1="900" x2="940" y2="900"/>
+  </g>
+  <ellipse class="mp-region-glow" data-glow cx="534" cy="309" rx="120" ry="120"/>
+  <path class="mp-land" d="M 542.6,81.3 L 492.4,89.0 L 399.2,209.5 L 279.5,211.4 L 313.3,243.2 L 258.4,310.6 L 203.5,325.1 L 70.0,334.7 L 100.4,392.5 L 227.3,443.6 L 306.6,537.1 L 303.3,609.3 L 299.4,715.3 L 283.5,817.5 L 337.1,862.8 L 429.6,884.9 L 481.8,910.0 L 561.8,918.7 L 587.6,853.1 L 653.7,802.1 L 706.6,813.6 L 740.9,826.2 L 793.2,843.5 L 853.3,802.1 L 883.1,779.9 L 839.4,724.0 L 851.3,615.1 L 815.6,524.6 L 789.2,440.7 L 887.7,412.8 L 930.0,279.8 L 890.3,272.1 L 806.4,232.6 L 771.4,223.9 L 665.6,154.5 L 628.6,147.8 L 542.6,81.3 Z"/>
+  <path class="mp-route-bg" d="M 533.7,309.0 L 530.4,306.6 L 526.5,303.1 L 522.0,298.5 L 517.0,293.0 L 511.5,286.8 L 505.6,280.1 L 499.3,273.1 L 492.8,265.8 L 486.0,258.4 L 479.1,251.2 L 472.1,244.3 L 465.0,237.8 L 457.9,231.9 L 450.9,226.8 L 444.0,222.6 L 437.3,219.6 L 430.9,217.8 L 424.7,217.4 L 419.0,218.7 L 413.6,221.7 L 408.7,226.6 L 404.4,233.6 L 404.4,233.6 L 400.0,243.3 L 395.0,255.8 L 389.6,271.0 L 383.8,288.5 L 377.8,308.0 L 371.6,329.2 L 365.5,351.8 L 359.4,375.7 L 353.7,400.3 L 348.3,425.6 L 343.3,451.1 L 339.0,476.5 L 335.5,501.7 L 332.7,526.3 L 331.0,549.9 L 330.3,572.4 L 330.9,593.4 L 332.7,612.6 L 336.1,629.8 L 341.0,644.6 L 347.6,656.7 L 356.0,665.9 L 356.0,665.9 L 367.1,672.6 L 381.5,677.6 L 398.9,681.0 L 418.8,682.8 L 440.9,683.1 L 464.9,682.2 L 490.4,680.0 L 517.1,676.7 L 544.6,672.3 L 572.6,667.1 L 600.7,661.0 L 628.5,654.2 L 655.8,646.8 L 682.1,638.9 L 707.1,630.5 L 730.5,621.9 L 751.9,613.1 L 770.9,604.2 L 787.2,595.2 L 800.5,586.4 L 810.4,577.8 L 816.5,569.5 L 816.5,569.5 L 818.8,560.6 L 817.8,550.4 L 813.7,538.9 L 806.8,526.4 L 797.5,513.0 L 785.9,498.8 L 772.4,484.1 L 757.3,469.0 L 740.8,453.7 L 723.3,438.3 L 705.1,423.0 L 686.3,408.0 L 667.4,393.4 L 648.6,379.4 L 630.3,366.2 L 612.6,353.9 L 595.9,342.7 L 580.4,332.8 L 566.6,324.3 L 554.5,317.4 L 544.7,312.3 L 537.2,309.1 L 537.2,309.1 L 531.6,308.1 L 526.9,309.2 L 523.1,312.3 L 520.2,317.2 L 518.0,323.6 L 516.6,331.4 L 515.9,340.4 L 515.8,350.3 L 516.2,360.9 L 517.2,372.0 L 518.6,383.5 L 520.3,395.2 L 522.4,406.7 L 524.8,418.0 L 527.3,428.8 L 530.1,438.9 L 532.9,448.2 L 535.7,456.3 L 538.6,463.2 L 541.3,468.5 L 544.0,472.2 L 546.4,473.9 L 546.4,473.9 L 549.0,473.9 L 552.0,472.5 L 555.5,469.8 L 559.4,466.0 L 563.7,461.2 L 568.2,455.5 L 572.9,449.0 L 577.9,441.8 L 582.9,434.1 L 588.1,426.0 L 593.3,417.6 L 598.5,409.1 L 603.7,400.5 L 608.7,391.9 L 613.6,383.6 L 618.2,375.6 L 622.7,368.0 L 626.8,360.9 L 630.5,354.6 L 633.8,349.0 L 636.7,344.4 L 639.1,340.8"/>
+  <path class="mp-route" data-route d="M 533.7,309.0 L 530.4,306.6 L 526.5,303.1 L 522.0,298.5 L 517.0,293.0 L 511.5,286.8 L 505.6,280.1 L 499.3,273.1 L 492.8,265.8 L 486.0,258.4 L 479.1,251.2 L 472.1,244.3 L 465.0,237.8 L 457.9,231.9 L 450.9,226.8 L 444.0,222.6 L 437.3,219.6 L 430.9,217.8 L 424.7,217.4 L 419.0,218.7 L 413.6,221.7 L 408.7,226.6 L 404.4,233.6 L 404.4,233.6 L 400.0,243.3 L 395.0,255.8 L 389.6,271.0 L 383.8,288.5 L 377.8,308.0 L 371.6,329.2 L 365.5,351.8 L 359.4,375.7 L 353.7,400.3 L 348.3,425.6 L 343.3,451.1 L 339.0,476.5 L 335.5,501.7 L 332.7,526.3 L 331.0,549.9 L 330.3,572.4 L 330.9,593.4 L 332.7,612.6 L 336.1,629.8 L 341.0,644.6 L 347.6,656.7 L 356.0,665.9 L 356.0,665.9 L 367.1,672.6 L 381.5,677.6 L 398.9,681.0 L 418.8,682.8 L 440.9,683.1 L 464.9,682.2 L 490.4,680.0 L 517.1,676.7 L 544.6,672.3 L 572.6,667.1 L 600.7,661.0 L 628.5,654.2 L 655.8,646.8 L 682.1,638.9 L 707.1,630.5 L 730.5,621.9 L 751.9,613.1 L 770.9,604.2 L 787.2,595.2 L 800.5,586.4 L 810.4,577.8 L 816.5,569.5 L 816.5,569.5 L 818.8,560.6 L 817.8,550.4 L 813.7,538.9 L 806.8,526.4 L 797.5,513.0 L 785.9,498.8 L 772.4,484.1 L 757.3,469.0 L 740.8,453.7 L 723.3,438.3 L 705.1,423.0 L 686.3,408.0 L 667.4,393.4 L 648.6,379.4 L 630.3,366.2 L 612.6,353.9 L 595.9,342.7 L 580.4,332.8 L 566.6,324.3 L 554.5,317.4 L 544.7,312.3 L 537.2,309.1 L 537.2,309.1 L 531.6,308.1 L 526.9,309.2 L 523.1,312.3 L 520.2,317.2 L 518.0,323.6 L 516.6,331.4 L 515.9,340.4 L 515.8,350.3 L 516.2,360.9 L 517.2,372.0 L 518.6,383.5 L 520.3,395.2 L 522.4,406.7 L 524.8,418.0 L 527.3,428.8 L 530.1,438.9 L 532.9,448.2 L 535.7,456.3 L 538.6,463.2 L 541.3,468.5 L 544.0,472.2 L 546.4,473.9 L 546.4,473.9 L 549.0,473.9 L 552.0,472.5 L 555.5,469.8 L 559.4,466.0 L 563.7,461.2 L 568.2,455.5 L 572.9,449.0 L 577.9,441.8 L 582.9,434.1 L 588.1,426.0 L 593.3,417.6 L 598.5,409.1 L 603.7,400.5 L 608.7,391.9 L 613.6,383.6 L 618.2,375.6 L 622.7,368.0 L 626.8,360.9 L 630.5,354.6 L 633.8,349.0 L 636.7,344.4 L 639.1,340.8"/>
+  <g class="mp-comet" data-comet aria-hidden="true">
+    <circle class="mp-comet-glow" r="11"/>
+    <circle class="mp-comet-core" r="4.5"/>
+  </g>
+  <g class="mp-poi" data-poi="0" data-course="fa-foundation" data-idx="0">
+    <circle class="mp-poi-sat" cx="540.1" cy="339.3" r="3.4"/>
+    <circle class="mp-poi-sat" cx="529.0" cy="351.7" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="533.7" cy="309.0" r="10"/>
+    <circle class="mp-poi-ring"  cx="533.7" cy="309.0" r="16"/>
+    <circle class="mp-poi-core"  cx="533.7" cy="309.0" r="6.5"/>
+    <text class="mp-poi-label" x="549.7" y="295.0" text-anchor="start">Paris</text>
+  </g>
+  <g class="mp-poi" data-poi="1" data-course="fa-beginner" data-idx="1">
+    <circle class="mp-poi-sat" cx="440.3" cy="246.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="445.0" cy="250.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="397.7" cy="295.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="404.4" cy="233.6" r="10"/>
+    <circle class="mp-poi-ring"  cx="404.4" cy="233.6" r="16"/>
+    <circle class="mp-poi-core"  cx="404.4" cy="233.6" r="6.5"/>
+    <text class="mp-poi-label" x="420.4" y="219.6" text-anchor="start">Étretat / Paris</text>
+  </g>
+  <g class="mp-poi" data-poi="2" data-course="fa-elementary" data-idx="2">
+    <circle class="mp-poi-sat" cx="376.7" cy="648.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="384.4" cy="631.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="299.3" cy="672.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="356.0" cy="665.9" r="10"/>
+    <circle class="mp-poi-ring"  cx="356.0" cy="665.9" r="16"/>
+    <circle class="mp-poi-core"  cx="356.0" cy="665.9" r="6.5"/>
+    <text class="mp-poi-label" x="372.0" y="651.9" text-anchor="start">Bordeaux</text>
+  </g>
+  <g class="mp-poi" data-poi="3" data-course="fa-intermediate" data-idx="3">
+    <circle class="mp-poi-sat" cx="811.2" cy="535.9" r="3.4"/>
+    <circle class="mp-poi-sat" cx="790.4" cy="531.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="799.6" cy="520.3" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="816.5" cy="569.5" r="10"/>
+    <circle class="mp-poi-ring"  cx="816.5" cy="569.5" r="16"/>
+    <circle class="mp-poi-core"  cx="816.5" cy="569.5" r="6.5"/>
+    <text class="mp-poi-label" x="800.5" y="555.5" text-anchor="end">Marseille / Chamonix</text>
+  </g>
+  <g class="mp-poi" data-poi="4" data-course="lsf-foundation" data-idx="4">
+    <circle class="mp-poi-sat" cx="499.2" cy="293.8" r="3.4"/>
+    <circle class="mp-poi-sat" cx="492.5" cy="323.7" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="537.2" cy="309.1" r="10"/>
+    <circle class="mp-poi-ring"  cx="537.2" cy="309.1" r="16"/>
+    <circle class="mp-poi-core"  cx="537.2" cy="309.1" r="6.5"/>
+    <text class="mp-poi-label" x="553.2" y="295.1" text-anchor="start">Paris (live)</text>
+  </g>
+  <g class="mp-poi" data-poi="5" data-course="lsf-beginner" data-idx="5">
+    <circle class="mp-poi-sat" cx="522.5" cy="492.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="547.8" cy="521.9" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="546.4" cy="473.9" r="10"/>
+    <circle class="mp-poi-ring"  cx="546.4" cy="473.9" r="16"/>
+    <circle class="mp-poi-core"  cx="546.4" cy="473.9" r="6.5"/>
+    <text class="mp-poi-label" x="562.4" y="459.9" text-anchor="start">France (live)</text>
+  </g>
+  <g class="mp-poi" data-poi="6" data-course="lsf-elementary" data-idx="6">
+    <circle class="mp-poi-sat" cx="643.1" cy="377.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="686.5" cy="353.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="639.1" cy="340.8" r="10"/>
+    <circle class="mp-poi-ring"  cx="639.1" cy="340.8" r="16"/>
+    <circle class="mp-poi-core"  cx="639.1" cy="340.8" r="6.5"/>
+    <text class="mp-poi-label" x="655.1" y="326.8" text-anchor="start">France (live)</text>
+  </g>
+</svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- progress meter -->
+          <div class="mp-meter" aria-hidden="true">
+            <span>A0</span>
+            <span class="mp-meter-track"><span class="mp-meter-fill" data-meter></span></span>
+            <span class="mp-meter-end">A2.2</span>
+          </div>
+        </div>
+
+        <!-- pinned story cards (one shown at a time, colored per course) -->
+        <div class="mp-cards" data-cards>
+    <article class="mp-card" data-card="0" data-course="fa-foundation" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">French Atelier</span>
+        <span class="mp-card-lvl">A0 → A1.1</span>
+      </div>
+      <h3 class="mp-card-name">FA Foundation</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Paris · 20 units</p>
+      <p class="mp-card-journey">Entirely in Paris over a long weekend.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Eiffel Tower &amp; Champ-de-Mars</li><li>Bakery in the 16th arrondissement</li><li>Classic café near the Alma bridge</li><li>Bouillon Chartier</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Survive in French in everyday travel situations: ask directions, order, repair a breakdown, pay, exchange personal info.</p>
+        <a class="mp-card-sig" href="https://gamma.app/docs/FA0-01-Se-presenter-a-la-Tour-Eiffel-7h2ggmgt8gh1pfd?mode=doc" target="_blank" rel="noopener" data-course="fa-foundation">
+          <span class="mp-card-sig-ey">Signature unit · FA0-01</span>
+          <span class="mp-card-sig-tt">Se présenter à la Tour Eiffel</span>
+          <span class="mp-card-sig-open">Opens up the lesson<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/fa-foundation.html" data-course="fa-foundation">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/fa-foundation-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="1" data-course="fa-beginner" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">French Atelier</span>
+        <span class="mp-card-lvl">A1.1 → A1.2</span>
+      </div>
+      <h3 class="mp-card-name">FA Beginner</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Normandy → Paris &amp; Versailles · 20 units</p>
+      <p class="mp-card-journey">From the Normandy coast to Paris.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Cabourg Belle Époque promenade</li><li>Rouen half-timbered streets</li><li>Honfleur port (Champlain set sail for Québec)</li><li>Deauville boardwalks</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Interact in simple everyday situations with autonomy: locate, talk about family &amp; daily life, weather, preferences, complete a market or museum outing.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/fa-beginner.html" data-course="fa-beginner">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/fa-beginner-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="2" data-course="fa-elementary" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">French Atelier</span>
+        <span class="mp-card-lvl">A1.2 → A2.1</span>
+      </div>
+      <h3 class="mp-card-name">FA Elementary</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Loire → Bordeaux → Basque Country · 20 units</p>
+      <p class="mp-card-journey">A route from the Loire Valley to the Atlantic coast and the Basque Country.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Orléans</li><li>Renaissance gardens of Villandry</li><li>Château de Chenonceau</li><li>Terraces of Tours</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Produce language semi-guided, chain exchanges, express &amp; justify preferences, narrate a short past event, describe a work of art.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/fa-elementary.html" data-course="fa-elementary">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/fa-elementary-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="3" data-course="fa-intermediate" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">French Atelier<span class="mp-card-new">New</span></span>
+        <span class="mp-card-lvl">A2.1 → A2.2</span>
+      </div>
+      <h3 class="mp-card-name">FA Intermediate</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Marseille → Chamonix → Alsace &amp; Champagne · 20 units</p>
+      <p class="mp-card-journey">Three very different corners of France in a single immersive journey.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Marseille Vieux-Port</li><li>Le Panier alleyways</li><li>Calanques of Provence</li><li>L&#x27;Estaque</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Produce language autonomously, give &amp; defend opinions, negotiate compromise, handle the unexpected, narrate with nuance, compare cultures.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/fa-intermediate.html" data-course="fa-intermediate">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/fa-intermediate-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="4" data-course="lsf-foundation" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">Let&#x27;s Speak French<span class="mp-card-speak">Live speaking</span></span>
+        <span class="mp-card-lvl">A0 → A1.1</span>
+      </div>
+      <h3 class="mp-card-name">LSF Foundation</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Paris (evening, live &amp; online) · 10 units</p>
+      <p class="mp-card-journey">Runs parallel to FA Foundation — high-frequency survival situations, evening live small-group sessions.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Live small-group speaking room</li><li>Sortir à Paris</li><li>La vie à Paris (speed dating)</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Introduce yourself, count, name objects, describe simply, order a drink, hold a very short closing conversation.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/lsf-foundation.html" data-course="lsf-foundation">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/lsf-foundation-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="5" data-course="lsf-beginner" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">Let&#x27;s Speak French<span class="mp-card-speak">Live speaking</span></span>
+        <span class="mp-card-lvl">A1.1 → A1.2</span>
+      </div>
+      <h3 class="mp-card-name">LSF Beginner</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Daily life in France (live &amp; online) · 10 units</p>
+      <p class="mp-card-journey">Practical situations of daily life — shopping, getting around, eating out, describing home, routine, preferences.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Live small-group speaking room</li><li>Ordering &amp; paying role-play</li><li>Describing your day</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Handle daily-life situations without a script and respond to simple unexpected prompts.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/lsf-beginner.html" data-course="lsf-beginner">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/lsf-beginner-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+    <article class="mp-card" data-card="6" data-course="lsf-elementary" aria-hidden="true">
+      <div class="mp-card-head">
+        <span class="mp-card-track">Let&#x27;s Speak French<span class="mp-card-speak">Live speaking</span></span>
+        <span class="mp-card-lvl">A1.2 → A2.1</span>
+      </div>
+      <h3 class="mp-card-name">LSF Elementary</h3>
+      <p class="mp-card-region"><span class="mp-card-reg-rule"></span>Settling into French life (live &amp; online) · 10 units</p>
+      <p class="mp-card-journey">Complex situations of settling in France — opinions, complaints, phone appointments, work, narration, admin, cultural implicits.</p>
+      <div class="mp-card-stops">
+        <span class="mp-card-stops-ey">Real places you'll learn in</span>
+        <ul><li>Live small-group speaking room</li><li>Speed dating consolidation</li><li>Free production role-plays</li></ul>
+      </div>
+      <p class="mp-card-outcome"><span>You'll be able to</span> Produce language with real autonomy and adapt register to the situation.</p>
+      <div class="mp-card-cta">
+        <a class="mp-card-btn" href="courses/lsf-elementary.html" data-course="lsf-elementary">Explore this journey
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="mp-card-syl" href="downloads/lsf-elementary-syllabus.pdf" target="_blank" rel="noopener">Download syllabus</a>
+      </div>
+    </article>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- scroll panels: one per course chapter (drive the pin/camera/card) -->
+    <div class="mp-panels" aria-hidden="true">
+      <div class="mp-panel" data-panel="0"></div>
+      <div class="mp-panel" data-panel="1"></div>
+      <div class="mp-panel" data-panel="2"></div>
+      <div class="mp-panel" data-panel="3"></div>
+      <div class="mp-panel" data-panel="4"></div>
+      <div class="mp-panel" data-panel="5"></div>
+      <div class="mp-panel" data-panel="6"></div>
+    </div>
+  </div>
+
+  <!-- ===== Mobile tap-driven accordion ===== -->
+  <div class="mp-mobile">
+    <div class="mp-m-map" aria-hidden="true">
+      <svg viewBox="0 0 1000 1000" class="mp-svg" role="img" aria-label="Map of France with course regions">
+        <g class="mp-grid"><line x1="300" y1="60" x2="300" y2="940"/><line x1="600" y1="60" x2="600" y2="940"/><line x1="60" y1="300" x2="940" y2="300"/><line x1="60" y1="600" x2="940" y2="600"/></g>
+        <path class="mp-land" d="M 542.6,81.3 L 492.4,89.0 L 399.2,209.5 L 279.5,211.4 L 313.3,243.2 L 258.4,310.6 L 203.5,325.1 L 70.0,334.7 L 100.4,392.5 L 227.3,443.6 L 306.6,537.1 L 303.3,609.3 L 299.4,715.3 L 283.5,817.5 L 337.1,862.8 L 429.6,884.9 L 481.8,910.0 L 561.8,918.7 L 587.6,853.1 L 653.7,802.1 L 706.6,813.6 L 740.9,826.2 L 793.2,843.5 L 853.3,802.1 L 883.1,779.9 L 839.4,724.0 L 851.3,615.1 L 815.6,524.6 L 789.2,440.7 L 887.7,412.8 L 930.0,279.8 L 890.3,272.1 L 806.4,232.6 L 771.4,223.9 L 665.6,154.5 L 628.6,147.8 L 542.6,81.3 Z"/>
+        <path class="mp-route-bg" d="M 533.7,309.0 L 530.4,306.6 L 526.5,303.1 L 522.0,298.5 L 517.0,293.0 L 511.5,286.8 L 505.6,280.1 L 499.3,273.1 L 492.8,265.8 L 486.0,258.4 L 479.1,251.2 L 472.1,244.3 L 465.0,237.8 L 457.9,231.9 L 450.9,226.8 L 444.0,222.6 L 437.3,219.6 L 430.9,217.8 L 424.7,217.4 L 419.0,218.7 L 413.6,221.7 L 408.7,226.6 L 404.4,233.6 L 404.4,233.6 L 400.0,243.3 L 395.0,255.8 L 389.6,271.0 L 383.8,288.5 L 377.8,308.0 L 371.6,329.2 L 365.5,351.8 L 359.4,375.7 L 353.7,400.3 L 348.3,425.6 L 343.3,451.1 L 339.0,476.5 L 335.5,501.7 L 332.7,526.3 L 331.0,549.9 L 330.3,572.4 L 330.9,593.4 L 332.7,612.6 L 336.1,629.8 L 341.0,644.6 L 347.6,656.7 L 356.0,665.9 L 356.0,665.9 L 367.1,672.6 L 381.5,677.6 L 398.9,681.0 L 418.8,682.8 L 440.9,683.1 L 464.9,682.2 L 490.4,680.0 L 517.1,676.7 L 544.6,672.3 L 572.6,667.1 L 600.7,661.0 L 628.5,654.2 L 655.8,646.8 L 682.1,638.9 L 707.1,630.5 L 730.5,621.9 L 751.9,613.1 L 770.9,604.2 L 787.2,595.2 L 800.5,586.4 L 810.4,577.8 L 816.5,569.5 L 816.5,569.5 L 818.8,560.6 L 817.8,550.4 L 813.7,538.9 L 806.8,526.4 L 797.5,513.0 L 785.9,498.8 L 772.4,484.1 L 757.3,469.0 L 740.8,453.7 L 723.3,438.3 L 705.1,423.0 L 686.3,408.0 L 667.4,393.4 L 648.6,379.4 L 630.3,366.2 L 612.6,353.9 L 595.9,342.7 L 580.4,332.8 L 566.6,324.3 L 554.5,317.4 L 544.7,312.3 L 537.2,309.1 L 537.2,309.1 L 531.6,308.1 L 526.9,309.2 L 523.1,312.3 L 520.2,317.2 L 518.0,323.6 L 516.6,331.4 L 515.9,340.4 L 515.8,350.3 L 516.2,360.9 L 517.2,372.0 L 518.6,383.5 L 520.3,395.2 L 522.4,406.7 L 524.8,418.0 L 527.3,428.8 L 530.1,438.9 L 532.9,448.2 L 535.7,456.3 L 538.6,463.2 L 541.3,468.5 L 544.0,472.2 L 546.4,473.9 L 546.4,473.9 L 549.0,473.9 L 552.0,472.5 L 555.5,469.8 L 559.4,466.0 L 563.7,461.2 L 568.2,455.5 L 572.9,449.0 L 577.9,441.8 L 582.9,434.1 L 588.1,426.0 L 593.3,417.6 L 598.5,409.1 L 603.7,400.5 L 608.7,391.9 L 613.6,383.6 L 618.2,375.6 L 622.7,368.0 L 626.8,360.9 L 630.5,354.6 L 633.8,349.0 L 636.7,344.4 L 639.1,340.8"/>
+  <g class="mp-poi" data-poi="0" data-course="fa-foundation" data-idx="0">
+    <circle class="mp-poi-sat" cx="540.1" cy="339.3" r="3.4"/>
+    <circle class="mp-poi-sat" cx="529.0" cy="351.7" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="533.7" cy="309.0" r="10"/>
+    <circle class="mp-poi-ring"  cx="533.7" cy="309.0" r="16"/>
+    <circle class="mp-poi-core"  cx="533.7" cy="309.0" r="6.5"/>
+    <text class="mp-poi-label" x="549.7" y="295.0" text-anchor="start">Paris</text>
+  </g>
+  <g class="mp-poi" data-poi="1" data-course="fa-beginner" data-idx="1">
+    <circle class="mp-poi-sat" cx="440.3" cy="246.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="445.0" cy="250.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="397.7" cy="295.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="404.4" cy="233.6" r="10"/>
+    <circle class="mp-poi-ring"  cx="404.4" cy="233.6" r="16"/>
+    <circle class="mp-poi-core"  cx="404.4" cy="233.6" r="6.5"/>
+    <text class="mp-poi-label" x="420.4" y="219.6" text-anchor="start">Étretat / Paris</text>
+  </g>
+  <g class="mp-poi" data-poi="2" data-course="fa-elementary" data-idx="2">
+    <circle class="mp-poi-sat" cx="376.7" cy="648.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="384.4" cy="631.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="299.3" cy="672.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="356.0" cy="665.9" r="10"/>
+    <circle class="mp-poi-ring"  cx="356.0" cy="665.9" r="16"/>
+    <circle class="mp-poi-core"  cx="356.0" cy="665.9" r="6.5"/>
+    <text class="mp-poi-label" x="372.0" y="651.9" text-anchor="start">Bordeaux</text>
+  </g>
+  <g class="mp-poi" data-poi="3" data-course="fa-intermediate" data-idx="3">
+    <circle class="mp-poi-sat" cx="811.2" cy="535.9" r="3.4"/>
+    <circle class="mp-poi-sat" cx="790.4" cy="531.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="799.6" cy="520.3" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="816.5" cy="569.5" r="10"/>
+    <circle class="mp-poi-ring"  cx="816.5" cy="569.5" r="16"/>
+    <circle class="mp-poi-core"  cx="816.5" cy="569.5" r="6.5"/>
+    <text class="mp-poi-label" x="800.5" y="555.5" text-anchor="end">Marseille / Chamonix</text>
+  </g>
+  <g class="mp-poi" data-poi="4" data-course="lsf-foundation" data-idx="4">
+    <circle class="mp-poi-sat" cx="499.2" cy="293.8" r="3.4"/>
+    <circle class="mp-poi-sat" cx="492.5" cy="323.7" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="537.2" cy="309.1" r="10"/>
+    <circle class="mp-poi-ring"  cx="537.2" cy="309.1" r="16"/>
+    <circle class="mp-poi-core"  cx="537.2" cy="309.1" r="6.5"/>
+    <text class="mp-poi-label" x="553.2" y="295.1" text-anchor="start">Paris (live)</text>
+  </g>
+  <g class="mp-poi" data-poi="5" data-course="lsf-beginner" data-idx="5">
+    <circle class="mp-poi-sat" cx="522.5" cy="492.0" r="3.4"/>
+    <circle class="mp-poi-sat" cx="547.8" cy="521.9" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="546.4" cy="473.9" r="10"/>
+    <circle class="mp-poi-ring"  cx="546.4" cy="473.9" r="16"/>
+    <circle class="mp-poi-core"  cx="546.4" cy="473.9" r="6.5"/>
+    <text class="mp-poi-label" x="562.4" y="459.9" text-anchor="start">France (live)</text>
+  </g>
+  <g class="mp-poi" data-poi="6" data-course="lsf-elementary" data-idx="6">
+    <circle class="mp-poi-sat" cx="643.1" cy="377.6" r="3.4"/>
+    <circle class="mp-poi-sat" cx="686.5" cy="353.2" r="3.4"/>
+    <circle class="mp-poi-pulse" cx="639.1" cy="340.8" r="10"/>
+    <circle class="mp-poi-ring"  cx="639.1" cy="340.8" r="16"/>
+    <circle class="mp-poi-core"  cx="639.1" cy="340.8" r="6.5"/>
+    <text class="mp-poi-label" x="655.1" y="326.8" text-anchor="start">France (live)</text>
+  </g>
+      </svg>
+    </div>
+    <div class="mp-m-list" data-maccordion>
+      <div class="mp-m-stop is-open" data-mstop="0" data-course="fa-foundation">
+        <button class="mp-m-head" type="button" aria-expanded="true" aria-controls="mp-mbody-0">
+          <span class="mp-m-idx">01</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">FA Foundation</span>
+            <span class="mp-m-reg">Paris · A0 → A1.1</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-0" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">Entirely in Paris over a long weekend.</p>
+            <ul class="mp-m-stops"><li>Eiffel Tower &amp; Champ-de-Mars</li><li>Bakery in the 16th arrondissement</li><li>Classic café near the Alma bridge</li><li>Bouillon Chartier</li></ul>
+            <p class="mp-m-outcome">Survive in French in everyday travel situations: ask directions, order, repair a breakdown, pay, exchange personal info.</p>
+            <a class="mp-m-sig" href="https://gamma.app/docs/FA0-01-Se-presenter-a-la-Tour-Eiffel-7h2ggmgt8gh1pfd?mode=doc" target="_blank" rel="noopener">Signature unit FA0-01 · Se présenter à la Tour Eiffel ↗</a>
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/fa-foundation.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/fa-foundation-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="1" data-course="fa-beginner">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-1">
+          <span class="mp-m-idx">02</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">FA Beginner</span>
+            <span class="mp-m-reg">Normandy → Paris &amp; Versailles · A1.1 → A1.2</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-1" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">From the Normandy coast to Paris.</p>
+            <ul class="mp-m-stops"><li>Cabourg Belle Époque promenade</li><li>Rouen half-timbered streets</li><li>Honfleur port (Champlain set sail for Québec)</li><li>Deauville boardwalks</li></ul>
+            <p class="mp-m-outcome">Interact in simple everyday situations with autonomy: locate, talk about family &amp; daily life, weather, preferences, complete a market or museum outing.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/fa-beginner.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/fa-beginner-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="2" data-course="fa-elementary">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-2">
+          <span class="mp-m-idx">03</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">FA Elementary</span>
+            <span class="mp-m-reg">Loire → Bordeaux → Basque Country · A1.2 → A2.1</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-2" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">A route from the Loire Valley to the Atlantic coast and the Basque Country.</p>
+            <ul class="mp-m-stops"><li>Orléans</li><li>Renaissance gardens of Villandry</li><li>Château de Chenonceau</li><li>Terraces of Tours</li></ul>
+            <p class="mp-m-outcome">Produce language semi-guided, chain exchanges, express &amp; justify preferences, narrate a short past event, describe a work of art.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/fa-elementary.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/fa-elementary-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="3" data-course="fa-intermediate">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-3">
+          <span class="mp-m-idx">04</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">FA Intermediate<span class="mp-card-new">New</span></span>
+            <span class="mp-m-reg">Marseille → Chamonix → Alsace &amp; Champagne · A2.1 → A2.2</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-3" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">Three very different corners of France in a single immersive journey.</p>
+            <ul class="mp-m-stops"><li>Marseille Vieux-Port</li><li>Le Panier alleyways</li><li>Calanques of Provence</li><li>L&#x27;Estaque</li></ul>
+            <p class="mp-m-outcome">Produce language autonomously, give &amp; defend opinions, negotiate compromise, handle the unexpected, narrate with nuance, compare cultures.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/fa-intermediate.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/fa-intermediate-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="4" data-course="lsf-foundation">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-4">
+          <span class="mp-m-idx">05</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">LSF Foundation</span>
+            <span class="mp-m-reg">Paris (evening, live &amp; online) · A0 → A1.1</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-4" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">Runs parallel to FA Foundation — high-frequency survival situations, evening live small-group sessions.</p>
+            <ul class="mp-m-stops"><li>Live small-group speaking room</li><li>Sortir à Paris</li><li>La vie à Paris (speed dating)</li></ul>
+            <p class="mp-m-outcome">Introduce yourself, count, name objects, describe simply, order a drink, hold a very short closing conversation.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/lsf-foundation.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/lsf-foundation-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="5" data-course="lsf-beginner">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-5">
+          <span class="mp-m-idx">06</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">LSF Beginner</span>
+            <span class="mp-m-reg">Daily life in France (live &amp; online) · A1.1 → A1.2</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-5" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">Practical situations of daily life — shopping, getting around, eating out, describing home, routine, preferences.</p>
+            <ul class="mp-m-stops"><li>Live small-group speaking room</li><li>Ordering &amp; paying role-play</li><li>Describing your day</li></ul>
+            <p class="mp-m-outcome">Handle daily-life situations without a script and respond to simple unexpected prompts.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/lsf-beginner.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/lsf-beginner-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="mp-m-stop" data-mstop="6" data-course="lsf-elementary">
+        <button class="mp-m-head" type="button" aria-expanded="false" aria-controls="mp-mbody-6">
+          <span class="mp-m-idx">07</span>
+          <span class="mp-m-tt">
+            <span class="mp-m-name">LSF Elementary</span>
+            <span class="mp-m-reg">Settling into French life (live &amp; online) · A1.2 → A2.1</span>
+          </span>
+          <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp-m-body" id="mp-mbody-6" role="region">
+          <div class="mp-m-inner"><div class="mp-m-pad">
+            <p class="mp-m-journey">Complex situations of settling in France — opinions, complaints, phone appointments, work, narration, admin, cultural implicits.</p>
+            <ul class="mp-m-stops"><li>Live small-group speaking room</li><li>Speed dating consolidation</li><li>Free production role-plays</li></ul>
+            <p class="mp-m-outcome">Produce language with real autonomy and adapt register to the situation.</p>
+            
+            <div class="mp-m-cta">
+              <a class="mp-card-btn" href="courses/lsf-elementary.html">Explore<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="mp-card-syl" href="downloads/lsf-elementary-syllabus.pdf" target="_blank" rel="noopener">Syllabus</a>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Finale ===== -->
+  <div class="mp-finale neon-splash reveal">
+    <svg class="mp-finale-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M32 11 L36 28 L53 32 L36 36 L32 53 L28 36 L11 32 L28 28 Z" fill="currentColor"/>
+      <circle cx="32" cy="32" r="4.5" fill="var(--paper)"/>
+    </svg>
+    <h3>The route ends where <em>real conversation begins</em></h3>
+    <p>Seven courses. One living map of France. From the Eiffel Tower to the quays of Bordeaux, the Calanques of Marseille and the markets of Strasbourg — your French is learned in the places where it is spoken. Plan your journey with an advisor, or wander the 181 real places we teach from.</p>
+    <div class="mp-finale-cta">
+      <button class="mp-cta" type="button" data-advisor>
+        Talk to an Advisor
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <a class="mp-cta-ghost" href="https://mapstr.com/user/thefrench.atelier" target="_blank" rel="noopener">
+        Our Mapstr · 181 places
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+</section>
+
 <!-- ===== HOW IT WORKS (5-step LMS journey, maintained from old site) ===== -->
 <section class="section-pad bg-paper" id="how-it-works">
   <div class="wrap">
@@ -1035,5 +1614,6 @@
   </div>
 </footer>
 <script src="js/fa.js"></script>
+<script src="js/mapstr.js" defer></script>
 </body>
 </html>

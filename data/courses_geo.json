@@ -1,0 +1,103 @@
+{
+  "_doc": "THE REAL MAPSTR PEDAGOGY. Each course is a real journey through real French places. Every unit is anchored to a real landmark — 'French is learned where it is lived.' This data drives the interactive Mapstr 'Authentic French Journey to Fluency' experience. Source: SYLLABUS_7-new-courses.docx (client-approved) + brand Mapstr profile https://mapstr.com/user/thefrench.atelier.",
+  "brand_mapstr": "https://mapstr.com/user/thefrench.atelier",
+  "tagline": "French is learned where it is lived — in the street, at the counter, in the queue, on the quay.",
+  "courses": [
+    {
+      "id": "fa-foundation",
+      "name": "FA Foundation",
+      "track": "French Atelier",
+      "level": "A0 → A1.1",
+      "units": 20,
+      "color": { "name": "Tour Eiffel Gold-Blue", "bg": "#10193A", "accent": "#C8A560", "tint": "#E7D9B8" },
+      "region": "Paris",
+      "journey": "Entirely in Paris over a long weekend.",
+      "outcome": "Survive in French in everyday travel situations: ask directions, order, repair a breakdown, pay, exchange personal info.",
+      "anchors": ["Eiffel Tower & Champ-de-Mars","Bakery in the 16th arrondissement","Classic café near the Alma bridge","Bouillon Chartier","Palais-Royal gardens","Tuileries","Pont des Arts","Panthéon","Jardin du Luxembourg","Shakespeare & Co","Coulée Verte","Bastille","Montmartre & Place du Tertre","Canal Saint-Martin"],
+      "signature_unit": { "code": "FA0-01", "title": "Se présenter à la Tour Eiffel", "deck": "https://gamma.app/docs/FA0-01-Se-presenter-a-la-Tour-Eiffel-7h2ggmgt8gh1pfd?mode=doc" },
+      "pin": { "city": "Paris", "lat": 48.8584, "lng": 2.2945 }
+    },
+    {
+      "id": "fa-beginner",
+      "name": "FA Beginner",
+      "track": "French Atelier",
+      "level": "A1.1 → A1.2",
+      "units": 20,
+      "color": { "name": "Normandy Sea-Rose", "bg": "#1A2740", "accent": "#D98C7A", "tint": "#F0D2C8" },
+      "region": "Normandy → Paris & Versailles",
+      "journey": "From the Normandy coast to Paris.",
+      "outcome": "Interact in simple everyday situations with autonomy: locate, talk about family & daily life, weather, preferences, complete a market or museum outing.",
+      "anchors": ["Cabourg Belle Époque promenade","Rouen half-timbered streets","Honfleur port (Champlain set sail for Québec)","Deauville boardwalks","Étretat chalk cliffs (Monet & Maupassant)","Palace of Versailles","Place de la Contrescarpe (Bastille Day)","Jardin des Plantes","Seine quays","Place des Vosges","Musée Carnavalet","Marais café","La Cinémathèque","Le Train Bleu, Gare de Lyon","Marché d'Aligre"],
+      "pin": { "city": "Étretat / Paris", "lat": 49.7070, "lng": 0.2046 }
+    },
+    {
+      "id": "fa-elementary",
+      "name": "FA Elementary",
+      "track": "French Atelier",
+      "level": "A1.2 → A2.1",
+      "units": 20,
+      "color": { "name": "Bordeaux Vine", "bg": "#241A30", "accent": "#9A5560", "tint": "#E3C9CE" },
+      "region": "Loire → Bordeaux → Basque Country",
+      "journey": "A route from the Loire Valley to the Atlantic coast and the Basque Country.",
+      "outcome": "Produce language semi-guided, chain exchanges, express & justify preferences, narrate a short past event, describe a work of art.",
+      "anchors": ["Orléans","Renaissance gardens of Villandry","Château de Chenonceau","Terraces of Tours","Loire guinguette","Park of Poitiers","Bordeaux vineyards & wine merchants","Grand Théâtre de Bordeaux","Bordeaux waterfront quays","La Cité du Vin","Musée des Beaux-Arts","Dune du Pilat","Oyster ports of Gujan-Mestras","Bayonne Gothic cathedral","Biarritz Rocher de la Vierge","La Rhune","Saint-Jean-de-Luz harbour","Espelette (red pepper capital)"],
+      "pin": { "city": "Bordeaux", "lat": 44.8378, "lng": -0.5792 }
+    },
+    {
+      "id": "fa-intermediate",
+      "name": "FA Intermediate",
+      "track": "French Atelier",
+      "level": "A2.1 → A2.2",
+      "units": 20,
+      "new": true,
+      "color": { "name": "Provence-Alpes Terracotta", "bg": "#2A1E18", "accent": "#C97A4E", "tint": "#EFD3BE" },
+      "region": "Marseille → Chamonix → Alsace & Champagne",
+      "journey": "Three very different corners of France in a single immersive journey.",
+      "outcome": "Produce language autonomously, give & defend opinions, negotiate compromise, handle the unexpected, narrate with nuance, compare cultures.",
+      "anchors": ["Marseille Vieux-Port","Le Panier alleyways","Calanques of Provence","L'Estaque","Vallon des Auffes","MuCEM","Viewpoint toward Mont-Blanc","Chamonix glaciers","Rack railway to the Mer de Glace","Aiguille du Midi (3,842 m)","Strasbourg Petite France","Place Broglie Christmas market","Strasbourg pink-sandstone cathedral","Alsatian Winstub supper","Reims royal cathedral","Reims indoor market","Place d'Erlon","Champagne chalk cellars"],
+      "pin": { "city": "Marseille / Chamonix", "lat": 45.9237, "lng": 6.8694 }
+    },
+    {
+      "id": "lsf-foundation",
+      "name": "LSF Foundation",
+      "track": "Let's Speak French",
+      "level": "A0 → A1.1",
+      "units": 10,
+      "speaking_focus": true,
+      "color": { "name": "Parisian Pink Evening", "bg": "#1C1730", "accent": "#E4A6B8", "tint": "#F5DCE4" },
+      "region": "Paris (evening, live & online)",
+      "journey": "Runs parallel to FA Foundation — high-frequency survival situations, evening live small-group sessions.",
+      "outcome": "Introduce yourself, count, name objects, describe simply, order a drink, hold a very short closing conversation.",
+      "anchors": ["Live small-group speaking room","Sortir à Paris","La vie à Paris (speed dating)"],
+      "pin": { "city": "Paris (live)", "lat": 48.8566, "lng": 2.3522 }
+    },
+    {
+      "id": "lsf-beginner",
+      "name": "LSF Beginner",
+      "track": "Let's Speak French",
+      "level": "A1.1 → A1.2",
+      "units": 10,
+      "speaking_focus": true,
+      "color": { "name": "Café Rose", "bg": "#221A2E", "accent": "#D98C9E", "tint": "#F1D6DD" },
+      "region": "Daily life in France (live & online)",
+      "journey": "Practical situations of daily life — shopping, getting around, eating out, describing home, routine, preferences.",
+      "outcome": "Handle daily-life situations without a script and respond to simple unexpected prompts.",
+      "anchors": ["Live small-group speaking room","Ordering & paying role-play","Describing your day"],
+      "pin": { "city": "France (live)", "lat": 47.0, "lng": 2.5 }
+    },
+    {
+      "id": "lsf-elementary",
+      "name": "LSF Elementary",
+      "track": "Let's Speak French",
+      "level": "A1.2 → A2.1",
+      "units": 10,
+      "speaking_focus": true,
+      "color": { "name": "Terracotta Speak", "bg": "#2A1F1A", "accent": "#CE8458", "tint": "#EED5C2" },
+      "region": "Settling into French life (live & online)",
+      "journey": "Complex situations of settling in France — opinions, complaints, phone appointments, work, narration, admin, cultural implicits.",
+      "outcome": "Produce language with real autonomy and adapt register to the situation.",
+      "anchors": ["Live small-group speaking room","Speed dating consolidation","Free production role-plays"],
+      "pin": { "city": "France (live)", "lat": 48.5, "lng": 4.0 }
+    }
+  ]
+}

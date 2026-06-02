@@ -21,11 +21,21 @@
   --gold-deep:#AA8C55;
   --gold-line:rgba(200,165,96,.45);
   --gold-line-soft:rgba(200,165,96,.22);
-  /* Ivory / paper */
-  --ivory:#F5EFE5;
-  --paper:#FAF6EE;
-  --cream:#EDE4D2;
-  --cream-deep:#E4DAC4;
+  /* Light beige backgrounds (corrected: lighter, airier) */
+  --ivory:#F7F2E9;
+  --paper:#FCF8F1;
+  --cream:#EFE7D8;
+  --cream-deep:#E6DCC9;
+  /* Parisian pink + muted terracotta (NEW brand palette — reduce gold dominance) */
+  --pink:#E4A6B8;
+  --pink-soft:#F0C4D0;
+  --pink-deep:#C77E94;
+  --pink-line:rgba(228,166,184,.40);
+  --terra:#C97A4E;
+  --terra-soft:#DDA07B;
+  --terra-deep:#A85F38;
+  --terra-line:rgba(201,122,78,.38);
+
   /* Misc */
   --burgundy:#6B1E2C;
   --white:#FFFFFF;
@@ -901,3 +911,183 @@ body.modal-open{overflow:hidden}
    ============================================================ */
 .fa-icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
 .fa-icon{width:1em;height:1em;display:inline-block;vertical-align:-.125em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   2026 REBUILD ADDITIONS
+   Per-course sub-brand colors + neon-splash lighting
+   (corrections: reduce gold, add pink+terracotta, per-course color,
+    subtle non-white neon splash in backgrounds)
+   ============================================================ */
+
+/* ---------- Per-course sub-brand tokens ----------
+   Each course owns its color (like the Longevity 4-phase fold).
+   Set data-course on a section/card; children read var(--c-accent). */
+[data-course="fa-foundation"]  { --c-bg:#10193A; --c-accent:#C8A560; --c-tint:#E7D9B8; --c-glow:rgba(200,165,96,.35); }
+[data-course="fa-beginner"]    { --c-bg:#1A2740; --c-accent:#D98C7A; --c-tint:#F0D2C8; --c-glow:rgba(217,140,122,.34); }
+[data-course="fa-elementary"]  { --c-bg:#241A30; --c-accent:#9A5560; --c-tint:#E3C9CE; --c-glow:rgba(154,85,96,.34); }
+[data-course="fa-intermediate"]{ --c-bg:#2A1E18; --c-accent:#C97A4E; --c-tint:#EFD3BE; --c-glow:rgba(201,122,78,.36); }
+[data-course="lsf-foundation"] { --c-bg:#1C1730; --c-accent:#E4A6B8; --c-tint:#F5DCE4; --c-glow:rgba(228,166,184,.36); }
+[data-course="lsf-beginner"]   { --c-bg:#221A2E; --c-accent:#D98C9E; --c-tint:#F1D6DD; --c-glow:rgba(217,140,158,.34); }
+[data-course="lsf-elementary"] { --c-bg:#2A1F1A; --c-accent:#CE8458; --c-tint:#EED5C2; --c-glow:rgba(206,132,88,.34); }
+
+/* default course vars (fallback to gold) */
+:root{ --c-bg:var(--navy); --c-accent:var(--gold); --c-tint:var(--cream); --c-glow:rgba(200,165,96,.30); }
+
+/* course accent helpers */
+.c-accent       { color:var(--c-accent); }
+.c-accent-bg    { background:var(--c-accent); }
+.c-accent-line  { border-color:var(--c-accent); }
+.c-rule::before { content:""; display:inline-block; width:34px; height:1px; background:var(--c-accent); margin-right:.7rem; vertical-align:middle; }
+
+/* ---------- Neon-splash lighting ----------
+   A subtle, beautiful, non-white colored glow that drifts in backgrounds.
+   Use .neon-splash on a positioned (relative/overflow-hidden) container.
+   Color comes from --c-glow (per-course) or override with --splash-a/--splash-b. */
+.neon-splash{ position:relative; isolation:isolate; }
+.neon-splash::before,
+.neon-splash::after{
+  content:""; position:absolute; z-index:-1; border-radius:50%;
+  filter:blur(70px); opacity:.55; pointer-events:none;
+  will-change:transform,opacity;
+}
+.neon-splash::before{
+  width:46vw; max-width:620px; aspect-ratio:1;
+  top:-12%; left:-8%;
+  background:radial-gradient(circle at 40% 40%, var(--splash-a, var(--c-glow, rgba(228,166,184,.40))), transparent 70%);
+  animation:splashDrift 22s var(--ease) infinite alternate;
+}
+.neon-splash::after{
+  width:40vw; max-width:540px; aspect-ratio:1;
+  bottom:-14%; right:-10%;
+  background:radial-gradient(circle at 60% 60%, var(--splash-b, var(--terra-line, rgba(201,122,78,.34))), transparent 70%);
+  animation:splashDrift2 28s var(--ease) infinite alternate;
+}
+.on-dark .neon-splash::before,
+.bg-navy .neon-splash::before,
+.neon-splash.on-dark::before{ opacity:.42; filter:blur(80px); }
+
+@keyframes splashDrift{
+  0%  { transform:translate3d(0,0,0) scale(1); }
+  100%{ transform:translate3d(7%,9%,0) scale(1.12); }
+}
+@keyframes splashDrift2{
+  0%  { transform:translate3d(0,0,0) scale(1.05); }
+  100%{ transform:translate3d(-8%,-6%,0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce){
+  .neon-splash::before,.neon-splash::after{ animation:none; }
+}
+
+/* On-light sections: keep splash gentle so beige stays clean */
+.bg-ivory .neon-splash::before,
+.bg-paper .neon-splash::before{ opacity:.30; }
+.bg-ivory .neon-splash::after,
+.bg-paper .neon-splash::after{ opacity:.24; }
+
+/* ============================================================
+   INTERNAL-PAGES POLISH PASS (luxury hardening)
+   - prevent nav link / CTA wrapping
+   - editorial blog, faq accordion, juliane, pricing helpers
+   ============================================================ */
+.nav-link{white-space:nowrap}
+.nav-cta{white-space:nowrap}
+.btn,.btn-3d{white-space:nowrap}
+/* keep dropdown nav legible on the narrow desktop range */
+@media(max-width:1180px) and (min-width:981px){
+  .nav-menu{gap:1.4rem}
+  .nav-link{font-size:.7rem;letter-spacing:.10em}
+}
+
+/* Refined section rhythm helper */
+.lede-narrow{max-width:54ch}
+.center{text-align:center}
+.mx-auto{margin-left:auto;margin-right:auto}
+
+/* ---------- FAQ accordion (elegant) ---------- */
+.faq-list{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+.faq-item{border:1px solid var(--gold-line-soft);border-radius:14px;background:linear-gradient(180deg,#fff,var(--paper));overflow:hidden;transition:border-color .4s var(--ease-out),box-shadow .4s var(--ease-out)}
+.faq-item.is-open{border-color:var(--gold-line);box-shadow:0 22px 50px -30px rgba(11,19,64,.34)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.4rem;padding:1.5rem 1.8rem;background:transparent;border:0;cursor:pointer;text-align:left;font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--on-light);line-height:1.25}
+.faq-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid var(--gold-line);position:relative;transition:transform .45s var(--ease-spring),background .35s}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;left:50%;top:50%;background:var(--gold-deep);transform:translate(-50%,-50%);transition:opacity .35s var(--ease-out)}
+.faq-icon::before{width:12px;height:2px}.faq-icon::after{width:2px;height:12px}
+.faq-item.is-open .faq-icon{background:rgba(200,165,96,.10)}
+.faq-item.is-open .faq-icon::after{opacity:0}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease-out)}
+.faq-item.is-open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{overflow:hidden}
+.faq-a-inner > div{padding:0 1.8rem 1.6rem;color:var(--on-light-soft);font-size:1rem;line-height:1.75}
+.faq-a-inner p{margin-bottom:.9rem}
+.faq-a-inner p:last-child{margin-bottom:0}
+@media(max-width:600px){.faq-q{font-size:1.12rem;padding:1.2rem 1.3rem}.faq-a-inner > div{padding:0 1.3rem 1.3rem}}
+
+/* ---------- Blog editorial magazine ---------- */
+.blog-feature{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--gold-line-soft);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 26px 60px -38px rgba(11,19,64,.3)}
+.blog-feature .bf-img{position:relative;overflow:hidden;min-height:420px}
+.blog-feature .bf-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1s var(--ease)}
+.blog-feature:hover .bf-img img{transform:scale(1.04)}
+.blog-feature .bf-body{padding:3rem 3rem 2.6rem;display:flex;flex-direction:column;justify-content:center}
+.blog-cat{font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-deep)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.6rem}
+.bcard{background:var(--white);border:1px solid var(--gold-line-soft);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+.bcard:hover{transform:translateY(-6px);box-shadow:0 28px 56px -34px rgba(11,19,64,.36);border-color:var(--gold-line)}
+.bcard-img{aspect-ratio:16/10;overflow:hidden}
+.bcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.bcard:hover .bcard-img img{transform:scale(1.05)}
+.bcard-body{padding:1.5rem 1.6rem 1.7rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.bcard-title{font-family:var(--serif);font-size:1.42rem;font-weight:600;line-height:1.16;color:var(--on-light)}
+.bcard-excerpt{font-size:.92rem;color:var(--on-light-soft);line-height:1.6;flex:1}
+.bcard .link-arrow{margin-top:.4rem}
+@media(max-width:900px){.blog-feature{grid-template-columns:1fr}.blog-feature .bf-img{min-height:300px}.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}.blog-feature .bf-body{padding:2rem 1.5rem}}
+
+/* ---------- Blog post article body ---------- */
+.article-body{max-width:720px;margin:0 auto}
+.article-body h2{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.3rem);margin:2.6rem 0 1rem;color:var(--on-light)}
+.article-body h3{font-family:var(--serif);font-size:1.5rem;margin:2rem 0 .8rem;color:var(--on-light)}
+.article-body p{font-size:1.08rem;line-height:1.85;color:var(--ink-soft);margin-bottom:1.3rem}
+.article-body p:first-of-type{font-size:1.22rem;line-height:1.7;color:var(--on-light)}
+.article-body img{border-radius:14px;margin:2rem 0}
+.article-body blockquote{margin:2.2rem 0;padding-left:1.6rem;border-left:3px solid var(--gold);font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.4;color:var(--on-light)}
+.article-body ul,.article-body ol{margin:0 0 1.4rem 1.2rem}
+.article-body li{margin-bottom:.6rem;color:var(--ink-soft);line-height:1.7;list-style:disc}
+.article-meta{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-soft)}
+
+/* ---------- Juliane premium chat mock ---------- */
+.jul-chat{background:linear-gradient(180deg,#fff,var(--paper));border:1px solid var(--gold-line-soft);border-radius:22px;padding:1.6rem;box-shadow:var(--shadow-md);max-width:440px}
+.jul-bubble{padding:.85rem 1.15rem;border-radius:16px;margin-bottom:.8rem;font-size:.96rem;line-height:1.5;max-width:85%}
+.jul-bubble.j-ai{background:var(--ivory);border:1px solid var(--gold-line-soft);border-bottom-left-radius:4px;color:var(--on-light)}
+.jul-bubble.j-me{background:linear-gradient(135deg,var(--navy),var(--navy-soft));color:var(--on-dark);margin-left:auto;border-bottom-right-radius:4px}
+.jul-bubble .fr{font-family:var(--serif);font-style:italic;font-size:1.08rem}
+.jul-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+.jul-feat .jf{background:var(--white);border:1px solid var(--gold-line-soft);border-radius:16px;padding:1.8rem 1.5rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.jul-feat .jf:hover{transform:translateY(-5px);box-shadow:0 24px 50px -32px rgba(11,19,64,.3)}
+.jul-feat .jf-ic{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(228,166,184,.20),rgba(228,166,184,.05));border:1px solid var(--pink-line);color:var(--pink-deep);margin-bottom:1.1rem}
+.jul-feat .jf h3{font-family:var(--serif);font-size:1.4rem;margin-bottom:.5rem}
+.jul-feat .jf p{font-size:.92rem;color:var(--on-light-soft);line-height:1.6;margin:0}
+@media(max-width:860px){.jul-feat{grid-template-columns:1fr}}
+
+/* ---------- Pricing premium ---------- */
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;max-width:920px;margin:0 auto;align-items:stretch}
+.price-card{position:relative;background:linear-gradient(180deg,#fff,var(--paper));border:1px solid var(--gold-line-soft);border-radius:20px;padding:2.6rem 2.4rem;display:flex;flex-direction:column;box-shadow:0 22px 54px -36px rgba(11,19,64,.28)}
+.price-card.featured{border-color:var(--gold-line);box-shadow:0 30px 70px -36px rgba(11,19,64,.4)}
+.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:var(--navy-deep);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:999px;white-space:nowrap}
+.price-plan{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-deep);margin-bottom:1rem}
+.price-amt{display:flex;align-items:baseline;gap:.4rem;margin-bottom:.3rem}
+.price-amt .pa-num{font-family:var(--serif);font-size:4rem;font-weight:600;line-height:1;color:var(--on-light)}
+.price-amt .pa-per{font-size:.95rem;color:var(--on-light-soft)}
+.price-sub{font-size:.95rem;color:var(--on-light-soft);margin-bottom:1.6rem}
+.price-feats{display:flex;flex-direction:column;gap:.85rem;margin:1.4rem 0 2rem;flex:1}
+.price-feats li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;color:var(--on-light);line-height:1.5}
+.price-feats li svg{flex-shrink:0;color:var(--gold-deep);margin-top:.15rem}
+.price-card .btn-3d{width:100%}
+@media(max-width:760px){.price-grid{grid-template-columns:1fr}}
+
+/* ---------- generic feature/value cards ---------- */
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.6rem}
+.val-card{background:var(--white);border:1px solid var(--gold-line-soft);border-radius:16px;padding:2rem 1.8rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.val-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -32px rgba(11,19,64,.28)}
+.val-ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(200,165,96,.16),rgba(200,165,96,.04));border:1px solid var(--gold-line-soft);color:var(--gold-deep);margin-bottom:1.1rem}
+.val-card h3{font-family:var(--serif);font-size:1.4rem;margin-bottom:.5rem}
+.val-card p{font-size:.94rem;color:var(--on-light-soft);line-height:1.62;margin:0}
+@media(max-width:860px){.val-grid{grid-template-columns:1fr}}
