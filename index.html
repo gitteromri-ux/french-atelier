@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The French Atelier by Acadomia — Master the Art of French</title>
-<meta name="description" content="Learn contextual French through culture, live from France's most iconic locations. An exclusive, certified, live French language program by Acadomia.">
+<meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* Home-specific */
+/* ===== HERO (kept verbatim) ===== */
 .hero{min-height:100vh}
 .hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--gold-soft);margin-bottom:1rem}
 .hero h1{font-size:clamp(3.2rem,8.5vw,7.2rem);margin-bottom:1.4rem}
@@ -21,41 +21,74 @@
 .live-dot{width:9px;height:9px;border-radius:50%;background:#e0413f;box-shadow:0 0 0 0 rgba(224,65,63,.6);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,65,63,.6)}70%{box-shadow:0 0 0 10px rgba(224,65,63,0)}100%{box-shadow:0 0 0 0 rgba(224,65,63,0)}}
 
-.pledge-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--gold-line-soft);border-bottom:1px solid var(--gold-line-soft)}
-.pledge-item{padding:2.4rem 1.5rem;text-align:center;border-right:1px solid var(--gold-line-soft)}
-.pledge-item:last-child{border-right:none}
-.pledge-item .pi-num{font-family:var(--serif);font-size:2.4rem;color:var(--gold-deep);line-height:1}
-.pledge-item .pi-label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-top:.5rem;color:var(--on-light-soft)}
+/* ===== TAGLINE BAND ===== */
+.tagline-band{text-align:center}
+.tagline-band .tag-script{font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,5vw,3.6rem);color:var(--gold-soft);line-height:1}
+.tagline-band p{max-width:60ch;margin:1.4rem auto 0;color:var(--on-dark-soft)}
 
-.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.pillar{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:flex-end;color:var(--on-dark)}
-.pillar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.pillar::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,43,.05) 30%,rgba(8,14,43,.85))}
-.pillar:hover img{transform:scale(1.06)}
-.pillar-body{position:relative;z-index:2;padding:2rem}
-.pillar-body h3{font-size:1.7rem;color:var(--on-dark)}
-.pillar-body p{font-size:.9rem;color:var(--on-dark-soft);margin:.4rem 0 0}
+/* ===== PROOF ROW ===== */
+.proof-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--gold-line-soft);border-bottom:1px solid var(--gold-line-soft)}
+.proof-item{padding:2.2rem 1.4rem;text-align:center;border-right:1px solid var(--gold-line-soft)}
+.proof-item:last-child{border-right:none}
+.proof-item .pi-num{font-family:var(--serif);font-size:2.3rem;color:var(--gold-deep);line-height:1}
+.proof-item .pi-label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-top:.5rem;color:var(--on-light-soft);line-height:1.4}
 
+/* ===== COURSES SHOWCASE (centerpiece) ===== */
+.level-arc{display:flex;align-items:flex-start;gap:0;margin:0 auto 3.4rem;max-width:760px}
+.arc-node{text-align:center;flex:1}
+.arc-node .an-level{font-family:var(--serif);font-size:1.25rem;color:var(--navy);font-weight:600}
+.arc-node .an-course{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-top:.3rem;line-height:1.3}
+.arc-node .an-dot{width:13px;height:13px;border-radius:50%;background:var(--gold-deep);margin:.7rem auto 0}
+.arc-line{flex:1.1;height:1px;background:var(--gold-line-soft);position:relative;top:34px}
+.arc-line::after{content:'›';position:absolute;right:-2px;top:-11px;color:var(--gold-deep);font-size:1.1rem}
+
+.track-label{display:flex;align-items:center;gap:1rem;margin:0 0 2rem;flex-wrap:wrap}
+.track-label .tl-eyebrow{border-left:2px solid var(--gold-deep);padding-left:1rem}
+.track-label .tl-eyebrow .tl-kicker{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+.track-label .tl-eyebrow h3{font-family:var(--serif);font-size:1.7rem;margin-top:.2rem;line-height:1.1}
+
+.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem}
+.course-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--gold-line-soft);overflow:hidden;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+.course-card:hover{box-shadow:0 10px 36px rgba(8,14,43,.13);transform:translateY(-3px)}
+.cc-hero{position:relative;aspect-ratio:16/8;overflow:hidden}
+.cc-hero img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.course-card:hover .cc-hero img{transform:scale(1.05)}
+.cc-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,43,.05) 25%,rgba(8,14,43,.82));display:flex;align-items:flex-end;justify-content:space-between;padding:1.2rem 1.4rem}
+.cc-cefr{font-family:var(--serif);font-size:1.05rem;font-style:italic;color:var(--gold-soft)}
+.cc-num{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-soft);background:rgba(8,14,43,.55);padding:.35rem .7rem;border:1px solid var(--gold-line);border-radius:2px}
+.cc-body{padding:1.6rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex:1}
+.cc-track{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.5rem}
+.cc-title{font-family:var(--serif);font-size:1.7rem;line-height:1.15;margin-bottom:.6rem}
+.cc-desc{font-size:.92rem;color:var(--on-light-soft);line-height:1.55;margin-bottom:1rem;flex:1}
+.cc-includes{list-style:none;padding:0;margin:0 0 1.2rem;display:grid;gap:.4rem}
+.cc-includes li{font-size:.82rem;color:var(--on-light-soft);display:flex;align-items:center;gap:.5rem}
+.cc-includes li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-deep);flex-shrink:0}
+.cc-actions{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+.cc-actions .btn{font-size:.78rem;padding:.7rem 1.2rem}
+
+/* ===== HOW IT WORKS ===== */
+.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.step .numeral{font-size:2.8rem}
+
+/* ===== WATCH CLASS / SOUND VIDEO ===== */
 .sound-video{position:relative;border:1px solid var(--gold-line-soft);overflow:hidden}
 .sound-video video{width:100%;display:block}
 .sound-toggle{position:absolute;bottom:1rem;right:1rem;background:rgba(8,14,43,.82);color:var(--gold-soft);border:1px solid var(--gold-line);padding:.6rem 1.1rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;backdrop-filter:blur(6px)}
 .sound-video .si-on{display:none}.sound-video.unmuted .si-on{display:inline}.sound-video.unmuted .si-muted{display:none}
 
+/* ===== TEACHERS ===== */
 .teacher-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
 .tm{text-align:center}
 .tm img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:2px solid var(--gold-line-soft);filter:grayscale(.2)}
 .tm .tm-name{font-family:var(--serif);font-size:1.2rem;margin-top:.8rem}
 .tm .tm-region{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
-/* Culture Capsules — glamorous LIGHT fold */
-.capsule-fold{background:linear-gradient(160deg,#FBF8F1,#F1E8D6)}
-.capsule-card{background:var(--white);border:1px solid var(--gold-line-soft);overflow:hidden;position:relative}
-.capsule-badge{position:absolute;top:1.1rem;right:1.1rem;z-index:3;background:var(--navy-deep);color:var(--gold-soft);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:.45rem .9rem;border-radius:2px}
-.capsule-card .cc-img{aspect-ratio:3/2;overflow:hidden}
-.capsule-card .cc-img img{width:100%;height:100%;object-fit:cover}
-.capsule-card .cc-body{padding:1.8rem}
-.capsule-card .cc-no{font-family:var(--serif);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
-.capsule-card h3{font-size:1.8rem;margin:.4rem 0 .6rem}
+/* ===== ACADOMIA STATS ===== */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--gold-line);border-bottom:1px solid var(--gold-line);margin-top:2.4rem}
+.stat-cell{padding:2rem 1.2rem;text-align:center;border-right:1px solid var(--gold-line)}
+.stat-cell:last-child{border-right:none}
+.stat-cell .sc-num{font-family:var(--serif);font-size:2.6rem;color:var(--gold-soft);line-height:1}
+.stat-cell .sc-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--on-dark-soft);margin-top:.4rem}
 
 .yt-embed{position:relative;aspect-ratio:16/9;border:1px solid var(--gold-line-soft)}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
@@ -63,8 +96,20 @@
 .cta-band{background:var(--navy-deep);text-align:center;position:relative;overflow:hidden}
 .cta-band .frame-border{inset:30px}
 
-@media(max-width:980px){.pledge-row{grid-template-columns:repeat(2,1fr)}.pledge-item:nth-child(2){border-right:none}.pillar-grid{grid-template-columns:repeat(2,1fr)}.teacher-mini{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.pledge-row{grid-template-columns:1fr}.pledge-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.pillar-grid{grid-template-columns:1fr}.teacher-mini{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:980px){
+  .proof-row{grid-template-columns:repeat(2,1fr)}.proof-item:nth-child(2){border-right:none}
+  .course-grid{grid-template-columns:1fr}
+  .step-grid{grid-template-columns:repeat(2,1fr)}
+  .teacher-mini{grid-template-columns:repeat(2,1fr)}
+  .level-arc{flex-wrap:wrap;gap:.6rem;justify-content:center}.arc-line{display:none}.arc-node{flex:0 0 30%}
+}
+@media(max-width:600px){
+  .proof-row{grid-template-columns:1fr}.proof-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}
+  .step-grid{grid-template-columns:1fr}
+  .teacher-mini{grid-template-columns:repeat(2,1fr)}
+  .stat-row{grid-template-columns:1fr}.stat-cell{border-right:none;border-bottom:1px solid var(--gold-line)}.stat-cell:last-child{border-bottom:none}
+  .arc-node{flex:0 0 45%}
+}
 </style>
 </head>
 <body>
@@ -159,7 +204,7 @@
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
 
-<!-- ===== HERO (kept) ===== -->
+<!-- ===== HERO (kept verbatim) ===== -->
 <section class="hero">
   <div class="hero-bg"><img src="assets/gen/hero-paris.png" alt="Parisian rooftop at golden hour overlooking the Eiffel Tower"></div>
   <div class="wrap hero-content">
@@ -176,102 +221,255 @@
   </div>
 </section>
 
-<!-- ===== PLEDGE ===== -->
+<!-- ===== TAGLINE BAND (verbatim from live site) ===== -->
+<section class="section-pad-sm bg-navy">
+  <div class="wrap-narrow tagline-band reveal">
+    <p class="tag-script">Live French. <span class="gold-ital">Live.</span></p>
+    <p class="lede">Live life to the fullest and master the art of French with the world's best teachers — broadcasting live from France.</p>
+  </div>
+</section>
+
+<!-- ===== PROOF ROW (4 crystal-clear value props) ===== -->
 <section class="section-pad-sm bg-paper">
   <div class="wrap">
-    <div class="pledge-row reveal">
-      <div class="pledge-item"><div class="pi-num">100%</div><div class="pi-label">Culture-Based</div></div>
-      <div class="pledge-item"><div class="pi-num">100%</div><div class="pi-label">Live Streaming</div></div>
-      <div class="pledge-item"><div class="pi-num">100%</div><div class="pi-label">Native Teachers</div></div>
-      <div class="pledge-item"><div class="pi-num">100%</div><div class="pi-label">Real Contextual French</div></div>
+    <div class="proof-row reveal">
+      <div class="proof-item"><div class="pi-num">Live</div><div class="pi-label">Real Classes from France</div></div>
+      <div class="proof-item"><div class="pi-num">8–10</div><div class="pi-label">Students per Group</div></div>
+      <div class="proof-item"><div class="pi-num">CEFR</div><div class="pi-label">Certified by Acadomia</div></div>
+      <div class="proof-item"><div class="pi-num">A0→A2.2</div><div class="pi-label">A Clear Path for Every Level</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== MANIFESTO ===== -->
-<section class="section-pad bg-ivory">
-  <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The French Atelier by Acadomia</p>
-    <h2 class="display-md reveal reveal-d1" style="margin:1.4rem 0">A language is not a subject.<br>It is a <span class="gold-ital">way of living.</span></h2>
-    <p class="lede reveal reveal-d2">French Atelier by Acadomia is an exclusive, culturally immersive, certified, live French language program. We don't teach grammar in a vacuum — we teach French where it is lived: at the café counter, in the market queue, on the quays of the Seine. Every lesson begins in a real place and ends in a real conversation.</p>
-    <div class="diamond-rule reveal reveal-d3" style="margin-top:2.4rem"><span class="d"></span></div>
-  </div>
-</section>
-
-<!-- ===== SIX CULTURAL PILLARS ===== -->
-<section class="section-pad bg-paper">
+<!-- ===== COURSES SHOWCASE (THE CENTERPIECE) ===== -->
+<section class="section-pad bg-ivory" id="courses">
   <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:3rem">
-      <div>
-        <p class="eyebrow eyebrow-line reveal">The Six Pillars</p>
-        <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">French culture, taught in <span class="gold-ital">six worlds</span></h2>
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Our Courses</p>
+      <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Choose your course.<br>Start speaking <span class="gold-ital">French</span>.</h2>
+      <p class="lede reveal reveal-d2" style="max-width:58ch;margin:0 auto">Seven structured, CEFR-aligned courses across two tracks. Every course is live, small-group, certified, and broadcast from a real region of France. Find the level that fits you and begin.</p>
+    </div>
+
+    <!-- Level arc -->
+    <div class="level-arc reveal reveal-d2">
+      <div class="arc-node"><div class="an-level">A0</div><div class="an-course">Complete Beginner</div><div class="an-dot"></div></div>
+      <div class="arc-line"></div>
+      <div class="arc-node"><div class="an-level">A1.1</div><div class="an-course">Foundation</div><div class="an-dot"></div></div>
+      <div class="arc-line"></div>
+      <div class="arc-node"><div class="an-level">A1.2</div><div class="an-course">Beginner</div><div class="an-dot"></div></div>
+      <div class="arc-line"></div>
+      <div class="arc-node"><div class="an-level">A2.1</div><div class="an-course">Elementary</div><div class="an-dot"></div></div>
+      <div class="arc-line"></div>
+      <div class="arc-node"><div class="an-level">A2.2</div><div class="an-course">Intermediate</div><div class="an-dot"></div></div>
+    </div>
+
+    <!-- FA MAIN TRACK -->
+    <div class="track-label reveal">
+      <div class="tl-eyebrow">
+        <div class="tl-kicker">The French Atelier · Weekend Immersion Track</div>
+        <h3>FA Track — <span class="gold-ital">live from France's regions</span></h3>
       </div>
-      <a href="culture.html" class="link-arrow reveal reveal-d2">Explore French Culture <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></a>
     </div>
-    <div class="pillar-grid">
-      <a class="pillar reveal" href="culture.html"><img src="assets/gen/culture-art.png" alt="Art and architecture of France"><div class="pillar-body"><h3>Art &amp; Architecture</h3><p>From the Palais Garnier to the ateliers of Montmartre.</p></div></a>
-      <a class="pillar reveal reveal-d1" href="culture.html"><img src="assets/gen/culture-gastronomy.png" alt="French gastronomy and wine"><div class="pillar-body"><h3>Gastronomy &amp; Wine</h3><p>The language of the market, the cellar, the table.</p></div></a>
-      <a class="pillar reveal reveal-d2" href="map.html"><img src="assets/gen/culture-travel.png" alt="Travel and landmarks of France"><div class="pillar-body"><h3>Travel &amp; Landmarks</h3><p>Speak your way across France, region by region.</p></div></a>
-      <a class="pillar reveal" href="culture.html"><img src="assets/gen/culture-fashion.png" alt="French fashion and film"><div class="pillar-body"><h3>Fashion &amp; Film</h3><p>The codes of elegance, on screen and on the street.</p></div></a>
-      <a class="pillar reveal reveal-d1" href="culture.html"><img src="assets/gen/culture-music.png" alt="French music and poetry"><div class="pillar-body"><h3>Music &amp; Poetry</h3><p>From the chanson to the verse that shaped a nation.</p></div></a>
-      <a class="pillar reveal reveal-d2" href="culture.html"><img src="assets/gen/culture-tradition.png" alt="French tradition and history"><div class="pillar-body"><h3>Tradition &amp; History</h3><p>The rituals and stories behind every French word.</p></div></a>
-    </div>
-  </div>
-</section>
+    <div class="course-grid" style="margin-bottom:3.4rem">
 
-<!-- ===== CINEMATIC VIDEO BAND (live from France) ===== -->
-<section class="video-band">
-  <div class="video-bg">
-    <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
-      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Live from France</p>
-    <h2 class="display-md" style="margin:1.2rem 0">Your classroom is a <span class="gold-ital">country</span></h2>
-    <p class="lede">From the rooftops of Paris to the quays of the Seine, every live lesson is broadcast from the places where French is truly lived. You don't just study the language — you step into it.</p>
-    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
-  </div></div>
-</section>
-
-<!-- ===== METHOD / SORBONNE TRUST ===== -->
-<section class="section-pad bg-navy">
-  <div class="wrap split split-wide">
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">Our Method</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Pedagogy built on <span class="gold-ital">Sorbonne</span> research</h2>
-      <p class="lede">Our curriculum and methodology are grounded in research from the Sorbonne in applied linguistics and second-language acquisition. Every unit is designed around a real communicative task — not a grammar rule — so you acquire French the way it is actually spoken.</p>
-      <div class="gold-rule"></div>
-      <p class="muted">Live lessons with world-class experts · Online forum support · A wealth of academic and cultural content — all built around the way the brain truly learns a language.</p>
-      <a href="method.html" class="btn btn-outline" style="margin-top:1.4rem">Discover Our Method</a>
-    </div>
-    <div class="reveal reveal-d1">
-      <div class="yt-embed">
-        <iframe src="https://www.youtube.com/embed/Y4Dgn3gWDkE" title="The French Atelier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- FA Foundation -->
+      <div class="course-card reveal">
+        <div class="cc-hero">
+          <img src="assets/gen/hero-paris.png" alt="Paris — home of FA Foundation">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A0 → A1.1</span><span class="cc-num">Paris</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">FA Track · Course 1 of 4</div>
+          <h3 class="cc-title">FA <span class="gold-ital">Foundation</span></h3>
+          <p class="cc-desc">For complete beginners. A long weekend in Paris where every phrase is anchored in a real landmark — greet, order, ask directions, and pay in authentic French.</p>
+          <ul class="cc-includes">
+            <li>20 live lessons · 85 min each</li>
+            <li>Small group of 8–10 learners</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/fa-foundation.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
       </div>
-      <p class="img-caption">A glimpse inside a live French Atelier class.</p>
+
+      <!-- FA Beginner -->
+      <div class="course-card reveal reveal-d1">
+        <div class="cc-hero">
+          <img src="assets/gen/region-normandy.png" alt="Normandy coast — home of FA Beginner">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A1.1 → A1.2</span><span class="cc-num">Normandy · Paris</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">FA Track · Course 2 of 4</div>
+          <h3 class="cc-title">FA <span class="gold-ital">Beginner</span></h3>
+          <p class="cc-desc">From the cliffs of Étretat to the markets of the Marais. Talk about family, daily life, and plans — and complete a full market and museum outing with growing autonomy.</p>
+          <ul class="cc-includes">
+            <li>20 live lessons · 85 min each</li>
+            <li>Small group of 8–10 learners</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/fa-beginner.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FA Elementary -->
+      <div class="course-card reveal">
+        <div class="cc-hero">
+          <img src="assets/gen/region-loire.png" alt="Loire Valley — home of FA Elementary">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A1.2 → A2.1</span><span class="cc-num">Loire · Atlantic · Basque</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">FA Track · Course 3 of 4</div>
+          <h3 class="cc-title">FA <span class="gold-ital">Elementary</span></h3>
+          <p class="cc-desc">From the châteaux of the Loire to the Basque harbour of Saint-Jean-de-Luz. Narrate the past, describe, compare, and justify — in confident, semi-guided production.</p>
+          <ul class="cc-includes">
+            <li>20 live lessons · 85 min each</li>
+            <li>Small group of 8–10 learners</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/fa-elementary.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FA Intermediate -->
+      <div class="course-card reveal reveal-d1">
+        <div class="cc-hero">
+          <img src="assets/gen/region-marseille.png" alt="Marseille and beyond — home of FA Intermediate">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A2.1 → A2.2</span><span class="cc-num">Marseille · Alps · Alsace</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">FA Track · Course 4 of 4 · <span style="color:var(--gold-deep)">New</span></div>
+          <h3 class="cc-title">FA <span class="gold-ital">Intermediate</span></h3>
+          <p class="cc-desc">From the Vieux-Port of Marseille to the glaciers of Chamonix and a closing dinner in Reims. Debate, negotiate, narrate the past with nuance, and compare cultures.</p>
+          <ul class="cc-includes">
+            <li>20 live lessons · 85 min each</li>
+            <li>Small group of 8–10 learners</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/fa-intermediate.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LSF EVENING TRACK -->
+    <div class="track-label reveal">
+      <div class="tl-eyebrow">
+        <div class="tl-kicker">Let's Speak French · Evening Track</div>
+        <h3>LSF Track — <span class="gold-ital">speaking-first, after hours</span></h3>
+      </div>
+    </div>
+    <div class="course-grid">
+
+      <!-- LSF Foundation -->
+      <div class="course-card reveal">
+        <div class="cc-hero">
+          <img src="assets/gen/hero-paris.png" alt="Paris — LSF Foundation">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A0 → A1.1</span><span class="cc-num">Evening Track</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">LSF Track · Course 1 of 3</div>
+          <h3 class="cc-title">LSF <span class="gold-ital">Foundation</span></h3>
+          <p class="cc-desc">For complete beginners who want to speak fast. In ten focused evening sessions: introduce yourself, order at a café, and hold a real conversation — with confidence, not a script.</p>
+          <ul class="cc-includes">
+            <li>10 live lessons · 85 min each</li>
+            <li>Evening-friendly · small groups</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/lsf-foundation.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LSF Beginner -->
+      <div class="course-card reveal reveal-d1">
+        <div class="cc-hero">
+          <img src="assets/gen/culture-gastronomy.png" alt="Daily life in France — LSF Beginner">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A1.1 → A1.2</span><span class="cc-num">Evening Track</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">LSF Track · Course 2 of 3</div>
+          <h3 class="cc-title">LSF <span class="gold-ital">Beginner</span></h3>
+          <p class="cc-desc">The practical situations of daily life in France — shopping, getting around, eating out, your routine and preferences — handled live, without a script, even when the prompt surprises you.</p>
+          <ul class="cc-includes">
+            <li>10 live lessons · 85 min each</li>
+            <li>Evening-friendly · small groups</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/lsf-beginner.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LSF Elementary -->
+      <div class="course-card reveal">
+        <div class="cc-hero">
+          <img src="assets/gen/culture-travel.png" alt="Life in France — LSF Elementary">
+          <div class="cc-hero-overlay"><span class="cc-cefr">A1.2 → A2.1</span><span class="cc-num">Evening Track</span></div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-track">LSF Track · Course 3 of 3</div>
+          <h3 class="cc-title">LSF <span class="gold-ital">Elementary</span></h3>
+          <p class="cc-desc">The more complex situations of life in France — opinions, complaints, appointments by phone, work, and decoding cultural implicits — with real spoken autonomy.</p>
+          <ul class="cc-includes">
+            <li>10 live lessons · 85 min each</li>
+            <li>Evening-friendly · small groups</li>
+            <li>Lifetime recordings + CEFR certificate</li>
+          </ul>
+          <div class="cc-actions">
+            <a href="courses/lsf-elementary.html" class="btn btn-gold">View Course</a>
+            <a href="pricing.html" class="btn btn-outline">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Not sure card -->
+      <div class="course-card reveal reveal-d1" style="background:linear-gradient(160deg,var(--navy),var(--navy-deep));justify-content:center">
+        <div class="cc-body" style="text-align:center;align-items:center">
+          <div class="cc-track" style="color:var(--gold-soft)">Not sure where to start?</div>
+          <h3 class="cc-title" style="color:var(--on-dark)">Find your <span class="gold-ital">level</span></h3>
+          <p class="cc-desc" style="color:var(--on-dark-soft)">Book a free live placement call and a French Atelier advisor will set your exact starting level and the right course for you.</p>
+          <div class="cc-actions" style="justify-content:center">
+            <a href="contact.html" class="btn btn-gold">Book a Placement Call</a>
+            <a href="courses.html" class="btn btn-outline">Compare All Courses</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS (5 steps preview) ===== -->
+<!-- ===== HOW IT WORKS (clear 4-step path) ===== -->
 <section class="section-pad bg-paper">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:3.4rem">
       <p class="eyebrow eyebrow-line reveal" style="justify-content:center">How It Works</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">From <span class="gold-ital">first bonjour</span> to certification</h2>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Four steps from <span class="gold-ital">first bonjour</span> to certification</h2>
     </div>
-    <div class="grid g4" style="gap:2rem">
-      <div class="reveal"><div class="numeral" style="font-size:3rem">01</div><h3 style="font-size:1.4rem;margin:.6rem 0">Assessment &amp; Enrollment</h3><p class="muted" style="font-size:.95rem">A live placement call sets your starting level and track.</p></div>
-      <div class="reveal reveal-d1"><div class="numeral" style="font-size:3rem">02</div><h3 style="font-size:1.4rem;margin:.6rem 0">Join the Platform</h3><p class="muted" style="font-size:.95rem">Your dashboard, schedule, materials, and community in one place.</p></div>
-      <div class="reveal reveal-d2"><div class="numeral" style="font-size:3rem">03</div><h3 style="font-size:1.4rem;margin:.6rem 0">Live Weekly Classes</h3><p class="muted" style="font-size:.95rem">85-minute live lessons with native teachers, broadcast from France.</p></div>
-      <div class="reveal reveal-d3"><div class="numeral" style="font-size:3rem">04</div><h3 style="font-size:1.4rem;margin:.6rem 0">Mastery &amp; Certificate</h3><p class="muted" style="font-size:.95rem">Finish 20 lessons for a CEFR certificate by Acadomia + $100 credit.</p></div>
+    <div class="step-grid">
+      <div class="step reveal"><div class="numeral">01</div><h3 style="font-size:1.35rem;margin:.6rem 0">Find Your Level</h3><p class="muted" style="font-size:.95rem">A free live placement call sets your exact starting level and track.</p></div>
+      <div class="step reveal reveal-d1"><div class="numeral">02</div><h3 style="font-size:1.35rem;margin:.6rem 0">Join the Platform</h3><p class="muted" style="font-size:.95rem">Your dashboard, schedule, materials, and learner community in one place.</p></div>
+      <div class="step reveal reveal-d2"><div class="numeral">03</div><h3 style="font-size:1.35rem;margin:.6rem 0">Learn Live, Weekly</h3><p class="muted" style="font-size:.95rem">85-minute live lessons with native teachers, broadcast from France.</p></div>
+      <div class="step reveal reveal-d3"><div class="numeral">04</div><h3 style="font-size:1.35rem;margin:.6rem 0">Earn Your Certificate</h3><p class="muted" style="font-size:.95rem">Complete your course for a CEFR certificate by Acadomia + $100 in credits.</p></div>
     </div>
-    <div style="text-align:center;margin-top:3rem"><a href="how-it-works.html" class="btn btn-gold reveal">See the Full Journey</a></div>
+    <div style="text-align:center;margin-top:3rem"><a href="how-it-works.html" class="btn btn-outline reveal">See the Full Journey</a></div>
   </div>
 </section>
 
-<!-- ===== DEMO CLASS (real live class footage) ===== -->
+<!-- ===== WATCH A REAL CLASS ===== -->
 <section class="section-pad bg-navy-deep">
   <div class="wrap split split-wide">
     <div class="reveal reveal-d1">
@@ -286,22 +484,37 @@
       <p class="img-caption">A real live class — Discover French with Philippe, from West Paris.</p>
     </div>
     <div class="reveal">
-      <p class="eyebrow eyebrow-line">Watch a Real Class</p>
-      <h2 class="display-md" style="margin:1.4rem 0">See a live lesson <span class="gold-ital">in action</span></h2>
-      <p class="lede">No scripts, no pre-recordings. Step inside an actual French Atelier class and meet the warmth, energy, and real French conversation that happen every week — live, from France.</p>
+      <p class="eyebrow eyebrow-line">What Sets Us Apart</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Watch a real <span class="gold-ital">30-minute class</span></h2>
+      <p class="lede">No scripts, no pre-recordings. See exactly what it's like to learn French live from France — the warmth, the energy, and the real conversation that happen in every class.</p>
       <a href="how-it-works.html" class="btn btn-outline" style="margin-top:1.2rem">How Classes Work</a>
     </div>
   </div>
 </section>
 
-<!-- ===== TEACHERS FOLD (with Paid Media Video) ===== -->
+<!-- ===== LIVE FROM FRANCE (regions band) ===== -->
+<section class="video-band">
+  <div class="video-bg">
+    <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Your Lessons, Broadcast Live</p>
+    <h2 class="display-md" style="margin:1.2rem 0">From the heart of <span class="gold-ital">France</span></h2>
+    <p class="lede">Paris, Bordeaux, Provence, the Alps, the Côte d'Azur — every live lesson is broadcast from the places where French is truly lived. You don't just study the language; you step into it.</p>
+    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
+  </div></div>
+</section>
+
+<!-- ===== TEACHERS ===== -->
 <section class="section-pad bg-ivory">
   <div class="wrap">
     <div class="split split-wide" style="margin-bottom:4rem">
       <div class="reveal">
         <p class="eyebrow eyebrow-line">Our Teachers</p>
-        <h2 class="display-md" style="margin:1.4rem 0">Native voices,<br>from <span class="gold-ital">every corner</span> of France</h2>
-        <p class="lede">Strasbourg to Nice, Paris to Pau — each of our certified teachers lives and teaches from a different French region, bringing the real accents, rhythms, and culture of France into every live class.</p>
+        <h2 class="display-md" style="margin:1.4rem 0">Native teachers, from <span class="gold-ital">every corner</span> of France</h2>
+        <p class="lede">Strasbourg to Nice, Paris to Pau — each certified teacher lives and teaches from a different French region, bringing real accents, rhythms, and culture into every live class.</p>
         <a href="teachers.html" class="btn btn-outline" style="margin-top:1.2rem">Meet the Team</a>
       </div>
       <div class="reveal reveal-d1">
@@ -325,7 +538,30 @@
   </div>
 </section>
 
-<!-- ===== JULIANE AI ===== -->
+<!-- ===== METHOD / ACADOMIA TRUST ===== -->
+<section class="section-pad bg-navy">
+  <div class="wrap split split-wide">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-line">Presented by Acadomia</p>
+      <h2 class="display-md" style="margin:1.4rem 0">France's #1 private <span class="gold-ital">learning institute</span></h2>
+      <p class="lede">Our curriculum is grounded in research from the Sorbonne in applied linguistics. Every unit is built around a real communicative task — not a grammar rule — so you acquire French the way it is actually spoken.</p>
+      <div class="stat-row">
+        <div class="stat-cell"><div class="sc-num">100k+</div><div class="sc-label">Students Enrolled Annually</div></div>
+        <div class="stat-cell"><div class="sc-num">8</div><div class="sc-label">Acclaimed French Teachers</div></div>
+        <div class="stat-cell"><div class="sc-num">1000s</div><div class="sc-label">Hours of French Teaching</div></div>
+      </div>
+      <a href="method.html" class="btn btn-outline" style="margin-top:2rem">Discover Our Method</a>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/Y4Dgn3gWDkE" title="The French Atelier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="img-caption">A glimpse inside a live French Atelier class.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JULIANE AI (brief) ===== -->
 <section class="section-pad bg-navy-deep">
   <div class="wrap split">
     <div class="reveal" style="position:relative">
@@ -333,66 +569,25 @@
       <span class="img-tag" style="font-size:1rem">Juliane · AI Tutor</span>
     </div>
     <div class="reveal reveal-d1">
-      <p class="eyebrow eyebrow-line">Always-On Coaching</p>
+      <p class="eyebrow eyebrow-line">Practice Between Classes</p>
       <h2 class="display-md" style="margin:1.4rem 0">Meet <span class="gold-ital">Juliane</span>, your 24/7 French coach</h2>
-      <p class="lede">Between live classes, Juliane is your always-on, advanced AI French tutor inside the learning platform. Practise pronunciation, rehearse a real conversation, get instant corrections, and never lose momentum — at any hour, in any timezone.</p>
+      <p class="lede">Between live classes, Juliane is your always-on AI French tutor inside the platform. Practise pronunciation, rehearse real conversations, and get instant corrections — at any hour, in any timezone.</p>
       <a href="juliane.html" class="btn btn-outline" style="margin-top:1.2rem">Discover Juliane</a>
     </div>
-  </div>
-</section>
-
-<!-- ===== CULTURE CAPSULES (coming soon — glamorous LIGHT fold) ===== -->
-<section class="section-pad capsule-fold">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.2rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">New · Coming Soon</p>
-      <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">French Culture <span class="gold-ital">Capsules</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:60ch;margin:0 auto;color:var(--on-light-soft)">Our new companion to the language courses. Live French to learn French — immersive, one-hour cultural masterclasses that let you truly embrace the authentic French Atelier experience. Recommended alongside any course.</p>
-    </div>
-    <div class="grid g3 reveal reveal-d2">
-      <div class="capsule-card">
-        <span class="capsule-badge">Coming Soon</span>
-        <div class="cc-img"><img src="assets/gen/culture-fashion.png" alt="The Chanel Revolution"></div>
-        <div class="cc-body">
-          <div class="cc-no">Culture Capsule · No. 02</div>
-          <h3>The Chanel Revolution</h3>
-          <p class="muted" style="font-size:.95rem">How a girl from an Aubazine orphanage rewrote the body, the wardrobe, and the very grammar of modern luxury.</p>
-        </div>
-      </div>
-      <div class="capsule-card">
-        <span class="capsule-badge">Coming Soon</span>
-        <div class="cc-img"><img src="assets/gen/culture-art.png" alt="Louis XIV, the Inventor of Luxury"></div>
-        <div class="cc-body">
-          <div class="cc-no">Culture Capsule · No. 01</div>
-          <h3>Louis XIV: The Inventor of Luxury</h3>
-          <p class="muted" style="font-size:.95rem">How one king turned taste into power — and invented the very idea of French luxury.</p>
-        </div>
-      </div>
-      <div class="capsule-card">
-        <span class="capsule-badge">Coming Soon</span>
-        <div class="cc-img"><img src="assets/gen/culture-music.png" alt="More capsules"></div>
-        <div class="cc-body">
-          <div class="cc-no">The Series</div>
-          <h3>An Evening, A Story</h3>
-          <p class="muted" style="font-size:.95rem">A growing library of one-hour cultural evenings — art, music, gastronomy, and the icons who shaped France.</p>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:3rem"><a href="capsules.html" class="btn btn-gold reveal">Preview the Capsules</a></div>
   </div>
 </section>
 
 <!-- ===== PRICING TEASER ===== -->
 <section class="section-pad bg-paper">
   <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Enrollment</p>
-    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">A full year of live French<br>from <span class="gold-ital">$39 a week</span></h2>
-    <p class="lede reveal reveal-d2">20 live lessons · small groups of 8–10 · lifetime recordings · A1/A2 certificate by Acadomia · $100 in credits · 24/7 support.</p>
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Simple, Transparent Pricing</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">Live French from <span class="gold-ital">$39 a week</span></h2>
+    <p class="lede reveal reveal-d2">Every plan includes 20 live lessons, small groups of 8–10, lifetime recordings, a CEFR certificate by Acadomia, $100 in credits, and 24/7 support.</p>
     <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d3" style="margin-top:1.6rem">View Plans &amp; Enroll</a>
   </div>
 </section>
 
-<!-- ===== CTA BAND ===== -->
+<!-- ===== CTA BAND (verbatim brand line) ===== -->
 <section class="cta-band section-pad framed on-dark">
   <div class="frame-border"></div>
   <div class="wrap-narrow" style="position:relative;z-index:3">
