@@ -1,0 +1,372 @@
+/* ============================================================
+   MAPSTR — Signature fold: "Your Authentic French Journey to Fluency"
+   Self-contained, all classes prefixed .mp-  (no global leakage)
+   Palette LOCK: navy #0B1340 · gold #C8A560 · ivory #F5EFE5
+   Gold = accent/line ONLY, never a background.
+   ============================================================ */
+
+.mp-fold{
+  --mp-navy:#0B1340;
+  --mp-navy-deep:#070C24;
+  --mp-navy-soft:#141B3C;
+  --mp-gold:#C8A560;
+  --mp-gold-soft:#D8BC7E;
+  --mp-gold-deep:#A9893F;
+  --mp-ivory:#F5EFE5;
+  --mp-ink:#1A1E33;
+  --mp-on-dark:#F3EEE3;
+  --mp-on-dark-soft:rgba(243,238,227,.62);
+  --mp-on-dark-faint:rgba(243,238,227,.34);
+  --mp-line:rgba(200,165,96,.30);
+  --mp-line-soft:rgba(243,238,227,.12);
+  --mp-serif:'Cormorant Garamond',Georgia,serif;
+  --mp-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mp-ease:cubic-bezier(.22,.61,.36,1);
+  --mp-ease-out:cubic-bezier(.16,1,.3,1);
+
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #11193f 0%, var(--mp-navy) 42%, var(--mp-navy-deep) 100%);
+  color:var(--mp-on-dark);
+  font-family:var(--mp-sans);
+  overflow:clip;
+  isolation:isolate;
+}
+.mp-fold *{box-sizing:border-box}
+
+/* subtle grain / vignette overlays */
+.mp-fold::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(80% 60% at 50% 120%, rgba(200,165,96,.10), transparent 60%),
+    radial-gradient(100% 100% at 50% 0%, transparent 55%, rgba(7,12,36,.55) 100%);
+}
+
+/* ---------- Intro ---------- */
+.mp-intro{
+  position:relative;z-index:2;
+  max-width:1180px;margin:0 auto;
+  padding:5.5rem 1.5rem 1rem;
+  text-align:center;
+}
+.mp-kicker{
+  font-family:var(--mp-sans);
+  font-size:.74rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--mp-gold);
+  display:inline-flex;align-items:center;gap:.85rem;
+  margin-bottom:1.4rem;
+}
+.mp-kicker::before,.mp-kicker::after{
+  content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--mp-gold));
+}
+.mp-kicker::after{background:linear-gradient(90deg,var(--mp-gold),transparent)}
+.mp-title{
+  font-family:var(--mp-serif);font-weight:600;
+  font-size:clamp(2.5rem,6.4vw,5rem);line-height:1.02;letter-spacing:-.015em;
+  margin:0 auto .9rem;max-width:14ch;
+}
+.mp-title em{font-style:italic;color:var(--mp-gold-soft)}
+.mp-lede{
+  max-width:54ch;margin:0 auto;
+  color:var(--mp-on-dark-soft);font-size:1.06rem;line-height:1.65;
+}
+.mp-scrollcue{
+  margin-top:2rem;display:inline-flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--mp-on-dark-faint);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+}
+.mp-scrollcue svg{animation:mp-bob 1.8s var(--mp-ease) infinite}
+@keyframes mp-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ============================================================
+   SCROLL-PINNED STAGE  (desktop)
+   .mp-scroller is tall; .mp-stage sticks; scroll progress drives JS.
+   ============================================================ */
+.mp-scroller{position:relative;z-index:2;height:560vh}
+.mp-stage{
+  position:sticky;top:0;height:100vh;min-height:640px;
+  display:grid;grid-template-columns:minmax(280px,360px) 1fr;
+  align-items:stretch;gap:0;overflow:hidden;
+}
+
+/* ---------- Chapter rail ---------- */
+.mp-rail{
+  position:relative;z-index:4;
+  align-self:center;
+  padding:2rem 1.4rem 2rem 2.6rem;
+  display:flex;flex-direction:column;gap:.15rem;
+}
+.mp-rail-head{
+  font-family:var(--mp-sans);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--mp-on-dark-faint);margin-bottom:1.1rem;
+}
+.mp-stop{
+  position:relative;display:flex;align-items:center;gap:.9rem;
+  width:100%;text-align:left;padding:.5rem .2rem;
+  color:var(--mp-on-dark-soft);
+  font-family:var(--mp-sans);font-size:.9rem;font-weight:500;letter-spacing:.01em;
+  transition:color .35s var(--mp-ease);
+  border-radius:6px;
+}
+.mp-stop:focus-visible{outline:2px solid var(--mp-gold);outline-offset:3px}
+.mp-stop-dot{
+  flex:0 0 auto;width:11px;height:11px;border-radius:50%;
+  border:1.5px solid var(--mp-line);background:var(--mp-navy-deep);
+  position:relative;transition:all .4s var(--mp-ease);
+}
+.mp-stop-dot::after{
+  content:"";position:absolute;inset:-7px;border-radius:50%;
+  border:1px solid var(--mp-gold);opacity:0;transform:scale(.6);
+  transition:opacity .4s var(--mp-ease),transform .4s var(--mp-ease);
+}
+/* connecting line between dots */
+.mp-stop::before{
+  content:"";position:absolute;left:5px;top:-50%;width:1.5px;height:100%;
+  background:var(--mp-line-soft);z-index:-1;
+}
+.mp-stop:first-of-type::before{display:none}
+.mp-stop.is-active{color:var(--mp-ivory)}
+.mp-stop.is-active .mp-stop-dot{
+  background:var(--mp-gold);border-color:var(--mp-gold);
+  box-shadow:0 0 14px rgba(200,165,96,.7);
+}
+.mp-stop.is-active .mp-stop-dot::after{opacity:1;transform:scale(1)}
+.mp-stop.is-done .mp-stop-dot{background:var(--mp-gold-deep);border-color:var(--mp-gold-deep)}
+.mp-stop-idx{
+  font-family:var(--mp-serif);font-style:italic;font-size:.95rem;
+  color:var(--mp-gold);min-width:1.6em;opacity:.85;
+}
+
+/* ---------- Map area ---------- */
+.mp-mapwrap{
+  position:relative;z-index:1;overflow:hidden;
+  border-left:1px solid var(--mp-line-soft);
+}
+.mp-camera{
+  position:absolute;inset:0;
+  transform-origin:0 0;
+  transition:transform 1.15s var(--mp-ease);
+  will-change:transform;
+}
+.mp-map{
+  position:absolute;top:50%;left:50%;
+  width:min(86%,760px);aspect-ratio:1/1;
+  transform:translate(-50%,-50%);
+}
+.mp-map svg{width:100%;height:100%;overflow:visible;display:block}
+
+/* France landmass */
+.mp-land{
+  fill:#10193f;
+  stroke:rgba(200,165,96,.5);stroke-width:1.6;
+  filter:drop-shadow(0 24px 60px rgba(0,0,0,.55));
+}
+.mp-land-inner{fill:none;stroke:rgba(243,238,227,.06);stroke-width:1}
+/* faint lat/long graticule for cartographic feel */
+.mp-grid line{stroke:rgba(243,238,227,.05);stroke-width:1}
+
+/* the gold route */
+.mp-route{
+  fill:none;stroke:var(--mp-gold);stroke-width:2.6;
+  stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 6px rgba(200,165,96,.55));
+}
+.mp-route-bg{fill:none;stroke:rgba(200,165,96,.14);stroke-width:2.6;stroke-linecap:round}
+
+/* comet that rides the path */
+.mp-comet{fill:var(--mp-ivory);filter:drop-shadow(0 0 10px rgba(245,239,229,.9))}
+.mp-comet-glow{fill:var(--mp-gold);opacity:.5}
+
+/* city POIs */
+.mp-poi{cursor:pointer}
+.mp-poi-ring{
+  fill:none;stroke:var(--mp-gold);stroke-width:1.5;
+  opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.4);
+  transition:opacity .5s var(--mp-ease),transform .5s var(--mp-ease);
+}
+.mp-poi-core{
+  fill:var(--mp-navy-deep);stroke:var(--mp-gold);stroke-width:1.8;
+  transition:all .45s var(--mp-ease);transform-box:fill-box;transform-origin:center;
+}
+.mp-poi-label{
+  fill:var(--mp-on-dark-soft);font-family:var(--mp-sans);font-size:13px;font-weight:600;
+  letter-spacing:.04em;opacity:.55;transition:opacity .4s var(--mp-ease),fill .4s var(--mp-ease);
+}
+.mp-poi.is-lit .mp-poi-core{fill:var(--mp-gold);box-shadow:0 0 20px var(--mp-gold)}
+.mp-poi.is-lit .mp-poi-ring{opacity:.9;transform:scale(1)}
+.mp-poi.is-lit .mp-poi-label{opacity:1;fill:var(--mp-ivory)}
+.mp-poi.is-done .mp-poi-core{fill:var(--mp-gold-deep);stroke:var(--mp-gold-deep)}
+.mp-poi-pulse{
+  fill:none;stroke:var(--mp-gold);stroke-width:1.5;opacity:0;
+  transform-box:fill-box;transform-origin:center;
+}
+.mp-poi.is-lit .mp-poi-pulse{animation:mp-ping 2.4s var(--mp-ease) infinite}
+@keyframes mp-ping{0%{opacity:.7;transform:scale(.5)}80%,100%{opacity:0;transform:scale(2.6)}}
+
+/* region glow halo (drawn behind active city) */
+.mp-region-glow{
+  fill:var(--mp-gold);opacity:0;
+  transform-box:fill-box;transform-origin:center;transform:scale(.5);
+  transition:opacity .7s var(--mp-ease),transform .7s var(--mp-ease);
+  filter:blur(14px);
+}
+.mp-region-glow.is-on{opacity:.22;transform:scale(1)}
+
+/* ---------- Floating story card (pinned, crossfades) ---------- */
+.mp-cards{
+  position:absolute;z-index:5;
+  right:clamp(1.2rem,3vw,3.2rem);bottom:clamp(1.2rem,4vh,3rem);
+  width:min(390px,42vw);
+  pointer-events:none;
+}
+.mp-card{
+  position:absolute;inset:auto 0 0 0;
+  background:linear-gradient(180deg,rgba(20,27,60,.92),rgba(11,19,64,.92));
+  border:1px solid var(--mp-line);
+  border-radius:14px;
+  padding:1.5rem 1.6rem 1.7rem;
+  box-shadow:0 30px 70px rgba(0,0,0,.5),inset 0 1px 0 rgba(243,238,227,.06);
+  backdrop-filter:blur(8px);
+  opacity:0;transform:translateY(18px) scale(.985);
+  transition:opacity .55s var(--mp-ease),transform .55s var(--mp-ease);
+  pointer-events:none;
+}
+.mp-card.is-active{opacity:1;transform:none;pointer-events:auto}
+.mp-card-top{display:flex;align-items:center;gap:.85rem;margin-bottom:.9rem}
+.mp-card-portrait{
+  flex:0 0 auto;width:54px;height:54px;border-radius:50%;object-fit:cover;
+  border:1.5px solid var(--mp-gold);box-shadow:0 0 0 4px rgba(200,165,96,.12);
+}
+.mp-card-meta{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.mp-card-place{
+  font-family:var(--mp-sans);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mp-gold);font-weight:600;
+}
+.mp-card-teacher{font-family:var(--mp-serif);font-size:1.45rem;line-height:1.05;color:var(--mp-ivory)}
+.mp-card-teacher span{font-size:.78rem;font-family:var(--mp-sans);color:var(--mp-on-dark-faint);letter-spacing:.02em}
+.mp-card-pillar{
+  font-family:var(--mp-serif);font-style:italic;font-size:1.18rem;color:var(--mp-gold-soft);
+  margin-bottom:.55rem;
+}
+.mp-card-lvl{
+  display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mp-navy);background:var(--mp-gold);border-radius:100px;padding:.22rem .6rem;margin-bottom:.7rem;
+}
+.mp-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.38rem}
+.mp-card li{
+  position:relative;padding-left:1.2rem;font-size:.86rem;line-height:1.4;color:var(--mp-on-dark-soft);
+}
+.mp-card li::before{
+  content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;
+  background:var(--mp-gold);box-shadow:0 0 6px rgba(200,165,96,.6);
+}
+
+/* progress meter on the map (A0 -> Fluency) */
+.mp-meter{
+  position:absolute;z-index:5;left:clamp(1rem,3vw,2.4rem);bottom:clamp(1rem,4vh,2.4rem);
+  display:flex;align-items:center;gap:.8rem;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mp-on-dark-faint);
+}
+.mp-meter-track{width:clamp(90px,14vw,180px);height:3px;background:var(--mp-line-soft);border-radius:3px;overflow:hidden}
+.mp-meter-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--mp-gold-deep),var(--mp-gold-soft));transition:width .9s var(--mp-ease)}
+.mp-meter-end{color:var(--mp-gold);font-weight:600}
+
+/* ============================================================
+   FLUENCY DESTINATION + CTA  (after the pinned scroll)
+   ============================================================ */
+.mp-finale{
+  position:relative;z-index:2;text-align:center;
+  padding:5.5rem 1.5rem 6.5rem;
+  max-width:760px;margin:0 auto;
+}
+.mp-finale-mark{
+  width:64px;height:64px;margin:0 auto 1.6rem;display:block;
+  filter:drop-shadow(0 0 18px rgba(200,165,96,.5));
+}
+.mp-finale h3{
+  font-family:var(--mp-serif);font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin-bottom:1rem;
+}
+.mp-finale h3 em{font-style:italic;color:var(--mp-gold-soft)}
+.mp-finale p{color:var(--mp-on-dark-soft);font-size:1.05rem;max-width:48ch;margin:0 auto 2rem}
+
+/* 3D tactile CTA */
+.mp-cta{
+  --c:var(--mp-gold);
+  position:relative;display:inline-flex;align-items:center;gap:.7rem;
+  font-family:var(--mp-sans);font-weight:700;font-size:.95rem;letter-spacing:.04em;
+  color:var(--mp-navy);background:linear-gradient(180deg,var(--mp-gold-soft),var(--mp-gold) 60%,var(--mp-gold-deep));
+  padding:1.05rem 2.2rem;border-radius:100px;cursor:pointer;
+  box-shadow:0 2px 0 var(--mp-gold-deep),0 10px 24px rgba(200,165,96,.32),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .18s var(--mp-ease-out),box-shadow .18s var(--mp-ease-out);
+  overflow:hidden;border:none;
+}
+.mp-cta::after{ /* sheen sweep */
+  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg);transition:left .6s var(--mp-ease);
+}
+.mp-cta:hover{transform:translateY(-2px);box-shadow:0 4px 0 var(--mp-gold-deep),0 16px 34px rgba(200,165,96,.42),inset 0 1px 0 rgba(255,255,255,.6)}
+.mp-cta:hover::after{left:120%}
+.mp-cta:active{transform:translateY(1px);box-shadow:0 1px 0 var(--mp-gold-deep),0 6px 16px rgba(200,165,96,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+.mp-cta:focus-visible{outline:2px solid var(--mp-ivory);outline-offset:4px}
+.mp-cta svg{width:18px;height:18px}
+
+/* ============================================================
+   MOBILE  — no scroll-pin; tap-driven stop list
+   ============================================================ */
+.mp-mobile{display:none}
+
+@media (max-width:880px){
+  .mp-scroller{height:auto !important}
+  .mp-stage{position:relative;height:auto;min-height:0;display:block}
+  .mp-rail,.mp-cards,.mp-meter{display:none}
+  .mp-mapwrap{display:none}
+
+  .mp-mobile{display:block;position:relative;z-index:2;padding:1rem 1.1rem 1rem}
+  .mp-m-map{
+    position:relative;width:100%;max-width:420px;margin:0 auto 1.4rem;
+    aspect-ratio:1/1;
+  }
+  .mp-m-map svg{width:100%;height:100%;overflow:visible}
+  .mp-m-list{display:flex;flex-direction:column;gap:.8rem;max-width:520px;margin:0 auto}
+  .mp-m-stop{
+    display:block;width:100%;text-align:left;
+    background:linear-gradient(180deg,rgba(20,27,60,.7),rgba(11,19,64,.7));
+    border:1px solid var(--mp-line-soft);border-radius:13px;
+    padding:1rem 1.1rem;color:var(--mp-on-dark);
+    transition:border-color .3s var(--mp-ease),background .3s var(--mp-ease);
+  }
+  .mp-m-stop:focus-visible{outline:2px solid var(--mp-gold);outline-offset:2px}
+  .mp-m-stop.is-open{border-color:var(--mp-line);background:linear-gradient(180deg,rgba(28,37,78,.92),rgba(15,23,72,.92))}
+  .mp-m-stophead{display:flex;align-items:center;gap:.85rem}
+  .mp-m-idx{font-family:var(--mp-serif);font-style:italic;color:var(--mp-gold);font-size:1.05rem;min-width:1.5em}
+  .mp-m-portrait{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1.5px solid var(--mp-gold)}
+  .mp-m-tt{display:flex;flex-direction:column;gap:.1rem;min-width:0;flex:1}
+  .mp-m-place{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mp-gold);font-weight:600}
+  .mp-m-teacher{font-family:var(--mp-serif);font-size:1.2rem;color:var(--mp-ivory);line-height:1.1}
+  .mp-m-chev{margin-left:auto;color:var(--mp-gold);transition:transform .35s var(--mp-ease)}
+  .mp-m-stop.is-open .mp-m-chev{transform:rotate(180deg)}
+  .mp-m-body{
+    display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--mp-ease);
+    overflow:hidden;
+  }
+  .mp-m-stop.is-open .mp-m-body{grid-template-rows:1fr;margin-top:.85rem}
+  .mp-m-body>div{min-height:0;overflow:hidden}
+  .mp-m-pillar{font-family:var(--mp-serif);font-style:italic;color:var(--mp-gold-soft);font-size:1.05rem;margin-bottom:.5rem}
+  .mp-m-lvl{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mp-navy);background:var(--mp-gold);border-radius:100px;padding:.2rem .55rem;margin-bottom:.6rem}
+  .mp-m-body ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem}
+  .mp-m-body li{position:relative;padding-left:1.15rem;font-size:.85rem;line-height:1.4;color:var(--mp-on-dark-soft)}
+  .mp-m-body li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--mp-gold)}
+  .mp-intro{padding-top:3.5rem}
+  .mp-finale{padding:3rem 1.2rem 4rem}
+}
+
+/* ============================================================
+   REDUCED MOTION — show everything statically, no camera fly
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  .mp-camera{transition:none !important}
+  .mp-card{transition:opacity .2s linear}
+  .mp-scrollcue svg{animation:none}
+  .mp-poi.is-lit .mp-poi-pulse{animation:none}
+  .mp-cta::after{display:none}
+}

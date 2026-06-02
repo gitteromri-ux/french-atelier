@@ -1,0 +1,11 @@
+VIDEO_CRUSH_DONE
+4.0K	video_opt/_done.txt
+3.6M	video_opt/demo-class.mp4
+872K	video_opt/evening-classes-2.mp4
+652K	video_opt/evening-classes-full.mp4
+1.5M	video_opt/pillar-art.mp4
+1.1M	video_opt/pillar-fashion.mp4
+1.9M	video_opt/pillar-gastronomy.mp4
+1.4M	video_opt/pillar-music.mp4
+1000K	video_opt/pillar-tradition.mp4
+3.2M	video_opt/pillar-travel.mp4

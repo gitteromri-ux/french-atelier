@@ -1,0 +1,57 @@
+<!-- ============================================================
+     FRENCH ATELIER — SHARED NAV  (Agent 5)
+     Copy-paste verbatim near the top of <body> on EVERY page.
+     Requires: css/fa.css + js/fa.js (handles scroll state, drawer, modal).
+     The "Talk to an Advisor" button carries data-advisor to open the modal.
+     Adjust href paths if a page is in a subfolder.
+     ============================================================ -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="index.html" aria-label="French Atelier — home">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <rect width="100" height="100" rx="6" fill="#0B1340"/>
+        <circle cx="50" cy="50" r="40" stroke="#C8A560" stroke-width="2"/>
+        <text x="50" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
+      <span class="logo-text">
+        <span class="lt-main">French Atelier</span>
+        <span class="lt-sub">by Acadomia</span>
+      </span>
+    </a>
+
+    <nav class="nav-menu" aria-label="Primary">
+      <span class="nav-item"><a class="nav-link" href="courses.html">Courses</a></span>
+      <span class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></span>
+      <span class="nav-item"><a class="nav-link" href="method.html">Method</a></span>
+      <span class="nav-item"><a class="nav-link" href="teachers.html">Teachers</a></span>
+      <span class="nav-item"><a class="nav-link" href="culture.html">Culture</a></span>
+      <span class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></span>
+      <span class="nav-item"><a class="nav-link" href="blog.html">Blog</a></span>
+      <span class="nav-item"><a class="nav-link" href="contact.html">Contact</a></span>
+    </nav>
+
+    <button class="btn btn-3d btn-3d-primary nav-cta" data-advisor type="button">
+      Talk to an Advisor
+    </button>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-controls="navDrawer" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile menu">
+  <button class="nav-drawer-close" aria-label="Close menu" type="button">&times;</button>
+  <a href="courses.html">Courses</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="method.html">Method</a>
+  <a href="teachers.html">Teachers</a>
+  <a href="culture.html">Culture</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <button class="btn btn-3d btn-3d-primary" data-advisor type="button" style="width:100%;margin-top:1.6rem">
+    Talk to an Advisor
+  </button>
+</aside>

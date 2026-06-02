@@ -1,0 +1,61 @@
+<!-- ============================================================
+     FRENCH ATELIER — BLACK POWER-STRIP  (Agent 5)
+     Two variants. The marquee track is DUPLICATED (two identical
+     .marquee-group blocks) so the loop is seamless — keep both.
+     Pauses on hover. Logos auto-render as clean ivory (CSS filter).
+     Note: fft is a .jpg; the others are .png.
+     ============================================================ -->
+
+<!-- VARIANT A — simple logo marquee strip -->
+<section class="power-strip">
+  <div class="power-strip-eyebrow">Recognised &amp; trusted across France</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Adéquat Academy" loading="lazy">
+      </div>
+      <!-- duplicate (aria-hidden) for seamless loop — DO NOT remove -->
+      <div class="marquee-group" aria-hidden="true">
+        <img src="assets/partners/white/grandprix.png" alt="" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT B — power-claim headline beside the marquee -->
+<section class="power-strip power-strip-claim">
+  <div class="wrap">
+    <div class="power-claim-inner">
+      <div class="power-claim-text">
+        <span class="pc-eyebrow">Presented by</span>
+        <h2>France&rsquo;s <em>#1</em> private learning institute</h2>
+      </div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-group">
+            <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
+            <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
+            <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
+            <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
+            <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Adéquat Academy" loading="lazy">
+          </div>
+          <div class="marquee-group" aria-hidden="true">
+            <img src="assets/partners/white/grandprix.png" alt="" loading="lazy">
+            <img src="assets/partners/white/capital.png" alt="" loading="lazy">
+            <img src="assets/partners/white/fft.png" alt="" loading="lazy">
+            <img src="assets/partners/white/ffgolf.png" alt="" loading="lazy">
+            <img src="assets/partners/white/tonyparker.png" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

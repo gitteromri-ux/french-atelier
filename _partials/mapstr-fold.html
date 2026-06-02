@@ -1,0 +1,454 @@
+<!-- ============================================================
+     MAPSTR SIGNATURE FOLD — "Your Authentic French Journey to Fluency"
+     Self-contained. Link: css/mapstr.css  +  js/mapstr.js
+     ============================================================ -->
+<section class="mp-fold" id="mapstr" aria-labelledby="mp-title">
+
+  <!-- Intro -->
+  <div class="mp-intro">
+    <span class="mp-kicker">An Interactive Map of France</span>
+    <h2 class="mp-title" id="mp-title">Your Authentic French Journey <em>to Fluency</em></h2>
+    <p class="mp-lede">Trace a living route across real French places — from your first <em>bonjour</em> to true fluency. Each stop pairs a culture pillar with the native teacher who guides you there, live from France.</p>
+    <span class="mp-scrollcue" aria-hidden="true">Scroll to begin
+      <svg width="16" height="22" viewBox="0 0 16 22" fill="none"><rect x="1" y="1" width="14" height="20" rx="7" stroke="#C8A560" stroke-opacity=".5"/><circle cx="8" cy="7" r="2" fill="#C8A560"/></svg>
+    </span>
+  </div>
+
+  <!-- ===== Desktop scroll-pinned stage ===== -->
+  <div class="mp-scroller" data-scroller>
+    <div class="mp-stage">
+      <!-- chapter rail -->
+      <nav class="mp-rail" aria-label="Journey stops">
+        <div class="mp-rail-head">The Route · A0 → Fluency</div>
+        <button class="mp-stop" data-stop="0" type="button" aria-label="Go to stop 1: Carmèle in Paris">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">01</span>
+  <span>Carmèle · Paris</span>
+</button>
+<button class="mp-stop" data-stop="1" type="button" aria-label="Go to stop 2: Charline in Paris">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">02</span>
+  <span>Charline · Paris</span>
+</button>
+<button class="mp-stop" data-stop="2" type="button" aria-label="Go to stop 3: Philippe in West Paris">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">03</span>
+  <span>Philippe · West Paris</span>
+</button>
+<button class="mp-stop" data-stop="3" type="button" aria-label="Go to stop 4: Caitlin in Strasbourg">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">04</span>
+  <span>Caitlin · Strasbourg</span>
+</button>
+<button class="mp-stop" data-stop="4" type="button" aria-label="Go to stop 5: Iris in Lyon">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">05</span>
+  <span>Iris · Lyon</span>
+</button>
+<button class="mp-stop" data-stop="5" type="button" aria-label="Go to stop 6: Corentin in Pau">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">06</span>
+  <span>Corentin · Pau</span>
+</button>
+<button class="mp-stop" data-stop="6" type="button" aria-label="Go to stop 7: Shanice in Montpellier">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">07</span>
+  <span>Shanice · Montpellier</span>
+</button>
+<button class="mp-stop" data-stop="7" type="button" aria-label="Go to stop 8: Stan in Nice">
+  <span class="mp-stop-dot"></span>
+  <span class="mp-stop-idx">08</span>
+  <span>Stan · Nice</span>
+</button>
+
+      </nav>
+
+      <!-- map -->
+      <div class="mp-mapwrap">
+        <div class="mp-camera" data-camera>
+          <div class="mp-map">
+            <svg viewBox="0 0 1000 1000" role="img" aria-label="Stylised map of France with the journey route and teacher cities">
+              <g class="mp-grid"><line x1="150" y1="60" x2="150" y2="940"/><line x1="300" y1="60" x2="300" y2="940"/><line x1="450" y1="60" x2="450" y2="940"/><line x1="600" y1="60" x2="600" y2="940"/><line x1="750" y1="60" x2="750" y2="940"/><line x1="900" y1="60" x2="900" y2="940"/><line x1="60" y1="150" x2="940" y2="150"/><line x1="60" y1="300" x2="940" y2="300"/><line x1="60" y1="450" x2="940" y2="450"/><line x1="60" y1="600" x2="940" y2="600"/><line x1="60" y1="750" x2="940" y2="750"/><line x1="60" y1="900" x2="940" y2="900"/></g>
+              <ellipse class="mp-region-glow" data-glow="paris" cx="541.3" cy="291.4" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="westparis" cx="511.6" cy="296.2" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="strasbourg" cx="898.3" cy="317.4" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="lyon" cx="705.2" cy="589.1" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="pau" cx="361.5" cy="826.2" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="montpellier" cx="642.5" cy="796.3" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="nice" cx="866.5" cy="787.6" rx="95" ry="95"/>
+
+              <path class="mp-land" d="M 542.6,81.3 L 492.4,89.0 L 399.2,209.5 L 279.5,211.4 L 313.3,243.2 L 258.4,310.6 L 203.5,325.1 L 70.0,334.7 L 100.4,392.5 L 227.3,443.6 L 306.6,537.1 L 303.3,609.3 L 299.4,715.3 L 283.5,817.5 L 337.1,862.8 L 429.6,884.9 L 481.8,910.0 L 561.8,918.7 L 587.6,853.1 L 653.7,802.1 L 706.6,813.6 L 740.9,826.2 L 793.2,843.5 L 853.3,802.1 L 883.1,779.9 L 839.4,724.0 L 851.3,615.1 L 815.6,524.6 L 789.2,440.7 L 887.7,412.8 L 930.0,279.8 L 890.3,272.1 L 806.4,232.6 L 771.4,223.9 L 665.6,154.5 L 628.6,147.8 L 542.6,81.3 Z"/>
+              <path class="mp-route-bg" d="M 567.3,261.4 L 566.7,262.1 L 566.1,262.9 L 565.3,263.8 L 564.5,264.9 L 563.7,266.0 L 562.8,267.2 L 561.8,268.5 L 560.8,269.9 L 559.7,271.3 L 558.6,272.7 L 557.5,274.2 L 556.3,275.7 L 555.1,277.2 L 553.9,278.7 L 552.6,280.2 L 551.4,281.7 L 550.1,283.2 L 548.8,284.5 L 547.5,285.9 L 546.3,287.2 L 545.0,288.4 L 543.7,289.5 L 542.5,290.5 L 541.3,291.4 L 539.7,292.2 L 537.5,293.0 L 534.7,293.6 L 531.5,294.3 L 527.8,294.8 L 523.9,295.3 L 519.8,295.8 L 515.6,296.3 L 511.4,296.7 L 507.2,297.0 L 503.2,297.4 L 499.5,297.7 L 496.2,298.0 L 493.3,298.4 L 490.9,298.7 L 489.2,299.0 L 488.3,299.3 L 488.1,299.6 L 488.9,300.0 L 490.6,300.4 L 493.5,300.8 L 497.5,301.2 L 502.9,301.7 L 509.6,302.2 L 518.2,302.5 L 529.1,302.5 L 542.0,302.1 L 556.8,301.5 L 573.1,300.7 L 590.9,299.7 L 609.7,298.6 L 629.6,297.4 L 650.1,296.3 L 671.2,295.2 L 692.6,294.3 L 714.0,293.5 L 735.3,292.9 L 756.3,292.7 L 776.7,292.7 L 796.3,293.2 L 814.8,294.1 L 832.2,295.5 L 848.1,297.4 L 862.3,300.0 L 874.7,303.2 L 884.9,307.1 L 892.9,311.9 L 898.3,317.4 L 901.5,323.8 L 903.1,331.2 L 903.0,339.3 L 901.5,348.2 L 898.6,357.9 L 894.5,368.1 L 889.1,378.9 L 882.6,390.2 L 875.1,402.0 L 866.7,414.2 L 857.5,426.7 L 847.5,439.4 L 836.9,452.3 L 825.8,465.4 L 814.2,478.5 L 802.3,491.6 L 790.1,504.7 L 777.7,517.6 L 765.3,530.3 L 752.8,542.9 L 740.5,555.0 L 728.4,566.9 L 716.6,578.2 L 705.2,589.1 L 693.2,599.9 L 679.8,610.9 L 665.2,622.2 L 649.4,633.7 L 632.7,645.3 L 615.2,657.1 L 597.2,668.8 L 578.7,680.6 L 559.9,692.3 L 541.0,703.9 L 522.3,715.3 L 503.7,726.5 L 485.6,737.5 L 468.0,748.1 L 451.3,758.4 L 435.4,768.2 L 420.6,777.6 L 407.0,786.5 L 394.9,794.8 L 384.4,802.5 L 375.6,809.6 L 368.7,815.9 L 364.0,821.5 L 361.5,826.2 L 361.3,830.0 L 363.2,833.0 L 367.1,835.1 L 372.8,836.4 L 380.2,837.0 L 389.2,837.0 L 399.5,836.4 L 411.0,835.2 L 423.6,833.6 L 437.2,831.6 L 451.5,829.2 L 466.5,826.6 L 482.0,823.8 L 497.8,820.8 L 513.8,817.7 L 529.9,814.6 L 545.9,811.5 L 561.6,808.5 L 576.9,805.7 L 591.7,803.1 L 605.8,800.8 L 619.1,798.9 L 631.4,797.4 L 642.5,796.3 L 653.1,795.5 L 663.9,794.8 L 674.8,794.1 L 685.7,793.5 L 696.7,793.0 L 707.8,792.4 L 718.8,791.9 L 729.7,791.5 L 740.5,791.1 L 751.2,790.7 L 761.7,790.4 L 772.1,790.1 L 782.1,789.8 L 791.9,789.5 L 801.4,789.3 L 810.5,789.1 L 819.3,788.9 L 827.6,788.7 L 835.4,788.5 L 842.8,788.3 L 849.6,788.1 L 855.9,788.0 L 861.5,787.8 L 866.5,787.6"/>
+              <path class="mp-route" data-route d="M 567.3,261.4 L 566.7,262.1 L 566.1,262.9 L 565.3,263.8 L 564.5,264.9 L 563.7,266.0 L 562.8,267.2 L 561.8,268.5 L 560.8,269.9 L 559.7,271.3 L 558.6,272.7 L 557.5,274.2 L 556.3,275.7 L 555.1,277.2 L 553.9,278.7 L 552.6,280.2 L 551.4,281.7 L 550.1,283.2 L 548.8,284.5 L 547.5,285.9 L 546.3,287.2 L 545.0,288.4 L 543.7,289.5 L 542.5,290.5 L 541.3,291.4 L 539.7,292.2 L 537.5,293.0 L 534.7,293.6 L 531.5,294.3 L 527.8,294.8 L 523.9,295.3 L 519.8,295.8 L 515.6,296.3 L 511.4,296.7 L 507.2,297.0 L 503.2,297.4 L 499.5,297.7 L 496.2,298.0 L 493.3,298.4 L 490.9,298.7 L 489.2,299.0 L 488.3,299.3 L 488.1,299.6 L 488.9,300.0 L 490.6,300.4 L 493.5,300.8 L 497.5,301.2 L 502.9,301.7 L 509.6,302.2 L 518.2,302.5 L 529.1,302.5 L 542.0,302.1 L 556.8,301.5 L 573.1,300.7 L 590.9,299.7 L 609.7,298.6 L 629.6,297.4 L 650.1,296.3 L 671.2,295.2 L 692.6,294.3 L 714.0,293.5 L 735.3,292.9 L 756.3,292.7 L 776.7,292.7 L 796.3,293.2 L 814.8,294.1 L 832.2,295.5 L 848.1,297.4 L 862.3,300.0 L 874.7,303.2 L 884.9,307.1 L 892.9,311.9 L 898.3,317.4 L 901.5,323.8 L 903.1,331.2 L 903.0,339.3 L 901.5,348.2 L 898.6,357.9 L 894.5,368.1 L 889.1,378.9 L 882.6,390.2 L 875.1,402.0 L 866.7,414.2 L 857.5,426.7 L 847.5,439.4 L 836.9,452.3 L 825.8,465.4 L 814.2,478.5 L 802.3,491.6 L 790.1,504.7 L 777.7,517.6 L 765.3,530.3 L 752.8,542.9 L 740.5,555.0 L 728.4,566.9 L 716.6,578.2 L 705.2,589.1 L 693.2,599.9 L 679.8,610.9 L 665.2,622.2 L 649.4,633.7 L 632.7,645.3 L 615.2,657.1 L 597.2,668.8 L 578.7,680.6 L 559.9,692.3 L 541.0,703.9 L 522.3,715.3 L 503.7,726.5 L 485.6,737.5 L 468.0,748.1 L 451.3,758.4 L 435.4,768.2 L 420.6,777.6 L 407.0,786.5 L 394.9,794.8 L 384.4,802.5 L 375.6,809.6 L 368.7,815.9 L 364.0,821.5 L 361.5,826.2 L 361.3,830.0 L 363.2,833.0 L 367.1,835.1 L 372.8,836.4 L 380.2,837.0 L 389.2,837.0 L 399.5,836.4 L 411.0,835.2 L 423.6,833.6 L 437.2,831.6 L 451.5,829.2 L 466.5,826.6 L 482.0,823.8 L 497.8,820.8 L 513.8,817.7 L 529.9,814.6 L 545.9,811.5 L 561.6,808.5 L 576.9,805.7 L 591.7,803.1 L 605.8,800.8 L 619.1,798.9 L 631.4,797.4 L 642.5,796.3 L 653.1,795.5 L 663.9,794.8 L 674.8,794.1 L 685.7,793.5 L 696.7,793.0 L 707.8,792.4 L 718.8,791.9 L 729.7,791.5 L 740.5,791.1 L 751.2,790.7 L 761.7,790.4 L 772.1,790.1 L 782.1,789.8 L 791.9,789.5 L 801.4,789.3 L 810.5,789.1 L 819.3,788.9 L 827.6,788.7 L 835.4,788.5 L 842.8,788.3 L 849.6,788.1 L 855.9,788.0 L 861.5,787.8 L 866.5,787.6"/>
+              <g data-comet>
+                <circle class="mp-comet-glow" r="9"/>
+                <circle class="mp-comet" r="4"/>
+              </g>
+              <g class="mp-poi" data-poi="paris" data-idx="0">
+  <circle class="mp-poi-pulse" cx="541.3" cy="291.4" r="9"/>
+  <circle class="mp-poi-ring" cx="541.3" cy="291.4" r="15"/>
+  <circle class="mp-poi-core" cx="541.3" cy="291.4" r="6"/>
+  <text class="mp-poi-label" x="559.3" y="281.4" text-anchor="start">Paris</text>
+</g>
+<g class="mp-poi" data-poi="westparis" data-idx="2">
+  <circle class="mp-poi-pulse" cx="511.6" cy="296.2" r="9"/>
+  <circle class="mp-poi-ring" cx="511.6" cy="296.2" r="15"/>
+  <circle class="mp-poi-core" cx="511.6" cy="296.2" r="6"/>
+  <text class="mp-poi-label" x="495.6" y="318.2" text-anchor="end">West Paris</text>
+</g>
+<g class="mp-poi" data-poi="strasbourg" data-idx="3">
+  <circle class="mp-poi-pulse" cx="898.3" cy="317.4" r="9"/>
+  <circle class="mp-poi-ring" cx="898.3" cy="317.4" r="15"/>
+  <circle class="mp-poi-core" cx="898.3" cy="317.4" r="6"/>
+  <text class="mp-poi-label" x="884.3" y="321.4" text-anchor="end">Strasbourg</text>
+</g>
+<g class="mp-poi" data-poi="lyon" data-idx="4">
+  <circle class="mp-poi-pulse" cx="705.2" cy="589.1" r="9"/>
+  <circle class="mp-poi-ring" cx="705.2" cy="589.1" r="15"/>
+  <circle class="mp-poi-core" cx="705.2" cy="589.1" r="6"/>
+  <text class="mp-poi-label" x="721.2" y="593.1" text-anchor="start">Lyon</text>
+</g>
+<g class="mp-poi" data-poi="pau" data-idx="5">
+  <circle class="mp-poi-pulse" cx="361.5" cy="826.2" r="9"/>
+  <circle class="mp-poi-ring" cx="361.5" cy="826.2" r="15"/>
+  <circle class="mp-poi-core" cx="361.5" cy="826.2" r="6"/>
+  <text class="mp-poi-label" x="377.5" y="830.2" text-anchor="start">Pau</text>
+</g>
+<g class="mp-poi" data-poi="montpellier" data-idx="6">
+  <circle class="mp-poi-pulse" cx="642.5" cy="796.3" r="9"/>
+  <circle class="mp-poi-ring" cx="642.5" cy="796.3" r="15"/>
+  <circle class="mp-poi-core" cx="642.5" cy="796.3" r="6"/>
+  <text class="mp-poi-label" x="658.5" y="812.3" text-anchor="start">Montpellier</text>
+</g>
+<g class="mp-poi" data-poi="nice" data-idx="7">
+  <circle class="mp-poi-pulse" cx="866.5" cy="787.6" r="9"/>
+  <circle class="mp-poi-ring" cx="866.5" cy="787.6" r="15"/>
+  <circle class="mp-poi-core" cx="866.5" cy="787.6" r="6"/>
+  <text class="mp-poi-label" x="852.5" y="779.6" text-anchor="end">Nice</text>
+</g>
+
+            </svg>
+          </div>
+        </div>
+
+        <!-- progress meter -->
+        <div class="mp-meter" aria-hidden="true">
+          <span>A0</span>
+          <span class="mp-meter-track"><span class="mp-meter-fill" data-meter></span></span>
+          <span class="mp-meter-end">Fluency</span>
+        </div>
+
+        <!-- pinned story cards -->
+        <div class="mp-cards">
+          <article class="mp-card" data-card="0">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/carmele.png" alt="Carmèle, native French teacher in Paris" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Paris, France</span>
+      <span class="mp-card-teacher">Carmèle <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">A0 · Bonjour</span>
+  <div class="mp-card-pillar">Art &amp; Architecture</div>
+  <ul><li>Explore Haussmannian vs. medieval styles</li><li>Decode city layout and arrondissements</li><li>Notre-Dame as cultural conversation point</li></ul>
+</article>
+<article class="mp-card" data-card="1">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/charline.jpg" alt="Charline, native French teacher in Paris" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Paris, France</span>
+      <span class="mp-card-teacher">Charline <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">A1 · Premiers mots</span>
+  <div class="mp-card-pillar">Fashion and Film</div>
+  <ul><li>Express style through comparisons</li><li>Learn color and material vocabulary</li><li>Decode elegance through language choices</li></ul>
+</article>
+<article class="mp-card" data-card="2">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/philippe.jpg" alt="Philippe, native French teacher in West Paris" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">West Paris, France</span>
+      <span class="mp-card-teacher">Philippe <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">A2 · Trouver sa voix</span>
+  <div class="mp-card-pillar">Music &amp; Poetry</div>
+  <ul><li>Celebrate La Fête de la Musique</li><li>Use jouer and time expressions</li><li>Connect rhythm and French grammar</li></ul>
+</article>
+<article class="mp-card" data-card="3">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/caitlin.jpg" alt="Caitlin, native French teacher in Strasbourg" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Strasbourg, France</span>
+      <span class="mp-card-teacher">Caitlin <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">B1 · Conversations</span>
+  <div class="mp-card-pillar">Tradition &amp; History</div>
+  <ul><li>Explore Bastille Day symbolism</li><li>Practice tu vs. vous respectfully</li><li>Engage with history through language</li></ul>
+</article>
+<article class="mp-card" data-card="4">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/iris.png" alt="Iris, native French teacher in Lyon" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Lyon, France</span>
+      <span class="mp-card-teacher">Iris <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">B1 · À table</span>
+  <div class="mp-card-pillar">Gastronomy &amp; Wine</div>
+  <ul><li>Experience the apéritif ritual</li><li>Learn to order like locals</li><li>Discover regional bars and bistros</li></ul>
+</article>
+<article class="mp-card" data-card="5">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/corentin.png" alt="Corentin, native French teacher in Pau" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Pau, France</span>
+      <span class="mp-card-teacher">Corentin <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">B2 · En route</span>
+  <div class="mp-card-pillar">Travel &amp; Landmarks</div>
+  <ul><li>Use maps and directions daily</li><li>Link verbs to real locations</li><li>Navigate Left Bank and Right</li></ul>
+</article>
+<article class="mp-card" data-card="6">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/shanice.png" alt="Shanice, native French teacher in Montpellier" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Montpellier, France</span>
+      <span class="mp-card-teacher">Shanice <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">B2 · Au quotidien</span>
+  <div class="mp-card-pillar">Real-life French</div>
+  <ul><li>Order confidently at cafés or markets</li><li>Speak fluently in everyday settings</li><li>Debate opinions politely</li></ul>
+</article>
+<article class="mp-card" data-card="7">
+  <div class="mp-card-top">
+    <img class="mp-card-portrait" src="assets/teachers/stan.png" alt="Stan, native French teacher in Nice" loading="lazy">
+    <div class="mp-card-meta">
+      <span class="mp-card-place">Nice, France</span>
+      <span class="mp-card-teacher">Stan <span>· live from France</span></span>
+    </div>
+  </div>
+  <span class="mp-card-lvl">C1 · Maîtrise</span>
+  <div class="mp-card-pillar">Fluency</div>
+  <ul><li>Listen to French podcasts</li><li>Use idiomatic phrases</li><li>Speak fluently in everyday and formal settings</li></ul>
+</article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Mobile tap-driven list ===== -->
+  <div class="mp-mobile">
+    <div class="mp-m-map">
+      <svg viewBox="0 0 1000 1000" role="img" aria-label="Map of France with teacher cities">
+        <g class="mp-grid"><line x1="150" y1="60" x2="150" y2="940"/><line x1="300" y1="60" x2="300" y2="940"/><line x1="450" y1="60" x2="450" y2="940"/><line x1="600" y1="60" x2="600" y2="940"/><line x1="750" y1="60" x2="750" y2="940"/><line x1="900" y1="60" x2="900" y2="940"/><line x1="60" y1="150" x2="940" y2="150"/><line x1="60" y1="300" x2="940" y2="300"/><line x1="60" y1="450" x2="940" y2="450"/><line x1="60" y1="600" x2="940" y2="600"/><line x1="60" y1="750" x2="940" y2="750"/><line x1="60" y1="900" x2="940" y2="900"/></g>
+        <ellipse class="mp-region-glow" data-glow="paris" cx="541.3" cy="291.4" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="westparis" cx="511.6" cy="296.2" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="strasbourg" cx="898.3" cy="317.4" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="lyon" cx="705.2" cy="589.1" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="pau" cx="361.5" cy="826.2" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="montpellier" cx="642.5" cy="796.3" rx="95" ry="95"/>
+<ellipse class="mp-region-glow" data-glow="nice" cx="866.5" cy="787.6" rx="95" ry="95"/>
+
+        <path class="mp-land" d="M 542.6,81.3 L 492.4,89.0 L 399.2,209.5 L 279.5,211.4 L 313.3,243.2 L 258.4,310.6 L 203.5,325.1 L 70.0,334.7 L 100.4,392.5 L 227.3,443.6 L 306.6,537.1 L 303.3,609.3 L 299.4,715.3 L 283.5,817.5 L 337.1,862.8 L 429.6,884.9 L 481.8,910.0 L 561.8,918.7 L 587.6,853.1 L 653.7,802.1 L 706.6,813.6 L 740.9,826.2 L 793.2,843.5 L 853.3,802.1 L 883.1,779.9 L 839.4,724.0 L 851.3,615.1 L 815.6,524.6 L 789.2,440.7 L 887.7,412.8 L 930.0,279.8 L 890.3,272.1 L 806.4,232.6 L 771.4,223.9 L 665.6,154.5 L 628.6,147.8 L 542.6,81.3 Z"/>
+        <path class="mp-route-bg" d="M 567.3,261.4 L 566.7,262.1 L 566.1,262.9 L 565.3,263.8 L 564.5,264.9 L 563.7,266.0 L 562.8,267.2 L 561.8,268.5 L 560.8,269.9 L 559.7,271.3 L 558.6,272.7 L 557.5,274.2 L 556.3,275.7 L 555.1,277.2 L 553.9,278.7 L 552.6,280.2 L 551.4,281.7 L 550.1,283.2 L 548.8,284.5 L 547.5,285.9 L 546.3,287.2 L 545.0,288.4 L 543.7,289.5 L 542.5,290.5 L 541.3,291.4 L 539.7,292.2 L 537.5,293.0 L 534.7,293.6 L 531.5,294.3 L 527.8,294.8 L 523.9,295.3 L 519.8,295.8 L 515.6,296.3 L 511.4,296.7 L 507.2,297.0 L 503.2,297.4 L 499.5,297.7 L 496.2,298.0 L 493.3,298.4 L 490.9,298.7 L 489.2,299.0 L 488.3,299.3 L 488.1,299.6 L 488.9,300.0 L 490.6,300.4 L 493.5,300.8 L 497.5,301.2 L 502.9,301.7 L 509.6,302.2 L 518.2,302.5 L 529.1,302.5 L 542.0,302.1 L 556.8,301.5 L 573.1,300.7 L 590.9,299.7 L 609.7,298.6 L 629.6,297.4 L 650.1,296.3 L 671.2,295.2 L 692.6,294.3 L 714.0,293.5 L 735.3,292.9 L 756.3,292.7 L 776.7,292.7 L 796.3,293.2 L 814.8,294.1 L 832.2,295.5 L 848.1,297.4 L 862.3,300.0 L 874.7,303.2 L 884.9,307.1 L 892.9,311.9 L 898.3,317.4 L 901.5,323.8 L 903.1,331.2 L 903.0,339.3 L 901.5,348.2 L 898.6,357.9 L 894.5,368.1 L 889.1,378.9 L 882.6,390.2 L 875.1,402.0 L 866.7,414.2 L 857.5,426.7 L 847.5,439.4 L 836.9,452.3 L 825.8,465.4 L 814.2,478.5 L 802.3,491.6 L 790.1,504.7 L 777.7,517.6 L 765.3,530.3 L 752.8,542.9 L 740.5,555.0 L 728.4,566.9 L 716.6,578.2 L 705.2,589.1 L 693.2,599.9 L 679.8,610.9 L 665.2,622.2 L 649.4,633.7 L 632.7,645.3 L 615.2,657.1 L 597.2,668.8 L 578.7,680.6 L 559.9,692.3 L 541.0,703.9 L 522.3,715.3 L 503.7,726.5 L 485.6,737.5 L 468.0,748.1 L 451.3,758.4 L 435.4,768.2 L 420.6,777.6 L 407.0,786.5 L 394.9,794.8 L 384.4,802.5 L 375.6,809.6 L 368.7,815.9 L 364.0,821.5 L 361.5,826.2 L 361.3,830.0 L 363.2,833.0 L 367.1,835.1 L 372.8,836.4 L 380.2,837.0 L 389.2,837.0 L 399.5,836.4 L 411.0,835.2 L 423.6,833.6 L 437.2,831.6 L 451.5,829.2 L 466.5,826.6 L 482.0,823.8 L 497.8,820.8 L 513.8,817.7 L 529.9,814.6 L 545.9,811.5 L 561.6,808.5 L 576.9,805.7 L 591.7,803.1 L 605.8,800.8 L 619.1,798.9 L 631.4,797.4 L 642.5,796.3 L 653.1,795.5 L 663.9,794.8 L 674.8,794.1 L 685.7,793.5 L 696.7,793.0 L 707.8,792.4 L 718.8,791.9 L 729.7,791.5 L 740.5,791.1 L 751.2,790.7 L 761.7,790.4 L 772.1,790.1 L 782.1,789.8 L 791.9,789.5 L 801.4,789.3 L 810.5,789.1 L 819.3,788.9 L 827.6,788.7 L 835.4,788.5 L 842.8,788.3 L 849.6,788.1 L 855.9,788.0 L 861.5,787.8 L 866.5,787.6"/>
+        <path class="mp-route" data-mroute d="M 567.3,261.4 L 566.7,262.1 L 566.1,262.9 L 565.3,263.8 L 564.5,264.9 L 563.7,266.0 L 562.8,267.2 L 561.8,268.5 L 560.8,269.9 L 559.7,271.3 L 558.6,272.7 L 557.5,274.2 L 556.3,275.7 L 555.1,277.2 L 553.9,278.7 L 552.6,280.2 L 551.4,281.7 L 550.1,283.2 L 548.8,284.5 L 547.5,285.9 L 546.3,287.2 L 545.0,288.4 L 543.7,289.5 L 542.5,290.5 L 541.3,291.4 L 539.7,292.2 L 537.5,293.0 L 534.7,293.6 L 531.5,294.3 L 527.8,294.8 L 523.9,295.3 L 519.8,295.8 L 515.6,296.3 L 511.4,296.7 L 507.2,297.0 L 503.2,297.4 L 499.5,297.7 L 496.2,298.0 L 493.3,298.4 L 490.9,298.7 L 489.2,299.0 L 488.3,299.3 L 488.1,299.6 L 488.9,300.0 L 490.6,300.4 L 493.5,300.8 L 497.5,301.2 L 502.9,301.7 L 509.6,302.2 L 518.2,302.5 L 529.1,302.5 L 542.0,302.1 L 556.8,301.5 L 573.1,300.7 L 590.9,299.7 L 609.7,298.6 L 629.6,297.4 L 650.1,296.3 L 671.2,295.2 L 692.6,294.3 L 714.0,293.5 L 735.3,292.9 L 756.3,292.7 L 776.7,292.7 L 796.3,293.2 L 814.8,294.1 L 832.2,295.5 L 848.1,297.4 L 862.3,300.0 L 874.7,303.2 L 884.9,307.1 L 892.9,311.9 L 898.3,317.4 L 901.5,323.8 L 903.1,331.2 L 903.0,339.3 L 901.5,348.2 L 898.6,357.9 L 894.5,368.1 L 889.1,378.9 L 882.6,390.2 L 875.1,402.0 L 866.7,414.2 L 857.5,426.7 L 847.5,439.4 L 836.9,452.3 L 825.8,465.4 L 814.2,478.5 L 802.3,491.6 L 790.1,504.7 L 777.7,517.6 L 765.3,530.3 L 752.8,542.9 L 740.5,555.0 L 728.4,566.9 L 716.6,578.2 L 705.2,589.1 L 693.2,599.9 L 679.8,610.9 L 665.2,622.2 L 649.4,633.7 L 632.7,645.3 L 615.2,657.1 L 597.2,668.8 L 578.7,680.6 L 559.9,692.3 L 541.0,703.9 L 522.3,715.3 L 503.7,726.5 L 485.6,737.5 L 468.0,748.1 L 451.3,758.4 L 435.4,768.2 L 420.6,777.6 L 407.0,786.5 L 394.9,794.8 L 384.4,802.5 L 375.6,809.6 L 368.7,815.9 L 364.0,821.5 L 361.5,826.2 L 361.3,830.0 L 363.2,833.0 L 367.1,835.1 L 372.8,836.4 L 380.2,837.0 L 389.2,837.0 L 399.5,836.4 L 411.0,835.2 L 423.6,833.6 L 437.2,831.6 L 451.5,829.2 L 466.5,826.6 L 482.0,823.8 L 497.8,820.8 L 513.8,817.7 L 529.9,814.6 L 545.9,811.5 L 561.6,808.5 L 576.9,805.7 L 591.7,803.1 L 605.8,800.8 L 619.1,798.9 L 631.4,797.4 L 642.5,796.3 L 653.1,795.5 L 663.9,794.8 L 674.8,794.1 L 685.7,793.5 L 696.7,793.0 L 707.8,792.4 L 718.8,791.9 L 729.7,791.5 L 740.5,791.1 L 751.2,790.7 L 761.7,790.4 L 772.1,790.1 L 782.1,789.8 L 791.9,789.5 L 801.4,789.3 L 810.5,789.1 L 819.3,788.9 L 827.6,788.7 L 835.4,788.5 L 842.8,788.3 L 849.6,788.1 L 855.9,788.0 L 861.5,787.8 L 866.5,787.6"/>
+        <g class="mp-poi" data-poi="paris" data-idx="0">
+  <circle class="mp-poi-pulse" cx="541.3" cy="291.4" r="9"/>
+  <circle class="mp-poi-ring" cx="541.3" cy="291.4" r="15"/>
+  <circle class="mp-poi-core" cx="541.3" cy="291.4" r="6"/>
+  <text class="mp-poi-label" x="559.3" y="281.4" text-anchor="start">Paris</text>
+</g>
+<g class="mp-poi" data-poi="westparis" data-idx="2">
+  <circle class="mp-poi-pulse" cx="511.6" cy="296.2" r="9"/>
+  <circle class="mp-poi-ring" cx="511.6" cy="296.2" r="15"/>
+  <circle class="mp-poi-core" cx="511.6" cy="296.2" r="6"/>
+  <text class="mp-poi-label" x="495.6" y="318.2" text-anchor="end">West Paris</text>
+</g>
+<g class="mp-poi" data-poi="strasbourg" data-idx="3">
+  <circle class="mp-poi-pulse" cx="898.3" cy="317.4" r="9"/>
+  <circle class="mp-poi-ring" cx="898.3" cy="317.4" r="15"/>
+  <circle class="mp-poi-core" cx="898.3" cy="317.4" r="6"/>
+  <text class="mp-poi-label" x="884.3" y="321.4" text-anchor="end">Strasbourg</text>
+</g>
+<g class="mp-poi" data-poi="lyon" data-idx="4">
+  <circle class="mp-poi-pulse" cx="705.2" cy="589.1" r="9"/>
+  <circle class="mp-poi-ring" cx="705.2" cy="589.1" r="15"/>
+  <circle class="mp-poi-core" cx="705.2" cy="589.1" r="6"/>
+  <text class="mp-poi-label" x="721.2" y="593.1" text-anchor="start">Lyon</text>
+</g>
+<g class="mp-poi" data-poi="pau" data-idx="5">
+  <circle class="mp-poi-pulse" cx="361.5" cy="826.2" r="9"/>
+  <circle class="mp-poi-ring" cx="361.5" cy="826.2" r="15"/>
+  <circle class="mp-poi-core" cx="361.5" cy="826.2" r="6"/>
+  <text class="mp-poi-label" x="377.5" y="830.2" text-anchor="start">Pau</text>
+</g>
+<g class="mp-poi" data-poi="montpellier" data-idx="6">
+  <circle class="mp-poi-pulse" cx="642.5" cy="796.3" r="9"/>
+  <circle class="mp-poi-ring" cx="642.5" cy="796.3" r="15"/>
+  <circle class="mp-poi-core" cx="642.5" cy="796.3" r="6"/>
+  <text class="mp-poi-label" x="658.5" y="812.3" text-anchor="start">Montpellier</text>
+</g>
+<g class="mp-poi" data-poi="nice" data-idx="7">
+  <circle class="mp-poi-pulse" cx="866.5" cy="787.6" r="9"/>
+  <circle class="mp-poi-ring" cx="866.5" cy="787.6" r="15"/>
+  <circle class="mp-poi-core" cx="866.5" cy="787.6" r="6"/>
+  <text class="mp-poi-label" x="852.5" y="779.6" text-anchor="end">Nice</text>
+</g>
+
+      </svg>
+    </div>
+    <div class="mp-m-list">
+      <button class="mp-m-stop is-open" data-mstop="0" data-city="paris" type="button" aria-expanded="true">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">01</span>
+    <img class="mp-m-portrait" src="assets/teachers/carmele.png" alt="Carmèle" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Paris · Art &amp; Architecture</span>
+      <span class="mp-m-teacher">Carmèle</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">A0 · Bonjour</span>
+    <div class="mp-m-pillar">Art &amp; Architecture</div>
+    <ul><li>Explore Haussmannian vs. medieval styles</li><li>Decode city layout and arrondissements</li><li>Notre-Dame as cultural conversation point</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="1" data-city="paris" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">02</span>
+    <img class="mp-m-portrait" src="assets/teachers/charline.jpg" alt="Charline" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Paris · Fashion and Film</span>
+      <span class="mp-m-teacher">Charline</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">A1 · Premiers mots</span>
+    <div class="mp-m-pillar">Fashion and Film</div>
+    <ul><li>Express style through comparisons</li><li>Learn color and material vocabulary</li><li>Decode elegance through language choices</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="2" data-city="westparis" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">03</span>
+    <img class="mp-m-portrait" src="assets/teachers/philippe.jpg" alt="Philippe" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">West Paris · Music &amp; Poetry</span>
+      <span class="mp-m-teacher">Philippe</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">A2 · Trouver sa voix</span>
+    <div class="mp-m-pillar">Music &amp; Poetry</div>
+    <ul><li>Celebrate La Fête de la Musique</li><li>Use jouer and time expressions</li><li>Connect rhythm and French grammar</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="3" data-city="strasbourg" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">04</span>
+    <img class="mp-m-portrait" src="assets/teachers/caitlin.jpg" alt="Caitlin" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Strasbourg · Tradition &amp; History</span>
+      <span class="mp-m-teacher">Caitlin</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">B1 · Conversations</span>
+    <div class="mp-m-pillar">Tradition &amp; History</div>
+    <ul><li>Explore Bastille Day symbolism</li><li>Practice tu vs. vous respectfully</li><li>Engage with history through language</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="4" data-city="lyon" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">05</span>
+    <img class="mp-m-portrait" src="assets/teachers/iris.png" alt="Iris" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Lyon · Gastronomy &amp; Wine</span>
+      <span class="mp-m-teacher">Iris</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">B1 · À table</span>
+    <div class="mp-m-pillar">Gastronomy &amp; Wine</div>
+    <ul><li>Experience the apéritif ritual</li><li>Learn to order like locals</li><li>Discover regional bars and bistros</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="5" data-city="pau" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">06</span>
+    <img class="mp-m-portrait" src="assets/teachers/corentin.png" alt="Corentin" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Pau · Travel &amp; Landmarks</span>
+      <span class="mp-m-teacher">Corentin</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">B2 · En route</span>
+    <div class="mp-m-pillar">Travel &amp; Landmarks</div>
+    <ul><li>Use maps and directions daily</li><li>Link verbs to real locations</li><li>Navigate Left Bank and Right</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="6" data-city="montpellier" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">07</span>
+    <img class="mp-m-portrait" src="assets/teachers/shanice.png" alt="Shanice" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Montpellier · Real-life French</span>
+      <span class="mp-m-teacher">Shanice</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">B2 · Au quotidien</span>
+    <div class="mp-m-pillar">Real-life French</div>
+    <ul><li>Order confidently at cafés or markets</li><li>Speak fluently in everyday settings</li><li>Debate opinions politely</li></ul>
+  </div></div>
+</button>
+<button class="mp-m-stop" data-mstop="7" data-city="nice" type="button" aria-expanded="false">
+  <div class="mp-m-stophead">
+    <span class="mp-m-idx">08</span>
+    <img class="mp-m-portrait" src="assets/teachers/stan.png" alt="Stan" loading="lazy">
+    <div class="mp-m-tt">
+      <span class="mp-m-place">Nice · Fluency</span>
+      <span class="mp-m-teacher">Stan</span>
+    </div>
+    <svg class="mp-m-chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="mp-m-body"><div>
+    <span class="mp-m-lvl">C1 · Maîtrise</span>
+    <div class="mp-m-pillar">Fluency</div>
+    <ul><li>Listen to French podcasts</li><li>Use idiomatic phrases</li><li>Speak fluently in everyday and formal settings</li></ul>
+  </div></div>
+</button>
+
+    </div>
+  </div>
+
+  <!-- ===== Fluency destination + CTA ===== -->
+  <div class="mp-finale reveal">
+    <svg class="mp-finale-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <circle cx="32" cy="32" r="30" stroke="#C8A560" stroke-width="1.5"/>
+  <path d="M32 8 L37 27 L56 32 L37 37 L32 56 L27 37 L8 32 L27 27 Z" fill="#C8A560"/>
+  <circle cx="32" cy="32" r="5" fill="#0B1340"/>
+</svg>
+    <h3>Arrive at <em>Fluency</em></h3>
+    <p>Eight regions. Six culture pillars. Native teachers, live from France. Your route ends where real conversation begins — start planning it with an advisor today.</p>
+    <button class="mp-cta" type="button" data-advisor>
+      Talk to an Advisor
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+</section>

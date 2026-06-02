@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="500" height="500">
+<rect width="1000" height="1000" fill="#0B1340"/>
+<path d="M 542.6,81.3 L 492.4,89.0 L 399.2,209.5 L 279.5,211.4 L 313.3,243.2 L 258.4,310.6 L 203.5,325.1 L 70.0,334.7 L 100.4,392.5 L 227.3,443.6 L 306.6,537.1 L 303.3,609.3 L 299.4,715.3 L 283.5,817.5 L 337.1,862.8 L 429.6,884.9 L 481.8,910.0 L 561.8,918.7 L 587.6,853.1 L 653.7,802.1 L 706.6,813.6 L 740.9,826.2 L 793.2,843.5 L 853.3,802.1 L 883.1,779.9 L 839.4,724.0 L 851.3,615.1 L 835.5,524.6 L 793.2,546.7 L 887.7,412.8 L 930.0,279.8 L 890.3,272.1 L 806.4,232.6 L 771.4,223.9 L 665.6,154.5 L 628.6,147.8 L 542.6,81.3 Z" fill="#141B3C" stroke="#C8A560" stroke-width="3"/>
+<circle cx="898.3" cy="317.4" r="9" fill="#C8A560"/><text x="910.3" y="317.4" fill="#fff" font-size="22">strasbourg</text>
+<circle cx="541.3" cy="291.4" r="9" fill="#C8A560"/><text x="553.3" y="291.4" fill="#fff" font-size="22">paris</text>
+<circle cx="511.6" cy="296.2" r="9" fill="#C8A560"/><text x="523.6" y="296.2" fill="#fff" font-size="22">westparis</text>
+<circle cx="705.2" cy="589.1" r="9" fill="#C8A560"/><text x="717.2" y="589.1" fill="#fff" font-size="22">lyon</text>
+<circle cx="361.5" cy="826.2" r="9" fill="#C8A560"/><text x="373.5" y="826.2" fill="#fff" font-size="22">pau</text>
+<circle cx="642.5" cy="796.3" r="9" fill="#C8A560"/><text x="654.5" y="796.3" fill="#fff" font-size="22">montpellier</text>
+<circle cx="866.5" cy="787.6" r="9" fill="#C8A560"/><text x="878.5" y="787.6" fill="#fff" font-size="22">nice</text>
+
+</svg>

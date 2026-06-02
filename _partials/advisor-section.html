@@ -1,0 +1,67 @@
+<!-- ============================================================
+     FRENCH ATELIER — INLINE ADVISOR SECTION  (Agent 5)
+     Drop into any page where you want the lead form embedded
+     (not as a modal). Same validation/success behavior as the modal.
+     Wrap is .advisor-section; left column is editorial copy, right is the card.
+     ============================================================ -->
+<section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
+  <div class="wrap">
+    <div class="advisor-split">
+      <div class="reveal">
+        <span class="eyebrow eyebrow-line">Speak with us</span>
+        <h2 class="display-md" style="margin:1rem 0 1.1rem">Plan your French<br><span class="gold-ital">Atelier</span> journey</h2>
+        <p class="lede">Leave your details and one of our academic advisors will guide you through open class dates, levels and scheduling — no obligation.</p>
+        <ul style="margin-top:1.6rem;display:flex;flex-direction:column;gap:.9rem">
+          <li style="display:flex;align-items:center;gap:.8rem;color:var(--on-light-soft)"><svg class="fa-icon" style="font-size:20px;color:var(--gold-deep)"><use href="#i-globe"/></svg> Native French teachers, live from France</li>
+          <li style="display:flex;align-items:center;gap:.8rem;color:var(--on-light-soft)"><svg class="fa-icon" style="font-size:20px;color:var(--gold-deep)"><use href="#i-certificate"/></svg> Certified &middot; CEFR-aligned</li>
+          <li style="display:flex;align-items:center;gap:.8rem;color:var(--on-light-soft)"><svg class="fa-icon" style="font-size:20px;color:var(--gold-deep)"><use href="#i-clock"/></svg> Flexible mornings &amp; late evenings</li>
+        </ul>
+      </div>
+
+      <div class="advisor-card reveal reveal-d1">
+        <div class="advisor-head">
+          <h3>Talk to an Advisor</h3>
+          <p>We&rsquo;ll reach out to plan your start.</p>
+        </div>
+        <form class="advisor-form" novalidate>
+          <div class="field">
+            <label for="inl-name">Name</label>
+            <input id="inl-name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="inl-email">Email</label>
+            <input id="inl-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="inl-level">French level</label>
+            <select id="inl-level" name="level">
+              <option value="" disabled selected>Select your level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="inl-time">Preferred time</label>
+            <input id="inl-time" name="time" type="text" placeholder="e.g. Weekday evenings (CET)">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="form-submit">
+            <button class="btn btn-3d btn-3d-primary" type="submit">
+              Request a Call
+              <svg class="fa-icon" style="font-size:17px"><use href="#i-arrow-right"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="advisor-success" role="status">
+          <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
+          <h3>Merci&nbsp;!</h3>
+          <p>Your request is on its way to our advisor. We&rsquo;ll be in touch shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
