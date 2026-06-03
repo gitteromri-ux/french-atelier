@@ -1707,3 +1707,434 @@ body.modal-open{overflow:hidden}
 .cpx-region-loc svg{width:15px;height:15px}
 @media(max-width:760px){.cpx-region{grid-template-columns:1fr}.cpx-region-img{min-height:220px}}
 /* ===== END INTERNAL COURSE PAGES ===== */
+
+/* ============================================================
+   HOMEPAGE FIXES — All 6 fixes (CEO/Board presentation)
+   ============================================================ */
+
+/* ============================================================
+   FIX 1 — COURSE HORIZONTAL PHASE PANELS (replacing small cards)
+   Like Longevity "phases" layout: numbered wide horizontal rows
+   Brand-only: navy/ivory/gold/terra/pink — NO teal/green/magenta/mustard
+   ============================================================ */
+.cph-track-label{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:.5rem 1.4rem;
+  padding:1.8rem 2rem;margin:2.4rem 0 0;
+  border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(200,169,107,.10),transparent 60%);
+  border-radius:0 12px 12px 0;
+}
+.cph-track-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+.cph-track-name{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:600;color:var(--on-light);flex:1;min-width:200px}
+.cph-track-name em{font-style:italic;color:var(--gold-deep)}
+.cph-track-meta{font-size:.78rem;letter-spacing:.06em;color:var(--on-light-soft);white-space:nowrap}
+
+/* Panels container */
+.cph-panels{
+  display:flex;flex-direction:column;gap:1.4rem;margin-top:1.6rem;
+}
+
+/* Each horizontal panel */
+.cph-panel{
+  display:grid;
+  grid-template-columns:100px 1fr auto;
+  align-items:center;gap:0;
+  border-radius:20px;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-soft) 100%);
+  border:1px solid rgba(200,169,107,.22);
+  box-shadow:0 24px 60px -38px rgba(0,0,52,.5),inset 0 1px 0 rgba(255,255,255,.10);
+  color:#fff;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+  position:relative;overflow:hidden;
+  /* per-panel accent used below */
+}
+.cph-panel::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--ph-accent,var(--gold)),var(--ph-accent2,var(--gold-deep)));
+}
+.cph-panel::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:40%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,0));
+  mix-blend-mode:screen;
+}
+@media(hover:hover){
+  .cph-panel:hover{transform:translateY(-4px);box-shadow:0 34px 72px -36px rgba(0,0,52,.6),inset 0 1px 0 rgba(255,255,255,.14)}
+}
+
+/* Big number */
+.cph-num{
+  font-family:var(--serif);font-size:clamp(2.8rem,5vw,4rem);font-weight:600;
+  color:var(--ph-accent,var(--gold-soft));line-height:1;
+  text-align:center;padding:2.2rem 1.4rem;
+  opacity:.82;position:relative;z-index:1;
+  flex-shrink:0;
+}
+
+/* Body area */
+.cph-body{
+  padding:2rem 1.8rem 2rem 0;position:relative;z-index:1;min-width:0;
+}
+.cph-head{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.75rem}
+.cph-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.cph-title{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2rem);font-weight:600;color:#fff;line-height:1.05}
+.cph-level-badge{
+  display:inline-flex;align-items:center;
+  font-size:.74rem;font-weight:600;letter-spacing:.04em;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(4px);padding:.38rem .85rem;border-radius:999px;
+  color:#fff;white-space:nowrap;
+  /* BRAND only — white/glass, NO teal/magenta/mustard */
+}
+.cph-tagline{
+  font-family:var(--serif);font-size:clamp(1rem,1.4vw,1.15rem);font-style:italic;
+  color:rgba(255,255,255,.85);margin:0 0 .5rem;max-width:58ch;line-height:1.45;
+}
+.cph-outcome{font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.5;margin:0 0 .9rem;max-width:56ch}
+.cph-meta{
+  display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.78rem;color:rgba(255,255,255,.62);
+  font-weight:500;
+}
+.cph-meta span{display:flex;align-items:center;gap:.45rem}
+.cph-meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ph-accent,var(--gold-soft));flex-shrink:0}
+
+/* CTA column */
+.cph-cta{
+  display:flex;flex-direction:column;gap:.8rem;padding:2rem 2rem 2rem 1.4rem;
+  position:relative;z-index:1;flex-shrink:0;
+}
+.cph-cta .btn{white-space:nowrap;font-size:.74rem;padding:.85rem 1.5rem}
+.cph-cta .btn-gold{background:rgba(255,255,255,.9);color:var(--navy);border:0}
+.cph-cta .btn-gold:hover{background:#fff}
+.cph-cta .btn-outline{border-color:rgba(255,255,255,.45);color:rgba(255,255,255,.9)}
+.cph-cta .btn-outline:hover{background:rgba(255,255,255,.14);color:#fff;border-color:#fff}
+
+/* LSF evening panels: slightly different tint */
+.cph-panel-lsf{
+  background:linear-gradient(135deg,#1A1330 0%,#2A1E38 100%);
+}
+
+@media(max-width:900px){
+  .cph-panel{grid-template-columns:72px 1fr;grid-template-rows:auto auto}
+  .cph-cta{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;padding:0 1.4rem 1.6rem}
+  .cph-body{padding-bottom:0}
+}
+@media(max-width:600px){
+  .cph-panel{grid-template-columns:56px 1fr}
+  .cph-num{font-size:2.2rem;padding:1.4rem 1rem}
+  .cph-body{padding:1.4rem 1.2rem 1rem 0}
+  .cph-cta{padding:0 1.2rem 1.4rem;gap:.6rem}
+  .cph-cta .btn{padding:.75rem 1.2rem}
+  .cph-track-label{padding:1.2rem 1.2rem}
+}
+
+/* ============================================================
+   FIX 2 — TEACHERS SECTION — Premium faculty gallery
+   ============================================================ */
+.tctr-head{text-align:center;margin-bottom:2rem}
+
+.tctr-badges{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.4rem;
+  margin-bottom:2.6rem;
+}
+.tctr-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold-deep);background:linear-gradient(135deg,rgba(200,169,107,.12),rgba(200,169,107,.04));
+  border:1px solid var(--gold-line-soft);border-radius:999px;padding:.52rem 1.1rem;
+}
+.tctr-badge svg{flex-shrink:0;color:var(--gold-deep)}
+
+/* 2×2 video grid */
+.tctr-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;
+}
+.tctr-card{
+  background:var(--white);border:1px solid var(--gold-line-soft);border-radius:18px;
+  overflow:hidden;box-shadow:0 18px 50px -30px rgba(11,19,64,.32);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+}
+.tctr-card:hover{transform:translateY(-6px);border-color:var(--gold-line);box-shadow:0 28px 64px -32px rgba(11,19,64,.4)}
+.tctr-frame{position:relative;aspect-ratio:16/9;background:#000}
+.tctr-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tctr-meta{
+  padding:1.2rem 1.4rem 1.4rem;
+  background:linear-gradient(180deg,#fff,var(--paper));
+}
+.tctr-namerow{display:flex;align-items:baseline;justify-content:space-between;gap:.8rem;margin-bottom:.35rem}
+.tctr-name{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--on-light)}
+.tctr-region-pill{
+  font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--navy);background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));
+  padding:.34rem .75rem;border-radius:999px;white-space:nowrap;
+  /* BRAND: gold/navy only — no teal/magenta */
+}
+.tctr-desc{font-size:.82rem;color:var(--on-light-soft);letter-spacing:.04em}
+
+/* "and many more" section */
+.tctr-more-wrap{margin-top:3rem;text-align:center}
+.tctr-more-label{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--on-light-soft);margin-bottom:1.6rem}
+.tctr-more-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;max-width:700px;margin:0 auto;
+}
+.tctr-mini{
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  text-decoration:none;padding:1.2rem;
+  background:var(--white);border:1px solid var(--gold-line-soft);border-radius:16px;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.tctr-mini:hover{transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(11,19,64,.28)}
+.tctr-mini-img{
+  width:80px;height:80px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--gold-line);flex-shrink:0;
+}
+.tctr-mini-img img{width:100%;height:100%;object-fit:cover}
+.tctr-mini-name{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--on-light);text-align:center}
+.tctr-mini-region{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);text-align:center}
+
+@media(max-width:860px){.tctr-grid{grid-template-columns:1fr}}
+@media(max-width:580px){
+  .tctr-more-grid{grid-template-columns:repeat(2,1fr);max-width:380px}
+  .tctr-mini-img{width:64px;height:64px}
+}
+
+/* ============================================================
+   FIX 3 — SORBONNE FOLD — Compress height
+   ============================================================ */
+.sorb{padding:clamp(2.4rem,4.5vw,3.8rem) 0!important}
+.sorb-head{margin:0 auto 1.8rem!important}
+.sorb-title{font-size:clamp(1.7rem,3.6vw,2.6rem)!important;margin:.9rem 0 0!important}
+.sorb-sub{margin:.9rem auto 0!important;font-size:clamp(.95rem,1.3vw,1.1rem)!important}
+.sorb-principles{gap:clamp(.7rem,1.6vw,1.2rem)!important}
+.sorb-pr{padding:clamp(1.2rem,2vw,1.7rem) clamp(1.1rem,1.8vw,1.5rem)!important}
+.sorb-pr-fr{margin-bottom:.55rem!important}
+.sorb-pr-tt{font-size:clamp(1.1rem,1.8vw,1.4rem)!important;margin-bottom:.55rem!important}
+.sorb-pr-tx{font-size:.92rem!important;line-height:1.56!important}
+.sorb-cred{margin:1.8rem auto 0!important;padding-top:1.2rem!important}
+
+/* ============================================================
+   FIX 4 — ACADOMIA LOGOS — Enlarge marquee images
+   ============================================================ */
+.ac-marquee-track img{height:72px!important;opacity:.75!important}
+@media(max-width:680px){.ac-marquee-track img{height:52px!important}}
+@media(max-width:400px){.ac-marquee-track img{height:44px!important}}
+/* Also widen the gap so larger logos breathe */
+.ac-marquee-track{gap:clamp(3rem,6vw,5.5rem)!important}
+
+/* ============================================================
+   FIX 5A — HOW IT WORKS — Sleek high-tech numbered journey
+   ============================================================ */
+.hiw2-section{
+  padding:var(--sp-8) 0;
+  background:linear-gradient(180deg,var(--paper) 0%,var(--ivory) 100%);
+  position:relative;overflow:hidden;
+}
+.hiw2-section::before{
+  content:"";position:absolute;left:-10%;right:-10%;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-line-soft),transparent);
+}
+.hiw2-head{text-align:center;margin-bottom:3.4rem}
+
+/* Journey wrapper — desktop: horizontal rail */
+.hiw2-journey{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1.4rem;
+  align-items:start;
+}
+
+/* Gold connective rail */
+.hiw2-rail{
+  position:absolute;top:38px;left:calc(10% + 28px);right:calc(10% + 28px);height:2px;
+  background:linear-gradient(90deg,var(--gold-line-soft),var(--gold-line),var(--gold-line-soft));
+  z-index:0;pointer-events:none;
+}
+
+/* Each step */
+.hiw2-step{
+  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.1rem;
+}
+
+/* Node circle */
+.hiw2-node{
+  width:76px;height:76px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
+  background:radial-gradient(120% 120% at 30% 25%,#1A2456,var(--navy) 60%,var(--navy-deep));
+  box-shadow:0 12px 28px -12px rgba(11,19,64,.55),0 0 0 5px var(--ivory),0 0 0 7px var(--gold-line-soft);
+  position:relative;
+}
+.hiw2-node-final{
+  background:radial-gradient(120% 120% at 30% 25%,#2A1E2C,#8E3A52 60%,#6B1E2C);
+  box-shadow:0 12px 28px -12px rgba(107,30,44,.55),0 0 0 5px var(--ivory),0 0 0 7px rgba(228,166,184,.4);
+}
+.hiw2-n{
+  font-family:var(--serif);font-size:1.42rem;font-weight:600;color:var(--gold-soft);line-height:1;
+}
+
+/* Card */
+.hiw2-card{
+  background:linear-gradient(180deg,#fff,var(--paper));
+  border:1px solid var(--gold-line-soft);border-radius:16px;
+  padding:1.5rem 1.3rem 1.4rem;text-align:center;width:100%;
+  box-shadow:0 2px 0 rgba(255,255,255,.9) inset,0 16px 38px -26px rgba(11,19,64,.28);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+}
+.hiw2-step:hover .hiw2-card{
+  transform:translateY(-6px);border-color:var(--gold-line);
+  box-shadow:0 26px 54px -26px rgba(11,19,64,.38);
+}
+.hiw2-card-final{
+  border-color:rgba(228,166,184,.4);
+  background:linear-gradient(170deg,rgba(251,239,242,.6),#fff,var(--paper));
+}
+.hiw2-ic{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  margin:0 auto .9rem;
+  background:linear-gradient(135deg,rgba(200,169,107,.18),rgba(200,169,107,.04));
+  border:1px solid var(--gold-line-soft);color:var(--gold-deep);
+}
+.hiw2-ic svg{width:26px;height:26px}
+.hiw2-title{
+  font-family:var(--serif);font-size:1.18rem;font-weight:600;
+  color:var(--on-light);margin-bottom:.45rem;line-height:1.15;
+}
+.hiw2-desc{font-size:.86rem;line-height:1.55;color:var(--on-light-soft);margin-bottom:.7rem}
+.hiw2-tag{
+  display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold-deep);background:linear-gradient(135deg,rgba(200,169,107,.14),rgba(200,169,107,.04));
+  border:1px solid var(--gold-line-soft);border-radius:999px;padding:.3rem .75rem;
+}
+
+@media(max-width:1000px){
+  .hiw2-journey{grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  .hiw2-rail{display:none}
+}
+@media(max-width:640px){
+  .hiw2-journey{grid-template-columns:1fr}
+  .hiw2-step{flex-direction:row;align-items:flex-start;gap:1rem}
+  .hiw2-node{width:54px;height:54px;flex-shrink:0}
+  .hiw2-n{font-size:1.1rem}
+  .hiw2-card{text-align:left;padding:1.1rem 1.1rem}
+  .hiw2-ic{margin:0 0 .7rem}
+}
+
+/* ============================================================
+   FIX 5B — LMS/PLATFORM — High-tech dashboard aesthetic
+   ============================================================ */
+.etg2-section{
+  padding:var(--sp-7) 0;
+  background:
+    radial-gradient(80% 60% at 8% 10%, rgba(200,169,107,.07), transparent 55%),
+    radial-gradient(70% 55% at 95% 90%, rgba(228,166,184,.06), transparent 55%),
+    linear-gradient(180deg,var(--navy-deep) 0%,#080C26 100%);
+  color:var(--on-dark);
+  position:relative;overflow:hidden;
+  border-top:1px solid rgba(200,169,107,.16);
+  border-bottom:1px solid rgba(200,169,107,.16);
+}
+.etg2-section::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.etg2-section .wrap{position:relative;z-index:1}
+.etg2-head{text-align:center;margin-bottom:2.8rem}
+.etg2-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.06;margin:1rem 0 0;color:var(--on-dark)}
+.etg2-head .lede{color:var(--on-dark-soft)}
+
+/* Trust counter band */
+.etg2-trust{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:0;max-width:780px;margin:0 auto 3rem;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(200,169,107,.22);border-radius:16px;overflow:hidden;
+}
+.etg2-tf{
+  flex:1;padding:1.6rem 1.4rem;text-align:center;min-width:160px;
+}
+.etg2-sep{
+  width:1px;background:rgba(200,169,107,.22);align-self:stretch;
+}
+.etg2-tf-num{
+  display:block;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.2vw,3rem);
+  color:var(--gold);line-height:1;font-variant-numeric:tabular-nums;
+}
+.etg2-tf-lab{
+  display:block;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--on-dark-soft);margin-top:.7rem;line-height:1.4;
+}
+
+/* 6 feature glass cards */
+.etg2-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;
+}
+.etg2-feat{
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(200,169,107,.18);border-radius:18px;
+  padding:1.8rem 1.6rem;display:flex;flex-direction:column;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+  position:relative;overflow:hidden;
+}
+.etg2-feat::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,169,107,.4),transparent);
+}
+.etg2-feat:hover{
+  transform:translateY(-6px);border-color:rgba(200,169,107,.4);
+  box-shadow:0 28px 58px -34px rgba(0,0,0,.7);
+}
+.etg2-ic{
+  width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+  margin-bottom:1.1rem;
+  background:linear-gradient(135deg,rgba(200,169,107,.22),rgba(200,169,107,.05));
+  border:1px solid rgba(200,169,107,.3);color:var(--gold-soft);
+}
+.etg2-ic-special{
+  background:linear-gradient(135deg,rgba(228,166,184,.22),rgba(228,166,184,.05));
+  border-color:rgba(228,166,184,.3);color:var(--pink-mid);
+}
+.etg2-ic svg{width:26px;height:26px}
+.etg2-feat h3{
+  font-family:var(--serif);font-size:1.35rem;font-weight:600;
+  color:var(--on-dark);margin-bottom:.5rem;line-height:1.15;
+}
+.etg2-feat p{font-size:.92rem;color:var(--on-dark-soft);line-height:1.6;margin:0}
+.etg2-foot{
+  text-align:center;margin-top:2.6rem;font-size:.88rem;color:var(--on-dark-soft);
+}
+.etg2-section .link-arrow{color:var(--gold-soft)}
+
+@media(max-width:900px){.etg2-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){
+  .etg2-grid{grid-template-columns:1fr}
+  .etg2-trust{flex-direction:column}
+  .etg2-sep{width:auto;height:1px;align-self:stretch}
+}
+
+/* ============================================================
+   FIX 6 — JULIANE VIDEO — Premium animated character frame
+   ============================================================ */
+.jul-video-wrap{max-width:440px}
+.jul-video-frame{
+  position:relative;
+  border-radius:22px;overflow:hidden;
+  border:2px solid var(--gold);
+  background:linear-gradient(135deg,var(--navy),var(--navy-soft));
+  box-shadow:
+    0 0 0 6px rgba(200,169,107,.18),
+    0 32px 70px -34px rgba(0,0,52,.7),
+    inset 0 1px 0 rgba(255,255,255,.2);
+}
+.jul-video{
+  width:100%;display:block;
+  aspect-ratio:1;object-fit:cover;
+  background:#fff;
+}
+.jul-video-badge{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:.9rem 1.2rem;
+  background:linear-gradient(0deg,rgba(0,0,52,.88),rgba(0,0,52,0));
+  font-family:var(--serif);font-style:italic;font-size:1rem;
+  color:var(--gold-soft);letter-spacing:.04em;
+  z-index:2;
+}
+

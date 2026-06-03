@@ -8,52 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
+<link rel="stylesheet" href="css/teachers.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<style>
-/* ===== TEACHER GRID ===== */
-.teacher-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
-.tc{position:relative;overflow:hidden;background:var(--white);border:1px solid var(--gold-line-soft)}
-.tc-photo{position:relative;aspect-ratio:3/4;overflow:hidden}
-.tc-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .9s var(--ease);filter:grayscale(.1)}
-.tc:hover .tc-photo img{transform:scale(1.05)}
-.tc-region-tag{position:absolute;bottom:1rem;left:1rem;background:rgba(8,14,43,.85);color:var(--gold-soft);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:.4rem .9rem;border-radius:2px;backdrop-filter:blur(4px)}
-.tc-body{padding:1.8rem 1.8rem 2rem}
-.tc-name{font-family:var(--serif);font-size:1.7rem;margin-bottom:.2rem}
-.tc-location{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
-.tc-location::before{content:"";display:inline-block;width:14px;height:1px;background:var(--gold-deep)}
-.tc-bio{font-size:.92rem;color:var(--on-light-soft);line-height:1.72}
-
-/* ===== NARRATIVE HEADER ===== */
-.teacher-narrative{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-
-/* ===== REGION MAP LABELS ===== */
-.region-legend{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-.rl-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--on-light-soft)}
-.rl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-deep);flex-shrink:0}
-
-/* ===== PLEDGE BANNER ===== */
-.teacher-pledge{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--gold-line-soft)}
-.tp-item{padding:2.4rem 2rem;text-align:center;border-right:1px solid var(--gold-line-soft)}
-.tp-item:last-child{border-right:none}
-.tp-item .tp-num{font-family:var(--serif);font-size:2.6rem;color:var(--gold-deep);line-height:1}
-.tp-item .tp-label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-top:.5rem;color:var(--on-light-soft)}
-
-@media(max-width:1100px){.teacher-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){.teacher-grid{grid-template-columns:repeat(2,1fr)}.teacher-narrative{grid-template-columns:1fr}.teacher-pledge{grid-template-columns:1fr}.tp-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.tp-item:last-child{border-bottom:none}}
-@media(max-width:500px){.teacher-grid{grid-template-columns:1fr}}
-</style>
 </head>
 <body>
 
-<!-- ============================================================
-     FRENCH ATELIER — BESPOKE SVG ICON SPRITE  (Agent 5)
-     Paste ONCE near the top of <body> on any page.
-     Use anywhere with:  <svg class="fa-icon" style="font-size:24px"><use href="#i-NAME"/></svg>
-     Icons use currentColor stroke. Stroke width set via .fa-icon in fa.css.
-     Available ids: i-arrow, i-arrow-right, i-chevron-down, i-close, i-menu,
-     i-check, i-calendar, i-clock, i-chat, i-play, i-globe, i-certificate,
-     i-sparkle, i-user, i-mail, i-phone, i-pin, i-facebook, i-instagram, i-youtube
-     ============================================================ -->
+<!-- ===== SVG ICON SPRITE ===== -->
 <svg class="fa-icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
@@ -79,11 +39,10 @@
   </defs>
 </svg>
 
-
+<!-- ===== HEADER / NAV ===== -->
 <header class="site-header">
   <div class="wrap nav">
     <a class="nav-logo" href="index.html">
-      
       <span class="logo-text">
         <span class="lt-main">The French Atelier</span>
         <span class="lt-sub">by Acadomia</span>
@@ -131,6 +90,7 @@
   </div>
 </header>
 
+<!-- Mobile drawer -->
 <div class="nav-drawer" aria-hidden="true">
   <button class="nav-drawer-close" aria-label="Close menu">&times;</button>
   <a href="index.html">Home</a>
@@ -167,218 +127,325 @@
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero bg-navy">
-  <div class="page-hero-bg">
-    <img src="assets/gen/region-normandy.png" alt="France — the home of The French Atelier teachers">
+<!-- ===== HERO ===== -->
+<section class="teachers-hero">
+  <div class="teachers-hero-bg">
+    <img src="assets/gen/region-normandy.png" alt="France — home of The French Atelier teachers" loading="eager">
   </div>
-  <div class="wrap">
+
+  <div class="wrap teachers-hero-content">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
+      <span aria-hidden="true">·</span>
       <span>Our Teachers</span>
     </nav>
-    <p class="eyebrow eyebrow-line reveal">Native · Certified · Live from France</p>
-    <h1 class="display-lg reveal reveal-d1">The <span class="gold-ital">voices</span> of France,<br>in every classroom</h1>
-    <p class="lede reveal reveal-d2" style="max-width:52ch">Eight native certified teachers, each rooted in a different region of France — broadcasting live, bringing the real France to every learner in the world.</p>
+    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Native &middot; Certified &middot; Live from France</p>
+    <h1 class="display-lg reveal reveal-d1" style="margin:1.2rem 0 1.4rem;color:var(--on-dark)">
+      The <span class="gold-ital" style="color:var(--gold-soft);font-style:italic">voices</span> of France,<br>in every classroom
+    </h1>
+    <p class="lede reveal reveal-d2" style="max-width:52ch;color:var(--on-dark-soft)">Eight native certified teachers, each rooted in a different region of France — broadcasting live, bringing the real France into every lesson.</p>
+
+    <div style="display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:2.2rem" class="reveal reveal-d3">
+      <a href="#faculty" class="btn btn-gold">Meet the Faculty</a>
+      <a href="#videos" class="btn btn-outline">Watch Them Teach</a>
+    </div>
+  </div>
+
+  <div class="teachers-hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<!-- ===== NARRATIVE ===== -->
+<!-- ===== INTRO / NARRATIVE ===== -->
 <section class="section-pad bg-ivory">
   <div class="wrap">
-    <div class="teacher-narrative reveal">
+    <div class="teachers-intro reveal">
+
+      <!-- LEFT: editorial copy -->
       <div>
         <p class="eyebrow eyebrow-line">Who They Are</p>
         <h2 class="display-md" style="margin:1.4rem 0">Teachers who are <span class="gold-ital">the culture</span> they teach</h2>
-        <p class="lede">The French Atelier teachers are not instructors who happen to speak French. They are people for whom French is the texture of daily life — the language of their market, their kitchen, their friendships, their city. When they teach, they do not describe France. They bring it.</p>
+        <p class="lede">The French Atelier teachers are not instructors who happen to speak French. They are people for whom French is the texture of daily life — the language of their market, their kitchen, their friendships, their city.</p>
         <div class="gold-rule" style="margin:2rem 0"></div>
-        <p style="color:var(--on-light-soft);line-height:1.75">Each teacher is native, certified, and deeply embedded in a specific region of France — so that across the course of a year, learners encounter not one France but many: the formal grandeur of Paris, the maritime warmth of Normandy, the sun-drenched energy of Marseille, the Alsatian particularity of Strasbourg. To learn French at The French Atelier is to learn it in all its glorious geographic variety.</p>
-        <div class="region-legend">
-          <span class="rl-item"><span class="rl-dot"></span> Paris</span>
-          <span class="rl-item"><span class="rl-dot"></span> Strasbourg</span>
-          <span class="rl-item"><span class="rl-dot"></span> Lyon</span>
-          <span class="rl-item"><span class="rl-dot"></span> Nice</span>
-          <span class="rl-item"><span class="rl-dot"></span> Montpellier</span>
-          <span class="rl-item"><span class="rl-dot"></span> Pau</span>
-        </div>
-      </div>
-      <div>
-        <div class="teacher-pledge">
-          <div class="tp-item">
-            <div class="tp-num">100%</div>
-            <div class="tp-label">Native French Teachers</div>
-          </div>
-          <div class="tp-item">
-            <div class="tp-num">100%</div>
-            <div class="tp-label">Live from France</div>
-          </div>
-          <div class="tp-item">
-            <div class="tp-num">8–10</div>
-            <div class="tp-label">Learners Per Class</div>
-          </div>
-        </div>
-        <div class="pullquote" style="margin-top:2rem">
+        <p style="color:var(--on-light-soft);line-height:1.78">Each teacher is native, certified, and deeply embedded in a specific region of France — so that across the course of a year, learners encounter not one France but many: the formal grandeur of Paris, the maritime warmth of Normandy, the sun-drenched energy of Marseille, the Alsatian particularity of Strasbourg. To learn French at The French Atelier is to learn it in all its glorious geographic variety.</p>
+
+        <div class="teachers-quote">
           <p>"To be taught French by someone who lives it is not a detail. It is the whole method."</p>
         </div>
+
+        <div class="teachers-regions">
+          <span class="tr-pill"><span class="tr-dot"></span> Paris</span>
+          <span class="tr-pill"><span class="tr-dot"></span> Strasbourg</span>
+          <span class="tr-pill"><span class="tr-dot"></span> Lyon</span>
+          <span class="tr-pill"><span class="tr-dot"></span> Nice</span>
+          <span class="tr-pill"><span class="tr-dot"></span> Montpellier</span>
+          <span class="tr-pill"><span class="tr-dot"></span> Pau</span>
+        </div>
       </div>
+
+      <!-- RIGHT: stats -->
+      <div>
+        <div class="teachers-stats">
+          <div class="ts-item">
+            <div class="ts-num">100%</div>
+            <div class="ts-label">Native French<br>Teachers</div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-num">100%</div>
+            <div class="ts-label">Live from<br>France</div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-num">8–10</div>
+            <div class="ts-label">Learners<br>Per Class</div>
+          </div>
+          <div class="ts-item">
+            <div class="ts-num">8</div>
+            <div class="ts-label">Regions<br>Represented</div>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--on-light-faint);margin-top:1rem;letter-spacing:.04em">Each class is a live communicative event — unscripted, cultural, and entirely French.</p>
+
+        <div style="margin-top:2.2rem;padding:1.8rem;background:var(--pink-soft);border:1px solid var(--pink-line);border-radius:4px">
+          <p class="eyebrow eyebrow-line" style="font-size:.66rem;margin-bottom:.9rem">The Atelier Promise</p>
+          <ul style="display:flex;flex-direction:column;gap:.75rem;list-style:none">
+            <li style="display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--on-light-soft)">
+              <svg class="fa-icon" style="font-size:18px;color:var(--gold-deep);flex-shrink:0"><use href="#i-check"/></svg>
+              Professionally certified, CEFR-aligned
+            </li>
+            <li style="display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--on-light-soft)">
+              <svg class="fa-icon" style="font-size:18px;color:var(--gold-deep);flex-shrink:0"><use href="#i-check"/></svg>
+              Broadcasting live — every class, every time
+            </li>
+            <li style="display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--on-light-soft)">
+              <svg class="fa-icon" style="font-size:18px;color:var(--gold-deep);flex-shrink:0"><use href="#i-check"/></svg>
+              Culture-first communicative methodology
+            </li>
+            <li style="display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:var(--on-light-soft)">
+              <svg class="fa-icon" style="font-size:18px;color:var(--gold-deep);flex-shrink:0"><use href="#i-check"/></svg>
+              Lifetime recordings for every session
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===== TEACHER CARDS ===== -->
-<section class="section-pad bg-paper">
+<!-- ===== FACULTY GRID ===== -->
+<section class="section-pad faculty-section" id="faculty">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.6rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Team</p>
+    <div style="text-align:center;margin-bottom:4rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Faculty</p>
       <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Eight teachers. Eight <span class="gold-ital">regions</span>. One France.</h2>
+      <p class="lede reveal reveal-d2" style="max-width:52ch;margin:1rem auto 0">Each a native speaker, each deeply rooted in a distinct corner of France — together, they cover the full cultural breadth of the country.</p>
     </div>
-    <div class="teacher-grid">
 
-      <!-- Caitlin — Strasbourg -->
-      <div class="tc reveal">
-        <div class="tc-photo">
-          <img src="assets/teachers/caitlin.jpg" alt="Caitlin — French teacher from Strasbourg">
-          <span class="tc-region-tag">Strasbourg · Alsace</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">Caitlin</div>
-          <div class="tc-location">Strasbourg</div>
-          <p class="tc-bio">Rooted at the crossroads of France and Germany, Caitlin teaches contextual French with the precision and warmth of Alsatian culture — where every word carries the weight of a rich bilingual history and the pride of one of France's most distinctive regions.</p>
-        </div>
-      </div>
-
-      <!-- Carmèle — Paris -->
-      <div class="tc reveal reveal-d1">
-        <div class="tc-photo">
-          <img src="assets/teachers/carmele.png" alt="Carmèle — French teacher from Paris">
-          <span class="tc-region-tag">Paris · Île-de-France</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">Carmèle</div>
-          <div class="tc-location">Paris</div>
-          <p class="tc-bio">A Parisienne by birth and by sensibility, Carmèle brings the capital's intellectual rigour and social grace into every class — teaching the French of the gallery, the salon, and the café terrace with the easy authority of someone who has lived it all her life.</p>
-        </div>
-      </div>
+    <div class="faculty-grid">
 
       <!-- Charline — Paris -->
-      <div class="tc reveal reveal-d2">
-        <div class="tc-photo">
-          <img src="assets/teachers/charline.jpg" alt="Charline — French teacher from Paris">
-          <span class="tc-region-tag">Paris · Île-de-France</span>
+      <div class="fc reveal">
+        <div class="fc-photo">
+          <img src="assets/teachers/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Paris · Île-de-France</span>
+          <div class="fc-video-badge" aria-label="Video available">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>
+          </div>
         </div>
-        <div class="tc-body">
-          <div class="tc-name">Charline</div>
-          <div class="tc-location">Paris</div>
-          <p class="tc-bio">Charline's approach to teaching French is lit by a deep love of Parisian literature and contemporary culture — she guides learners through the language of the city with the curiosity of a writer and the generosity of a guide who wants you to fall in love with what she loves.</p>
-        </div>
-      </div>
-
-      <!-- Corentin — Pau -->
-      <div class="tc reveal reveal-d3">
-        <div class="tc-photo">
-          <img src="assets/teachers/corentin.png" alt="Corentin — French teacher from Pau">
-          <span class="tc-region-tag">Pau · Pyrénées-Atlantiques</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">Corentin</div>
-          <div class="tc-location">Pau</div>
-          <p class="tc-bio">From the foothills of the Pyrénées, Corentin brings the unhurried, melodious French of the South-West — a region where Gascon pride, Basque spirit, and Béarnaise warmth meet in a language that flows like mountain water, rich and clear and entirely its own.</p>
+        <div class="fc-body">
+          <div class="fc-name">Charline</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Paris</div>
+          <p class="fc-bio">Charline's teaching is lit by a deep love of Parisian literature and contemporary culture — she guides learners through the language of the city with the curiosity of a writer and the generosity of a guide who wants you to fall in love with what she loves.</p>
         </div>
       </div>
 
-      <!-- Iris Linza — Lyon -->
-      <div class="tc reveal">
-        <div class="tc-photo">
-          <img src="assets/teachers/iris.png" alt="Iris Linza — French teacher from Lyon">
-          <span class="tc-region-tag">Lyon · Auvergne-Rhône-Alpes</span>
+      <!-- Caitlin — Strasbourg -->
+      <div class="fc reveal reveal-d1">
+        <div class="fc-photo">
+          <img src="assets/teachers/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Strasbourg · Alsace</span>
+          <div class="fc-video-badge" aria-label="Video available">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>
+          </div>
         </div>
-        <div class="tc-body">
-          <div class="tc-name">Iris Linza</div>
-          <div class="tc-location">Lyon</div>
-          <p class="tc-bio">Lyon — France's gastronomic capital and cultural powerhouse — is the source of Iris's teaching: she weaves the language of the <em>bouchon</em>, the <em>traboule</em>, and the city's renowned silk-weaving heritage into lessons that are as nourishing as the city itself.</p>
+        <div class="fc-body">
+          <div class="fc-name">Caitlin</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Strasbourg</div>
+          <p class="fc-bio">Rooted at the crossroads of France and Germany, Caitlin teaches contextual French with the precision and warmth of Alsatian culture — where every word carries the weight of a rich bilingual history.</p>
         </div>
       </div>
 
       <!-- Philippe — West Paris -->
-      <div class="tc reveal reveal-d1">
-        <div class="tc-photo">
-          <img src="assets/teachers/philippe.jpg" alt="Philippe — French teacher from West Paris">
-          <span class="tc-region-tag">West Paris · Île-de-France</span>
+      <div class="fc reveal reveal-d2">
+        <div class="fc-photo">
+          <img src="assets/teachers/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">West Paris · Île-de-France</span>
+          <div class="fc-video-badge" aria-label="Video available">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>
+          </div>
         </div>
-        <div class="tc-body">
-          <div class="tc-name">Philippe</div>
-          <div class="tc-location">West Paris</div>
-          <p class="tc-bio">Philippe teaches with the quiet authority of a man who has spent a lifetime in the western quartiers of Paris — where culture, film, and the art of living converge — bringing his learners into the conversational French of the city's most storied neighbourhoods with ease and elegance.</p>
-        </div>
-      </div>
-
-      <!-- Shanice — Montpellier -->
-      <div class="tc reveal reveal-d2">
-        <div class="tc-photo">
-          <img src="assets/teachers/shanice.png" alt="Shanice — French teacher from Montpellier">
-          <span class="tc-region-tag">Montpellier · Occitanie</span>
-        </div>
-        <div class="tc-body">
-          <div class="tc-name">Shanice</div>
-          <div class="tc-location">Montpellier</div>
-          <p class="tc-bio">Shanice teaches the warm, sun-drenched French of the Mediterranean coast — where Occitan inflections colour the vowels, where the rhythm of life is generous and unhurried, and where the language opens like a window onto a France that is vivid, sensory, and utterly alive.</p>
+        <div class="fc-body">
+          <div class="fc-name">Philippe</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>West Paris</div>
+          <p class="fc-bio">Philippe teaches with the quiet authority of a man who has spent a lifetime in the western quartiers of Paris — bringing learners into the conversational French of the city's most storied neighbourhoods with ease and elegance.</p>
         </div>
       </div>
 
       <!-- Stan — Nice -->
-      <div class="tc reveal reveal-d3">
-        <div class="tc-photo">
-          <img src="assets/teachers/stan.png" alt="Stan — French teacher from Nice">
-          <span class="tc-region-tag">Nice · Côte d'Azur</span>
+      <div class="fc reveal reveal-d3">
+        <div class="fc-photo">
+          <img src="assets/teachers/stan.png" alt="Stan, French teacher from Nice" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Nice · Côte d'Azur</span>
+          <div class="fc-video-badge" aria-label="Video available">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg>
+          </div>
         </div>
-        <div class="tc-body">
-          <div class="tc-name">Stan</div>
-          <div class="tc-location">Nice</div>
-          <p class="tc-bio">From the shimmering coast of the Côte d'Azur, Stan brings the luminous, cosmopolitan French of Nice — a city that has been home to artists, aristocrats, and adventurers for two centuries — teaching a French that sparkles with the light of the Mediterranean and the sophistication of its storied waterfront.</p>
+        <div class="fc-body">
+          <div class="fc-name">Stan</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Nice</div>
+          <p class="fc-bio">From the shimmering coast of the Côte d'Azur, Stan brings the luminous, cosmopolitan French of Nice — teaching a French that sparkles with Mediterranean light and the sophistication of its storied waterfront.</p>
         </div>
       </div>
 
-    </div>
+      <!-- Carmèle — Paris -->
+      <div class="fc reveal">
+        <div class="fc-photo">
+          <img src="assets/teachers/carmele.png" alt="Carmèle, French teacher from Paris" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Paris · Île-de-France</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Carmèle</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Paris</div>
+          <p class="fc-bio">A Parisienne by birth and by sensibility, Carmèle brings the capital's intellectual rigour and social grace into every class — teaching the French of the gallery, the salon, and the café terrace with the easy authority of someone who has lived it all her life.</p>
+        </div>
+      </div>
+
+      <!-- Corentin — Pau -->
+      <div class="fc reveal reveal-d1">
+        <div class="fc-photo">
+          <img src="assets/teachers/corentin.png" alt="Corentin, French teacher from Pau" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Pau · Pyrénées-Atlantiques</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Corentin</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Pau</div>
+          <p class="fc-bio">From the foothills of the Pyrénées, Corentin brings the unhurried, melodious French of the South-West — a region where Gascon pride, Basque spirit, and Béarnaise warmth meet in a language as rich and clear as mountain water.</p>
+        </div>
+      </div>
+
+      <!-- Iris Linza — Lyon -->
+      <div class="fc reveal reveal-d2">
+        <div class="fc-photo">
+          <img src="assets/teachers/iris.png" alt="Iris Linza, French teacher from Lyon" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Lyon · Auvergne-Rhône-Alpes</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Iris Linza</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Lyon</div>
+          <p class="fc-bio">Lyon — France's gastronomic capital — is the source of Iris's teaching. She weaves the language of the <em>bouchon</em>, the <em>traboule</em>, and the city's silk-weaving heritage into lessons as nourishing as the city itself.</p>
+        </div>
+      </div>
+
+      <!-- Shanice — Montpellier -->
+      <div class="fc reveal reveal-d3">
+        <div class="fc-photo">
+          <img src="assets/teachers/shanice.png" alt="Shanice, French teacher from Montpellier" loading="lazy">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Montpellier · Occitanie</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Shanice</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Montpellier</div>
+          <p class="fc-bio">Shanice teaches the warm, sun-drenched French of the Mediterranean coast — where Occitan inflections colour the vowels, the rhythm of life is generous and unhurried, and the language opens like a window onto a France that is vivid and utterly alive.</p>
+        </div>
+      </div>
+
+    </div><!-- /faculty-grid -->
   </div>
 </section>
 
-<!-- ===== MEET THEM ON SCREEN — YOUTUBE TEACHER VIDEOS ===== -->
-<section class="section-pad bg-ivory neon-splash">
+<!-- ===== VIDEO TEACHERS ===== -->
+<section class="section-pad video-teachers-section" id="videos">
   <div class="wrap">
-    <div class="center" style="margin-bottom:3.2rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">In Their Own Words</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Meet four of our teachers <span class="gold-ital">on screen</span></h2>
-      <p class="lede reveal reveal-d2 lede-narrow mx-auto" style="margin-top:1rem">A glimpse of the warmth, clarity and culture our teachers bring to every live class. Tap any film for sound.</p>
+    <div class="center" style="margin-bottom:0">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-soft)">In Their Own Words</p>
+      <h2 class="display-sm reveal reveal-d1 on-dark" style="margin-top:1rem;color:var(--on-dark)">Meet four of our teachers <span class="gold-ital" style="color:var(--gold-soft);font-style:italic">on screen</span></h2>
+      <p class="lede reveal reveal-d2" style="margin-top:1rem;max-width:52ch;margin-left:auto;margin-right:auto;color:var(--on-dark-soft)">A glimpse of the warmth, clarity and culture our teachers bring to every live class. Tap any film for sound.</p>
     </div>
-    <div class="teacher-vids">
-      <figure class="tvid reveal">
-        <div class="tvid-frame">
-          <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/G0lUXZKwg-8?rel=0&modestbranding=1&playsinline=1" title="Charline — French Atelier teacher, Paris" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <div class="teacher-vids-premium">
+
+      <figure class="tvp reveal">
+        <div class="tvp-frame">
+          <iframe loading="lazy"
+            src="https://www.youtube-nocookie.com/embed/G0lUXZKwg-8?rel=0&modestbranding=1&playsinline=1"
+            title="Charline — French Atelier teacher, Paris"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <figcaption class="tvid-body"><span class="tvid-name">Charline</span><span class="tvid-region">Paris</span></figcaption>
+        <figcaption class="tvp-caption">
+          <span class="tvp-name">Charline</span>
+          <span class="tvp-region">Paris</span>
+        </figcaption>
       </figure>
-      <figure class="tvid reveal reveal-d1">
-        <div class="tvid-frame">
-          <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/WbodfrXFjyg?rel=0&modestbranding=1&playsinline=1" title="Caitlin — French Atelier teacher, Strasbourg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <figure class="tvp reveal reveal-d1">
+        <div class="tvp-frame">
+          <iframe loading="lazy"
+            src="https://www.youtube-nocookie.com/embed/WbodfrXFjyg?rel=0&modestbranding=1&playsinline=1"
+            title="Caitlin — French Atelier teacher, Strasbourg"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <figcaption class="tvid-body"><span class="tvid-name">Caitlin</span><span class="tvid-region">Strasbourg</span></figcaption>
+        <figcaption class="tvp-caption">
+          <span class="tvp-name">Caitlin</span>
+          <span class="tvp-region">Strasbourg</span>
+        </figcaption>
       </figure>
-      <figure class="tvid reveal">
-        <div class="tvid-frame">
-          <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/z-l7f4qOmEo?rel=0&modestbranding=1&playsinline=1" title="Philippe — French Atelier teacher, West Paris" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <figure class="tvp reveal">
+        <div class="tvp-frame">
+          <iframe loading="lazy"
+            src="https://www.youtube-nocookie.com/embed/z-l7f4qOmEo?rel=0&modestbranding=1&playsinline=1"
+            title="Philippe — French Atelier teacher, West Paris"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <figcaption class="tvid-body"><span class="tvid-name">Philippe</span><span class="tvid-region">West Paris</span></figcaption>
+        <figcaption class="tvp-caption">
+          <span class="tvp-name">Philippe</span>
+          <span class="tvp-region">West Paris</span>
+        </figcaption>
       </figure>
-      <figure class="tvid reveal reveal-d1">
-        <div class="tvid-frame">
-          <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TqBegklrz-E?rel=0&modestbranding=1&playsinline=1" title="Stan — French Atelier teacher, Nice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <figure class="tvp reveal reveal-d1">
+        <div class="tvp-frame">
+          <iframe loading="lazy"
+            src="https://www.youtube-nocookie.com/embed/TqBegklrz-E?rel=0&modestbranding=1&playsinline=1"
+            title="Stan — French Atelier teacher, Nice"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         </div>
-        <figcaption class="tvid-body"><span class="tvid-name">Stan</span><span class="tvid-region">Nice</span></figcaption>
+        <figcaption class="tvp-caption">
+          <span class="tvp-name">Stan</span>
+          <span class="tvp-region">Nice</span>
+        </figcaption>
       </figure>
+
     </div>
-    <div class="center" style="margin-top:2.6rem">
-      <a class="link-arrow" href="https://www.youtube.com/@FrenchbyAtelier" target="_blank" rel="noopener">Watch more on YouTube
-        <svg class="fa-icon" style="font-size:16px"><use href="#i-arrow-right"/></svg></a>
+
+    <div class="center" style="margin-top:2.8rem">
+      <a class="link-arrow on-dark" href="https://www.youtube.com/@FrenchbyAtelier" target="_blank" rel="noopener" style="color:var(--gold-soft)">
+        Watch more on YouTube
+        <svg class="fa-icon" style="font-size:16px"><use href="#i-arrow-right"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -390,15 +457,17 @@
       <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Broadcast Live &middot; Every Class</p>
-    <h2 class="display-md">The city is the <span class="gold-ital">classroom.</span></h2>
-    <p class="lede">Every French Atelier teacher broadcasts live from their city, their region, their France. The rooftops, the light, the ambient sound of a living country — all part of every lesson.</p>
-    <a href="courses.html" class="btn btn-outline" style="margin-top:1.4rem">See All Courses</a>
-  </div></div>
+  <div class="wrap">
+    <div class="vb-inner reveal">
+      <p class="eyebrow eyebrow-line">Broadcast Live &middot; Every Class</p>
+      <h2 class="display-md">The city is the <span class="gold-ital">classroom.</span></h2>
+      <p class="lede">Every French Atelier teacher broadcasts live from their city, their region, their France. The rooftops, the light, the ambient sound of a living country — all part of every lesson.</p>
+      <a href="courses.html" class="btn btn-outline" style="margin-top:1.4rem">See All Courses</a>
+    </div>
+  </div>
 </section>
 
-<!-- ===== WHAT MAKES THEM DIFFERENT ===== -->
+<!-- ===== ATELIER DIFFERENCE ===== -->
 <section class="section-pad bg-navy">
   <div class="wrap split split-wide">
     <div class="reveal">
@@ -406,22 +475,27 @@
       <h2 class="display-md" style="margin:1.4rem 0">Certified, native, and <span class="gold-ital">broadcasting live</span></h2>
       <p class="lede">Every French Atelier teacher is native — not near-native, not heritage, but living and breathing French in France, every day of their lives. And every class they teach is live: a real-time, unscripted communicative event that cannot be faked or pre-recorded.</p>
       <div class="gold-rule" style="margin:2rem 0"></div>
-      <p style="color:var(--on-dark-soft);line-height:1.75">Beyond native fluency, every teacher is professionally certified — trained in communicative language teaching, in second-language acquisition, and in the specific culture-first methodology that defines the French Atelier approach. They are not only speakers; they are educators, with the craft to bring a language to life for someone who is hearing its music for the first time.</p>
+      <p style="color:var(--on-dark-soft);line-height:1.78">Beyond native fluency, every teacher is professionally certified — trained in communicative language teaching, in second-language acquisition, and in the specific culture-first methodology that defines the French Atelier approach. They are not only speakers; they are educators, with the craft to bring a language to life for someone who is hearing its music for the first time.</p>
       <a href="method.html" class="btn btn-outline" style="margin-top:1.6rem">Our Method</a>
     </div>
     <div class="reveal reveal-d1">
-      <img src="assets/gen/region-loire.png" alt="A teacher broadcasting from the Loire Valley" style="width:100%;border:1px solid var(--dark-line)">
-      <p class="img-caption">Live from France — every class, every time.</p>
+      <div class="diff-image-wrap">
+        <img src="assets/gen/region-loire.png" alt="A teacher broadcasting from the Loire Valley">
+        <div class="diff-image-overlay">
+          <p>"The classroom is France itself."</p>
+          <span>Live from France — every class, every time</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== ENROLL CTA ===== -->
-<section class="section-pad bg-paper" style="text-align:center">
+<section class="section-pad teachers-cta-section">
   <div class="wrap-narrow">
     <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Join a Class</p>
     <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Choose your teacher.<br>Choose your <span class="gold-ital">France</span>.</h2>
-    <p class="lede reveal reveal-d2" style="max-width:50ch;margin:0 auto 2.2rem">All French Atelier teachers are available across our course tracks. Your placement call will match you to the right level — and the right cultural journey through France.</p>
+    <p class="lede reveal reveal-d2" style="max-width:50ch;margin:0 auto 2.4rem;color:var(--on-light-soft)">All French Atelier teachers are available across our course tracks. Your placement call will match you to the right level — and the right cultural journey through France.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
       <a href="pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
       <a href="how-it-works.html" class="btn btn-outline btn-lg">How It Works</a>
@@ -429,12 +503,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     FRENCH ATELIER — INLINE ADVISOR SECTION  (Agent 5)
-     Drop into any page where you want the lead form embedded
-     (not as a modal). Same validation/success behavior as the modal.
-     Wrap is .advisor-section; left column is editorial copy, right is the card.
-     ============================================================ -->
+<!-- ===== ADVISOR SECTION ===== -->
 <section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
@@ -448,7 +517,6 @@
           <li style="display:flex;align-items:center;gap:.8rem;color:var(--on-light-soft)"><svg class="fa-icon" style="font-size:20px;color:var(--gold-deep)"><use href="#i-clock"/></svg> Flexible mornings &amp; late evenings</li>
         </ul>
       </div>
-
       <div class="advisor-card reveal reveal-d1">
         <div class="advisor-head">
           <h3>Talk to an Advisor</h3>
@@ -497,11 +565,11 @@
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        
         <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
       </div>
@@ -542,29 +610,21 @@
         <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
       </div>
     </div>
-    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA &copy; 2025. All Rights Reserved.</p>
   </div>
 </footer>
-<!-- ============================================================
-     FRENCH ATELIER — ADVISOR MODAL  (Agent 5)
-     Paste ONCE per page, just before </body>. Opened by ANY element
-     with the data-advisor attribute (e.g. the nav CTA). JS handles
-     open/close, ESC, backdrop click, validation + success.
-     Submission: mailto fallback. ▶ Wire a real endpoint in js/fa.js
-     (search for "TO WIRE A REAL ENDPOINT").
-     ============================================================ -->
+
+<!-- ===== ADVISOR MODAL ===== -->
 <div class="advisor-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="advisorModalTitle">
   <div class="advisor-card">
     <button class="advisor-modal-close" aria-label="Close" type="button">
       <svg class="fa-icon" style="font-size:16px"><use href="#i-close"/></svg>
     </button>
-
     <div class="advisor-head">
       <span class="eyebrow eyebrow-line">Speak with us</span>
       <h3 id="advisorModalTitle">Talk to an Advisor</h3>
       <p>Tell us a little about you and a French Atelier academic advisor will be in touch to plan your start.</p>
     </div>
-
     <form class="advisor-form" novalidate>
       <div class="field">
         <label for="adv-name">Name</label>
@@ -599,7 +659,6 @@
       </div>
       <p class="advisor-fineprint">Native French teachers, live from France &middot; Certified &middot; CEFR-aligned</p>
     </form>
-
     <div class="advisor-success" role="status">
       <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
       <h3>Merci&nbsp;!</h3>

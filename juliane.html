@@ -3,77 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juliane · AI French Coach — The French Atelier by Acadomia</title>
-<meta name="description" content="Meet Juliane — The French Atelier's 24/7 advanced AI French coach. Conversation practice, pronunciation feedback, vocabulary drilling, cultural Q&A. Always on, always patient, always in French.">
+<title>Juliane · AI French Tutor — The French Atelier by Acadomia</title>
+<meta name="description" content="Meet Juliane — The French Atelier's 24/7 AI French tutor. Conversation practice, pronunciation feedback, vocabulary drilling, cultural guidance. Always on, always in French.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
+<link rel="stylesheet" href="css/juliane.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<style>
-/* ===== JULIANE HERO ===== */
-.jul-hero{min-height:90vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--navy-deep)}
-.jul-hero-img{position:absolute;right:0;top:0;bottom:0;width:55%;object-fit:cover;object-position:top center}
-.jul-hero-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,43,.98) 48%,rgba(8,14,43,.82) 68%,rgba(8,14,43,.45) 88%,rgba(8,14,43,.2))}
-.jul-hero-content{position:relative;z-index:3;padding:10rem 0 6rem;max-width:48ch}
-.jul-hero h1{position:relative}
-.jul-hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--gold-soft);margin-bottom:1rem}
-.jul-hero h1{font-size:clamp(3.2rem,7.5vw,6.4rem);margin-bottom:1.2rem;line-height:1.05;color:var(--on-dark);-webkit-text-fill-color:var(--on-dark)}
-.jul-hero .breadcrumb,.jul-hero .breadcrumb a,.jul-hero .breadcrumb span{color:var(--on-dark-soft)}
-.jul-hero-sub{font-size:clamp(1rem,1.4vw,1.2rem);color:var(--on-dark-soft);line-height:1.65;max-width:44ch;margin-bottom:2.4rem;font-weight:300}
-.jul-live-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(200,165,96,.1);border:1px solid var(--gold-line);padding:.6rem 1.2rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);border-radius:2px}
-.jul-live-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-soft);animation:pulse-gold 2s infinite}
-@keyframes pulse-gold{0%{box-shadow:0 0 0 0 rgba(200,165,96,.6)}70%{box-shadow:0 0 0 10px rgba(200,165,96,0)}100%{box-shadow:0 0 0 0 rgba(200,165,96,0)}}
-
-/* ===== CAPABILITY GRID ===== */
-.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.cap-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.4rem 2rem;position:relative;overflow:hidden}
-.cap-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold-deep)}
-.cap-card .cc-num{font-family:var(--serif);font-size:2.6rem;color:var(--gold-line);line-height:1;margin-bottom:.8rem}
-.cap-card h3{font-size:1.25rem;margin:.2rem 0 .8rem}
-.cap-card p{font-size:.93rem;color:var(--on-light-soft);line-height:1.7}
-
-/* ===== PORTRAIT MOSAIC ===== */
-.portrait-mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:1.2rem}
-.pm-main{grid-column:1/3;grid-row:1/3}
-.pm-img{width:100%;height:100%;object-fit:cover;object-position:top;border:1px solid var(--gold-line-soft);display:block}
-.pm-sm{overflow:hidden}
-.pm-sm img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;border:1px solid var(--gold-line-soft)}
-.pm-main img{width:100%;height:100%;object-fit:cover;object-position:top;border:1px solid var(--gold-line-soft)}
-
-/* ===== CONVERSATION DEMO ===== */
-.convo-demo{background:var(--navy);border:1px solid var(--gold-line-soft);border-radius:4px;padding:2.4rem;max-width:52ch}
-.msg{margin-bottom:1.4rem;display:flex;flex-direction:column;gap:.3rem}
-.msg.user{align-items:flex-end}
-.msg-label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-faint)}
-.msg-bubble{padding:.9rem 1.2rem;border-radius:3px;font-size:.95rem;line-height:1.6;max-width:92%}
-.msg.user .msg-bubble{background:rgba(200,165,96,.12);border:1px solid var(--gold-line-soft);color:var(--on-dark)}
-.msg.juliane .msg-bubble{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:var(--on-dark-soft)}
-.msg.juliane .msg-label{color:var(--gold-soft)}
-
-/* ===== PORTRAIT ROW ===== */
-.portrait-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.ps-item{position:relative;aspect-ratio:3/4;overflow:hidden}
-.ps-item img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .9s var(--ease)}
-.ps-item:hover img{transform:scale(1.04)}
-.ps-item .ps-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,14,43,.8));display:flex;align-items:flex-end;padding:1.4rem}
-.ps-item .ps-label{font-family:var(--serif);font-size:.95rem;font-style:italic;color:var(--gold-soft)}
-
-@media(max-width:1000px){.jul-hero-img{width:70%}.cap-grid{grid-template-columns:repeat(2,1fr)}.portrait-mosaic{grid-template-columns:1fr 1fr}.pm-main{grid-column:1/2;grid-row:auto}.portrait-strip{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.jul-hero-img{width:100%;opacity:.25}.jul-hero-veil{background:rgba(8,14,43,.85)}.jul-hero h1{font-size:3.4rem}.cap-grid{grid-template-columns:1fr}.portrait-strip{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.portrait-mosaic{grid-template-columns:1fr}.pm-main{grid-column:auto;grid-row:auto}.portrait-strip{grid-template-columns:1fr}}
-</style>
 </head>
 <body>
 
-<!-- ============================================================
-     FRENCH ATELIER — BESPOKE SVG ICON SPRITE  (Agent 5)
-     Paste ONCE near the top of <body> on any page.
-     Use anywhere with:  <svg class="fa-icon" style="font-size:24px"><use href="#i-NAME"/></svg>
-     Icons use currentColor stroke. Stroke width set via .fa-icon in fa.css.
-     Available ids: i-arrow, i-arrow-right, i-chevron-down, i-close, i-menu,
-     i-check, i-calendar, i-clock, i-chat, i-play, i-globe, i-certificate,
-     i-sparkle, i-user, i-mail, i-phone, i-pin, i-facebook, i-instagram, i-youtube
-     ============================================================ -->
+<!-- ICON SPRITE -->
 <svg class="fa-icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
@@ -99,11 +39,10 @@
   </defs>
 </svg>
 
-
+<!-- ===== NAV ===== -->
 <header class="site-header">
   <div class="wrap nav">
     <a class="nav-logo" href="index.html">
-      
       <span class="logo-text">
         <span class="lt-main">The French Atelier</span>
         <span class="lt-sub">by Acadomia</span>
@@ -187,10 +126,25 @@
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
 
-<!-- ===== JULIANE HERO ===== -->
+<!-- ===== HERO ===== -->
 <section class="jul-hero">
-  <img class="jul-hero-img" src="assets/juliane/juliane1.png" alt="Juliane, the French Atelier AI coach">
+  <!-- Character video fills the right half -->
+  <div class="jul-char-card" aria-hidden="true">
+    <div class="jul-char-frame">
+      <video
+        class="jul-hero-video"
+        autoplay muted loop playsinline
+        preload="metadata"
+        poster="assets/juliane/video/juliane-hero-poster.jpg"
+        aria-label="Juliane, your AI French tutor">
+        <source src="assets/juliane/video/juliane-hero.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- Left-to-right veil keeps text legible -->
   <div class="jul-hero-veil"></div>
+
   <div class="wrap">
     <div class="jul-hero-content">
       <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:2rem">
@@ -198,8 +152,8 @@
         <span>Juliane · AI Tutor</span>
       </nav>
       <p class="jul-hero-tag reveal">Always On · Always in French</p>
-      <h1 class="reveal reveal-d1">Meet <span class="gold-ital">Juliane</span> —<br>your 24/7 French coach</h1>
-      <p class="jul-hero-sub reveal reveal-d2">An advanced AI French tutor who never sleeps, never judges, and is always ready to practise — at 3 am, between live classes, or in the quiet hour before your next session.</p>
+      <h1 class="reveal reveal-d1">Meet <span class="gold-ital">Juliane</span>,<br>your 24/7 AI<br>French tutor</h1>
+      <p class="jul-hero-sub reveal reveal-d2">An animated AI French tutor who never sleeps, never judges, and is always ready to practise — at 3 am, between live classes, or in the quiet hour before your next session.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center" class="reveal reveal-d3">
         <a href="pricing.html" class="btn btn-gold btn-lg">Enroll to Meet Juliane</a>
         <span class="jul-live-badge"><span class="jul-live-dot"></span> Available inside every plan</span>
@@ -208,27 +162,46 @@
   </div>
 </section>
 
-<!-- ===== INTRODUCTION ===== -->
-<section class="section-pad bg-ivory">
+<!-- ===== INTRODUCTION — Who Is Juliane? ===== -->
+<section class="section-pad bg-navy">
   <div class="wrap split split-wide">
     <div class="reveal">
       <p class="eyebrow eyebrow-line">Who Is Juliane?</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Not a chatbot.<br>A <span class="gold-ital">language coach</span>.</h2>
-      <p class="lede">Juliane is The French Atelier's advanced AI French coach — built exclusively for learners of French, calibrated to the Atelier's culture-first methodology, and available 24 hours a day, 7 days a week, inside every learner's platform.</p>
+      <h2 class="display-md" style="margin:1.4rem 0;color:var(--on-dark)">Not a chatbot.<br>A <span class="gold-ital">language coach</span>.</h2>
+      <p class="lede">Juliane is The French Atelier's advanced AI French tutor — built exclusively for learners of French, calibrated to the Atelier's culture-first methodology, and available 24 hours a day, 7 days a week, inside every learner's platform.</p>
       <div class="gold-rule"></div>
-      <p style="color:var(--on-light-soft);line-height:1.75">The live class is the heart of the French Atelier experience. But language acquisition does not happen only in the classroom — it happens in the spaces between, in the small repetitions, in the moments of quiet rehearsal before confidence arrives. Juliane is built for those moments. Patient, precise, and warmly encouraging, she meets you exactly where you are and moves with you toward where you want to be.</p>
-      <p style="color:var(--on-light-soft);line-height:1.75;margin-top:1rem">Juliane speaks French. She expects you to, too.</p>
+      <p style="color:var(--on-dark-soft);line-height:1.75">The live class is the heart of the French Atelier experience. Language acquisition does not happen only in the classroom — it happens in the spaces between, in the small repetitions, in the moments of quiet rehearsal before confidence arrives. Juliane is built for those moments. Patient, precise, and warmly encouraging, he meets you exactly where you are and moves with you toward where you want to be.</p>
+      <p style="color:var(--on-dark-soft);line-height:1.75;margin-top:1rem">Juliane speaks French. He expects you to, too.</p>
     </div>
     <div class="reveal reveal-d1">
-      <div class="portrait-mosaic" style="height:520px">
+      <!-- Portrait mosaic using character videos -->
+      <div class="portrait-mosaic" style="height:540px">
         <div class="pm-main">
-          <img src="assets/juliane/juliane2.png" alt="Juliane AI coach — the French Atelier" style="width:100%;height:100%;object-fit:cover;object-position:top;border:1px solid var(--gold-line-soft)">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-2-poster.jpg"
+            aria-label="Juliane AI tutor">
+            <source src="assets/juliane/video/juliane-hero-2.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="pm-sm" style="aspect-ratio:1;overflow:hidden">
-          <img src="assets/juliane/juliane3.png" alt="Juliane coaching a French learner">
+        <div class="pm-sm" style="overflow:hidden">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-poster.jpg"
+            aria-label="Juliane gesture">
+            <source src="assets/juliane/video/juliane-307.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="pm-sm" style="aspect-ratio:1;overflow:hidden">
-          <img src="assets/juliane/juliane4.png" alt="Juliane ready to practice conversation">
+        <div class="pm-sm" style="overflow:hidden">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-poster.jpg"
+            aria-label="Juliane coaching">
+            <source src="assets/juliane/video/juliane-309.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -246,7 +219,7 @@
       <div class="cap-card reveal">
         <div class="cc-num">I</div>
         <h3>Conversation Practice, Anytime</h3>
-        <p>Juliane is always ready for a conversation — whether you want to role-play ordering at a brasserie, discuss a film you have just watched, or simply narrate your day in French. She adapts to your level and pushes you gently beyond it.</p>
+        <p>Juliane is always ready for a conversation — whether you want to role-play ordering at a brasserie, discuss a film you have just watched, or simply narrate your day in French. He adapts to your level and pushes you gently beyond it.</p>
       </div>
       <div class="cap-card reveal reveal-d1">
         <div class="cc-num">II</div>
@@ -261,12 +234,12 @@
       <div class="cap-card reveal">
         <div class="cc-num">IV</div>
         <h3>Vocabulary Drilling</h3>
-        <p>From the vocabulary of a specific lesson to the specialist language of wine, fashion, or French cinema — Juliane can drill any vocabulary set in context, using real sentences rather than isolated word lists. Language lives in sentences, not lists.</p>
+        <p>From the vocabulary of a specific lesson to the specialist language of wine, fashion, or French cinema — Juliane drills any vocabulary set in context, using real sentences rather than isolated word lists. Language lives in sentences, not lists.</p>
       </div>
       <div class="cap-card reveal reveal-d1">
         <div class="cc-num">V</div>
         <h3>Cultural Questions &amp; Insights</h3>
-        <p>Why do the French greet strangers with a formal <em>vous</em>? What does it mean to invite someone for <em>un verre</em>? What is the etiquette of the <em>bise</em>? Juliane navigates the cultural codes that textbooks omit and that native speakers take for granted.</p>
+        <p>Why do the French greet strangers with a formal <em>vous</em>? What does it mean to invite someone for <em>un verre</em>? What is the etiquette of the <em>bise</em>? Juliane navigates the cultural codes that textbooks omit and native speakers take for granted.</p>
       </div>
       <div class="cap-card reveal reveal-d2">
         <div class="cc-num">VI</div>
@@ -277,13 +250,41 @@
   </div>
 </section>
 
-<!-- ===== CONVERSATION DEMO + PORTRAIT ===== -->
+<!-- ===== PRONUNCIATION FEATURE ===== -->
 <section class="section-pad bg-navy">
+  <div class="wrap">
+    <div class="jul-feature">
+      <!-- Video card left -->
+      <div class="reveal">
+        <div class="jul-vid-card" style="max-width:380px;margin:0 auto">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-poster.jpg"
+            aria-label="Juliane pronunciation coaching">
+            <source src="assets/juliane/video/juliane-336.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!-- Text right -->
+      <div class="jul-feature-text reveal reveal-d1">
+        <p class="eyebrow eyebrow-line">Feature</p>
+        <h2 class="display-sm" style="color:var(--on-dark)">Pronunciation <span class="gold-ital">Practice</span></h2>
+        <p>French pronunciation is a world of its own — liaison, elision, nasal vowels, the silent letters that are never quite silent. Juliane isolates the sounds that challenge you and guides you through them with infinite patience. No embarrassment. No time pressure. Just progress.</p>
+        <p>He listens, he models, he coaches — exactly as a one-to-one private coach would, available any hour you choose to practise.</p>
+        <a href="pricing.html" class="btn btn-gold" style="align-self:flex-start;margin-top:.8rem">Start Practising</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONVERSATION REHEARSAL + DEMO ===== -->
+<section class="section-pad bg-navy-deep">
   <div class="wrap split">
     <div class="reveal">
       <p class="eyebrow eyebrow-line">A Glimpse Inside</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Juliane in <span class="gold-ital">conversation</span></h2>
-      <p class="lede">Every exchange with Juliane is conducted in French — with English available when you need a lifeline. She meets your current level and gently expands it.</p>
+      <h2 class="display-md" style="margin:1.4rem 0;color:var(--on-dark)">Juliane in <span class="gold-ital">conversation</span></h2>
+      <p class="lede">Every exchange with Juliane is conducted in French — with English available when you need a lifeline. He meets your current level and gently expands it.</p>
       <div class="gold-rule" style="margin:2rem 0"></div>
       <div class="convo-demo reveal reveal-d1">
         <div class="msg user">
@@ -291,26 +292,121 @@
           <div class="msg-bubble">Je veux parler de le film que j'ai regardé hier soir.</div>
         </div>
         <div class="msg juliane">
-          <span class="msg-label">Juliane · AI Coach</span>
-          <div class="msg-bubble">Bonne idée ! Petite correction : on dit <em>« le film que j'ai regardé »</em> — pas besoin de répéter <em>« de »</em>. Quel film as-tu vu ? Raconte-moi.</div>
+          <span class="msg-label">Juliane · AI Tutor</span>
+          <div class="msg-bubble">Bonne idée&nbsp;! Petite correction&nbsp;: on dit <em>«&nbsp;le film que j'ai regardé&nbsp;»</em> — pas besoin de répéter <em>«&nbsp;de&nbsp;»</em>. Quel film as-tu vu&nbsp;? Raconte-moi.</div>
         </div>
         <div class="msg user">
           <span class="msg-label">You</span>
-          <div class="msg-bubble">J'ai regardé « Amélie ». C'était très… comment dit-on « whimsical » en français ?</div>
+          <div class="msg-bubble">J'ai regardé «&nbsp;Amélie&nbsp;». C'était très… comment dit-on «&nbsp;whimsical&nbsp;» en français&nbsp;?</div>
         </div>
         <div class="msg juliane">
-          <span class="msg-label">Juliane · AI Coach</span>
-          <div class="msg-bubble">Ah, <em>Amélie</em> — un chef-d'œuvre ! Pour « whimsical », tu peux dire <em>« fantaisiste »</em> ou <em>« poétique »</em>. On pourrait dire : <em>« L'atmosphère était à la fois fantaisiste et mélancolique. »</em> Qu'est-ce qui t'a le plus touché dans le film ?</div>
+          <span class="msg-label">Juliane · AI Tutor</span>
+          <div class="msg-bubble">Ah, <em>Amélie</em> — un chef-d'œuvre&nbsp;! Pour «&nbsp;whimsical&nbsp;», tu peux dire <em>«&nbsp;fantaisiste&nbsp;»</em> ou <em>«&nbsp;poétique&nbsp;»</em>. <em>«&nbsp;L'atmosphère était à la fois fantaisiste et mélancolique.&nbsp;»</em> Qu'est-ce qui t'a le plus touché dans le film&nbsp;?</div>
         </div>
       </div>
     </div>
-    <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1.2rem">
-      <img src="assets/juliane/juliane5.png" alt="Juliane — always available, always in French" style="width:100%;max-width:420px;border:1px solid var(--dark-line)">
-      <div class="pullquote" style="margin:0;max-width:420px">
-        <p>"She never loses patience. She never grows tired. She is always ready for one more sentence in French."</p>
+    <!-- Character video right side -->
+    <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1.6rem;align-items:center">
+      <div class="jul-vid-card" style="max-width:380px;width:100%">
+        <video
+          autoplay muted loop playsinline
+          preload="metadata"
+          poster="assets/juliane/video/juliane-hero-2-poster.jpg"
+          aria-label="Juliane conversation coaching">
+          <source src="assets/juliane/video/juliane-719.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="pullquote" style="margin:0;max-width:380px">
+        <p>"He never loses patience. He never grows tired. He is always ready for one more sentence in French."</p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ===== INSTANT CORRECTIONS FEATURE ===== -->
+<section class="section-pad bg-navy">
+  <div class="wrap">
+    <div class="jul-feature reverse">
+      <!-- Text left -->
+      <div class="jul-feature-text reveal">
+        <p class="eyebrow eyebrow-line">Feature</p>
+        <h2 class="display-sm" style="color:var(--on-dark)">Instant <span class="gold-ital">Corrections</span></h2>
+        <p>Every response from Juliane includes precise, non-judgmental correction — not just of errors, but of register, naturalness, and cultural appropriateness. Feedback arrives immediately, while the context is still alive in your memory.</p>
+        <p>Juliane treats each exchange as an opportunity to refine your French — gently, consistently, and always in context.</p>
+        <a href="pricing.html" class="btn btn-gold" style="align-self:flex-start;margin-top:.8rem">Enroll Now</a>
+      </div>
+      <!-- Video card right -->
+      <div class="reveal reveal-d1">
+        <div class="jul-vid-card" style="max-width:380px;margin:0 auto">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-poster.jpg"
+            aria-label="Juliane instant corrections">
+            <source src="assets/juliane/video/juliane-735.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO STRIP ===== -->
+<section class="section-pad-sm bg-paper">
+  <div class="wrap">
+    <div class="jul-vid-strip reveal">
+      <div class="jul-vid-strip-item">
+        <video
+          autoplay muted loop playsinline
+          preload="metadata"
+          poster="assets/juliane/video/juliane-hero-poster.jpg"
+          aria-label="Juliane conversation practice">
+          <source src="assets/juliane/video/juliane-307.mp4" type="video/mp4">
+        </video>
+        <div class="jul-vid-strip-overlay">
+          <span class="jul-vid-strip-label">Conversation Practice</span>
+        </div>
+      </div>
+      <div class="jul-vid-strip-item">
+        <video
+          autoplay muted loop playsinline
+          preload="metadata"
+          poster="assets/juliane/video/juliane-hero-poster.jpg"
+          aria-label="Juliane pronunciation coaching">
+          <source src="assets/juliane/video/juliane-309.mp4" type="video/mp4">
+        </video>
+        <div class="jul-vid-strip-overlay">
+          <span class="jul-vid-strip-label">Pronunciation Coaching</span>
+        </div>
+      </div>
+      <div class="jul-vid-strip-item">
+        <video
+          autoplay muted loop playsinline
+          preload="metadata"
+          poster="assets/juliane/video/juliane-hero-poster.jpg"
+          aria-label="Juliane cultural guidance">
+          <source src="assets/juliane/video/juliane-336.mp4" type="video/mp4">
+        </video>
+        <div class="jul-vid-strip-overlay">
+          <span class="jul-vid-strip-label">Cultural Guidance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALWAYS ON (AMBIENT VIDEO BAND) ===== -->
+<section class="video-band">
+  <div class="video-bg tint-soft">
+    <video poster="assets/video/paris-seine-poster.jpg" loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-seine.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Always On &middot; Any Hour &middot; Any Timezone</p>
+    <h2 class="display-md">While Paris sleeps,<br><span class="gold-ital">Juliane</span> is awake.</h2>
+    <p class="lede">Language doesn't keep office hours. Neither does Juliane. Wherever you are in the world — at midnight in New York, at dawn in Tokyo, in the quiet hour before a Paris morning — your French coach is ready.</p>
+  </div></div>
 </section>
 
 <!-- ===== HOW JULIANE COMPLEMENTS LIVE CLASSES ===== -->
@@ -322,7 +418,16 @@
     </div>
     <div class="split split-wide reveal">
       <div>
-        <img src="assets/juliane/juliane6.png" alt="Juliane coaching French language learners" style="width:100%;border:1px solid var(--gold-line-soft)">
+        <!-- Always-on feature video -->
+        <div class="jul-vid-card" style="max-width:440px;margin:0 auto">
+          <video
+            autoplay muted loop playsinline
+            preload="metadata"
+            poster="assets/juliane/video/juliane-hero-2-poster.jpg"
+            aria-label="Juliane always available">
+            <source src="assets/juliane/video/juliane-hero-2.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
       <div>
         <p class="lede" style="margin-bottom:1.4rem">The live class is irreplaceable. A native certified teacher, broadcasting from France, creating a real communicative event with eight peers — that is the core of French Atelier learning. Juliane is built around that core, not in competition with it.</p>
@@ -349,40 +454,6 @@
   </div>
 </section>
 
-<!-- ===== PORTRAIT STRIP ===== -->
-<section class="section-pad-sm bg-paper">
-  <div class="wrap">
-    <div class="portrait-strip reveal">
-      <div class="ps-item">
-        <img src="assets/juliane/juliane1.png" alt="Juliane — conversation coach">
-        <div class="ps-overlay"><span class="ps-label">Conversation Practice</span></div>
-      </div>
-      <div class="ps-item">
-        <img src="assets/juliane/juliane3.png" alt="Juliane — pronunciation coaching">
-        <div class="ps-overlay"><span class="ps-label">Pronunciation Coaching</span></div>
-      </div>
-      <div class="ps-item">
-        <img src="assets/juliane/juliane5.png" alt="Juliane — cultural guidance">
-        <div class="ps-overlay"><span class="ps-label">Cultural Guidance</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PARIS SEINE AMBIENT VIDEO BAND ===== -->
-<section class="video-band">
-  <div class="video-bg tint-soft">
-    <video poster="assets/video/paris-seine-poster.jpg" loop muted playsinline preload="metadata">
-      <source src="assets/video/paris-seine.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Always On &middot; Any Hour &middot; Any Timezone</p>
-    <h2 class="display-md">While Paris sleeps,<br><span class="gold-ital">Juliane</span> is awake.</h2>
-    <p class="lede">Language doesn't keep office hours. Neither does Juliane. Wherever you are in the world — at midnight in New York, at dawn in Tokyo, in the quiet hour before a Paris morning — your French coach is ready.</p>
-  </div></div>
-</section>
-
 <!-- ===== INCLUDED IN EVERY PLAN ===== -->
 <section class="section-pad bg-cream">
   <div class="wrap-narrow" style="text-align:center">
@@ -403,7 +474,7 @@
 <section class="section-pad bg-navy-deep" style="text-align:center">
   <div class="wrap-narrow">
     <h2 class="display-md reveal">Begin with <span class="gold-ital">Juliane</span> at your side</h2>
-    <p class="lede reveal reveal-d1" style="max-width:50ch;margin:1.4rem auto 2.4rem">Enroll in The French Atelier today and meet Juliane the moment you log in. Your live classes and your AI coach — together, they are your fastest path to French.</p>
+    <p class="lede reveal reveal-d1" style="max-width:50ch;margin:1.4rem auto 2.4rem">Enroll in The French Atelier today and meet Juliane the moment you log in. Your live classes and your AI tutor — together, they are your fastest path to French.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d2">
       <a href="pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
       <a href="how-it-works.html" class="btn btn-outline btn-lg">How It Works</a>
@@ -411,12 +482,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     FRENCH ATELIER — INLINE ADVISOR SECTION  (Agent 5)
-     Drop into any page where you want the lead form embedded
-     (not as a modal). Same validation/success behavior as the modal.
-     Wrap is .advisor-section; left column is editorial copy, right is the card.
-     ============================================================ -->
+<!-- ===== LEAD FORM ===== -->
 <section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
@@ -483,7 +549,6 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        
         <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
       </div>
@@ -524,29 +589,21 @@
         <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
       </div>
     </div>
-    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA &copy; 2025. All Rights Reserved.</p>
   </div>
 </footer>
-<!-- ============================================================
-     FRENCH ATELIER — ADVISOR MODAL  (Agent 5)
-     Paste ONCE per page, just before </body>. Opened by ANY element
-     with the data-advisor attribute (e.g. the nav CTA). JS handles
-     open/close, ESC, backdrop click, validation + success.
-     Submission: mailto fallback. ▶ Wire a real endpoint in js/fa.js
-     (search for "TO WIRE A REAL ENDPOINT").
-     ============================================================ -->
+
+<!-- ADVISOR MODAL -->
 <div class="advisor-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="advisorModalTitle">
   <div class="advisor-card">
     <button class="advisor-modal-close" aria-label="Close" type="button">
       <svg class="fa-icon" style="font-size:16px"><use href="#i-close"/></svg>
     </button>
-
     <div class="advisor-head">
       <span class="eyebrow eyebrow-line">Speak with us</span>
       <h3 id="advisorModalTitle">Talk to an Advisor</h3>
       <p>Tell us a little about you and a French Atelier academic advisor will be in touch to plan your start.</p>
     </div>
-
     <form class="advisor-form" novalidate>
       <div class="field">
         <label for="adv-name">Name</label>
@@ -581,7 +638,6 @@
       </div>
       <p class="advisor-fineprint">Native French teachers, live from France &middot; Certified &middot; CEFR-aligned</p>
     </form>
-
     <div class="advisor-success" role="status">
       <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
       <h3>Merci&nbsp;!</h3>
