@@ -366,7 +366,7 @@
 
           <!-- FA 1 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/old_site/a-lession-1.png" alt="Learn French through landmarks, live from Saint-Germain" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-foundation-1.jpg" alt="FA Foundation — first conversations at a Parisian café" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A0 &rarr; A1.1</span>
               <h4 class="cls-course-name">FA Foundation</h4>
@@ -378,7 +378,7 @@
 
           <!-- FA 2 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/old_site/a-lession-2.png" alt="Learn French through caf&eacute;s, live from Paris" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-beginner-1.jpg" alt="FA Beginner — daily life from Normandy to Paris" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.1 &rarr; A1.2</span>
               <h4 class="cls-course-name">FA Beginner</h4>
@@ -390,7 +390,7 @@
 
           <!-- FA 3 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/old_site/a-lession-3.png" alt="Learn French through wine, live from the Bordeaux vineyards" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-elementary-1.jpg" alt="FA Elementary — from the Loire to the Basque Country" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.2 &rarr; A2.1</span>
               <h4 class="cls-course-name">FA Elementary</h4>
@@ -402,7 +402,7 @@
 
           <!-- FA 4 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/old_site/a-lession-5.png" alt="Learn French through music, live from Paris" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-intermediate-1.jpg" alt="FA Intermediate — Marseille, Chamonix and Alsace" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A2.1 &rarr; A2.2</span>
               <h4 class="cls-course-name">FA Intermediate</h4>
@@ -429,7 +429,7 @@
 
           <!-- LSF 1 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/old_site/b-lession-1.png" alt="Learn French through greetings, live from Parisian tearooms" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-foundation-1.jpg" alt="LSF Foundation — speak from your very first session" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A0 &rarr; A1.1</span>
               <h4 class="cls-course-name">LSF Foundation</h4>
@@ -441,7 +441,7 @@
 
           <!-- LSF 2 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/old_site/b-lession-2.png" alt="Learn French through landmarks, live from Parisian neighborhoods" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-beginner-1.jpg" alt="LSF Beginner — the practical situations of daily French life" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.1 &rarr; A1.2</span>
               <h4 class="cls-course-name">LSF Beginner</h4>
@@ -453,7 +453,7 @@
 
           <!-- LSF 3 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/old_site/b-lession-3.png" alt="Learn French through art, live from the Louvre" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-elementary-1.jpg" alt="LSF Elementary — cultural and professional life in French" loading="lazy"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.2 &rarr; A2.1</span>
               <h4 class="cls-course-name">LSF Elementary</h4>
@@ -927,6 +927,7 @@
   background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,16,.55) 0%,rgba(0,0,16,0) 70%);filter:blur(3px);}
 .jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;
   filter:drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35));}
+.jul-home .jul-cutout-video{border-radius:18px;background:rgba(0,0,20,.25);}
 .jul-cutout-badge{position:absolute;top:6%;left:4%;z-index:2;display:inline-flex;align-items:center;gap:.55rem;
   background:rgba(0,0,31,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,169,107,.45);
   padding:.5rem 1rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#D8BC85;border-radius:999px;}
@@ -939,13 +940,15 @@
 <section class="section-pad jul-home on-dark">
   <div class="jul-home-glow" aria-hidden="true"></div>
   <div class="wrap jul-home-split">
-    <!-- Transparent Juliane cutout: no frame, no card, no white bg -->
+    <!-- Juliane AI cartoon video — the uploaded character clip -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Juliane · AI Tutor</span>
-      <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
-           alt="Juliane, the French Atelier 24/7 AI French tutor"
-           width="760" height="1000" decoding="async" fetchpriority="high"
-           onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
+      <video class="jul-cutout jul-cutout-video" autoplay loop muted playsinline
+             poster="assets/juliane/video/juliane-hero-poster.jpg"
+             width="760" height="1000" preload="metadata"
+             aria-label="Juliane, the French Atelier 24/7 AI French tutor">
+        <source src="assets/juliane/video/juliane-hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="reveal reveal-d1 jul-home-text">
       <p class="eyebrow eyebrow-line">Practice Between Classes</p>

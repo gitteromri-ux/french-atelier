@@ -570,3 +570,14 @@
   .pm-main { grid-column: auto; grid-row: auto; }
   .jul-vid-strip { grid-template-columns: 1fr; }
 }
+
+/* ===== Juliane cartoon VIDEO cutouts (uploaded character clips) ===== */
+.jul-hero-cutout-video,
+.jul-cutout-video{
+  border-radius:20px;
+  background:rgba(0,0,20,.22);
+  overflow:hidden;
+}
+.jul-cutout.jul-cutout-video{
+  width:100%;max-width:420px;height:auto;
+}

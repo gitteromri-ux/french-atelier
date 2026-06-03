@@ -643,11 +643,26 @@ body.light-hero .site-header.scrolled{padding:.85rem 0}
   .world-level{font-size:.72rem;padding:.34rem .6rem}
 }
 @media(max-width:520px){
-  .pillars-grid{grid-template-columns:1fr}
+  /* Pillars become a horizontal SWIPE slider instead of 6 huge stacked cards */
+  .pillars-grid{
+    display:flex;grid-template-columns:none;gap:.9rem;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;
+    padding-bottom:1rem;scrollbar-width:none;margin-top:2rem;
+  }
+  .pillars-grid::-webkit-scrollbar{display:none}
+  .pillar{flex:0 0 80%;scroll-snap-align:center;aspect-ratio:4/5;}
+  .pillar-title{font-size:1.42rem}
+  .pillar-desc{font-size:.84rem;max-width:30ch}
   .trust-strip{gap:1.6rem 2rem}
   .trust-strip img{height:30px}
   .world-region{display:none}
 }
+/* Stronger legibility scrim + text-shadow so overlaid text never smears on the photo */
+.pillar::after{
+  background:linear-gradient(0deg,rgba(8,14,43,.92) 0%,rgba(8,14,43,.55) 38%,rgba(8,14,43,.12) 70%,rgba(8,14,43,0) 100%) !important;
+}
+.pillar-title{text-shadow:0 2px 14px rgba(0,0,16,.7)}
+.pillar-desc{text-shadow:0 1px 10px rgba(0,0,16,.65);opacity:.92}
 
 /* ============================================================
    ACCESSIBILITY: focus + reduced motion (award-spec mandate)
