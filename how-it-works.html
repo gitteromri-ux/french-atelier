@@ -30,9 +30,9 @@
 .trio-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--gold-line-soft)}
 .tb-item{padding:3rem 2.4rem;border-right:1px solid var(--gold-line-soft);text-align:center}
 .tb-item:last-child{border-right:none}
-.tb-item .tb-icon{font-family:var(--serif);font-size:2.6rem;color:var(--gold-deep);margin-bottom:1.2rem}
-.tb-item h3{font-size:1.4rem;margin:.4rem 0 .9rem}
-.tb-item p{font-size:.93rem;color:var(--on-light-soft);line-height:1.7}
+.tb-item .tb-icon{font-family:var(--serif);font-size:2.6rem;color:var(--gold-soft);margin-bottom:1.2rem}
+.tb-item h3{font-size:1.4rem;margin:.4rem 0 .9rem;color:var(--on-dark)}
+.tb-item p{font-size:.93rem;color:var(--on-dark-soft);line-height:1.7}
 
 /* Stat strip */
 .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(200,165,96,.15);border-bottom:1px solid rgba(200,165,96,.15)}
@@ -43,6 +43,9 @@
 
 @media(max-width:900px){.trio-band{grid-template-columns:1fr}.tb-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.tb-item:last-child{border-bottom:none}.stat-strip{grid-template-columns:repeat(2,1fr)}.ss-item:nth-child(2){border-right:none}.ss-item:nth-child(3),.ss-item:nth-child(4){border-top:1px solid rgba(200,165,96,.15)}}
 @media(max-width:600px){.hiw-timeline::before{left:1.7rem}.tl-step{grid-template-columns:3.4rem 1fr;gap:1.2rem}.tl-circle{width:2.8rem;height:2.8rem}.stat-strip{grid-template-columns:1fr}.ss-item{border-right:none;border-bottom:1px solid rgba(200,165,96,.15)}.ss-item:last-child{border-bottom:none}}
+@media(max-width:600px){.juliane-callout-wrap{padding-left:0!important}}
+@media(max-width:600px){.juliane-callout-inner{grid-template-columns:1fr!important}}
+@media(max-width:600px){.juliane-callout-inner img{display:none}}
 </style>
 </head>
 <body>
@@ -172,7 +175,9 @@
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero bg-navy">
   <div class="page-hero-bg">
-    <img src="assets/gen/hero-paris.png" alt="Paris — the beginning of your French journey">
+    <video poster="assets/video/paris-river-boats-poster.jpg" loop muted autoplay playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover">
+      <source src="assets/video/paris-river-boats.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -181,12 +186,26 @@
     </nav>
     <p class="eyebrow eyebrow-line reveal">The Journey</p>
     <h1 class="display-lg reveal reveal-d1">From <span class="gold-ital">premier bonjour</span><br>to certification</h1>
-    <p class="lede reveal reveal-d2" style="max-width:52ch">Five beautifully sequenced steps — from your first placement call to a CEFR-aligned certificate and beyond.</p>
+    <p class="lede reveal reveal-d2" style="max-width:52ch">Five elegantly sequenced steps — from your first placement call to a CEFR-aligned certificate from Acadomia, France's #1 private learning institute.</p>
+    <div class="reveal reveal-d3" style="margin-top:2.2rem;display:flex;gap:1.4rem;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:.6rem;background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.28);padding:.65rem 1.1rem;border-radius:2px">
+        <svg class="fa-icon" style="font-size:16px;color:var(--gold-soft)"><use href="#i-globe"/></svg>
+        <span style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-soft)">Live from France</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:.6rem;background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.28);padding:.65rem 1.1rem;border-radius:2px">
+        <svg class="fa-icon" style="font-size:16px;color:var(--gold-soft)"><use href="#i-sparkle"/></svg>
+        <span style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-soft)">Juliane AI Tutor</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:.6rem;background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.28);padding:.65rem 1.1rem;border-radius:2px">
+        <svg class="fa-icon" style="font-size:16px;color:var(--gold-soft)"><use href="#i-certificate"/></svg>
+        <span style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-soft)">Acadomia Certificate</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== QUICK STATS ===== -->
-<section class="section-pad-sm bg-navy-deep">
+<section class="section-pad-sm bg-navy-deep on-dark">
   <div class="wrap">
     <div class="stat-strip reveal">
       <div class="ss-item"><div class="ss-num">20</div><div class="ss-label">Live Lessons</div></div>
@@ -302,6 +321,28 @@
         </div>
       </div>
 
+      <!-- Juliane AI Feature Callout -->
+      <div style="margin-bottom:4.8rem;padding-left:9.2rem" class="reveal juliane-callout-wrap">
+        <div class="juliane-callout-inner" style="background:linear-gradient(135deg,#000034 0%,#00001F 100%);border:1px solid rgba(200,165,96,.28);padding:2.4rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center">
+          <img src="assets/juliane/juliane2.png" alt="Juliane AI French tutor" style="width:120px;height:120px;object-fit:cover;border-radius:50%;border:2px solid rgba(200,165,96,.5)">
+          <div>
+            <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem">
+              <span style="font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)">Powered by AI</span>
+              <span style="width:4rem;height:1px;background:rgba(200,165,96,.35)"></span>
+              <span style="font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--on-dark-soft)">Available 24/7</span>
+            </div>
+            <h3 style="font-family:var(--serif);font-size:1.7rem;color:var(--on-dark);margin-bottom:.7rem">Meet <span class="gold-ital">Juliane</span> — your AI French coach</h3>
+            <p style="color:var(--on-dark-soft);font-size:.94rem;line-height:1.65;max-width:52ch;margin-bottom:1.1rem">Between every live class, Juliane is with you. Pronunciation drills, vocabulary practice, cultural questions, spontaneous conversation in French — at any hour. She is not a chatbot. She is a precision language coach, patient and always in French.</p>
+            <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+              <span style="background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.25);padding:.4rem .9rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">Pronunciation</span>
+              <span style="background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.25);padding:.4rem .9rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">Vocabulary</span>
+              <span style="background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.25);padding:.4rem .9rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">Conversation</span>
+              <span style="background:rgba(200,165,96,.1);border:1px solid rgba(200,165,96,.25);padding:.4rem .9rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">Cultural Q&amp;A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Step 5 -->
       <div class="tl-step reveal">
         <div class="tl-num-wrap">
@@ -329,7 +370,7 @@
 <!-- ===== LILLE AMBIENT VIDEO BAND ===== -->
 <section class="video-band">
   <div class="video-bg">
-    <video poster="assets/video/lille-poster.jpg" loop muted playsinline preload="metadata">
+    <video poster="assets/video/lille-poster.jpg" loop muted autoplay playsinline preload="metadata">
       <source src="assets/video/lille.mp4" type="video/mp4">
     </video>
   </div>
@@ -341,7 +382,7 @@
 </section>
 
 <!-- ===== SUPPORTING TRIO ===== -->
-<section class="section-pad bg-navy">
+<section class="section-pad bg-navy on-dark">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:3.2rem">
       <p class="eyebrow eyebrow-line reveal" style="justify-content:center">What Supports the Journey</p>
@@ -413,7 +454,7 @@
 </section>
 
 <!-- ===== CTA ===== -->
-<section class="section-pad bg-navy-deep" style="text-align:center">
+<section class="section-pad bg-navy-deep on-dark" style="text-align:center">
   <div class="wrap-narrow">
     <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Begin Your Journey</p>
     <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Culture speaks French.<br><span class="gold-ital">What about you?</span></h2>

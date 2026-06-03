@@ -13,11 +13,34 @@
   if(close&&drawer){ close.addEventListener('click',function(){drawer.classList.remove('open');document.body.style.overflow='';}); }
   if(drawer){ drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');document.body.style.overflow='';});}); }
 
-  // Scroll reveal
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // Scroll reveal — lenient: any sliver in view (or near it) reveals + never gets stuck
+  var revealEls=[].slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+    },{threshold:0,rootMargin:'0px 0px 18% 0px'});
+    revealEls.forEach(function(el){io.observe(el);});
+    // Safety net: anything in or above the viewport that hasn't revealed yet gets revealed.
+    var sweep=function(){
+      var vh=window.innerHeight||800;
+      revealEls.forEach(function(el){
+        if(el.classList.contains('in'))return;
+        var r=el.getBoundingClientRect();
+        if(r.top < vh*1.15){ el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    window.addEventListener('scroll',sweep,{passive:true});
+    window.addEventListener('resize',sweep,{passive:true});
+    sweep();
+    // Absolute fallback: nothing stays invisible forever (fires fast so nothing ever looks broken).
+    setTimeout(function(){ revealEls.forEach(function(el){ el.classList.add('in'); }); },1100);
+    // Re-collect late-mounted reveal nodes and reveal anything already on-screen.
+    setTimeout(function(){
+      [].slice.call(document.querySelectorAll('.reveal:not(.in)')).forEach(function(el){ el.classList.add('in'); });
+    },1800);
+  } else {
+    revealEls.forEach(function(el){el.classList.add('in');});
+  }
 
   // Animated number counters (Acadomia power figures)
   var counters=document.querySelectorAll('[data-count]');
@@ -43,12 +66,17 @@
     counters.forEach(function(c){cio.observe(c);});
   }
 
-  // Ambient autoplay-muted videos (.video-bg, .video-frame, .video-band)
-  document.querySelectorAll('.video-bg video, .video-frame video, .video-band video').forEach(function(v){
-    v.muted=true; v.setAttribute('muted','');
-    v.setAttribute('playsinline','');
-    v.play().catch(function(){});
-  });
+  // Ambient autoplay-muted videos — play EVERY autoplay/muted video sitewide,
+  // including Juliane character clips (.jul-video, .jul-vid-card, .pm-main, .pm-sm),
+  // even ones that mount below the fold (IntersectionObserver kicks them off).
+  var ambient=[].slice.call(document.querySelectorAll('video[autoplay], video[muted], .video-bg video, .video-frame video, .video-band video, .jul-video-frame video, .jul-vid-card video, .pm-main video, .pm-sm video'));
+  ambient.forEach(function(v){ v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.loop=true; v.play().catch(function(){}); });
+  if('IntersectionObserver' in window && ambient.length){
+    var vio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.play().catch(function(){}); } });
+    },{threshold:.05});
+    ambient.forEach(function(v){ vio.observe(v); });
+  }
 
   // Interactive course worlds (accordion)
   document.querySelectorAll('[data-world] .world-head').forEach(function(head){

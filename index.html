@@ -234,7 +234,7 @@
   </div>
 </section>
 
-<!-- ===== COURSES SHOWCASE (horizontal phase panels) ===== -->
+<!-- ===== COURSES SHOWCASE (columnar phase cards, accordion expand) ===== -->
 <section class="section-pad bg-ivory" id="courses">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:2.4rem">
@@ -246,101 +246,117 @@
     <!-- TRACK 1: French Atelier Daytime -->
     <div class="cph-track-label reveal">
       <span class="cph-track-eyebrow">Track 1</span>
-      <h3 class="cph-track-name">The French Atelier <em>· Daytime · Structured Language &amp; Culture</em></h3>
-      <span class="cph-track-meta">4 courses · A0 &rarr; A2.2 · 20 lessons each · 85 min</span>
+      <h3 class="cph-track-name">The French Atelier <em>&middot; Daytime &middot; Structured Language &amp; Culture</em></h3>
+      <span class="cph-track-meta">4 courses &middot; A0 &rarr; A2.2 &middot; 20 lessons each &middot; 85 min</span>
     </div>
 
     <div class="cph-panels" id="fa-panels">
 
       <!-- FA 1 -->
-      <article class="cph-panel reveal" style="--ph-num:'01';--ph-accent:var(--navy);--ph-accent2:var(--navy-soft)">
+      <article class="cph-panel reveal" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">01</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">FA Daytime · Course 1 · Flagship</span>
-            <h3 class="cph-title">FA Foundation</h3>
-            <span class="cph-level-badge">A0 &rarr; A1.1</span>
-          </div>
-          <p class="cph-tagline">Paris — A long weekend from first <em>bonjour</em> to confident ordering.</p>
-          <p class="cph-outcome">Key outcome: greet, order at a café, ask directions, and hold a first conversation in French.</p>
+          <span class="cph-eyebrow">FA Daytime &middot; Course 1 &middot; Flagship</span>
+          <h3 class="cph-title">FA Foundation</h3>
+          <span class="cph-level-badge">A0 &rarr; A1.1</span>
+          <p class="cph-tagline">Paris &mdash; A long weekend from first <em>bonjour</em> to confident ordering.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
+          <p class="cph-outcome">Key outcome: greet, order at a caf&eacute;, ask directions, and hold a first conversation in French.</p>
           <div class="cph-meta">
-            <span>20 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>20 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/fa-foundation.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/fa-foundation.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
       <!-- FA 2 -->
-      <article class="cph-panel reveal reveal-d1" style="--ph-accent:var(--terra);--ph-accent2:var(--terra-deep)">
+      <article class="cph-panel reveal reveal-d1" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">02</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">FA Daytime · Course 2</span>
-            <h3 class="cph-title">FA Beginner</h3>
-            <span class="cph-level-badge">A1.1 &rarr; A1.2</span>
-          </div>
-          <p class="cph-tagline">Normandy coast &rarr; Paris &amp; Versailles — From the cliffs of Étretat to the markets of the Marais.</p>
+          <span class="cph-eyebrow">FA Daytime &middot; Course 2</span>
+          <h3 class="cph-title">FA Beginner</h3>
+          <span class="cph-level-badge">A1.1 &rarr; A1.2</span>
+          <p class="cph-tagline">Normandy coast &rarr; Paris &amp; Versailles &mdash; From the cliffs of &Eacute;tretat to the markets of the Marais.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: talk about family, suggest plans, shop at a French market, and navigate daily life.</p>
           <div class="cph-meta">
-            <span>20 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>20 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/fa-beginner.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/fa-beginner.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
       <!-- FA 3 -->
-      <article class="cph-panel reveal reveal-d2" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)">
+      <article class="cph-panel reveal reveal-d2" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">03</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">FA Daytime · Course 3</span>
-            <h3 class="cph-title">FA Elementary</h3>
-            <span class="cph-level-badge">A1.2 &rarr; A2.1</span>
-          </div>
-          <p class="cph-tagline">Loire &rarr; Bordeaux &rarr; Basque Country — Château country, Atlantic oysters, and a final dinner in Espelette.</p>
+          <span class="cph-eyebrow">FA Daytime &middot; Course 3</span>
+          <h3 class="cph-title">FA Elementary</h3>
+          <span class="cph-level-badge">A1.2 &rarr; A2.1</span>
+          <p class="cph-tagline">Loire &rarr; Bordeaux &rarr; Basque Country &mdash; Ch&acirc;teau country, Atlantic oysters, and a final dinner in Espelette.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: recommend, narrate past events, describe art, and give a mini-presentation in French.</p>
           <div class="cph-meta">
-            <span>20 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>20 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/fa-elementary.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/fa-elementary.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
       <!-- FA 4 -->
-      <article class="cph-panel reveal reveal-d3" style="--ph-accent:var(--pink-mid);--ph-accent2:var(--pink-deep)">
+      <article class="cph-panel reveal reveal-d3" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">04</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">FA Daytime · Course 4 · New</span>
-            <h3 class="cph-title">FA Intermediate</h3>
-            <span class="cph-level-badge">A2.1 &rarr; A2.2</span>
-          </div>
-          <p class="cph-tagline">Marseille &rarr; Chamonix &rarr; Alsace &amp; Champagne — Debate, negotiate, and compare cultures across three corners of France.</p>
+          <span class="cph-eyebrow">FA Daytime &middot; Course 4 &middot; New</span>
+          <h3 class="cph-title">FA Intermediate</h3>
+          <span class="cph-level-badge">A2.1 &rarr; A2.2</span>
+          <p class="cph-tagline">Marseille &rarr; Chamonix &rarr; Alsace &amp; Champagne &mdash; Debate, negotiate, and compare cultures across three corners of France.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: negotiate a compromise, share cultural opinions, and compare French and your own traditions.</p>
           <div class="cph-meta">
-            <span>20 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>20 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/fa-intermediate.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/fa-intermediate.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
@@ -349,325 +365,132 @@
     <!-- TRACK 2: Let's Speak French Evening -->
     <div class="cph-track-label reveal" style="margin-top:4rem">
       <span class="cph-track-eyebrow">Track 2</span>
-      <h3 class="cph-track-name">Let&rsquo;s Speak French <em>· Evening · Spoken Fluency, No Grammar</em></h3>
-      <span class="cph-track-meta">3 courses · A0 &rarr; A2.1 · 10 lessons each · 85 min</span>
+      <h3 class="cph-track-name">Let&rsquo;s Speak French <em>&middot; Evening &middot; Spoken Fluency, No Grammar</em></h3>
+      <span class="cph-track-meta">3 courses &middot; A0 &rarr; A2.1 &middot; 10 lessons each &middot; 85 min</span>
     </div>
 
     <div class="cph-panels cph-panels-lsf" id="lsf-panels">
 
       <!-- LSF 1 -->
-      <article class="cph-panel cph-panel-lsf reveal" style="--ph-accent:var(--pink-mid);--ph-accent2:var(--pink-deep)">
+      <article class="cph-panel cph-panel-lsf reveal" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">01</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">LSF Evening · Course 1</span>
-            <h3 class="cph-title">LSF Foundation</h3>
-            <span class="cph-level-badge">A0 &rarr; A1.1</span>
-          </div>
-          <p class="cph-tagline">Live from France — Speak from your very first evening. Survival French, fast.</p>
+          <span class="cph-eyebrow">LSF Evening &middot; Course 1</span>
+          <h3 class="cph-title">LSF Foundation</h3>
+          <span class="cph-level-badge">A0 &rarr; A1.1</span>
+          <p class="cph-tagline">Live from France &mdash; Speak from your very first evening. Survival French, fast.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: introduce yourself, order a drink, and hold a timed exchange with confidence.</p>
           <div class="cph-meta">
-            <span>10 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>10 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/lsf-foundation.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/lsf-foundation.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
       <!-- LSF 2 -->
-      <article class="cph-panel cph-panel-lsf reveal reveal-d1" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)">
+      <article class="cph-panel cph-panel-lsf reveal reveal-d1" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">02</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">LSF Evening · Course 2</span>
-            <h3 class="cph-title">LSF Beginner</h3>
-            <span class="cph-level-badge">A1.1 &rarr; A1.2</span>
-          </div>
-          <p class="cph-tagline">Live from France — The practical situations of daily French life, without a script.</p>
+          <span class="cph-eyebrow">LSF Evening &middot; Course 2</span>
+          <h3 class="cph-title">LSF Beginner</h3>
+          <span class="cph-level-badge">A1.1 &rarr; A1.2</span>
+          <p class="cph-tagline">Live from France &mdash; The practical situations of daily French life, without a script.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: buy at a market, describe your home, and handle a pharmacy exchange in French.</p>
           <div class="cph-meta">
-            <span>10 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>10 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/lsf-beginner.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/lsf-beginner.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
       <!-- LSF 3 -->
-      <article class="cph-panel cph-panel-lsf reveal reveal-d2" style="--ph-accent:var(--terra);--ph-accent2:var(--terra-deep)">
+      <article class="cph-panel cph-panel-lsf reveal reveal-d2" style="--ph-accent:var(--gold);--ph-accent2:var(--gold-deep)" aria-expanded="false">
         <div class="cph-num">03</div>
         <div class="cph-body">
-          <div class="cph-head">
-            <span class="cph-eyebrow">LSF Evening · Course 3</span>
-            <h3 class="cph-title">LSF Elementary</h3>
-            <span class="cph-level-badge">A1.2 &rarr; A2.1</span>
-          </div>
-          <p class="cph-tagline">Live from France — Settle into French life: opinions, appointments, and cultural codes.</p>
+          <span class="cph-eyebrow">LSF Evening &middot; Course 3</span>
+          <h3 class="cph-title">LSF Elementary</h3>
+          <span class="cph-level-badge">A1.2 &rarr; A2.1</span>
+          <p class="cph-tagline">Live from France &mdash; Settle into French life: opinions, appointments, and cultural codes.</p>
+        </div>
+        <div class="cph-expand" aria-hidden="true">
           <p class="cph-outcome">Key outcome: make appointments, propose outings, and decode French cultural implicits.</p>
           <div class="cph-meta">
-            <span>10 live lessons · 85 min</span>
-            <span>Groups of 8–10</span>
-            <span>CEFR cert · Acadomia</span>
+            <span>10 live lessons &middot; 85 min</span>
+            <span>Groups of 8&ndash;10</span>
+            <span>CEFR cert &middot; Acadomia</span>
+          </div>
+          <div class="cph-cta">
+            <a href="courses/lsf-elementary.html" class="btn btn-gold" onclick="event.stopPropagation()">View Course</a>
+            <a href="pricing.html" class="btn btn-outline" onclick="event.stopPropagation()">Enroll</a>
           </div>
         </div>
-        <div class="cph-cta">
-          <a href="courses/lsf-elementary.html" class="btn btn-gold">View Course</a>
-          <a href="pricing.html" class="btn btn-outline">Enroll</a>
+        <div class="cph-toggle" aria-hidden="true">
+          <span>Details</span>
+          <span class="cph-chevron"><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></span>
         </div>
       </article>
 
     </div><!-- /lsf-panels -->
 
-    <!-- dummy so remaining worlds-track accordion code doesn't appear -->
-    <div class="worlds-track" style="display:none">
-
-      <article class="world is-open" data-world style="--w-accent:#000034;--w-accent2:#1C2A56">
-        <button class="world-head" aria-expanded="true">
-          <span class="world-head-l">
-            <span class="world-eyebrow">Course 1 · Flagship</span>
-            <span class="world-title">FA Foundation</span>
-            <span class="world-region">Paris</span>
-          </span>
-          <span class="world-head-r">
-            <span class="world-level">A0 → A1.1</span>
-            <span class="world-toggle" aria-hidden="true"></span>
-          </span>
-        </button>
-        <div class="world-body">
-          <div class="world-body-inner">
-            <p class="world-tagline">A long weekend in Paris, from first bonjour to confident ordering.</p>
-            <div class="world-scenes">
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-foundation-1.png" alt="Se présenter · Unit 1 — Paris" loading="lazy">
-              <figcaption>Se présenter · Unit 1</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-foundation-2.png" alt="Commander au café · Units 5–6 — Paris" loading="lazy">
-              <figcaption>Commander au café · Units 5–6</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-foundation-3.png" alt="Demander son chemin · Unit 3 — Paris" loading="lazy">
-              <figcaption>Demander son chemin · Unit 3</figcaption>
-            </figure>
-            </div>
-            <p class="world-units-label">What you'll learn — real lessons from this course</p>
-            <ul class="world-units">
-            <li class="world-unit">
-              <span class="wu-num">Unit 1</span>
-              <span class="wu-fr">Se présenter</span>
-              <span class="wu-en">Greet, exchange names, and read the cultural codes of a first French meeting.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 5</span>
-              <span class="wu-fr">Je voudrais… + c'est combien ?</span>
-              <span class="wu-en">Order food and drinks, ask the price, and handle numbers at a real café.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 17</span>
-              <span class="wu-fr">Je prends… + l'addition</span>
-              <span class="wu-en">Run a full restaurant exchange end to end and ask for the bill with ease.</span>
-            </li>
-            </ul>
-            <div class="world-meta">
-              <span>20 live lessons · 85 min each</span>
-              <span>Small groups of 8–10</span>
-              <span>Lifetime recordings + CEFR certificate</span>
-            </div>
-            <div class="world-actions">
-              <a href="courses/fa-foundation.html" class="btn btn-gold">View full course</a>
-              <a href="pricing.html" class="btn btn-outline">Enroll</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="world" data-world style="--w-accent:#A95436;--w-accent2:#C76F50">
-        <button class="world-head" aria-expanded="false">
-          <span class="world-head-l">
-            <span class="world-eyebrow">Course 2</span>
-            <span class="world-title">FA Beginner</span>
-            <span class="world-region">Normandy → Paris</span>
-          </span>
-          <span class="world-head-r">
-            <span class="world-level">A1.1 → A1.2</span>
-            <span class="world-toggle" aria-hidden="true"></span>
-          </span>
-        </button>
-        <div class="world-body">
-          <div class="world-body-inner">
-            <p class="world-tagline">From the cliffs of Étretat to the markets of the Marais.</p>
-            <div class="world-scenes">
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-beginner-1.png" alt="Parler de sa famille · Unit 5 — Normandy → Paris" loading="lazy">
-              <figcaption>Parler de sa famille · Unit 5</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-beginner-2.png" alt="Le 14 juillet · Unit 11 — Normandy → Paris" loading="lazy">
-              <figcaption>Le 14 juillet · Unit 11</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-beginner-3.png" alt="Acheter au marché · Unit 19 — Normandy → Paris" loading="lazy">
-              <figcaption>Acheter au marché · Unit 19</figcaption>
-            </figure>
-            </div>
-            <p class="world-units-label">What you'll learn — real lessons from this course</p>
-            <ul class="world-units">
-            <li class="world-unit">
-              <span class="wu-num">Unit 5</span>
-              <span class="wu-fr">Parler de sa famille</span>
-              <span class="wu-en">Talk about your family and age with avoir — siblings, parents, children.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 11</span>
-              <span class="wu-fr">Proposer une activité (14 juillet)</span>
-              <span class="wu-en">Suggest Bastille Day plans, negotiate a time, and discover France's national holiday.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 19</span>
-              <span class="wu-fr">Acheter au marché</span>
-              <span class="wu-en">Buy produce by quantity at a French market and complete a full exchange.</span>
-            </li>
-            </ul>
-            <div class="world-meta">
-              <span>20 live lessons · 85 min each</span>
-              <span>Small groups of 8–10</span>
-              <span>Lifetime recordings + CEFR certificate</span>
-            </div>
-            <div class="world-actions">
-              <a href="courses/fa-beginner.html" class="btn btn-gold">View full course</a>
-              <a href="pricing.html" class="btn btn-outline">Enroll</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="world" data-world style="--w-accent:#7A5A1E;--w-accent2:#A98D52">
-        <button class="world-head" aria-expanded="false">
-          <span class="world-head-l">
-            <span class="world-eyebrow">Course 3</span>
-            <span class="world-title">FA Elementary</span>
-            <span class="world-region">Loire → Atlantic → Basque</span>
-          </span>
-          <span class="world-head-r">
-            <span class="world-level">A1.2 → A2.1</span>
-            <span class="world-toggle" aria-hidden="true"></span>
-          </span>
-        </button>
-        <div class="world-body">
-          <div class="world-body-inner">
-            <p class="world-tagline">Château country, Atlantic oysters, and a final dinner in Espelette.</p>
-            <div class="world-scenes">
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-elementary-1.png" alt="Recommander un vin · Unit 8 — Loire → Atlantic → Basque" loading="lazy">
-              <figcaption>Recommander un vin · Unit 8</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-elementary-2.png" alt="Décrire une œuvre · Units 14–15 — Loire → Atlantic → Basque" loading="lazy">
-              <figcaption>Décrire une œuvre · Units 14–15</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-elementary-3.png" alt="Negotiate &amp; narrate · Atlantic coast — Loire → Atlantic → Basque" loading="lazy">
-              <figcaption>Negotiate &amp; narrate · Atlantic coast</figcaption>
-            </figure>
-            </div>
-            <p class="world-units-label">What you'll learn — real lessons from this course</p>
-            <ul class="world-units">
-            <li class="world-unit">
-              <span class="wu-num">Unit 8</span>
-              <span class="wu-fr">Recommander + exprimer une préférence</span>
-              <span class="wu-en">Recommend a wine or dish and discover French apéritif traditions.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 12</span>
-              <span class="wu-fr">Raconter un souvenir court (passé composé)</span>
-              <span class="wu-en">Narrate a short memory in the past tense and react to someone's story.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 15</span>
-              <span class="wu-fr">Présenter une œuvre (mini-exposé)</span>
-              <span class="wu-en">Give a structured 30–45 second presentation of a work of art and field a question.</span>
-            </li>
-            </ul>
-            <div class="world-meta">
-              <span>20 live lessons · 85 min each</span>
-              <span>Small groups of 8–10</span>
-              <span>Lifetime recordings + CEFR certificate</span>
-            </div>
-            <div class="world-actions">
-              <a href="courses/fa-elementary.html" class="btn btn-gold">View full course</a>
-              <a href="pricing.html" class="btn btn-outline">Enroll</a>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="world" data-world style="--w-accent:#000049;--w-accent2:#2A2F66">
-        <button class="world-head" aria-expanded="false">
-          <span class="world-head-l">
-            <span class="world-eyebrow">Course 4 · New</span>
-            <span class="world-title">FA Intermediate</span>
-            <span class="world-region">Marseille → Chamonix → Alsace → Reims</span>
-          </span>
-          <span class="world-head-r">
-            <span class="world-level">A2.1 → A2.2</span>
-            <span class="world-toggle" aria-hidden="true"></span>
-          </span>
-        </button>
-        <div class="world-body">
-          <div class="world-body-inner">
-            <p class="world-tagline">Debate, negotiate, and compare cultures across three corners of France.</p>
-            <div class="world-scenes">
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-intermediate-1.png" alt="Le Vieux-Port · Marseille — Marseille → Chamonix → Alsace → Reims" loading="lazy">
-              <figcaption>Le Vieux-Port · Marseille</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-intermediate-2.png" alt="La Mer de Glace · Chamonix — Marseille → Chamonix → Alsace → Reims" loading="lazy">
-              <figcaption>La Mer de Glace · Chamonix</figcaption>
-            </figure>
-            <figure class="world-scene">
-              <img src="assets/courses_clean/fa-intermediate-3.png" alt="Petite France · Strasbourg — Marseille → Chamonix → Alsace → Reims" loading="lazy">
-              <figcaption>Petite France · Strasbourg</figcaption>
-            </figure>
-            </div>
-            <p class="world-units-label">What you'll learn — real lessons from this course</p>
-            <ul class="world-units">
-            <li class="world-unit">
-              <span class="wu-num">Unit 3</span>
-              <span class="wu-fr">Négocier + conclure un compromis</span>
-              <span class="wu-en">Raise a constraint, propose a concession, and close a clear joint decision.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 4</span>
-              <span class="wu-fr">Préférence culturelle + comparer</span>
-              <span class="wu-en">Share a cultural preference and decode the codes of la bise and greetings.</span>
-            </li>
-            <li class="world-unit">
-              <span class="wu-num">Unit 20</span>
-              <span class="wu-fr">Comparer deux cultures + avis nuancé</span>
-              <span class="wu-en">Compare a French tradition with your own and give a nuanced opinion.</span>
-            </li>
-            </ul>
-            <div class="world-meta">
-              <span>20 live lessons · 85 min each</span>
-              <span>Small groups of 8–10</span>
-              <span>Lifetime recordings + CEFR certificate</span>
-            </div>
-            <div class="world-actions">
-              <a href="courses/fa-intermediate.html" class="btn btn-gold">View full course</a>
-              <a href="pricing.html" class="btn btn-outline">Enroll</a>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
   </div>
 </section>
+
+<!-- Course card accordion JS -->
+<script>
+(function(){
+  'use strict';
+  function initCphAccordion(){
+    document.querySelectorAll('.cph-panel').forEach(function(panel){
+      panel.addEventListener('click', function(e){
+        if(e.target.closest('a')) return;
+        var isOpen = panel.classList.contains('is-open');
+        var grid = panel.closest('.cph-panels');
+        if(grid){
+          grid.querySelectorAll('.cph-panel.is-open').forEach(function(op){
+            if(op !== panel){
+              op.classList.remove('is-open');
+              op.setAttribute('aria-expanded','false');
+              var exp = op.querySelector('.cph-expand');
+              if(exp) exp.setAttribute('aria-hidden','true');
+            }
+          });
+        }
+        panel.classList.toggle('is-open', !isOpen);
+        panel.setAttribute('aria-expanded', String(!isOpen));
+        var expand = panel.querySelector('.cph-expand');
+        if(expand) expand.setAttribute('aria-hidden', String(isOpen));
+      });
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initCphAccordion);
+  } else {
+    initCphAccordion();
+  }
+})();
+</script>
 
 <!-- ===== MEET OUR TEACHERS — Premium Faculty Section ===== -->
 <section class="section-pad bg-ivory" id="teachers">
@@ -758,7 +581,7 @@
         <a class="tctr-mini" href="teachers.html">
           <div class="tctr-mini-img"><img src="assets/teachers/carmele.png" alt="Carmèle" loading="lazy"></div>
           <span class="tctr-mini-name">Carmèle</span>
-          <span class="tctr-mini-region">Lyon</span>
+          <span class="tctr-mini-region">Paris</span>
         </a>
         <a class="tctr-mini" href="teachers.html">
           <div class="tctr-mini-img"><img src="assets/teachers/corentin.png" alt="Corentin" loading="lazy"></div>
@@ -1146,7 +969,7 @@
 </section>
 
 <!-- ===== JULIANE AI (brief) ===== -->
-<section class="section-pad bg-navy-deep">
+<section class="section-pad bg-navy-deep on-dark">
   <div class="wrap split">
     <!-- FIX 6: Autoplay looping video of animated Juliane character in premium frame -->
     <div class="reveal jul-video-wrap">

@@ -647,5 +647,62 @@
 </div>
 
 <script src="js/fa.js"></script>
+<script>
+/* Juliane character video autoplay via IntersectionObserver.
+   Ensures all .jul-* and .portrait-mosaic videos play when in viewport.
+   The hero video already has autoplay; this handles below-fold videos. */
+(function(){
+  'use strict';
+  function bootJulianeVideos(){
+    var selectors = [
+      '.jul-vid-card video',
+      '.jul-vid-strip-item video',
+      '.pm-main video',
+      '.pm-sm video',
+      '.jul-hero-video'
+    ];
+    var vids = [];
+    selectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(v){
+        if(vids.indexOf(v)===-1) vids.push(v);
+      });
+    });
+
+    if(!vids.length) return;
+
+    // Ensure all have correct attributes
+    vids.forEach(function(v){
+      v.muted = true;
+      v.setAttribute('muted','');
+      v.setAttribute('playsinline','');
+      v.loop = true;
+    });
+
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var v = e.target;
+            v.play().catch(function(){});
+          } else {
+            // Pause videos that leave viewport to save resources
+            e.target.pause();
+          }
+        });
+      }, { threshold: 0.1 });
+      vids.forEach(function(v){ io.observe(v); });
+    } else {
+      // Fallback: just try to play all
+      vids.forEach(function(v){ v.play().catch(function(){}); });
+    }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bootJulianeVideos);
+  } else {
+    bootJulianeVideos();
+  }
+})();
+</script>
 </body>
 </html>

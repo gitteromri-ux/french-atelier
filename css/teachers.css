@@ -460,6 +460,12 @@
   margin: 0;
 }
 
+/* ===== ATELIER DIFFERENCE (navy) — fix dark-on-dark lede ===== */
+/* .lede defaults to --on-light-soft; override for navy bg sections */
+.section-pad.bg-navy .lede {
+  color: var(--on-dark-soft);
+}
+
 /* ===== CTA SECTION ===== */
 .teachers-cta-section {
   background: var(--ivory);

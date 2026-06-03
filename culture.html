@@ -23,8 +23,20 @@
 .thesis-band{background:var(--ivory);padding:4.8rem 0;text-align:center;border-bottom:1px solid var(--gold-line-soft)}
 
 /* ===== PILLAR SECTIONS ===== */
-.pillar-section{padding:7rem 0}
-.pillar-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.pillar-section{padding:0}
+.pillar-section-inner{padding:5rem 0 4rem}
+
+/* Pillar header with video */
+.pillar-video-hero{position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;min-height:320px}
+.pillar-video-hero video{width:100%;height:100%;object-fit:cover;display:block}
+.pillar-video-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,20,.18) 0%,rgba(0,0,20,.55) 100%)}
+.pillar-video-hero-label{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:2.4rem 3.6rem 2rem;display:flex;align-items:flex-end;gap:1.6rem}
+.pillar-video-hero-label .pl-num{font-family:var(--serif);font-size:6rem;color:rgba(200,169,107,.18);line-height:1;flex-shrink:0}
+.pillar-video-hero-label .pl-heading{color:#fff}
+.pillar-video-hero-label .pl-heading .eyebrow{color:rgba(200,169,107,.9);margin-bottom:.3rem}
+.pillar-video-hero-label .pl-heading h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.04;color:#fff;margin:0}
+
+.pillar-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:3.6rem}
 .pillar-label{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem}
 .pillar-label .pl-num{font-family:var(--serif);font-size:5rem;color:var(--gold-line);line-height:1}
 .pillar-img-main{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--gold-line-soft);display:block}
@@ -33,12 +45,13 @@
 .sp-item strong{font-family:var(--serif);font-size:1.05rem;display:block;margin-bottom:.3rem}
 .sp-item p{font-size:.9rem;color:var(--on-light-soft);line-height:1.65;margin:0}
 
-/* dark section subpoints */
+/* dark section overrides */
 .on-dark .sp-item{border-left-color:var(--gold-soft)}
+.on-dark .sp-item strong{color:var(--on-dark)}
 .on-dark .sp-item p{color:var(--on-dark-soft)}
-
-/* ===== VIDEO TRIO GRID ===== */
-.video-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.on-dark .pillar-intro .lede{color:var(--on-dark)}
+.on-dark .pillar-intro p{color:var(--on-dark-soft)}
+.on-dark .img-caption{color:var(--on-dark-soft)}
 
 /* ===== PILLAR NAV ===== */
 .pillar-nav{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--gold-line-soft);margin-bottom:0}
@@ -46,11 +59,20 @@
 .pillar-nav a:last-child{border-right:none}
 .pillar-nav a:hover{background:var(--navy);color:var(--gold-soft)}
 
+/* ===== VIDEO TRIO GRID ===== */
+.video-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+
 /* ===== TRAVEL ambient ===== */
 .travel-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem}
 
-@media(max-width:1000px){.pillar-intro{grid-template-columns:1fr}.pillar-subpoints{grid-template-columns:1fr}.video-trio{grid-template-columns:1fr 1fr}.travel-pair{grid-template-columns:1fr}}
-@media(max-width:700px){.pillar-nav a{font-size:.65rem;padding:.9rem .5rem}.culture-hero h1{font-size:3.2rem}.video-trio{grid-template-columns:1fr}.pillar-nav{flex-direction:column}.pillar-nav a{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.pillar-nav a:last-child{border-bottom:none}}
+/* Inline pillar video strip — shown below text, not as hero */
+.pillar-ambient-video{margin-top:3rem}
+.pillar-ambient-video video{width:100%;display:block;aspect-ratio:16/6;object-fit:cover}
+.pillar-ambient-video figcaption{font-size:.8rem;color:var(--on-light-soft);padding:.7rem 0 0;letter-spacing:.06em}
+.on-dark .pillar-ambient-video figcaption{color:var(--on-dark-soft)}
+
+@media(max-width:1000px){.pillar-intro{grid-template-columns:1fr}.pillar-subpoints{grid-template-columns:1fr}.video-trio{grid-template-columns:1fr 1fr}.travel-pair{grid-template-columns:1fr}.pillar-video-hero-label{padding:1.6rem 1.8rem 1.2rem}.pillar-video-hero-label .pl-num{font-size:4rem}}
+@media(max-width:700px){.pillar-nav a{font-size:.65rem;padding:.9rem .5rem}.culture-hero h1{font-size:3.2rem}.video-trio{grid-template-columns:1fr}.pillar-nav{flex-direction:column}.pillar-nav a{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.pillar-nav a:last-child{border-bottom:none}.pillar-video-hero{aspect-ratio:16/9;min-height:220px}.pillar-video-hero-label{padding:1.2rem}.pillar-video-hero-label .pl-num{display:none}.pillar-video-hero-label .pl-heading h2{font-size:1.8rem}}
 </style>
 </head>
 <body>
@@ -180,7 +202,7 @@
 <!-- ===== CINEMATIC HERO — paris-sunset-street video-bg ===== -->
 <section class="culture-hero">
   <div class="video-bg">
-    <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted playsinline preload="metadata">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-sunset-street-poster.jpg">
       <source src="assets/video/paris-sunset-street.mp4" type="video/mp4">
     </video>
   </div>
@@ -224,16 +246,22 @@
      PILLAR I — ART & ARCHITECTURE
 ==================================================================== -->
 <section id="art" class="pillar-section bg-ivory">
-  <div class="wrap">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-art-poster.jpg">
+      <source src="assets/video/pillar-art.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num">I</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar One</p>
+        <h2>Art &amp; <span class="gold-ital">Architecture</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num">I</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar One</p>
-            <h2 class="display-sm" style="margin:0">Art &amp; <span class="gold-ital">Architecture</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">France has produced more enduring art and architecture per square kilometre than any civilisation in modern history. To speak French is to speak the language of the canvas, the cathedral, and the grand salon — a vocabulary of beauty that is entirely its own.</p>
         <p style="color:var(--on-light-soft);line-height:1.75">At the Atelier, art and architecture are not cultural supplements. They are the classroom itself. A Monet lesson is a lesson in colour, light, and the verb <em>voir</em>. A visit to the Palais Garnier is a lesson in superlatives, in history, in the French love of the operatic in all things.</p>
       </div>
@@ -264,75 +292,75 @@
         <p>From the Centre Pompidou to the Grand Louvre pyramid — France continues to make provocative architectural statements, each one a window into contemporary French cultural debate.</p>
       </div>
     </div>
-    <figure class="video-frame reveal" style="margin-top:3rem">
-      <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
-        <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
-      </video>
-      <figcaption>Paris — the city that invented the idea of the beautiful.</figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- ===================================================================
      PILLAR II — GASTRONOMY & WINE
 ==================================================================== -->
-<section id="gastronomy" class="pillar-section bg-navy">
-  <div class="wrap">
+<section id="gastronomy" class="pillar-section bg-navy on-dark">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-gastronomy-poster.jpg">
+      <source src="assets/video/pillar-gastronomy.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num" style="color:rgba(200,165,96,.2)">II</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar Two</p>
+        <h2>Gastronomy <span class="gold-ital">&amp; Wine</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num" style="color:rgba(200,165,96,.25)">II</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Two</p>
-            <h2 class="display-sm" style="margin:0">Gastronomy <span class="gold-ital">&amp; Wine</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">French gastronomy is a UNESCO-designated cultural heritage. It is also the most democratic of all French cultural forms — every French person, regardless of class or region, participates in it, argues about it, and is shaped by it. To speak about food in France is to speak about everything.</p>
         <p style="color:var(--on-dark-soft);line-height:1.75">The Atelier's gastronomy pillar is taught at the table — vocabulary of the market, the <em>boucherie</em>, the <em>fromagerie</em>, the cellar. Every unit begins with a real place, a real ingredient, a real ritual of French food culture. The grammar follows the appetite.</p>
       </div>
       <div>
         <img src="assets/categories/gastronomy-wine.jpg" alt="French gastronomy and wine" class="pillar-img-main">
-        <p class="img-caption" style="color:var(--on-dark-soft)">The table is where French is most fully itself.</p>
+        <p class="img-caption">The table is where French is most fully itself.</p>
       </div>
     </div>
     <div class="video-trio reveal">
       <figure class="video-frame">
-        <video poster="assets/video/vineyard-poster.jpg" loop muted playsinline preload="metadata">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/vineyard-poster.jpg">
           <source src="assets/video/vineyard.mp4" type="video/mp4">
         </video>
         <figcaption style="color:var(--on-dark-soft)">The vineyards of France — a language of terroir and taste</figcaption>
       </figure>
       <figure class="video-frame">
-        <video poster="assets/video/wine-tasting-poster.jpg" loop muted playsinline preload="metadata">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/wine-tasting-poster.jpg">
           <source src="assets/video/wine-tasting.mp4" type="video/mp4">
         </video>
         <figcaption style="color:var(--on-dark-soft)">The vocabulary of the glass, the nose, the finish</figcaption>
       </figure>
       <figure class="video-frame">
-        <video poster="assets/video/pastry-poster.jpg" loop muted playsinline preload="metadata">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pastry-poster.jpg">
           <source src="assets/video/pastry.mp4" type="video/mp4">
         </video>
         <figcaption style="color:var(--on-dark-soft)">Pâtisserie — where precision meets poetry</figcaption>
       </figure>
     </div>
     <div class="pillar-subpoints reveal" style="margin-top:3rem">
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>The Market, the Boulangerie, the Fromagerie</strong>
         <p>Daily food vocabulary in its natural habitat — the morning market, the queue at the baker's, the conversation with the <em>fromager</em> about which Brie is at its peak.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>French Table Etiquette &amp; the Grammar of the Meal</strong>
         <p>How to accept an invitation, how to compliment the host, how to decline a second glass with grace — the social ritual of the French table has its own complete grammar.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>Wine Regions, Appellations &amp; Tasting Language</strong>
         <p>From Bordeaux to Burgundy, from Champagne to the Côtes du Rhône — the vocabulary of French wine is a cultural and linguistic world in itself, essential to any serious speaker.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>The Art of the Menu &amp; the Restaurant</strong>
         <p>Reading a French menu fluently, understanding the categories, knowing the vocabulary of the <em>carte</em> and the <em>formule</em> — skills that transform every French restaurant experience.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>Gastronomy as UNESCO Cultural Heritage</strong>
         <p>France's culinary tradition is globally recognised as intangible heritage — its philosophy, its rituals, its relationship to the seasons, its reverence for the local. A feast for the language.</p>
       </div>
@@ -344,16 +372,22 @@
      PILLAR III — TRAVEL & LANDMARKS
 ==================================================================== -->
 <section id="travel" class="pillar-section bg-paper">
-  <div class="wrap">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-travel-poster.jpg">
+      <source src="assets/video/pillar-travel.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num">III</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar Three</p>
+        <h2>Travel &amp; <span class="gold-ital">Landmarks</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num">III</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Three</p>
-            <h2 class="display-sm" style="margin:0">Travel &amp; <span class="gold-ital">Landmarks</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">France welcomed over 100 million visitors in a recent year — more than any other country on earth. The world goes to France to feel something. The French Atelier teaches you to feel it in French — to read the city, name the monument, and speak your way across a country of almost incomprehensible beauty.</p>
         <p style="color:var(--on-light-soft);line-height:1.75">The travel pillar is not a list of tourist phrases. It is a complete vocabulary for navigating France — from the arrondissements of Paris to the winding lanes of Provence, from the ferry crossing to Corsica to the TGV south to Marseille. Language gives you access to France that no guidebook can.</p>
       </div>
@@ -364,13 +398,13 @@
     </div>
     <div class="travel-pair reveal">
       <figure class="video-frame">
-        <video poster="assets/video/paris-seine-poster.jpg" loop muted playsinline preload="metadata">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-seine-poster.jpg">
           <source src="assets/video/paris-seine.mp4" type="video/mp4">
         </video>
         <figcaption>The Seine at night — the soul of Paris in motion</figcaption>
       </figure>
       <figure class="video-frame">
-        <video poster="assets/video/paris-eiffel-poster.jpg" loop muted playsinline preload="metadata">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-eiffel-poster.jpg">
           <source src="assets/video/paris-eiffel.mp4" type="video/mp4">
         </video>
         <figcaption>The Eiffel Tower — learned not just as an icon but as a conversation</figcaption>
@@ -405,16 +439,22 @@
      PILLAR IV — FASHION & FILM
 ==================================================================== -->
 <section id="fashion" class="pillar-section bg-ivory">
-  <div class="wrap">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-fashion-poster.jpg">
+      <source src="assets/video/pillar-fashion.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num">IV</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar Four</p>
+        <h2>Fashion <span class="gold-ital">&amp; Film</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num">IV</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Four</p>
-            <h2 class="display-sm" style="margin:0">Fashion <span class="gold-ital">&amp; Film</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">France invented modern fashion and reimagined cinema as an art form. The grandes maisons — Chanel, Dior, Saint Laurent, Hermès, Givenchy — did not merely make clothes; they articulated a philosophy. La Nouvelle Vague did not merely make films; it changed the grammar of how stories are told.</p>
         <p style="color:var(--on-light-soft);line-height:1.75">At the Atelier, fashion and film are living resources. A Coco Chanel interview is a lesson in idiom, in confidence, in the French art of the aphorism. A scene from Godard is a lesson in register, in Paris, in the way language reflects a generation's discontents. The screen and the salon are classrooms of a different kind.</p>
       </div>
@@ -445,61 +485,61 @@
         <p>Collections, silhouettes, <em>défilés</em>, <em>tendances</em> — the vocabulary of Paris Fashion Week is a world unto itself, and one that every lover of French elegance will delight in mastering.</p>
       </div>
     </div>
-    <figure class="video-frame reveal" style="margin-top:3rem">
-      <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted playsinline preload="metadata">
-        <source src="assets/video/paris-sunset-street.mp4" type="video/mp4">
-      </video>
-      <figcaption>Golden-hour Paris — where fashion and film have always found their light.</figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- ===================================================================
      PILLAR V — MUSIC & POETRY
 ==================================================================== -->
-<section id="music" class="pillar-section bg-navy">
-  <div class="wrap">
+<section id="music" class="pillar-section bg-navy on-dark">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-music-poster.jpg">
+      <source src="assets/video/pillar-music.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num" style="color:rgba(200,165,96,.2)">V</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar Five</p>
+        <h2>Music <span class="gold-ital">&amp; Poetry</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num" style="color:rgba(200,165,96,.25)">V</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Five</p>
-            <h2 class="display-sm" style="margin:0">Music <span class="gold-ital">&amp; Poetry</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">French is one of the world's great musical languages — not by accident, but by design. The French have always believed that sound and meaning are inseparable, that the way a word sounds is part of what it means. La chanson française is the most direct encounter with this truth.</p>
         <p style="color:var(--on-dark-soft);line-height:1.75">At the Atelier, music and poetry are treated as primary linguistic texts. A song by Édith Piaf teaches vowel sounds and emotional register simultaneously. A poem by Verlaine teaches the music of the language at its most concentrated. The ear that learns French through music learns it in a way that the eye reading grammar cannot reach.</p>
       </div>
       <div>
         <img src="assets/categories/music-poetry.jpg" alt="French music and poetry" class="pillar-img-main">
-        <p class="img-caption" style="color:var(--on-dark-soft)">From the <em>chanson</em> to the <em>vers libre</em> — the music of French thinking.</p>
+        <p class="img-caption">From the <em>chanson</em> to the <em>vers libre</em> — the music of French thinking.</p>
       </div>
     </div>
     <div class="pillar-subpoints reveal" style="margin-top:2rem">
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>La Chanson Française — Piaf, Brel, Gainsbourg, Stromae</strong>
         <p>The canon of the French song is a complete language curriculum — from Piaf's operatic vowels to Gainsbourg's sardonic wordplay to Stromae's contemporary Belgian-French bilingual poetry.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>The Sonority of French — How Rhythm Shapes Meaning</strong>
         <p>French is not stressed the way English is — its rhythm is syllabic, its melody is rising. Learning to feel this rhythm is learning to speak French rather than merely saying French words.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>Verlaine, Rimbaud, Prévert — Listening to the Language Think</strong>
         <p>French poetry is not ornamentation; it is the language thinking aloud at maximum concentration. Every poem is a lesson in grammar, syntax, and the aesthetic ambition of the French language.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>Song Lyrics as Living Grammar Lessons</strong>
         <p>The present tense of love songs, the conditional of regret, the imperative of desire — grammar is always more memorable when it arrives through music than through a textbook exercise.</p>
       </div>
-      <div class="sp-item on-dark">
+      <div class="sp-item">
         <strong>French Music as Cultural Passport</strong>
         <p>To arrive in France knowing the songs that matter — <em>Non, je ne regrette rien</em>, <em>La Mer</em>, <em>Formidable</em> — is to arrive with something to offer, a passport to shared cultural memory.</p>
       </div>
     </div>
     <figure class="video-frame reveal" style="margin-top:3rem">
-      <video poster="assets/video/paris-river-boats-poster.jpg" loop muted playsinline preload="metadata">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-river-boats-poster.jpg">
         <source src="assets/video/paris-river-boats.mp4" type="video/mp4">
       </video>
       <figcaption style="color:var(--on-dark-soft)">The Seine — the river that has inspired more French poetry than any other.</figcaption>
@@ -511,16 +551,22 @@
      PILLAR VI — TRADITION & HISTORY
 ==================================================================== -->
 <section id="tradition" class="pillar-section bg-paper">
-  <div class="wrap">
+  <!-- Ambient motion video header for this pillar -->
+  <div class="pillar-video-hero reveal">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/pillar-tradition-poster.jpg">
+      <source src="assets/video/pillar-tradition.mp4" type="video/mp4">
+    </video>
+    <div class="pillar-video-hero-label">
+      <span class="pl-num">VI</span>
+      <div class="pl-heading">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:.3rem">Pillar Six</p>
+        <h2>Tradition <span class="gold-ital">&amp; History</span></h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pillar-section-inner">
     <div class="pillar-intro reveal">
       <div>
-        <div class="pillar-label">
-          <span class="pl-num">VI</span>
-          <div>
-            <p class="eyebrow eyebrow-line" style="margin-bottom:.4rem">Pillar Six</p>
-            <h2 class="display-sm" style="margin:0">Tradition <span class="gold-ital">&amp; History</span></h2>
-          </div>
-        </div>
         <p class="lede" style="margin-bottom:1.4rem">Every French word carries history. <em>Liberté, égalité, fraternité</em> are not abstract values; they are the residue of a revolution that remade the world. The French language is a living archive of everything France has been — and a map of everything it still aspires to become.</p>
         <p style="color:var(--on-light-soft);line-height:1.75">The tradition and history pillar is the deepest of all six — the one that explains why the other five exist as they do. Why is French food elevated to the sacred? Why does French fashion claim a moral dimension? Why does the French cinema take itself seriously as philosophy? The answers are all historical, and they are all linguistic.</p>
       </div>
@@ -530,7 +576,7 @@
       </div>
     </div>
     <figure class="video-frame reveal" style="margin-bottom:3rem">
-      <video poster="assets/video/coast-chateau-poster.jpg" loop muted playsinline preload="metadata">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/video/coast-chateau-poster.jpg">
         <source src="assets/video/coast-chateau.mp4" type="video/mp4">
       </video>
       <figcaption>The châteaux of France — history made architectural, and architectural language made French.</figcaption>
@@ -542,7 +588,7 @@
       </div>
       <div class="sp-item">
         <strong>French Holidays, Ceremonies &amp; Their Social Vocabulary</strong>
-        <p>Bastille Day, Armistice Day, La Toussaint — the calendar of French civic life is a calendar of language opportunities, each with its own rituals, its own register, its own emotional register.</p>
+        <p>Bastille Day, Armistice Day, La Toussaint — the calendar of French civic life is a calendar of language opportunities, each with its own rituals, its own register, its own emotional weight.</p>
       </div>
       <div class="sp-item">
         <strong>The Rituals of Daily French Life</strong>
@@ -563,7 +609,7 @@
 <!-- ===== VIDEO BAND — coast-chateau ambient ===== -->
 <section class="video-band">
   <div class="video-bg">
-    <video poster="assets/video/coast-chateau-poster.jpg" loop muted playsinline preload="metadata">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/coast-chateau-poster.jpg">
       <source src="assets/video/coast-chateau.mp4" type="video/mp4">
     </video>
   </div>
@@ -588,12 +634,7 @@
   </div>
 </section>
 
-<!-- ============================================================
-     FRENCH ATELIER — INLINE ADVISOR SECTION  (Agent 5)
-     Drop into any page where you want the lead form embedded
-     (not as a modal). Same validation/success behavior as the modal.
-     Wrap is .advisor-section; left column is editorial copy, right is the card.
-     ============================================================ -->
+<!-- ===== INLINE ADVISOR ===== -->
 <section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
@@ -704,26 +745,17 @@
     <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
   </div>
 </footer>
-<!-- ============================================================
-     FRENCH ATELIER — ADVISOR MODAL  (Agent 5)
-     Paste ONCE per page, just before </body>. Opened by ANY element
-     with the data-advisor attribute (e.g. the nav CTA). JS handles
-     open/close, ESC, backdrop click, validation + success.
-     Submission: mailto fallback. ▶ Wire a real endpoint in js/fa.js
-     (search for "TO WIRE A REAL ENDPOINT").
-     ============================================================ -->
+
 <div class="advisor-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="advisorModalTitle">
   <div class="advisor-card">
     <button class="advisor-modal-close" aria-label="Close" type="button">
       <svg class="fa-icon" style="font-size:16px"><use href="#i-close"/></svg>
     </button>
-
     <div class="advisor-head">
       <span class="eyebrow eyebrow-line">Speak with us</span>
       <h3 id="advisorModalTitle">Talk to an Advisor</h3>
       <p>Tell us a little about you and a French Atelier academic advisor will be in touch to plan your start.</p>
     </div>
-
     <form class="advisor-form" novalidate>
       <div class="field">
         <label for="adv-name">Name</label>
@@ -758,7 +790,6 @@
       </div>
       <p class="advisor-fineprint">Native French teachers, live from France &middot; Certified &middot; CEFR-aligned</p>
     </form>
-
     <div class="advisor-success" role="status">
       <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
       <h3>Merci&nbsp;!</h3>

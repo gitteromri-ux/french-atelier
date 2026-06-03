@@ -14,7 +14,7 @@
 .pillar-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
 .pillar-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.2rem 2rem}
 .pillar-card .pc-num{font-family:var(--serif);font-size:3rem;color:var(--gold-deep);line-height:1;margin-bottom:.8rem}
-.pillar-card h3{font-size:1.4rem;margin:.4rem 0 .9rem}
+.pillar-card h3{font-size:1.4rem;margin:.4rem 0 .9rem;color:var(--navy)}
 .pillar-card ul{padding-left:1.1rem;margin:0}
 .pillar-card ul li{font-size:.92rem;color:var(--on-light-soft);line-height:1.7;margin-bottom:.3rem}
 
@@ -198,7 +198,9 @@
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero bg-navy">
   <div class="page-hero-bg">
-    <img src="assets/gen/culture-art.png" alt="Paris — the city where culture and language are one">
+    <video poster="assets/video/paris-seine-poster.jpg" loop muted autoplay playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover">
+      <source src="assets/video/paris-seine.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -207,7 +209,56 @@
     </nav>
     <p class="eyebrow eyebrow-line reveal">Pedagogy &amp; Philosophy</p>
     <h1 class="display-lg reveal reveal-d1">The <span class="gold-ital">Method</span> Behind<br>the Language</h1>
-    <p class="lede reveal reveal-d2" style="max-width:52ch">A culture-first, action-oriented approach built upon the Sorbonne applied-linguistics tradition and the CEFR — and delivered live, from France.</p>
+    <p class="lede reveal reveal-d2" style="max-width:52ch">A culture-first, action-oriented approach built upon the Sorbonne's action-oriented tradition and the CEFR — delivered live, from France.</p>
+    <div class="reveal reveal-d3" style="margin-top:2.2rem;display:inline-flex;align-items:center;gap:.9rem;background:rgba(200,165,96,.12);border:1px solid rgba(200,165,96,.35);padding:.8rem 1.4rem;border-radius:2px">
+      <span style="font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)">Founded on</span>
+      <span style="font-family:var(--serif);font-size:1.15rem;color:var(--on-dark);font-style:italic">La Sorbonne · Action-Oriented Tradition</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SORBONNE HERO FOLD ===== -->
+<section class="section-pad bg-navy-deep on-dark" style="border-bottom:1px solid rgba(200,165,96,.18)">
+  <div class="wrap">
+    <div class="split split-wide" style="align-items:center">
+      <div class="reveal">
+        <p class="eyebrow eyebrow-line">The Sorbonne Tradition</p>
+        <h2 class="display-md" style="margin:1.2rem 0">Built on the <span class="gold-ital">action-oriented</span><br>tradition of the Sorbonne</h2>
+        <p class="lede">The French Atelier methodology is grounded in the action-oriented, communicative approach advanced by applied linguists at the Sorbonne — the same scholarly tradition that underpins the CEFR, the international gold standard for language learning. At the Sorbonne, the learner is not a student of the language — they are a <em>social agent</em> who acts, communicates, and accomplishes real tasks in the target language.</p>
+        <div class="gold-rule"></div>
+        <p class="muted">This is why every French Atelier class begins not with a grammar rule, but with a living cultural situation: a quai in Lyon, a gallery opening in Paris, a village market in Provence. Language is encountered in context — and context is always France.</p>
+        <div style="margin-top:1.8rem;display:flex;gap:1.2rem;flex-wrap:wrap">
+          <div style="border:1px solid rgba(200,165,96,.3);padding:1.2rem 1.6rem;text-align:center;min-width:120px">
+            <div style="font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft);line-height:1">CEFR</div>
+            <div style="font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);margin-top:.4rem">Aligned Framework</div>
+          </div>
+          <div style="border:1px solid rgba(200,165,96,.3);padding:1.2rem 1.6rem;text-align:center;min-width:120px">
+            <div style="font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft);line-height:1">A0→A2</div>
+            <div style="font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);margin-top:.4rem">Full Progression</div>
+          </div>
+          <div style="border:1px solid rgba(200,165,96,.3);padding:1.2rem 1.6rem;text-align:center;min-width:120px">
+            <div style="font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft);line-height:1">8–10</div>
+            <div style="font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);margin-top:.4rem">Learners Per Class</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-d1" style="display:flex;flex-direction:column;gap:1.6rem">
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(200,165,96,.22);padding:2.4rem;border-radius:4px">
+          <div style="font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1rem">Sorbonne Nouvelle · Paris 3</div>
+          <blockquote style="font-family:var(--serif);font-size:1.22rem;color:var(--on-dark);font-style:italic;line-height:1.5;margin:0 0 1rem">&ldquo;The learner is a social agent who uses the language to accomplish tasks that have meaning and relevance in the real world.&rdquo;</blockquote>
+          <cite style="font-size:.8rem;color:var(--on-dark-soft);font-style:normal">— Conseil de l&rsquo;Europe, CECRL · Action-Oriented Approach</cite>
+        </div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(200,165,96,.22);padding:2rem 2.4rem;border-radius:4px">
+          <p style="font-family:var(--serif);font-size:1rem;color:var(--gold-soft);letter-spacing:.06em;margin-bottom:.8rem">The Atelier Pedagogy</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem">
+            <li style="display:flex;align-items:flex-start;gap:.8rem;color:var(--on-dark-soft);font-size:.93rem;line-height:1.55"><span style="color:var(--gold-soft);font-family:var(--serif);font-size:1rem;flex-shrink:0">◆</span>Action-oriented: language through real tasks</li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;color:var(--on-dark-soft);font-size:.93rem;line-height:1.55"><span style="color:var(--gold-soft);font-family:var(--serif);font-size:1rem;flex-shrink:0">◆</span>Live small groups of 8–10, from France</li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;color:var(--on-dark-soft);font-size:.93rem;line-height:1.55"><span style="color:var(--gold-soft);font-family:var(--serif);font-size:1rem;flex-shrink:0">◆</span>Immersion in real French regions</li>
+            <li style="display:flex;align-items:flex-start;gap:.8rem;color:var(--on-dark-soft);font-size:.93rem;line-height:1.55"><span style="color:var(--gold-soft);font-family:var(--serif);font-size:1rem;flex-shrink:0">◆</span>CEFR progression, certified by Acadomia</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -233,7 +284,7 @@
 <!-- ===== VIDEO BAND — paris-sunset-street ===== -->
 <section class="video-band">
   <div class="video-bg">
-    <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted playsinline preload="metadata">
+    <video poster="assets/video/paris-sunset-street-poster.jpg" loop muted autoplay playsinline preload="metadata">
       <source src="assets/video/paris-sunset-street.mp4" type="video/mp4">
     </video>
   </div>
@@ -374,7 +425,7 @@
 </section>
 
 <!-- ===== SIX CULTURAL PILLARS ===== -->
-<section class="section-pad bg-navy">
+<section class="section-pad bg-navy on-dark">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:3.4rem">
       <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Six Pillars</p>
@@ -536,7 +587,7 @@
 </section>
 
 <!-- ===== JULIANE BRIDGE ===== -->
-<section class="section-pad bg-navy-deep">
+<section class="section-pad bg-navy-deep on-dark">
   <div class="wrap split">
     <div class="reveal" style="position:relative">
       <img src="assets/juliane/juliane1.png" alt="Juliane, the French Atelier AI tutor" style="width:100%;max-width:400px;border:1px solid var(--dark-line)">

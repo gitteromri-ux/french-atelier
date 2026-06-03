@@ -4,35 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>French Culture Capsules — The French Atelier by Acadomia</title>
-<meta name="description" content="French Culture Capsules: immersive one-hour cultural masterclasses from The French Atelier. Live French to learn French — the icons and stories that shaped France. Coming soon.">
+<meta name="description" content="French Culture Capsules: immersive one-hour cultural masterclasses from The French Atelier. Live French to learn French — the icons and stories that shaped France.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* ===== Capsules page — glamorous, LIGHT, modern, historical ===== */
+/* ===== Capsules page — glamorous, editorial, LIGHT ===== */
+
+/* Hero — light warm gradient */
 .cap-hero{position:relative;overflow:hidden;background:linear-gradient(155deg,#FBF8F1 0%,#F3EAD8 55%,#EADFC6 100%);padding:11rem 0 5rem;color:var(--on-light)}
 .cap-hero .eyebrow{color:var(--gold-deep)}
 .cap-hero h1{font-size:clamp(3rem,7vw,6rem);line-height:.98;margin:1.2rem 0}
 .cap-hero .lede{max-width:58ch;color:var(--on-light-soft)}
 .cap-hero-deco{position:absolute;right:-4%;top:8%;font-family:var(--serif);font-style:italic;font-size:22rem;color:rgba(200,165,96,.1);line-height:1;pointer-events:none;user-select:none}
 
+/* What they are — 3 tenets */
 .cap-tenets{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--gold-line-soft);border-bottom:1px solid var(--gold-line-soft)}
 .cap-tenet{padding:2.4rem 1.8rem;border-right:1px solid var(--gold-line-soft)}
 .cap-tenet:last-child{border-right:none}
 .cap-tenet .ct-no{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-deep)}
-.cap-tenet h3{font-size:1.45rem;margin:.5rem 0 .4rem}
+.cap-tenet h3{font-size:1.45rem;margin:.5rem 0 .4rem;font-family:var(--serif)}
 .cap-tenet p{font-size:.92rem;color:var(--on-light-soft);line-height:1.55}
 
-/* Capsule features — big editorial, alternating */
+/* Feature capsule — big editorial alternating */
 .cap-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
 .cap-feature.flip .cf-media{order:2}
 .cf-media{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--gold-line-soft)}
-.cf-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.cap-feature:hover .cf-media img{transform:scale(1.05)}
+.cf-media img,.cf-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
+.cap-feature:hover .cf-media img,.cap-feature:hover .cf-media video{transform:scale(1.04)}
 .cf-no{position:absolute;top:0;left:0;background:var(--navy-deep);color:var(--gold-soft);font-family:var(--serif);font-style:italic;font-size:1rem;padding:.6rem 1.2rem;letter-spacing:.06em;z-index:2}
 .cf-body .cf-kicker{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
-.cf-body h2{font-size:clamp(2.2rem,3.6vw,3.2rem);line-height:1.04;margin:.7rem 0 1.1rem}
+.cf-body h2{font-size:clamp(2.2rem,3.6vw,3.2rem);line-height:1.04;margin:.7rem 0 1.1rem;font-family:var(--serif)}
 .cf-body .cf-thesis{font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.4;color:var(--ink);border-left:2px solid var(--gold);padding-left:1.2rem;margin:1.4rem 0}
 .cf-body p{color:var(--on-light-soft);line-height:1.7}
 .cf-meta{display:flex;gap:2rem;margin-top:1.6rem;flex-wrap:wrap}
@@ -40,12 +43,24 @@
 .cf-meta .cm b{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--ink);font-weight:500}
 .cf-meta .cm span{color:var(--on-light-soft);letter-spacing:.04em;text-transform:uppercase;font-size:.66rem}
 
+/* Pullquote */
+.pullquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3vw,2.4rem);line-height:1.45;text-align:center;max-width:72ch;margin:0 auto;padding:0 1rem}
+.pullquote::before{content:'«\00A0';color:var(--gold-deep);font-style:normal}
+.pullquote::after{content:'\00A0»';color:var(--gold-deep);font-style:normal}
+
+/* Coming soon series grid */
 .cap-series{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.cs-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:1.8rem 1.5rem;position:relative}
+.cs-card{background:var(--white,#fff);border:1px solid var(--gold-line-soft);padding:1.8rem 1.5rem;position:relative}
 .cs-card .cs-no{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--gold-deep)}
-.cs-card h3{font-size:1.4rem;margin:.5rem 0 .5rem}
+.cs-card h3{font-size:1.25rem;margin:.5rem 0 .5rem;font-family:var(--serif)}
 .cs-card p{font-size:.88rem;color:var(--on-light-soft);line-height:1.55}
 .cs-card .cs-soon{margin-top:1rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--gold-line-soft);display:inline-block;padding:.3rem .7rem;border-radius:2px}
+
+/* Pricing teaser stats */
+.cap-pricing-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;margin:2.8rem 0 0}
+.cap-stat{text-align:center}
+.cap-stat .stat-val{font-family:var(--serif);font-size:2.6rem;color:var(--gold-deep);line-height:1;display:block}
+.cap-stat .stat-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-light-soft);margin-top:.3rem;display:block}
 
 @media(max-width:900px){
   .cap-tenets{grid-template-columns:1fr}.cap-tenet{border-right:none;border-bottom:1px solid var(--gold-line-soft)}
@@ -53,19 +68,13 @@
   .cap-series{grid-template-columns:repeat(2,1fr)}
   .cap-hero-deco{font-size:12rem;right:-8%}
 }
-@media(max-width:560px){.cap-series{grid-template-columns:1fr}}
+@media(max-width:560px){.cap-series{grid-template-columns:1fr}.cap-pricing-stats{gap:1.8rem}}
 </style>
 </head>
 <body class="light-hero">
 
 <!-- ============================================================
-     FRENCH ATELIER — BESPOKE SVG ICON SPRITE  (Agent 5)
-     Paste ONCE near the top of <body> on any page.
-     Use anywhere with:  <svg class="fa-icon" style="font-size:24px"><use href="#i-NAME"/></svg>
-     Icons use currentColor stroke. Stroke width set via .fa-icon in fa.css.
-     Available ids: i-arrow, i-arrow-right, i-chevron-down, i-close, i-menu,
-     i-check, i-calendar, i-clock, i-chat, i-play, i-globe, i-certificate,
-     i-sparkle, i-user, i-mail, i-phone, i-pin, i-facebook, i-instagram, i-youtube
+     FRENCH ATELIER — BESPOKE SVG ICON SPRITE
      ============================================================ -->
 <svg class="fa-icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -120,7 +129,7 @@
       <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
       <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI</a></div>
       <div class="nav-item">
-        <a class="nav-link" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <a class="nav-link active" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
         <div class="nav-dropdown">
           <a href="culture.html">French Culture</a>
           <a href="teachers.html">Our Teachers</a>
@@ -185,8 +194,8 @@
 <section class="cap-hero">
   <span class="cap-hero-deco">N°</span>
   <div class="wrap" style="position:relative;z-index:2">
-    <nav class="breadcrumb"><a href="index.html">Home</a> · <span>Culture Capsules</span></nav>
-    <p class="eyebrow eyebrow-line">New · Coming Soon</p>
+    <nav class="breadcrumb"><a href="index.html">Home</a> · <a href="culture.html">Culture</a> · <span>Culture Capsules</span></nav>
+    <p class="eyebrow eyebrow-line" style="margin-top:1.4rem">New · Coming Soon</p>
     <h1>French Culture<br><span class="gold-ital">Capsules</span></h1>
     <p class="lede">Our new companion to the language courses. Immersive one-hour cultural masterclasses that bring the icons, revolutions and rituals of France to life — so you don't just learn French, you live it. <em>Live French to learn French.</em></p>
     <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap">
@@ -237,6 +246,9 @@
           <div class="cm"><b>1638–1715</b><span>The Sun King</span></div>
           <div class="cm"><b>Versailles</b><span>Setting</span></div>
         </div>
+        <div style="margin-top:2rem">
+          <a href="pricing.html" class="btn btn-gold">Join the Waitlist</a>
+        </div>
       </div>
     </div>
   </div>
@@ -260,6 +272,9 @@
           <div class="cm"><b>1883–1971</b><span>Gabrielle Chanel</span></div>
           <div class="cm"><b>Paris</b><span>Setting</span></div>
         </div>
+        <div style="margin-top:2rem">
+          <a href="pricing.html" class="btn btn-gold">Join the Waitlist</a>
+        </div>
       </div>
     </div>
   </div>
@@ -274,19 +289,28 @@
   </div>
 </section>
 
-<!-- ===== THE SERIES (coming soon) ===== -->
-<section class="section-pad" style="background:linear-gradient(180deg,#EFE4CF,#FBF8F1)">
+<!-- ===== FEATURE 03 — IMPRESSIONISM ===== -->
+<section class="section-pad" style="background:linear-gradient(180deg,#EFE4CF,#F4ECDB)">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-deep)">The Growing Library</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">An evening, <span class="gold-ital">a story</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:56ch;margin:1rem auto 0;color:var(--on-light-soft)">More capsules are in the atelier. Each one, a new doorway into the culture behind the language.</p>
-    </div>
-    <div class="cap-series reveal reveal-d2">
-      <div class="cs-card"><div class="cs-no">N° 03</div><h3>Impressionism &amp; the Light of France</h3><p>How Monet and his circle taught the world to see — and the words they painted with.</p><span class="cs-soon">Coming Soon</span></div>
-      <div class="cs-card"><div class="cs-no">N° 04</div><h3>The Art of the French Table</h3><p>Gastronomy as language: the rituals, the regions, the vocabulary of the meal.</p><span class="cs-soon">Coming Soon</span></div>
-      <div class="cs-card"><div class="cs-no">N° 05</div><h3>The Chanson &amp; the French Soul</h3><p>From Piaf to Gainsbourg — the songs that carry the cadence of the language.</p><span class="cs-soon">Coming Soon</span></div>
-      <div class="cs-card"><div class="cs-no">N° 06</div><h3>Paris: The Capital of Modernity</h3><p>The boulevards, the cafés, the revolutions — the city that invented the modern world.</p><span class="cs-soon">Coming Soon</span></div>
+    <div class="cap-feature reveal">
+      <figure class="cf-media">
+        <span class="cf-no">Capsule N° 03</span>
+        <img src="assets/gen/culture-travel.png" alt="Impressionism and the light of France">
+      </figure>
+      <div class="cf-body">
+        <p class="cf-kicker">Light · Colour · Vision</p>
+        <h2>Impressionism &amp; the <span class="gold-ital">Light of France</span></h2>
+        <p class="cf-thesis">They didn't paint what they saw. They painted what they felt.</p>
+        <p>In 1874, a group of painters refused the Salon and hung their work in a photographer's studio. The critics called them Impressionists — and meant it as an insult. Within a generation, they had changed the way the world sees. This capsule traces the vocabulary of light, colour, and sensation — the words that Monet, Renoir, Degas and Pissarro gave to French, and that French gave back to the world.</p>
+        <div class="cf-meta">
+          <div class="cm"><b>60 min</b><span>Live masterclass</span></div>
+          <div class="cm"><b>1874–1886</b><span>The Movement</span></div>
+          <div class="cm"><b>Paris · Giverny</b><span>Setting</span></div>
+        </div>
+        <div style="margin-top:2rem">
+          <a href="pricing.html" class="btn btn-gold">Join the Waitlist</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -294,16 +318,81 @@
 <!-- ===== CINEMATIC VIDEO BAND ===== -->
 <section class="video-band">
   <div class="video-bg">
-    <video poster="assets/video/wine-tasting-poster.jpg" loop muted playsinline preload="metadata">
-      <source src="assets/video/wine-tasting.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-cityscape-poster.jpg">
+      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
     </video>
   </div>
   <div class="wrap"><div class="vb-inner reveal">
     <p class="eyebrow eyebrow-line">Live French. Live.</p>
-    <h2 class="display-md" style="margin:1.2rem 0">Embrace the <span class="gold-ital">authentic</span> French experience</h2>
+    <h2 class="display-md" style="margin:1.2rem 0">An evening, <span class="gold-ital">a story,</span><br>a language.</h2>
     <p class="lede">The Culture Capsules are how French Atelier learners step beyond the lesson and into the living culture — the taste, the history, the glamour. Reserve your place as the first capsules open.</p>
     <a href="pricing.html" class="btn btn-gold" style="margin-top:1.4rem">Join the Waitlist</a>
   </div></div>
+</section>
+
+<!-- ===== THE SERIES (coming soon) ===== -->
+<section class="section-pad" style="background:linear-gradient(180deg,#F4ECDB,#FBF8F1)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-deep)">The Growing Library</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">An evening, <span class="gold-ital">a story</span></h2>
+      <p class="lede reveal reveal-d2" style="max-width:56ch;margin:1rem auto 0;color:var(--on-light-soft)">More capsules are in the atelier. Each one, a new doorway into the culture behind the language.</p>
+    </div>
+    <div class="cap-series reveal reveal-d2">
+      <div class="cs-card">
+        <div class="cs-no">N° 04</div>
+        <h3>The Art of the French Table</h3>
+        <p>Gastronomy as language: the rituals, the regions, the vocabulary of the meal — from market to table.</p>
+        <span class="cs-soon">Coming Soon</span>
+      </div>
+      <div class="cs-card">
+        <div class="cs-no">N° 05</div>
+        <h3>La Chanson &amp; the French Soul</h3>
+        <p>From Piaf to Gainsbourg — the songs that carry the cadence, the emotion, and the grammar of French.</p>
+        <span class="cs-soon">Coming Soon</span>
+      </div>
+      <div class="cs-card">
+        <div class="cs-no">N° 06</div>
+        <h3>Paris: Capital of Modernity</h3>
+        <p>The boulevards, the cafés, the revolutions — the city that invented the modern world and the language to describe it.</p>
+        <span class="cs-soon">Coming Soon</span>
+      </div>
+      <div class="cs-card">
+        <div class="cs-no">N° 07</div>
+        <h3>Proust &amp; the Grammar of Memory</h3>
+        <p>How one madeleine became seven volumes — and why reading Proust is the deepest encounter with literary French.</p>
+        <span class="cs-soon">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING TEASER ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap-narrow" style="text-align:center">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Enrollment</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">A full year of live French<br>from <span class="gold-ital">$42 a week</span></h2>
+    <p class="lede reveal reveal-d2" style="max-width:60ch;margin:0 auto">20 live lessons · small groups of 8–10 · lifetime recordings · A1/A2 CEFR certificate by Acadomia · $100 in credits · 24/7 support.</p>
+    <div class="cap-pricing-stats reveal reveal-d3">
+      <div class="cap-stat">
+        <span class="stat-val">20</span>
+        <span class="stat-label">Live lessons</span>
+      </div>
+      <div class="cap-stat">
+        <span class="stat-val">85<small style="font-size:1.4rem">min</small></span>
+        <span class="stat-label">Per lesson</span>
+      </div>
+      <div class="cap-stat">
+        <span class="stat-val">8–10</span>
+        <span class="stat-label">Students per class</span>
+      </div>
+      <div class="cap-stat">
+        <span class="stat-val">$42</span>
+        <span class="stat-label">Per week (annual)</span>
+      </div>
+    </div>
+    <a href="pricing.html" class="btn btn-gold btn-lg reveal" style="margin-top:2.4rem">View Plans &amp; Enroll</a>
+  </div>
 </section>
 
 <!-- ===== CTA BAND ===== -->
@@ -312,53 +401,14 @@
   <div class="wrap-narrow" style="position:relative;z-index:3;text-align:center">
     <h2 class="display-md reveal">Culture speaks French.<br><span class="gold-ital">What about you?</span></h2>
     <p class="lede reveal reveal-d1" style="margin:1.4rem auto 2rem;max-width:48ch">Pair a live language course with the Culture Capsules and truly live French — one story at a time.</p>
-    <a href="courses.html" class="btn btn-gold btn-lg reveal reveal-d2">Explore Courses</a>
-  </div>
-</section>
-          <h3>Louis XIV: The Inventor of Luxury</h3>
-          <p class="muted" style="font-size:.95rem">How one king turned taste into power — and invented the very idea of French luxury.</p>
-        </div>
-      </div>
-      <div class="capsule-card">
-        <span class="capsule-badge">Coming Soon</span>
-        <div class="cc-img"><img src="assets/gen/culture-music.png" alt="More capsules"></div>
-        <div class="cc-body">
-          <div class="cc-no">The Series</div>
-          <h3>An Evening, A Story</h3>
-          <p class="muted" style="font-size:.95rem">A growing library of one-hour cultural evenings — art, music, gastronomy, and the icons who shaped France.</p>
-        </div>
-      </div>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="courses.html" class="btn btn-gold btn-lg reveal reveal-d2">Explore Courses</a>
+      <a href="culture.html" class="btn btn-outline btn-lg reveal reveal-d2" style="border-color:rgba(200,169,107,.5);color:var(--on-dark)">French Culture</a>
     </div>
-    <div style="text-align:center;margin-top:3rem"><a href="capsules.html" class="btn btn-gold reveal">Preview the Capsules</a></div>
   </div>
 </section>
 
-<!-- ===== PRICING TEASER ===== -->
-<section class="section-pad bg-paper">
-  <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Enrollment</p>
-    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">A full year of live French<br>from <span class="gold-ital">$39 a week</span></h2>
-    <p class="lede reveal reveal-d2">20 live lessons · small groups of 8–10 · lifetime recordings · A1/A2 certificate by Acadomia · $100 in credits · 24/7 support.</p>
-    <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d3" style="margin-top:1.6rem">View Plans &amp; Enroll</a>
-  </div>
-</section>
-
-<!-- ===== CTA BAND ===== -->
-<section class="cta-band section-pad framed on-dark">
-  <div class="frame-border"></div>
-  <div class="wrap-narrow" style="position:relative;z-index:3">
-    <h2 class="display-md reveal">Culture speaks French.<br><span class="gold-ital">What about you?</span></h2>
-    <p class="lede reveal reveal-d1" style="margin:1.4rem auto 2rem;max-width:48ch">Join a live class broadcasting from France this week and begin to master the art of French.</p>
-    <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d2">Begin Your Journey</a>
-  </div>
-</section>
-
-<!-- ============================================================
-     FRENCH ATELIER — INLINE ADVISOR SECTION  (Agent 5)
-     Drop into any page where you want the lead form embedded
-     (not as a modal). Same validation/success behavior as the modal.
-     Wrap is .advisor-section; left column is editorial copy, right is the card.
-     ============================================================ -->
+<!-- ===== INLINE ADVISOR ===== -->
 <section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
@@ -431,26 +481,55 @@
       </div>
       <div class="footer-col">
         <h4>Courses</h4>
-<!-- ============================================================
-     FRENCH ATELIER — ADVISOR MODAL  (Agent 5)
-     Paste ONCE per page, just before </body>. Opened by ANY element
-     with the data-advisor attribute (e.g. the nav CTA). JS handles
-     open/close, ESC, backdrop click, validation + success.
-     Submission: mailto fallback. ▶ Wire a real endpoint in js/fa.js
-     (search for "TO WIRE A REAL ENDPOINT").
-     ============================================================ -->
+        <a href="courses/fa-foundation.html">FA Foundation</a>
+        <a href="courses/fa-beginner.html">FA Beginner</a>
+        <a href="courses/fa-elementary.html">FA Elementary</a>
+        <a href="courses/fa-intermediate.html">FA Intermediate</a>
+        <a href="courses.html">Let's Speak French</a>
+        <a href="map.html">Map of France</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="method.html">Our Method</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="juliane.html">Juliane · AI Tutor</a>
+        <a href="teachers.html">Our Teachers</a>
+        <a href="culture.html">French Culture</a>
+        <a href="blog.html">Cultural Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="acadomia.html">Acadomia Group</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>7 rue de la Baume, 75008 Paris, France &nbsp;·&nbsp; +1-888-230-5110 &nbsp;·&nbsp; advisor@eTeacherGroup.com</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577106456673" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.8.3-1.5 1.5-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14V9z"/></svg></a>
+        <a href="https://www.instagram.com/livefrenchatelier" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2025. All Rights Reserved.</p>
+  </div>
+</footer>
+
 <div class="advisor-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="advisorModalTitle">
   <div class="advisor-card">
     <button class="advisor-modal-close" aria-label="Close" type="button">
       <svg class="fa-icon" style="font-size:16px"><use href="#i-close"/></svg>
     </button>
-
     <div class="advisor-head">
       <span class="eyebrow eyebrow-line">Speak with us</span>
       <h3 id="advisorModalTitle">Talk to an Advisor</h3>
       <p>Tell us a little about you and a French Atelier academic advisor will be in touch to plan your start.</p>
     </div>
-
     <form class="advisor-form" novalidate>
       <div class="field">
         <label for="adv-name">Name</label>
@@ -485,7 +564,6 @@
       </div>
       <p class="advisor-fineprint">Native French teachers, live from France &middot; Certified &middot; CEFR-aligned</p>
     </form>
-
     <div class="advisor-success" role="status">
       <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
       <h3>Merci&nbsp;!</h3>
@@ -495,4 +573,5 @@
 </div>
 
 <script src="js/fa.js"></script>
-</body></html>
+</body>
+</html>
