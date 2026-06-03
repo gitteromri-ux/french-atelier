@@ -19,6 +19,30 @@
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
+  // Animated number counters (Acadomia power figures)
+  var counters=document.querySelectorAll('[data-count]');
+  if(counters.length){
+    var cio=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el=e.target; cio.unobserve(el);
+        var target=parseFloat(el.getAttribute('data-count'))||0;
+        var pre=el.getAttribute('data-prefix')||'', suf=el.getAttribute('data-suffix')||'';
+        var dur=1400, start=null;
+        function step(ts){
+          if(start===null) start=ts;
+          var p=Math.min((ts-start)/dur,1);
+          var eased=1-Math.pow(1-p,3);
+          var val=target<10?(Math.round(target*eased*10)/10):Math.round(target*eased);
+          el.textContent=pre+val+suf;
+          if(p<1) requestAnimationFrame(step); else el.textContent=pre+target+suf;
+        }
+        requestAnimationFrame(step);
+      });
+    },{threshold:.4});
+    counters.forEach(function(c){cio.observe(c);});
+  }
+
   // Ambient autoplay-muted videos (.video-bg, .video-frame, .video-band)
   document.querySelectorAll('.video-bg video, .video-frame video, .video-band video').forEach(function(v){
     v.muted=true; v.setAttribute('muted','');
