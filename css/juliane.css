@@ -7,22 +7,42 @@
 .jul-hero {
   position: relative;
   min-height: 92vh;
-  background: var(--navy-deep);
+  /* On-brand navy gradient — Juliane appears to step out of THIS */
+  background:
+    radial-gradient(120% 90% at 78% 60%, rgba(28,34,56,.85) 0%, rgba(0,0,31,0) 60%),
+    linear-gradient(120deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-soft) 100%);
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-/* Dark navy gradient on left, fading out right to let video show */
+/* Soft radial gold glow behind the cutout for depth */
+.jul-hero-glow {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+  height: 92%;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 52% 60% at 55% 45%,
+    rgba(200,169,107,.22) 0%,
+    rgba(200,169,107,.08) 38%,
+    rgba(0,0,31,0) 72%);
+  filter: blur(4px);
+}
+
+/* Dark navy gradient on left fading right so the cutout reads cleanly */
 .jul-hero-veil {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     95deg,
-    rgba(0,0,31,.98) 0%,
-    rgba(0,0,31,.92) 42%,
-    rgba(0,0,31,.65) 62%,
-    rgba(0,0,31,.15) 100%
+    rgba(0,0,31,.96) 0%,
+    rgba(0,0,31,.85) 40%,
+    rgba(0,0,31,.40) 60%,
+    rgba(0,0,31,0) 88%
   );
   z-index: 2;
   pointer-events: none;
@@ -32,49 +52,45 @@
   position: relative;
   z-index: 3;
   padding: 10rem 0 6rem;
-  max-width: 52ch;
+  max-width: 46ch;
 }
 
-/* ===== CHARACTER VIDEO CARD — hero size ===== */
+/* ===== TRANSPARENT CHARACTER CUTOUT — hero ===== */
+/* No frame, no box, no white bg — he emerges directly from the section. */
 .jul-char-card {
   position: absolute;
   right: 0;
-  top: 0;
   bottom: 0;
-  width: 56%;
+  top: 0;
+  width: 46%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-.jul-char-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Radial gradient behind the character (white bg character on dark bg) */
-.jul-char-frame::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 80% at 60% 50%,
-    rgba(255,255,255,.08) 0%,
-    rgba(28,34,56,.0) 70%
-  );
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 3;            /* above the veil so the cutout stays crisp */
   pointer-events: none;
 }
 
-.jul-hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+.jul-hero-cutout {
+  width: auto;
+  max-width: 100%;
+  height: 96%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
   display: block;
+  /* soft contact shadow at the base + subtle ambient drop for "stepping out" */
+  filter:
+    drop-shadow(0 28px 36px rgba(0,0,16,.55))
+    drop-shadow(0 4px 10px rgba(0,0,16,.4));
+  animation: jul-float 7s ease-in-out infinite;
+}
+
+@keyframes jul-float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jul-hero-cutout { animation: none; }
 }
 
 /* ===== HERO TEXT ===== */
@@ -129,49 +145,103 @@
   100% { box-shadow: 0 0 0 0   rgba(200,165,96,0); }
 }
 
-/* ===== PREMIUM VIDEO CARD (feature sections) ===== */
-.jul-vid-card {
+/* ================================================================
+   TRANSPARENT CUTOUT — reusable (intro / feature / homepage)
+   No frame, no card, no white bg. He emerges from the section.
+   ================================================================ */
+.jul-cutout-wrap {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 2px solid var(--gold);
-  background: radial-gradient(ellipse 90% 90% at 50% 40%,
-    rgba(255,255,255,.12) 0%,
-    var(--navy) 60%
-  );
-  box-shadow:
-    0 0 0 1px rgba(200,169,107,.25),
-    0 24px 64px rgba(0,0,20,.6),
-    inset 0 1px 0 rgba(255,255,255,.08);
-  aspect-ratio: 3/4;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  isolation: isolate;
 }
 
-.jul-vid-card video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  border-radius: 18px;
-}
-
-/* Smaller inline cards */
-.jul-vid-card-sm {
-  border-radius: 14px;
-  aspect-ratio: 2/3;
-}
-
-/* Gold ring glow */
-.jul-vid-card::after {
+/* Soft radial gold glow behind him for depth */
+.jul-cutout-wrap::before {
   content: '';
   position: absolute;
-  inset: -3px;
-  border-radius: 22px;
-  border: 1.5px solid rgba(200,169,107,.3);
+  inset: -6% -4% 4% -4%;
+  z-index: -1;
+  background: radial-gradient(ellipse 56% 64% at 50% 42%,
+    rgba(200,169,107,.20) 0%,
+    rgba(200,169,107,.07) 40%,
+    transparent 72%);
+  filter: blur(6px);
   pointer-events: none;
+}
+
+/* Soft contact shadow ellipse at his base — "stepping out" effect */
+.jul-cutout-wrap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  width: 62%;
+  height: 5%;
+  z-index: -1;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(0,0,16,.55) 0%, rgba(0,0,16,0) 70%);
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+.jul-cutout {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 22px 30px rgba(0,0,16,.5))
+    drop-shadow(0 3px 8px rgba(0,0,16,.35));
+}
+
+.jul-cutout-wrap--intro .jul-cutout { max-width: 480px; }
+.jul-cutout-wrap--feature .jul-cutout { max-width: 380px; }
+
+/* On light sections (e.g. pink/ivory) glow is pink + shadow softer */
+.jul-cutout-wrap--light::before {
+  background: radial-gradient(ellipse 58% 66% at 50% 44%,
+    rgba(228,152,166,.28) 0%,
+    rgba(243,211,217,.18) 42%,
+    transparent 74%);
+}
+.jul-cutout-wrap--light::after {
+  background: radial-gradient(ellipse 50% 50% at 50% 50%,
+    rgba(75,52,40,.28) 0%, rgba(75,52,40,0) 70%);
+}
+.jul-cutout-wrap--light .jul-cutout {
+  filter:
+    drop-shadow(0 20px 28px rgba(80,40,55,.28))
+    drop-shadow(0 3px 8px rgba(80,40,55,.2));
+}
+
+/* Floating badge tag */
+.jul-cutout-badge {
+  position: absolute;
+  top: 6%;
+  left: 4%;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: rgba(0,0,31,.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--gold-line);
+  padding: .5rem 1rem;
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  border-radius: 999px;
+}
+.jul-cutout-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--gold-soft);
+  animation: pulse-gold 2s infinite;
 }
 
 /* ===== FEATURE SECTION with video left ===== */
@@ -360,8 +430,103 @@
   display: block;
 }
 
+/* ================================================================
+   HOMEPAGE JULIANE FOLD (index.html)
+   ================================================================ */
+.jul-home {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(110% 90% at 22% 55%, rgba(28,34,56,.7) 0%, rgba(0,0,31,0) 60%),
+    linear-gradient(120deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-soft) 100%);
+}
+.jul-home-glow {
+  position: absolute;
+  left: -6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56%;
+  height: 110%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 52% 56% at 50% 48%,
+    rgba(200,169,107,.18) 0%,
+    rgba(200,169,107,.06) 40%,
+    transparent 72%);
+  filter: blur(6px);
+}
+.jul-home-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.jul-home-split .jul-cutout-wrap { align-self: stretch; }
+.jul-home-split .jul-cutout { max-width: 420px; }
+
+.jul-home-points {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+.jul-home-points li {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--on-dark-soft);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.jul-home-points li svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--gold-soft);
+}
+
+/* ================================================================
+   AT-A-GLANCE BAND (juliane.html, light bg) — no video
+   ================================================================ */
+.jul-glance {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+.jul-glance-item {
+  background: var(--white, #fff);
+  border: 1px solid var(--gold-line-soft);
+  border-top: 3px solid var(--gold);
+  padding: 2.2rem 1.8rem;
+}
+.jul-glance-num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--gold-deep);
+  display: block;
+  margin-bottom: .6rem;
+}
+.jul-glance-item h3 {
+  font-size: 1.15rem;
+  margin: 0 0 .6rem;
+  color: var(--navy);
+}
+.jul-glance-item p {
+  font-size: .93rem;
+  color: var(--on-light-soft);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1000px) {
+  .jul-home-split { grid-template-columns: 1fr; gap: 2.4rem; }
+  .jul-home-split .jul-cutout { max-width: 360px; margin: 0 auto; }
+  .jul-glance { grid-template-columns: 1fr; }
   .jul-char-card { width: 70%; }
   .cap-grid { grid-template-columns: repeat(2, 1fr); }
   .jul-feature { grid-template-columns: 1fr; gap: 2.8rem; }
@@ -372,15 +537,32 @@
   .jul-vid-strip { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 700px) {
-  .jul-char-card { width: 100%; opacity: .35; }
-  .jul-hero-veil  { background: rgba(0,0,31,.88); }
+@media (max-width: 760px) {
+  /* Hero stacks: text on top, full visible transparent cutout below */
+  .jul-hero { min-height: auto; display: block; }
+  .jul-hero-content { padding: 8rem 0 1rem; max-width: 100%; }
+  .jul-char-card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    padding: 0 0 2.5rem;
+  }
+  .jul-hero-cutout {
+    height: auto;
+    width: auto;
+    max-width: 78%;
+    max-height: 62vh;
+    margin: 0 auto;
+  }
+  .jul-hero-glow { width: 90%; right: 5%; }
+  .jul-hero-veil  { display: none; }
   .jul-hero h1    { font-size: 3.2rem; }
   .cap-grid       { grid-template-columns: 1fr; }
-  .jul-vid-strip  { grid-template-columns: 1fr 1fr; }
   .jul-feat-grid  { grid-template-columns: 1fr; }
   .jul-feat-item  { grid-template-columns: 1fr; }
-  .jul-feat-item .jul-vid-card-sm { width: 100%; aspect-ratio: 16/9; }
+  .jul-cutout-wrap--intro .jul-cutout,
+  .jul-cutout-wrap--feature .jul-cutout { max-width: 300px; }
 }
 
 @media (max-width: 480px) {

@@ -305,4 +305,118 @@
   document.querySelectorAll('[data-carousel-next]').forEach(function(b){
     b.addEventListener('click',function(){scrollCarousel(b.getAttribute('data-carousel-next'),1);});
   });
+
+  /* ============================================================
+     COURSE CLUSTERS — two clickable header cards reveal a
+     horizontal slider. Default: nothing open. Clicking a cluster
+     opens its slider; clicking the same one again closes it;
+     clicking the other swaps. Smooth animate. Arrows + drag.
+     ============================================================ */
+  (function initClusters(){
+    var btns = document.querySelectorAll('.cls-card[data-cluster]');
+    if(!btns.length) return;
+    var hint = document.getElementById('cls-hint');
+    var active = null;
+
+    function reveal(key){ return document.getElementById('cls-track-'+key); }
+    function btn(key){ return document.getElementById('cls-btn-'+key); }
+
+    function closePanel(key){
+      var r = reveal(key), b = btn(key);
+      if(!r) return;
+      r.classList.remove('is-open');
+      if(b){ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); }
+      // collapse after transition
+      window.setTimeout(function(){ if(!r.classList.contains('is-open')) r.hidden = true; }, 480);
+    }
+    function openPanel(key){
+      var r = reveal(key), b = btn(key);
+      if(!r) return;
+      r.hidden = false;
+      // force reflow so the transition runs from hidden->open
+      void r.offsetWidth;
+      r.classList.add('is-open');
+      if(b){ b.classList.add('is-active'); b.setAttribute('aria-selected','true'); }
+      active = key;
+      if(hint) hint.classList.add('is-hidden');
+      updateArrows(r);
+    }
+
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var key = b.getAttribute('data-cluster');
+        if(active === key){
+          // toggle closed
+          closePanel(key);
+          active = null;
+          if(hint) hint.classList.remove('is-hidden');
+          return;
+        }
+        if(active){ closePanel(active); }
+        openPanel(key);
+      });
+    });
+
+    /* ---- Slider: arrows ---- */
+    function railOf(id){ return document.getElementById(id); }
+    function stepWidth(rail){
+      var card = rail.querySelector('.cls-course');
+      if(!card) return 320;
+      var gap = parseFloat(getComputedStyle(rail).columnGap || getComputedStyle(rail).gap || '0') || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+    function updateArrows(scope){
+      var rail = (scope||document).querySelector('.cls-rail');
+      if(!rail) return;
+      var slider = rail.closest('.cls-slider');
+      if(!slider) return;
+      var prev = slider.querySelector('.cls-arrow-prev');
+      var next = slider.querySelector('.cls-arrow-next');
+      var max = rail.scrollWidth - rail.clientWidth - 2;
+      if(prev) prev.disabled = rail.scrollLeft <= 2;
+      if(next) next.disabled = rail.scrollLeft >= max;
+    }
+    document.querySelectorAll('[data-slider-prev]').forEach(function(btn){
+      var rail = railOf(btn.getAttribute('data-slider-prev'));
+      if(!rail) return;
+      btn.addEventListener('click', function(){ rail.scrollBy({left:-stepWidth(rail),behavior:'smooth'}); });
+      rail.addEventListener('scroll', function(){ updateArrows(rail.closest('.cls-reveal')||rail.parentNode); }, {passive:true});
+    });
+    document.querySelectorAll('[data-slider-next]').forEach(function(btn){
+      var rail = railOf(btn.getAttribute('data-slider-next'));
+      if(!rail) return;
+      btn.addEventListener('click', function(){ rail.scrollBy({left:stepWidth(rail),behavior:'smooth'}); });
+    });
+    window.addEventListener('resize', function(){
+      document.querySelectorAll('.cls-reveal.is-open').forEach(updateArrows);
+    }, {passive:true});
+
+    /* ---- Slider: pointer drag ---- */
+    document.querySelectorAll('.cls-rail').forEach(function(rail){
+      var down=false, startX=0, startScroll=0, moved=0;
+      rail.addEventListener('pointerdown', function(e){
+        down=true; moved=0; startX=e.clientX; startScroll=rail.scrollLeft;
+        rail.classList.add('is-dragging');
+        try{ rail.setPointerCapture(e.pointerId); }catch(_){}
+      });
+      rail.addEventListener('pointermove', function(e){
+        if(!down) return;
+        var dx = e.clientX - startX;
+        moved = Math.max(moved, Math.abs(dx));
+        rail.scrollLeft = startScroll - dx;
+      });
+      function end(){
+        if(!down) return;
+        down=false; rail.classList.remove('is-dragging');
+        updateArrows(rail.closest('.cls-reveal')||rail.parentNode);
+      }
+      rail.addEventListener('pointerup', end);
+      rail.addEventListener('pointercancel', end);
+      rail.addEventListener('pointerleave', end);
+      // prevent click navigation right after a drag
+      rail.addEventListener('click', function(e){
+        if(moved > 8){ e.preventDefault(); e.stopPropagation(); }
+      }, true);
+    });
+  })();
 })();

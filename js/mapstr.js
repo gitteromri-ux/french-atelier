@@ -86,15 +86,19 @@
 
   /* ---------- CONFIG ---------- */
   var GOLD = '#C8A96B';
-  var DARK_TILES = [
-    'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    'https://d.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+  // CARTO "voyager" raster — a richer, more beautiful basemap with CLEAR,
+  // legible city labels (Paris, Lyon, Bordeaux, Marseille, Strasbourg…).
+  var VOYAGER_TILES = [
+    'https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    'https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    'https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    'https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
   ];
   var ATTRIB = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
-  var FRANCE_CENTER = [2.5, 46.6];
-  var FRANCE_ZOOM = 5.3;
+  var FRANCE_CENTER = [2.6, 46.4];
+  var FRANCE_ZOOM = 5.25;
+  var MAP_PITCH = 40;   // subtle 3D tilt for depth
+  var MAP_BEARING = 0;  // no rotation — keeps the frame clean, tiles fully cover
 
   /* ---------- HELPERS ---------- */
   function el(tag, cls, html) {
@@ -208,17 +212,17 @@
     var style = {
       version: 8,
       sources: {
-        'carto-dark': {
+        'carto-voyager': {
           type: 'raster',
-          tiles: DARK_TILES,
+          tiles: VOYAGER_TILES,
           tileSize: 256,
           attribution: ATTRIB
         }
       },
       layers: [
-        { id: 'bg', type: 'background', paint: { 'background-color': '#00001F' } },
-        { id: 'carto-dark', type: 'raster', source: 'carto-dark',
-          paint: { 'raster-opacity': 0.92, 'raster-saturation': -0.15, 'raster-contrast': 0.05 } }
+        { id: 'bg', type: 'background', paint: { 'background-color': '#0a1024' } },
+        { id: 'carto-voyager', type: 'raster', source: 'carto-voyager',
+          paint: { 'raster-opacity': 1, 'raster-saturation': -0.04, 'raster-contrast': 0.06 } }
       ]
     };
 
@@ -226,17 +230,19 @@
       container: mapEl.id,
       style: style,
       center: FRANCE_CENTER,
-      zoom: compact ? FRANCE_ZOOM - 0.35 : FRANCE_ZOOM,
+      zoom: compact ? FRANCE_ZOOM - 0.3 : FRANCE_ZOOM,
+      pitch: MAP_PITCH,
+      bearing: MAP_BEARING,
       minZoom: 4,
       maxZoom: 15,
+      maxPitch: 70,
       attributionControl: false,
       cooperativeGestures: compact,
-      dragRotate: false,
-      pitchWithRotate: false
+      dragRotate: true,
+      pitchWithRotate: true
     });
-    map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false, visualizePitch: false }), 'top-right');
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: true }), 'top-right');
 
     map.on('load', function () {
       ready = true;
@@ -244,23 +250,24 @@
       map.addSource('ms-route', { type: 'geojson', data: emptyFC() });
       map.addSource('ms-route-anim', { type: 'geojson', data: emptyFC() });
 
-      // Glow under-line
+      // Soft, wide aura beneath the path — gives a luxurious glow, NOT a hard line
       map.addLayer({
         id: 'ms-route-glow', type: 'line', source: 'ms-route',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': GOLD, 'line-width': 9, 'line-opacity': 0.18, 'line-blur': 6 }
+        paint: { 'line-color': GOLD, 'line-width': 18, 'line-opacity': 0.16, 'line-blur': 12 }
       });
-      // Base dashed gold route
+      // Elegant dotted path: round caps + tight dasharray render as soft DOTS,
+      // so it reads as a refined journey trail rather than a metro/train line.
       map.addLayer({
         id: 'ms-route-base', type: 'line', source: 'ms-route',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': GOLD, 'line-width': 2.4, 'line-opacity': 0.55, 'line-dasharray': [1.4, 1.6] }
+        paint: { 'line-color': '#A9853F', 'line-width': 3.4, 'line-opacity': 0.7, 'line-dasharray': [0, 2.2] }
       });
-      // Animated bright segment that traces the route
+      // A single gentle travelling dot of light that drifts along the trail
       map.addLayer({
         id: 'ms-route-anim', type: 'line', source: 'ms-route-anim',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#F0DCAE', 'line-width': 3.2, 'line-opacity': 0.95 }
+        paint: { 'line-color': '#E9CF95', 'line-width': 6, 'line-opacity': 0.7, 'line-blur': 1.5 }
       });
 
       setJourney(DATA.courses[0].id, false);
@@ -281,14 +288,18 @@
       if (!coords || coords.length < 2) return;
       // densify into a polyline of points for a smooth trace
       var dense = densify(coords, 60);
+      var win = Math.max(8, Math.round(dense.length * 0.08)); // short travelling window (a comet of light)
       var i = 0;
       var src = map.getSource('ms-route-anim');
       if (!src) return;
       animTimer = setInterval(function () {
         i += 1;
-        if (i > dense.length) { i = 0; } // loop the trace
-        src.setData(lineFeature(dense.slice(0, Math.max(2, i))));
-      }, 28);
+        if (i > dense.length + win) { i = 0; } // loop the glide
+        var start = Math.max(0, i - win);
+        var end = Math.min(dense.length, i);
+        if (end - start < 2) { src.setData(emptyFC()); return; }
+        src.setData(lineFeature(dense.slice(start, end)));
+      }, 30);
     }
     function densify(coords, perSeg) {
       var out = [];
@@ -376,7 +387,7 @@
       highlightMarker(p.id);
       // Ease toward the stop without losing journey context
       if (ready) {
-        map.easeTo({ center: [p.lng, p.lat], duration: 700, offset: compact ? [0, 0] : [-90, -10] });
+        map.easeTo({ center: [p.lng, p.lat], pitch: MAP_PITCH, duration: 750, offset: compact ? [0, -30] : [-110, -10] });
       }
     }
     function closePanel() {
@@ -418,9 +429,16 @@
       var b = new maplibregl.LngLatBounds();
       coords.forEach(function (c) { b.extend(c); });
       var pad = compact
-        ? { top: 50, bottom: 50, left: 40, right: 40 }
-        : { top: 70, bottom: 70, left: 80, right: 360 };
-      map.fitBounds(b, { padding: pad, duration: userInitiated ? 1100 : 0, maxZoom: course.id === 'fa-foundation' ? 12.4 : 8.5 });
+        ? { top: 70, bottom: 60, left: 50, right: 50 }
+        : { top: 110, bottom: 120, left: 90, right: 380 };
+      // Keep the 3D tilt + cinematic bearing while framing the journey.
+      map.fitBounds(b, {
+        padding: pad,
+        pitch: MAP_PITCH,
+        bearing: MAP_BEARING,
+        duration: userInitiated ? 1200 : 0,
+        maxZoom: course.id === 'fa-foundation' ? 11.6 : 8.2
+      });
     }
 
     return {

@@ -126,20 +126,19 @@
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO — transparent cutout emerging from the section ===== -->
 <section class="jul-hero">
-  <!-- Character video fills the right half -->
-  <div class="jul-char-card" aria-hidden="true">
-    <div class="jul-char-frame">
-      <video
-        class="jul-hero-video"
-        autoplay muted loop playsinline
-        preload="metadata"
-        poster="assets/juliane/video/juliane-hero-poster.jpg"
-        aria-label="Juliane, your AI French tutor">
-        <source src="assets/juliane/video/juliane-hero.mp4" type="video/mp4">
-      </video>
-    </div>
+  <!-- Atmospheric glow behind the cutout -->
+  <div class="jul-hero-glow" aria-hidden="true"></div>
+
+  <!-- Transparent Juliane cutout on the right — no frame, no box, no white bg -->
+  <div class="jul-char-card">
+    <img
+      class="jul-hero-cutout"
+      src="assets/juliane/juliane-transparent-2.png"
+      alt="Juliane, your 24/7 AI French tutor"
+      width="1024" height="1536" decoding="async" fetchpriority="high"
+      onerror="if(this.src.indexOf('juliane-transparent.png')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent.png';}">
   </div>
 
   <!-- Left-to-right veil keeps text legible -->
@@ -174,35 +173,13 @@
       <p style="color:var(--on-dark-soft);line-height:1.75;margin-top:1rem">Juliane speaks French. He expects you to, too.</p>
     </div>
     <div class="reveal reveal-d1">
-      <!-- Portrait mosaic using character videos -->
-      <div class="portrait-mosaic" style="height:540px">
-        <div class="pm-main">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-2-poster.jpg"
-            aria-label="Juliane AI tutor">
-            <source src="assets/juliane/video/juliane-hero-2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="pm-sm" style="overflow:hidden">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-poster.jpg"
-            aria-label="Juliane gesture">
-            <source src="assets/juliane/video/juliane-307.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="pm-sm" style="overflow:hidden">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-poster.jpg"
-            aria-label="Juliane coaching">
-            <source src="assets/juliane/video/juliane-309.mp4" type="video/mp4">
-          </video>
-        </div>
+      <!-- Transparent Juliane cutout — no frame, emerges from the navy -->
+      <div class="jul-cutout-wrap jul-cutout-wrap--intro">
+        <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Juliane · AI Tutor</span>
+        <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
+             alt="Juliane, the French Atelier AI French tutor"
+             width="760" height="1000" loading="lazy" decoding="async"
+             onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
       </div>
     </div>
   </div>
@@ -254,16 +231,13 @@
 <section class="section-pad bg-navy on-dark">
   <div class="wrap">
     <div class="jul-feature">
-      <!-- Video card left -->
+      <!-- Transparent cutout left -->
       <div class="reveal">
-        <div class="jul-vid-card" style="max-width:380px;margin:0 auto">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-poster.jpg"
-            aria-label="Juliane pronunciation coaching">
-            <source src="assets/juliane/video/juliane-336.mp4" type="video/mp4">
-          </video>
+        <div class="jul-cutout-wrap jul-cutout-wrap--feature">
+          <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
+               alt="Juliane coaching French pronunciation"
+               width="640" height="840" loading="lazy" decoding="async"
+               onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
         </div>
       </div>
       <!-- Text right -->
@@ -305,16 +279,13 @@
         </div>
       </div>
     </div>
-    <!-- Character video right side -->
+    <!-- Transparent cutout right side -->
     <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1.6rem;align-items:center">
-      <div class="jul-vid-card" style="max-width:380px;width:100%">
-        <video
-          autoplay muted loop playsinline
-          preload="metadata"
-          poster="assets/juliane/video/juliane-hero-2-poster.jpg"
-          aria-label="Juliane conversation coaching">
-          <source src="assets/juliane/video/juliane-719.mp4" type="video/mp4">
-        </video>
+      <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:380px;width:100%">
+        <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
+             alt="Juliane in conversation"
+             width="640" height="840" loading="lazy" decoding="async"
+             onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
       </div>
       <div class="pullquote" style="margin:0;max-width:380px">
         <p>"He never loses patience. He never grows tired. He is always ready for one more sentence in French."</p>
@@ -335,61 +306,37 @@
         <p>Juliane treats each exchange as an opportunity to refine your French — gently, consistently, and always in context.</p>
         <a href="pricing.html" class="btn btn-gold" style="align-self:flex-start;margin-top:.8rem">Enroll Now</a>
       </div>
-      <!-- Video card right -->
+      <!-- Transparent cutout right -->
       <div class="reveal reveal-d1">
-        <div class="jul-vid-card" style="max-width:380px;margin:0 auto">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-poster.jpg"
-            aria-label="Juliane instant corrections">
-            <source src="assets/juliane/video/juliane-735.mp4" type="video/mp4">
-          </video>
+        <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:380px;margin:0 auto">
+          <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
+               alt="Juliane giving instant corrections"
+               width="640" height="840" loading="lazy" decoding="async"
+               onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== VIDEO STRIP ===== -->
+<!-- ===== AT A GLANCE (lightweight feature band, no video) ===== -->
 <section class="section-pad-sm bg-paper">
   <div class="wrap">
-    <div class="jul-vid-strip reveal">
-      <div class="jul-vid-strip-item">
-        <video
-          autoplay muted loop playsinline
-          preload="metadata"
-          poster="assets/juliane/video/juliane-hero-poster.jpg"
-          aria-label="Juliane conversation practice">
-          <source src="assets/juliane/video/juliane-307.mp4" type="video/mp4">
-        </video>
-        <div class="jul-vid-strip-overlay">
-          <span class="jul-vid-strip-label">Conversation Practice</span>
-        </div>
+    <div class="jul-glance reveal">
+      <div class="jul-glance-item">
+        <span class="jul-glance-num">01</span>
+        <h3>Conversation Practice</h3>
+        <p>Role-play a brasserie, debate a film, or narrate your day &mdash; Juliane adapts to your level and pushes you a little further.</p>
       </div>
-      <div class="jul-vid-strip-item">
-        <video
-          autoplay muted loop playsinline
-          preload="metadata"
-          poster="assets/juliane/video/juliane-hero-poster.jpg"
-          aria-label="Juliane pronunciation coaching">
-          <source src="assets/juliane/video/juliane-309.mp4" type="video/mp4">
-        </video>
-        <div class="jul-vid-strip-overlay">
-          <span class="jul-vid-strip-label">Pronunciation Coaching</span>
-        </div>
+      <div class="jul-glance-item">
+        <span class="jul-glance-num">02</span>
+        <h3>Pronunciation Coaching</h3>
+        <p>Liaison, elision, nasal vowels &mdash; he isolates the sounds that challenge you and guides you through them, sound by sound.</p>
       </div>
-      <div class="jul-vid-strip-item">
-        <video
-          autoplay muted loop playsinline
-          preload="metadata"
-          poster="assets/juliane/video/juliane-hero-poster.jpg"
-          aria-label="Juliane cultural guidance">
-          <source src="assets/juliane/video/juliane-336.mp4" type="video/mp4">
-        </video>
-        <div class="jul-vid-strip-overlay">
-          <span class="jul-vid-strip-label">Cultural Guidance</span>
-        </div>
+      <div class="jul-glance-item">
+        <span class="jul-glance-num">03</span>
+        <h3>Cultural Guidance</h3>
+        <p>The codes textbooks omit: <em>vous</em> versus <em>tu</em>, the etiquette of the <em>bise</em>, what it means to invite someone for <em>un verre</em>.</p>
       </div>
     </div>
   </div>
@@ -398,7 +345,7 @@
 <!-- ===== ALWAYS ON (AMBIENT VIDEO BAND) ===== -->
 <section class="video-band on-dark">
   <div class="video-bg tint-soft">
-    <video poster="assets/video/paris-seine-poster.jpg" autoplay loop muted playsinline preload="metadata">
+    <video poster="assets/video/paris-seine-poster.jpg" autoplay loop muted playsinline preload="none" loading="lazy">
       <source src="assets/video/paris-seine.mp4" type="video/mp4">
     </video>
   </div>
@@ -418,15 +365,12 @@
     </div>
     <div class="split split-wide reveal">
       <div>
-        <!-- Always-on feature video -->
-        <div class="jul-vid-card" style="max-width:440px;margin:0 auto">
-          <video
-            autoplay muted loop playsinline
-            preload="metadata"
-            poster="assets/juliane/video/juliane-hero-2-poster.jpg"
-            aria-label="Juliane always available">
-            <source src="assets/juliane/video/juliane-hero-2.mp4" type="video/mp4">
-          </video>
+        <!-- Transparent cutout on a soft pink panel (light section, on-brand) -->
+        <div class="jul-cutout-wrap jul-cutout-wrap--light" style="max-width:440px;margin:0 auto">
+          <img class="jul-cutout" src="assets/juliane/juliane-transparent.png"
+               alt="Juliane, always available"
+               width="760" height="760" loading="lazy" decoding="async"
+               onerror="if(this.src.indexOf('juliane-transparent-2')<0){this.onerror=null;this.src='assets/juliane/juliane-transparent-2.png';}">
         </div>
       </div>
       <div>
@@ -647,62 +591,7 @@
 </div>
 
 <script src="js/fa.js"></script>
-<script>
-/* Juliane character video autoplay via IntersectionObserver.
-   Ensures all .jul-* and .portrait-mosaic videos play when in viewport.
-   The hero video already has autoplay; this handles below-fold videos. */
-(function(){
-  'use strict';
-  function bootJulianeVideos(){
-    var selectors = [
-      '.jul-vid-card video',
-      '.jul-vid-strip-item video',
-      '.pm-main video',
-      '.pm-sm video',
-      '.jul-hero-video'
-    ];
-    var vids = [];
-    selectors.forEach(function(sel){
-      document.querySelectorAll(sel).forEach(function(v){
-        if(vids.indexOf(v)===-1) vids.push(v);
-      });
-    });
-
-    if(!vids.length) return;
-
-    // Ensure all have correct attributes
-    vids.forEach(function(v){
-      v.muted = true;
-      v.setAttribute('muted','');
-      v.setAttribute('playsinline','');
-      v.loop = true;
-    });
-
-    if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            var v = e.target;
-            v.play().catch(function(){});
-          } else {
-            // Pause videos that leave viewport to save resources
-            e.target.pause();
-          }
-        });
-      }, { threshold: 0.1 });
-      vids.forEach(function(v){ io.observe(v); });
-    } else {
-      // Fallback: just try to play all
-      vids.forEach(function(v){ v.play().catch(function(){}); });
-    }
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', bootJulianeVideos);
-  } else {
-    bootJulianeVideos();
-  }
-})();
-</script>
+<!-- Juliane is now a fast transparent PNG cutout — no character videos to boot.
+     Only the ambient Paris-Seine band remains (lazy, preload=none). -->
 </body>
 </html>
