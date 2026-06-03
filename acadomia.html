@@ -18,7 +18,10 @@
 .partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .partner-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.8rem 2.4rem;position:relative;overflow:hidden}
 .partner-card::before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold-deep)}
-.partner-card h3{font-size:1.7rem;margin-bottom:.8rem}
+.partner-card h3{font-size:1.7rem;margin-bottom:.8rem;color:var(--navy)}
+.on-dark .partner-card h3{color:var(--navy)}
+.partner-card .muted,.on-dark .partner-card .muted{color:var(--on-light-soft)}
+.partner-card .eyebrow,.on-dark .partner-card .eyebrow{color:var(--gold-deep)}
 .trophee-wrap{background:var(--navy-deep);border:1px solid var(--gold-line);padding:3.4rem;text-align:center;position:relative}
 .trophee-wrap .tw-num{font-family:var(--serif);font-size:5rem;color:var(--gold-soft);line-height:1}
 .welcome-line{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);color:var(--gold-soft);font-style:italic;text-align:center;line-height:1.2}
@@ -80,14 +83,14 @@
         <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
         <div class="nav-dropdown nav-dropdown-wide">
           <div class="nav-dd-col">
-            <span class="nav-dd-head">French Atelier &middot; Daytime &middot; A0&rarr;A2.2</span>
+            <span class="nav-dd-head">French Atelier &middot; Structured &middot; A0&rarr;A2.2</span>
             <a href="courses/fa-foundation.html">FA Foundation <em>A0&rarr;A1.1</em></a>
             <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
             <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
             <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
           </div>
           <div class="nav-dd-col">
-            <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Evening &middot; Conversation</span>
+            <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Spoken &middot; Conversation</span>
             <a href="courses/lsf-foundation.html">LSF Foundation <em>Spoken</em></a>
             <a href="courses/lsf-beginner.html">LSF Beginner <em>Spoken</em></a>
             <a href="courses/lsf-elementary.html">LSF Elementary <em>Spoken</em></a>

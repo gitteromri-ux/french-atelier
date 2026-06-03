@@ -86,17 +86,18 @@
 
   /* ---------- CONFIG ---------- */
   var GOLD = '#C8A96B';
-  // CARTO "voyager" raster — a richer, more beautiful basemap with CLEAR,
-  // legible city labels (Paris, Lyon, Bordeaux, Marseille, Strasbourg…).
-  var VOYAGER_TILES = [
-    'https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    'https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    'https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    'https://d.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+  // CARTO "dark-matter" raster — the brand's dark-navy luxury basemap.
+  // (Reverted from voyager per user; keeps the premium night-map look
+  //  with gold journey markers reading cleanly on a dark canvas.)
+  var DARK_TILES = [
+    'https://a.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png',
+    'https://b.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png',
+    'https://c.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png',
+    'https://d.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png'
   ];
   var ATTRIB = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
-  var FRANCE_CENTER = [2.6, 46.4];
-  var FRANCE_ZOOM = 5.25;
+  var FRANCE_CENTER = [2.6, 46.6];
+  var FRANCE_ZOOM = 5.1;
   var MAP_PITCH = 40;   // subtle 3D tilt for depth
   var MAP_BEARING = 0;  // no rotation — keeps the frame clean, tiles fully cover
 
@@ -212,17 +213,17 @@
     var style = {
       version: 8,
       sources: {
-        'carto-voyager': {
+        'carto-dark': {
           type: 'raster',
-          tiles: VOYAGER_TILES,
+          tiles: DARK_TILES,
           tileSize: 256,
           attribution: ATTRIB
         }
       },
       layers: [
-        { id: 'bg', type: 'background', paint: { 'background-color': '#0a1024' } },
-        { id: 'carto-voyager', type: 'raster', source: 'carto-voyager',
-          paint: { 'raster-opacity': 1, 'raster-saturation': -0.04, 'raster-contrast': 0.06 } }
+        { id: 'bg', type: 'background', paint: { 'background-color': '#00001F' } },
+        { id: 'carto-dark', type: 'raster', source: 'carto-dark',
+          paint: { 'raster-opacity': 1, 'raster-saturation': 0.05, 'raster-contrast': 0.08, 'raster-brightness-max': 0.92 } }
       ]
     };
 
@@ -230,11 +231,11 @@
       container: mapEl.id,
       style: style,
       center: FRANCE_CENTER,
-      zoom: compact ? FRANCE_ZOOM - 0.3 : FRANCE_ZOOM,
+      zoom: compact ? FRANCE_ZOOM - 0.2 : FRANCE_ZOOM,
       pitch: MAP_PITCH,
       bearing: MAP_BEARING,
-      minZoom: 4,
-      maxZoom: 15,
+      minZoom: 4.2,
+      maxZoom: 12,
       maxPitch: 70,
       attributionControl: false,
       cooperativeGestures: compact,
@@ -432,12 +433,14 @@
         ? { top: 70, bottom: 60, left: 50, right: 50 }
         : { top: 110, bottom: 120, left: 90, right: 380 };
       // Keep the 3D tilt + cinematic bearing while framing the journey.
+      // Cap the framing zoom so even the all-Paris Foundation journey
+      // stays readable and never punches in too far (user: "fix map zoom").
       map.fitBounds(b, {
         padding: pad,
         pitch: MAP_PITCH,
         bearing: MAP_BEARING,
         duration: userInitiated ? 1200 : 0,
-        maxZoom: course.id === 'fa-foundation' ? 11.6 : 8.2
+        maxZoom: course.id === 'fa-foundation' ? 10.4 : 6.6
       });
     }
 

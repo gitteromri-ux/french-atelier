@@ -419,4 +419,51 @@
       }, true);
     });
   })();
+
+  /* ============================================================
+     HOW IT WORKS — single-row moveable slider (arrows + drag)
+     ============================================================ */
+  (function(){
+    var track = document.getElementById('hiw3-journey');
+    if(!track) return;
+    var prev = document.querySelector('[data-hiw-prev]');
+    var next = document.querySelector('[data-hiw-next]');
+
+    function stepW(){
+      var step = track.querySelector('.hiw3-step');
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0) || 20;
+      return step ? (step.getBoundingClientRect().width + gap) : 240;
+    }
+    function updateArrows(){
+      if(!prev || !next) return;
+      var max = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max;
+      var noScroll = track.scrollWidth <= track.clientWidth + 4;
+      prev.style.display = next.style.display = noScroll ? 'none' : '';
+    }
+    if(prev) prev.addEventListener('click', function(){ track.scrollBy({left:-stepW(),behavior:'smooth'}); });
+    if(next) next.addEventListener('click', function(){ track.scrollBy({left:stepW(),behavior:'smooth'}); });
+    track.addEventListener('scroll', updateArrows, {passive:true});
+    window.addEventListener('resize', updateArrows, {passive:true});
+    setTimeout(updateArrows, 60);
+
+    /* pointer drag */
+    var down=false, startX=0, startScroll=0, moved=0;
+    track.addEventListener('pointerdown', function(e){
+      down=true; moved=0; startX=e.clientX; startScroll=track.scrollLeft;
+      track.classList.add('is-dragging');
+      try{ track.setPointerCapture(e.pointerId); }catch(_){}
+    });
+    track.addEventListener('pointermove', function(e){
+      if(!down) return;
+      var dx=e.clientX-startX; moved=Math.max(moved,Math.abs(dx));
+      track.scrollLeft = startScroll - dx;
+    });
+    function end(){ if(!down) return; down=false; track.classList.remove('is-dragging'); updateArrows(); }
+    track.addEventListener('pointerup', end);
+    track.addEventListener('pointercancel', end);
+    track.addEventListener('pointerleave', end);
+    track.addEventListener('click', function(e){ if(moved>8){ e.preventDefault(); e.stopPropagation(); } }, true);
+  })();
 })();

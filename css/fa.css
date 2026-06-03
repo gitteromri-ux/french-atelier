@@ -132,6 +132,12 @@ section{position:relative}
 
 .bg-navy{background:var(--navy);color:var(--on-dark)}
 .bg-navy-deep{background:var(--navy-deep);color:var(--on-dark)}
+.cta-band{background:var(--navy-deep);text-align:center;position:relative;overflow:hidden}
+.cta-band .frame-border{inset:30px}
+.hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--on-dark-soft);max-width:46ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#e0413f;box-shadow:0 0 0 0 rgba(224,65,63,.6);animation:fa-pulse 2s infinite}
+@keyframes fa-pulse{0%{box-shadow:0 0 0 0 rgba(224,65,63,.6)}70%{box-shadow:0 0 0 10px rgba(224,65,63,0)}100%{box-shadow:0 0 0 0 rgba(224,65,63,0)}}
 .bg-ivory{background:var(--ivory)}
 .bg-paper{background:var(--paper)}
 .bg-cream{background:var(--cream)}
@@ -1474,45 +1480,49 @@ body.modal-open{overflow:hidden}
 
 /* ---------- 2. BLACK SORBONNE METHODOLOGY FOLD ---------- */
 /* === SORBONNE FOLD — V3 rebuild: LIGHT, on-brand, matches site === */
+/* ---- DARK premium Sorbonne fold (restored — navy + gold, consistent
+        with the Juliane / Acadomia dark folds; user: "not dull") ---- */
 .sorb{
   position:relative;overflow:hidden;
   background:
-    radial-gradient(120% 80% at 50% -10%, rgba(200,169,107,.10), transparent 60%),
-    linear-gradient(180deg, var(--paper) 0%, var(--ivory) 100%);
-  color:var(--on-light);
+    radial-gradient(120% 90% at 50% -10%, rgba(200,169,107,.16), transparent 58%),
+    radial-gradient(90% 70% at 82% 110%, rgba(228,152,166,.10), transparent 60%),
+    linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 52%, var(--navy-soft) 100%);
+  color:var(--on-dark);
   padding:var(--sp-8) 0;
   isolation:isolate;
-  border-top:1px solid var(--gold-line-soft);
-  border-bottom:1px solid var(--gold-line-soft);
+  border-top:1px solid rgba(200,169,107,.22);
+  border-bottom:1px solid rgba(200,169,107,.22);
 }
 .sorb::before{
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.6;
-  background-image:linear-gradient(rgba(8,14,43,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(8,14,43,.025) 1px,transparent 1px);
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(200,169,107,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,107,.07) 1px,transparent 1px);
   background-size:68px 68px;
-  -webkit-mask-image:radial-gradient(78% 70% at 50% 36%,#000,transparent 100%);
-  mask-image:radial-gradient(78% 70% at 50% 36%,#000,transparent 100%);
+  -webkit-mask-image:radial-gradient(80% 72% at 50% 34%,#000,transparent 100%);
+  mask-image:radial-gradient(80% 72% at 50% 34%,#000,transparent 100%);
 }
 .sorb .wrap{position:relative;z-index:2}
 .sorb-head{max-width:64ch;margin:0 auto 3.4rem;text-align:center}
-.sorb-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.01em;margin:1.1rem 0 0;color:var(--navy)}
-.sorb-title .gold-ital{font-style:italic;color:var(--gold-deep);font-weight:500}
-.sorb-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.62;color:var(--on-light-soft);font-weight:300;margin:1.3rem auto 0;max-width:58ch}
-.sorb-sub .sorb-line{font-family:var(--serif);font-style:italic;color:var(--gold-deep);font-weight:500;font-size:1.08em}
-/* ---- 3-column numbered principle cards (light, on-brand) ---- */
+.sorb-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.01em;margin:1.1rem 0 0;color:var(--on-dark)}
+.sorb-title .gold-ital{font-style:italic;color:var(--gold-soft);font-weight:500}
+.sorb-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:1.3rem auto 0;max-width:58ch}
+.sorb-sub .sorb-line{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-weight:500;font-size:1.08em}
+/* ---- 3-column numbered principle cards (dark glass, premium) ---- */
 .sorb-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.2vw,1.8rem);max-width:1080px;margin:0 auto}
 .sorb-pr{
   position:relative;padding:clamp(1.9rem,2.8vw,2.5rem) clamp(1.6rem,2.2vw,2rem) clamp(1.7rem,2.4vw,2.2rem);
-  background:var(--white);
-  border:1px solid var(--gold-line-soft);border-radius:18px;
-  box-shadow:0 18px 44px -30px rgba(8,14,43,.28);
-  transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);
+  background:linear-gradient(165deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+  border:1px solid rgba(200,169,107,.26);border-radius:18px;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  box-shadow:0 26px 60px -34px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
+  transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease),background .5s var(--ease);
 }
-.sorb-pr::before{content:"";position:absolute;left:0;top:1.6rem;bottom:1.6rem;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--gold-deep));opacity:.85}
-.sorb-pr:hover{transform:translateY(-6px);border-color:var(--gold-line);box-shadow:0 30px 60px -34px rgba(8,14,43,.32)}
-.sorb-pr-no{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold-deep);line-height:1;margin-bottom:.7rem;font-variant-numeric:lining-nums}
-.sorb-pr-fr{display:block;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--gold-deep);margin-bottom:.55rem;letter-spacing:.01em}
-.sorb-pr-tt{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,2vw,1.65rem);line-height:1.15;color:var(--navy);margin:0 0 .7rem}
-.sorb-pr-tx{font-family:var(--sans);font-size:.98rem;line-height:1.62;color:var(--on-light-soft);font-weight:300;margin:0}
+.sorb-pr::before{content:"";position:absolute;left:0;top:1.6rem;bottom:1.6rem;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--gold-soft),var(--gold-deep));opacity:.95;box-shadow:0 0 14px -2px rgba(200,169,107,.6)}
+.sorb-pr:hover{transform:translateY(-6px);border-color:rgba(200,169,107,.55);background:linear-gradient(165deg, rgba(255,255,255,.085), rgba(255,255,255,.03));box-shadow:0 38px 76px -38px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.09)}
+.sorb-pr-no{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold-soft);line-height:1;margin-bottom:.7rem;font-variant-numeric:lining-nums}
+.sorb-pr-fr{display:block;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--pink);margin-bottom:.55rem;letter-spacing:.01em}
+.sorb-pr-tt{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,2vw,1.65rem);line-height:1.15;color:var(--on-dark);margin:0 0 .7rem}
+.sorb-pr-tx{font-family:var(--sans);font-size:.98rem;line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:0}
 @media(max-width:860px){.sorb-principles{grid-template-columns:1fr;gap:1.1rem;max-width:520px}}
 
 .sorb-pillars{display:flex;flex-direction:column;gap:1rem;max-width:980px;margin:0 auto}
@@ -1571,11 +1581,11 @@ body.modal-open{overflow:hidden}
   margin:3.4rem auto 0;max-width:920px;text-align:center;
   border-top:1px solid var(--gold-line-soft);padding-top:1.9rem;
 }
-.sorb-cred-lab{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.1rem}
+.sorb-cred-lab{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1.1rem}
 .sorb-cred-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.8rem}
-.sorb-cred-links a{font-family:var(--sans);font-size:.86rem;color:var(--on-light-soft);text-decoration:none;border-bottom:1px solid var(--gold-line-soft);padding-bottom:1px;transition:color .3s,border-color .3s}
-.sorb-cred-links a:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
-.sorb-cred-note{font-family:var(--sans);font-size:.82rem;color:var(--on-light-faint,#6a6a72);margin-top:1.3rem;max-width:56ch;margin-left:auto;margin-right:auto;line-height:1.55}
+.sorb-cred-links a{font-family:var(--sans);font-size:.86rem;color:var(--on-dark-soft);text-decoration:none;border-bottom:1px solid rgba(200,169,107,.32);padding-bottom:1px;transition:color .3s,border-color .3s}
+.sorb-cred-links a:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+.sorb-cred-note{font-family:var(--sans);font-size:.82rem;color:rgba(243,239,233,.5);margin-top:1.3rem;max-width:56ch;margin-left:auto;margin-right:auto;line-height:1.55}
 @media(max-width:600px){
   .sorb-ph{padding:1.3rem 1.2rem;gap:.9rem}
   .sorb-ph-idx{width:1.6rem;font-size:1.2rem}
@@ -2568,15 +2578,35 @@ body.modal-open{overflow:hidden}
 .han-cap{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);margin-top:.35rem;line-height:1.3}
 
 /* ---- journey steps ---- */
+/* ONE-ROW horizontal moveable slider (never wraps to two rows) */
 .hiw3-journey{
-  position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:1.3rem;align-items:start;
+  position:relative;display:flex;flex-wrap:nowrap;gap:1.3rem;align-items:start;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding:6px 4px 1.4rem;margin:0 -4px;
+  -ms-overflow-style:none;scrollbar-width:none;cursor:grab;
 }
+.hiw3-journey::-webkit-scrollbar{display:none}
+.hiw3-journey.is-dragging{cursor:grabbing;scroll-snap-type:none}
 .hiw3-rail{
-  position:absolute;top:39px;left:10%;right:10%;height:3px;z-index:0;pointer-events:none;border-radius:3px;
+  position:absolute;top:39px;left:6%;right:6%;height:3px;z-index:0;pointer-events:none;border-radius:3px;
   background:linear-gradient(90deg,var(--gold-line-soft) 0%,var(--gold) 50%,var(--gold-deep) 100%);
   box-shadow:0 1px 8px -2px rgba(200,169,107,.5);
 }
-.hiw3-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.hiw3-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.2rem;flex:0 0 clamp(220px,21vw,260px);scroll-snap-align:start}
+
+/* slider arrows */
+.hiw3-slider{position:relative}
+.hiw3-arrow{
+  position:absolute;top:39px;transform:translateY(-50%);z-index:5;
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:var(--white);border:1px solid var(--gold-line);color:var(--navy);cursor:pointer;
+  box-shadow:0 10px 28px -12px rgba(8,14,43,.45);transition:transform .25s var(--ease),background .25s var(--ease),opacity .25s var(--ease)}
+.hiw3-arrow svg{width:20px;height:20px}
+.hiw3-arrow:hover{background:var(--navy);color:var(--gold-soft);transform:translateY(-50%) scale(1.06)}
+.hiw3-arrow:disabled{opacity:.3;cursor:default}
+.hiw3-arrow-prev{left:-10px}
+.hiw3-arrow-next{right:-10px}
+@media (max-width:1100px){.hiw3-arrow-prev{left:2px}.hiw3-arrow-next{right:2px}}
 
 /* node medallion */
 .hiw3-node{
@@ -2625,7 +2655,8 @@ body.modal-open{overflow:hidden}
 .hiw3-tag-final{color:var(--navy-deep);background:linear-gradient(135deg,var(--gold-soft),var(--gold));border-color:var(--gold-deep)}
 
 @media(max-width:1040px){
-  .hiw3-journey{grid-template-columns:repeat(3,1fr);gap:1.6rem 1.2rem}
+  .hiw3-journey{gap:1.2rem}
+  .hiw3-step{flex:0 0 clamp(220px,46vw,260px)}
   .hiw3-rail{display:none}
 }
 @media(max-width:760px){
@@ -2634,8 +2665,8 @@ body.modal-open{overflow:hidden}
   .han{flex:0 0 28%}
 }
 @media(max-width:640px){
-  .hiw3-journey{grid-template-columns:1fr;gap:1.1rem}
-  .hiw3-step{flex-direction:row;align-items:flex-start;gap:1.1rem;text-align:left}
+  .hiw3-journey{gap:1rem}
+  .hiw3-step{flex:0 0 78vw;flex-direction:column;align-items:center;gap:1.1rem;text-align:center}
   .hiw3-node{width:60px;height:60px}
   .hiw3-n{font-size:1.3rem}
   .hiw3-node-final svg{width:26px;height:26px}
