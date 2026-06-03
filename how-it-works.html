@@ -10,6 +10,21 @@
 <link rel="stylesheet" href="css/fa.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
+/* Two-track journey */
+.track-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.4rem}
+.track-card{background:rgba(255,255,255,.03);border:1px solid rgba(200,165,96,.24);border-radius:6px;padding:3rem 2.6rem;position:relative;overflow:hidden}
+.track-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-soft))}
+.track-card .tc-kicker{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:.9rem;display:block}
+.track-card h3{font-family:var(--serif);font-size:2rem;color:var(--on-dark);margin-bottom:.4rem;line-height:1.1}
+.track-card .tc-sub{font-size:.9rem;color:var(--on-dark-soft);margin-bottom:1.6rem;font-style:italic;font-family:var(--serif)}
+.track-card .tc-meta{display:flex;gap:1.4rem;flex-wrap:wrap;padding:1.2rem 0;margin-bottom:1.4rem;border-top:1px solid rgba(200,165,96,.18);border-bottom:1px solid rgba(200,165,96,.18)}
+.track-card .tc-meta div{display:flex;flex-direction:column}
+.track-card .tc-meta .m-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold-soft);line-height:1}
+.track-card .tc-meta .m-lbl{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-faint);margin-top:.3rem}
+.track-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.7rem}
+.track-card ul li{display:flex;align-items:flex-start;gap:.7rem;color:var(--on-dark-soft);font-size:.92rem;line-height:1.5}
+.track-card ul li span{color:var(--gold-soft);font-family:var(--serif);flex-shrink:0}
+@media(max-width:780px){.track-grid{grid-template-columns:1fr;gap:1.6rem}.track-card{padding:2.2rem 1.8rem}}
 /* Timeline layout */
 .hiw-timeline{position:relative;padding:0 0 2rem}
 .hiw-timeline::before{content:"";position:absolute;left:3.4rem;top:0;bottom:0;width:1px;background:var(--gold-line-soft)}
@@ -98,14 +113,23 @@
       <div class="nav-item"><a class="nav-link" href="index.html">Home</a></div>
       <div class="nav-item">
         <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
-        <div class="nav-dropdown">
-          <a href="courses.html">All Courses</a>
-          <a href="courses/fa-foundation.html">FA Foundation · A0→A1.1</a>
-          <a href="courses/fa-beginner.html">FA Beginner · A1.1→A1.2</a>
-          <a href="courses/fa-elementary.html">FA Elementary · A1.2→A2.1</a>
-          <a href="courses/fa-intermediate.html">FA Intermediate · A2.1→A2.2</a>
-          <a href="courses/lsf-foundation.html">LSF · Let's Speak French</a>
-          <a href="map.html">Interactive Map of France</a>
+        <div class="nav-dropdown nav-dropdown-wide">
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">French Atelier &middot; Daytime &middot; A0&rarr;A2.2</span>
+            <a href="courses/fa-foundation.html">FA Foundation <em>A0&rarr;A1.1</em></a>
+            <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
+            <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
+            <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
+          </div>
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Evening &middot; Conversation</span>
+            <a href="courses/lsf-foundation.html">LSF Foundation <em>Spoken</em></a>
+            <a href="courses/lsf-beginner.html">LSF Beginner <em>Spoken</em></a>
+            <a href="courses/lsf-elementary.html">LSF Elementary <em>Spoken</em></a>
+            <span class="nav-dd-divide"></span>
+            <a href="courses.html">All Courses</a>
+            <a href="map.html">Interactive Map of France</a>
+          </div>
         </div>
       </div>
       <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
@@ -212,6 +236,56 @@
       <div class="ss-item"><div class="ss-num">85</div><div class="ss-label">Minutes Each Class</div></div>
       <div class="ss-item"><div class="ss-num">8–10</div><div class="ss-label">Learners Per Group</div></div>
       <div class="ss-item"><div class="ss-num">$100</div><div class="ss-label">Cashback on Completion</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TWO-TRACK JOURNEY ===== -->
+<section class="section-pad bg-navy on-dark" style="border-bottom:1px solid rgba(200,165,96,.18)">
+  <div class="wrap">
+    <div style="text-align:center;max-width:62ch;margin:0 auto 1rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-soft)">Two Tracks, One Atelier</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem;color:var(--on-dark)">Choose your <span class="gold-ital">journey into French</span></h2>
+      <p class="lede reveal reveal-d2" style="margin-top:1.2rem;color:var(--on-dark-soft)">Every learner begins with a live placement call. From there, two distinct paths — structured by day, conversational by evening — meet you exactly where your French life is.</p>
+    </div>
+    <div class="track-grid">
+      <div class="track-card reveal">
+        <span class="tc-kicker">The French Atelier &middot; Daytime</span>
+        <h3>Structured Mastery</h3>
+        <p class="tc-sub">From absolute zero to A2.2, across four progressive courses.</p>
+        <div class="tc-meta">
+          <div><span class="m-num">20</span><span class="m-lbl">Units / Course</span></div>
+          <div><span class="m-num">CEFR</span><span class="m-lbl">A0 &rarr; A2.2</span></div>
+          <div><span class="m-num">8&ndash;10</span><span class="m-lbl">Live Group</span></div>
+        </div>
+        <ul>
+          <li><span>&#9670;</span>Full grammar, vocabulary and reading progression, built unit by unit.</li>
+          <li><span>&#9670;</span>Each course travels a French region &mdash; Paris, Normandy, the Loire, Marseille, Alsace.</li>
+          <li><span>&#9670;</span>Live, certified instruction broadcast from France, certified by Acadomia.</li>
+          <li><span>&#9670;</span>Ideal if you want to read, write and speak French with true structure.</li>
+        </ul>
+      </div>
+      <div class="track-card reveal reveal-d1">
+        <span class="tc-kicker">Let&rsquo;s Speak French &middot; Evening</span>
+        <h3>Conversational Fluency</h3>
+        <p class="tc-sub">Spoken confidence first &mdash; no grammar drills, just real talk.</p>
+        <div class="tc-meta">
+          <div><span class="m-num">10</span><span class="m-lbl">Units / Course</span></div>
+          <div><span class="m-num">Spoken</span><span class="m-lbl">Fluency Focus</span></div>
+          <div><span class="m-num">8&ndash;10</span><span class="m-lbl">Live Group</span></div>
+        </div>
+        <ul>
+          <li><span>&#9670;</span>Conversation-led evenings designed for busy adult schedules.</li>
+          <li><span>&#9670;</span>No grammar lectures &mdash; you build spoken fluency by speaking, live.</li>
+          <li><span>&#9670;</span>Three levels: LSF Foundation, Beginner and Elementary.</li>
+          <li><span>&#9670;</span>Ideal if your goal is to simply <em>speak</em> French with confidence.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:1.4rem;flex-wrap:wrap;justify-content:center;margin-top:2.6rem;color:var(--on-dark-soft);font-size:.85rem">
+      <span style="display:flex;align-items:center;gap:.5rem"><span class="live-dot" style="width:8px;height:8px;background:#e0413f;border-radius:50%"></span>Live from France</span>
+      <span style="display:flex;align-items:center;gap:.5rem;color:var(--gold-soft)">&#9670; Juliane AI tutor, 24/7</span>
+      <span style="display:flex;align-items:center;gap:.5rem;color:var(--gold-soft)">&#9670; Certified by Acadomia</span>
     </div>
   </div>
 </section>

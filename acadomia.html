@@ -22,7 +22,10 @@
 .trophee-wrap{background:var(--navy-deep);border:1px solid var(--gold-line);padding:3.4rem;text-align:center;position:relative}
 .trophee-wrap .tw-num{font-family:var(--serif);font-size:5rem;color:var(--gold-soft);line-height:1}
 .welcome-line{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);color:var(--gold-soft);font-style:italic;text-align:center;line-height:1.2}
-@media(max-width:800px){.acad-stat-row{grid-template-columns:1fr}.acad-stat-row .asr-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.partner-grid{grid-template-columns:1fr}}
+.partner-logo-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;align-items:center;justify-items:center;margin-bottom:3.6rem;padding:3rem 2.4rem;border:1px solid rgba(200,165,96,.28);border-radius:4px;background:rgba(255,255,255,.03)}
+.partner-logo-strip img{height:84px;max-width:100%;width:auto;object-fit:contain;opacity:.92;transition:opacity .3s ease}
+.partner-logo-strip img:hover{opacity:1}
+@media(max-width:800px){.acad-stat-row{grid-template-columns:1fr}.acad-stat-row .asr-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.partner-grid{grid-template-columns:1fr}.partner-logo-strip{grid-template-columns:repeat(2,1fr);gap:2rem 1.5rem;padding:2.2rem 1.6rem}.partner-logo-strip img{height:60px}.partner-logo-strip img:last-child{grid-column:1 / -1}}
 </style>
 </head>
 <body>
@@ -75,14 +78,23 @@
       <div class="nav-item"><a class="nav-link" href="index.html">Home</a></div>
       <div class="nav-item">
         <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
-        <div class="nav-dropdown">
-          <a href="courses.html">All Courses</a>
-          <a href="courses/fa-foundation.html">FA Foundation · A0→A1.1</a>
-          <a href="courses/fa-beginner.html">FA Beginner · A1.1→A1.2</a>
-          <a href="courses/fa-elementary.html">FA Elementary · A1.2→A2.1</a>
-          <a href="courses/fa-intermediate.html">FA Intermediate · A2.1→A2.2</a>
-          <a href="courses/lsf-foundation.html">LSF · Let's Speak French</a>
-          <a href="map.html">Interactive Map of France</a>
+        <div class="nav-dropdown nav-dropdown-wide">
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">French Atelier &middot; Daytime &middot; A0&rarr;A2.2</span>
+            <a href="courses/fa-foundation.html">FA Foundation <em>A0&rarr;A1.1</em></a>
+            <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
+            <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
+            <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
+          </div>
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Evening &middot; Conversation</span>
+            <a href="courses/lsf-foundation.html">LSF Foundation <em>Spoken</em></a>
+            <a href="courses/lsf-beginner.html">LSF Beginner <em>Spoken</em></a>
+            <a href="courses/lsf-elementary.html">LSF Elementary <em>Spoken</em></a>
+            <span class="nav-dd-divide"></span>
+            <a href="courses.html">All Courses</a>
+            <a href="map.html">Interactive Map of France</a>
+          </div>
         </div>
       </div>
       <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
@@ -261,20 +273,20 @@
 </section>
 
 <!-- ===== PARTNERSHIPS ===== -->
-<section class="section-pad bg-paper">
+<section class="section-pad bg-navy-deep on-dark" style="border-top:1px solid rgba(200,165,96,.18);border-bottom:1px solid rgba(200,165,96,.18)">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Institutional Partnerships</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Trusted by <span class="gold-ital">France's finest</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:56ch;margin:1.2rem auto 0">Acadomia's standing in French life is affirmed by the calibre of the institutions that have chosen to partner with it.</p>
+    <div style="text-align:center;margin-bottom:3.4rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-soft)">Institutional Partnerships</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem;color:var(--on-dark)">Trusted by <span class="gold-ital">France's finest</span></h2>
+      <p class="lede reveal reveal-d2" style="max-width:58ch;margin:1.2rem auto 0;color:var(--on-dark-soft)">Acadomia's standing in French life is affirmed by the calibre of the institutions that have chosen to partner with it.</p>
     </div>
-    <!-- Logo trust strip -->
-    <div class="reveal" style="display:flex;gap:3rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:3.4rem;padding:2.4rem 2rem;border:1px solid var(--gold-line-soft);background:var(--white)">
-      <img src="assets/partners/grandprix.png" alt="Formula 1 Grand Prix" style="height:64px;object-fit:contain;opacity:.85;filter:grayscale(20%)">
-      <img src="assets/partners/fft.jpg" alt="Fédération Française de Tennis" style="height:64px;object-fit:contain;opacity:.85;filter:grayscale(20%)">
-      <img src="assets/partners/capital.png" alt="Capital Magazine" style="height:48px;object-fit:contain;opacity:.85;filter:grayscale(20%)">
-      <img src="assets/partners/ffgolf.png" alt="Fédération Française de Golf" style="height:56px;object-fit:contain;opacity:.85;filter:grayscale(20%)">
-      <img src="assets/partners/tonyparker.png" alt="Tony Parker Foundation" style="height:56px;object-fit:contain;opacity:.85;filter:grayscale(20%)">
+    <!-- Enlarged white-logo trust strip on dark -->
+    <div class="partner-logo-strip reveal">
+      <img src="assets/partners/white/grandprix.png" alt="Formula 1 Grand Prix">
+      <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis">
+      <img src="assets/partners/white/capital.png" alt="Capital Magazine">
+      <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf">
+      <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Foundation">
     </div>
     <div class="partner-grid reveal reveal-d1">
       <div class="partner-card">

@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
 <link rel="stylesheet" href="css/mapstr.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
@@ -221,13 +223,10 @@
       <a href="contact.html" class="btn btn-gold btn-lg">Talk to an Advisor</a>
     </div>
   </div>
-  <div class="hero-live">
-    <div class="wrap"><span class="live-dot"></span> Broadcasting live from France</div>
-  </div>
 </section>
 
 <!-- ===== TAGLINE BAND (verbatim from live site) ===== -->
-<section class="section-pad-sm bg-navy">
+<section class="section-pad-sm bg-navy on-dark">
   <div class="wrap-narrow tagline-band reveal">
     <p class="tag-script">Live French. <span class="gold-ital">Live.</span></p>
     <p class="lede">Live life to the fullest and master the art of French with the world's best teachers — broadcasting live from France.</p>
@@ -608,11 +607,11 @@
 </section>
 
 <!-- ===== WATCH A REAL CLASS ===== -->
-<section class="section-pad bg-navy-deep">
+<section class="section-pad bg-navy-deep on-dark">
   <div class="wrap split split-wide">
     <div class="reveal reveal-d1">
       <div class="sound-video" data-soundvideo>
-        <video poster="assets/video/demo-class-poster.jpg" loop muted playsinline preload="metadata">
+        <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
           <source src="assets/video/demo-class.mp4" type="video/mp4">
         </video>
         <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
@@ -631,9 +630,9 @@
 </section>
 
 <!-- ===== LIVE FROM FRANCE (regions band) ===== -->
-<section class="video-band">
+<section class="video-band on-dark">
   <div class="video-bg">
-    <video poster="assets/video/paris-cityscape-poster.jpg" loop muted playsinline preload="metadata">
+    <video poster="assets/video/paris-cityscape-poster.jpg" autoplay loop muted playsinline preload="metadata">
       <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
     </video>
   </div>
