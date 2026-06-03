@@ -219,6 +219,16 @@
     });
   });
 
+  /* FAQ accordion variant (.faq-btn[aria-expanded] toggles .faq-body.open) */
+  document.querySelectorAll('.faq-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var open=btn.getAttribute('aria-expanded')==='true';
+      var body=document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded',String(!open));
+      if(body)body.classList.toggle('open',!open);
+    });
+  });
+
   /* Testimonial marquee: pause when offscreen for perf */
   document.querySelectorAll('.cp-testi').forEach(function(m){
     var track=m.querySelector('.cp-testi-track');
