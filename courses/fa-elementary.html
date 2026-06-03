@@ -3,38 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FA Elementary — A1.2 to A2.1 in the Loire, Atlantic & Basque | The French Atelier by Acadomia</title>
-<meta name="description" content="FA Elementary: 20 live units tracing the Loire Valley, Bordeaux, and the Basque Country. Chain exchanges, narrate the past, describe art, and justify — in semi-guided production. CEFR A1.2 → A2.1.">
+<title>FA Elementary — A1.2 → A2.1 | The French Atelier by Acadomia</title>
+<meta name="description" content="FA Elementary: a 20-unit live French course (A1.2 → A2.1, CEFR). A route from the Loire châteaux to the Atlantic and the Basque Country. Native certified teachers, small groups, certificate by Acadomia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/fa.css">
 <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
 <style>
-.course-page-hero{min-height:68vh}
-.unit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.unit-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:1.6rem 1.8rem;position:relative;transition:box-shadow .25s var(--ease)}
-.unit-card:hover{box-shadow:0 4px 20px rgba(8,14,43,.09)}
-.unit-no{font-family:var(--serif);font-size:2.2rem;color:var(--gold-deep);opacity:.45;line-height:1;margin-bottom:.5rem}
-.unit-title{font-family:var(--serif);font-size:1.22rem;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
-.unit-desc{font-size:.88rem;color:var(--on-light-soft);line-height:1.6}
-.unit-card.accent{border-left:2px solid var(--gold-deep)}
-.for-list{list-style:none;padding:0;margin:0}
-.for-list li{padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft);font-size:.98rem;color:var(--on-light-soft);padding-left:1.4rem;position:relative}
-.for-list li::before{content:'◆';position:absolute;left:0;color:var(--gold-deep);font-size:.5rem;top:.9rem}
-.region-banner{background:var(--navy-deep);padding:1.2rem 1.8rem;display:flex;align-items:center;gap:1rem;border-left:3px solid var(--gold-deep)}
-.rb-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
-.rb-text{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--on-dark)}
 .sibling-nav{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.sib-card{border:1px solid var(--gold-line-soft);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.4rem;background:var(--paper);transition:background .2s}
+.sib-card{border:1px solid var(--gold-line-soft);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.3rem;background:var(--paper);transition:background .2s;border-radius:12px}
 .sib-card:hover{background:var(--ivory)}
-.sib-dir{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
-.sib-title{font-family:var(--serif);font-size:1.3rem;color:var(--navy)}
+.sib-dir{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c-bg)}
+.sib-title{font-family:var(--serif);font-size:1.3rem;color:var(--on-light)}
 .sib-cefr{font-size:.82rem;color:var(--on-light-soft)}
-@media(max-width:900px){.unit-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.sibling-nav{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body data-course="fa-elementary" class="light-hero">
 
 <header class="site-header">
   <div class="wrap nav">
@@ -84,7 +69,7 @@
           <a href="../contact.html">Contact</a>
         </div>
       </div>
-      <a class="btn btn-gold nav-cta" href="../pricing.html">Enroll Now</a>
+      <a class="btn btn-gold nav-cta" data-advisor href="../contact.html">Request Info</a>
     </nav>
     <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -123,260 +108,629 @@
     <a href="../faq.html">FAQ</a>
     <a href="../contact.html">Contact</a>
   </div>
-  <a href="../pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+  <a href="../contact.html" data-advisor class="btn btn-gold" style="margin-top:1.6rem">Request Info</a>
 </div>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero course-page-hero">
-  <div class="page-hero-bg"><img src="../assets/gen/region-loire.png" alt="The Loire Valley — châteaux, vineyards, and riverbanks"></div>
-  <div class="wrap hero-content">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span>›</span><a href="../courses.html">Courses</a><span>›</span><span>FA Elementary</span>
-    </nav>
-    <p class="eyebrow eyebrow-line reveal" style="margin-top:2rem">FA Main Track · Course 3 of 4</p>
-    <h1 class="display-lg reveal reveal-d1">FA <span class="gold-ital">Elementary</span></h1>
-    <p class="lede reveal reveal-d2" style="max-width:50ch;color:var(--on-dark-soft)">A1.2 → A2.1 · 20 live units · Loire · Atlantic · Basque Country</p>
-    <div class="reveal reveal-d3" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem">
-      <a href="../pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
-      <a href="../downloads/fa-elementary-syllabus.pdf" class="btn btn-outline btn-lg" download>Download Syllabus (PDF)</a>
+<!-- ===== STICKY COURSE SUB-NAV ===== -->
+<div class="cp-subnav">
+  <div class="wrap cp-subnav-inner">
+    <div class="cp-subnav-title">
+      <span class="cp-dot"></span>
+      <strong>FA Elementary</strong>
+      <span>A1.2 → A2.1</span>
     </div>
-  </div>
-</section>
-
-<!-- ===== REGION BANNER ===== -->
-<div class="region-banner reveal">
-  <svg style="width:28px;height:28px;flex-shrink:0;color:var(--gold-deep)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-  <div>
-    <div class="rb-label">Region Journey</div>
-    <div class="rb-text">Orléans · Villandry · Chenonceau · Tours · Bordeaux · Dune du Pilat · Bayonne · Biarritz · Saint-Jean-de-Luz · Espelette</div>
+    <div class="cp-subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="#faculty">Teachers</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <button class="btn-accent" data-advisor type="button">Request Info</button>
   </div>
 </div>
 
-<!-- ===== OVERVIEW ===== -->
-<section class="section-pad bg-ivory">
-  <div class="wrap split split-wide">
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">Course Overview</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">From the Loire to the <span class="gold-ital">Basque harbour</span></h2>
-      <p class="lede">For graduates of FA Beginner. By the end of FA Elementary, you can produce language in a semi-guided way, chain exchanges across multiple turns, express and justify preferences, narrate a short past event, describe a work of art, and understand short authentic documents.</p>
-      <p style="margin-top:1rem;color:var(--on-light-soft);line-height:1.7">FA Elementary traces a route from the Loire Valley to the Atlantic coast and the Basque Country. The journey opens in Orléans and travels south along the Loire through château country: the Renaissance gardens of Villandry, the Château de Chenonceau, the lively terraces of Tours, a guinguette on the river banks. It continues west to Bordeaux: the vineyards, the Cité du Vin, the Musée des Beaux-Arts, and a crossing to the Atlantic at the Dune du Pilat and the oyster ports of Gujan-Mestras. The course ends in the Basque Country: the Gothic cathedral of Bayonne, the chocolate-makers of the old town, the Rocher de la Vierge at Biarritz, the sacred mountain of La Rhune, and the harbour of Saint-Jean-de-Luz before a final dinner in Espelette.</p>
-      <div class="gold-rule" style="margin-top:2rem"></div>
-      <div style="display:flex;gap:2.4rem;margin-top:1.6rem;flex-wrap:wrap">
-        <div><span class="numeral" style="font-size:2.4rem">20</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Live Units</div></div>
-        <div><span class="numeral" style="font-size:2.4rem">A1.2</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Entry Level</div></div>
-        <div><span class="numeral" style="font-size:2.4rem">A2.1</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Exit Level</div></div>
-      </div>
-    </div>
-    <div class="reveal reveal-d1">
-      <img src="../assets/gen/region-loire.png" alt="The Loire Valley — châteaux and vineyards" style="width:100%;border:1px solid var(--gold-line-soft)">
-      <p class="img-caption">The wine merchant teaches you to recommend. The oyster port teaches you to negotiate. The guinguette teaches you to compare.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===== COAST CHATEAU VIDEO BAND ===== -->
-<section class="video-band">
-  <div class="video-bg">
-    <video poster="../assets/video/coast-chateau-poster.jpg" loop muted playsinline preload="metadata">
-      <source src="../assets/video/coast-chateau.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Loire Valley · FA Elementary</p>
-    <h2 class="display-md">Learn French where <span class="gold-ital">châteaux</span> meet the river</h2>
-    <p class="lede">The Renaissance gardens of Villandry, the Château de Chenonceau, the guinguettes of the Loire. In FA Elementary, the architecture is not the backdrop — it is the lesson.</p>
-  </div></div>
-</section>
-
-<!-- ===== WHO + INCLUDED ===== -->
-<section class="section-pad bg-paper">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">Who It's For</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">From guided to <span class="gold-ital">free production</span></h2>
-      <ul class="for-list" style="margin-top:1.2rem">
-        <li>Graduates of FA Beginner ready to speak with real autonomy</li>
-        <li>Learners who want to narrate, describe art, and justify opinions</li>
-        <li>Those fascinated by the Loire's châteaux, Bordeaux's wine culture, and the Basque Country</li>
-        <li>Anyone who wants to move from scripted phrases to genuine conversation</li>
-        <li>Adults heading to south-west France who want to speak the local French</li>
-      </ul>
-      <a href="../pricing.html" class="btn btn-gold" style="margin-top:1.8rem">View Pricing</a>
-    </div>
-    <div class="reveal reveal-d1">
-      <p class="eyebrow eyebrow-line">What's Included</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">The full <span class="gold-ital">package</span></h2>
-      <div style="margin-top:1.2rem;display:grid;gap:.8rem">
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>20 live lessons of 85 minutes each</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>2 weekly study groups (annual plan)</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>Small groups of 8–10 learners</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>Lifetime recordings of all classes</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>CEFR A2 certificate by Acadomia</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>$100 cashback credit on completion</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>24/7 community &amp; support</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FULL SYLLABUS ===== -->
-<section class="section-pad bg-navy">
+<!-- ===== HERO ===== -->
+<section class="cp-hero" id="overview">
+  <div class="cp-hero-bg"><img src="../assets/courses_clean/fa-elementary-1.png" alt="Loire → Bordeaux → Basque Country — the setting of FA Elementary"></div>
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.4rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Full Syllabus</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">20 units. Loire to the <span class="gold-ital">Basque coast.</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:52ch;margin:1rem auto 0">From the guinguette to the oyster port to the harbour of Saint-Jean-de-Luz. Every stop is a pretext for language.</p>
+    <nav class="cp-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../courses.html">Courses</a> › FA Elementary</nav>
+    <div class="cp-hero-grid">
+      <div class="reveal">
+        <p class="cp-eyebrow">French Atelier · Course 3 of 4</p>
+        <h1>FA <em>Elementary</em></h1>
+        <div class="cp-badges">
+        <span class="cp-badge"><span class="bdot"></span>CEFR A1.2 → A2.1</span>
+        <span class="cp-badge"><span class="bdot"></span>Certified by Acadomia</span>
+        <span class="cp-badge"><span class="bdot"></span>20 live lessons</span>
+        </div>
+        <p class="cp-hero-pitch">Move from surviving to expressing yourself. From the Renaissance gardens of Villandry to the wine quays of Bordeaux and the harbour of Saint-Jean-de-Luz, you learn to narrate, justify and describe with growing nuance.</p>
+        <div class="cp-hero-cta">
+          <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <a class="btn-glass" href="../downloads/fa-elementary-syllabus.pdf" download>Download Syllabus (PDF)</a>
+        </div>
+        <p class="cp-trustline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Presented by Acadomia · France's #1 private learning institute, founded 1989</p>
+      </div>
+      <aside class="cp-spec reveal reveal-d2" aria-label="Course at a glance">
+      <div class="cp-spec-h">At a glance</div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Length</span><span class="v">20 live lessons · 85 min each</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Level</span><span class="v">CEFR A1.2 → A2.1</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Lessons</span><span class="v">20 units · communicative tasks</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Group size</span><span class="v">8–10 learners</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Certificate</span><span class="v">CEFR completion certificate by Acadomia</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Schedule</span><span class="v">Tue & Thu evenings · live</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Price</span><span class="v">See plans below</span></div>
+      </div>
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </aside>
     </div>
-    <div class="unit-grid">
-      <div class="unit-card accent reveal">
-        <div class="unit-no">01</div>
-        <div class="unit-title">Se présenter : saluer + dire qui on est</div>
-        <div class="unit-desc">Reactivate greetings and introductions at a higher level of demand: use <em>moi, c'est… / je suis…</em>, maintain a coherent <em>tu / vous</em> register, and exchange at least 2 pieces of identity information before asking back.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">02</div>
-        <div class="unit-title">Demander et donner une direction simple</div>
-        <div class="unit-desc">Ask for directions with <em>excusez-moi, pour aller à…, c'est par où ?</em> and give a simple itinerary (<em>tout droit, puis à gauche</em>). Introduce the pronoun <em>y</em> in context (<em>j'y vais</em>).</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">03</div>
-        <div class="unit-title">Exprimer une préférence + justifier simplement</div>
-        <div class="unit-desc">Choose between two options, say <em>je préfère… parce que c'est plus…</em>, and agree on a destination. Consolidate the pronoun <em>y</em> (<em>on y est / j'y vais</em>).</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">04</div>
-        <div class="unit-title">Demander et indiquer une direction (reprise + pression)</div>
-        <div class="unit-desc">Ask for two different locations (<em>excusez-moi, où est… ?</em>) and give two complete directions (<em>vous continuez tout droit, puis à droite</em>). Practise at a faster pace while maintaining politeness throughout.</div>
-      </div>
-      <div class="unit-card accent reveal">
-        <div class="unit-no">05</div>
-        <div class="unit-title">Proposer une mini-sortie + se mettre d'accord</div>
-        <div class="unit-desc">Plan a short outing: suggest a meeting point and time (<em>on se retrouve à…, à… heures ?</em>), sequence two activities (<em>après, on va à…</em>), and confirm (<em>ça marche, à tout à l'heure !</em>).</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">06</div>
-        <div class="unit-title">Commander au bar / restaurant (poliment)</div>
-        <div class="unit-desc">Order two items using <em>je voudrais…, s'il vous plaît</em>, respond to a follow-up (<em>c'est tout ?</em>), and ask for the bill (<em>l'addition, s'il vous plaît</em>). Maintain polite register throughout a full interaction.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">07</div>
-        <div class="unit-title">Partager + exprimer une quantité (pronom en)</div>
-        <div class="unit-desc">Offer and respond to sharing using the pronoun <em>en</em> (<em>vous en voulez ? / oui, j'en veux / j'en prends un peu</em>). Practise expressing quantity in a natural food-sharing context.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">08</div>
-        <div class="unit-title">Recommander + exprimer une préférence</div>
-        <div class="unit-desc">Recommend a wine or dish using <em>je te conseille celui-là</em>, ask <em>tu préfères rouge ou blanc ?</em>, and reach a joint decision. Discover French wine culture and apéritif traditions.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">09</div>
-        <div class="unit-title">Comparer + justifier (parce que / mais)</div>
-        <div class="unit-desc">Compare two options using <em>je préfère… parce que…</em>, introduce a nuance with <em>mais l'autre option est plus…</em>, and decide together (<em>bon, on prend…</em>).</div>
-      </div>
-      <div class="unit-card accent reveal reveal-d1">
-        <div class="unit-no">10</div>
-        <div class="unit-title">Exprimer ses goûts + justifier</div>
-        <div class="unit-desc">Share a cultural preference using <em>j'aime bien… parce que…</em>, invite the other person (<em>et toi, tu préfères quoi ?</em>), and respond with <em>ah oui, je vois</em>.</div>
-      </div>
+  </div>
+</section>
 
+<!-- ===== INFO ROW: benefits + schedule ===== -->
+<section class="section-pad bg-ivory">
+  <div class="wrap cp-inforow">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-line">What you'll gain</p>
+      <h2 class="display-sm" style="margin:1.1rem 0 .4rem">From A1.2 to <span class="gold-ital">A2.1</span></h2>
+      <p class="muted" style="margin-bottom:.4rem">A route from the Loire châteaux to the Atlantic and the Basque Country.</p>
+      <ul class="cp-bene-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Reach CEFR A2.1: you'll be able to produce language semi-guided — chain exchanges, express and justify preferences, narrate a short past event, and describe a work of art.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>20 live 85 min lessons in small groups of 8–10 learners.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Every unit anchored in a real French location along the Loire → Bordeaux → Basque Country journey.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Native, certified teachers broadcasting live from France.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Lifetime access to lesson recordings — revisit any class, anytime.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>CEFR completion certificate by Acadomia, plus a $100 learning credit.</span></li>
+      </ul>
     </div>
-    <!-- Atlantic Coast interlude -->
-    <div class="reveal" style="margin:2.4rem 0">
-      <p class="eyebrow eyebrow-line" style="margin-bottom:1rem;justify-content:center;display:flex">Atlantic Coast &amp; Basque Country</p>
-      <figure class="video-frame">
-        <video poster="../assets/video/coast-ocean-poster.jpg" loop muted playsinline preload="metadata">
-          <source src="../assets/video/coast-ocean.mp4" type="video/mp4">
-        </video>
-        <figcaption>The Dune du Pilat and the oyster ports of Gujan-Mestras — units 11–20 of FA Elementary unfold along this coast.</figcaption>
+    <div class="reveal reveal-d1">
+      <div class="cp-sched">
+        <div class="cp-sched-h"><strong>Upcoming cohorts</strong><span>Live · 85 min</span></div>
+        <div class="cp-sched-scroll">
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">September 2025<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">October 2025<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">November 2025<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status few">Few seats</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">January 2026<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">February 2026<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">March 2026<small>Tue & Thu evenings · live</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        </div>
+        <div class="cp-sched-foot"><button class="btn-accent" data-advisor type="button" style="width:100%">Reserve your seat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section-pad-sm bg-paper">
+  <div class="wrap" style="text-align:center;margin-bottom:2rem">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Loved by learners worldwide</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Real voices, real <span class="gold-ital">progress</span></h2>
+  </div>
+  <div class="cp-testi">
+    <div class="cp-testi-track">
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Describing a painting at the Musée des Beaux-Arts in French — I never imagined I'd reach that point.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇺🇸</span><strong>Ava</strong> · United States</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Iris brings such nuance. I learned to justify my opinions, not just state them.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇲🇽</span><strong>Mateo</strong> · Mexico</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;The Bordeaux wine-merchant lesson was a joy. Practical, cultural, and I actually used it on holiday.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇳🇴</span><strong>Freya</strong> · Norway</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Narrating the past tense finally clicked because every story was anchored to a real trip.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇨🇦</span><strong>Ethan</strong> · Canada</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;From the Loire to the Basque coast — the journey structure kept me hooked for all twenty units.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇮🇹</span><strong>Isabella</strong> · Italy</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Semi-guided production sounds technical; in practice it just means I can hold a real conversation now.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇬🇧</span><strong>Oliver</strong> · United Kingdom</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Describing a painting at the Musée des Beaux-Arts in French — I never imagined I'd reach that point.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇺🇸</span><strong>Ava</strong> · United States</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Iris brings such nuance. I learned to justify my opinions, not just state them.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇲🇽</span><strong>Mateo</strong> · Mexico</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;The Bordeaux wine-merchant lesson was a joy. Practical, cultural, and I actually used it on holiday.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇳🇴</span><strong>Freya</strong> · Norway</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Narrating the past tense finally clicked because every story was anchored to a real trip.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇨🇦</span><strong>Ethan</strong> · Canada</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;From the Loire to the Basque coast — the journey structure kept me hooked for all twenty units.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇮🇹</span><strong>Isabella</strong> · Italy</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Semi-guided production sounds technical; in practice it just means I can hold a real conversation now.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇬🇧</span><strong>Oliver</strong> · United Kingdom</figcaption>
       </figure>
     </div>
-    <div class="unit-grid">
-      <div class="unit-card reveal">
-        <div class="unit-no">11</div>
+  </div>
+</section>
 
-        <div class="unit-title">Proposer une sortie + se mettre d'accord</div>
-        <div class="unit-desc">Suggest a weekend outing (<em>t'as envie de sortir ? on pourrait aller au ciné / au musée ?</em>), negotiate a preference, fix a time and place, and sequence the plan (<em>d'abord… ensuite…</em>). Discover the Fête de la Musique.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">12</div>
-        <div class="unit-title">Raconter un souvenir court (passé composé)</div>
-        <div class="unit-desc">Narrate a short memory using the <em>passé composé</em> (<em>on a visité…, c'était top, j'ai adoré</em>), react to someone else's story, and ask <em>c'était quand, exactement ?</em>.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">13</div>
-        <div class="unit-title">Exprimer une opinion + justifier (accord / désaccord simple)</div>
-        <div class="unit-desc">Use <em>je trouve que c'est…</em> and <em>pour moi…</em> to share an opinion, agree or disagree simply (<em>ouais, je suis d'accord / non, je suis pas d'accord</em>), and justify with <em>parce que…</em>.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">14</div>
-        <div class="unit-title">Décrire une œuvre + exprimer une préférence</div>
-        <div class="unit-desc">Describe a work of art (<em>c'est un tableau / une sculpture</em>) using two adjectives and <em>je trouve ça vraiment beau / bizarre / intéressant</em>, express a preference, and ask for the other person's view.</div>
-      </div>
-      <div class="unit-card accent reveal">
-        <div class="unit-no">15</div>
-        <div class="unit-title">Présenter une œuvre (mini-exposé) + justifier</div>
-        <div class="unit-desc">Give a structured 30–45 second presentation of a work of art: <em>je vais vous parler de…, c'est une œuvre de…, ça a été créé en…</em>, explain what you love most, and answer one question.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">16</div>
-        <div class="unit-title">Organiser un parcours + se mettre d'accord</div>
-        <div class="unit-desc">Negotiate a visit itinerary by proposing a sequence (<em>on commence par…, et ensuite…</em>), asking for agreement (<em>t'es d'accord ?</em>), and closing with <em>OK, c'est décidé !</em>.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">17</div>
-        <div class="unit-title">Raconter / imaginer (micro-récit)</div>
-        <div class="unit-desc">Narrate and imagine a scene using discourse markers <em>d'abord…, et ensuite…, à la fin…</em> and imaginative prompts (<em>et là, imagine… / et si… ?</em>). Produce a 4-sentence micro-narrative and invite the other person to continue the story.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">18</div>
-        <div class="unit-title">Organiser une visite (heure / lieu / étapes) + valider</div>
-        <div class="unit-desc">Plan a full visit: agree on a meeting point and time (<em>on se retrouve à… heures devant… ?</em>), sequence three stages (<em>après, on passe par…</em>), and confirm (<em>super, c'est noté !</em>).</div>
-      </div>
-      <div class="unit-card accent reveal">
-        <div class="unit-no">19</div>
-        <div class="unit-title">Micro-récit + réagir / relancer (pré-bilan)</div>
-        <div class="unit-desc">Narrate a recent outing in 4 sentences, express a nuanced reaction (<em>j'ai adoré / j'ai pas trop aimé</em>), respond to <em>ah bon ? et alors ? / c'était comment ?</em>, and keep the exchange going for at least 12 turns.</div>
-      </div>
-      <div class="unit-card accent reveal reveal-d1">
-        <div class="unit-no">20</div>
-        <div class="unit-title">Consolider : défendre un choix + négocier + conclure</div>
-        <div class="unit-desc">Defend a choice using <em>moi, je choisis… parce que… / c'est mieux parce que…</em>, propose an alternative (<em>on pourrait aussi…</em>), and close a joint decision (<em>allez, c'est décidé !</em>). A full consolidation of FA2 language in a free, unscripted exchange.</div>
-      </div>
+<!-- ===== BENEFIT CARDS ===== -->
+<section class="section-pad bg-ivory neon-splash">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Why FA Elementary</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Everything a beginner could <span class="gold-ital">want</span></h2>
     </div>
-    <div style="text-align:center;margin-top:3rem">
-      <a href="../downloads/fa-elementary-syllabus.pdf" class="btn btn-outline" download>Download Full Syllabus (PDF)</a>
+    <div class="cp-cards">
+      <article class="cp-card reveal">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Live small groups</h3>
+        <p>Just 8–10 learners, so every learner speaks every lesson. No hiding, no passive video — a real, social classroom led live from France.</p>
+      </article>
+      <article class="cp-card reveal reveal-d2">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>French where it is lived</h3>
+        <p>Each unit is anchored in a real French place along the Loire → Bordeaux → Basque Country journey, so language attaches to a scene you can picture.</p>
+      </article>
+      <article class="cp-card reveal reveal-d3">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Native certified teachers</h3>
+        <p>Learn from native French teachers, certified and broadcasting live from cities across France — Paris, Lyon, Nice, Strasbourg and beyond.</p>
+      </article>
+      <article class="cp-card reveal">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Juliane, your 24/7 tutor</h3>
+        <p>Between live lessons, Juliane — our AI French tutor — is always on to practise, answer questions and keep you moving.</p>
+      </article>
+      <article class="cp-card is-cert reveal reveal-d2">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></div>
+        <h3>CEFR certificate by Acadomia</h3>
+        <p>Finish at CEFR A2.1 with a certificate of achievement issued by Acadomia, France's #1 private learning institute — recognised against the standards used across French academia.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="section-pad bg-ivory">
+<!-- ===== MID CTA BANNER ===== -->
+<section class="cp-ctaband neon-splash">
+  <div class="wrap-narrow">
+    <h2 class="reveal">Your first lesson begins <em>Loire</em></h2>
+    <p class="reveal reveal-d1">20 live lessons · CEFR A1.2 → A2.1 · certificate by Acadomia · a $100 learning credit on completion.</p>
+    <div class="cp-cta-actions reveal reveal-d2">
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <a class="btn-glass" href="../downloads/fa-elementary-syllabus.pdf" download>Download Syllabus</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY 3-ICON ROW ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The French Atelier difference</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">French learned where it is <span class="gold-ital">lived</span></h2>
+    </div>
+    <div class="cp-why">
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Context, not flashcards</h3>
+        <p>You learn French in the street, at the counter, on the quay — anchored to real places, so it stays.</p>
+      </div>
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>A real live classroom</h3>
+        <p>Small groups of 8–10 learners with a native teacher — social, accountable, and genuinely human.</p>
+      </div>
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Culture woven in</h3>
+        <p>Every lesson carries the gestures, codes and stories of French life — you don't just speak French, you understand it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY IMAGE BAND (-2 / -3 course images) ===== -->
+<section class="cp-journey reveal">
+  <figure class="cp-journey-img"><img src="../assets/courses_clean/fa-elementary-2.png" alt="Loire → Bordeaux → Basque Country — a scene from the FA Elementary journey" loading="lazy"><figcaption>Loire → Bordeaux → Basque Country</figcaption></figure>
+  <figure class="cp-journey-img"><img src="../assets/courses_clean/fa-elementary-3.png" alt="Loire → Bordeaux → Basque Country — a scene from the FA Elementary journey" loading="lazy"><figcaption>French learned where it is lived.</figcaption></figure>
+</section>
+
+<!-- ===== TRUST BANNER #1 ===== -->
+<section class="cp-trust">
+  <div class="wrap">
+    <div class="cp-trust-grid">
+      <div class="cp-trust-item reveal">
+        <div class="tnum">1989</div>
+        <div class="tlabel"><strong>Acadomia</strong> — founded in 1989, France's #1 private learning institute, now teaching the world French.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d1">
+        <div class="tnum">100%</div>
+        <div class="tlabel"><strong>Native, certified teachers</strong> broadcasting live from France on the award-winning eTeacher platform.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d2">
+        <div class="tnum">CEFR</div>
+        <div class="tlabel"><strong>Internationally recognised</strong> levels — the standards used across French academia, including the Sorbonne.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2nd CTA ===== -->
+<section class="section-pad-sm bg-ivory">
   <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Ready to Begin?</p>
-    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">From the Loire to the <span class="gold-ital">Basque coast</span></h2>
-    <p class="lede reveal reveal-d2">From $39 a week · 20 live units · CEFR A2 certificate by Acadomia · $100 credit on completion</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem">
-      <a href="../pricing.html" class="btn btn-gold btn-lg reveal reveal-d3">View Plans &amp; Enroll</a>
-      <a href="../downloads/fa-elementary-syllabus.pdf" class="btn btn-outline btn-lg reveal reveal-d3" download>Download Syllabus</a>
+    <h2 class="display-sm reveal" style="margin-bottom:1rem">Not sure if it's the right <span class="gold-ital">level</span>?</h2>
+    <p class="lede reveal reveal-d1" style="max-width:52ch;margin:0 auto 1.6rem">An education advisor will place you precisely and build a plan around your schedule — in minutes, with no pressure.</p>
+    <button class="btn-accent reveal reveal-d2" data-advisor type="button">Talk to an advisor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  </div>
+</section>
+
+<!-- ===== FACULTY CAROUSEL ===== -->
+<section class="section-pad bg-navy" id="faculty">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem">
+      <div>
+        <p class="eyebrow eyebrow-line reveal" style="color:var(--c-accent)">Meet your teachers</p>
+        <h2 class="display-sm reveal reveal-d1" style="margin-top:.7rem;color:var(--on-dark)">Native, certified, <span style="font-style:italic;color:var(--c-accent);font-weight:500">live from France</span></h2>
+      </div>
+      <div class="cp-carousel-nav reveal reveal-d1">
+        <button class="cp-cbtn" data-carousel-prev="fac-fa-elementary" aria-label="Previous teachers" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+        <button class="cp-cbtn" data-carousel-next="fac-fa-elementary" aria-label="More teachers" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+    <div class="cp-carousel">
+      <div class="cp-carousel-track" id="fac-fa-elementary">
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/iris.png" alt="Iris Linza, French teacher in Lyon" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Iris Linza</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lyon</div>
+          <p class="fb">Lyon-based teacher with a gastronome's love of nuance, drawing learners into the rhythm of real French speech.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/stan.png" alt="Stan, French teacher in Nice" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Stan</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nice</div>
+          <p class="fb">Niçois teacher who brings Mediterranean ease to grammar, making even the subjunctive feel like a coastal stroll.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/corentin.png" alt="Corentin, French teacher in Pau" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Corentin</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pau</div>
+          <p class="fb">Three decades teaching French — a calm, structured mentor who has guided thousands from silence to conversation.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/shanice.png" alt="Shanice, French teacher in Montpellier" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Shanice</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Montpellier</div>
+          <p class="fb">Franco-Canadian teacher from sunny Montpellier — energetic, encouraging, and a specialist in unlocking the shy.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/charline.jpg" alt="Charline, French teacher in Paris" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Charline</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Paris</div>
+          <p class="fb">Native Parisian who makes pronunciation feel effortless and treats every learner like a guest at her own table.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/caitlin.jpg" alt="Caitlin, French teacher in Strasbourg" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Caitlin</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Strasbourg</div>
+          <p class="fb">French-American teacher who bridges two cultures in every class — warm, precise, and endlessly patient with first words.</p>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:2rem;align-items:stretch">
+      <div class="cp-head reveal">
+        <span class="eyebrow-c">Head of School</span>
+        <h3>Iris Linza · Lyon</h3>
+        <p>Lyon-based teacher with a gastronome's love of nuance, drawing learners into the rhythm of real French speech. As Head of School for FA Elementary, Iris sets the tone for every cohort and personally reviews each learner's progress.</p>
+      </div>
+      <div class="cp-head reveal reveal-d1" style="background:linear-gradient(170deg,#080A14,#05060D)">
+        <span class="eyebrow-c">Speak to a human first</span>
+        <h3>Book a free placement chat</h3>
+        <p>Meet an advisor before you enrol. We'll confirm your level, walk you through the schedule, and answer every question — no commitment.</p>
+        <div><button class="btn-accent" data-advisor type="button" style="margin-top:.4rem">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== SYLLABUS CAROUSEL ===== -->
+<section class="cp-ctaband neon-splash" id="syllabus" style="text-align:left;padding-top:5rem;padding-bottom:5rem">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem">
+      <div style="max-width:62ch">
+        <p class="eyebrow eyebrow-line reveal" style="color:var(--c-accent)">The full syllabus</p>
+        <h2 class="reveal reveal-d1" style="font-size:clamp(1.9rem,3.6vw,3rem);margin:.7rem 0 .9rem">20 lessons. One <em style="font-style:italic;color:var(--c-accent)">journey</em>.</h2>
+        <p class="reveal reveal-d2" style="color:var(--on-dark-soft);font-weight:300;margin:0">FA Elementary follows the great Atlantic diagonal: from Orléans and the Renaissance gardens of Villandry, through Chenonceau and the terraces of Tours, down to the vineyards and quays of Bordeaux, the Dune du Pilat, and on to the Basque coast — Bayonne, Biarritz, Saint-Jean-de-Luz and the red-pepper village of Espelette.</p>
+      </div>
+      <div class="cp-carousel-nav reveal reveal-d1">
+        <button class="cp-cbtn" data-carousel-prev="syl-fa-elementary" aria-label="Previous lessons" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+        <button class="cp-cbtn" data-carousel-next="syl-fa-elementary" aria-label="More lessons" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+    <div class="cp-carousel">
+      <div class="cp-carousel-track" id="syl-fa-elementary">
+      <article class="cp-lesson">
+        <div class="ln">01</div>
+        <div class="lt">Arrivée à Orléans</div>
+        <p class="lp">In Orléans you reactivate introductions and learn to chain a longer exchange, linking several questions and answers into a real conversation. The can-do: sustain a short multi-turn dialogue.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Orléans</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">02</div>
+        <div class="lt">Dans les jardins de Villandry</div>
+        <p class="lp">Among the Renaissance gardens of Villandry you describe a place in detail and express admiration, expanding your stock of qualifying adjectives. You leave able to describe and react to a beautiful setting.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Renaissance gardens of Villandry</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">03</div>
+        <div class="lt">Au château de Chenonceau</div>
+        <p class="lp">At Chenonceau you ask for and give information on a guided visit, understanding a simple commentary about the past. The outcome: follow a cultural tour and ask informed questions.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Château de Chenonceau</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">04</div>
+        <div class="lt">Sur les terrasses de Tours</div>
+        <p class="lp">On the terraces of Tours you order, recommend and react to recommendations, justifying choices with <em>parce que</em>. You can now give and respond to a simple recommendation.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Terraces of Tours</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">05</div>
+        <div class="lt">Un déjeuner en guinguette</div>
+        <p class="lp">At a Loire guinguette you talk about food and conviviality, narrate a recent meal, and use the <em>passé composé</em> for the first time. The can-do: recount a short past experience.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Loire guinguette</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">06</div>
+        <div class="lt">Dans le parc de Poitiers</div>
+        <p class="lp">In the park of Poitiers you describe leisure and habits, contrasting past and present with simple time markers. You leave able to compare what you used to do and do now.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Park of Poitiers</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">07</div>
+        <div class="lt">Chez le marchand de vin</div>
+        <p class="lp">In a Bordeaux wine merchant's you ask for advice, express preference and quantity, and complete a guided purchase. The outcome: handle an advised, specialised purchase.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bordeaux vineyards & wine merchants</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">08</div>
+        <div class="lt">Au Grand Théâtre de Bordeaux</div>
+        <p class="lp">Before the Grand Théâtre you book seats, discuss a programme, and express anticipation, using the near future and opinion phrases. You can now organise an evening at a venue.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Grand Théâtre de Bordeaux</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">09</div>
+        <div class="lt">Le long des quais de Bordeaux</div>
+        <p class="lp">On the waterfront quays you give directions across a city and describe an itinerary, narrating a short walk. The can-do: explain a route through a place you know.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bordeaux waterfront quays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">10</div>
+        <div class="lt">À la Cité du Vin</div>
+        <p class="lp">Inside La Cité du Vin you describe a process and sequence steps with connectors, talking through how something is made. You leave able to explain a simple process in order.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>La Cité du Vin</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">11</div>
+        <div class="lt">Au musée des Beaux-Arts</div>
+        <p class="lp">At the Musée des Beaux-Arts you describe a work of art — its subject, colours and the feeling it gives you — your first guided aesthetic description. The outcome: describe and react to a painting.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Musée des Beaux-Arts</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">12</div>
+        <div class="lt">Au sommet de la Dune du Pilat</div>
+        <p class="lp">Atop Europe's tallest dune you narrate an excursion in the past tense, describing the effort and the view. You can now tell the story of an outing.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Dune du Pilat</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">13</div>
+        <div class="lt">Aux ports ostréicoles</div>
+        <p class="lp">In the oyster ports of Gujan-Mestras you talk about regional produce, order a tasting, and ask about origin and method. The can-do: discuss and order a local speciality.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Oyster ports of Gujan-Mestras</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">14</div>
+        <div class="lt">À la cathédrale de Bayonne</div>
+        <p class="lp">Before Bayonne's Gothic cathedral you describe architecture and history simply, asking and answering questions about a monument. You leave able to talk about a historic building.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bayonne Gothic cathedral</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">15</div>
+        <div class="lt">Au Rocher de la Vierge</div>
+        <p class="lp">At Biarritz's Rocher de la Vierge you describe a landscape and the weather together, expressing impressions and comparisons. The outcome: paint a place in words with feeling.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Biarritz Rocher de la Vierge</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">16</div>
+        <div class="lt">L'ascension de la Rhune</div>
+        <p class="lp">On the little train up La Rhune you narrate a journey step by step and express physical sensation, consolidating the <em>passé composé</em>. You can now recount a trip with sequence and reaction.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>La Rhune</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">17</div>
+        <div class="lt">Dans le port de Saint-Jean-de-Luz</div>
+        <p class="lp">In the harbour of Saint-Jean-de-Luz you plan a day with someone, negotiate options, and reach agreement, justifying preferences. The can-do: organise a shared day out by discussion.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Saint-Jean-de-Luz harbour</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">18</div>
+        <div class="lt">À Espelette</div>
+        <p class="lp">In the red-pepper capital of Espelette you talk about taste, intensity and cooking, comparing flavours with simple comparatives. You leave able to describe and compare tastes.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Espelette (red pepper capital)</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">19</div>
+        <div class="lt">Raconter le voyage</div>
+        <p class="lp">You narrate the whole Atlantic journey, chaining several past events with connectors and reactions — your most extended account yet. The outcome: tell a multi-part story of a trip.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bordeaux waterfront quays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">20</div>
+        <div class="lt">Bilan — décrire, justifier, raconter</div>
+        <p class="lp">Your final unit weaves description, justification and past narration into one fluent exchange — a best-of review confirming you can now produce semi-guided language across real situations.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>La Cité du Vin</div>
+      </article>
+      </div>
+    </div>
+    <div class="cp-syllabus-foot">
+      <a class="btn-accent" href="../downloads/fa-elementary-syllabus.pdf" download>View full syllabus (PDF) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <button class="btn-glass" data-advisor type="button">Ask about this course</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BONUS / TRUST BANNER #2 ===== -->
+<section class="cp-trust">
+  <div class="wrap">
+    <div class="cp-trust-grid">
+      <div class="cp-trust-item reveal">
+        <div class="tnum">24/7</div>
+        <div class="tlabel"><strong>Juliane</strong>, your AI French tutor, practises with you between every live lesson.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d1">
+        <div class="tnum">8–10</div>
+        <div class="tlabel"><strong>Small live groups</strong> on the award-winning eTeacher platform — everyone speaks, every lesson.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d2">
+        <div class="tnum">$100</div>
+        <div class="tlabel"><strong>Learning credit</strong> on completion, plus a CEFR certificate issued by Acadomia.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-pad bg-ivory" id="faq">
+  <div class="wrap">
+    <div style="text-align:center;max-width:58ch;margin:0 auto 2.6rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Questions &amp; answers</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Everything you need to <span class="gold-ital">know</span></h2>
+      <p class="cp-faq-note reveal reveal-d2">Including how it works, the certificate, and what it costs.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who is FA Elementary for?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>FA Elementary is built for learners at CEFR A1.2 entering at A1.2 and finishing around A2.1. It assumes you've reached the level just below and want to consolidate and grow. Lessons are live, in small groups, and led by native certified teachers broadcasting from France.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How are the lessons structured?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>You attend 20 live 85 min sessions in groups of 8–10 learners. Every unit is a real communicative task anchored in a real French location, so the language attaches to a place and a purpose. Recordings are available so you never miss a step.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do I receive a certificate?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Yes. On completion you receive a CEFR-aligned certificate of achievement issued by Acadomia, France's #1 private learning institute. Our framework follows the same Common European levels recognised across French academia and employers — the standard of reference used by institutions including the Sorbonne.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who is behind The French Atelier?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>The French Atelier is presented by <strong>Acadomia</strong> — founded in 1989 and France's #1 private learning institute — in partnership with the <strong>eTeacher</strong> award-winning live online learning platform. You learn from native, certified French teachers, supported around the clock by Juliane, our 24/7 AI tutor.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can I get help choosing the right level?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Absolutely. An education advisor will help you place into the right course and build a plan around your schedule and goals. <button class="link-arrow" data-advisor type="button" style="font:inherit;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:600;color:var(--c-accent)">Request information &rarr;</button></p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How much does it cost?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>FA courses run from <strong>$42 a week</strong> on the annual plan — <strong>$840</strong> in total for all 20 live lessons — or pay monthly from $56 a week. Pricing is always discussed with your advisor so it fits your situation — there are no hidden fees, and a $100 learning credit is available on completion. <button class="link-arrow" data-advisor type="button" style="font:inherit;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:600;color:var(--c-accent)">Talk to an advisor &rarr;</button></p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="cp-ctaband neon-splash">
+  <div class="wrap-narrow">
+    <h2 class="reveal">Ready to begin <em>FA Elementary</em>?</h2>
+    <p class="reveal reveal-d1">Speak to an advisor today and reserve your seat in the next live cohort.</p>
+    <div class="cp-cta-actions reveal reveal-d2">
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <a class="btn-glass" href="../downloads/fa-elementary-syllabus.pdf" download>Download Syllabus</a>
     </div>
   </div>
 </section>
 
 <!-- ===== SIBLING NAV ===== -->
-<section class="section-pad bg-paper">
+<section class="section-pad-sm bg-paper">
   <div class="wrap">
-    <p class="eyebrow eyebrow-line reveal" style="margin-bottom:1.8rem">Continue the Journey</p>
+    <p class="eyebrow eyebrow-line reveal" style="margin-bottom:1.6rem">Continue the journey</p>
     <div class="sibling-nav">
-      <a href="fa-beginner.html" class="sib-card reveal">
+      <a href="fa-beginner.html" class="sib-card">
         <div class="sib-dir">← Previous</div>
         <div class="sib-title">FA Beginner</div>
         <div class="sib-cefr">A1.1 → A1.2 · Normandy → Paris</div>
       </a>
-      <a href="fa-intermediate.html" class="sib-card reveal reveal-d1">
+      <a href="fa-intermediate.html" class="sib-card">
         <div class="sib-dir">Next →</div>
         <div class="sib-title">FA Intermediate</div>
-        <div class="sib-cefr">A2.1 → A2.2 · Marseille · Alps · Alsace · Reims</div>
+        <div class="sib-cefr">A2.1 → A2.2 · Marseille → Chamonix → Alsace</div>
       </a>
     </div>
   </div>
@@ -387,9 +741,9 @@
     <div class="footer-top">
       <div class="footer-brand">
         <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
-          <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
-          <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
-        </svg>
+        <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+        <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
         <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
       </div>
@@ -399,7 +753,7 @@
         <a href="fa-beginner.html">FA Beginner</a>
         <a href="fa-elementary.html">FA Elementary</a>
         <a href="fa-intermediate.html">FA Intermediate</a>
-        <a href="../courses.html">Let's Speak French</a>
+        <a href="lsf-foundation.html">LSF Foundation</a>
         <a href="../map.html">Map of France</a>
       </div>
       <div class="footer-col">

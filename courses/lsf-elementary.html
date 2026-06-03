@@ -3,40 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LSF Elementary — A1.2 to A2.1 · Evening Speaking Track | The French Atelier by Acadomia</title>
-<meta name="description" content="LSF Elementary: 10 live evening sessions for learners settling into life in France. Share opinions, handle complaints, make appointments, narrate past events, decode cultural implicits — with real autonomy. CEFR A1.2 → A2.1.">
+<title>LSF Elementary — A1.2 → A2.1 | The French Atelier by Acadomia</title>
+<meta name="description" content="LSF Elementary: a 10-session live French course (A1.2 → A2.1, CEFR). Ten evening sessions on the spoken realities of settling in France. Native certified teachers, small groups, certificate by Acadomia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/fa.css">
 <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
 <style>
-.course-page-hero{min-height:68vh}
-.unit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.unit-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:1.6rem 1.8rem;position:relative;transition:box-shadow .25s var(--ease)}
-.unit-card:hover{box-shadow:0 4px 20px rgba(8,14,43,.09)}
-.unit-no{font-family:var(--serif);font-size:2.2rem;color:var(--gold-deep);opacity:.45;line-height:1;margin-bottom:.5rem}
-.unit-title{font-family:var(--serif);font-size:1.22rem;color:var(--navy);margin-bottom:.5rem;line-height:1.3}
-.unit-desc{font-size:.88rem;color:var(--on-light-soft);line-height:1.6}
-.unit-card.accent{border-left:2px solid var(--gold-deep)}
-.unit-card.speed{border-left:3px solid #e0413f;background:var(--ivory)}
-.for-list{list-style:none;padding:0;margin:0}
-.for-list li{padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft);font-size:.98rem;color:var(--on-light-soft);padding-left:1.4rem;position:relative}
-.for-list li::before{content:'◆';position:absolute;left:0;color:var(--gold-deep);font-size:.5rem;top:.9rem}
-.region-banner{background:var(--navy-deep);padding:1.2rem 1.8rem;display:flex;align-items:center;gap:1rem;border-left:3px solid var(--gold-deep)}
-.rb-label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
-.rb-text{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--on-dark)}
 .sibling-nav{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.sib-card{border:1px solid var(--gold-line-soft);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.4rem;background:var(--paper);transition:background .2s}
+.sib-card{border:1px solid var(--gold-line-soft);padding:1.4rem 1.6rem;display:flex;flex-direction:column;gap:.3rem;background:var(--paper);transition:background .2s;border-radius:12px}
 .sib-card:hover{background:var(--ivory)}
-.sib-dir{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep)}
-.sib-title{font-family:var(--serif);font-size:1.3rem;color:var(--navy)}
+.sib-dir{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c-bg)}
+.sib-title{font-family:var(--serif);font-size:1.3rem;color:var(--on-light)}
 .sib-cefr{font-size:.82rem;color:var(--on-light-soft)}
-.lsf-eyebrow{display:inline-block;background:var(--navy);color:var(--gold-soft);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;padding:.4rem 1rem;border-radius:2px;margin-bottom:1.2rem}
-@media(max-width:900px){.unit-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.sibling-nav{grid-template-columns:1fr}}
 </style>
 </head>
-<body>
+<body data-course="lsf-elementary" class="light-hero">
 
 <header class="site-header">
   <div class="wrap nav">
@@ -86,7 +69,7 @@
           <a href="../contact.html">Contact</a>
         </div>
       </div>
-      <a class="btn btn-gold nav-cta" href="../pricing.html">Enroll Now</a>
+      <a class="btn btn-gold nav-cta" data-advisor href="../contact.html">Request Info</a>
     </nav>
     <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -125,214 +108,544 @@
     <a href="../faq.html">FAQ</a>
     <a href="../contact.html">Contact</a>
   </div>
-  <a href="../pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+  <a href="../contact.html" data-advisor class="btn btn-gold" style="margin-top:1.6rem">Request Info</a>
 </div>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero course-page-hero">
-  <div class="page-hero-bg"><img src="../assets/gen/hero-paris.png" alt="Paris at dusk — LSF Elementary takes you into the real France"></div>
-  <div class="wrap hero-content">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../index.html">Home</a><span>›</span><a href="../courses.html">Courses</a><span>›</span><span>LSF Elementary</span>
-    </nav>
-    <span class="lsf-eyebrow reveal">Let's Speak French · Evening Track</span>
-    <h1 class="display-lg reveal reveal-d1">LSF <span class="gold-ital">Elementary</span></h1>
-    <p class="lede reveal reveal-d2" style="max-width:50ch;color:var(--on-dark-soft)">A1.2 → A2.1 · 10 live units · Evening speaking track · Real autonomy</p>
-    <div class="reveal reveal-d3" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.8rem">
-      <a href="../pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
-      <a href="../downloads/lsf-elementary-syllabus.pdf" class="btn btn-outline btn-lg" download>Download Syllabus (PDF)</a>
+<!-- ===== STICKY COURSE SUB-NAV ===== -->
+<div class="cp-subnav">
+  <div class="wrap cp-subnav-inner">
+    <div class="cp-subnav-title">
+      <span class="cp-dot"></span>
+      <strong>LSF Elementary</strong>
+      <span>A1.2 → A2.1</span>
     </div>
-  </div>
-</section>
-
-<!-- ===== REGION BANNER ===== -->
-<div class="region-banner reveal">
-  <svg style="width:28px;height:28px;flex-shrink:0;color:var(--gold-deep)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-  <div>
-    <div class="rb-label">What You'll Master</div>
-    <div class="rb-text">Opinions · Complaints · Appointments · Outings · Work · Past events · Admin · Cultural implicits — with register awareness</div>
+    <div class="cp-subnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="#faculty">Teachers</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <button class="btn-accent" data-advisor type="button">Request Info</button>
   </div>
 </div>
 
-<!-- ===== EVENING CLASS VIDEO ===== -->
-<section class="section-pad bg-navy">
+<!-- ===== HERO ===== -->
+<section class="cp-hero" id="overview">
+  <div class="cp-hero-bg"><img src="../assets/courses_clean/lsf-elementary-1.png" alt="Settling into French life (live & online) — the setting of LSF Elementary"></div>
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:2.4rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Watch a Live Evening Class</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">French Atelier's <span class="gold-ital">Evening Classes</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:52ch;margin:1rem auto 0">At LSF Elementary level, classes move fast and demand real spontaneity — opinions, complaints, past narration, and cultural nuance, all in a 2-minute free production final. Watch and decide if you're ready.</p>
+    <nav class="cp-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../courses.html">Courses</a> › LSF Elementary</nav>
+    <div class="cp-hero-grid">
+      <div class="reveal">
+        <p class="cp-eyebrow">Let's Speak French · Speaking Track · Level 3</p>
+        <h1>LSF <em>Elementary</em></h1>
+        <div class="cp-badges">
+        <span class="cp-badge"><span class="bdot"></span>CEFR A1.2 → A2.1</span>
+        <span class="cp-badge"><span class="bdot"></span>Certified by Acadomia</span>
+        <span class="cp-badge"><span class="bdot"></span>10 live lessons</span>
+        </div>
+        <p class="cp-hero-pitch">From getting by to truly belonging. Ten live evening sessions push you to give opinions, make a complaint, handle a phone appointment and read the cultural subtext — speaking with real autonomy.</p>
+        <div class="cp-hero-cta">
+          <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <a class="btn-glass" href="../downloads/lsf-elementary-syllabus.pdf" download>Download Syllabus (PDF)</a>
+        </div>
+        <p class="cp-trustline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Presented by Acadomia · France's #1 private learning institute, founded 1989</p>
+      </div>
+      <aside class="cp-spec reveal reveal-d2" aria-label="Course at a glance">
+      <div class="cp-spec-h">At a glance</div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Length</span><span class="v">10 live lessons · 60 min each</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Level</span><span class="v">CEFR A1.2 → A2.1</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Lessons</span><span class="v">10 units · speaking-focused</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Group size</span><span class="v">6–8 learners</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Certificate</span><span class="v">CEFR completion certificate by Acadomia</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Schedule</span><span class="v">Thu evenings · live conversation</span></div>
+      </div>
+      <div class="cp-spec-row">
+        <span class="cp-spec-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><span class="k">Price</span><span class="v">See plans below</span></div>
+      </div>
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+    </aside>
     </div>
-    <div class="sound-video reveal reveal-d2" data-soundvideo style="max-width:800px;margin:0 auto">
-      <video poster="../assets/video/evening-class-poster.jpg" loop muted playsinline preload="metadata">
-        <source src="../assets/video/evening-class.mp4" type="video/mp4">
-      </video>
-      <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-        <span class="si-muted">&#9658; Sound</span><span class="si-on">&#10074;&#10074; Mute</span>
-      </button>
-    </div>
-    <p class="img-caption" style="text-align:center;margin-top:.8rem">A live LSF Elementary evening class — autonomous, cultural, and entirely off-script.</p>
   </div>
 </section>
 
-<!-- ===== OVERVIEW ===== -->
+<!-- ===== INFO ROW: benefits + schedule ===== -->
 <section class="section-pad bg-ivory">
-  <div class="wrap split split-wide">
+  <div class="wrap cp-inforow">
     <div class="reveal">
-      <p class="eyebrow eyebrow-line">Course Overview</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">Speaking French with <span class="gold-ital">real autonomy</span></h2>
-      <p class="lede">For graduates of LSF Beginner. LSF Elementary addresses the more complex situations that arise when settling into life in France: sharing opinions about French culture, handling problems and complaints, making appointments by phone, booking outings, talking about work and projects, narrating past events, managing administrative tasks, and decoding French cultural implicits. By the end of this module, you can produce language with real autonomy and adapt your register to the situation.</p>
-      <p style="margin-top:1rem;color:var(--on-light-soft);line-height:1.7">LSF Elementary is the top of the LSF track. It demands and builds the kind of cultural fluency that only comes from sustained live practice with native speakers. The final &#9889; Speed Dating unit — <em>Ma vie en France</em> — asks you to sustain a 2-minute free exchange across 5 random situations, adapting register from formal to informal as required. Nothing is scripted. Everything is real.</p>
-      <div class="gold-rule" style="margin-top:2rem"></div>
-      <div style="display:flex;gap:2.4rem;margin-top:1.6rem;flex-wrap:wrap">
-        <div><span class="numeral" style="font-size:2.4rem">10</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Live Units</div></div>
-        <div><span class="numeral" style="font-size:2.4rem">A1.2</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Entry Level</div></div>
-        <div><span class="numeral" style="font-size:2.4rem">A2.1</span><div style="font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)">Exit Level</div></div>
-      </div>
+      <p class="eyebrow eyebrow-line">What you'll gain</p>
+      <h2 class="display-sm" style="margin:1.1rem 0 .4rem">From A1.2 to <span class="gold-ital">A2.1</span></h2>
+      <p class="muted" style="margin-bottom:.4rem">Ten evening sessions on the spoken realities of settling in France.</p>
+      <ul class="cp-bene-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Reach CEFR A2.1: you'll be able to produce language with real autonomy out loud and adapt your register to the situation — from a complaint to a casual chat.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>10 live 60 min lessons in small groups of 6–8 learners.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Pure spoken practice every session — role-plays, speed-dating and real situations.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Native, certified teachers broadcasting live from France.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Lifetime access to lesson recordings — revisit any class, anytime.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>CEFR completion certificate by Acadomia, plus a $100 learning credit.</span></li>
+      </ul>
     </div>
     <div class="reveal reveal-d1">
-      <figure class="video-frame">
-        <video poster="../assets/video/paris-river-boats-poster.jpg" loop muted playsinline preload="metadata">
-          <source src="../assets/video/paris-river-boats.mp4" type="video/mp4">
-        </video>
-        <figcaption>Paris — where the LSF Elementary level of cultural fluency opens every door.</figcaption>
+      <div class="cp-sched">
+        <div class="cp-sched-h"><strong>Upcoming cohorts</strong><span>Live · 60 min</span></div>
+        <div class="cp-sched-scroll">
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">September 2025<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">October 2025<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">November 2025<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status few">Few seats</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">January 2026<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">February 2026<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        <div class="cp-sched-item">
+          <div class="cp-sched-date">March 2026<small>Thu evenings · live conversation</small></div>
+          <span class="cp-sched-status">Open</span>
+        </div>
+        </div>
+        <div class="cp-sched-foot"><button class="btn-accent" data-advisor type="button" style="width:100%">Reserve your seat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section-pad-sm bg-paper">
+  <div class="wrap" style="text-align:center;margin-bottom:2rem">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Loved by learners worldwide</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Real voices, real <span class="gold-ital">progress</span></h2>
+  </div>
+  <div class="cp-testi">
+    <div class="cp-testi-track">
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Making a complaint in French — politely but firmly — is weirdly empowering. This course taught me register.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇺🇸</span><strong>Nora</strong> · United States</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Handling a phone appointment with no visuals, just voice, is the hardest and most useful drill.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇮🇹</span><strong>Marco</strong> · Italy</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Reading the cultural subtext finally made my French feel French, not just translated English.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇪🇸</span><strong>Sara</strong> · Spain</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Free production role-plays push you to genuine autonomy. I can hold my own now.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇬🇧</span><strong>Tom</strong> · United Kingdom</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Even as a heritage speaker I gained fluency and confidence. Iris is exceptional.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇫🇷</span><strong>Inès</strong> · France (returning)</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Making a complaint in French — politely but firmly — is weirdly empowering. This course taught me register.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇺🇸</span><strong>Nora</strong> · United States</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Handling a phone appointment with no visuals, just voice, is the hardest and most useful drill.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇮🇹</span><strong>Marco</strong> · Italy</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Reading the cultural subtext finally made my French feel French, not just translated English.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇪🇸</span><strong>Sara</strong> · Spain</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Free production role-plays push you to genuine autonomy. I can hold my own now.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇬🇧</span><strong>Tom</strong> · United Kingdom</figcaption>
+      </figure>
+      <figure class="cp-quote">
+        <div class="cp-stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <p>&ldquo;Even as a heritage speaker I gained fluency and confidence. Iris is exceptional.&rdquo;</p>
+        <figcaption class="cp-quote-who"><span class="flag">🇫🇷</span><strong>Inès</strong> · France (returning)</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ===== PULLQUOTE ===== -->
-<section class="section-pad bg-paper">
-  <div class="wrap-narrow" style="text-align:center">
-    <div class="pullquote reveal">
-      <p>«&nbsp;By the end of LSF Elementary, learners can produce language with real autonomy and adapt their register to the situation — formal, informal, and everything in between.&nbsp;»</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHO + INCLUDED ===== -->
-<section class="section-pad bg-ivory">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">Who It's For</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">Decoding <span class="gold-ital">French culture</span></h2>
-      <ul class="for-list" style="margin-top:1.2rem">
-        <li>Graduates of LSF Beginner ready to produce language freely</li>
-        <li>Expats and long-stay visitors who need to navigate French institutions and social codes</li>
-        <li>Adults who want to understand what French people actually mean — not just what they say</li>
-        <li>Learners who want to discuss work, culture, and opinions with confidence</li>
-        <li>Those who want to complete the full LSF track before moving to B1 programmes</li>
-      </ul>
-      <a href="../pricing.html" class="btn btn-gold" style="margin-top:1.8rem">View Pricing</a>
-    </div>
-    <div class="reveal reveal-d1">
-      <p class="eyebrow eyebrow-line">What's Included</p>
-      <h2 class="display-sm" style="margin:1.2rem 0">The full <span class="gold-ital">package</span></h2>
-      <div style="margin-top:1.2rem;display:grid;gap:.8rem">
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>10 live evening lessons of 85 minutes each</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>Small groups of 8–10 learners</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>Lifetime recordings of all classes</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>CEFR A2 certificate by Acadomia</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--gold-line-soft)"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>$100 cashback credit on completion</span></div>
-        <div style="display:flex;gap:.8rem;align-items:center;padding:.7rem 0"><span style="color:var(--gold-deep);font-size:.8rem">◆</span><span>24/7 community &amp; support</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FULL SYLLABUS ===== -->
-<section class="section-pad bg-navy">
+<!-- ===== BENEFIT CARDS ===== -->
+<section class="section-pad bg-ivory neon-splash">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.4rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Full Syllabus</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">10 units. From opinions to <span class="gold-ital">cultural fluency.</span></h2>
-      <p class="lede reveal reveal-d2" style="max-width:52ch;margin:1rem auto 0">Complaints, appointments, past narration, admin, cultural implicits — and a final 2-minute free production test that proves you've arrived.</p>
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Why LSF Elementary</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Everything a beginner could <span class="gold-ital">want</span></h2>
     </div>
-    <div class="unit-grid">
-      <div class="unit-card accent reveal">
-        <div class="unit-no">01</div>
-        <div class="unit-title">Et alors, tu aimes la France ?</div>
-        <div class="unit-desc">Narrate your arrival in France in a 4–5 sentence oral account, using at least one verb in the <em>passé composé</em>. Express an opinion with <em>je trouve que…</em> and react to your interlocutor's view. Discover what international residents find surprising, charming, or baffling about French life.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">02</div>
-        <div class="unit-title">Il y a un problème…</div>
-        <div class="unit-desc">Signal a problem clearly (<em>excusez-moi, il y a un problème avec…</em>), make a polite request using <em>est-ce que vous pouvez [demande] ?</em>, and hold your ground if the first response is a refusal. Practice handling at least 2 unexpected twists without losing composure.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">03</div>
-        <div class="unit-title">Prendre rendez-vous</div>
-        <div class="unit-desc">Make an appointment by phone: introduce yourself, state the purpose of your call, and negotiate an alternative slot if the first is unavailable. Use <em>est-ce que vous avez une disponibilité [jour/heure] ?</em> and confirm politely. Full simulation without visual support.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">04</div>
-        <div class="unit-title">Sortir à Paris</div>
-        <div class="unit-desc">Propose an outing with a day and venue (<em>tu veux [activité] avec moi [jour] ?</em>), reserve tickets (<em>je voudrais réserver [nombre] places pour [spectacle]</em>), and accept or decline with a reason. Agree on a meeting point and time. Discover the cultural offer of French cities.</div>
-      </div>
-      <div class="unit-card accent reveal">
-        <div class="unit-no">05</div>
-        <div class="unit-title">Mon travail, mes projets</div>
-        <div class="unit-desc">Give a 5-sentence semi-formal professional introduction: name your job and sector, describe your work environment, and talk about a near-future project using <em>je vais + infinitif</em>. Answer 2 follow-up questions without a script.</div>
-      </div>
-      <div class="unit-card speed reveal reveal-d1">
-        <div class="unit-no">06</div>
-        <div class="unit-title">&#9889; Speed dating : La vie à Paris</div>
-        <div class="unit-desc">Chain the 5 speech acts from Units 1–5 in a speed dating format, with one unexpected prompt per situation and no written support. Consolidation of LSF2 Units 1–5, with recycling of key language from LSF1.</div>
-      </div>
-      <div class="unit-card reveal">
-        <div class="unit-no">07</div>
-        <div class="unit-title">Je t'explique…</div>
-        <div class="unit-desc">Narrate a recent event in 4–5 sentences using the <em>passé composé</em> with <em>avoir</em> (regular verbs + <em>fait, vu, passé</em>). Sequence with <em>d'abord… et ensuite…</em>, reactivate at least one speech act from a previous unit, and respond to one off-script question from your interlocutor.</div>
-      </div>
-      <div class="unit-card reveal reveal-d1">
-        <div class="unit-no">08</div>
-        <div class="unit-title">Vie pratique</div>
-        <div class="unit-desc">Handle a simple administrative task at a bank or post office: state your request in formal register (<em>je voudrais ouvrir un compte / récupérer un colis</em>), understand the procedure, and write a short 2–3 sentence complaint message. Discover the practical realities of administrative life in France.</div>
-      </div>
-      <div class="unit-card accent reveal">
-        <div class="unit-no">09</div>
-        <div class="unit-title">Comprendre les Français</div>
-        <div class="unit-desc">Decode two French cultural situations, identify an implicit refusal, and react appropriately. Use clarification strategies (<em>je ne suis pas sûr(e) de comprendre… tu veux dire que… ?</em>) and compare with your own cultural background in 2–3 sentences.</div>
-      </div>
-      <div class="unit-card speed reveal reveal-d1">
-        <div class="unit-no">10</div>
-        <div class="unit-title">&#9889; Speed dating : Ma vie en France</div>
-        <div class="unit-desc">Final consolidation of all LSF2 speech acts in entirely free production. Five situations drawn at random from Units 1–9, each with unexpected prompts, adapting register (formal / informal) as required, with a minimum total exchange of 2 minutes. The final assessed task of the course.</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:3rem">
-      <a href="../downloads/lsf-elementary-syllabus.pdf" class="btn btn-outline" download>Download Full Syllabus (PDF)</a>
+    <div class="cp-cards">
+      <article class="cp-card reveal">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Live small groups</h3>
+        <p>Just 6–8 learners, so every learner speaks every lesson. No hiding, no passive video — a real, social classroom led live from France.</p>
+      </article>
+      <article class="cp-card reveal reveal-d2">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+        <h3>Speaking from minute one</h3>
+        <p>Every session is pure spoken practice — role-plays, speed-dating, real situations — building the reflexes that reading never can.</p>
+      </article>
+      <article class="cp-card reveal reveal-d3">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Native certified teachers</h3>
+        <p>Learn from native French teachers, certified and broadcasting live from cities across France — Paris, Lyon, Nice, Strasbourg and beyond.</p>
+      </article>
+      <article class="cp-card reveal">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Juliane, your 24/7 tutor</h3>
+        <p>Between live lessons, Juliane — our AI French tutor — is always on to practise, answer questions and keep you moving.</p>
+      </article>
+      <article class="cp-card is-cert reveal reveal-d2">
+        <div class="cp-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg></div>
+        <h3>CEFR certificate by Acadomia</h3>
+        <p>Finish at CEFR A2.1 with a certificate of achievement issued by Acadomia, France's #1 private learning institute — recognised against the standards used across French academia.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="section-pad bg-ivory">
+<!-- ===== MID CTA BANNER ===== -->
+<section class="cp-ctaband neon-splash">
+  <div class="wrap-narrow">
+    <h2 class="reveal">Your first lesson begins <em>Settling into French life</em></h2>
+    <p class="reveal reveal-d1">10 live lessons · CEFR A1.2 → A2.1 · certificate by Acadomia · a $100 learning credit on completion.</p>
+    <div class="cp-cta-actions reveal reveal-d2">
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <a class="btn-glass" href="../downloads/lsf-elementary-syllabus.pdf" download>Download Syllabus</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY 3-ICON ROW ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The French Atelier difference</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">French learned where it is <span class="gold-ital">lived</span></h2>
+    </div>
+    <div class="cp-why">
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+        <h3>Mouth, not page</h3>
+        <p>You spend every minute speaking, not reading — the fastest route to real conversation.</p>
+      </div>
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>A real live classroom</h3>
+        <p>Small groups of 6–8 learners with a native teacher — social, accountable, and genuinely human.</p>
+      </div>
+      <div class="cp-why-item reveal">
+        <div class="cp-why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Culture woven in</h3>
+        <p>Every lesson carries the gestures, codes and stories of French life — you don't just speak French, you understand it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY IMAGE BAND (-2 / -3 course images) ===== -->
+<section class="cp-journey reveal">
+  <figure class="cp-journey-img"><img src="../assets/courses_clean/lsf-elementary-2.png" alt="Settling into French life (live & online) — a scene from the LSF Elementary journey" loading="lazy"><figcaption>Settling into French life (live & online)</figcaption></figure>
+  <figure class="cp-journey-img"><img src="../assets/courses_clean/lsf-elementary-3.png" alt="Settling into French life (live & online) — a scene from the LSF Elementary journey" loading="lazy"><figcaption>French learned where it is lived.</figcaption></figure>
+</section>
+
+<!-- ===== TRUST BANNER #1 ===== -->
+<section class="cp-trust">
+  <div class="wrap">
+    <div class="cp-trust-grid">
+      <div class="cp-trust-item reveal">
+        <div class="tnum">1989</div>
+        <div class="tlabel"><strong>Acadomia</strong> — founded in 1989, France's #1 private learning institute, now teaching the world French.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d1">
+        <div class="tnum">100%</div>
+        <div class="tlabel"><strong>Native, certified teachers</strong> broadcasting live from France on the award-winning eTeacher platform.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d2">
+        <div class="tnum">CEFR</div>
+        <div class="tlabel"><strong>Internationally recognised</strong> levels — the standards used across French academia, including the Sorbonne.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2nd CTA ===== -->
+<section class="section-pad-sm bg-ivory">
   <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Ready to Begin?</p>
-    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">From opinions to<br><span class="gold-ital">cultural fluency</span></h2>
-    <p class="lede reveal reveal-d2">From $39 a week · 10 live evening units · CEFR A2 certificate by Acadomia · $100 credit on completion</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem">
-      <a href="../pricing.html" class="btn btn-gold btn-lg reveal reveal-d3">View Plans &amp; Enroll</a>
-      <a href="../downloads/lsf-elementary-syllabus.pdf" class="btn btn-outline btn-lg reveal reveal-d3" download>Download Syllabus</a>
+    <h2 class="display-sm reveal" style="margin-bottom:1rem">Not sure if it's the right <span class="gold-ital">level</span>?</h2>
+    <p class="lede reveal reveal-d1" style="max-width:52ch;margin:0 auto 1.6rem">An education advisor will place you precisely and build a plan around your schedule — in minutes, with no pressure.</p>
+    <button class="btn-accent reveal reveal-d2" data-advisor type="button">Talk to an advisor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  </div>
+</section>
+
+<!-- ===== FACULTY CAROUSEL ===== -->
+<section class="section-pad bg-navy" id="faculty">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem">
+      <div>
+        <p class="eyebrow eyebrow-line reveal" style="color:var(--c-accent)">Meet your teachers</p>
+        <h2 class="display-sm reveal reveal-d1" style="margin-top:.7rem;color:var(--on-dark)">Native, certified, <span style="font-style:italic;color:var(--c-accent);font-weight:500">live from France</span></h2>
+      </div>
+      <div class="cp-carousel-nav reveal reveal-d1">
+        <button class="cp-cbtn" data-carousel-prev="fac-lsf-elementary" aria-label="Previous teachers" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+        <button class="cp-cbtn" data-carousel-next="fac-lsf-elementary" aria-label="More teachers" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+    <div class="cp-carousel">
+      <div class="cp-carousel-track" id="fac-lsf-elementary">
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/iris.png" alt="Iris Linza, French teacher in Lyon" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Iris Linza</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lyon</div>
+          <p class="fb">Lyon-based teacher with a gastronome's love of nuance, drawing learners into the rhythm of real French speech.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/stan.png" alt="Stan, French teacher in Nice" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Stan</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Nice</div>
+          <p class="fb">Niçois teacher who brings Mediterranean ease to grammar, making even the subjunctive feel like a coastal stroll.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/corentin.png" alt="Corentin, French teacher in Pau" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Corentin</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pau</div>
+          <p class="fb">Three decades teaching French — a calm, structured mentor who has guided thousands from silence to conversation.</p>
+        </div>
+      </article>
+      <article class="cp-faculty">
+        <div class="cp-faculty-img"><img src="../assets/teachers/shanice.png" alt="Shanice, French teacher in Montpellier" loading="lazy"></div>
+        <div class="cp-faculty-body">
+          <div class="fn">Shanice</div>
+          <div class="fc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Montpellier</div>
+          <p class="fb">Franco-Canadian teacher from sunny Montpellier — energetic, encouraging, and a specialist in unlocking the shy.</p>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:2rem;align-items:stretch">
+      <div class="cp-head reveal">
+        <span class="eyebrow-c">Head of School</span>
+        <h3>Iris Linza · Lyon</h3>
+        <p>Lyon-based teacher with a gastronome's love of nuance, drawing learners into the rhythm of real French speech. As Head of School for LSF Elementary, Iris sets the tone for every cohort and personally reviews each learner's progress.</p>
+      </div>
+      <div class="cp-head reveal reveal-d1" style="background:linear-gradient(170deg,#080A14,#05060D)">
+        <span class="eyebrow-c">Speak to a human first</span>
+        <h3>Book a free placement chat</h3>
+        <p>Meet an advisor before you enrol. We'll confirm your level, walk you through the schedule, and answer every question — no commitment.</p>
+        <div><button class="btn-accent" data-advisor type="button" style="margin-top:.4rem">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== SYLLABUS CAROUSEL ===== -->
+<section class="cp-ctaband neon-splash" id="syllabus" style="text-align:left;padding-top:5rem;padding-bottom:5rem">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.6rem">
+      <div style="max-width:62ch">
+        <p class="eyebrow eyebrow-line reveal" style="color:var(--c-accent)">The full syllabus</p>
+        <h2 class="reveal reveal-d1" style="font-size:clamp(1.9rem,3.6vw,3rem);margin:.7rem 0 .9rem">10 lessons. One <em style="font-style:italic;color:var(--c-accent)">journey</em>.</h2>
+        <p class="reveal reveal-d2" style="color:var(--on-dark-soft);font-weight:300;margin:0">LSF Elementary is the spoken side of settling into French life: a live small-group speaking room where you tackle the complex situations of living in France — opinions, complaints, phone appointments, work, narration, admin and the cultural implicits — and learn to free your production from any script.</p>
+      </div>
+      <div class="cp-carousel-nav reveal reveal-d1">
+        <button class="cp-cbtn" data-carousel-prev="syl-lsf-elementary" aria-label="Previous lessons" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+        <button class="cp-cbtn" data-carousel-next="syl-lsf-elementary" aria-label="More lessons" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      </div>
+    </div>
+    <div class="cp-carousel">
+      <div class="cp-carousel-track" id="syl-lsf-elementary">
+      <article class="cp-lesson">
+        <div class="ln">01</div>
+        <div class="lt">Donner son opinion</div>
+        <p class="lp">In the speaking room you give and defend opinions aloud, agreeing and disagreeing with nuance. The can-do: hold a short spoken debate.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">02</div>
+        <div class="lt">Faire une réclamation</div>
+        <p class="lp">You make a complaint by voice — explaining a problem, asking for a solution, staying polite but firm. The outcome: handle a spoken complaint and adapt your register.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">03</div>
+        <div class="lt">Prendre rendez-vous par téléphone</div>
+        <p class="lp">You manage a phone appointment aloud — without gestures or visuals, only voice — negotiating and confirming. You can now handle a real spoken phone call.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">04</div>
+        <div class="lt">Parler de son travail</div>
+        <p class="lp">You talk about work and study out loud, describing tasks, routines and opinions about your job. The can-do: discuss your working life in speech.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Live small-group speaking room</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">05</div>
+        <div class="lt">Raconter une histoire</div>
+        <p class="lp">You narrate a longer story aloud, mixing past tenses and reactions to hold a listener's attention. You leave able to tell an extended spoken anecdote.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">06</div>
+        <div class="lt">Gérer une démarche administrative</div>
+        <p class="lp">You role-play a French admin situation by voice — a form, a counter, a request — handling its particular formality. The outcome: navigate spoken bureaucracy.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Live small-group speaking room</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">07</div>
+        <div class="lt">Comprendre les implicites culturels</div>
+        <p class="lp">You read and respond to cultural subtext out loud — politeness, irony, indirectness — adjusting how you speak. The can-do: catch and answer what isn't said directly.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Speed dating consolidation</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">08</div>
+        <div class="lt">Négocier et convaincre</div>
+        <p class="lp">You negotiate and try to persuade a partner aloud, building an argument and conceding gracefully. You can now argue a case in conversation.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">09</div>
+        <div class="lt">Speed dating de consolidation</div>
+        <p class="lp">In a fast speed-dating round you redeploy everything — opinions, stories, register — meeting partner after partner against the clock. You leave able to sustain varied spoken exchanges fluidly.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Speed dating consolidation</div>
+      </article>
+      <article class="cp-lesson">
+        <div class="ln">10</div>
+        <div class="lt">Bilan parlé — production libre</div>
+        <p class="lp">Your final session is free spoken production: handle an unscripted situation from opening to close, adapting register throughout — proof you can now speak French with genuine autonomy.</p>
+        <div class="lloc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Free production role-plays</div>
+      </article>
+      </div>
+    </div>
+    <div class="cp-syllabus-foot">
+      <a class="btn-accent" href="../downloads/lsf-elementary-syllabus.pdf" download>View full syllabus (PDF) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <button class="btn-glass" data-advisor type="button">Ask about this course</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BONUS / TRUST BANNER #2 ===== -->
+<section class="cp-trust">
+  <div class="wrap">
+    <div class="cp-trust-grid">
+      <div class="cp-trust-item reveal">
+        <div class="tnum">24/7</div>
+        <div class="tlabel"><strong>Juliane</strong>, your AI French tutor, practises with you between every live lesson.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d1">
+        <div class="tnum">6–8</div>
+        <div class="tlabel"><strong>Small live groups</strong> on the award-winning eTeacher platform — everyone speaks, every lesson.</div>
+      </div>
+      <div class="cp-trust-item reveal reveal-d2">
+        <div class="tnum">$100</div>
+        <div class="tlabel"><strong>Learning credit</strong> on completion, plus a CEFR certificate issued by Acadomia.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-pad bg-ivory" id="faq">
+  <div class="wrap">
+    <div style="text-align:center;max-width:58ch;margin:0 auto 2.6rem">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Questions &amp; answers</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:.8rem">Everything you need to <span class="gold-ital">know</span></h2>
+      <p class="cp-faq-note reveal reveal-d2">Including how it works, the certificate, and what it costs.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who is LSF Elementary for?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>LSF Elementary is built for learners at CEFR A1.2 entering at A1.2 and finishing around A2.1. It assumes you've reached the level just below and want to consolidate and grow. Lessons are live, in small groups, and led by native certified teachers broadcasting from France.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How are the lessons structured?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>You attend 10 live 60 min sessions in groups of 6–8 learners. Every session is a live small-group speaking room — you spend the hour talking, not reading, building spoken reflexes from the first minute. Recordings are available so you never miss a step.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do I receive a certificate?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Yes. On completion you receive a CEFR-aligned certificate of achievement issued by Acadomia, France's #1 private learning institute. Our framework follows the same Common European levels recognised across French academia and employers — the standard of reference used by institutions including the Sorbonne.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who is behind The French Atelier?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>The French Atelier is presented by <strong>Acadomia</strong> — founded in 1989 and France's #1 private learning institute — in partnership with the <strong>eTeacher</strong> award-winning live online learning platform. You learn from native, certified French teachers, supported around the clock by Juliane, our 24/7 AI tutor.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can I get help choosing the right level?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Absolutely. An education advisor will help you place into the right course and build a plan around your schedule and goals. <button class="link-arrow" data-advisor type="button" style="font:inherit;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:600;color:var(--c-accent)">Request information &rarr;</button></p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How much does it cost?<span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>LSF Elementary is a 10-session speaking course offered <strong>from $42 / week</strong> on the annual plan, with flexible monthly options. Your advisor will tailor a plan to your goals. Pricing is always discussed with your advisor so it fits your situation — there are no hidden fees, and a $100 learning credit is available on completion. <button class="link-arrow" data-advisor type="button" style="font:inherit;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:600;color:var(--c-accent)">Talk to an advisor &rarr;</button></p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="cp-ctaband neon-splash">
+  <div class="wrap-narrow">
+    <h2 class="reveal">Ready to begin <em>LSF Elementary</em>?</h2>
+    <p class="reveal reveal-d1">Speak to an advisor today and reserve your seat in the next live cohort.</p>
+    <div class="cp-cta-actions reveal reveal-d2">
+      <button class="btn-accent" data-advisor type="button">Request Info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+      <a class="btn-glass" href="../downloads/lsf-elementary-syllabus.pdf" download>Download Syllabus</a>
     </div>
   </div>
 </section>
 
 <!-- ===== SIBLING NAV ===== -->
-<section class="section-pad bg-paper">
+<section class="section-pad-sm bg-paper">
   <div class="wrap">
-    <p class="eyebrow eyebrow-line reveal" style="margin-bottom:1.8rem">The LSF Journey</p>
+    <p class="eyebrow eyebrow-line reveal" style="margin-bottom:1.6rem">Continue the journey</p>
     <div class="sibling-nav">
-      <a href="lsf-beginner.html" class="sib-card reveal">
+      <a href="lsf-beginner.html" class="sib-card">
         <div class="sib-dir">← Previous</div>
         <div class="sib-title">LSF Beginner</div>
-        <div class="sib-cefr">A1.1 → A1.2 · Evening Track</div>
+        <div class="sib-cefr">A1.1 → A1.2 · Daily life</div>
       </a>
-      <a href="fa-foundation.html" class="sib-card reveal reveal-d1">
-        <div class="sib-dir">Explore →</div>
-        <div class="sib-title">FA Main Track</div>
-        <div class="sib-cefr">Weekend immersion · A0 → A2.2</div>
-      </a>
+      <div class="sib-card" style="opacity:.5;pointer-events:none">
+        <div class="sib-dir">Next →</div>
+        <div class="sib-title">This is the final course</div>
+        <div class="sib-cefr">in the track</div>
+      </div>
     </div>
   </div>
 </section>
@@ -342,9 +655,9 @@
     <div class="footer-top">
       <div class="footer-brand">
         <svg class="logo-mark" viewBox="0 0 100 100" fill="none" aria-label="The French Atelier">
-          <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
-          <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
-        </svg>
+        <circle cx="50" cy="50" r="47" stroke="#C8A560" stroke-width="1" opacity="0.9"/>
+        <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" font-style="italic" fill="#C8A560">FA</text>
+      </svg>
         <p style="font-family:var(--serif);font-size:1.25rem;color:var(--on-dark);margin-bottom:.4rem">The French Atelier</p>
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by France's #1 private learning institute.</p>
       </div>
@@ -354,7 +667,7 @@
         <a href="fa-beginner.html">FA Beginner</a>
         <a href="fa-elementary.html">FA Elementary</a>
         <a href="fa-intermediate.html">FA Intermediate</a>
-        <a href="../courses.html">Let's Speak French</a>
+        <a href="lsf-foundation.html">LSF Foundation</a>
         <a href="../map.html">Map of France</a>
       </div>
       <div class="footer-col">

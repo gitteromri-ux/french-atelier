@@ -36,6 +36,37 @@
 .principle-num{font-family:var(--serif);font-size:5rem;color:var(--gold-line);line-height:1;margin-bottom:.6rem}
 .principle-body h3{font-size:1.5rem;margin:.2rem 0 .8rem}
 
+/* ===== 5 METHODOLOGICAL PILLARS (dark, scholarly, click-to-open) ===== */
+.science-fold{background:linear-gradient(180deg,#0A0C16,#070910);color:var(--on-dark);position:relative;overflow:hidden}
+.mp-list{display:flex;flex-direction:column;gap:1rem;max-width:980px;margin:2.8rem auto 0}
+.mp{border:1px solid rgba(243,238,227,.14);border-radius:16px;background:rgba(255,255,255,.025);overflow:hidden;transition:border-color .4s var(--ease),background .4s var(--ease)}
+.mp.is-open{border-color:var(--gold-line);background:rgba(255,255,255,.05)}
+.mp-head{width:100%;display:flex;align-items:center;gap:1.3rem;padding:1.5rem 1.8rem;background:transparent;border:0;cursor:pointer;text-align:left;color:var(--on-dark)}
+.mp-rom{font-family:var(--serif);font-size:1.7rem;color:var(--gold-soft);line-height:1;flex-shrink:0;width:2.2rem}
+.mp-title{font-family:var(--serif);font-size:1.45rem;font-weight:600;line-height:1.15;flex:1;min-width:0}
+.mp-title .fr{font-style:italic;color:var(--gold-soft);font-weight:500;font-size:.92em}
+.mp-toggle{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold-line);position:relative;flex-shrink:0;transition:background .35s}
+.mp-toggle::before,.mp-toggle::after{content:"";position:absolute;left:50%;top:50%;background:var(--gold-soft);transform:translate(-50%,-50%);transition:opacity .35s}
+.mp-toggle::before{width:12px;height:2px}.mp-toggle::after{width:2px;height:12px}
+.mp.is-open .mp-toggle{background:rgba(200,165,96,.12)}
+.mp.is-open .mp-toggle::after{opacity:0}
+.mp-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.mp.is-open .mp-body{grid-template-rows:1fr}
+.mp-body-inner{overflow:hidden}
+.mp-body-inner > div{padding:0 1.8rem 1.7rem 5.3rem}
+.mp-body p{color:var(--on-dark-soft);line-height:1.7;margin-bottom:.9rem}
+.mp-quote{font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--on-dark);border-left:2px solid var(--gold-line);padding-left:1.1rem;margin:1rem 0}
+.mp-src{font-size:.82rem;color:var(--on-dark-faint);letter-spacing:.01em}
+.mp-src a{color:var(--gold-soft);border-bottom:1px solid rgba(200,165,96,.35)}
+.mp-src a:hover{color:var(--gold)}
+.method-sources{max-width:980px;margin:3rem auto 0;border-top:1px solid rgba(243,238,227,.12);padding-top:1.8rem}
+.method-sources .ms-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);text-align:center;margin-bottom:1.2rem}
+.method-sources ul{display:flex;flex-direction:column;gap:.7rem}
+.method-sources li{font-size:.86rem;color:var(--on-dark-soft);line-height:1.55;padding-left:1.1rem;position:relative}
+.method-sources li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--gold-soft)}
+.method-sources a{color:var(--gold-soft);border-bottom:1px solid rgba(200,165,96,.35);word-break:break-word}
+.method-sources a:hover{color:var(--gold)}
+@media(max-width:600px){.mp-body-inner > div{padding-left:1.8rem}.mp-head{padding:1.2rem 1.3rem;gap:.9rem}.mp-rom{width:1.6rem;font-size:1.4rem}.mp-title{font-size:1.2rem}}
 @media(max-width:980px){.pillar-row{grid-template-columns:repeat(2,1fr)}.principle-row{grid-template-columns:1fr}.trio-grid{grid-template-columns:1fr}.trio-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.trio-item:last-child{border-bottom:none}}
 @media(max-width:600px){.pillar-row{grid-template-columns:1fr}.cefr-table th:nth-child(3),.cefr-table td:nth-child(3){display:none}}
 </style>
@@ -179,7 +210,7 @@
     </nav>
     <p class="eyebrow eyebrow-line reveal">Pedagogy &amp; Philosophy</p>
     <h1 class="display-lg reveal reveal-d1">The <span class="gold-ital">Method</span> Behind<br>the Language</h1>
-    <p class="lede reveal reveal-d2" style="max-width:52ch">A culture-first, context-driven approach grounded in research from the Sorbonne — and delivered live, from France.</p>
+    <p class="lede reveal reveal-d2" style="max-width:52ch">A culture-first, action-oriented approach built upon the Sorbonne applied-linguistics tradition and the CEFR — and delivered live, from France.</p>
   </div>
 </section>
 
@@ -188,8 +219,8 @@
   <div class="wrap split split-wide">
     <div class="reveal">
       <p class="eyebrow eyebrow-line">The Foundation</p>
-      <h2 class="display-md" style="margin:1.4rem 0">A pedagogy rooted in <span class="gold-ital">Sorbonne</span> research</h2>
-      <p class="lede">Our curriculum and pedagogy are grounded in research from the Sorbonne in applied linguistics and second-language acquisition. The methodology developed from Sorbonne research in applied linguistics establishes one irreducible truth: language is not memorised — it is <em>encountered</em>, in real communicative situations, with cultural meaning attached.</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Built on the modern <span class="gold-ital">science</span> of language acquisition</h2>
+      <p class="lede">The French Atelier method is built upon the modern science of language acquisition — the action-oriented, communicative tradition advanced by applied linguists at the Sorbonne and codified in the Common European Framework of Reference for Languages (CEFR). It establishes one irreducible truth: language is not memorised — it is <em>encountered</em>, in real communicative situations, with cultural meaning attached.</p>
       <div class="gold-rule"></div>
       <p style="color:var(--on-light-soft);line-height:1.75">At The French Atelier, every unit is built around a living context — a market in Lyon, a gallery opening in Paris, an evening aperitif in Bordeaux. Grammar emerges from conversation. Vocabulary is anchored to culture. The learner arrives not at a rule, but at an experience they cannot forget.</p>
     </div>
@@ -214,6 +245,93 @@
     <h2 class="display-md">The classroom is <span class="gold-ital">France itself</span></h2>
     <p class="lede">Every live class is broadcast from an iconic location in France. The light, the architecture, the ambiance of the street — all part of the lesson. You don't study France. You inhabit it.</p>
   </div></div>
+</section>
+
+<!-- ===== 5 METHODOLOGICAL PILLARS (science fold) ===== -->
+<section class="section-pad science-fold">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center;color:var(--gold-soft)">The Science Beneath the Atelier</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin:1rem 0;color:var(--on-dark)">Five pillars of <span class="gold-ital">modern</span> language acquisition</h2>
+      <p class="lede reveal reveal-d2 lede-narrow mx-auto" style="color:var(--on-dark-soft)">Our pedagogy is grounded in peer-reviewed applied-linguistics scholarship — the action-oriented, communicative tradition and the CEFR. Open each pillar to see the research behind it.</p>
+    </div>
+
+    <div class="mp-list reveal reveal-d1">
+      <div class="mp">
+        <button class="mp-head" type="button" aria-expanded="false">
+          <span class="mp-rom">I</span>
+          <span class="mp-title">The Action-Oriented Approach <span class="fr">&mdash; l&rsquo;approche actionnelle</span></span>
+          <span class="mp-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="mp-body"><div class="mp-body-inner"><div>
+          <p>The learner is a <strong>social agent</strong> who acts with intention to accomplish real-life tasks. Learners don&rsquo;t merely learn <em>about</em> the language &mdash; they live the language. It is the scholarly form of our promise: <em>Live French. Live.</em></p>
+          <p class="mp-quote">&ldquo;Learners don&rsquo;t merely learn about the language &mdash; they live the language.&rdquo;</p>
+          <p class="mp-src">Piccardo, E. &amp; North, B. (2019). <em>The Action-Oriented Approach: A Dynamic Vision of Language Education.</em> Multilingual Matters. &middot; Council of Europe (2020), <em>CEFR Companion Volume.</em> <a href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener">Read more</a></p>
+        </div></div></div>
+      </div>
+
+      <div class="mp">
+        <button class="mp-head" type="button" aria-expanded="false">
+          <span class="mp-rom">II</span>
+          <span class="mp-title">Real Scenarios &amp; Tasks <span class="fr">&mdash; situated learning</span></span>
+          <span class="mp-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="mp-body"><div class="mp-body-inner"><div>
+          <p>Learning happens in authentic, real-life scenarios. Each unit anchors to a real French place or situation &mdash; a market, a quay, a café &mdash; the heart of our journey-across-France pedagogy: <em>French is learned where it is lived.</em> Backwards design builds modules of 3&ndash;10 lessons toward concrete &ldquo;can-do&rdquo; outcomes.</p>
+          <p class="mp-quote">&ldquo;Scenarios are blueprints for projects&hellip; each task implies the creation of some form of artefact.&rdquo;</p>
+          <p class="mp-src">Piccardo &amp; North (2019), p.272. <a href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener">Channel View Publications</a></p>
+        </div></div></div>
+      </div>
+
+      <div class="mp">
+        <button class="mp-head" type="button" aria-expanded="false">
+          <span class="mp-rom">III</span>
+          <span class="mp-title">Four Modes of Communication <span class="fr">&mdash; reception &middot; production &middot; interaction &middot; mediation</span></span>
+          <span class="mp-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="mp-body"><div class="mp-body-inner"><div>
+          <p>The CEFR moves beyond the old &ldquo;four skills&rdquo; to add <strong>interaction</strong> and <strong>mediation</strong>. Mediation is the learner creating bridges &mdash; helping construct and convey meaning across people, cultures, and languages. It is exactly what a French Atelier learner does in a live class of 8&ndash;10.</p>
+          <p class="mp-quote">Mediation: the learner &ldquo;creates bridges and helps construct or convey meaning&rdquo; across people, cultures, and languages.</p>
+          <p class="mp-src">North, B., Piccardo, E. &amp; Goodier, T. (2020), <em>CEFR Companion Volume</em>, p.90. <a href="https://www.ecml.at/" target="_blank" rel="noopener">Council of Europe / ECML</a></p>
+        </div></div></div>
+      </div>
+
+      <div class="mp">
+        <button class="mp-head" type="button" aria-expanded="false">
+          <span class="mp-rom">IV</span>
+          <span class="mp-title">Communicative + Eclectic Instruction <span class="fr">&mdash; with explicit guided structure</span></span>
+          <span class="mp-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="mp-body"><div class="mp-body-inner"><div>
+          <p>A balanced, mixed method: communicative interaction, meaningful action-based tasks, and guided acquisition of French linguistic structures. Empirical study shows learners on the mixed approach outperform traditional methods &mdash; especially in oral interaction. Its roots run from Dewey, Vygotsky and Bruner to Bourguignon&rsquo;s action-oriented design.</p>
+          <p class="mp-src">Socio-constructivism (Dewey, Vygotsky, Bruner) &middot; Bourguignon (2010), action-oriented design &middot; FFL novice-learner methodology studies, A0&rarr;A1 progression.</p>
+        </div></div></div>
+      </div>
+
+      <div class="mp">
+        <button class="mp-head" type="button" aria-expanded="false">
+          <span class="mp-rom">V</span>
+          <span class="mp-title">Plurilingual &amp; Pluricultural Competence <span class="fr">&mdash; culture at the core</span></span>
+          <span class="mp-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="mp-body"><div class="mp-body-inner"><div>
+          <p>Language is a dynamic, creative process of &ldquo;languaging&rdquo; across cultures &mdash; culture is inseparable from language. This is the science behind our promise that <em>Culture speaks French.</em> Every course is certified to CEFR levels (A0 &rarr; A2.2 across the ladder), aligned to DELF/DALF-style &ldquo;can-do&rdquo; assessment.</p>
+          <p class="mp-src">Piccardo &amp; North (2019), &ldquo;Broadening the scope of language education: plurilingualism, mediation and collaborative learning.&rdquo; <a href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener">Multilingual Matters</a></p>
+        </div></div></div>
+      </div>
+    </div>
+
+    <div class="method-sources reveal">
+      <p class="ms-eyebrow">Grounded in peer-reviewed applied-linguistics research</p>
+      <ul>
+        <li>Piccardo, E. &amp; North, B. (2019). <em>The Action-Oriented Approach.</em> Multilingual Matters. <a href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener">channelviewpublications.wordpress.com</a></li>
+        <li>Council of Europe (2020). <em>CEFR Companion Volume with New Descriptors.</em> <a href="https://www.ecml.at/" target="_blank" rel="noopener">ecml.at</a></li>
+        <li>Sorbonne Nouvelle &ndash; Paris 3, Master in Applied Linguistics / Didactique des langues. <a href="https://www.sorbonne-nouvelle.fr/master-applied-linguistics-868627.kjsp" target="_blank" rel="noopener">sorbonne-nouvelle.fr</a></li>
+        <li>Canadian Association of Second Language Teachers &mdash; Action-Oriented Approach overview. <a href="https://www.caslt.org/en/in-the-classroom/aoa/" target="_blank" rel="noopener">caslt.org</a></li>
+      </ul>
+      <p style="text-align:center;margin-top:1.4rem;font-size:.78rem;color:var(--on-dark-faint)">The French Atelier is built upon the Sorbonne applied-linguistics tradition and the CEFR. It is not affiliated with, nor an official partner of, the Sorbonne.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===== FOUR PRINCIPLES ===== -->
@@ -633,6 +751,27 @@
   </div>
 </div>
 
+<script>
+/* Method science-fold accordion (.mp-head toggles .mp.is-open; single-open) */
+(function(){
+  var heads=document.querySelectorAll('.science-fold .mp-head');
+  heads.forEach(function(head){
+    head.addEventListener('click',function(){
+      var mp=head.closest('.mp');
+      if(!mp)return;
+      var open=mp.classList.contains('is-open');
+      var list=mp.parentNode;
+      if(list){
+        list.querySelectorAll('.mp.is-open').forEach(function(o){
+          if(o!==mp){o.classList.remove('is-open');var h=o.querySelector('.mp-head');if(h)h.setAttribute('aria-expanded','false');}
+        });
+      }
+      mp.classList.toggle('is-open',!open);
+      head.setAttribute('aria-expanded',String(!open));
+    });
+  });
+})();
+</script>
 <script src="js/fa.js"></script>
 </body>
 </html>

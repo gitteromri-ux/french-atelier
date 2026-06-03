@@ -41,6 +41,24 @@
     });
   });
 
+  // Sorbonne pillars (click-to-open accordion cards, keyboard accessible)
+  document.querySelectorAll('.sorb-pillar .sorb-ph').forEach(function(head){
+    head.addEventListener('click',function(){
+      var pillar=head.closest('.sorb-pillar');
+      if(!pillar)return;
+      var open=pillar.classList.contains('is-open');
+      // close siblings within the same group for a clean single-open feel
+      var group=pillar.parentNode;
+      if(group){
+        group.querySelectorAll('.sorb-pillar.is-open').forEach(function(p){
+          if(p!==pillar){p.classList.remove('is-open');var h=p.querySelector('.sorb-ph');if(h)h.setAttribute('aria-expanded','false');}
+        });
+      }
+      pillar.classList.toggle('is-open',!open);
+      head.setAttribute('aria-expanded',String(!open));
+    });
+  });
+
   // Pillar motion videos (autoplay muted loop)
   document.querySelectorAll('.pillar video').forEach(function(v){
     v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline','');
@@ -178,5 +196,51 @@
       inp.addEventListener('input',function(){clearError(inp.closest('.field'));});
       inp.addEventListener('change',function(){clearError(inp.closest('.field'));});
     });
+  });
+})();
+
+/* ============================================================
+   COURSE PAGES — IIBS-level interactions (.cp-* / .faq-q)
+   FAQ accordion · testimonial pause-offscreen · carousel nav
+   Self-contained IIFE.
+   ============================================================ */
+(function(){
+  'use strict';
+
+  /* FAQ accordion (.faq-q toggles .faq-item.is-open) */
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.setAttribute('aria-expanded','false');
+    q.addEventListener('click',function(){
+      var item=q.closest('.faq-item');
+      if(!item)return;
+      var open=item.classList.contains('is-open');
+      item.classList.toggle('is-open',!open);
+      q.setAttribute('aria-expanded',String(!open));
+    });
+  });
+
+  /* Testimonial marquee: pause when offscreen for perf */
+  document.querySelectorAll('.cp-testi').forEach(function(m){
+    var track=m.querySelector('.cp-testi-track');
+    if(track&&'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){track.style.animationPlayState=e.isIntersecting?'':'paused';});
+      },{threshold:0}).observe(m);
+    }
+  });
+
+  /* Horizontal carousels (faculty + syllabus). Prev/next buttons via data-carousel-prev / -next pointing to a track id. */
+  function scrollCarousel(id,dir){
+    var track=document.getElementById(id);
+    if(!track)return;
+    var card=track.querySelector(':scope > *');
+    var step=card?card.getBoundingClientRect().width+22:340;
+    track.scrollBy({left:dir*step*1,behavior:'smooth'});
+  }
+  document.querySelectorAll('[data-carousel-prev]').forEach(function(b){
+    b.addEventListener('click',function(){scrollCarousel(b.getAttribute('data-carousel-prev'),-1);});
+  });
+  document.querySelectorAll('[data-carousel-next]').forEach(function(b){
+    b.addEventListener('click',function(){scrollCarousel(b.getAttribute('data-carousel-next'),1);});
   });
 })();

@@ -4,13 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enrollment &amp; Pricing — The French Atelier by Acadomia</title>
-<meta name="description" content="Enroll in The French Atelier — live French classes from $39/week. Three plans: monthly, annual, and annual best-seller with weekly study groups.">
+<meta name="description" content="Enroll in The French Atelier — live French classes from $42/week. Two plans: an annual full course ($840 for 20 live 85-minute lessons) and a flexible monthly plan, in small groups of 8 to 10.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start;margin-top:3.4rem}
+.pricing-grid-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:720px){.pricing-grid-2{grid-template-columns:1fr}}
 .plan-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.6rem 2.2rem;position:relative;transition:box-shadow .3s}
 .plan-card:hover{box-shadow:0 8px 40px rgba(8,14,43,.1)}
 .plan-card.featured{border-color:var(--gold-deep);background:var(--navy-deep);color:var(--on-dark)}
@@ -200,7 +202,7 @@
 <!-- ===== PRICING CARDS ===== -->
 <section class="section-pad bg-paper">
   <div class="wrap">
-    <div class="pricing-grid" style="max-width:880px;margin:0 auto;grid-template-columns:repeat(2,1fr)">
+    <div class="pricing-grid pricing-grid-2" style="max-width:880px;margin:0 auto">
 
       <!-- PLAN 1: ANNUAL — BEST VALUE (featured) -->
       <div class="plan-card featured reveal">
