@@ -183,6 +183,11 @@
         '<stop offset=\"50%\" stop-color=\"#0E1A5C\"/>' +
         '<stop offset=\"100%\" stop-color=\"#080F3A\"/>' +
       '</linearGradient>' +
+      '<radialGradient id=\"mg-pin-core\" cx=\"42%\" cy=\"38%\" r=\"70%\">' +
+        '<stop offset=\"0%\" stop-color=\"#FBEAC8\"/>' +
+        '<stop offset=\"45%\" stop-color=\"#E0BE7E\"/>' +
+        '<stop offset=\"100%\" stop-color=\"#B8924F\"/>' +
+      '</radialGradient>' +
       '<radialGradient id=\"mg-glow\" cx=\"50%\" cy=\"45%\" r=\"58%\">' +
         '<stop offset=\"0%\" stop-color=\"#1E3A8A\" stop-opacity=\"0.55\"/>' +
         '<stop offset=\"100%\" stop-color=\"#000034\" stop-opacity=\"0\"/>' +
@@ -250,7 +255,7 @@
         ' stroke-linejoin=\"round\" fill=\"none\" opacity=\"0.18\"/>',
       // Main dashed route
       '<path id=\"mapstr-route-line\" d=\"' + d + '\"' +
-        ' stroke=\"' + rc + '\" stroke-width=\"2.2\" stroke-linecap=\"round\"' +
+        ' stroke=\"' + rc + '\" stroke-width=\"3.4\" stroke-linecap=\"round\"' +
         ' stroke-linejoin=\"round\" stroke-dasharray=\"10 6\" fill=\"none\"' +
         ' filter=\"url(#mf-route)\"' +
         ' style=\"opacity:0.92;stroke-dashoffset:' + animLen + ';stroke-dasharray:' + animLen + ';' +
@@ -286,13 +291,13 @@
       var lo = getPinLabelOffset(parseFloat(px), parseFloat(py), course.id);
       var lx = lo[0], ly = lo[1];
 
-      // PROMINENT GOLD PINS — large, bright, numbered
-      var PR = isParis ? 22 : 18;   // pulse ring radius
-      var PG = isParis ? 17 : 14;   // glow disc radius
-      var PC = isParis ? 13 : 11;   // core circle radius
-      var PD = isParis ? 6 : 4.5;   // inner dark dot radius
-      var PFS = isParis ? 10.5 : 9; // font size
-      var PTY = isParis ? 4.8 : 4;  // text y
+      // PROMINENT GOLD PINS — large, bright, numbered (sized up for a powerful map)
+      var PR = isParis ? 30 : 24;   // pulse ring radius
+      var PG = isParis ? 24 : 19;   // glow disc radius
+      var PC = isParis ? 18 : 15;   // core circle radius
+      var PD = isParis ? 8 : 6;     // inner dark dot radius
+      var PFS = isParis ? 14 : 12;  // font size
+      var PTY = isParis ? 6.5 : 5.5;// text y
 
       return [
         '<g class=\"mapstr-pin-group\" data-pin-id=\"' + pin.id + '\"',
@@ -307,8 +312,8 @@
         '  <circle class=\"pin-pulse pin-pulse-2\" r=\"' + PR + '\" stroke=\"' + rc + '\" stroke-width=\"1.5\" fill=\"none\"/>',
         // Glow halo
         '  <circle r=\"' + PG + '\" fill=\"' + rc + '\" opacity=\"0.45\"/>',
-        // Core gold circle
-        '  <circle r=\"' + PC + '\" fill=\"' + rc + '\" stroke=\"#00001A\" stroke-width=\"2\"/>',
+        // Core gold circle — luminous radial fill for a bright, powerful pin
+        '  <circle r=\"' + PC + '\" fill=\"url(#mg-pin-core)\" stroke=\"#FBEAC8\" stroke-width=\"2\"/>',
         // Inner dark dot (for contrast)
         '  <circle class=\"pin-inner\" r=\"' + PD + '\" fill=\"rgba(0,0,20,0.65)\"/>',
         // Number — always visible
