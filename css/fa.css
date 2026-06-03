@@ -184,7 +184,7 @@ section{position:relative}
 }
 .nav{display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:.85rem;color:var(--on-dark)}
-.nav-logo .logo-mark{width:42px;height:42px;flex-shrink:0}
+.logo-mark{display:none!important}
 .nav-logo .logo-text{display:flex;flex-direction:column;line-height:1}
 .nav-logo .logo-text .lt-main{font-family:var(--serif);font-size:1.32rem;font-weight:600;letter-spacing:.02em;color:var(--on-dark)}
 .nav-logo .logo-text .lt-sub{font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px}
