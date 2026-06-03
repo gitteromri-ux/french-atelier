@@ -2343,7 +2343,16 @@ body.modal-open{overflow:hidden}
 /* ============================================================
    FIX 4 — ACADOMIA LOGOS — Enlarge marquee images
    ============================================================ */
-.ac-marquee-track img{height:72px!important;opacity:.75!important}
+.ac-marquee-track img{
+  height:72px!important;opacity:.92!important;
+  /* brighter white logos with a soft luminous glow */
+  filter:brightness(0) invert(1) drop-shadow(0 0 14px rgba(255,255,255,.45)) drop-shadow(0 0 30px rgba(200,169,107,.28))!important;
+  transition:opacity .4s var(--ease), filter .4s var(--ease), transform .4s var(--ease)!important;
+}
+.ac-marquee-track img:hover{
+  opacity:1!important;transform:translateY(-2px) scale(1.04);
+  filter:brightness(0) invert(1) drop-shadow(0 0 20px rgba(255,255,255,.7)) drop-shadow(0 0 42px rgba(200,169,107,.5))!important;
+}
 @media(max-width:680px){.ac-marquee-track img{height:52px!important}}
 @media(max-width:400px){.ac-marquee-track img{height:44px!important}}
 /* Also widen the gap so larger logos breathe */
@@ -2666,8 +2675,8 @@ body.modal-open{overflow:hidden}
 .hiw3-ic-final{background:linear-gradient(135deg,var(--gold-soft),var(--gold));border-color:var(--gold-deep);color:var(--navy-deep)}
 .hiw3-kick{display:block;font-family:var(--sans);font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.5rem}
 .hiw3-kick-final{color:var(--terra-deep)}
-.hiw3-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--navy);line-height:1.18;margin-bottom:.7rem}
-.hiw3-desc{font-family:var(--sans);font-size:.92rem;line-height:1.62;color:var(--on-light-soft);margin-bottom:1.1rem;font-weight:300;flex:1 1 auto}
+.hiw3-name{font-family:var(--serif);font-size:1.62rem;font-weight:600;color:var(--navy);line-height:1.14;margin-bottom:.7rem}
+.hiw3-desc{font-family:var(--sans);font-size:1.06rem;line-height:1.5;color:var(--on-light-soft);margin-bottom:1.1rem;font-weight:300;flex:1 1 auto}
 .hiw3-tag{
   display:inline-block;font-family:var(--sans);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--gold-deep);background:linear-gradient(135deg,rgba(200,169,107,.16),rgba(200,169,107,.05));
@@ -2775,3 +2784,39 @@ body.modal-open{overflow:hidden}
   .etg3-track{grid-auto-columns:minmax(82%,86%)}
   .etg3-controls{justify-content:center}
 }
+
+/* ============================================================
+   RESEARCH SOURCES — light-blue neon glow (map shine) per client request
+   ============================================================ */
+.sorb-cred{ --src-neon:#2FA4FF; --src-neon-bright:#6FC4FF; }
+.sorb-cred-lab{
+  color:var(--src-neon-bright)!important;
+  text-shadow:0 0 14px rgba(47,164,255,.55), 0 0 30px rgba(47,164,255,.28);
+}
+.sorb-cred-links a{
+  color:rgba(214,236,255,.9)!important;
+  border-bottom:1px solid rgba(111,196,255,.42)!important;
+  text-shadow:0 0 10px rgba(47,164,255,.32);
+  transition:color .3s, border-color .3s, text-shadow .3s!important;
+}
+.sorb-cred-links a:hover{
+  color:#EAF6FF!important;border-color:var(--src-neon-bright)!important;
+  text-shadow:0 0 14px rgba(111,196,255,.85), 0 0 30px rgba(47,164,255,.5);
+}
+.sorb-cred{
+  border-top-color:rgba(111,196,255,.3)!important;
+  position:relative;
+}
+/* soft neon halo line under the top border, echoing the map shine */
+.sorb-cred::before{
+  content:"";position:absolute;left:50%;top:-1px;transform:translateX(-50%);
+  width:min(560px,80%);height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(47,164,255,0),rgba(111,196,255,.9),rgba(47,164,255,0));
+  box-shadow:0 0 16px 2px rgba(47,164,255,.6);
+  animation:srcNeonBreath 3s ease-in-out infinite;
+}
+@keyframes srcNeonBreath{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){ .sorb-cred::before{animation:none} }

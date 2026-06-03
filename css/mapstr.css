@@ -260,3 +260,141 @@
   .ms-stage{min-height:520px}
   .ms-title{font-size:1.8rem}
 }
+
+/* ============================================================
+   ENHANCEMENT — Real place photo in panel (3D pop-up) + blue neon
+   markers + richer map lighting. Added per client request.
+   ============================================================ */
+.ms-root{
+  --ms-neon:#2FA4FF;
+  --ms-neon-bright:#6FC4FF;
+  --ms-neon-deep:#0A6BD6;
+}
+
+/* ----- Floating TOP-LEFT real-place photo card: pops up in 3D on click ----- */
+.ms-photo-pop{
+  position:absolute;top:18px;left:18px;z-index:9;
+  width:min(38%, 420px);max-width:calc(100% - 36px);
+  margin:0;border-radius:18px;overflow:hidden;
+  background:var(--ms-navy-deep);
+  border:1px solid rgba(111,196,255,.55);
+  box-shadow:
+    0 40px 80px -28px rgba(0,0,20,.78),
+    0 0 0 1px rgba(47,164,255,.30),
+    0 0 34px 2px rgba(47,164,255,.45),
+    0 0 70px 10px rgba(47,164,255,.22);
+  transform-origin:top left;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:perspective(1100px) rotateX(18deg) rotateY(-6deg) translateY(-16px) scale(.92);
+  transition:visibility 0s linear .5s;
+}
+.ms-photo-pop.open{
+  visibility:visible;pointer-events:auto;
+  animation:msPhotoPop .66s cubic-bezier(.22,1,.36,1) forwards;
+  transition:none;
+}
+.ms-photo-pop .ms-photo-pop-img{
+  width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block;
+  transform:scale(1.06);transition:transform 7s ease;
+}
+.ms-photo-pop.open .ms-photo-pop-img{transform:scale(1.0)}
+/* animated neon rim that breathes around the card */
+.ms-photo-pop-glow{
+  position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(111,196,255,.5), inset 0 0 26px rgba(47,164,255,.30);
+  animation:msPhotoGlow 2.6s ease-in-out infinite;
+}
+@keyframes msPhotoGlow{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(111,196,255,.45), inset 0 0 22px rgba(47,164,255,.24)}
+  50%{box-shadow:inset 0 0 0 1px rgba(111,196,255,.85), inset 0 0 40px rgba(47,164,255,.5)}
+}
+.ms-photo-pop-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:1.6rem 1.1rem .85rem;
+  background:linear-gradient(180deg,rgba(0,0,20,0),rgba(0,0,20,.82));
+  color:#fff;
+}
+.ms-photo-pop-step{
+  display:block;font-family:var(--ms-sans);font-size:.6rem;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ms-neon-bright);
+  text-shadow:0 0 14px rgba(47,164,255,.9);margin-bottom:.25rem;
+}
+.ms-photo-pop-city{
+  display:block;font-family:var(--ms-serif);font-size:1.32rem;font-weight:700;
+  line-height:1.12;text-shadow:0 2px 14px rgba(0,0,20,.85);
+}
+.ms-photo-pop-credit{
+  display:block;margin-top:.35rem;font-family:var(--ms-sans);
+  font-size:.6rem;letter-spacing:.02em;color:rgba(255,255,255,.6);
+}
+@keyframes msPhotoPop{
+  to{opacity:1;transform:perspective(1100px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)}
+}
+
+/* ----- BLUE NEON interactive lighting on markers (hover/focus/active) ----- */
+.ms-marker:hover .ms-marker-pin,
+.ms-marker:focus-visible .ms-marker-pin,
+.ms-marker.active .ms-marker-pin{
+  box-shadow:
+    0 22px 34px -10px rgba(0,0,0,.7),
+    0 0 0 6px rgba(47,164,255,.32),
+    0 0 22px 4px rgba(47,164,255,.65),
+    0 0 46px 10px rgba(47,164,255,.40),
+    inset 0 2px 4px rgba(255,255,255,.6);
+  border-color:var(--ms-neon-bright);
+}
+.ms-marker:hover .ms-marker-pin{animation:msNeonPulse 1.5s ease-in-out infinite}
+@keyframes msNeonPulse{
+  0%,100%{box-shadow:0 22px 34px -10px rgba(0,0,0,.7),0 0 0 6px rgba(47,164,255,.30),0 0 20px 3px rgba(47,164,255,.55),0 0 40px 9px rgba(47,164,255,.34),inset 0 2px 4px rgba(255,255,255,.6)}
+  50%{box-shadow:0 22px 34px -10px rgba(0,0,0,.7),0 0 0 8px rgba(47,164,255,.42),0 0 30px 7px rgba(47,164,255,.85),0 0 60px 16px rgba(47,164,255,.5),inset 0 2px 4px rgba(255,255,255,.6)}
+}
+/* active marker label gets a neon edge */
+.ms-marker:hover .ms-marker-label,
+.ms-marker.active .ms-marker-label{
+  box-shadow:0 6px 16px -8px rgba(0,0,0,.55),0 0 0 1px rgba(47,164,255,.5),0 0 16px rgba(47,164,255,.45);
+}
+/* numbered pin pulses a soft neon ring on the map at all times (subtle) */
+.ms-marker-pin{position:relative}
+.ms-marker-pin::before{
+  content:"";position:absolute;inset:-4px;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(47,164,255,.18);opacity:0;transition:opacity .3s ease;
+}
+.ms-marker:hover .ms-marker-pin::before,.ms-marker.active .ms-marker-pin::before{opacity:1}
+
+@media (prefers-reduced-motion: reduce){
+  .ms-photo-pop.open{animation:none;opacity:1;transform:none}
+  .ms-photo-pop-glow{animation:none}
+  .ms-marker:hover .ms-marker-pin{animation:none}
+}
+/* mobile: photo pop sits above the bottom sheet, smaller */
+@media (max-width:760px){
+  .ms-photo-pop{top:12px;left:12px;width:min(60%,300px)}
+  .ms-photo-pop-city{font-size:1.05rem}
+}
+
+/* ----- Map ambient BLUE NEON atmosphere (more lighting in the map) ----- */
+.ms-stage::before{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  /* edge vignette + cool neon rim glow */
+  background:
+    radial-gradient(120% 90% at 50% 8%, rgba(47,164,255,.10), rgba(47,164,255,0) 42%),
+    radial-gradient(140% 120% at 50% 120%, rgba(10,107,214,.20), rgba(10,107,214,0) 55%),
+    radial-gradient(100% 100% at 50% 50%, rgba(0,0,20,0) 60%, rgba(0,0,20,.42) 100%);
+  mix-blend-mode:screen;
+}
+/* a slow travelling sheen of light across the map surface */
+.ms-stage::after{
+  content:"";position:absolute;inset:-40% -10%;z-index:2;pointer-events:none;
+  background:linear-gradient(115deg, rgba(47,164,255,0) 42%, rgba(111,196,255,.10) 50%, rgba(47,164,255,0) 58%);
+  transform:translateX(-30%);
+  animation:msSheen 9s ease-in-out infinite;
+  mix-blend-mode:screen;
+}
+@keyframes msSheen{
+  0%{transform:translateX(-35%)}
+  50%{transform:translateX(35%)}
+  100%{transform:translateX(-35%)}
+}
+/* keep interactive layers above the atmosphere */
+.ms-panel,.ms-legend,.ms-map .maplibregl-ctrl{z-index:8}
+@media (prefers-reduced-motion: reduce){ .ms-stage::after{animation:none} }
