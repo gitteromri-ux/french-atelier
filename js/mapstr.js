@@ -323,30 +323,36 @@
       map.addSource('ms-route', { type: 'geojson', data: emptyFC() });
       map.addSource('ms-route-anim', { type: 'geojson', data: emptyFC() });
 
-      // Wide BLUE NEON aura beneath the path — cool interactive shine
+      // WIDE outer BLUE NEON halo — the gorgeous always-on shine beneath the trail
       map.addLayer({
         id: 'ms-route-neon', type: 'line', source: 'ms-route',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#2FA4FF', 'line-width': 26, 'line-opacity': 0.18, 'line-blur': 18 }
+        paint: { 'line-color': '#2FA4FF', 'line-width': 38, 'line-opacity': 0.30, 'line-blur': 26 }
+      });
+      // Inner brighter neon core for a luminous, electric edge
+      map.addLayer({
+        id: 'ms-route-neon2', type: 'line', source: 'ms-route',
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: { 'line-color': '#6FC4FF', 'line-width': 16, 'line-opacity': 0.34, 'line-blur': 10 }
       });
       // Soft, wide gold aura beneath the path — gives a luxurious glow, NOT a hard line
       map.addLayer({
         id: 'ms-route-glow', type: 'line', source: 'ms-route',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': GOLD, 'line-width': 18, 'line-opacity': 0.16, 'line-blur': 12 }
+        paint: { 'line-color': GOLD, 'line-width': 12, 'line-opacity': 0.30, 'line-blur': 9 }
       });
       // Elegant dotted path: round caps + tight dasharray render as soft DOTS,
       // so it reads as a refined journey trail rather than a metro/train line.
       map.addLayer({
         id: 'ms-route-base', type: 'line', source: 'ms-route',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#A9853F', 'line-width': 3.4, 'line-opacity': 0.7, 'line-dasharray': [0, 2.2] }
+        paint: { 'line-color': '#EAD49B', 'line-width': 3.2, 'line-opacity': 0.9, 'line-dasharray': [0, 2.1] }
       });
-      // A single gentle travelling dot of light that drifts along the trail
+      // A single gentle travelling comet of light that drifts along the trail
       map.addLayer({
         id: 'ms-route-anim', type: 'line', source: 'ms-route-anim',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#E9CF95', 'line-width': 6, 'line-opacity': 0.7, 'line-blur': 1.5 }
+        paint: { 'line-color': '#BFE4FF', 'line-width': 7, 'line-opacity': 0.85, 'line-blur': 2 }
       });
 
       setJourney(DATA.courses[0].id, false);
@@ -358,6 +364,32 @@
     function emptyFC() { return { type: 'FeatureCollection', features: [] }; }
     function lineFeature(coords) {
       return { type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'LineString', coordinates: coords } }] };
+    }
+    /* Catmull-Rom spline -> smooth flowing curve through every stop.
+       Turns the jagged straight-line zigzag into one elegant journey trail. */
+    function smoothPath(pts, segments) {
+      if (!pts || pts.length < 3) return pts ? pts.slice() : [];
+      segments = segments || 22;
+      var out = [];
+      var p = pts.slice();
+      // pad ends so the curve reaches the first/last point cleanly
+      p.unshift(pts[0]);
+      p.push(pts[pts.length - 1]);
+      for (var i = 1; i < p.length - 2; i++) {
+        var p0 = p[i - 1], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2];
+        for (var t = 0; t < segments; t++) {
+          var s = t / segments, s2 = s * s, s3 = s2 * s;
+          var x = 0.5 * ((2 * p1[0]) + (-p0[0] + p2[0]) * s +
+            (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * s2 +
+            (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * s3);
+          var y = 0.5 * ((2 * p1[1]) + (-p0[1] + p2[1]) * s +
+            (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * s2 +
+            (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * s3);
+          out.push([x, y]);
+        }
+      }
+      out.push(pts[pts.length - 1]);
+      return out;
     }
 
     /* ----- Route animation ----- */
@@ -415,7 +447,10 @@
         node.addEventListener('keydown', function (ev) {
           if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openStop(course, p, idx); }
         });
-        var mk = new maplibregl.Marker({ element: node, anchor: 'bottom' })
+        // Anchor at CENTER so the numbered disc sits exactly on its route
+        // point — 'bottom' floated the disc above the line, detaching pins
+        // from the journey curve.
+        var mk = new maplibregl.Marker({ element: node, anchor: 'center' })
           .setLngLat([p.lng, p.lat]).addTo(map);
         node._pinId = p.id;
         markers.push(mk);
@@ -484,9 +519,15 @@
       panel.classList.add('open');
       panel.setAttribute('aria-hidden', 'false');
       highlightMarker(p.id);
-      // Ease toward the stop without losing journey context
+      // Ease toward the stop without losing journey context. On phones keep
+      // the flat top-down view and never collapse below a city zoom, so the
+      // surrounding stops stay in frame when the bottom sheet opens.
       if (ready) {
-        map.easeTo({ center: [p.lng, p.lat], pitch: MAP_PITCH, duration: 750, offset: compact ? [0, -30] : [-110, -10] });
+        var narrow = (window.matchMedia && window.matchMedia('(max-width:760px)').matches) || window.innerWidth <= 760;
+        var opt = { center: [p.lng, p.lat], pitch: narrow ? 0 : MAP_PITCH, duration: 750,
+          offset: narrow ? [0, -150] : (compact ? [0, -30] : [-110, -10]) };
+        if (narrow && map.getZoom() < 9) { opt.zoom = 10.6; }
+        map.easeTo(opt);
       }
     }
     function closePanel() {
@@ -519,30 +560,67 @@
 
       var pins = orderedPins(course);
       var coords = pins.map(function (p) { return [p.lng, p.lat]; });
+      // Smooth, flowing curved trail through every stop (no more jagged zigzag)
+      var curve = smoothPath(coords, 24);
 
       // route color per course
+      map.setPaintProperty('ms-route-neon', 'line-color', '#2FA4FF');
       map.setPaintProperty('ms-route-glow', 'line-color', course.routeColor);
       map.setPaintProperty('ms-route-base', 'line-color', course.routeColor);
-      map.getSource('ms-route').setData(lineFeature(coords));
-      animateRoute(coords);
+      map.getSource('ms-route').setData(lineFeature(curve));
+      animateRoute(curve);
 
       // fit bounds to the journey
       var b = new maplibregl.LngLatBounds();
       coords.forEach(function (c) { b.extend(c); });
-      var pad = compact
-        ? { top: 70, bottom: 60, left: 50, right: 50 }
-        : { top: 110, bottom: 120, left: 90, right: 380 };
-      // Keep the 3D tilt + cinematic bearing while framing the journey.
-      // Cap the framing zoom so even the all-Paris Foundation journey
-      // stays readable and never punches in too far (user: "fix map zoom").
+      // Responsive framing. The padding MUST be keyed to the real map size,
+      // not the `compact` flag — map.html runs with compact=false even on a
+      // phone, and the wide desktop padding (left 90 + right 416 = 506px)
+      // exceeds a ~360px mobile map, so fitBounds silently fails ("Map cannot
+      // fit within canvas") and the camera stays zoomed out over all France.
+      var isNarrow = (window.matchMedia && window.matchMedia('(max-width:760px)').matches) ||
+        window.innerWidth <= 760;
+      var mapW = mapEl.offsetWidth || window.innerWidth;
+      var mapH = mapEl.offsetHeight || window.innerHeight;
+      var pad = (compact || isNarrow)
+        ? { top: 70, bottom: 150, left: 38, right: 38 }
+        : { top: 96, bottom: 110, left: 90, right: 416 };
+      // Safety: never let padding swallow the canvas (keeps fitBounds valid).
+      var maxH = Math.max(20, mapW * 0.34);
+      var maxV = Math.max(20, mapH * 0.30);
+      if (pad.left + pad.right > mapW * 0.72) { pad.left = Math.min(pad.left, maxH); pad.right = Math.min(pad.right, maxH); }
+      if (pad.top + pad.bottom > mapH * 0.66) { pad.top = Math.min(pad.top, maxV); pad.bottom = Math.min(pad.bottom, maxV * 1.4); }
+      // Compact Paris courses cluster tightly -> allow a closer zoom so the
+      // curve reads as a real journey across the city, not a tiny tangle.
+      // Cap a touch lower on phones so all stops fit without colliding pins.
+      var tightCity = (course.id === 'fa-foundation' ||
+        course.id === 'lsf-foundation' || course.id === 'lsf-beginner' ||
+        course.id === 'lsf-elementary');
+      var tightMax = isNarrow ? 11.2 : 12;
+      // On phones, render the journey FLAT (pitch 0). The 40° tilt makes
+      // fitBounds unpredictable in portrait and pushes the far end off-screen;
+      // a top-down view frames a tall north-south route cleanly every time.
+      var fitPitch = isNarrow ? 0 : MAP_PITCH;
       map.fitBounds(b, {
         padding: pad,
-        pitch: MAP_PITCH,
+        pitch: fitPitch,
         bearing: MAP_BEARING,
         duration: userInitiated ? 1200 : 0,
-        maxZoom: course.id === 'fa-foundation' ? 10.4 : 6.6
+        maxZoom: tightCity ? tightMax : (isNarrow ? 6.4 : 7.2)
       });
+      // Open the first stop automatically so the map arrives alive, not empty
+      // — with its photo card + lesson panel showing. DESKTOP ONLY: on mobile
+      // the bottom sheet would cover the journey, so we leave the map clear
+      // and let the user tap a stop.
+      var firstPin = pins[0];
+      if (firstPin && !compact && !isNarrow) {
+        if (autoOpenTimer) { clearTimeout(autoOpenTimer); }
+        autoOpenTimer = setTimeout(function () {
+          openStop(course, firstPin, 0);
+        }, userInitiated ? 900 : 650);
+      }
     }
+    var autoOpenTimer = null;
 
     return {
       root: root,
@@ -561,7 +639,7 @@
   /* ---------- AUTO-MOUNT ---------- */
   function boot() {
     var first = document.querySelector('#mapstr-mount');
-    if (first) mount(first);
+    if (first) { window.__mapstrInstance = mount(first); }
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);

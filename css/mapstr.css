@@ -96,9 +96,25 @@
 .ms-map .maplibregl-ctrl button:hover{background:rgba(200,169,107,.16)!important}
 
 /* ----- Luxury numbered gold markers — larger, with depth ----- */
+/* CRITICAL: MapLibre wraps our .ms-marker node inside a .maplibregl-marker
+   div to which it applies inline position:absolute + transform:translate().
+   If that wrapper ever falls back to normal document flow, every pin stacks
+   and each is pushed down by the cumulative height of the pins before it
+   (the observed 30px-per-marker vertical drift). Force the wrapper to stay
+   absolutely positioned and let MapLibre own its transform completely. */
+.ms-map .maplibregl-marker{
+  position:absolute!important;top:0!important;left:0!important;
+  will-change:transform;
+}
 .ms-marker{
   position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;
-  transform:translateY(0);transition:transform .2s ease;will-change:transform;
+  /* width MUST hug the pin. Without this the element stretched to the full
+     map width (~359px); MapLibre's translate(-50%) then shoved every pin
+     wildly off its real coordinate. */
+  width:max-content;
+  /* No transform / transition / will-change here: MapLibre sets the wrapper's
+     transform; an extra transform on the inner node combined with anchor
+     math was contributing to vertical detachment. Animate the pin instead. */
 }
 .ms-marker:focus{outline:none}
 .ms-marker:focus-visible .ms-marker-pin{box-shadow:0 0 0 4px rgba(216,188,133,.8)}
@@ -126,14 +142,20 @@
   color:#1a1305;line-height:1;text-shadow:0 1px 0 rgba(255,255,255,.4);
 }
 .ms-marker-label{
-  margin-top:8px;font-family:var(--ms-sans);font-size:.7rem;font-weight:700;letter-spacing:.01em;
-  color:var(--ms-navy);white-space:nowrap;
-  background:rgba(255,255,255,.96);padding:3px 9px;border-radius:7px;
-  border:1px solid rgba(0,0,52,.08);box-shadow:0 6px 16px -8px rgba(0,0,0,.55);
-  opacity:0;transform:translateY(-3px);transition:opacity .2s ease,transform .2s ease;
-  pointer-events:none;max-width:180px;overflow:hidden;text-overflow:ellipsis;
+  /* Absolutely positioned so it is OUTSIDE the flex flow MapLibre measures
+     for anchor:'center'. Otherwise the label's height inflated the node and
+     threw off vertical centering, detaching pins from the route. */
+  position:absolute;top:calc(100% + 9px);left:50%;transform:translate(-50%,-3px);
+  font-family:var(--ms-sans);font-size:.7rem;font-weight:700;letter-spacing:.02em;
+  color:var(--ms-on-dark);white-space:nowrap;
+  background:rgba(0,0,31,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:4px 11px;border-radius:999px;
+  border:1px solid rgba(111,196,255,.5);
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.6),0 0 14px rgba(47,164,255,.3);
+  opacity:0;transition:opacity .2s ease,transform .2s ease;
+  pointer-events:none;max-width:200px;overflow:hidden;text-overflow:ellipsis;
 }
-.ms-marker:hover{transform:translateY(-5px);z-index:5}
+.ms-marker:hover{z-index:5}
 .ms-marker:hover .ms-marker-pin,.ms-marker.active .ms-marker-pin{
   transform:scale(1.16);
   box-shadow:
@@ -141,7 +163,7 @@
     0 0 0 7px rgba(200,169,107,.34),
     inset 0 2px 4px rgba(255,255,255,.6);
 }
-.ms-marker:hover .ms-marker-label,.ms-marker.active .ms-marker-label{opacity:1;transform:translateY(0)}
+.ms-marker:hover .ms-marker-label,.ms-marker.active .ms-marker-label{opacity:1;transform:translate(-50%,0)}
 .ms-marker.active{z-index:6}
 .ms-marker.active .ms-marker-pin{
   background:radial-gradient(circle at 34% 28%,#FFFFFF,#F0DCAE 48%,#C8A96B);
@@ -264,8 +286,8 @@
   .ms-panel.open{transform:translateY(0)}
   .ms-legend{left:12px;bottom:12px;padding:.55rem .7rem;max-width:58vw}
   .ms-legend-hint{display:none}
-  .ms-marker-pin{width:34px;height:34px}
-  .ms-marker-num{font-size:.98rem}
+  .ms-marker-pin{width:30px;height:30px}
+  .ms-marker-num{font-size:.86rem}
   /* Hide the always-on city labels on mobile — they were huge & non-interactive.
      City name still appears in the info panel on tap. */
   .ms-marker-label{display:none !important}
@@ -395,14 +417,16 @@
   content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
   /* richer multi-point neon glow: top, bottom, and two corner accents */
   background:
-    radial-gradient(120% 90% at 50% 6%, rgba(47,164,255,.18), rgba(47,164,255,0) 44%),
-    radial-gradient(140% 120% at 50% 122%, rgba(10,107,214,.30), rgba(10,107,214,0) 56%),
-    radial-gradient(70% 70% at 6% 92%, rgba(111,196,255,.22), rgba(111,196,255,0) 50%),
-    radial-gradient(70% 70% at 96% 10%, rgba(47,164,255,.18), rgba(47,164,255,0) 50%),
-    radial-gradient(100% 100% at 50% 50%, rgba(0,0,20,0) 58%, rgba(0,0,20,.46) 100%);
+    radial-gradient(120% 90% at 50% 4%, rgba(47,164,255,.30), rgba(47,164,255,0) 46%),
+    radial-gradient(150% 130% at 50% 124%, rgba(10,107,214,.42), rgba(10,107,214,0) 58%),
+    radial-gradient(80% 80% at 4% 94%, rgba(111,196,255,.32), rgba(111,196,255,0) 52%),
+    radial-gradient(80% 80% at 98% 8%, rgba(47,164,255,.28), rgba(47,164,255,0) 52%),
+    radial-gradient(100% 100% at 50% 50%, rgba(0,0,20,0) 56%, rgba(0,0,20,.5) 100%);
   mix-blend-mode:screen;
   animation:msAtmosBreathe 7s ease-in-out infinite;
 }
+/* a luminous neon edge frame hugging the whole map */
+.ms-stage{box-shadow:0 50px 110px -50px rgba(0,0,0,.92),inset 0 0 0 1px rgba(255,255,255,.03),inset 0 0 60px -12px rgba(47,164,255,.35)}
 @keyframes msAtmosBreathe{
   0%,100%{opacity:.85}
   50%{opacity:1}
