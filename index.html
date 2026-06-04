@@ -15,6 +15,13 @@
 <style>
 /* ===== HERO (kept verbatim) ===== */
 .hero{min-height:100vh}
+/* Hero text flush to the LEFT margin of the centered .wrap (aligns with nav logo).
+   .hero is a flex container, so force the .wrap child to take full width and
+   center its 1240px max-width box (margin:0 auto) — this puts its left padding
+   edge at exactly the same position as the header .wrap (and the nav logo). */
+.hero-content{width:100%;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.hero-content h1,.hero-content .hero-sub,.hero-content .hero-ctas{margin-left:0;text-align:left}
+.hero-content .hero-ctas{justify-content:flex-start}
 .hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--gold-soft);margin-bottom:1rem}
 .hero h1{font-size:clamp(3.2rem,8.5vw,7.2rem);margin-bottom:1.4rem}
 .hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--on-dark-soft);max-width:46ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
@@ -160,26 +167,27 @@
           </div>
         </div>
       </div>
-      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
-      <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
-      <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI</a></div>
       <div class="nav-item">
-        <a class="nav-link" href="culture.html">Culture <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
-        <div class="nav-dropdown">
-          <a href="culture.html">French Culture</a>
-          <a href="teachers.html">Our Teachers</a>
-          <a href="blog.html">Cultural Journal</a>
-          <a href="capsules.html">Culture Capsules</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a class="nav-link" href="about.html">About <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <a class="nav-link" href="about.html">About Us <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
         <div class="nav-dropdown">
           <a href="about.html">About French Atelier</a>
           <a href="acadomia.html">The Acadomia Group</a>
           <a href="pricing.html">Pricing</a>
           <a href="faq.html">FAQ</a>
           <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
+      <div class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></div>
+      <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
+      <div class="nav-item"><a class="nav-link" href="juliane.html">Juliane AI Tutor</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="culture.html">Cultural Resources <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="culture.html">French Culture</a>
+          <a href="teachers.html">Our Teachers</a>
+          <a href="blog.html">Cultural Journal</a>
+          <a href="capsules.html">Culture Capsules</a>
         </div>
       </div>
       <a class="btn btn-gold nav-cta" href="pricing.html">Enroll Now</a>
@@ -202,23 +210,24 @@
     <a href="courses/lsf-elementary.html">LSF Elementary</a>
     <a href="map.html">Interactive Map of France</a>
   </div>
-  <a href="method.html">Our Method</a>
-  <a href="how-it-works.html">How It Works</a>
-  <a href="juliane.html">Juliane · AI Tutor</a>
-  <span class="drawer-group-label">Culture</span>
-  <div class="drawer-sub">
-    <a href="culture.html">French Culture</a>
-    <a href="teachers.html">Our Teachers</a>
-    <a href="blog.html">Cultural Journal</a>
-    <a href="capsules.html">Culture Capsules</a>
-  </div>
-  <span class="drawer-group-label">About</span>
+  <span class="drawer-group-label">About Us</span>
   <div class="drawer-sub">
     <a href="about.html">About French Atelier</a>
     <a href="acadomia.html">The Acadomia Group</a>
     <a href="pricing.html">Pricing</a>
     <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
+  </div>
+  <a href="method.html">Our Method</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="juliane.html">Juliane AI Tutor</a>
+  <span class="drawer-group-label">Cultural Resources</span>
+  <div class="drawer-sub">
+    <a href="culture.html">French Culture</a>
+    <a href="teachers.html">Our Teachers</a>
+    <a href="blog.html">Cultural Journal</a>
+    <a href="capsules.html">Culture Capsules</a>
   </div>
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
@@ -245,7 +254,7 @@
     </div>
     <div class="pillars-grid">
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-art-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-art-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-art.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -255,7 +264,7 @@
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-gastronomy-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-gastronomy-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-gastronomy.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -265,7 +274,7 @@
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-travel-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-travel-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-travel.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -275,7 +284,7 @@
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-fashion-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-fashion-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-fashion.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -285,7 +294,7 @@
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-music-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-music-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-music.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -295,7 +304,7 @@
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-tradition-poster.jpg" muted loop playsinline preload="metadata">
+        <video poster="assets/video/pillar-tradition-poster.jpg" autoplay muted loop playsinline preload="metadata">
           <source src="assets/video/pillar-tradition.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -305,14 +314,6 @@
         </div>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- ===== TAGLINE BAND (verbatim from live site) ===== -->
-<section class="section-pad-sm bg-navy on-dark">
-  <div class="wrap-narrow tagline-band reveal">
-    <p class="tag-script">Live French. <span class="gold-ital">Live.</span></p>
-    <p class="lede">Live life to the fullest and master the art of French with the world's best teachers — broadcasting live from France.</p>
   </div>
 </section>
 
@@ -606,7 +607,7 @@
     <div class="sorb-head reveal">
       <p class="eyebrow eyebrow-line" style="justify-content:center">The Science of Our Method</p>
       <h2 class="sorb-title" id="sorb-title">Built on the <span class="gold-ital">action-oriented</span> tradition of the&nbsp;Sorbonne</h2>
-      <p class="sorb-sub">The French Atelier method is built upon the modern science of language acquisition &mdash; the action-oriented, communicative tradition advanced by applied linguists at the Sorbonne and codified in the Common European Framework of Reference for Languages (CEFR). <span class="sorb-line">Live French. Live.</span> &mdash; because learners don&rsquo;t merely learn about the language, they live it.</p>
+      <p class="sorb-sub">Every French Atelier course is purpose-built on the action-oriented, communicative research methodologies pioneered by applied linguists at the Sorbonne and codified in the Common European Framework of Reference for Languages (CEFR) &mdash; so you don&rsquo;t just study French, you act in it from your very first lesson.</p>
     </div>
 
     <div class="sorb-principles reveal reveal-d1">

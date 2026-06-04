@@ -192,6 +192,53 @@
     return course.routeOrder.map(function (id) { return pinById(course, id); }).filter(Boolean);
   }
 
+  /* ---------- ALL-JOURNEYS aggregate (every place across all 7 courses) ----------
+     A synthetic "course" used by the master map mode. It collects every unique
+     pin across all courses (dedup by rounded lat/lng so the same physical place
+     shared between courses appears once) and remembers which course each pin
+     belongs to, so a click still opens the correct lesson + course CTA. */
+  var ALL_ID = '__all__';
+  function buildAllCourse() {
+    var seen = {}, pins = [], order = [];
+    DATA.courses.forEach(function (c) {
+      orderedPins(c).forEach(function (p) {
+        var key = p.lat.toFixed(3) + ',' + p.lng.toFixed(3);
+        if (seen[key]) return;
+        seen[key] = true;
+        var clone = {
+          id: p.id, city: p.city, lat: p.lat, lng: p.lng, location: p.location,
+          image: p.image, credit: p.credit, photoSrc: p.photoSrc, units: p.units,
+          _ownerId: c.id, _ownerName: c.name, _ownerLevel: c.level, _ownerHref: c.href,
+          _ownerColor: c.color
+        };
+        pins.push(clone);
+        order.push(p.id + '@' + c.id);
+      });
+    });
+    return {
+      id: ALL_ID, name: 'All Journeys', level: 'Every region of France',
+      shortLevel: 'ALL', region: 'Every city & region', href: 'courses.html',
+      color: '#6FC4FF', routeColor: '#6FC4FF',
+      description: 'Every place The French Atelier teaches across all seven courses.',
+      pins: pins, routeOrder: order, isAll: true
+    };
+  }
+  var ALL_COURSE = buildAllCourse();
+  function courseByIdX(id) { return id === ALL_ID ? ALL_COURSE : courseById(id); }
+  function pinByIdX(course, id) {
+    // "all" routeOrder ids are "pinId@courseId"; match on the leading pinId
+    if (course.isAll) {
+      var pid = id.split('@')[0];
+      for (var i = 0; i < course.pins.length; i++) if (course.pins[i].id === pid) return course.pins[i];
+      return null;
+    }
+    return pinById(course, id);
+  }
+  function orderedPinsX(course) {
+    if (course.isAll) return course.pins.slice();
+    return orderedPins(course);
+  }
+
   /* ============================================================
      MOUNT
      ============================================================ */
@@ -227,6 +274,20 @@
     // Tabs
     var tabs = el('div', 'ms-tabs');
     tabs.setAttribute('role', 'tablist');
+    // "All Journeys" master tab first — the whole map of France across every course.
+    (function () {
+      var ta = el('button', 'ms-tab ms-tab-all', '');
+      ta.type = 'button';
+      ta.setAttribute('role', 'tab');
+      ta.dataset.course = ALL_ID;
+      ta.innerHTML = '<span class="ms-tab-all-mark" aria-hidden="true">' +
+          '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6">' +
+          '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 2.6 15.6 0 18M12 3c-2.6 2.4-2.6 15.6 0 18"/></svg></span>' +
+        '<span class="ms-tab-name">All Journeys</span>' +
+        '<span class="ms-tab-region">Every city &amp; region</span>';
+      ta.addEventListener('click', function () { setJourney(ALL_ID, true); });
+      tabs.appendChild(ta);
+    })();
     DATA.courses.forEach(function (c, i) {
       var t = el('button', 'ms-tab', '');
       t.type = 'button';
@@ -432,24 +493,26 @@
     }
     function buildMarkers(course) {
       clearMarkers();
-      var pins = orderedPins(course);
+      var isAll = !!course.isAll;
+      var pins = orderedPinsX(course);
       pins.forEach(function (p, idx) {
-        var node = el('div', 'ms-marker');
+        var node = el('div', 'ms-marker' + (isAll ? ' ms-marker-dot' : ''));
         node.setAttribute('role', 'button');
         node.setAttribute('tabindex', '0');
-        node.setAttribute('aria-label', p.city + ' — stop ' + (idx + 1));
+        node.setAttribute('aria-label', isAll ? p.city : (p.city + ' — stop ' + (idx + 1)));
+        // Apple-sleek: small calm blue dot by default; lights to strong neon
+        // on hover/active (CSS). In ALL mode there is no sequence — dot only,
+        // no number, so the whole-France view reads clean and premium.
         node.innerHTML =
           '<span class="ms-marker-pin">' +
-            '<span class="ms-marker-num">' + (idx + 1) + '</span>' +
+            (isAll ? '' : '<span class="ms-marker-num">' + (idx + 1) + '</span>') +
           '</span>' +
           '<span class="ms-marker-label">' + esc(p.city) + '</span>';
         node.addEventListener('click', function (ev) { ev.stopPropagation(); openStop(course, p, idx); });
         node.addEventListener('keydown', function (ev) {
           if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openStop(course, p, idx); }
         });
-        // Anchor at CENTER so the numbered disc sits exactly on its route
-        // point — 'bottom' floated the disc above the line, detaching pins
-        // from the journey curve.
+        // Anchor at CENTER so the dot sits exactly on its coordinate.
         var mk = new maplibregl.Marker({ element: node, anchor: 'center' })
           .setLngLat([p.lng, p.lat]).addTo(map);
         node._pinId = p.id;
@@ -465,6 +528,15 @@
 
     /* ----- Legend ----- */
     function buildLegend(course) {
+      if (course.isAll) {
+        legend.innerHTML =
+          '<div class="ms-legend-row"><span class="ms-legend-dot"></span>' +
+            '<span class="ms-legend-txt">All journeys &middot; every city &amp; region</span></div>' +
+          '<div class="ms-legend-row ms-legend-route"><span class="ms-legend-txt ms-legend-sub">' +
+            course.pins.length + ' places across all 7 courses</span></div>' +
+          '<div class="ms-legend-hint">Tap any city to open its lesson</div>';
+        return;
+      }
       legend.innerHTML =
         '<div class="ms-legend-row"><span class="ms-legend-dot"></span>' +
           '<span class="ms-legend-txt">' + esc(course.name) + ' &middot; ' + esc(course.level) + '</span></div>' +
@@ -475,6 +547,13 @@
 
     /* ----- Info panel ----- */
     function openStop(course, p, idx) {
+      // In ALL mode the synthetic course has no single owner — each pin
+      // remembers its real course (name/level/href) so the tag + CTA stay correct.
+      var isAll = !!course.isAll;
+      var ownName = isAll ? (p._ownerName || course.name) : course.name;
+      var ownLevel = isAll ? (p._ownerLevel || course.level) : course.level;
+      var ownHref = isAll ? (p._ownerHref || course.href) : course.href;
+      var totalStops = course.routeOrder.length;
       var unitsHTML = p.units.map(function (u) {
         return '<li class="ms-unit">' +
           '<span class="ms-unit-num">Unit ' + u.num + '</span>' +
@@ -488,7 +567,7 @@
           '<span class="ms-photo-pop-glow" aria-hidden="true"></span>' +
           '<img class="ms-photo-pop-img" src="' + esc(p.image) + '" alt="' + esc(p.city) + '" loading="eager" decoding="async">' +
           '<figcaption class="ms-photo-pop-cap">' +
-            '<span class="ms-photo-pop-step">Stop ' + (idx + 1) + '</span>' +
+            '<span class="ms-photo-pop-step">' + (isAll ? esc(p.location) : ('Stop ' + (idx + 1))) + '</span>' +
             '<span class="ms-photo-pop-city">' + esc(p.city) + '</span>' +
             (p.credit ? '<span class="ms-photo-pop-credit">' + esc(p.credit) + '</span>' : '') +
           '</figcaption>';
@@ -505,15 +584,15 @@
       panel.innerHTML =
         '<button class="ms-panel-close" type="button" aria-label="Close">&times;</button>' +
         '<div class="ms-panel-head">' +
-          '<span class="ms-panel-step">Stop ' + (idx + 1) + ' of ' + course.routeOrder.length + '</span>' +
+          '<span class="ms-panel-step">' + (isAll ? esc(p.location) : ('Stop ' + (idx + 1) + ' of ' + totalStops)) + '</span>' +
           '<h3 class="ms-panel-city">' + esc(p.city) + '</h3>' +
-          '<p class="ms-panel-loc">' + esc(p.location) + '</p>' +
+          '<p class="ms-panel-loc">' + (isAll ? 'Featured in the journey below' : esc(p.location)) + '</p>' +
         '</div>' +
         '<div class="ms-panel-course">' +
-          '<span class="ms-panel-coursetag">' + esc(course.name) + ' &middot; ' + esc(course.level) + '</span>' +
+          '<span class="ms-panel-coursetag">' + esc(ownName) + ' &middot; ' + esc(ownLevel) + '</span>' +
         '</div>' +
         '<ul class="ms-panel-units">' + unitsHTML + '</ul>' +
-        '<a class="ms-panel-cta" href="' + esc(course.href) + '">View the ' + esc(course.name) + ' course' +
+        '<a class="ms-panel-cta" href="' + esc(ownHref) + '">View the ' + esc(ownName) + ' course' +
           '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>';
       panel.querySelector('.ms-panel-close').addEventListener('click', closePanel);
       panel.classList.add('open');
@@ -543,8 +622,10 @@
 
     /* ----- Journey switch ----- */
     function setJourney(courseId, userInitiated) {
-      var course = courseById(courseId);
+      var course = courseByIdX(courseId);
       activeCourse = course;
+      var isAll = !!course.isAll;
+      root.classList.toggle('ms-all-mode', isAll);
 
       // tabs
       Array.prototype.forEach.call(tabs.children, function (t) {
@@ -558,8 +639,31 @@
 
       buildMarkers(course);
 
-      var pins = orderedPins(course);
+      var pins = orderedPinsX(course);
       var coords = pins.map(function (p) { return [p.lng, p.lat]; });
+
+      // ---- ALL-JOURNEYS master mode ----------------------------------
+      // The whole map of France, every place across every course. No single
+      // route trail (that would be a meaningless tangle) — just calm blue
+      // dots over all of France, Apple-clean. Frame the entire country.
+      if (isAll) {
+        if (animTimer) { clearInterval(animTimer); animTimer = null; }
+        map.getSource('ms-route').setData(emptyFC());
+        map.getSource('ms-route-anim').setData(emptyFC());
+        var ba = new maplibregl.LngLatBounds();
+        coords.forEach(function (c) { ba.extend(c); });
+        var isNarrowA = (window.matchMedia && window.matchMedia('(max-width:760px)').matches) || window.innerWidth <= 760;
+        map.fitBounds(ba, {
+          padding: isNarrowA ? { top: 60, bottom: 90, left: 34, right: 34 }
+                             : { top: 90, bottom: 90, left: 70, right: 70 },
+          pitch: 0,
+          bearing: 0,
+          duration: userInitiated ? 1200 : 0,
+          maxZoom: isNarrowA ? 5.6 : 6.0
+        });
+        return; // no route, no auto-open in all mode
+      }
+
       // Smooth, flowing curved trail through every stop (no more jagged zigzag)
       var curve = smoothPath(coords, 24);
 
@@ -628,7 +732,7 @@
       setJourney: setJourney,
       openStop: function (id) {
         var c = activeCourse || courseById(DATA.courses[0].id);
-        var p = pinById(c, id);
+        var p = pinByIdX(c, id);
         var idx = c.routeOrder.indexOf(id);
         if (p) openStop(c, p, idx);
       },

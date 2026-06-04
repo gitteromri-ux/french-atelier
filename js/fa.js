@@ -117,6 +117,27 @@
     v.loop=true; v.play().catch(function(){});
   });
 
+  // ===== Site-wide video speed-up: every <video> plays at 4x (NO resolution change) =====
+  // Browsers reset playbackRate on source/metadata changes, so we reapply on
+  // loadedmetadata, loadeddata and play. We also force muted + autoplay so the
+  // 4x ambient clips actually fire (autoplay requires muted).
+  (function(){
+    var RATE=4;
+    function applyRate(v){ try{ v.playbackRate=RATE; v.defaultPlaybackRate=RATE; }catch(e){} }
+    document.querySelectorAll('video').forEach(function(v){
+      applyRate(v);
+      v.addEventListener('loadedmetadata', function(){ applyRate(v); });
+      v.addEventListener('loadeddata', function(){ applyRate(v); });
+      v.addEventListener('play', function(){ applyRate(v); });
+      v.addEventListener('ratechange', function(){ if(v.playbackRate!==RATE){ applyRate(v); } });
+      // ensure autoplay actually fires (muted is required by browsers)
+      v.muted=true; v.setAttribute('muted','');
+      v.setAttribute('playsinline','');
+      if(v.play){ var p=v.play(); if(p&&p.catch){ p.catch(function(){}); } }
+      applyRate(v);
+    });
+  })();
+
   // Video sound opt-in (autoplay muted -> click to unmute)
   document.querySelectorAll('[data-soundvideo]').forEach(function(container){
     var v=container.querySelector('video');

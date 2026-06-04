@@ -1524,7 +1524,7 @@ body.modal-open{overflow:hidden}
 .sorb-head{max-width:64ch;margin:0 auto 3.4rem;text-align:center}
 .sorb-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.01em;margin:1.1rem 0 0;color:var(--on-dark)}
 .sorb-title .gold-ital{font-style:italic;color:var(--gold-soft);font-weight:500}
-.sorb-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:1.3rem auto 0;max-width:58ch}
+.sorb-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:1.3rem auto 0;max-width:64ch}
 .sorb-sub .sorb-line{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-weight:500;font-size:1.08em}
 /* ---- 3-column numbered principle cards (dark glass, premium) ---- */
 .sorb-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.2vw,1.8rem);max-width:1080px;margin:0 auto}

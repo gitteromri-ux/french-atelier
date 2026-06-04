@@ -70,6 +70,32 @@
 .ms-tab-name{font-family:var(--ms-serif);font-size:1.38rem;font-weight:700;line-height:1.1;color:var(--ms-navy)}
 .ms-tab-region{font-size:.8rem;color:rgba(0,0,52,.6);line-height:1.3}
 
+/* ----- "All Journeys" MASTER tab — the whole map of France. A premium,
+   distinct navy card with a neon-blue accent so it reads as the headline
+   choice above the seven individual course tabs. ----- */
+.ms-tab-all{
+  flex:1 1 100%;max-width:1040px;
+  flex-direction:row;align-items:center;gap:.85rem;
+  background:linear-gradient(135deg,#000034 0%,#00112F 55%,#00214d 100%);
+  border:1px solid rgba(111,196,255,.4);
+  box-shadow:0 18px 44px -22px rgba(0,0,40,.85),inset 0 0 0 1px rgba(111,196,255,.08);
+}
+.ms-tab-all .ms-tab-name{color:#F3EFE9;font-size:1.32rem}
+.ms-tab-all .ms-tab-region{color:rgba(191,228,255,.78)}
+.ms-tab-all .ms-tab-all-mark{
+  flex:none;width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#9FD4FF;
+  background:radial-gradient(circle at 40% 32%,rgba(47,164,255,.28),rgba(47,164,255,.06));
+  border:1px solid rgba(111,196,255,.5);
+  box-shadow:0 0 16px rgba(47,164,255,.45);
+}
+.ms-tab-all:hover{box-shadow:0 24px 54px -22px rgba(0,0,40,.9),inset 0 0 0 1px rgba(111,196,255,.18)}
+.ms-tab-all.active{
+  border-color:#6FC4FF;
+  box-shadow:0 0 0 2px #2FA4FF,0 0 28px rgba(47,164,255,.6),0 22px 50px -22px rgba(0,0,40,.9);
+}
+.ms-tab-all .ms-tab-text{display:flex;flex-direction:column;gap:.15rem}
+
 /* ----- Stage (map + panel + legend) — MUCH larger ----- */
 .ms-stage{
   position:relative;width:100%;height:85vh;min-height:600px;max-height:920px;
@@ -95,80 +121,78 @@
 .ms-map .maplibregl-ctrl-group button+button{border-top:1px solid rgba(0,0,52,.1)!important}
 .ms-map .maplibregl-ctrl button:hover{background:rgba(200,169,107,.16)!important}
 
-/* ----- Luxury numbered gold markers — larger, with depth ----- */
-/* CRITICAL: MapLibre wraps our .ms-marker node inside a .maplibregl-marker
-   div to which it applies inline position:absolute + transform:translate().
-   If that wrapper ever falls back to normal document flow, every pin stacks
-   and each is pushed down by the cumulative height of the pins before it
-   (the observed 30px-per-marker vertical drift). Force the wrapper to stay
-   absolutely positioned and let MapLibre own its transform completely. */
+/* ----- Apple-sleek BLUE-DOT markers ---------------------------------
+   Design intent: small, calm, restrained blue dots at rest. On hover/active
+   they light up to a strong neon-blue beacon (scale + layered glow). Quiet
+   by default, electric on interaction — a premium, innovative map feel.
+   CRITICAL (do not change): MapLibre wraps .ms-marker in a .maplibregl-marker
+   div it positions with translate(). Keep that wrapper absolute and keep the
+   inner node width:max-content with NO transform of its own, or pins detach
+   from their coordinates (the prior vertical-drift bug). Animate .ms-marker-pin. */
 .ms-map .maplibregl-marker{
   position:absolute!important;top:0!important;left:0!important;
   will-change:transform;
 }
 .ms-marker{
   position:relative;display:flex;flex-direction:column;align-items:center;cursor:pointer;
-  /* width MUST hug the pin. Without this the element stretched to the full
-     map width (~359px); MapLibre's translate(-50%) then shoved every pin
-     wildly off its real coordinate. */
   width:max-content;
-  /* No transform / transition / will-change here: MapLibre sets the wrapper's
-     transform; an extra transform on the inner node combined with anchor
-     math was contributing to vertical detachment. Animate the pin instead. */
 }
 .ms-marker:focus{outline:none}
-.ms-marker:focus-visible .ms-marker-pin{box-shadow:0 0 0 4px rgba(216,188,133,.8)}
+.ms-marker:focus-visible .ms-marker-pin{box-shadow:0 0 0 4px rgba(111,196,255,.85)}
+
+/* Small calm dot at rest — deep navy core, thin luminous blue ring, faint
+   ambient halo. Reads as a refined point of light, never a clunky disc. */
 .ms-marker-pin{
-  position:relative;width:42px;height:42px;border-radius:50%;
-  background:radial-gradient(circle at 34% 28%,#FBEDCB,#C8A96B 56%,#9C8049);
-  border:2px solid #FFFFFF;
+  position:relative;width:15px;height:15px;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#BFE4FF 0%,#3A8FE0 42%,#0A4F9E 100%);
+  border:1.5px solid rgba(191,228,255,.9);
   box-shadow:
-    0 14px 22px -8px rgba(0,0,0,.62),
-    0 4px 8px -2px rgba(0,0,0,.4),
-    0 0 0 5px rgba(200,169,107,.20),
-    inset 0 2px 4px rgba(255,255,255,.55);
+    0 1px 3px rgba(0,0,20,.5),
+    0 0 0 4px rgba(47,164,255,.12),
+    0 0 8px rgba(47,164,255,.35);
   display:flex;align-items:center;justify-content:center;
-  transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s ease;
+  transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,background .26s ease,border-color .26s ease;
 }
-/* soft shadow ellipse on the "ground" for 3D grounding */
-.ms-marker-pin::after{
-  content:"";position:absolute;left:50%;bottom:-12px;transform:translateX(-50%);
-  width:30px;height:9px;border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(0,0,20,.45),rgba(0,0,20,0) 70%);
-  z-index:-1;
-}
+/* The number sits inside the bigger numbered (single-course) dot only. */
 .ms-marker-num{
-  font-family:var(--ms-serif);font-weight:700;font-size:1.18rem;
-  color:#1a1305;line-height:1;text-shadow:0 1px 0 rgba(255,255,255,.4);
+  font-family:var(--ms-sans);font-weight:700;font-size:.62rem;
+  color:#ffffff;line-height:1;opacity:0;transition:opacity .2s ease;
+  text-shadow:0 1px 2px rgba(0,0,30,.7);
 }
+/* Single-course (numbered) pins are a touch larger so the sequence reads. */
+.ms-marker:not(.ms-marker-dot) .ms-marker-pin{width:20px;height:20px}
+.ms-marker:not(.ms-marker-dot) .ms-marker-num{opacity:.92}
+
 .ms-marker-label{
   /* Absolutely positioned so it is OUTSIDE the flex flow MapLibre measures
-     for anchor:'center'. Otherwise the label's height inflated the node and
-     threw off vertical centering, detaching pins from the route. */
+     for anchor:'center' (prevents vertical detachment). */
   position:absolute;top:calc(100% + 9px);left:50%;transform:translate(-50%,-3px);
   font-family:var(--ms-sans);font-size:.7rem;font-weight:700;letter-spacing:.02em;
   color:var(--ms-on-dark);white-space:nowrap;
-  background:rgba(0,0,31,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  background:rgba(0,0,31,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   padding:4px 11px;border-radius:999px;
-  border:1px solid rgba(111,196,255,.5);
-  box-shadow:0 8px 18px -8px rgba(0,0,0,.6),0 0 14px rgba(47,164,255,.3);
+  border:1px solid rgba(111,196,255,.55);
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.6),0 0 16px rgba(47,164,255,.4);
   opacity:0;transition:opacity .2s ease,transform .2s ease;
   pointer-events:none;max-width:200px;overflow:hidden;text-overflow:ellipsis;
 }
+
+/* ---- HOVER / ACTIVE: light up to strong neon blue ---- */
 .ms-marker:hover{z-index:5}
-.ms-marker:hover .ms-marker-pin,.ms-marker.active .ms-marker-pin{
-  transform:scale(1.16);
-  box-shadow:
-    0 22px 34px -10px rgba(0,0,0,.7),
-    0 0 0 7px rgba(200,169,107,.34),
-    inset 0 2px 4px rgba(255,255,255,.6);
-}
-.ms-marker:hover .ms-marker-label,.ms-marker.active .ms-marker-label{opacity:1;transform:translate(-50%,0)}
 .ms-marker.active{z-index:6}
-.ms-marker.active .ms-marker-pin{
-  background:radial-gradient(circle at 34% 28%,#FFFFFF,#F0DCAE 48%,#C8A96B);
-  border-color:#fff;
+.ms-marker:hover .ms-marker-pin,.ms-marker.active .ms-marker-pin{
+  transform:scale(1.9);
+  background:radial-gradient(circle at 40% 32%,#FFFFFF 0%,#9FD4FF 30%,#2FA4FF 70%,#0A6BD6 100%);
+  border-color:#ffffff;
+  box-shadow:
+    0 0 0 5px rgba(47,164,255,.22),
+    0 0 14px 3px rgba(47,164,255,.85),
+    0 0 34px 8px rgba(111,196,255,.6),
+    0 2px 6px rgba(0,0,20,.55);
 }
+.ms-marker.active .ms-marker-pin{transform:scale(2.05)}
+.ms-marker:hover .ms-marker-label,.ms-marker.active .ms-marker-label{opacity:1;transform:translate(-50%,0)}
+.ms-marker:hover .ms-marker-num,.ms-marker.active .ms-marker-num{opacity:1}
 
 /* ----- Legend (kept dark glass, sits over a light map → readable) ----- */
 .ms-legend{
@@ -180,15 +204,17 @@
 }
 .ms-legend-row{display:flex;align-items:center;gap:.55rem;margin-bottom:.4rem}
 .ms-legend-dot{
-  width:14px;height:14px;border-radius:50%;
-  background:radial-gradient(circle at 34% 28%,#FBEDCB,#C8A96B 60%,#9C8049);
-  border:1.5px solid #fff;flex:none;box-shadow:0 2px 6px -1px rgba(0,0,0,.5);
+  width:13px;height:13px;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#BFE4FF 0%,#3A8FE0 45%,#0A4F9E 100%);
+  border:1.5px solid rgba(191,228,255,.9);flex:none;
+  box-shadow:0 0 8px rgba(47,164,255,.6),0 0 0 3px rgba(47,164,255,.14);
 }
 .ms-legend-line{
   width:24px;height:0;flex:none;
   border-top:3px dotted var(--ms-gold);opacity:.85;
 }
 .ms-legend-txt{font-size:.76rem;font-weight:600;color:var(--ms-on-dark);letter-spacing:.01em}
+.ms-legend-sub{font-weight:600;color:var(--ms-on-dark-soft);font-size:.72rem;padding-left:1.85rem}
 .ms-legend-hint{font-size:.68rem;color:var(--ms-on-dark-soft);margin-top:.35rem;letter-spacing:.02em}
 
 /* ============================================================
@@ -286,8 +312,13 @@
   .ms-panel.open{transform:translateY(0)}
   .ms-legend{left:12px;bottom:12px;padding:.55rem .7rem;max-width:58vw}
   .ms-legend-hint{display:none}
-  .ms-marker-pin{width:30px;height:30px}
-  .ms-marker-num{font-size:.86rem}
+  /* Keep the Apple-sleek small dot on mobile. Slightly larger hit area via a
+     transparent padding ring on the wrapper so taps land reliably without
+     enlarging the visible dot. */
+  .ms-marker-dot .ms-marker-pin{width:13px;height:13px}
+  .ms-marker:not(.ms-marker-dot) .ms-marker-pin{width:18px;height:18px}
+  .ms-marker::before{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;transform:translate(-50%,-50%);border-radius:50%}
+  .ms-marker-num{font-size:.58rem}
   /* Hide the always-on city labels on mobile — they were huge & non-interactive.
      City name still appears in the info panel on tap. */
   .ms-marker-label{display:none !important}
@@ -370,22 +401,19 @@
   to{opacity:1;transform:perspective(1100px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)}
 }
 
-/* ----- BLUE NEON interactive lighting on markers (hover/focus/active) ----- */
+/* ----- BLUE NEON interactive lighting on the small dots (hover/focus/active) -----
+   Refined for the Apple-sleek small dot: a clean layered neon halo that
+   gently pulses while hovered. No heavy drop shadow / no inset white — those
+   belonged to the old gold disc and looked clumsy on a 15px point of light. */
 .ms-marker:hover .ms-marker-pin,
 .ms-marker:focus-visible .ms-marker-pin,
 .ms-marker.active .ms-marker-pin{
-  box-shadow:
-    0 22px 34px -10px rgba(0,0,0,.7),
-    0 0 0 6px rgba(47,164,255,.32),
-    0 0 22px 4px rgba(47,164,255,.65),
-    0 0 46px 10px rgba(47,164,255,.40),
-    inset 0 2px 4px rgba(255,255,255,.6);
   border-color:var(--ms-neon-bright);
+  animation:msNeonPulse 1.6s ease-in-out infinite;
 }
-.ms-marker:hover .ms-marker-pin{animation:msNeonPulse 1.5s ease-in-out infinite}
 @keyframes msNeonPulse{
-  0%,100%{box-shadow:0 22px 34px -10px rgba(0,0,0,.7),0 0 0 6px rgba(47,164,255,.30),0 0 20px 3px rgba(47,164,255,.55),0 0 40px 9px rgba(47,164,255,.34),inset 0 2px 4px rgba(255,255,255,.6)}
-  50%{box-shadow:0 22px 34px -10px rgba(0,0,0,.7),0 0 0 8px rgba(47,164,255,.42),0 0 30px 7px rgba(47,164,255,.85),0 0 60px 16px rgba(47,164,255,.5),inset 0 2px 4px rgba(255,255,255,.6)}
+  0%,100%{box-shadow:0 0 0 4px rgba(47,164,255,.20),0 0 12px 2px rgba(47,164,255,.7),0 0 28px 6px rgba(111,196,255,.45),0 2px 6px rgba(0,0,20,.5)}
+  50%{box-shadow:0 0 0 6px rgba(47,164,255,.30),0 0 20px 5px rgba(47,164,255,.95),0 0 44px 12px rgba(111,196,255,.62),0 2px 6px rgba(0,0,20,.5)}
 }
 /* active marker label gets a neon edge */
 .ms-marker:hover .ms-marker-label,
