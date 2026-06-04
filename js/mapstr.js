@@ -388,42 +388,8 @@
 
     map.on('load', function () {
       ready = true;
-      // Route source/layers (initialised empty; filled by setJourney)
-      map.addSource('ms-route', { type: 'geojson', data: emptyFC() });
-      map.addSource('ms-route-anim', { type: 'geojson', data: emptyFC() });
-
-      // WIDE outer BLUE NEON halo — the gorgeous always-on shine beneath the trail
-      map.addLayer({
-        id: 'ms-route-neon', type: 'line', source: 'ms-route',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#2FA4FF', 'line-width': 38, 'line-opacity': 0.30, 'line-blur': 26 }
-      });
-      // Inner brighter neon core for a luminous, electric edge
-      map.addLayer({
-        id: 'ms-route-neon2', type: 'line', source: 'ms-route',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#6FC4FF', 'line-width': 16, 'line-opacity': 0.34, 'line-blur': 10 }
-      });
-      // Soft, wide gold aura beneath the path — gives a luxurious glow, NOT a hard line
-      map.addLayer({
-        id: 'ms-route-glow', type: 'line', source: 'ms-route',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': GOLD, 'line-width': 12, 'line-opacity': 0.30, 'line-blur': 9 }
-      });
-      // Elegant dotted path: round caps + tight dasharray render as soft DOTS,
-      // so it reads as a refined journey trail rather than a metro/train line.
-      map.addLayer({
-        id: 'ms-route-base', type: 'line', source: 'ms-route',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#EAD49B', 'line-width': 3.2, 'line-opacity': 0.9, 'line-dasharray': [0, 2.1] }
-      });
-      // A single gentle travelling comet of light that drifts along the trail
-      map.addLayer({
-        id: 'ms-route-anim', type: 'line', source: 'ms-route-anim',
-        layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': '#BFE4FF', 'line-width': 7, 'line-opacity': 0.85, 'line-blur': 2 }
-      });
-
+      // NO route lines anywhere — only the blue dot markers. Per design,
+      // the map shows clean luminous blue dots and never a connecting trail.
       setJourney(DATA.courses[0].id, false);
     });
 
@@ -655,9 +621,6 @@
       // route trail (that would be a meaningless tangle) — just calm blue
       // dots over all of France, Apple-clean. Frame the entire country.
       if (isAll) {
-        if (animTimer) { clearInterval(animTimer); animTimer = null; }
-        map.getSource('ms-route').setData(emptyFC());
-        map.getSource('ms-route-anim').setData(emptyFC());
         var ba = new maplibregl.LngLatBounds();
         coords.forEach(function (c) { ba.extend(c); });
         var isNarrowA = (window.matchMedia && window.matchMedia('(max-width:760px)').matches) || window.innerWidth <= 760;
@@ -672,16 +635,7 @@
         return; // no route, no auto-open in all mode
       }
 
-      // Smooth, flowing curved trail through every stop (no more jagged zigzag)
-      var curve = smoothPath(coords, 24);
-
-      // route color per course
-      map.setPaintProperty('ms-route-neon', 'line-color', '#2FA4FF');
-      map.setPaintProperty('ms-route-glow', 'line-color', course.routeColor);
-      map.setPaintProperty('ms-route-base', 'line-color', course.routeColor);
-      map.getSource('ms-route').setData(lineFeature(curve));
-      animateRoute(curve);
-
+      // No route line — dots only. Just frame the journey's places.
       // fit bounds to the journey
       var b = new maplibregl.LngLatBounds();
       coords.forEach(function (c) { b.extend(c); });

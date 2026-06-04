@@ -122,66 +122,71 @@
    Full-width hero card on its OWN row, much wider & taller than the course
    cards, so it visually encompasses the SUM of all seven journeys. Deep navy
    glass with layered neon-blue lighting (Apple-sleek 3D). ----- */
+/* DISTINCT COLOR from the 7 blue course cards: the All-Journeys hero is a warm
+   GOLD-on-royal-navy treatment (gold edge, gold ambient wash, gold mark). This
+   reads as the premium "master" card, clearly separate from the cool-blue
+   course cards beneath it. */
 .ms-tab-all{
   grid-column:1 / -1;width:100%;
   flex-direction:row;align-items:center;gap:1.15rem;display:flex;
   padding:1.5rem 1.7rem;border-radius:22px;
   background:
-    radial-gradient(130% 180% at 12% 0%,rgba(47,164,255,.20) 0%,rgba(47,164,255,0) 46%),
-    linear-gradient(135deg,#00001F 0%,#000A38 48%,#001A4D 100%);
-  border:1px solid rgba(111,196,255,.42);
+    radial-gradient(130% 200% at 10% 0%,rgba(200,169,107,.26) 0%,rgba(200,169,107,0) 44%),
+    linear-gradient(135deg,#0A0726 0%,#140B33 46%,#1E1330 100%);
+  border:1px solid rgba(200,169,107,.55);
   box-shadow:
-    0 1px 0 rgba(160,210,255,.18) inset,
-    0 0 0 1px rgba(111,196,255,.10) inset,
+    0 1px 0 rgba(216,188,133,.22) inset,
+    0 0 0 1px rgba(200,169,107,.12) inset,
     0 24px 60px -28px rgba(0,8,40,.92),
-    0 0 40px -10px rgba(47,164,255,.30);
+    0 0 42px -10px rgba(200,169,107,.34);
   overflow:hidden;
 }
 .ms-tab-all::before{
   content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;
-  background:linear-gradient(100deg,transparent 0%,rgba(111,196,255,.10) 48%,transparent 58%);
+  background:linear-gradient(100deg,transparent 0%,rgba(216,188,133,.14) 48%,transparent 58%);
   opacity:.0;transition:opacity .5s ease;
 }
 .ms-tab-all:hover::before{opacity:1}
-.ms-tab-all .ms-tab-level{color:#6FC4FF;letter-spacing:.22em}
-.ms-tab-all .ms-tab-name{color:#F6FAFF;font-size:1.7rem;letter-spacing:-.01em}
-.ms-tab-all .ms-tab-region{color:rgba(191,228,255,.82);font-size:.92rem}
+.ms-tab-all .ms-tab-level{color:var(--ms-gold-soft);letter-spacing:.22em}
+.ms-tab-all .ms-tab-name{color:#FBF6EC;font-size:1.7rem;letter-spacing:-.01em}
+.ms-tab-all .ms-tab-region{color:rgba(232,220,196,.82);font-size:.92rem}
 .ms-tab-all .ms-tab-text{display:flex;flex-direction:column;gap:.18rem;flex:1 1 auto;min-width:0}
 .ms-tab-all .ms-tab-all-mark{
   flex:none;width:58px;height:58px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;color:#BFE4FF;
+  display:flex;align-items:center;justify-content:center;color:#F0DFB8;
   background:
-    radial-gradient(circle at 38% 30%,rgba(111,196,255,.55) 0%,rgba(47,164,255,.18) 45%,rgba(47,164,255,.04) 100%);
-  border:1px solid rgba(111,196,255,.6);
+    radial-gradient(circle at 38% 30%,rgba(216,188,133,.6) 0%,rgba(200,169,107,.2) 45%,rgba(200,169,107,.04) 100%);
+  border:1px solid rgba(216,188,133,.66);
   box-shadow:
-    0 0 0 6px rgba(47,164,255,.10),
-    0 0 22px rgba(47,164,255,.55),
-    0 0 44px rgba(111,196,255,.35),
+    0 0 0 6px rgba(200,169,107,.10),
+    0 0 22px rgba(200,169,107,.55),
+    0 0 44px rgba(216,188,133,.32),
     0 6px 16px rgba(0,0,30,.5);
 }
 .ms-tab-all .ms-tab-all-mark svg{width:30px;height:30px}
-/* a subtle "spans the courses" cue: a fine neon rail on the right */
+/* a subtle "spans the courses" cue: a fine gold rail on the right */
 .ms-tab-all .ms-tab-all-cue{
   flex:none;align-self:stretch;display:flex;align-items:center;gap:.4rem;
-  padding-left:1.1rem;margin-left:.4rem;border-left:1px solid rgba(111,196,255,.22);
-  color:rgba(191,228,255,.9);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding-left:1.1rem;margin-left:.4rem;border-left:1px solid rgba(200,169,107,.30);
+  color:rgba(232,220,196,.9);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   white-space:nowrap;
 }
-.ms-tab-all .ms-tab-all-cue b{font-family:var(--ms-serif);font-weight:700;font-size:1.5rem;color:#9FD4FF;letter-spacing:0}
+.ms-tab-all .ms-tab-all-cue b{font-family:var(--ms-serif);font-weight:700;font-size:1.5rem;color:var(--ms-gold-soft);letter-spacing:0}
 .ms-tab-all:hover{
   transform:translateY(-4px);
+  border-color:rgba(216,188,133,.8);
   box-shadow:
-    0 1px 0 rgba(160,210,255,.22) inset,
-    0 0 0 1px rgba(111,196,255,.20) inset,
+    0 1px 0 rgba(216,188,133,.26) inset,
+    0 0 0 1px rgba(200,169,107,.22) inset,
     0 30px 70px -28px rgba(0,8,40,.95),
-    0 0 56px -8px rgba(47,164,255,.5);
+    0 0 58px -8px rgba(200,169,107,.55);
 }
 .ms-tab-all.active{
-  border-color:#6FC4FF;
+  border-color:#D8BC85;
   box-shadow:
-    0 0 0 1.5px #2FA4FF,
-    0 0 34px rgba(47,164,255,.7),
-    0 0 80px -6px rgba(111,196,255,.5),
+    0 0 0 1.5px #C8A96B,
+    0 0 34px rgba(200,169,107,.7),
+    0 0 80px -6px rgba(216,188,133,.5),
     0 28px 64px -28px rgba(0,8,40,.95);
 }
 
@@ -233,12 +238,13 @@
    ambient halo. Reads as a refined point of light, never a clunky disc. */
 .ms-marker-pin{
   position:relative;width:11px;height:11px;border-radius:50%;
-  background:radial-gradient(circle at 36% 30%,#EAF6FF 0%,#9FD4FF 30%,#3A8FE0 64%,#0A4F9E 100%);
-  border:1px solid rgba(223,242,255,.95);
+  background:radial-gradient(circle at 36% 28%,#FFFFFF 0%,#CFEBFF 26%,#6FC4FF 52%,#2FA4FF 78%,#0A6BD6 100%);
+  border:1px solid rgba(235,247,255,.98);
   box-shadow:
     0 1px 2px rgba(0,0,20,.45),
-    0 0 0 3px rgba(47,164,255,.10),
-    0 0 7px rgba(47,164,255,.40);
+    0 0 0 4px rgba(47,164,255,.16),
+    0 0 10px 1px rgba(47,164,255,.62),
+    0 0 20px 3px rgba(111,196,255,.42);
   display:flex;align-items:center;justify-content:center;
   transition:transform .26s cubic-bezier(.34,1.56,.64,1),box-shadow .26s ease,background .26s ease,border-color .26s ease;
 }

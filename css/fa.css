@@ -2835,3 +2835,44 @@ body.modal-open{overflow:hidden}
   50%{opacity:1}
 }
 @media(prefers-reduced-motion:reduce){ .sorb-cred::before{animation:none} }
+
+/* ============================================================
+   ROUND-5 GLOBAL TEXT CONSISTENCY
+   The site mixes centered and left-aligned section heads. Prior
+   complaint: subheaders broke into ragged lines (short line over
+   long line) with orphan one-word last lines, and line lengths
+   differed fold to fold. These rules normalise line-breaking
+   EVERYWHERE so every headline + subheader wraps evenly with no
+   stranded single words, regardless of alignment.
+   ============================================================ */
+
+/* All display/section headings: balance lines so no line is far
+   shorter than its neighbour and no last word is orphaned. */
+.display-xl,.display-lg,.display-md,.display-sm,
+.sorb-title,.hero h1,h1,h2,
+.hiw2-head h2,.etg-head h2,.culture-head h2,.tctr-head h2,
+.cp-hero h1,.cph-title,.cpx-title{
+  text-wrap:balance;
+}
+
+/* All ledes / section subheaders / intro paragraphs: use `pretty`
+   so the LAST line is never a lonely single word, and the measure
+   is capped to a consistent comfortable reading width. */
+.lede,.hero-sub,.sorb-sub,.lt-sub,.cls-card-sub,
+.hiw2-head p,.etg-head p,.culture-head p,.tctr-head p,
+.cpx-plan-sub,.price-sub,.cp-faq-note,.cpx-price-disc,
+.lede-narrow,.cpx-center p{
+  text-wrap:pretty;
+}
+
+/* CENTERED subheaders get ONE consistent PX measure so line lengths match
+   fold-to-fold regardless of font-size (no super-short line next to a long
+   one, no fold narrower/wider than another). 720px ≈ a comfortable measure.
+   Scoped ONLY to the known centered section-head wrappers so left-aligned
+   ledes in two-column folds are never force-centered. !important beats the
+   per-fold inline max-width overrides still present in the HTML. */
+.lede-c,.sorb-sub,
+.hiw2-head p,.etg-head p,.culture-head p,.tctr-head p{
+  max-width:720px!important;margin-left:auto!important;margin-right:auto!important;
+  text-wrap:pretty;
+}
