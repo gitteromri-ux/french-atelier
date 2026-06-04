@@ -508,15 +508,15 @@
             '<span class="ms-legend-txt">All journeys &middot; every city &amp; region</span></div>' +
           '<div class="ms-legend-row ms-legend-route"><span class="ms-legend-txt ms-legend-sub">' +
             course.pins.length + ' places across all 7 courses</span></div>' +
-          '<div class="ms-legend-hint">Tap any city to open its lesson</div>';
+          '<div class="ms-legend-hint">Tap any blue dot to open its lesson</div>';
         return;
       }
       legend.innerHTML =
         '<div class="ms-legend-row"><span class="ms-legend-dot"></span>' +
           '<span class="ms-legend-txt">' + esc(course.name) + ' &middot; ' + esc(course.level) + '</span></div>' +
-        '<div class="ms-legend-row ms-legend-route"><span class="ms-legend-line"></span>' +
-          '<span class="ms-legend-txt">Journey route &middot; ' + course.routeOrder.length + ' stops</span></div>' +
-        '<div class="ms-legend-hint">Tap any stop on the route to open its lesson</div>';
+        '<div class="ms-legend-row ms-legend-route"><span class="ms-legend-txt ms-legend-sub">' +
+          course.routeOrder.length + ' places in this journey</span></div>' +
+        '<div class="ms-legend-hint">Tap any blue dot to open its lesson</div>';
     }
 
     /* ----- Info panel ----- */
