@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="css/fa.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start;margin-top:3.4rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:stretch;margin-top:3.4rem}
 .pricing-grid-2{grid-template-columns:repeat(2,1fr)}
 @media(max-width:720px){.pricing-grid-2{grid-template-columns:1fr}}
-.plan-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.6rem 2.2rem;position:relative;transition:box-shadow .3s}
+.plan-card{background:var(--white);border:1px solid var(--gold-line-soft);padding:2.6rem 2.2rem;position:relative;transition:box-shadow .3s;height:100%;display:flex;flex-direction:column}
 .plan-card:hover{box-shadow:0 8px 40px rgba(8,14,43,.1)}
 .plan-card.featured{border-color:var(--gold-deep);background:var(--navy-deep);color:var(--on-dark)}
 .plan-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold-deep);color:var(--navy-deep);font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1.2rem;white-space:nowrap}
@@ -37,7 +37,7 @@
 .plan-includes li::before{content:"◆";font-size:.45rem;color:var(--gold-deep);flex-shrink:0;margin-top:.5rem}
 .plan-card.featured .plan-includes li::before{color:var(--gold-soft)}
 .plan-extra{background:rgba(200,165,96,.12);border-left:3px solid var(--gold-deep);padding:.7rem 1rem;margin-bottom:1.2rem;font-size:.9rem;font-weight:600}
-.plan-cta{display:block;text-align:center;width:100%;box-sizing:border-box}
+.plan-cta{display:block;text-align:center;width:100%;box-sizing:border-box;margin-top:auto}
 .inclusions-note{margin-top:2.6rem;padding:1.8rem 2rem;background:var(--paper);border:1px solid var(--gold-line-soft);text-align:center}
 .inclusions-note p{font-size:.88rem;color:var(--on-light-soft)}
 .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--gold-line-soft);border-bottom:1px solid var(--gold-line-soft);margin-top:3rem}

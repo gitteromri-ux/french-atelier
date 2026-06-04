@@ -280,11 +280,19 @@
       ta.type = 'button';
       ta.setAttribute('role', 'tab');
       ta.dataset.course = ALL_ID;
+      var allCourse = courseByIdX(ALL_ID);
+      var placeCount = (allCourse && allCourse.routeOrder) ? allCourse.routeOrder.length : 72;
+      var journeyCount = DATA.courses.length;
       ta.innerHTML = '<span class="ms-tab-all-mark" aria-hidden="true">' +
-          '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
           '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 2.6 15.6 0 18M12 3c-2.6 2.4-2.6 15.6 0 18"/></svg></span>' +
-        '<span class="ms-tab-name">All Journeys</span>' +
-        '<span class="ms-tab-region">Every city &amp; region</span>';
+        '<span class="ms-tab-text">' +
+          '<span class="ms-tab-level">The complete atlas</span>' +
+          '<span class="ms-tab-name">All Journeys</span>' +
+          '<span class="ms-tab-region">Every city &amp; region across all ' + journeyCount + ' courses</span>' +
+        '</span>' +
+        '<span class="ms-tab-all-cue" aria-hidden="true"><b>' + journeyCount + '</b>&nbsp;journeys&nbsp;&middot;&nbsp;<b>' + placeCount + '</b>&nbsp;places</span>';
+      ta.setAttribute('aria-label', 'All Journeys — every city and region across all ' + journeyCount + ' courses, ' + placeCount + ' places');
       ta.addEventListener('click', function () { setJourney(ALL_ID, true); });
       tabs.appendChild(ta);
     })();

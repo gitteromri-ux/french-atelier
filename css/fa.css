@@ -98,10 +98,10 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.04;letter-spa
 .gold-ital{font-style:italic;color:var(--gold-deep);font-weight:500}
 .on-dark .gold-ital{color:var(--gold-soft)}
 
-.display-xl{font-size:clamp(3.4rem,9vw,8rem);line-height:.96;font-weight:600;letter-spacing:-.015em}
-.display-lg{font-size:clamp(2.8rem,6.5vw,5.6rem);line-height:1.0;font-weight:600;letter-spacing:-.012em}
-.display-md{font-size:clamp(2.2rem,4.6vw,3.8rem);line-height:1.04;font-weight:600}
-.display-sm{font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.08;font-weight:600}
+.display-xl{font-size:clamp(3.8rem,9.6vw,8.8rem);line-height:.95;font-weight:600;letter-spacing:-.015em}
+.display-lg{font-size:clamp(3.1rem,7vw,6.2rem);line-height:1.0;font-weight:600;letter-spacing:-.012em}
+.display-md{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.03;font-weight:600}
+.display-sm{font-size:clamp(2rem,3.4vw,3.1rem);line-height:1.07;font-weight:600}
 
 .eyebrow{
   font-family:var(--sans);font-size:.72rem;font-weight:600;
@@ -1522,7 +1522,7 @@ body.modal-open{overflow:hidden}
 }
 .sorb .wrap{position:relative;z-index:2}
 .sorb-head{max-width:64ch;margin:0 auto 3.4rem;text-align:center}
-.sorb-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.01em;margin:1.1rem 0 0;color:var(--on-dark)}
+.sorb-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.5rem,4.8vw,3.9rem);line-height:1.06;letter-spacing:-.01em;margin:1.1rem 0 0;color:var(--on-dark)}
 .sorb-title .gold-ital{font-style:italic;color:var(--gold-soft);font-weight:500}
 .sorb-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.4vw,1.22rem);line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:1.3rem auto 0;max-width:64ch}
 .sorb-sub .sorb-line{font-family:var(--serif);font-style:italic;color:var(--gold-soft);font-weight:500;font-size:1.08em}
