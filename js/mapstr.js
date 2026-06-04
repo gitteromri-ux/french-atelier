@@ -550,7 +550,7 @@
           '<span class="ms-legend-txt">' + esc(course.name) + ' &middot; ' + esc(course.level) + '</span></div>' +
         '<div class="ms-legend-row ms-legend-route"><span class="ms-legend-line"></span>' +
           '<span class="ms-legend-txt">Journey route &middot; ' + course.routeOrder.length + ' stops</span></div>' +
-        '<div class="ms-legend-hint">Tap a numbered stop to open its lesson</div>';
+        '<div class="ms-legend-hint">Tap any stop on the route to open its lesson</div>';
     }
 
     /* ----- Info panel ----- */
