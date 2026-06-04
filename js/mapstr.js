@@ -386,8 +386,40 @@
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
     map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: true }), 'top-right');
 
+    // Metropolitan France boundary (mainland + Corsica) — used to make France
+    // glow and stand out strongly within the darker Europe map.
+    var FRANCE_GEO = {"type":"Feature","properties":{},"geometry":{"type":"MultiPolygon","coordinates":[[[[9.560016,42.152492],[9.229752,41.380007],[8.775723,41.583612],[8.544213,42.256517],[8.746009,42.628122],[9.390001,43.009985],[9.560016,42.152492]]],[[[3.588184,50.378992],[4.286023,49.907497],[4.799222,49.985373],[5.674052,49.529484],[5.897759,49.442667],[6.18632,49.463803],[6.65823,49.201958],[8.099279,49.017784],[7.593676,48.333019],[7.466759,47.620582],[7.192202,47.449766],[6.736571,47.541801],[6.768714,47.287708],[6.037389,46.725779],[6.022609,46.27299],[6.5001,46.429673],[6.843593,45.991147],[6.802355,45.70858],[7.096652,45.333099],[6.749955,45.028518],[7.007562,44.254767],[7.549596,44.127901],[7.435185,43.693845],[6.529245,43.128892],[4.556963,43.399651],[3.100411,43.075201],[2.985999,42.473015],[1.826793,42.343385],[0.701591,42.795734],[0.338047,42.579546],[-1.502771,43.034014],[-1.901351,43.422802],[-1.384225,44.02261],[-1.193798,46.014918],[-2.225724,47.064363],[-2.963276,47.570327],[-4.491555,47.954954],[-4.59235,48.68416],[-3.295814,48.901692],[-1.616511,48.644421],[-1.933494,49.776342],[-0.989469,49.347376],[1.338761,50.127173],[1.639001,50.946606],[2.513573,51.148506],[2.658422,50.796848],[3.123252,50.780363],[3.588184,50.378992]]]]}};
+
     map.on('load', function () {
       ready = true;
+      // ----- France highlight: make the whole France landmass stand out -----
+      // A dimming veil over everything, then a luminous blue France fill +
+      // a bright neon outline, so France clearly pops within darker Europe.
+      try {
+        map.addSource('france', { type: 'geojson', data: FRANCE_GEO });
+        // 1) Dim the rest of Europe so France reads brighter by contrast.
+        map.addLayer({
+          id: 'world-dim', type: 'background',
+          paint: { 'background-color': '#00001F', 'background-opacity': 0.42 }
+        });
+        // 2) Soft luminous blue fill inside France.
+        map.addLayer({
+          id: 'france-fill', type: 'fill', source: 'france',
+          paint: { 'fill-color': '#2FA4FF', 'fill-opacity': 0.16 }
+        });
+        // 3) Wide soft glow outline.
+        map.addLayer({
+          id: 'france-glow', type: 'line', source: 'france',
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: { 'line-color': '#6FC4FF', 'line-width': 9, 'line-blur': 8, 'line-opacity': 0.55 }
+        });
+        // 4) Crisp bright neon border.
+        map.addLayer({
+          id: 'france-line', type: 'line', source: 'france',
+          layout: { 'line-join': 'round', 'line-cap': 'round' },
+          paint: { 'line-color': '#BFE4FF', 'line-width': 2, 'line-opacity': 0.95 }
+        });
+      } catch (e) { /* highlight is non-fatal */ }
       // NO route lines anywhere — only the blue dot markers. Per design,
       // the map shows clean luminous blue dots and never a connecting trail.
       setJourney(DATA.courses[0].id, false);
@@ -477,10 +509,11 @@
         // Apple-sleek: small calm blue dot by default; lights to strong neon
         // on hover/active (CSS). In ALL mode there is no sequence — dot only,
         // no number, so the whole-France view reads clean and premium.
+        // NO numbers on ANY blue element — dots only, always. The map reads as
+        // clean luminous points of light; the active stop is shown by glow + the
+        // info panel/label, never a number badge.
         node.innerHTML =
-          '<span class="ms-marker-pin">' +
-            (isAll ? '' : '<span class="ms-marker-num">' + (idx + 1) + '</span>') +
-          '</span>' +
+          '<span class="ms-marker-pin"></span>' +
           '<span class="ms-marker-label">' + esc(p.city) + '</span>';
         node.addEventListener('click', function (ev) { ev.stopPropagation(); openStop(course, p, idx); });
         node.addEventListener('keydown', function (ev) {

@@ -488,3 +488,54 @@
     track.addEventListener('click', function(e){ if(moved>8){ e.preventDefault(); e.stopPropagation(); } }, true);
   })();
 })();
+
+/* ============================================================
+   NO-ORPHANS — guarantee no heading / eyebrow / subheader ever
+   ends in a single stranded word, at ANY viewport width. We bind
+   the final two words of each target element with a non-breaking
+   space so they always wrap together. Deterministic and runs on
+   every page, so line breakage stays consistent fold-to-fold.
+   ============================================================ */
+(function(){
+  var SEL = [
+    'h1','h2',
+    '.display-xl','.display-lg','.display-md','.display-sm',
+    '.sorb-title','.sorb-pr-tt','.ch-title','.hero-sub','.eyebrow',
+    '.lede','.sorb-sub','.lt-sub','.cls-card-sub',
+    '.hiw2-head p','.etg-head p','.culture-head p','.tctr-head p',
+    '.cpx-plan-sub','.price-sub','.lede-narrow','.cpx-center p','.lede-c'
+  ].join(',');
+
+  function bindLastTwo(el){
+    if(el.getAttribute('data-noorphan')==='1') return;
+    // Only operate on the LAST text node so we don't disturb inner markup
+    // (italics, spans). Find the deepest last text node with content.
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var last=null, n;
+    while(n=walker.nextNode()){ if(n.textContent.replace(/\s+/g,'').length) last=n; }
+    if(!last) return;
+    var t = last.textContent.replace(/\s+$/,'');
+    // Split into words; glue the last word to the previous one(s) with nbsp.
+    // If the final word is long (>=8 chars), glue the last THREE words so a
+    // long word can't strand itself even when the last pair won't fit a line.
+    var parts = t.split(/(\s+)/); // keep separators
+    // collect word tokens with their indices
+    var words=[]; for(var k=0;k<parts.length;k++){ if(parts[k].trim().length) words.push(k); }
+    if(words.length<2) return;
+    // Glue the last two words. (Joining three can OVER-fill a line when the
+    // final word is long, pushing MORE words down — so we always bind exactly
+    // the last pair and let text-wrap:balance distribute the rest evenly.)
+    var sepIdx = words[words.length-1]-1;
+    if(sepIdx<0) return;
+    if(parts[sepIdx]==='\u00a0') return;        // last pair already glued
+    if(/\s/.test(parts[sepIdx])) parts[sepIdx]='\u00a0';
+    last.textContent = parts.join('');
+    el.setAttribute('data-noorphan','1');
+  }
+
+  function run(){
+    try{ document.querySelectorAll(SEL).forEach(bindLastTwo); }catch(e){}
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();

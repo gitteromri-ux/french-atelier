@@ -1529,16 +1529,31 @@ body.modal-open{overflow:hidden}
 /* ---- 3-column numbered principle cards (dark glass, premium) ---- */
 .sorb-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,2.2vw,1.8rem);max-width:1080px;margin:0 auto}
 .sorb-pr{
-  position:relative;padding:clamp(1.9rem,2.8vw,2.5rem) clamp(1.6rem,2.2vw,2rem) clamp(1.7rem,2.4vw,2.2rem);
-  background:linear-gradient(165deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
-  border:1px solid rgba(200,169,107,.26);border-radius:18px;
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  box-shadow:0 26px 60px -34px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
-  transition:transform .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease),background .5s var(--ease);
+  position:relative;padding:clamp(2rem,2.9vw,2.6rem) clamp(1.7rem,2.3vw,2.1rem) clamp(1.8rem,2.5vw,2.3rem);
+  /* premium gradient-neon glass: deep navy core with a luminous blue edge */
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(47,164,255,.16), rgba(47,164,255,0) 60%),
+    linear-gradient(165deg, rgba(15,22,56,.92), rgba(6,10,33,.96));
+  border-radius:20px;
+  box-shadow:0 30px 70px -36px rgba(0,0,16,.78), 0 0 0 1px rgba(47,164,255,.10) inset, 0 0 26px -10px rgba(47,164,255,.35);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .5s var(--ease);
+  overflow:hidden;
 }
-.sorb-pr::before{content:"";position:absolute;left:0;top:1.6rem;bottom:1.6rem;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--gold-soft),var(--gold-deep));opacity:.95;box-shadow:0 0 14px -2px rgba(200,169,107,.6)}
-.sorb-pr:hover{transform:translateY(-6px);border-color:rgba(200,169,107,.55);background:linear-gradient(165deg, rgba(255,255,255,.085), rgba(255,255,255,.03));box-shadow:0 38px 76px -38px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.09)}
-.sorb-pr-no{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--gold-soft);line-height:1;margin-bottom:.7rem;font-variant-numeric:lining-nums}
+/* gradient-neon border ring (masked so only the 1.5px edge is painted) */
+.sorb-pr::before{
+  content:"";position:absolute;inset:0;border-radius:20px;padding:1.5px;
+  background:linear-gradient(150deg,#9FD4FF,#2FA4FF 40%,#0A6BD6 70%,#6FC4FF);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;opacity:.75;transition:opacity .5s var(--ease);pointer-events:none;
+}
+/* soft top sheen */
+.sorb-pr::after{content:"";position:absolute;left:0;right:0;top:0;height:42%;border-radius:20px 20px 0 0;background:linear-gradient(180deg,rgba(159,212,255,.10),rgba(159,212,255,0));pointer-events:none}
+.sorb-pr:hover{transform:translateY(-7px);box-shadow:0 44px 92px -40px rgba(0,0,16,.85), 0 0 0 1px rgba(47,164,255,.18) inset, 0 0 44px -8px rgba(47,164,255,.6)}
+.sorb-pr:hover::before{opacity:1}
+.sorb-pr-no{display:block;font-family:var(--serif);font-size:1.7rem;font-weight:700;line-height:1;margin-bottom:.7rem;font-variant-numeric:lining-nums;
+  background:linear-gradient(120deg,#EAF6FF,#6FC4FF 55%,#2FA4FF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#6FC4FF;
+  text-shadow:0 0 18px rgba(47,164,255,.35)}
 .sorb-pr-fr{display:block;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--pink);margin-bottom:.55rem;letter-spacing:.01em}
 .sorb-pr-tt{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,2vw,1.65rem);line-height:1.15;color:var(--on-dark);margin:0 0 .7rem}
 .sorb-pr-tx{font-family:var(--sans);font-size:.98rem;line-height:1.62;color:var(--on-dark-soft);font-weight:300;margin:0}
