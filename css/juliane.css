@@ -60,11 +60,12 @@
 /* No frame, no box, no white bg — he emerges directly from the section. */
 .jul-char-card {
   position: absolute;
-  right: 3%;
-  bottom: 0;
-  top: 6%;
-  width: 38%;
-  max-width: 520px;
+  right: 4%;
+  bottom: 4%;
+  top: auto;
+  width: 34%;
+  max-width: 460px;
+  height: auto;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -73,10 +74,10 @@
 }
 
 .jul-hero-cutout {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: 88%;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 78vh !important;
   object-fit: contain;
   object-position: bottom center;
   display: block;
