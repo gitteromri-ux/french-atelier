@@ -15,7 +15,7 @@ Deployed: project_path `/home/user/workspace/fa-site`, entry `index.html`, site_
 - pricing.html advisor CTAs (`data-advisor` triggers + form).
 
 ### Page-specific
-- **pricing.html**: rewrote hero subline to "$42/week on the annual plan"; replaced old 3-card grid ($39/$42/$59) with 2 premium cards — **Annual $42/wk featured = $840 full course (20 lessons, 85 min)** and **Pay Monthly from $56/wk**. Both list small groups 8–10, certificate by Acadomia, Juliane 24/7, $100 credits. Clear "Enroll Today" + "Talk to an Advisor" CTAs.
+- **pricing.html**: rewrote hero subline to "$42/week on the annual plan"; replaced old 3-card grid ($39/$42/$59) with 2 premium cards — **Annual $42/wk featured = $840 full course (20 lessons, 85 min)** and **Pay Monthly from $56/wk**. Both list small groups 8–10, certificate by Acadomia, Julien 24/7, $100 credits. Clear "Enroll Today" + "Talk to an Advisor" CTAs.
 - **teachers.html**: added "Meet four of our teachers on screen" section with 4 lazy-loaded `youtube-nocookie` iframes (Charline G0lUXZKwg-8, Caitlin WbodfrXFjyg, Philippe z-l7f4qOmEo, Stan TqBegklrz-E) + "Watch more on YouTube" link. All 8 real teachers with portraits + regions already showcased in premium grid.
 - **juliane.html**: confirmed premium 24/7 AI tutor page (hero, 6 capabilities, conversation demo, "While Paris sleeps", ecosystem, CTAs).
 - **faq.html**: elegant self-contained accordion (8 Q&A) verified; navy advisor CTA + form.

@@ -1,5 +1,5 @@
 /* ================================================================
-   JULIANE.CSS  — Juliane AI Tutor page styles
+   JULIEN.CSS  — Julien AI Tutor page styles
    Relies on fa.css custom properties being loaded first.
    ================================================================ */
 
@@ -7,7 +7,7 @@
 .jul-hero {
   position: relative;
   min-height: 92vh;
-  /* On-brand navy gradient — Juliane appears to step out of THIS */
+  /* On-brand navy gradient — Julien appears to step out of THIS */
   background:
     radial-gradient(120% 90% at 78% 60%, rgba(28,34,56,.85) 0%, rgba(0,0,31,0) 60%),
     linear-gradient(120deg, var(--navy-deep) 0%, var(--navy) 55%, var(--navy-soft) 100%);
@@ -431,7 +431,7 @@
 }
 
 /* ================================================================
-   HOMEPAGE JULIANE FOLD (index.html)
+   HOMEPAGE JULIEN FOLD (index.html)
    ================================================================ */
 .jul-home {
   position: relative;
@@ -571,5 +571,5 @@
   .jul-vid-strip { grid-template-columns: 1fr; }
 }
 
-/* Juliane is a TRANSPARENT PNG cutout — no box, no background, no border-radius.
+/* Julien is a TRANSPARENT PNG cutout — no box, no background, no border-radius.
    He emerges directly from the section (see .jul-char-card / .jul-cutout above). */

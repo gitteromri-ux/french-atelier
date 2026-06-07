@@ -67,7 +67,7 @@
   }
 
   // Ambient autoplay-muted videos — play EVERY autoplay/muted video sitewide,
-  // including Juliane character clips (.jul-video, .jul-vid-card, .pm-main, .pm-sm),
+  // including Julien character clips (.jul-video, .jul-vid-card, .pm-main, .pm-sm),
   // even ones that mount below the fold (IntersectionObserver kicks them off).
   var ambient=[].slice.call(document.querySelectorAll('video[autoplay], video[muted], .video-bg video, .video-frame video, .video-band video, .jul-video-frame video, .jul-vid-card video, .pm-main video, .pm-sm video'));
   ambient.forEach(function(v){ v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.loop=true; v.play().catch(function(){}); });

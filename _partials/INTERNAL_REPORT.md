@@ -23,7 +23,7 @@ Generated after QA on desktop (1440px) and mobile (390px).
 - Stats band: **1989** (Year Founded) · **Paris 8e** (Headquarters) · **#1** (Private Learning Institute in France).
 - Page title: *"The Acadomia Group — France's Leading Learning Institute."*
 
-**Verification:** `grep -niE "primary school|pupil|tutoring|children|kids|master the subjects|young learner" acadomia.html` → **returns nothing (CLEAN).** The only remaining "tutor" strings sitewide are the legitimate **"Juliane · AI Tutor"** nav links — the adult AI-tutor product, which is intended.
+**Verification:** `grep -niE "primary school|pupil|tutoring|children|kids|master the subjects|young learner" acadomia.html` → **returns nothing (CLEAN).** The only remaining "tutor" strings sitewide are the legitimate **"Julien · AI Tutor"** nav links — the adult AI-tutor product, which is intended.
 
 ---
 

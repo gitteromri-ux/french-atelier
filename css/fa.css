@@ -1182,7 +1182,7 @@ body.modal-open{overflow:hidden}
 .article-body li{margin-bottom:.6rem;color:var(--ink-soft);line-height:1.7;list-style:disc}
 .article-meta{display:flex;gap:1.4rem;flex-wrap:wrap;align-items:center;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-soft)}
 
-/* ---------- Juliane premium chat mock ---------- */
+/* ---------- Julien premium chat mock ---------- */
 .jul-chat{background:linear-gradient(180deg,#fff,var(--paper));border:1px solid var(--gold-line-soft);border-radius:22px;padding:1.6rem;box-shadow:var(--shadow-md);max-width:440px}
 .jul-bubble{padding:.85rem 1.15rem;border-radius:16px;margin-bottom:.8rem;font-size:.96rem;line-height:1.5;max-width:85%}
 .jul-bubble.j-ai{background:var(--ivory);border:1px solid var(--gold-line-soft);border-bottom-left-radius:4px;color:var(--on-light)}
@@ -1500,7 +1500,7 @@ body.modal-open{overflow:hidden}
 /* ---------- 2. BLACK SORBONNE METHODOLOGY FOLD ---------- */
 /* === SORBONNE FOLD — V3 rebuild: LIGHT, on-brand, matches site === */
 /* ---- DARK premium Sorbonne fold (restored — navy + gold, consistent
-        with the Juliane / Acadomia dark folds; user: "not dull") ---- */
+        with the Julien / Acadomia dark folds; user: "not dull") ---- */
 .sorb{
   position:relative;overflow:hidden;
   background:
@@ -2580,7 +2580,7 @@ body.modal-open{overflow:hidden}
 }
 
 /* ============================================================
-   FIX 6 — JULIANE VIDEO — Premium animated character frame
+   FIX 6 — JULIEN VIDEO — Premium animated character frame
    ============================================================ */
 .jul-video-wrap{max-width:440px}
 .jul-video-frame{
@@ -2891,3 +2891,6 @@ body.modal-open{overflow:hidden}
   max-width:720px!important;margin-left:auto!important;margin-right:auto!important;
   text-wrap:pretty;
 }
+
+/* Chapter scroll offset */
+section[id^="chapter-"] { scroll-margin-top: 120px; }

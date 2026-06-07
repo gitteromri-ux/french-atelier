@@ -50,7 +50,7 @@
 - Two CTAs: primary "Find My French Level" and a **`data-advisor`** "Talk to an advisor instead" link (opens advisor modal).
 
 ### 4. eTeacher Group platform / LMS-features block (adapted for French Atelier)
-- **HTML:** `index.html` lines **1598–1639** — `<section class="etg bg-paper" id="platform">` (NOT black, per brief), placed before the Juliane AI section.
+- **HTML:** `index.html` lines **1598–1639** — `<section class="etg bg-paper" id="platform">` (NOT black, per brief), placed before the Julien AI section.
 - Eyebrow "POWERED BY ETEACHER GROUP"; headline "One award-winning learning platform".
 - **6 `.etg-feat` cards** with inline-SVG icons: Course & Content Library, Lesson Recordings, Live Sessions Q&A, Discussion Groups, Progress Tracking, 24/7 Learners' Community.
 - Footer link "SEE HOW IT WORKS".

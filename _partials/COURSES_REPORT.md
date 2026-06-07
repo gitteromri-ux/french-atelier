@@ -72,7 +72,7 @@ Each `<body data-course="{id}" class="light-hero">` drives per-course accent via
 - **NO Sorbonne logo / partnership claim.** Sorbonne appears only as text trust ("the standards used across French academia, including the Sorbonne") — framework / level-standard reference, no relationship implied.
 - **Acadomia** = "France's #1 private learning institute, founded 1989" throughout — NOT framed as children's tutoring.
 - **eTeacher** = "award-winning eTeacher platform" (text trust).
-- **Juliane** = 24/7 AI French tutor that practises with you between live lessons.
+- **Julien** = 24/7 AI French tutor that practises with you between live lessons.
 - **Advisor:** all Request-Info CTAs use `data-advisor` (site-wide modal injected by main agent); `mailto:advisor@eTeacherGroup.com` fallback present.
 - **Signature unit:** FA Foundation FA0-01 deck linked (gamma.app) — FA Foundation page only.
 - **Testimonials:** tasteful Name + country flag + short quote + stars. No fabricated review counts.
@@ -83,7 +83,7 @@ Each `<body data-course="{id}" class="light-hero">` drives per-course accent via
 
 **Desktop (1440px):** hero + gold spec panel (7 check rows, badges, accent + glass buttons, photo scrim — all legible); neon-splash glow renders correctly and is now contained; benefit/why cards, faculty carousel (real portraits + cities + bios + head-of-school + advisor CTA), syllabus lesson cards (numbered, French titles, location pins, accent rail), testimonials auto-scroll, FAQ accordion open/close all verified.
 
-**Mobile (375px):** stacked hero, full at-a-glance spec panel (all 7 rows incl. "See plans below"), mid-CTA stat band (24/7 Juliane · 8–10 eTeacher · $100 credit + Acadomia certificate), syllabus carousel (cards scroll horizontally, next card peeks), FAQ accordion toggles on tap (functionally verified `is-open` false→true). LSF Foundation verified rendering its distinct Parisian-pink accent vs FA gold with identical structure.
+**Mobile (375px):** stacked hero, full at-a-glance spec panel (all 7 rows incl. "See plans below"), mid-CTA stat band (24/7 Julien · 8–10 eTeacher · $100 credit + Acadomia certificate), syllabus carousel (cards scroll horizontally, next card peeks), FAQ accordion toggles on tap (functionally verified `is-open` false→true). LSF Foundation verified rendering its distinct Parisian-pink accent vs FA gold with identical structure.
 
 **Overflow:** horizontal overflow checked programmatically on **all 7 pages at 375px** → `scrollWidth - clientWidth = 0` on every page after the `.neon-splash` clip fix (was +42px before).
 
