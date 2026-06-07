@@ -204,12 +204,9 @@
     }
     document.querySelectorAll('video').forEach(function(v){
       if(isAmbient(v))return;
-      if(isJulienCutout(v)){
-        // Julien cutouts have no audio track — attach a companion French audio so the toggle is meaningful.
-        attachToggle(v, JULIEN_AUDIO);
-      } else {
-        attachToggle(v, null);
-      }
+      // Julien cutouts are silent ambient animations (no lip-sync source) — leave them silent like other ambient video.
+      if(isJulienCutout(v))return;
+      attachToggle(v, null);
     });
   })();
 })();
