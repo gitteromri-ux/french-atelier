@@ -417,6 +417,16 @@
       active = key;
       if(hint) hint.classList.add('is-hidden');
       updateArrows(r);
+      // Mobile: smooth-scroll revealed slider into view so user isn't blocked
+      // by the other cluster card sitting between them and the courses.
+      if(window.matchMedia && window.matchMedia('(max-width:760px)').matches){
+        window.setTimeout(function(){
+          try{
+            var top = r.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({top: top, behavior: 'smooth'});
+          }catch(e){}
+        }, 320);
+      }
     }
 
     btns.forEach(function(b){

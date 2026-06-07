@@ -1,0 +1,264 @@
+/* ==========================================================================
+   MOBILE FIX — June 7, 2026
+   CEO mobile review feedback — applied as a final override stylesheet.
+   Loaded LAST after fa.css / mapstr.css / course.css.
+   Scope: viewports <= 760px (and a few selectors <= 430px).
+   ========================================================================== */
+
+/* ─────────────────────────────────────────────────────────────────
+   1) RESEARCH CITATION CARDS  (Piccardo · Council of Europe · …)
+      Were ghosted: tiny pulsing gold text on cream → unreadable.
+      Fix: strong navy text, no pulse on mobile, full-width tappable,
+      proper card visual + arrow chevron.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .sorb-v4 .sorb-cred{
+    padding: 1.6rem 0 .5rem;
+  }
+  .sorb-v4 .sorb-cred-lab{
+    font-size: .7rem !important;
+    color: #C8A96B !important;
+    margin-bottom: 1rem !important;
+  }
+  .sorb-v4 .sorb-cred-links{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: .8rem !important;
+    max-width: 100% !important;
+    padding: 0 4px;
+  }
+  .sorb-v4 .sorb-cite{
+    /* kill the pulsing washed-out glow on mobile */
+    animation: none !important;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem 1.2rem !important;
+    font-size: .92rem !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #0A1128 !important;             /* deep navy = readable */
+    background: #FFFCF4 !important;        /* solid bright cream */
+    border: 1.5px solid #C8A96B !important;
+    border-radius: 14px !important;
+    text-align: left !important;
+    box-shadow:
+      0 2px 8px rgba(10,17,40,.10),
+      0 1px 0 rgba(255,255,255,.6) inset !important;
+    letter-spacing: .005em !important;
+    text-transform: none !important;
+  }
+  .sorb-v4 .sorb-cite::after{
+    content: "→" !important;
+    margin-left: .8rem !important;
+    opacity: 1 !important;
+    color: #C8A96B !important;
+    font-size: 1.1em !important;
+    font-weight: 700 !important;
+    flex-shrink: 0;
+  }
+  /* disclaimer pull-up */
+  .sorb-v4 .sorb-disclaimer{
+    font-size: .78rem !important;
+    line-height: 1.55 !important;
+    padding: 0 .4rem;
+    margin-top: 1rem !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   2) CULTURE PILLARS  — horizontal scroll-snap rail on mobile
+      Was a 6-tall vertical stack (massive scroll). Now a swipe rail.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  #culture .pillars-grid{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 16px 16px !important;
+    margin: 0 -16px !important;       /* bleed edge-to-edge */
+  }
+  #culture .pillars-grid::-webkit-scrollbar{ display:none; }
+  #culture .pillar{
+    flex: 0 0 78vw !important;
+    width: 78vw !important;
+    scroll-snap-align: center !important;
+    min-height: 360px;
+  }
+  /* swipe hint */
+  #culture .culture-head::after{
+    content: "← swipe →";
+    display: block;
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(200,169,107,.7);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   3) CARD COLOR VARIATION
+      User: "too many cards same colors". Tint each pillar differently,
+      tint research links subtly different per index, and give culture
+      pillar bodies distinguishable accent borders/gradients.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  /* Six culture pillars get six different accent strips at the top */
+  #culture .pillar:nth-child(1) .pillar-body{ border-top: 3px solid #C8A96B; }   /* gold */
+  #culture .pillar:nth-child(2) .pillar-body{ border-top: 3px solid #8C1E28; }   /* terra-deep */
+  #culture .pillar:nth-child(3) .pillar-body{ border-top: 3px solid #2FA4FF; }   /* neon blue */
+  #culture .pillar:nth-child(4) .pillar-body{ border-top: 3px solid #E498A6; }   /* rose */
+  #culture .pillar:nth-child(5) .pillar-body{ border-top: 3px solid #BEA37B; }   /* sand */
+  #culture .pillar:nth-child(6) .pillar-body{ border-top: 3px solid #4A2818; }   /* espresso */
+
+  /* Research citations alternate cream/ivory/pale-rose */
+  .sorb-v4 .sorb-cite:nth-child(1){ background: #FFFCF4 !important; border-color:#C8A96B !important; }
+  .sorb-v4 .sorb-cite:nth-child(2){ background: #FFF3E8 !important; border-color:#BEA37B !important; }
+  .sorb-v4 .sorb-cite:nth-child(3){ background: #FAF1FF !important; border-color:#A07BB8 !important; }
+  .sorb-v4 .sorb-cite:nth-child(4){ background: #F0F6FF !important; border-color:#5C8FCF !important; }
+
+  /* Principle cards (01/02/03) get distinct left rules */
+  .sorb-pr:nth-child(1){ border-left: 3px solid #C8A96B !important; }
+  .sorb-pr:nth-child(2){ border-left: 3px solid #E498A6 !important; }
+  .sorb-pr:nth-child(3){ border-left: 3px solid #2FA4FF !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   4) COURSE CLUSTER CARDS (FA / LSF) — hover-to-expand fix on mobile
+      User: when you tap a cluster card, the OTHER card blocks the
+      revealed slider. Fix: when a cluster is active, collapse the
+      other cluster card visually and auto-scroll the slider into view.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .cls-cards{ gap:.85rem !important; }
+  .cls-card{
+    min-height: 140px !important;
+    padding: 1.4rem 1.3rem 1.2rem !important;
+  }
+  .cls-card-title{ font-size: 1.6rem !important; }
+  .cls-card-sub{ font-size: .92rem !important; }
+  .cls-card-meta{ margin-top: .8rem !important; padding-top: .8rem !important; gap: .4rem 0 !important; }
+  .cls-meta-item{ padding: 0 .55rem !important; }
+
+  /* When ANY cluster is active, shrink the non-active card so it
+     doesn't visually block the revealed slider directly underneath. */
+  .cls-cards:has(.cls-card.is-active) .cls-card:not(.is-active){
+    min-height: 0 !important;
+    padding: .85rem 1.1rem !important;
+    opacity: .55;
+  }
+  .cls-cards:has(.cls-card.is-active) .cls-card:not(.is-active) .cls-card-sub,
+  .cls-cards:has(.cls-card.is-active) .cls-card:not(.is-active) .cls-card-meta{
+    display: none !important;
+  }
+  .cls-cards:has(.cls-card.is-active) .cls-card:not(.is-active) .cls-card-title{
+    font-size: 1.05rem !important;
+  }
+
+  /* Reveal panel: tighten and ensure full course card visible */
+  .cls-reveal{ margin-top: 1rem !important; }
+  .cls-rail{ padding: 0 4px !important; }
+  .cls-course{
+    flex: 0 0 86vw !important;
+    width: 86vw !important;
+    border-radius: 14px !important;
+  }
+  .cls-course-body{ padding: 1rem 1.1rem 1.2rem !important; }
+  .cls-course-name{ font-size: 1.45rem !important; }
+  .cls-course-hook{ font-size: .92rem !important; line-height: 1.5 !important; }
+
+  /* Arrows: floating over the rail */
+  .cls-slider{ position: relative; }
+  .cls-arrow{
+    position: absolute !important;
+    top: 38% !important;
+    width: 38px !important; height: 38px !important;
+    z-index: 6;
+    background: rgba(10,17,40,.92) !important;
+    color: #C8A96B !important;
+    border: 1px solid #C8A96B !important;
+    border-radius: 50% !important;
+  }
+  .cls-arrow-prev{ left: 4px !important; }
+  .cls-arrow-next{ right: 4px !important; }
+  .cls-arrow svg{ width: 16px; height: 16px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   5) MAPSTR  — fix tiny map + bug "Montmartre" panel overlap on mobile
+      User: "mapstr map tiny, bug card tiny image appear. map not visible"
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  #mapstr-mount{ padding: 0; }
+  .ms-stage{
+    height: 64vh !important;
+    min-height: 460px !important;
+    border-radius: 16px !important;
+  }
+  /* zoom controls — push to bottom-right, smaller, less obstructive */
+  .ms-zoom, .ms-zoom-controls, .mapboxgl-ctrl-top-right, .leaflet-control-zoom{
+    top: auto !important;
+    bottom: 92px !important;
+    right: 10px !important;
+    transform: scale(.85);
+    transform-origin: bottom right;
+  }
+  /* Place photo pop-up: smaller and never blocks the map center */
+  .ms-photo-pop{
+    width: 40vw !important;
+    max-width: 180px !important;
+    top: 12px !important;
+    left: 12px !important;
+    border-radius: 12px !important;
+  }
+  /* The detail panel: anchor to bottom sheet style, never cover the map fully */
+  .ms-panel{
+    max-height: 56% !important;
+    border-radius: 18px 18px 0 0 !important;
+    padding: 1.1rem 1.1rem 1.4rem !important;
+    overflow-y: auto !important;
+  }
+  .ms-panel-city, .ms-panel h3{ font-size: 1.45rem !important; }
+  .ms-panel-region, .ms-panel-meta{ font-size: .8rem !important; }
+  /* Tap-to-close affordance */
+  .ms-panel-close{
+    width: 38px !important; height: 38px !important;
+    top: 10px !important; right: 10px !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   6) PRINCIPLE CARDS  — were running into the next card on mobile
+      ("once each card clicked on in mobile, other card blocks").
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .sorb-principles{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+  .sorb-pr{
+    padding: 1.3rem 1.2rem !important;
+    background: rgba(255,255,255,.04) !important;
+    border-radius: 14px !important;
+  }
+  .sorb-pr-tt{ font-size: 1.45rem !important; margin: .3rem 0 .5rem !important; }
+  .sorb-pr-tx{ font-size: .92rem !important; line-height: 1.55 !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   7) HERO TYPOGRAPHY + LEADS  — tighten on small screens
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .sorb-v4 .sorb-title{ font-size: 2rem !important; line-height: 1.12 !important; }
+  .sorb-v4 .sorb-eyebrow{ font-size: .68rem !important; }
+  .sorb-v4 .sorb-sub{ font-size: .98rem !important; line-height: 1.55 !important; }
+  .hiw3-title{ font-size: 2rem !important; line-height: 1.12 !important; }
+  .display-md{ font-size: 1.85rem !important; line-height: 1.1 !important; }
+  .lede, .lede-c{ font-size: 1rem !important; line-height: 1.55 !important; }
+}
