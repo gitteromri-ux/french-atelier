@@ -117,12 +117,12 @@
     v.loop=true; v.play().catch(function(){});
   });
 
-  // ===== Site-wide video speed-up: every <video> plays at 4x (NO resolution change) =====
+  // ===== Site-wide video playback: normal speed (1x) =====
   // Browsers reset playbackRate on source/metadata changes, so we reapply on
   // loadedmetadata, loadeddata and play. We also force muted + autoplay so the
-  // 4x ambient clips actually fire (autoplay requires muted).
+  // ambient clips actually fire (autoplay requires muted).
   (function(){
-    var RATE=4;
+    var RATE=1;
     function applyRate(v){ try{ v.playbackRate=RATE; v.defaultPlaybackRate=RATE; }catch(e){} }
     document.querySelectorAll('video').forEach(function(v){
       applyRate(v);
