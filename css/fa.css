@@ -2916,3 +2916,59 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
 @media (max-width: 600px){
   .fa-sound-btn{ bottom:10px; right:10px; padding:.45rem .7rem; font-size:.65rem; }
 }
+
+/* ============================================================
+   HERO POLISH — smaller refined headline + premium CTA
+   ============================================================ */
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(2.4rem, 4.6vw, 4.4rem);
+  line-height:1.05;
+  letter-spacing:-.012em;
+  font-weight:500;
+  max-width:18ch;
+  margin:0 0 1.4rem;
+}
+.hero h1 .gold-ital{
+  font-style:italic;
+  font-weight:400;
+  background:linear-gradient(135deg,#e6c98a 0%,#c8a560 55%,#a98545 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+.hero .hero-content{max-width:760px}
+.hero-sub{
+  font-size:clamp(1rem,1.2vw,1.15rem);
+  line-height:1.7;
+  max-width:50ch;
+  margin-bottom:2rem;
+  color:rgba(245,240,225,.82);
+}
+.hero-ctas .btn-gold.btn-lg{
+  padding:1.05rem 2.4rem;
+  font-size:.74rem;
+  letter-spacing:.22em;
+  border-radius:6px;
+  background:linear-gradient(135deg,#e6c98a 0%,#c8a560 50%,#a98545 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.45) inset,
+    0 -1px 0 rgba(0,0,0,.18) inset,
+    0 12px 28px -10px rgba(170,140,85,.55),
+    0 2px 6px -2px rgba(0,0,0,.4);
+  border:1px solid rgba(230,201,138,.6);
+  text-shadow:0 1px 0 rgba(255,255,255,.25);
+}
+.hero-ctas .btn-gold.btn-lg:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 -1px 0 rgba(0,0,0,.18) inset,
+    0 18px 36px -12px rgba(170,140,85,.7),
+    0 4px 10px -2px rgba(0,0,0,.45);
+}
+/* Gold italic span: cleaner kerning in headline */
+.hero h1 br{display:block}
+@media (max-width:780px){
+  .hero h1{font-size:clamp(2rem,8vw,2.8rem);max-width:16ch}
+  .hero .hero-content{max-width:100%}
+}
