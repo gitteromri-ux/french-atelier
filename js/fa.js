@@ -432,6 +432,23 @@
         if(active){ closePanel(active); }
         openPanel(key);
       });
+
+      /* ---- Hover-to-expand (1.2s dwell) ---- */
+      var hoverTimer = null;
+      var HOVER_DELAY = 1200;
+      b.addEventListener('mouseenter', function(){
+        var key = b.getAttribute('data-cluster');
+        if(active === key) return;
+        if(hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function(){
+          if(active === key) return;
+          if(active){ closePanel(active); }
+          openPanel(key);
+        }, HOVER_DELAY);
+      });
+      b.addEventListener('mouseleave', function(){
+        if(hoverTimer){ clearTimeout(hoverTimer); hoverTimer = null; }
+      });
     });
 
     /* ---- Slider: arrows ---- */

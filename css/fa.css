@@ -3131,3 +3131,329 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
   font-weight: 300;
   font-style: italic;
 }
+
+/* ============================================================
+   SORB v5 — IVORY ACADEMIC PRESTIGE (palette overhaul)
+   Cream paper background + deep burgundy ink + antique gold rule
+   Replaces v4 navy. Same structural classes.
+   ============================================================ */
+.sorb.sorb-v4{
+  padding: clamp(3.8rem, 6vw, 5.2rem) 0;
+  color: #1a1410;
+  background:
+    /* subtle paper texture */
+    radial-gradient(110% 80% at 50% 0%, rgba(193,154,107,.18), transparent 55%),
+    radial-gradient(80% 70% at 100% 100%, rgba(140,30,40,.06), transparent 60%),
+    linear-gradient(180deg, #f9f3e7 0%, #f4ecd8 100%);
+  border-top: 1px solid rgba(140,30,40,.18);
+  border-bottom: 1px solid rgba(140,30,40,.18);
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle engraved-paper grid */
+.sorb.sorb-v4::before{
+  content: "";
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(140,30,40,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,30,40,.05) 1px, transparent 1px);
+  background-size: 88px 88px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+          mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  opacity: .55;
+}
+/* Decorative corner ornaments — copper-gold flourish */
+.sorb.sorb-v4::after{
+  content: "";
+  position: absolute;
+  top: 24px; left: 24px; right: 24px; bottom: 24px;
+  border: 1px solid rgba(140,30,40,.16);
+  pointer-events: none;
+  z-index: 1;
+}
+.sorb-v4 .wrap{ position: relative; z-index: 2; }
+
+.sorb-v4 .sorb-head{
+  max-width: 920px;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+}
+
+.sorb-v4 .sorb-eyebrow{
+  font-family: var(--sans);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: #8c1e28;
+  margin: 0 0 1.2rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.6rem;
+}
+.sorb-v4 .sorb-eyebrow::before,
+.sorb-v4 .sorb-eyebrow::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 56px; height: 1px;
+  background: linear-gradient(90deg, transparent, #b8924f 50%, transparent);
+}
+.sorb-v4 .sorb-eyebrow::before{ right: 100%; }
+.sorb-v4 .sorb-eyebrow::after{ left: 100%; }
+
+.sorb-v4 .sorb-title{
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  line-height: 1.14;
+  letter-spacing: -.012em;
+  font-weight: 500;
+  color: #1a1410;
+  margin: 0;
+  max-width: 28ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  -webkit-text-fill-color: currentColor;
+}
+.sorb-v4 .sorb-title .gold-ital{
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, #b8924f 0%, #8b6b2f 50%, #6b4f1d 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.sorb-v4 .sorb-sub{
+  font-family: var(--sans);
+  font-size: clamp(.98rem, 1.15vw, 1.1rem);
+  line-height: 1.66;
+  color: rgba(26,20,16,.72);
+  font-weight: 400;
+  margin: 1.1rem auto 0;
+  max-width: 62ch;
+}
+
+/* Premium ivory cards with burgundy hairline + antique-gold accents */
+.sorb-v4 .sorb-principles{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.sorb-v4 .sorb-pr{
+  position: relative;
+  background:
+    linear-gradient(180deg, #fffaef 0%, #f6ecd6 100%);
+  border: 1px solid rgba(140,30,40,.22);
+  border-radius: 4px;  /* sharper, more academic */
+  padding: 1.7rem 1.6rem 1.7rem;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.7) inset,
+    0 -1px 0 rgba(140,30,40,.06) inset,
+    0 12px 28px -16px rgba(85,40,20,.22);
+}
+.sorb-v4 .sorb-pr::before{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #b8924f 25%, #8c1e28 50%, #b8924f 75%, transparent 100%);
+  opacity: .9;
+}
+.sorb-v4 .sorb-pr::after{ display: none; }
+.sorb-v4 .sorb-pr:hover{
+  transform: translateY(-5px);
+  border-color: rgba(140,30,40,.42);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 22px 44px -18px rgba(85,40,20,.32),
+    0 0 0 1px rgba(184,146,79,.25) inset;
+}
+.sorb-v4 .sorb-pr-no{
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #b8924f 0%, #8c1e28 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin: 0 0 .5rem;
+  letter-spacing: .02em;
+  font-variant-numeric: lining-nums;
+}
+.sorb-v4 .sorb-pr-fr{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: .96rem;
+  color: #8c1e28;
+  opacity: .85;
+  display: block;
+  margin: 0 0 .45rem;
+  letter-spacing: .01em;
+}
+.sorb-v4 .sorb-pr-tt{
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  line-height: 1.18;
+  font-weight: 600;
+  color: #1a1410;
+  margin: 0 0 .65rem;
+  letter-spacing: -.005em;
+}
+.sorb-v4 .sorb-pr-tx{
+  font-family: var(--sans);
+  font-size: .92rem;
+  line-height: 1.58;
+  color: rgba(26,20,16,.7);
+  font-weight: 400;
+  margin: 0;
+}
+@media (max-width: 860px){
+  .sorb-v4 .sorb-principles{ grid-template-columns: 1fr; max-width: 520px; gap: 1rem; }
+  .sorb.sorb-v4::after{ top: 14px; left: 14px; right: 14px; bottom: 14px; }
+}
+
+.sorb-v4 .sorb-disclaimer{
+  margin: 2.4rem auto 0;
+  max-width: 72ch;
+  font-family: var(--sans);
+  font-size: .72rem;
+  line-height: 1.55;
+  text-align: center;
+  color: rgba(26,20,16,.46);
+  font-weight: 400;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   COURSES CTA — PREMIUM NEON PILL (drop-in upgrade)
+   Wraps the existing .cls-card-action so the "Explore the X courses"
+   label is impossible to miss and signals interactivity.
+   ============================================================ */
+.cls-card-action{
+  margin-top: 1.4rem;
+  padding-top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  align-self: flex-start;
+  padding: .85rem 1.5rem .85rem 1.7rem;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1.5px solid rgba(255,255,255,.55);
+  position: relative;
+  overflow: visible;
+  transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 0 18px rgba(255,255,255,.18),
+    0 0 36px -8px rgba(255,255,255,.32);
+  backdrop-filter: blur(6px);
+}
+/* FA card → antique gold neon */
+.cls-card-fa .cls-card-action{
+  color: #f8e8c4;
+  border-color: rgba(232,200,140,.7);
+  background: linear-gradient(135deg, rgba(232,200,140,.14), rgba(232,200,140,.02));
+  box-shadow:
+    0 0 0 1px rgba(232,200,140,.16) inset,
+    0 0 22px rgba(232,200,140,.5),
+    0 0 48px -6px rgba(232,200,140,.55),
+    0 0 70px -14px rgba(232,200,140,.4);
+  text-shadow: 0 0 8px rgba(232,200,140,.5);
+}
+/* LSF card → magenta-pink neon (matches LSF accent) */
+.cls-card-lsf .cls-card-action{
+  color: #ffeaf0;
+  border-color: rgba(255,138,168,.7);
+  background: linear-gradient(135deg, rgba(255,138,168,.14), rgba(255,138,168,.02));
+  box-shadow:
+    0 0 0 1px rgba(255,138,168,.16) inset,
+    0 0 22px rgba(255,138,168,.5),
+    0 0 48px -6px rgba(255,138,168,.55),
+    0 0 70px -14px rgba(255,138,168,.4);
+  text-shadow: 0 0 8px rgba(255,138,168,.5);
+}
+/* Hover: amplify glow + pulse */
+.cls-card:hover .cls-card-action,
+.cls-card.is-active .cls-card-action{
+  transform: translateY(-2px);
+}
+.cls-card-fa:hover .cls-card-action,
+.cls-card-fa.is-active .cls-card-action{
+  border-color: rgba(232,200,140,1);
+  background: linear-gradient(135deg, rgba(232,200,140,.28), rgba(232,200,140,.08));
+  box-shadow:
+    0 0 0 1px rgba(232,200,140,.3) inset,
+    0 0 32px rgba(232,200,140,.7),
+    0 0 60px -4px rgba(232,200,140,.75),
+    0 0 90px -10px rgba(232,200,140,.55);
+}
+.cls-card-lsf:hover .cls-card-action,
+.cls-card-lsf.is-active .cls-card-action{
+  border-color: rgba(255,138,168,1);
+  background: linear-gradient(135deg, rgba(255,138,168,.28), rgba(255,138,168,.08));
+  box-shadow:
+    0 0 0 1px rgba(255,138,168,.3) inset,
+    0 0 32px rgba(255,138,168,.7),
+    0 0 60px -4px rgba(255,138,168,.75),
+    0 0 90px -10px rgba(255,138,168,.55);
+}
+
+/* Larger chevron, brighter glow */
+.cls-card-chevron{
+  width: 26px; height: 26px;
+  border-width: 1.5px;
+  border-color: currentColor;
+  opacity: .9;
+}
+.cls-card-fa .cls-card-chevron{ border-color: rgba(232,200,140,.85); }
+.cls-card-lsf .cls-card-chevron{ border-color: rgba(255,138,168,.85); }
+
+/* Slow ambient pulse to attract the eye */
+@keyframes cls-cta-pulse-fa{
+  0%, 100% { box-shadow: 0 0 0 1px rgba(232,200,140,.16) inset, 0 0 22px rgba(232,200,140,.5), 0 0 48px -6px rgba(232,200,140,.55), 0 0 70px -14px rgba(232,200,140,.4); }
+  50%      { box-shadow: 0 0 0 1px rgba(232,200,140,.22) inset, 0 0 32px rgba(232,200,140,.7), 0 0 62px -4px rgba(232,200,140,.7), 0 0 95px -10px rgba(232,200,140,.55); }
+}
+@keyframes cls-cta-pulse-lsf{
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,138,168,.16) inset, 0 0 22px rgba(255,138,168,.5), 0 0 48px -6px rgba(255,138,168,.55), 0 0 70px -14px rgba(255,138,168,.4); }
+  50%      { box-shadow: 0 0 0 1px rgba(255,138,168,.22) inset, 0 0 32px rgba(255,138,168,.7), 0 0 62px -4px rgba(255,138,168,.7), 0 0 95px -10px rgba(255,138,168,.55); }
+}
+.cls-card-fa .cls-card-action{ animation: cls-cta-pulse-fa 3.4s ease-in-out infinite; }
+.cls-card-lsf .cls-card-action{ animation: cls-cta-pulse-lsf 3.4s ease-in-out infinite; }
+.cls-card:hover .cls-card-action,
+.cls-card.is-active .cls-card-action{ animation: none; }
+
+@media (prefers-reduced-motion: reduce){
+  .cls-card-action{ animation: none !important; }
+}
+
+/* Indicate hover-to-expand affordance */
+.cls-card{ cursor: pointer; }
+
+/* Make the "open" hint stronger and brighter */
+.cls-hint{
+  font-size: .76rem !important;
+  letter-spacing: .22em !important;
+  color: var(--gold-deep) !important;
+  opacity: .85;
+}

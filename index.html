@@ -23,8 +23,10 @@
 .hero-content h1,.hero-content .hero-sub,.hero-content .hero-ctas{margin-left:0;text-align:left}
 .hero-content .hero-ctas{justify-content:flex-start}
 .hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--gold-soft);margin-bottom:1rem}
-.hero h1{font-size:clamp(2.4rem,4.6vw,4.4rem);line-height:1.06;letter-spacing:-.012em;font-weight:500;max-width:18ch;margin:0 0 1.4rem}
-.hero-sub{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--on-dark-soft);max-width:46ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
+/* Push hero text further left toward viewport edge, slightly larger */
+.hero .wrap{max-width:none;padding-left:clamp(2rem, 5vw, 5.5rem);padding-right:2rem}
+.hero h1{font-size:clamp(2.8rem,5.6vw,5.2rem);line-height:1.06;letter-spacing:-.012em;font-weight:500;max-width:17ch;margin:0 0 1.5rem}
+.hero-sub{font-size:clamp(1.15rem,1.65vw,1.4rem);color:var(--on-dark-soft);max-width:48ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 .hero-live{position:absolute;bottom:2.4rem;left:0;right:0;z-index:3}
 .hero-live .wrap{display:flex;align-items:center;gap:.7rem;color:var(--on-dark-soft);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase}
@@ -403,8 +405,8 @@
 <section class="sorb sorb-v4" id="method-fold" aria-labelledby="sorb-title">
   <div class="wrap">
     <div class="sorb-head reveal">
-      <p class="sorb-eyebrow">The Science Behind the Method</p>
-      <h2 class="sorb-title" id="sorb-title">A method <span class="gold-ital">built on European research</span> &mdash; so you speak from day one.</h2>
+      <p class="sorb-eyebrow">A Research-Grade Curriculum</p>
+      <h2 class="sorb-title" id="sorb-title">Designed Curriculum,<br><span class="gold-ital">based upon the Sorbonne</span><br>linguistics research &amp; methodologies.</h2>
       <p class="sorb-sub">Action-oriented, communicative learning &mdash; grounded in the applied-linguistics tradition of the Sorbonne and the Common European Framework (CEFR). You don&rsquo;t study French. You act in it.</p>
     </div>
 
@@ -504,164 +506,6 @@
   </div>
 </section>
 
-
-<!-- ===== COURSES SHOWCASE (two clickable cluster cards → reveal horizontal slider) ===== -->
-
-<!-- ===== MEET OUR TEACHERS — Premium Faculty Section ===== -->
-<section class="section-pad bg-ivory" id="teachers">
-  <div class="wrap">
-
-    <div class="tctr-head reveal">
-      <p class="eyebrow eyebrow-line" style="justify-content:center">Meet Our Faculty</p>
-      <h2 class="display-md" style="margin:1.2rem 0">Native teachers, from <span class="gold-ital">every corner</span> of France</h2>
-      <p class="lede lede-c" style="max-width:58ch;margin:0 auto">Strasbourg, Paris, Nice, Pau — each certified teacher lives and broadcasts from a different French region. Native speakers. Certified educators. Real accents, real culture, in every live class.</p>
-    </div>
-
-    <!-- Faculty badge strip -->
-    <div class="tctr-badges reveal reveal-d1">
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        Native certified teachers
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Live from France
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Groups of 8–10
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        8 French regions
-      </span>
-    </div>
-
-    <!-- LARGE PORTRAIT GALLERY — all 8 teachers -->
-    <div class="fac-gallery reveal reveal-d2">
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/carmele.png" alt="Carmèle, French teacher from Paris" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/corentin.png" alt="Corentin, French teacher from Pau" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Corentin</p><span class="fac-region">Pau</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/iris.png" alt="Iris Linza, French teacher from Lyon" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Iris Linza</p><span class="fac-region">Lyon</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/shanice.png" alt="Shanice, French teacher from Montpellier" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/stan.png" alt="Stan, French teacher from Nice" loading="lazy"></div>
-        <div class="fac-info"><p class="fac-name">Stan</p><span class="fac-region">Nice</span></div>
-      </a>
-    </div><!-- /fac-gallery -->
-
-    <div style="text-align:center;margin-top:3rem" class="reveal">
-      <a href="teachers.html" class="btn btn-outline">Meet the Full Faculty</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== WATCH A REAL CLASS ===== -->
-<section class="section-pad bg-navy-deep on-dark">
-  <div class="wrap split split-wide">
-    <div class="reveal reveal-d1">
-      <div class="sound-video" data-soundvideo>
-        <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
-          <source src="assets/video/demo-class.mp4" type="video/mp4">
-        </video>
-        <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-          <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
-        </button>
-      </div>
-      <p class="img-caption">A real live class — Discover French with Philippe, from West Paris.</p>
-    </div>
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">What Sets Us Apart</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Watch a real <span class="gold-ital">30-minute class</span></h2>
-      <p class="lede">No scripts, no pre-recordings. See exactly what it's like to learn French live from France — the warmth, the energy, and the real conversation that happen in every class.</p>
-      <a href="how-it-works.html" class="btn btn-outline" style="margin-top:1.2rem">How Classes Work</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LIVE FROM FRANCE (regions band) ===== -->
-<section class="video-band on-dark">
-  <div class="video-bg">
-    <video poster="assets/video/paris-cityscape-poster.jpg" autoplay loop muted playsinline preload="metadata">
-      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Your Lessons, Broadcast Live</p>
-    <h2 class="display-md" style="margin:1.2rem 0">From the heart of <span class="gold-ital">France</span></h2>
-    <p class="lede">Paris, Bordeaux, Provence, the Alps, the Côte d'Azur — every live lesson is broadcast from the places where French is truly lived. You don't just study the language; you step into it.</p>
-    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
-  </div></div>
-</section>
-
-<!-- ===== SIX-PILLAR CULTURE (motion-video brand statement · dark immersive fold) ===== -->
-<!-- ============================================================
-     MAPSTR SIGNATURE FOLD — self-contained engine (js/mapstr.js + css/mapstr.css)
-     Renders the interactive France map, city hover popovers, click panels,
-     animated route, and course links itself. Single clean mount — no dupes.
-     ============================================================ -->
-<section class="section-pad-0" id="mapstr" aria-label="Interactive map of France">
-  <div id="mapstr-mount"></div>
-</section>
-
-<!-- ============================================================
-     SORBONNE METHODOLOGY FOLD — rebuilt LIGHT & on-brand (V3)
-     Matches site typography (Cormorant headings, Inter body),
-     beige surface, navy/gold text, gold accents, .wrap width.
-     Trust = TEXT only; no Sorbonne logo/partnership claim.
-     Disclaimer kept verbatim.
-     ============================================================ -->
-
-<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
-<section class="ac-power" id="acadomia-power">
-  <div class="wrap">
-    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
-    <h2 class="ac-power-head reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
-    <div class="ac-power-figs reveal reveal-d2">
-      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
-      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
-      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
-    </div>
-    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
-      <div class="ac-marquee-track">
-        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
-        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== HOW IT WORKS — Cinematic learning journey (V3 rebuild) ===== -->
 <section class="hiw3-section" id="how-it-works">
@@ -770,6 +614,184 @@
     </div>
   </div>
 </section>
+
+
+
+<!-- ===== COURSES SHOWCASE (two clickable cluster cards → reveal horizontal slider) ===== -->
+
+<!-- ===== MEET OUR TEACHERS — Premium Faculty Section ===== -->
+<section class="section-pad bg-ivory" id="teachers">
+  <div class="wrap">
+
+    <div class="tctr-head reveal">
+      <p class="eyebrow eyebrow-line" style="justify-content:center">Meet Our Faculty</p>
+      <h2 class="display-md" style="margin:1.2rem 0">Native teachers, from <span class="gold-ital">every corner</span> of France</h2>
+      <p class="lede lede-c" style="max-width:58ch;margin:0 auto">Strasbourg, Paris, Nice, Pau — each certified teacher lives and broadcasts from a different French region. Native speakers. Certified educators. Real accents, real culture, in every live class.</p>
+    </div>
+
+    <!-- Faculty badge strip -->
+    <div class="tctr-badges reveal reveal-d1">
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Native certified teachers
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Live from France
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Groups of 8–10
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        8 French regions
+      </span>
+    </div>
+
+    <!-- LARGE PORTRAIT GALLERY — all 8 teachers -->
+    <div class="fac-gallery reveal reveal-d2">
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/carmele.png" alt="Carmèle, French teacher from Paris" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/corentin.png" alt="Corentin, French teacher from Pau" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Corentin</p><span class="fac-region">Pau</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/iris.png" alt="Iris Linza, French teacher from Lyon" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Iris Linza</p><span class="fac-region">Lyon</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/shanice.png" alt="Shanice, French teacher from Montpellier" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/stan.png" alt="Stan, French teacher from Nice" loading="lazy"></div>
+        <div class="fac-info"><p class="fac-name">Stan</p><span class="fac-region">Nice</span></div>
+      </a>
+    </div><!-- /fac-gallery -->
+
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="teachers.html" class="btn btn-outline">Meet the Full Faculty</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== WATCH A REAL CLASS ===== -->
+<section class="section-pad bg-navy-deep on-dark">
+  <div class="wrap split split-wide">
+    <div class="reveal reveal-d1">
+      <div class="sound-video" data-soundvideo>
+        <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
+          <source src="assets/video/demo-class.mp4" type="video/mp4">
+        </video>
+        <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
+          <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
+        </button>
+      </div>
+      <p class="img-caption">A real live class — Discover French with Philippe, from West Paris.</p>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow eyebrow-line">What Sets Us Apart</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Watch a real <span class="gold-ital">30-minute class</span></h2>
+      <p class="lede">No scripts, no pre-recordings. See exactly what it's like to learn French live from France — the warmth, the energy, and the real conversation that happen in every class.</p>
+      <a href="how-it-works.html" class="btn btn-outline" style="margin-top:1.2rem">How Classes Work</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SIX-PILLAR CULTURE (motion-video brand statement · dark immersive fold) ===== -->
+<!-- ============================================================
+     MAPSTR SIGNATURE FOLD — self-contained engine (js/mapstr.js + css/mapstr.css)
+     Renders the interactive France map, city hover popovers, click panels,
+     animated route, and course links itself. Single clean mount — no dupes.
+     ============================================================ -->
+<section class="section-pad-0" id="mapstr" aria-label="Interactive map of France">
+  <div id="mapstr-mount"></div>
+</section>
+
+
+<!-- ===== LIVE FROM FRANCE (regions band) ===== -->
+<section class="video-band on-dark">
+  <div class="video-bg">
+    <video poster="assets/video/paris-cityscape-poster.jpg" autoplay loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Your Lessons, Broadcast Live</p>
+    <h2 class="display-md" style="margin:1.2rem 0">From the heart of <span class="gold-ital">France</span></h2>
+    <p class="lede">Paris, Bordeaux, Provence, the Alps, the Côte d'Azur — every live lesson is broadcast from the places where French is truly lived. You don't just study the language; you step into it.</p>
+    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
+  </div></div>
+</section>
+
+
+<!-- ===== JULIEN AI (brief) — transparent cutout, emerging from the section ===== -->
+<style>
+/* Self-contained styles for the homepage Julien fold (juliane.css is not loaded here) */
+.jul-home{position:relative;overflow:hidden;background:
+  radial-gradient(110% 90% at 22% 55%, rgba(28,34,56,.7) 0%, rgba(0,0,31,0) 60%),
+  linear-gradient(120deg,#00001F 0%,#000034 60%,#1C2238 100%);}
+.jul-home-glow{position:absolute;left:-6%;top:50%;transform:translateY(-50%);width:56%;height:110%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 52% 56% at 50% 48%,rgba(200,169,107,.18) 0%,rgba(200,169,107,.06) 40%,transparent 72%);filter:blur(6px);}
+.jul-home-split{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;}
+.jul-cutout-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
+.jul-cutout-wrap::before{content:'';position:absolute;inset:-6% -4% 4% -4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 56% 64% at 50% 42%,rgba(200,169,107,.20) 0%,rgba(200,169,107,.07) 40%,transparent 72%);filter:blur(6px);}
+.jul-cutout-wrap::after{content:'';position:absolute;left:50%;bottom:2%;transform:translateX(-50%);width:62%;height:5%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,16,.55) 0%,rgba(0,0,16,0) 70%);filter:blur(3px);}
+.jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;
+  filter:drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35));}
+.jul-cutout-badge{position:absolute;top:6%;left:4%;z-index:2;display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(0,0,31,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,169,107,.45);
+  padding:.5rem 1rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#D8BC85;border-radius:999px;}
+.jul-cutout-dot{width:7px;height:7px;border-radius:50%;background:#D8BC85;}
+.jul-home-points{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.9rem;}
+.jul-home-points li{display:flex;align-items:center;gap:.8rem;color:rgba(243,238,227,.78);font-size:1rem;line-height:1.5;}
+.jul-home-points li svg{width:22px;height:22px;flex:0 0 22px;color:#D8BC85;}
+@media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}}
+</style>
+<section class="section-pad jul-home on-dark">
+  <div class="jul-home-glow" aria-hidden="true"></div>
+  <div class="wrap jul-home-split">
+    <!-- Julien — transparent character cutout emerging from the navy section -->
+    <div class="reveal jul-cutout-wrap">
+      <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
+      <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+    </div>
+    <div class="reveal reveal-d1 jul-home-text">
+      <p class="eyebrow eyebrow-line">Practice Between Classes</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Meet <span class="gold-ital">Julien</span>, your 24/7 French coach</h2>
+      <p class="lede">Between live classes, Julien is your always-on AI French tutor inside the platform — ready the moment inspiration or insomnia strikes, in any timezone.</p>
+      <ul class="jul-home-points">
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pronunciation coaching, sound by sound</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant, non-judgmental corrections</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Real conversation practice on demand</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Available 24/7, always in French</li>
+      </ul>
+      <a href="juliane.html" class="btn btn-gold" style="margin-top:1.6rem">Discover Julien</a>
+    </div>
+  </div>
+</section>
+
 
 <!-- ===== eTEACHER GROUP PLATFORM — High-tech dashboard aesthetic ===== -->
 <section class="etg2-section" id="platform">
@@ -904,53 +926,42 @@
   </script>
 </section>
 
-<!-- ===== JULIEN AI (brief) — transparent cutout, emerging from the section ===== -->
-<style>
-/* Self-contained styles for the homepage Julien fold (juliane.css is not loaded here) */
-.jul-home{position:relative;overflow:hidden;background:
-  radial-gradient(110% 90% at 22% 55%, rgba(28,34,56,.7) 0%, rgba(0,0,31,0) 60%),
-  linear-gradient(120deg,#00001F 0%,#000034 60%,#1C2238 100%);}
-.jul-home-glow{position:absolute;left:-6%;top:50%;transform:translateY(-50%);width:56%;height:110%;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse 52% 56% at 50% 48%,rgba(200,169,107,.18) 0%,rgba(200,169,107,.06) 40%,transparent 72%);filter:blur(6px);}
-.jul-home-split{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;}
-.jul-cutout-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
-.jul-cutout-wrap::before{content:'';position:absolute;inset:-6% -4% 4% -4%;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 56% 64% at 50% 42%,rgba(200,169,107,.20) 0%,rgba(200,169,107,.07) 40%,transparent 72%);filter:blur(6px);}
-.jul-cutout-wrap::after{content:'';position:absolute;left:50%;bottom:2%;transform:translateX(-50%);width:62%;height:5%;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,16,.55) 0%,rgba(0,0,16,0) 70%);filter:blur(3px);}
-.jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;
-  filter:drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35));}
-.jul-cutout-badge{position:absolute;top:6%;left:4%;z-index:2;display:inline-flex;align-items:center;gap:.55rem;
-  background:rgba(0,0,31,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,169,107,.45);
-  padding:.5rem 1rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#D8BC85;border-radius:999px;}
-.jul-cutout-dot{width:7px;height:7px;border-radius:50%;background:#D8BC85;}
-.jul-home-points{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.9rem;}
-.jul-home-points li{display:flex;align-items:center;gap:.8rem;color:rgba(243,238,227,.78);font-size:1rem;line-height:1.5;}
-.jul-home-points li svg{width:22px;height:22px;flex:0 0 22px;color:#D8BC85;}
-@media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}}
-</style>
-<section class="section-pad jul-home on-dark">
-  <div class="jul-home-glow" aria-hidden="true"></div>
-  <div class="wrap jul-home-split">
-    <!-- Julien — transparent character cutout emerging from the navy section -->
-    <div class="reveal jul-cutout-wrap">
-      <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+
+<!-- ============================================================
+     SORBONNE METHODOLOGY FOLD — rebuilt LIGHT & on-brand (V3)
+     Matches site typography (Cormorant headings, Inter body),
+     beige surface, navy/gold text, gold accents, .wrap width.
+     Trust = TEXT only; no Sorbonne logo/partnership claim.
+     Disclaimer kept verbatim.
+     ============================================================ -->
+
+<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
+<section class="ac-power" id="acadomia-power">
+  <div class="wrap">
+    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
+    <h2 class="ac-power-head reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
+    <div class="ac-power-figs reveal reveal-d2">
+      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
+      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
+      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
     </div>
-    <div class="reveal reveal-d1 jul-home-text">
-      <p class="eyebrow eyebrow-line">Practice Between Classes</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Meet <span class="gold-ital">Julien</span>, your 24/7 French coach</h2>
-      <p class="lede">Between live classes, Julien is your always-on AI French tutor inside the platform — ready the moment inspiration or insomnia strikes, in any timezone.</p>
-      <ul class="jul-home-points">
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pronunciation coaching, sound by sound</li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant, non-judgmental corrections</li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Real conversation practice on demand</li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Available 24/7, always in French</li>
-      </ul>
-      <a href="juliane.html" class="btn btn-gold" style="margin-top:1.6rem">Discover Julien</a>
+    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
+      <div class="ac-marquee-track">
+        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
+
 
 <!-- ===== PLACEMENT-TEST LEAD MAGNET STRIP (free level finder) ===== -->
 <section class="lead-magnet bg-ivory" id="placement">
@@ -983,6 +994,7 @@
   </div>
 </section>
 
+
 <!-- ===== PRICING TEASER ===== -->
 <section class="section-pad bg-paper">
   <div class="wrap-narrow" style="text-align:center">
@@ -992,6 +1004,7 @@
     <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d3" style="margin-top:1.6rem">View Plans &amp; Enroll</a>
   </div>
 </section>
+
 
 <!-- ===== FAQ (homepage condensed) ===== -->
 <section class="section-pad bg-ivory" id="faq">
@@ -1062,6 +1075,7 @@
   </div>
 </section>
 
+
 <!-- ===== CTA BAND (verbatim brand line) ===== -->
 <section class="cta-band section-pad framed on-dark">
   <div class="frame-border"></div>
@@ -1071,6 +1085,7 @@
     <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d2">Begin Your Journey</a>
   </div>
 </section>
+
 
 
 
