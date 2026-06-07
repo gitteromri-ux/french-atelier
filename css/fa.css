@@ -3488,14 +3488,14 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
 .sorb-v4 .sorb-cite{
   display: inline-flex;
   align-items: center;
-  padding: .55rem 1rem;
+  padding: .6rem 1.1rem;
   font-family: var(--sans);
-  font-size: .76rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: #6b4f1d;
-  background: linear-gradient(180deg, #fffaef 0%, #f6ecd6 100%);
-  border: 1px solid rgba(184,146,79,.55);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: #4a2818;
+  background: linear-gradient(180deg, #fffdf6 0%, #f4e8cd 100%);
+  border: 1.5px solid rgba(140,30,40,.45);
   border-radius: 999px;
   text-decoration: none;
   transition: color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--ease);
