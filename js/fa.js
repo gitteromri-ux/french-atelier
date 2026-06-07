@@ -155,19 +155,18 @@
   });
 
   // ===== Site-wide sound opt-in: floating sound button on every video =====
-  // Skips small Julien cutouts (silent) and ambient pillar/marquee loops.
   (function(){
-    function isCutoutOrAmbient(v){
-      if(v.classList.contains('jul-cutout')||v.classList.contains('jul-hero-cutout'))return true;
+    var JULIEN_AUDIO='assets/julien/audio/julien_intro_fr.mp3';
+    function isAmbient(v){
       var p=v.closest('[data-soundvideo]'); if(p)return true; // already has toggle
-      var amb=v.closest('.pillar, .marquee, .gframe, .trio, .ambient, .hero-bg, .bg-video');
+      var amb=v.closest('.pillar, .marquee');
       if(amb)return true;
-      // Heuristic: tiny videos (Julien-style 760-wide cutouts in cards) -> skip
-      var w=v.getAttribute('width');
-      if(w&&parseInt(w,10)<400)return true;
       return false;
     }
-    function attachToggle(v){
+    function isJulienCutout(v){
+      return v.classList.contains('jul-cutout')||v.classList.contains('jul-hero-cutout');
+    }
+    function attachToggle(v, audioSrc){
       if(v.dataset.faSound)return; v.dataset.faSound='1';
       var wrap=v.parentElement; if(!wrap)return;
       var cs=window.getComputedStyle(wrap);
@@ -177,20 +176,40 @@
       btn.setAttribute('aria-pressed','false');
       btn.setAttribute('aria-label','Toggle sound');
       btn.innerHTML='<span class="fa-sound-ico" aria-hidden="true">🔊</span><span class="fa-sound-txt">Sound</span>';
+      var companion=null;
+      if(audioSrc){
+        companion=document.createElement('audio');
+        companion.src=audioSrc; companion.loop=true; companion.preload='metadata';
+        wrap.appendChild(companion);
+      }
       btn.addEventListener('click',function(e){
         e.preventDefault(); e.stopPropagation();
-        v.muted=!v.muted;
-        if(!v.muted){ v.play().catch(function(){}); }
-        btn.setAttribute('aria-pressed',String(!v.muted));
-        btn.classList.toggle('is-on',!v.muted);
-        btn.querySelector('.fa-sound-ico').textContent=v.muted?'🔊':'🔈';
-        btn.querySelector('.fa-sound-txt').textContent=v.muted?'Sound':'Mute';
+        var on;
+        if(companion){
+          on=companion.paused;
+          if(on){ companion.currentTime=0; companion.play().catch(function(){}); }
+          else { companion.pause(); }
+        } else {
+          v.muted=!v.muted;
+          if(!v.muted){ v.play().catch(function(){}); }
+          on=!v.muted;
+        }
+        btn.setAttribute('aria-pressed',String(on));
+        btn.classList.toggle('is-on',on);
+        btn.querySelector('.fa-sound-ico').textContent=on?'🔈':'🔊';
+        btn.querySelector('.fa-sound-txt').textContent=on?'Mute':(audioSrc?'Hear Julien':'Sound');
       });
+      if(audioSrc){ btn.querySelector('.fa-sound-txt').textContent='Hear Julien'; }
       wrap.appendChild(btn);
     }
     document.querySelectorAll('video').forEach(function(v){
-      if(isCutoutOrAmbient(v))return;
-      attachToggle(v);
+      if(isAmbient(v))return;
+      if(isJulienCutout(v)){
+        // Julien cutouts have no audio track — attach a companion French audio so the toggle is meaningful.
+        attachToggle(v, JULIEN_AUDIO);
+      } else {
+        attachToggle(v, null);
+      }
     });
   })();
 })();
