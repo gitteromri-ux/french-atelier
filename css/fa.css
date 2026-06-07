@@ -2894,3 +2894,25 @@ body.modal-open{overflow:hidden}
 
 /* Chapter scroll offset */
 section[id^="chapter-"] { scroll-margin-top: 120px; }
+
+/* ===== Site-wide sound opt-in toggle (auto-injected on every audio video) ===== */
+.fa-sound-btn{
+  position:absolute; bottom:14px; right:14px;
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:rgba(8,14,43,.82); color:#E9D6A8;
+  border:1px solid rgba(190,163,123,.55);
+  padding:.55rem .9rem;
+  font-family: inherit; font-size:.72rem;
+  letter-spacing:.14em; text-transform:uppercase;
+  border-radius:2px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  cursor:pointer; z-index:20;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.fa-sound-btn:hover{ color:#F5E0AC; border-color:#BEA37B; background:rgba(11,12,49,.92); }
+.fa-sound-btn.is-on{ color:#0B0C31; background:#E9D6A8; border-color:#BEA37B; }
+.fa-sound-ico{ font-size:1rem; line-height:1; }
+.fa-sound-txt{ font-weight:600; }
+@media (max-width: 600px){
+  .fa-sound-btn{ bottom:10px; right:10px; padding:.45rem .7rem; font-size:.65rem; }
+}

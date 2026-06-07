@@ -6,7 +6,8 @@
 /* ===== HERO ===== */
 .jul-hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 88vh;
+  padding: 4rem 0 3rem;
   /* On-brand navy gradient — Julien appears to step out of THIS */
   background:
     radial-gradient(120% 90% at 78% 60%, rgba(28,34,56,.85) 0%, rgba(0,0,31,0) 60%),
@@ -59,22 +60,23 @@
 /* No frame, no box, no white bg — he emerges directly from the section. */
 .jul-char-card {
   position: absolute;
-  right: 0;
+  right: 3%;
   bottom: 0;
-  top: 0;
-  width: 46%;
+  top: 6%;
+  width: 38%;
+  max-width: 520px;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
+  justify-content: center;
   z-index: 3;            /* above the veil so the cutout stays crisp */
   pointer-events: none;
 }
 
 .jul-hero-cutout {
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  height: 96%;
-  max-height: 100%;
+  height: auto;
+  max-height: 88%;
   object-fit: contain;
   object-position: bottom center;
   display: block;
@@ -527,7 +529,7 @@
   .jul-home-split { grid-template-columns: 1fr; gap: 2.4rem; }
   .jul-home-split .jul-cutout { max-width: 360px; margin: 0 auto; }
   .jul-glance { grid-template-columns: 1fr; }
-  .jul-char-card { width: 70%; }
+  .jul-char-card { width: 58%; max-width: 460px; right: 2%; top: 8%; }
   .cap-grid { grid-template-columns: repeat(2, 1fr); }
   .jul-feature { grid-template-columns: 1fr; gap: 2.8rem; }
   .jul-feature.reverse { direction: ltr; }

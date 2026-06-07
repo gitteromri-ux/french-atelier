@@ -153,6 +153,46 @@
       });
     }
   });
+
+  // ===== Site-wide sound opt-in: floating sound button on every video =====
+  // Skips small Julien cutouts (silent) and ambient pillar/marquee loops.
+  (function(){
+    function isCutoutOrAmbient(v){
+      if(v.classList.contains('jul-cutout')||v.classList.contains('jul-hero-cutout'))return true;
+      var p=v.closest('[data-soundvideo]'); if(p)return true; // already has toggle
+      var amb=v.closest('.pillar, .marquee, .gframe, .trio, .ambient, .hero-bg, .bg-video');
+      if(amb)return true;
+      // Heuristic: tiny videos (Julien-style 760-wide cutouts in cards) -> skip
+      var w=v.getAttribute('width');
+      if(w&&parseInt(w,10)<400)return true;
+      return false;
+    }
+    function attachToggle(v){
+      if(v.dataset.faSound)return; v.dataset.faSound='1';
+      var wrap=v.parentElement; if(!wrap)return;
+      var cs=window.getComputedStyle(wrap);
+      if(cs.position==='static') wrap.style.position='relative';
+      var btn=document.createElement('button');
+      btn.className='fa-sound-btn'; btn.type='button';
+      btn.setAttribute('aria-pressed','false');
+      btn.setAttribute('aria-label','Toggle sound');
+      btn.innerHTML='<span class="fa-sound-ico" aria-hidden="true">🔊</span><span class="fa-sound-txt">Sound</span>';
+      btn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        v.muted=!v.muted;
+        if(!v.muted){ v.play().catch(function(){}); }
+        btn.setAttribute('aria-pressed',String(!v.muted));
+        btn.classList.toggle('is-on',!v.muted);
+        btn.querySelector('.fa-sound-ico').textContent=v.muted?'🔊':'🔈';
+        btn.querySelector('.fa-sound-txt').textContent=v.muted?'Sound':'Mute';
+      });
+      wrap.appendChild(btn);
+    }
+    document.querySelectorAll('video').forEach(function(v){
+      if(isCutoutOrAmbient(v))return;
+      attachToggle(v);
+    });
+  })();
 })();
 
 /* ============================================================
