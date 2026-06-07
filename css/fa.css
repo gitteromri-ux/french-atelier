@@ -2972,3 +2972,162 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
   .hero h1{font-size:clamp(2rem,8vw,2.8rem);max-width:16ch}
   .hero .hero-content{max-width:100%}
 }
+
+/* ============================================================
+   SORB v4 — 30% tighter, prestigious, premium
+   ============================================================ */
+.sorb.sorb-v4{
+  padding: clamp(3.5rem, 6vw, 5rem) 0;  /* was sp-8 ≈ 7-8rem */
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(200,169,107,.22), transparent 55%),
+    radial-gradient(80% 60% at 90% 110%, rgba(228,152,166,.10), transparent 60%),
+    linear-gradient(165deg, #0a0f2e 0%, #131838 55%, #1a1e3e 100%);
+  border-top: 1px solid rgba(200,169,107,.28);
+  border-bottom: 1px solid rgba(200,169,107,.28);
+}
+.sorb-v4 .sorb-head{
+  max-width: 880px;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+}
+.sorb-v4 .sorb-eyebrow{
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 1.1rem;
+  position: relative;
+  display: inline-block;
+  padding: 0 1.4rem;
+}
+.sorb-v4 .sorb-eyebrow::before,
+.sorb-v4 .sorb-eyebrow::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 38px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,107,.6), transparent);
+}
+.sorb-v4 .sorb-eyebrow::before{ right: 100%; }
+.sorb-v4 .sorb-eyebrow::after{ left: 100%; }
+.sorb-v4 .sorb-title{
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.012em;
+  font-weight: 500;
+  color: var(--on-dark);
+  margin: 0;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+.sorb-v4 .sorb-title .gold-ital{
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, #e6c98a 0%, #d4af6f 45%, #b8924f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.sorb-v4 .sorb-sub{
+  font-family: var(--sans);
+  font-size: clamp(.98rem, 1.2vw, 1.08rem);
+  line-height: 1.62;
+  color: rgba(245,240,225,.78);
+  font-weight: 300;
+  margin: 1rem auto 0;
+  max-width: 60ch;
+}
+
+/* Cards — tighter, premium glass with copper-gold accent */
+.sorb-v4 .sorb-principles{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.sorb-v4 .sorb-pr{
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045) 0%, rgba(255,255,255,.02) 100%);
+  border: 1px solid rgba(200,169,107,.18);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem 1.5rem;
+  transition: transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
+  overflow: hidden;
+}
+.sorb-v4 .sorb-pr::before{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #d4af6f 50%, transparent 100%);
+  opacity: .55;
+}
+.sorb-v4 .sorb-pr::after{ display: none; }
+.sorb-v4 .sorb-pr:hover{
+  transform: translateY(-4px);
+  border-color: rgba(200,169,107,.42);
+  box-shadow:
+    0 24px 50px -24px rgba(0,0,16,.7),
+    0 0 0 1px rgba(200,169,107,.12) inset;
+}
+.sorb-v4 .sorb-pr-no{
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #e6c98a, #b8924f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin: 0 0 .5rem;
+  letter-spacing: .02em;
+}
+.sorb-v4 .sorb-pr-fr{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: .92rem;
+  color: var(--gold-soft);
+  opacity: .82;
+  display: block;
+  margin: 0 0 .35rem;
+}
+.sorb-v4 .sorb-pr-tt{
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.18;
+  font-weight: 600;
+  color: var(--on-dark);
+  margin: 0 0 .55rem;
+}
+.sorb-v4 .sorb-pr-tx{
+  font-family: var(--sans);
+  font-size: .9rem;
+  line-height: 1.55;
+  color: rgba(245,240,225,.72);
+  font-weight: 300;
+  margin: 0;
+}
+@media (max-width: 860px){
+  .sorb-v4 .sorb-principles{ grid-template-columns: 1fr; max-width: 520px; gap: .9rem; }
+}
+
+.sorb-v4 .sorb-disclaimer{
+  margin: 2.4rem auto 0;
+  max-width: 70ch;
+  font-family: var(--sans);
+  font-size: .72rem;
+  line-height: 1.5;
+  text-align: center;
+  color: rgba(245,240,225,.42);
+  font-weight: 300;
+  font-style: italic;
+}
