@@ -47,10 +47,11 @@
     letter-spacing: .005em !important;
     text-transform: none !important;
   }
-  .sorb-v4 .sorb-cite::after{
-    content: "→" !important;
-    margin-left: .8rem !important;
-    opacity: 1 !important;
+  /* The explicit .sorb-cite-arrow span already provides an arrow.
+     Hide any leftover ::after pseudo arrow + style the inline one. */
+  .sorb-v4 .sorb-cite::after{ content: none !important; }
+  .sorb-v4 .sorb-cite .sorb-cite-arrow{
+    margin-left: auto !important;
     color: #C8A96B !important;
     font-size: 1.1em !important;
     font-weight: 700 !important;
@@ -158,8 +159,47 @@
   }
   .cls-card-title{ font-size: 1.6rem !important; }
   .cls-card-sub{ font-size: .92rem !important; }
-  .cls-card-meta{ margin-top: .8rem !important; padding-top: .8rem !important; gap: .4rem 0 !important; }
-  .cls-meta-item{ padding: 0 .55rem !important; }
+  /* Best Seller badge: move from absolute over-the-eyebrow position to a clean inline pill */
+  .cls-card .cls-bestseller{
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    font-size: .62rem !important;
+    padding: .3rem .6rem !important;
+    z-index: 4 !important;
+    box-shadow: 0 4px 12px rgba(0,0,16,.35);
+  }
+  /* Reserve space for the badge so the eyebrow doesn’t collide */
+  .cls-card-eyebrow{
+    padding-right: 96px !important;
+    font-size: .66rem !important;
+    letter-spacing: .18em !important;
+  }
+  /* Hide the giant 01 / 02 watermark numeral on mobile (it overlapped the badge) */
+  .cls-card::after,
+  .cls-card .cls-card-num,
+  .cls-card::before{ display: none !important; }
+  /* Meta items: 2x2 grid instead of inline-wrap so 85 min / Live Class never breaks */
+  .cls-card-meta{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: .9rem .6rem !important;
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+  .cls-card-lsf .cls-card-meta{ border-top-color: rgba(0,0,30,.1); }
+  .cls-meta-item{
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .15rem;
+  }
+  /* Remove dividers between meta items (they break in a grid) */
+  .cls-meta-item+.cls-meta-item::before{ display: none !important; }
+  .cls-meta-val{ font-size: 1.05rem !important; line-height: 1.1 !important; }
+  .cls-meta-key{ font-size: .62rem !important; letter-spacing: .14em !important; opacity: .8; }
 
   /* When ANY cluster is active, shrink the non-active card so it
      doesn't visually block the revealed slider directly underneath. */
@@ -365,6 +405,61 @@
     letter-spacing: .22em !important;
     color: rgba(243,238,227,.85) !important;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   8b) LEARNING JOURNEY — CEFR timeline as single horizontal row
+       Was wrapping to 2 columns; hide carousel arrows (overlap card)
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  /* CEFR ladder — force a single horizontal row, tight gaps, smaller dots */
+  .hiw3-arc{
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: .3rem !important;
+    padding: 0 4px !important;
+    margin-bottom: 2.4rem !important;
+  }
+  .hiw3-arc-track{ display: block !important; }
+  .hiw3-arc .han{ flex: 1 1 0 !important; min-width: 0 !important; }
+  .hiw3-arc .han-dot{ width: 11px !important; height: 11px !important; }
+  .hiw3-arc .han-lvl{ font-size: .85rem !important; margin-top: .55rem !important; }
+  .hiw3-arc .han-cap{ font-size: .55rem !important; letter-spacing: .12em !important; }
+  /* Hide the prev/next round arrows on mobile — swipe is the gesture */
+  .hiw3-slider .hiw3-arrow{ display: none !important; }
+  /* Add a swipe hint above the cards */
+  .hiw3-slider::before{
+    content: "← swipe →";
+    display: block; text-align: center;
+    font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold-deep); margin-bottom: .8rem; opacity: .75;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   8c) eTEACHER PLATFORM — hide the carousel round arrows on mobile
+       They sit over the dot pagination and visually clutter the rail.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .etg2-section .etg2-arrow,
+  #platform .carousel-prev, #platform .carousel-next,
+  #platform [class*="-prev"], #platform [class*="-next"]{ display: none !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   8d) JULIEN — keep the SOUND toggle INSIDE the card on mobile
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .jul-hero .jul-hero-sound{
+    bottom: 14px !important;
+    right: 14px !important;
+    font-size: .62rem !important;
+    padding: .45rem .85rem !important;
+  }
+  .jul-hero .jul-hero-card{ overflow: hidden !important; }
+  /* Hide any duplicate floating "SOUND" button that originally sat over the page */
+  .jul-hero > .jul-hero-sound,
+  .jul-hero .jul-hero-inner > .jul-hero-sound{ display: none !important; }
 }
 
 /* ─────────────────────────────────────────────────────────────────
