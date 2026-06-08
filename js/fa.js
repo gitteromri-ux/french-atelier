@@ -203,10 +203,38 @@
       wrap.appendChild(btn);
     }
     document.querySelectorAll('video').forEach(function(v){
+      if(isJulienCutout(v)){
+        // Julien is silent ambient video; attach a sound TOGGLE that plays
+        // the standalone julien_intro_fr.mp3 (opt-in). No lip-sync change.
+        attachToggle(v, JULIEN_AUDIO);
+        return;
+      }
       if(isAmbient(v))return;
-      // Julien cutouts are silent ambient animations (no lip-sync source) — leave them silent like other ambient video.
-      if(isJulienCutout(v))return;
       attachToggle(v, null);
+    });
+  })();
+
+  // ===== Pillar video perf: pause/play based on viewport visibility =====
+  // Reduces concurrent decoding of 6 looping videos when off-screen.
+  (function(){
+    if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var v=en.target;
+        if(en.isIntersecting){
+          v.removeAttribute('data-paused-offscreen');
+          var p=v.play(); if(p&&p.catch)p.catch(function(){});
+        } else {
+          v.setAttribute('data-paused-offscreen','1');
+          try{v.pause();}catch(e){}
+        }
+      });
+    },{rootMargin:'120px 0px',threshold:0.05});
+    document.querySelectorAll('.pillar video').forEach(function(v){
+      // ensure attrs for autoplay-on-visible
+      v.muted=true; v.loop=true; v.playsInline=true;
+      v.setAttribute('preload','auto');
+      io.observe(v);
     });
   })();
 })();

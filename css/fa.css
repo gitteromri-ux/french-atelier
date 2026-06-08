@@ -3847,3 +3847,115 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
   #courses .cls-card-title{ font-size: clamp(1.7rem, 7vw, 2.2rem); }
   #courses .cls-meta-val{ font-size: 1.15rem; }
 }
+
+/* ============================================================
+   HOMEPAGE CORRECTIONS (June 2026)
+   - Courses LSF title: pure white, drop tint
+   - Journey cards (hiw3): subtle per-card colour variants
+   - Last journey card: full GOLD treatment
+   - Mapstr caption: white elegant text (handled in mapstr.css)
+   - Acadomia fold: Acadomia logo, one-line headline
+   - Platform fold: replace eyebrow text with eTeacher logo
+   ============================================================ */
+
+/* --- Courses LSF title: pure white, no tint --- */
+#courses .cls-card-lsf .cls-card-title{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  background:none !important;
+  text-shadow:0 2px 10px rgba(80,20,10,.45), 0 0 1px rgba(255,255,255,.6);
+}
+/* Strengthen sub & meta legibility on both course cards */
+#courses .cls-card-lsf .cls-card-sub{color:rgba(255,255,255,.96);text-shadow:0 1px 6px rgba(80,20,10,.35);}
+#courses .cls-card-fa  .cls-card-sub{color:#fff;text-shadow:0 1px 6px rgba(8,14,43,.55);}
+#courses .cls-card-fa  .cls-meta-val{color:#fff8e0;}
+#courses .cls-card-fa  .cls-meta-key{color:rgba(255,248,224,.86);}
+#courses .cls-card-lsf .cls-meta-key{color:rgba(255,250,245,.88);}
+
+/* --- Journey (hiw3): subtle per-card colour variations --- */
+/* Card 1 – cool ice-blue tint */
+.hiw3-journey .hiw3-step:nth-child(1) .hiw3-card{background:linear-gradient(180deg,#fbfdff,#eef4fb)}
+.hiw3-journey .hiw3-step:nth-child(1) .hiw3-ic{background:linear-gradient(135deg,rgba(120,160,210,.22),rgba(120,160,210,.06));border-color:rgba(120,160,210,.35);color:#3a5d8a}
+.hiw3-journey .hiw3-step:nth-child(1) .hiw3-kick{color:#3a5d8a}
+.hiw3-journey .hiw3-step:nth-child(1) .hiw3-num{color:#3a5d8a}
+.hiw3-journey .hiw3-step:nth-child(1) .hiw3-tag{color:#3a5d8a;background:linear-gradient(135deg,rgba(120,160,210,.18),rgba(120,160,210,.05));border-color:rgba(120,160,210,.35)}
+
+/* Card 2 – soft rose */
+.hiw3-journey .hiw3-step:nth-child(2) .hiw3-card{background:linear-gradient(180deg,#fffaf9,#fbeeed)}
+.hiw3-journey .hiw3-step:nth-child(2) .hiw3-ic{background:linear-gradient(135deg,rgba(210,130,140,.22),rgba(210,130,140,.06));border-color:rgba(210,130,140,.35);color:#a85360}
+.hiw3-journey .hiw3-step:nth-child(2) .hiw3-kick{color:#a85360}
+.hiw3-journey .hiw3-step:nth-child(2) .hiw3-num{color:#a85360}
+.hiw3-journey .hiw3-step:nth-child(2) .hiw3-tag{color:#a85360;background:linear-gradient(135deg,rgba(210,130,140,.18),rgba(210,130,140,.05));border-color:rgba(210,130,140,.35)}
+
+/* Card 3 – sage green */
+.hiw3-journey .hiw3-step:nth-child(3) .hiw3-card{background:linear-gradient(180deg,#fafdfa,#eef4ec)}
+.hiw3-journey .hiw3-step:nth-child(3) .hiw3-ic{background:linear-gradient(135deg,rgba(130,170,130,.22),rgba(130,170,130,.06));border-color:rgba(130,170,130,.4);color:#4a7a4e}
+.hiw3-journey .hiw3-step:nth-child(3) .hiw3-kick{color:#4a7a4e}
+.hiw3-journey .hiw3-step:nth-child(3) .hiw3-num{color:#4a7a4e}
+.hiw3-journey .hiw3-step:nth-child(3) .hiw3-tag{color:#4a7a4e;background:linear-gradient(135deg,rgba(130,170,130,.18),rgba(130,170,130,.05));border-color:rgba(130,170,130,.4)}
+
+/* Card 4 – lavender */
+.hiw3-journey .hiw3-step:nth-child(4) .hiw3-card{background:linear-gradient(180deg,#fcfbfd,#f1edf5)}
+.hiw3-journey .hiw3-step:nth-child(4) .hiw3-ic{background:linear-gradient(135deg,rgba(160,140,200,.22),rgba(160,140,200,.06));border-color:rgba(160,140,200,.4);color:#6a4f96}
+.hiw3-journey .hiw3-step:nth-child(4) .hiw3-kick{color:#6a4f96}
+.hiw3-journey .hiw3-step:nth-child(4) .hiw3-num{color:#6a4f96}
+.hiw3-journey .hiw3-step:nth-child(4) .hiw3-tag{color:#6a4f96;background:linear-gradient(135deg,rgba(160,140,200,.18),rgba(160,140,200,.05));border-color:rgba(160,140,200,.4)}
+
+/* Card 5 (FINAL) – full GOLD treatment */
+.hiw3-journey .hiw3-step-final .hiw3-card,
+.hiw3-card.hiw3-card-final{
+  background:linear-gradient(155deg,#f7e3a8 0%,#e8c88c 45%,#d8b376 100%) !important;
+  border:1px solid #c79f5c !important;
+  box-shadow:0 18px 44px -22px rgba(176,128,40,.55), 0 2px 0 rgba(255,255,255,.55) inset !important;
+}
+.hiw3-card.hiw3-card-final .hiw3-num,
+.hiw3-card.hiw3-card-final .hiw3-num-final{color:#5b3a0e !important}
+.hiw3-card.hiw3-card-final .hiw3-ic,
+.hiw3-card.hiw3-card-final .hiw3-ic-final{
+  background:linear-gradient(135deg,#fff5d0,#f1cc70) !important;
+  border:1px solid #b88c34 !important;
+  color:#5b3a0e !important;
+  box-shadow:0 4px 14px rgba(120,80,10,.25);
+}
+.hiw3-card.hiw3-card-final .hiw3-kick,
+.hiw3-card.hiw3-card-final .hiw3-kick-final{color:#5b3a0e !important}
+.hiw3-card.hiw3-card-final .hiw3-name{color:#3a2406 !important}
+.hiw3-card.hiw3-card-final .hiw3-desc{color:#4a330d !important}
+.hiw3-card.hiw3-card-final .hiw3-tag,
+.hiw3-card.hiw3-card-final .hiw3-tag-final{
+  background:linear-gradient(135deg,#fff5d0,#f1cc70) !important;
+  border:1px solid #b88c34 !important;
+  color:#5b3a0e !important;
+}
+
+/* --- Acadomia fold: logo on top + one-line head --- */
+.ac-power-logo{
+  display:block;margin:0 auto 1.4rem;width:auto;height:54px;
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.35));
+  border-radius:4px;
+}
+.ac-power-head-oneline{
+  white-space:nowrap;max-width:none !important;
+  font-size:clamp(1.7rem,3.6vw,3.1rem);
+  font-family:var(--serif);font-weight:600;
+}
+@media (max-width:760px){
+  .ac-power-head-oneline{white-space:normal;font-size:clamp(1.8rem,7vw,2.4rem)}
+  .ac-power-logo{height:42px}
+}
+
+/* --- Platform fold: eTeacher Group logo replaces gold eyebrow --- */
+.etg2-brand-logo{
+  display:block;margin:0 auto;height:52px;width:auto;
+  background:#fff;
+  padding:.8rem 1.6rem;border-radius:10px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 8px 24px rgba(0,0,0,.32), 0 0 22px rgba(120,180,255,.12);
+  box-sizing:content-box;
+  object-fit:contain;
+}
+@media (max-width:760px){.etg2-brand-logo{height:40px;padding:.6rem 1.2rem}}
+
+/* --- Pillar video performance: GPU hint + offscreen pause helper --- */
+.pillar video{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
+.pillar video[data-paused-offscreen="1"]{filter:brightness(.92)}

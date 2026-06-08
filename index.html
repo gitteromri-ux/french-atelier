@@ -13,13 +13,12 @@
 <link rel="stylesheet" href="css/mapstr.css">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* ===== HERO (kept verbatim) ===== */
+/* ===== HERO ===== */
 .hero{min-height:100vh}
-/* Hero text flush to the LEFT margin of the centered .wrap (aligns with nav logo).
-   .hero is a flex container, so force the .wrap child to take full width and
-   center its 1240px max-width box (margin:0 auto) — this puts its left padding
-   edge at exactly the same position as the header .wrap (and the nav logo). */
-.hero-content{width:100%;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+/* Hero text pulled further LEFT so the headline starts under "Courses" in the
+   nav (closer to the screen edge than the centered .wrap allows). We override
+   the wrap centering with a viewport-relative left padding. */
+.hero-content{max-width:none;width:100%;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-left:clamp(2rem,5vw,6.5rem);padding-right:clamp(2rem,5vw,6.5rem);margin:0}
 .hero-content h1,.hero-content .hero-sub,.hero-content .hero-ctas{margin-left:0;text-align:left}
 .hero-content .hero-ctas{justify-content:flex-start}
 .hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--gold-soft);margin-bottom:1rem}
@@ -662,35 +661,35 @@
     <!-- LARGE PORTRAIT GALLERY — all 8 teachers -->
     <div class="fac-gallery reveal reveal-d2">
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/carmele.png" alt="Carmèle, French teacher from Paris" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/corentin.png" alt="Corentin, French teacher from Pau" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/corentin.jpg" alt="Corentin, French teacher from Pau" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Corentin</p><span class="fac-region">Pau</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/iris.png" alt="Iris Linza, French teacher from Lyon" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/iris.jpg" alt="Iris Linza, French teacher from Lyon" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Iris Linza</p><span class="fac-region">Lyon</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/shanice.png" alt="Shanice, French teacher from Montpellier" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/stan.png" alt="Stan, French teacher from Nice" loading="lazy"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/stan.jpg" alt="Stan, French teacher from Nice" loading="lazy" width="600" height="800"></div>
         <div class="fac-info"><p class="fac-name">Stan</p><span class="fac-region">Nice</span></div>
       </a>
     </div><!-- /fac-gallery -->
@@ -808,7 +807,7 @@
   <div class="wrap">
 
     <div class="etg2-head reveal">
-      <p class="eyebrow eyebrow-line" style="justify-content:center">Powered by eTeacher Group</p>
+      <img class="etg2-brand-logo" src="assets/logo/eteacher-group.png" alt="eTeacher Group" width="140" height="40">
       <h2 class="display-sm" style="margin-top:1rem">One <em class="gold-ital">award-winning</em> learning platform</h2>
       <p class="lede lede-c" style="max-width:58ch;margin:1rem auto 0">French Atelier runs on eTeacher Group's world-class live language platform — trusted by over a million learners across 190+ countries since 2002.</p>
     </div>
@@ -948,8 +947,9 @@
 <!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
 <section class="ac-power" id="acadomia-power">
   <div class="wrap">
+    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
     <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
-    <h2 class="ac-power-head reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
+    <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
     <div class="ac-power-figs reveal reveal-d2">
       <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
       <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
