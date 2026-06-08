@@ -135,8 +135,24 @@
       other cluster card visually and auto-scroll the slider into view.
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  .cls-cards{ gap:.85rem !important; }
+  /* COURSE CLUSTER CARDS become a horizontal swipe rail */
+  .cls-cards{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 16px 18px !important;
+    margin: 0 -16px !important;
+  }
+  .cls-cards::-webkit-scrollbar{ display:none; }
   .cls-card{
+    flex: 0 0 86vw !important;
+    width: 86vw !important;
+    scroll-snap-align: center !important;
     min-height: 140px !important;
     padding: 1.4rem 1.3rem 1.2rem !important;
   }
@@ -315,8 +331,14 @@
   .fac-photo{ aspect-ratio: 3/4; overflow: hidden; }
   .fac-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   .fac-info{ padding: .8rem .9rem 1rem; }
-  .fac-name{ font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--navy); }
-  .fac-region{ font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
+  .fac-info{
+    padding: .8rem .9rem 1rem !important;
+    background: #fff !important;
+    position: relative;
+    z-index: 2;
+  }
+  .fac-name{ font-family: var(--serif); font-size: 1.05rem; font-weight: 700; margin: 0 0 .15rem; color: #0A1128 !important; }
+  .fac-region{ font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: #8C6D2E !important; font-weight: 600; }
 
   /* swipe hint under teachers */
   .tctr-head::after{
@@ -396,5 +418,22 @@
     width: 76vw !important;
     scroll-snap-align: center !important;
     min-width: 0 !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   12) Courses swipe hint
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  #courses .wrap > div:first-child::after{
+    content: "← swipe →";
+    display: block;
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(200,169,107,.7);
+    text-align: center;
   }
 }
