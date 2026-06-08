@@ -203,9 +203,10 @@
       wrap.appendChild(btn);
     }
     document.querySelectorAll('video').forEach(function(v){
+      // Skip videos inside the Julien fold — that section provides its own
+      // custom .jul-hero-sound toggle. Avoid injecting duplicate buttons.
+      if(v.closest('#julien-fold'))return;
       if(isJulienCutout(v)){
-        // Julien is silent ambient video; attach a sound TOGGLE that plays
-        // the standalone julien_intro_fr.mp3 (opt-in). No lip-sync change.
         attachToggle(v, JULIEN_AUDIO);
         return;
       }

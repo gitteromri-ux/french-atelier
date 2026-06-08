@@ -471,8 +471,13 @@
   .jul-hero > .jul-hero-sound,
   .jul-hero .jul-hero-inner > .jul-hero-sound,
   .jul-hero .sound-toggle,
-  .jul-hero > .sound-toggle{ display: none !important; }
+  .jul-hero > .sound-toggle,
+  /* Hide JS-injected fa-sound-btn inside Julien fold — the fold has its own toggle */
+  #julien-fold .fa-sound-btn,
+  .jul-hero .fa-sound-btn{ display: none !important; }
 }
+/* Belt-and-braces: hide fa-sound-btn inside Julien fold at ALL viewports */
+#julien-fold .fa-sound-btn{ display: none !important; }
 
 /* ─────────────────────────────────────────────────────────────────
    9) TEACHERS (.fac-gallery)  — convert 8-tall stack into swipe rail
