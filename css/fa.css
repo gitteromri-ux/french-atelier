@@ -4335,3 +4335,108 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 #courses .cls-card-lsf .cls-card-meta{border-top-color:rgba(180,150,90,.32) !important;}
 #courses .cls-card-lsf .cls-meta-item+.cls-meta-item::before{background:rgba(180,150,90,.32) !important;}
 #courses .cls-card-lsf .cls-card-chevron{background:rgba(20,28,60,.08) !important; color:#1a1f3a !important;}
+
+/* ============================================================
+   ADDITIONS (homepage rebuild) — neon CTA, Sorbonne v2 polish,
+   eTeacher neon backdrop, placement test premium card v2.
+   ============================================================ */
+
+/* --- Neon CTA above the two collection cards --- */
+.cls-neon-wrap{display:flex;justify-content:center;margin:0 0 1.6rem;padding:0 1rem;}
+.cls-neon-btn{position:relative;display:inline-flex;align-items:center;gap:1rem;
+  padding:1.05rem 2.4rem;border-radius:999px;
+  background:linear-gradient(135deg,#0d1430 0%,#1a2554 50%,#0d1430 100%);
+  color:#F3EEE3;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.05rem,1.75vw,1.45rem);font-weight:600;letter-spacing:.02em;
+  border:1px solid rgba(159,212,255,.55);
+  box-shadow:
+    0 0 24px rgba(159,212,255,.45),
+    0 0 48px rgba(159,212,255,.28),
+    inset 0 0 18px rgba(159,212,255,.18),
+    0 14px 38px rgba(0,0,20,.18);
+  overflow:hidden;animation:clsNeonPulse 2.6s ease-in-out infinite;}
+@keyframes clsNeonPulse{
+  0%,100%{box-shadow:0 0 24px rgba(159,212,255,.45),0 0 48px rgba(159,212,255,.28),inset 0 0 18px rgba(159,212,255,.18),0 14px 38px rgba(0,0,20,.18);}
+  50%{box-shadow:0 0 36px rgba(159,212,255,.7),0 0 72px rgba(159,212,255,.42),inset 0 0 26px rgba(159,212,255,.28),0 14px 38px rgba(0,0,20,.22);}
+}
+.cls-neon-text{position:relative;z-index:1;background:linear-gradient(90deg,#F3EEE3 0%,#9FD4FF 50%,#F3EEE3 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  text-shadow:0 0 14px rgba(159,212,255,.25);}
+.cls-neon-arrow{font-size:1.4em;color:#9FD4FF;text-shadow:0 0 12px rgba(159,212,255,.85);animation:clsNeonBob 1.6s ease-in-out infinite;}
+.cls-neon-arrow:last-child{animation-delay:.2s;}
+@keyframes clsNeonBob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.cls-neon-shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+  transform:translateX(-100%);animation:clsNeonShine 3.4s ease-in-out infinite;}
+@keyframes clsNeonShine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+@media (max-width:640px){
+  .cls-neon-btn{padding:.85rem 1.4rem;gap:.6rem;font-size:1.05rem;}
+}
+
+/* --- Sorbonne fold v2 polish --- */
+.sorb-title-mark{display:inline-block;position:relative;}
+.sorb-strong{color:var(--gold-soft);font-weight:700;letter-spacing:.01em;}
+.sorb-emph{color:#F3EEE3;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.15em;display:inline-block;margin-top:.2rem;}
+.sorb-cred-lab-hi{display:inline-flex;align-items:center;justify-content:center;gap:.9rem;font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#D8BC85;margin-bottom:1.4rem !important;font-weight:600;}
+.sorb-cred-lab-hi strong{color:#F3EEE3;letter-spacing:.06em;font-weight:700;}
+.sorb-cred-bar{display:inline-block;width:54px;height:1px;background:linear-gradient(90deg,transparent,#D8BC85,transparent);}
+.sorb-cred-links-v2{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;max-width:1180px;margin:0 auto;}
+.sorb-cred-links-v2 .sorb-cite{display:inline-flex;align-items:center;gap:.7rem;
+  background:linear-gradient(135deg,rgba(159,212,255,.10) 0%,rgba(28,34,56,.6) 50%,rgba(159,212,255,.08) 100%);
+  border:1px solid rgba(159,212,255,.4);border-radius:14px;padding:.85rem 1.2rem;
+  color:#F3EEE3;font-size:.92rem;font-weight:500;text-decoration:none;letter-spacing:.01em;
+  box-shadow:0 0 18px rgba(159,212,255,.22),inset 0 0 12px rgba(159,212,255,.08);
+  transition:all .35s ease;backdrop-filter:blur(6px);}
+.sorb-cred-links-v2 .sorb-cite:hover{transform:translateY(-2px);border-color:rgba(216,188,133,.6);
+  box-shadow:0 0 28px rgba(216,188,133,.4),0 8px 22px rgba(0,0,20,.4);background:linear-gradient(135deg,rgba(216,188,133,.18) 0%,rgba(28,34,56,.75) 50%,rgba(216,188,133,.12) 100%);}
+.sorb-cite-yr{display:inline-flex;align-items:center;justify-content:center;min-width:48px;padding:.32rem .55rem;border-radius:8px;
+  background:rgba(216,188,133,.18);border:1px solid rgba(216,188,133,.35);color:#D8BC85;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:var(--sans);}
+.sorb-cite-tx{flex:1;color:#F3EEE3;line-height:1.35;}
+.sorb-cite-arrow{color:#9FD4FF;font-size:1.1em;opacity:.8;}
+.sorb-cred-links-v2 .sorb-cite:hover .sorb-cite-arrow{color:#D8BC85;opacity:1;}
+@media (max-width:900px){
+  .sorb-cred-links-v2{flex-direction:column;align-items:stretch;}
+  .sorb-cred-links-v2 .sorb-cite{justify-content:flex-start;}
+}
+
+/* --- eTeacher fold: neon soft lighting backdrop --- */
+.etg2-section{position:relative;isolation:isolate;overflow:hidden;}
+.etg2-section::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(45% 50% at 12% 18%,rgba(159,212,255,.16) 0%,rgba(0,0,0,0) 60%),
+    radial-gradient(40% 45% at 88% 30%,rgba(216,188,133,.14) 0%,rgba(0,0,0,0) 60%),
+    radial-gradient(50% 55% at 50% 90%,rgba(108,160,255,.13) 0%,rgba(0,0,0,0) 65%),
+    radial-gradient(35% 40% at 80% 80%,rgba(216,188,133,.10) 0%,rgba(0,0,0,0) 60%);}
+.etg2-section::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,20,0) 0%,rgba(0,0,20,.4) 100%);}
+.etg2-section > *{position:relative;z-index:1;}
+
+/* --- Placement test fold v2 (champagne + Eiffel — matches user image-5) --- */
+.lead-magnet#placement .lm-card{
+  display:grid;grid-template-columns:1.05fr 1fr;gap:0;align-items:stretch;
+  border-radius:28px;overflow:hidden;background:#00001F;
+  box-shadow:0 40px 90px rgba(0,0,20,.25),0 0 0 1px rgba(216,188,133,.18);}
+.lead-magnet#placement .lm-cover{position:relative;min-height:560px;}
+.lead-magnet#placement .lm-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.lead-magnet#placement .lm-cover-badge{position:absolute;top:1.4rem;left:1.4rem;z-index:2;
+  background:rgba(216,188,133,.95);color:#00001F;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:.55rem 1.1rem;border-radius:999px;border:1px solid rgba(255,255,255,.4);box-shadow:0 8px 22px rgba(0,0,20,.35);}
+.lead-magnet#placement .lm-body{background:#00001F;color:#F3EEE3;padding:clamp(2.4rem,4vw,3.6rem);display:flex;flex-direction:column;justify-content:center;}
+.lead-magnet#placement .lm-eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#D8BC85;display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.4rem;}
+.lead-magnet#placement .lm-eyebrow::before{content:'';width:34px;height:1px;background:#D8BC85;}
+.lead-magnet#placement .lm-body h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.2rem,3.6vw,3.4rem);line-height:1.08;color:#F3EEE3;margin:0 0 1.2rem;}
+.lead-magnet#placement .lm-body h2 em{color:#D8BC85;font-style:italic;}
+.lead-magnet#placement .lm-body > p{font-size:1.02rem;line-height:1.6;color:rgba(243,238,227,.82);margin:0 0 1.4rem;}
+.lead-magnet#placement .lm-body > p em{color:#D8BC85;font-style:italic;}
+.lead-magnet#placement .lm-meta{display:flex;flex-wrap:wrap;gap:1.6rem;margin:.4rem 0 1.8rem;}
+.lead-magnet#placement .lm-meta span{display:inline-flex;align-items:center;gap:.5rem;color:rgba(243,238,227,.75);font-size:.85rem;font-weight:500;}
+.lead-magnet#placement .lm-meta span::before{content:'•';color:#D8BC85;font-size:1.4em;line-height:.5;}
+.lead-magnet#placement .lm-actions{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap;margin-top:.2rem;}
+.lead-magnet#placement .lm-actions .btn-3d{background:linear-gradient(135deg,#D8BC85,#B7965D);color:#00001F;border:0;padding:1rem 1.8rem;border-radius:999px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;display:inline-flex;align-items:center;gap:.6rem;box-shadow:0 14px 30px rgba(216,188,133,.3);cursor:pointer;}
+.lead-magnet#placement .lm-actions .btn-3d:hover{filter:brightness(1.08);}
+.lead-magnet#placement .lm-actions .link-arrow{color:rgba(243,238,227,.85);font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;}
+.lead-magnet#placement .lm-actions .link-arrow:hover{color:#D8BC85;}
+@media (max-width:900px){
+  .lead-magnet#placement .lm-card{grid-template-columns:1fr;}
+  .lead-magnet#placement .lm-cover{min-height:340px;}
+}
