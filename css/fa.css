@@ -4177,11 +4177,12 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 }
 
 /* ===== Sorbonne section: wider+larger title (2 lines), wider sub, larger citation chips ===== */
-.sorb-v4 .sorb-head{ max-width:1180px !important; }
+.sorb-v4 .sorb-head{ max-width:1280px !important; }
 .sorb-v4 .sorb-title{
-  font-size:clamp(2.6rem,5vw,4.4rem) !important;
-  max-width:24ch !important;
-  line-height:1.1 !important;
+  font-size:clamp(2.4rem,4.2vw,3.7rem) !important;
+  max-width:1200px !important;
+  line-height:1.14 !important;
+  text-wrap:balance;
 }
 .sorb-v4 .sorb-sub{
   font-size:clamp(1.1rem,1.35vw,1.32rem) !important;
