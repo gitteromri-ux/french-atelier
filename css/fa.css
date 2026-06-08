@@ -3978,14 +3978,17 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
 section h2{font-size:clamp(2.4rem,4.4vw,3.9rem)}
 section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 
-/* Placement (lead-magnet) image fold: increase cover image size */
-.lead-magnet .lm-cover{min-height:520px !important}
-.lead-magnet .lm-card{grid-template-columns:1.25fr .75fr !important}
-.lead-magnet .lm-body h2{font-size:clamp(2.3rem,4vw,3.4rem) !important}
-.lead-magnet .lm-body p{font-size:1.15rem !important;line-height:1.6}
+/* Placement (lead-magnet) image fold: MUCH bigger cover */
+.lead-magnet{padding:var(--sp-7) 0 !important}
+.lead-magnet .lm-card{grid-template-columns:1.4fr .6fr !important}
+.lead-magnet .lm-cover{min-height:780px !important}
+.lead-magnet .lm-body{padding:3.5rem 3rem 3rem !important}
+.lead-magnet .lm-body h2{font-size:clamp(2.6rem,4.6vw,3.9rem) !important}
+.lead-magnet .lm-body p{font-size:1.18rem !important;line-height:1.6}
+.lead-magnet .lm-cover-badge{font-size:.78rem !important;padding:.6rem 1.2rem !important}
 @media(max-width:820px){
   .lead-magnet .lm-card{grid-template-columns:1fr !important}
-  .lead-magnet .lm-cover{min-height:340px !important}
+  .lead-magnet .lm-cover{min-height:480px !important}
 }
 
 /* Mapstr: bigger, more contrasted captions on photo pop-up; bigger dots */
