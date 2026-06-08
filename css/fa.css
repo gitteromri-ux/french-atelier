@@ -3930,32 +3930,128 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
 
 /* --- Acadomia fold: logo on top + one-line head --- */
 .ac-power-logo{
-  display:block;margin:0 auto 1.4rem;width:auto;height:54px;
-  filter:drop-shadow(0 4px 14px rgba(0,0,0,.35));
-  border-radius:4px;
+  display:block;margin:0 auto 1.6rem;width:auto;height:70px;
+  filter:none !important;
+  border-radius:6px;
+  image-rendering:auto;
+  opacity:1 !important;
 }
 .ac-power-head-oneline{
   white-space:nowrap;max-width:none !important;
-  font-size:clamp(1.7rem,3.6vw,3.1rem);
+  font-size:clamp(2.0rem,4.2vw,3.6rem);
   font-family:var(--serif);font-weight:600;
 }
 @media (max-width:760px){
-  .ac-power-head-oneline{white-space:normal;font-size:clamp(1.8rem,7vw,2.4rem)}
-  .ac-power-logo{height:42px}
+  .ac-power-head-oneline{white-space:normal;font-size:clamp(2.0rem,7.5vw,2.7rem)}
+  .ac-power-logo{height:52px}
 }
 
-/* --- Platform fold: eTeacher Group logo replaces gold eyebrow --- */
+/* --- Platform fold: eTeacher Group logo replaces gold eyebrow (transparent, larger, no white box) --- */
 .etg2-brand-logo{
-  display:block;margin:0 auto;height:52px;width:auto;
-  background:#fff;
-  padding:.8rem 1.6rem;border-radius:10px;
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 8px 24px rgba(0,0,0,.32), 0 0 22px rgba(120,180,255,.12);
+  display:block;margin:0 auto;height:90px;width:auto;
+  background:transparent !important;
+  padding:0 !important;border-radius:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
   box-sizing:content-box;
   object-fit:contain;
+  filter:drop-shadow(0 4px 16px rgba(120,180,255,.4)) drop-shadow(0 0 24px rgba(255,255,255,.18));
 }
-@media (max-width:760px){.etg2-brand-logo{height:40px;padding:.6rem 1.2rem}}
+@media (max-width:760px){.etg2-brand-logo{height:64px}}
 
 /* --- Pillar video performance: GPU hint + offscreen pause helper --- */
 .pillar video{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
 .pillar video[data-paused-offscreen="1"]{filter:brightness(.92)}
+
+/* =================================================================== */
+/* GLOBAL FONT-SIZE BUMP (user request: increase all headlines/subs)   */
+/* Bumps display sizes ~15-20% and lede ~12% across the whole site.    */
+/* =================================================================== */
+.display-xl{font-size:clamp(4.4rem,11vw,10.2rem) !important;line-height:.95}
+.display-lg{font-size:clamp(3.6rem,8vw,7.2rem) !important;line-height:1.0}
+.display-md{font-size:clamp(2.9rem,5.8vw,5.1rem) !important;line-height:1.03}
+.display-sm{font-size:clamp(2.3rem,3.9vw,3.6rem) !important;line-height:1.06}
+.lede{font-size:clamp(1.28rem,1.8vw,1.58rem) !important;line-height:1.6}
+.eyebrow{font-size:.92rem !important;letter-spacing:.16em !important}
+/* Generic content h2/h3 inside sections */
+section h2{font-size:clamp(2.4rem,4.4vw,3.9rem)}
+section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
+
+/* Placement (lead-magnet) image fold: increase cover image size */
+.lead-magnet .lm-cover{min-height:520px !important}
+.lead-magnet .lm-card{grid-template-columns:1.25fr .75fr !important}
+.lead-magnet .lm-body h2{font-size:clamp(2.3rem,4vw,3.4rem) !important}
+.lead-magnet .lm-body p{font-size:1.15rem !important;line-height:1.6}
+@media(max-width:820px){
+  .lead-magnet .lm-card{grid-template-columns:1fr !important}
+  .lead-magnet .lm-cover{min-height:340px !important}
+}
+
+/* Mapstr: bigger, more contrasted captions on photo pop-up; bigger dots */
+.ms-photo-pop-step{
+  color:#fff !important;
+  font-family:var(--serif) !important;
+  font-style:italic;
+  font-size:.95rem !important;
+  letter-spacing:.04em !important;
+  text-transform:none !important;
+  text-shadow:0 2px 6px rgba(0,0,0,.85), 0 0 12px rgba(0,0,0,.7) !important;
+  font-weight:500 !important;
+}
+.ms-photo-pop-city{
+  color:#fff !important;
+  font-size:1.5rem !important;
+  font-weight:600 !important;
+  text-shadow:0 2px 8px rgba(0,0,0,.9), 0 0 14px rgba(0,0,0,.75) !important;
+  letter-spacing:.005em !important;
+}
+.ms-photo-pop-credit{
+  color:rgba(255,255,255,.92) !important;
+  font-size:.78rem !important;
+  text-shadow:0 1px 4px rgba(0,0,0,.85) !important;
+}
+.ms-photo-pop-cap{
+  background:linear-gradient(180deg, rgba(0,0,20,0) 0%, rgba(0,0,20,.45) 40%, rgba(0,0,20,.82) 100%) !important;
+  padding:1.6rem 1.2rem 1.1rem !important;
+}
+/* Make every dot bigger so they're easy to click (single-course mode too) */
+.ms-marker-pin{width:18px !important;height:18px !important}
+.ms-marker:not(.ms-marker-dot) .ms-marker-pin{width:18px !important;height:18px !important}
+.ms-marker::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:44px;height:44px;transform:translate(-50%,-50%);
+  border-radius:50%;
+  /* Invisible larger hit target around small dot for easier clicking */
+  background:transparent;cursor:pointer;
+}
+.ms-marker:hover .ms-marker-pin,.ms-marker.active .ms-marker-pin{
+  transform:scale(1.8) !important;
+}
+
+/* --- Make Julien sound button extra-prominent so users find it --- */
+.jul-cutout-wrap .fa-sound-btn{
+  bottom:auto !important; top:50% !important; right:auto !important; left:50% !important;
+  transform:translate(-50%, -50%) !important;
+  background:linear-gradient(135deg, #F0D58A, #C8A24A) !important;
+  color:#1a1430 !important;
+  border:2px solid #fff !important;
+  padding:.95rem 1.6rem !important;
+  font-size:.95rem !important;
+  letter-spacing:.18em !important;
+  border-radius:999px !important;
+  box-shadow:0 12px 32px rgba(0,0,0,.6), 0 0 28px rgba(240,213,138,.55), 0 0 0 6px rgba(240,213,138,.12) !important;
+  animation:jul-sound-pulse 2.4s ease-in-out infinite;
+  z-index:30 !important;
+}
+.jul-cutout-wrap .fa-sound-btn.is-on{
+  background:linear-gradient(135deg, #fff, #f1cc70) !important;
+  animation:none;
+}
+.jul-cutout-wrap .fa-sound-btn:hover{
+  transform:translate(-50%, -50%) scale(1.06) !important;
+}
+.jul-cutout-wrap .fa-sound-btn .fa-sound-ico{font-size:1.25rem !important}
+@keyframes jul-sound-pulse{
+  0%,100%{box-shadow:0 12px 32px rgba(0,0,0,.6), 0 0 28px rgba(240,213,138,.55), 0 0 0 6px rgba(240,213,138,.12)}
+  50%{box-shadow:0 12px 32px rgba(0,0,0,.6), 0 0 44px rgba(240,213,138,.85), 0 0 0 12px rgba(240,213,138,.05)}
+}

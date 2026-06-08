@@ -18,14 +18,14 @@
 /* Hero text pulled further LEFT so the headline starts under "Courses" in the
    nav (closer to the screen edge than the centered .wrap allows). We override
    the wrap centering with a viewport-relative left padding. */
-.hero .hero-content{max-width:none !important;width:100% !important;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-left:clamp(2rem,5vw,6.5rem) !important;padding-right:clamp(2rem,5vw,6.5rem) !important;margin:0 !important}
+.hero .hero-content{max-width:none !important;width:100% !important;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-left:clamp(8rem,20.5vw,18rem) !important;padding-right:clamp(2rem,5vw,6.5rem) !important;margin:0 !important}
 .hero-content h1,.hero-content .hero-sub,.hero-content .hero-ctas{margin-left:0;text-align:left}
 .hero-content .hero-ctas{justify-content:flex-start}
-.hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.9rem);color:var(--gold-soft);margin-bottom:1rem}
-/* Hero: standard centered wrap, headline stays on its authored 2 lines */
-.hero h1{font-size:clamp(2.6rem,5vw,4.8rem);line-height:1.05;letter-spacing:-.012em;font-weight:500;max-width:24ch;margin:0 0 1.5rem;white-space:normal}
+.hero-tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--gold-soft);margin-bottom:1rem}
+/* Hero: bumped sizes — bigger headline, larger sub. Padding aligns under "Courses" nav (~296px on 1440). */
+.hero h1{font-size:clamp(3.2rem,6vw,5.8rem) !important;line-height:1.04;letter-spacing:-.012em;font-weight:500;max-width:26ch;margin:0 0 1.6rem;white-space:normal}
 .hero h1 br{display:block}
-.hero-sub{font-size:clamp(1.08rem,1.4vw,1.3rem);color:var(--on-dark-soft);max-width:48ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
+.hero-sub{font-size:clamp(1.25rem,1.6vw,1.55rem) !important;color:var(--on-dark-soft);max-width:50ch;margin-bottom:2.4rem;font-weight:300;line-height:1.55}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 .hero-live{position:absolute;bottom:2.4rem;left:0;right:0;z-index:3}
 .hero-live .wrap{display:flex;align-items:center;gap:.7rem;color:var(--on-dark-soft);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase}
