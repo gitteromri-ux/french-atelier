@@ -262,3 +262,139 @@
   .display-md{ font-size: 1.85rem !important; line-height: 1.1 !important; }
   .lede, .lede-c{ font-size: 1rem !important; line-height: 1.55 !important; }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   8) HERO IMAGE — show the gentleman on mobile (he sits on the right
+      of the landscape 1550×736 source). Without object-position fix,
+      cover-crop centers on empty colonnade.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .hero{ min-height: 92vh !important; }
+  .hero-bg img{
+    object-position: 78% center !important;
+  }
+  .hero-bg::after{
+    background: linear-gradient(180deg,
+      rgba(8,14,43,.78) 0%,
+      rgba(8,14,43,.55) 36%,
+      rgba(8,14,43,.32) 60%,
+      rgba(8,14,43,.62) 100%) !important;
+  }
+  .hero h1{ font-size: clamp(2.1rem,8.6vw,2.7rem) !important; line-height:1.08 !important; }
+  .hero-sub{ font-size: .98rem !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   9) TEACHERS (.fac-gallery)  — convert 8-tall stack into swipe rail
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .fac-gallery{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 16px 18px !important;
+    margin: 1.6rem -16px 0 !important;
+  }
+  .fac-gallery::-webkit-scrollbar{ display:none; }
+  .fac-card{
+    flex: 0 0 64vw !important;
+    width: 64vw !important;
+    scroll-snap-align: center !important;
+    display: block !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    box-shadow: 0 18px 40px -22px rgba(8,14,43,.35) !important;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .fac-photo{ aspect-ratio: 3/4; overflow: hidden; }
+  .fac-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .fac-info{ padding: .8rem .9rem 1rem; }
+  .fac-name{ font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--navy); }
+  .fac-region{ font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); }
+
+  /* swipe hint under teachers */
+  .tctr-head::after{
+    content: "← swipe →";
+    display: block;
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(200,169,107,.7);
+    text-align: center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   10) TESTIMONIALS (.tst-track)  — swipe rail of 5 cards
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  #testimonials .tst-stage{ overflow: hidden; }
+  #testimonials .tst-track{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 16px 18px !important;
+    margin: 1.4rem -16px 0 !important;
+  }
+  #testimonials .tst-track::-webkit-scrollbar{ display: none; }
+  #testimonials .tst-card{
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    scroll-snap-align: center !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background: #0e1532 !important;
+    box-shadow: 0 28px 60px -28px rgba(0,0,0,.7), 0 0 0 1px rgba(216,188,133,.18) !important;
+  }
+  #testimonials .tst-card img{ width: 100%; height: auto; display: block; }
+
+  #testimonials .tst-head::after{
+    content: "← swipe →";
+    display: block;
+    margin-top: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(216,188,133,.6);
+    text-align: center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   11) ACADOMIA POWER stats (.ac-power-figs)  — swipe rail on mobile
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .ac-power-figs{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 16px 18px !important;
+    margin: 1.4rem -16px 0 !important;
+    max-width: none !important;
+  }
+  .ac-power-figs::-webkit-scrollbar{ display: none; }
+  .ac-power-figs > *{
+    flex: 0 0 76vw !important;
+    width: 76vw !important;
+    scroll-snap-align: center !important;
+    min-width: 0 !important;
+  }
+}
