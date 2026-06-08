@@ -4310,3 +4310,28 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
   .ac-power-logo{height:62px !important;}
   .ac-power-head-oneline{font-size:clamp(2.0rem,7.5vw,2.7rem) !important;}
 }
+
+/* Force LSF white-card text overrides higher than #courses scope */
+#courses .cls-card-lsf .cls-card-title,
+section#courses .cls-card-lsf .cls-card-title{
+  color:#0a1a3a !important;
+  -webkit-text-fill-color:#0a1a3a !important;
+  text-shadow:none !important;
+}
+#courses .cls-card-lsf .cls-card-sub,
+section#courses .cls-card-lsf .cls-card-sub{
+  color:rgba(20,28,60,.74) !important;
+  -webkit-text-fill-color:rgba(20,28,60,.74) !important;
+}
+#courses .cls-card-lsf .cls-card-eyebrow,
+section#courses .cls-card-lsf .cls-card-eyebrow{
+  color:#8B6B2F !important;
+  -webkit-text-fill-color:#8B6B2F !important;
+}
+#courses .cls-card-lsf .cls-meta-val{color:#0a1a3a !important; -webkit-text-fill-color:#0a1a3a !important;}
+#courses .cls-card-lsf .cls-meta-key{color:rgba(20,28,60,.62) !important; -webkit-text-fill-color:rgba(20,28,60,.62) !important;}
+#courses .cls-card-lsf .cls-card-action,
+#courses .cls-card-lsf .cls-card-action-text{color:#1a1f3a !important; -webkit-text-fill-color:#1a1f3a !important;}
+#courses .cls-card-lsf .cls-card-meta{border-top-color:rgba(180,150,90,.32) !important;}
+#courses .cls-card-lsf .cls-meta-item+.cls-meta-item::before{background:rgba(180,150,90,.32) !important;}
+#courses .cls-card-lsf .cls-card-chevron{background:rgba(20,28,60,.08) !important; color:#1a1f3a !important;}
