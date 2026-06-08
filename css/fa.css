@@ -4190,22 +4190,22 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
   line-height:1.62 !important;
 }
 .sorb-v4 .sorb-cred-links{
-  max-width:1480px !important;
+  max-width:1280px !important;
   flex-wrap:nowrap !important;
-  gap:1rem !important;
+  gap:.55rem !important;
   justify-content:center !important;
   padding:0 1rem;
 }
 .sorb-v4 .sorb-cite{
-  font-size:.82rem !important;
-  padding:.78rem 1.15rem !important;
-  letter-spacing:.025em !important;
+  font-size:.68rem !important;
+  padding:.6rem .85rem !important;
+  letter-spacing:.02em !important;
   white-space:nowrap !important;
   flex:0 1 auto !important;
 }
-@media(max-width:1280px){
-  .sorb-v4 .sorb-cred-links{ flex-wrap:wrap !important; max-width:1180px !important; }
-  .sorb-v4 .sorb-cite{ white-space:normal !important; }
+@media(max-width:1180px){
+  .sorb-v4 .sorb-cred-links{ flex-wrap:wrap !important; max-width:980px !important; gap:.7rem !important; }
+  .sorb-v4 .sorb-cite{ white-space:normal !important; font-size:.82rem !important; padding:.78rem 1.2rem !important; }
 }
 @media(max-width:820px){
   .sorb-v4 .sorb-title{ font-size:clamp(1.9rem,7vw,2.8rem) !important; max-width:none !important; }

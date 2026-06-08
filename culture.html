@@ -175,8 +175,11 @@
 }
 
 /* ===================== STICKY CHAPTER TOC ===================== */
+/* Force a solid navy header on this page so it doesn't blend with body */
+body{background:#000014}
+.site-header{background:rgba(0,0,20,.97) !important;backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(200,165,96,.18)}
 .cult-toc{
-  position:sticky;top:80px;z-index:80;
+  position:sticky;top:88px;z-index:80;
   background:rgba(0,0,20,.96);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--gold-line-soft);
   padding:.55rem 0;
