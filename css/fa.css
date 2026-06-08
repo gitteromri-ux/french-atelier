@@ -4084,23 +4084,23 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 .etg3-card.etg3-skyblue h3{ color:#0F2447 !important; }
 .etg3-card.etg3-skyblue p{ color:rgba(15,36,71,.85) !important; }
 
-/* ===== HERO CTA — neon LIGHT BLUE (replaces gold), bigger font ===== */
+/* ===== HERO CTA — neon LIGHT BLUE (replaces gold), white text, bigger font ===== */
 .hero .btn-gold,
 .hero-ctas .btn-gold{
   background:linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
-  color:#0A1A33 !important;
+  color:#FFFFFF !important;
   font-size:1.05rem !important;
   padding:1.35rem 2.9rem !important;
-  letter-spacing:.14em !important;
+  letter-spacing:.16em !important;
   font-weight:700 !important;
-  border:1px solid rgba(190,225,255,.65) !important;
+  border:1px solid rgba(220,240,255,.7) !important;
   box-shadow:
     0 0 0 1px rgba(170,220,255,.35),
     0 0 22px rgba(95,200,255,.65),
     0 0 48px rgba(95,200,255,.45),
     0 0 90px rgba(63,168,240,.35),
     inset 0 1px 0 rgba(255,255,255,.55) !important;
-  text-shadow:0 1px 0 rgba(255,255,255,.35) !important;
+  text-shadow:0 1px 2px rgba(10,30,60,.55), 0 0 12px rgba(95,200,255,.4) !important;
   animation:neonPulse 2.6s ease-in-out infinite !important;
 }
 .hero .btn-gold:hover,
@@ -4132,51 +4132,46 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
       inset 0 1px 0 rgba(255,255,255,.65);
   }
 }
-/* Trustpilot block: small, transparent, right of CTA */
-.hero-ctas{align-items:center !important}
+/* Trustpilot block: transparent, larger, right of CTA — order: Logo > Stars > Excellent */
+.hero-ctas{align-items:center !important;gap:1.4rem !important}
 .hero-trustpilot{
   display:inline-flex;
   flex-direction:column;
   align-items:flex-start;
-  gap:.35rem;
-  padding:.45rem .9rem;
+  gap:.55rem;
+  padding:.4rem 0 .4rem 1.3rem;
   background:transparent;
-  border-left:1px solid rgba(255,255,255,.18);
-  margin-left:.4rem;
+  border-left:1px solid rgba(255,255,255,.22);
+}
+.hero-trustpilot .tp-logo{ display:inline-flex; }
+.hero-trustpilot .tp-logo img{
+  height:30px; width:auto; display:block;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.55));
+}
+.hero-trustpilot .tp-stars{ display:inline-flex; align-items:center; }
+.hero-trustpilot .tp-stars img{
+  height:34px; width:auto; display:block;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
 }
 .hero-trustpilot .tp-rating{
   font-family:var(--sans);
-  font-size:.72rem;
-  letter-spacing:.16em;
+  font-size:.78rem;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.78);
-  font-weight:600;
-}
-.hero-trustpilot .tp-stars{
-  display:inline-flex; align-items:center; gap:.4rem;
-}
-.hero-trustpilot .tp-stars img{
-  height:22px; width:auto; display:block;
-  filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));
-}
-.hero-trustpilot .tp-logo{
-  display:inline-flex;
-}
-.hero-trustpilot .tp-logo img{
-  height:18px; width:auto; display:block;
-  filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));
-  opacity:.95;
+  color:rgba(255,255,255,.88);
+  font-weight:700;
+  text-shadow:0 1px 2px rgba(0,0,0,.5);
 }
 @media(max-width:820px){
+  .hero-ctas{gap:.9rem !important;flex-direction:column;align-items:flex-start !important}
   .hero-trustpilot{
     border-left:0;
-    border-top:1px solid rgba(255,255,255,.18);
-    margin-left:0;
-    margin-top:.6rem;
-    padding:.7rem 0 0;
+    border-top:1px solid rgba(255,255,255,.22);
+    padding:.9rem 0 0;
     width:100%;
     max-width:340px;
-    align-items:flex-start;
   }
+  .hero-trustpilot .tp-logo img{height:26px}
+  .hero-trustpilot .tp-stars img{height:30px}
   .hero .btn-gold,.hero-ctas .btn-gold{font-size:.92rem !important;padding:1.1rem 1.6rem !important}
 }
