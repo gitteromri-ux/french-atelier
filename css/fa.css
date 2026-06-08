@@ -4326,6 +4326,8 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 /* neon CTA removed per user request */
 
 /* --- Sorbonne fold v2 polish (DARK on LIGHT beige bg) --- */
+.sorb.sorb-v4 > .wrap{max-width:1440px !important;}
+.sorb.sorb-v4 .sorb-cred{max-width:1380px !important;}
 .sorb.sorb-v4 .sorb-cred-lab-hi{display:block;text-align:center;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;
   color:#8C1E28 !important;margin:0 auto 1.6rem !important;font-weight:700;}
 .sorb.sorb-v4 .sorb-cred-lab-hi strong{color:#1a1410;letter-spacing:.08em;font-weight:800;}
