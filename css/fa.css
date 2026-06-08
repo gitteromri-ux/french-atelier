@@ -3978,17 +3978,18 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
 section h2{font-size:clamp(2.4rem,4.4vw,3.9rem)}
 section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 
-/* Placement (lead-magnet) image fold: MUCH bigger cover */
+/* Placement (lead-magnet) image fold: WIDER, not taller */
 .lead-magnet{padding:var(--sp-7) 0 !important}
-.lead-magnet .lm-card{grid-template-columns:1.4fr .6fr !important}
-.lead-magnet .lm-cover{min-height:780px !important}
-.lead-magnet .lm-body{padding:3.5rem 3rem 3rem !important}
-.lead-magnet .lm-body h2{font-size:clamp(2.6rem,4.6vw,3.9rem) !important}
-.lead-magnet .lm-body p{font-size:1.18rem !important;line-height:1.6}
+.lead-magnet .lm-card{grid-template-columns:1.7fr .9fr !important;max-width:1320px !important;margin:0 auto !important}
+.lead-magnet .lm-cover{min-height:440px !important;aspect-ratio:auto}
+.lead-magnet .lm-cover img{object-position:center 30% !important}
+.lead-magnet .lm-body{padding:2.8rem 2.6rem 2.6rem !important}
+.lead-magnet .lm-body h2{font-size:clamp(2.2rem,3.6vw,3.2rem) !important}
+.lead-magnet .lm-body p{font-size:1.08rem !important;line-height:1.6}
 .lead-magnet .lm-cover-badge{font-size:.78rem !important;padding:.6rem 1.2rem !important}
 @media(max-width:820px){
   .lead-magnet .lm-card{grid-template-columns:1fr !important}
-  .lead-magnet .lm-cover{min-height:480px !important}
+  .lead-magnet .lm-cover{min-height:300px !important}
 }
 
 /* Mapstr: bigger, more contrasted captions on photo pop-up; bigger dots */
@@ -4058,4 +4059,124 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 @keyframes jul-sound-pulse{
   0%,100%{box-shadow:0 12px 32px rgba(0,0,0,.6), 0 0 28px rgba(240,213,138,.55), 0 0 0 6px rgba(240,213,138,.12)}
   50%{box-shadow:0 12px 32px rgba(0,0,0,.6), 0 0 44px rgba(240,213,138,.85), 0 0 0 12px rgba(240,213,138,.05)}
+}
+
+/* ===== Card 02 "Learning Platform" — elegant light blue (replaces gold) ===== */
+.etg3-card.etg3-skyblue{
+  background:linear-gradient(160deg,#E8F1FB 0%,#BDD7F2 38%,#8FB8E0 100%) !important;
+  color:#0F2447 !important;
+  box-shadow:0 14px 40px -18px rgba(60,110,180,.55), inset 0 1px 0 rgba(255,255,255,.6) !important;
+}
+.etg3-card.etg3-skyblue .etg3-glow{
+  background:radial-gradient(90% 70% at 80% 0%,rgba(255,255,255,.55),transparent 60%) !important;
+}
+.etg3-card.etg3-skyblue .etg3-ic{
+  background:rgba(15,36,71,.10) !important;
+  border-color:rgba(15,36,71,.22) !important;
+  color:#0F2447 !important;
+}
+.etg3-card.etg3-skyblue .etg3-pill{
+  border-color:rgba(15,36,71,.28) !important;
+  background:rgba(15,36,71,.10) !important;
+  color:#0F2447 !important;
+}
+.etg3-card.etg3-skyblue .etg3-no{ color:#0F2447 !important; opacity:.5 !important; }
+.etg3-card.etg3-skyblue h3{ color:#0F2447 !important; }
+.etg3-card.etg3-skyblue p{ color:rgba(15,36,71,.85) !important; }
+
+/* ===== HERO CTA — neon LIGHT BLUE (replaces gold), bigger font ===== */
+.hero .btn-gold,
+.hero-ctas .btn-gold{
+  background:linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
+  color:#0A1A33 !important;
+  font-size:1.05rem !important;
+  padding:1.35rem 2.9rem !important;
+  letter-spacing:.14em !important;
+  font-weight:700 !important;
+  border:1px solid rgba(190,225,255,.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(170,220,255,.35),
+    0 0 22px rgba(95,200,255,.65),
+    0 0 48px rgba(95,200,255,.45),
+    0 0 90px rgba(63,168,240,.35),
+    inset 0 1px 0 rgba(255,255,255,.55) !important;
+  text-shadow:0 1px 0 rgba(255,255,255,.35) !important;
+  animation:neonPulse 2.6s ease-in-out infinite !important;
+}
+.hero .btn-gold:hover,
+.hero-ctas .btn-gold:hover{
+  background:linear-gradient(135deg,#7AD4FF 0%,#4FB3F4 50%,#2C95E2 100%) !important;
+  transform:translateY(-2px) !important;
+  box-shadow:
+    0 0 0 1px rgba(200,235,255,.55),
+    0 0 30px rgba(95,200,255,.85),
+    0 0 65px rgba(95,200,255,.6),
+    0 0 120px rgba(63,168,240,.45),
+    inset 0 1px 0 rgba(255,255,255,.6) !important;
+}
+@keyframes neonPulse{
+  0%,100%{
+    box-shadow:
+      0 0 0 1px rgba(170,220,255,.35),
+      0 0 22px rgba(95,200,255,.55),
+      0 0 48px rgba(95,200,255,.4),
+      0 0 90px rgba(63,168,240,.3),
+      inset 0 1px 0 rgba(255,255,255,.55);
+  }
+  50%{
+    box-shadow:
+      0 0 0 1px rgba(200,235,255,.55),
+      0 0 32px rgba(95,200,255,.85),
+      0 0 70px rgba(95,200,255,.65),
+      0 0 130px rgba(63,168,240,.45),
+      inset 0 1px 0 rgba(255,255,255,.65);
+  }
+}
+/* Trustpilot block: small, transparent, right of CTA */
+.hero-ctas{align-items:center !important}
+.hero-trustpilot{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.35rem;
+  padding:.45rem .9rem;
+  background:transparent;
+  border-left:1px solid rgba(255,255,255,.18);
+  margin-left:.4rem;
+}
+.hero-trustpilot .tp-rating{
+  font-family:var(--sans);
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.78);
+  font-weight:600;
+}
+.hero-trustpilot .tp-stars{
+  display:inline-flex; align-items:center; gap:.4rem;
+}
+.hero-trustpilot .tp-stars img{
+  height:22px; width:auto; display:block;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));
+}
+.hero-trustpilot .tp-logo{
+  display:inline-flex;
+}
+.hero-trustpilot .tp-logo img{
+  height:18px; width:auto; display:block;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));
+  opacity:.95;
+}
+@media(max-width:820px){
+  .hero-trustpilot{
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.18);
+    margin-left:0;
+    margin-top:.6rem;
+    padding:.7rem 0 0;
+    width:100%;
+    max-width:340px;
+    align-items:flex-start;
+  }
+  .hero .btn-gold,.hero-ctas .btn-gold{font-size:.92rem !important;padding:1.1rem 1.6rem !important}
 }
