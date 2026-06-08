@@ -343,9 +343,10 @@
       stage.classList.add('ms-noscript');
       mapEl.innerHTML = '<div class="ms-fallback"><p>The interactive map is loading…</p>' +
         '<p class="ms-fallback-sub">If it does not appear, please check your connection — the map of France loads from a map-tile service.</p></div>';
-      // still render tabs/legend with data so structure is correct
-      buildLegend(courseById(DATA.courses[0].id));
-      activeCourse = courseById(DATA.courses[0].id);
+      // still render tabs/legend with data so structure is correct.
+      // Default to the All Journeys master view, not a single course.
+      buildLegend(courseByIdX(ALL_ID));
+      activeCourse = courseByIdX(ALL_ID);
       tabs.children[0].classList.add('active');
       return { root: root, setJourney: function () {}, openStop: function () {}, closePanel: function () {} };
     }
@@ -422,7 +423,9 @@
       } catch (e) { /* highlight is non-fatal */ }
       // NO route lines anywhere — only the blue dot markers. Per design,
       // the map shows clean luminous blue dots and never a connecting trail.
-      setJourney(DATA.courses[0].id, false);
+      // Auto-land on the All Journeys master view (every region of France),
+      // not on any single individual course.
+      setJourney(ALL_ID, false);
     });
 
     map.on('error', function (e) { /* tile load errors are non-fatal */ });
