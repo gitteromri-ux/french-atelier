@@ -3946,18 +3946,19 @@ section[id^="chapter-"] { scroll-margin-top: 120px; }
   .ac-power-logo{height:52px}
 }
 
-/* --- Platform fold: eTeacher Group logo replaces gold eyebrow (transparent, larger, no white box) --- */
+/* --- Platform fold: eTeacher Group logo replaces gold eyebrow (transparent, white, clean) --- */
 .etg2-brand-logo{
-  display:block;margin:0 auto;height:90px;width:auto;
+  display:block;margin:0 auto 1.6rem;height:64px;width:auto;
   background:transparent !important;
   padding:0 !important;border-radius:0 !important;
   border:0 !important;
   box-shadow:none !important;
   box-sizing:content-box;
   object-fit:contain;
-  filter:drop-shadow(0 4px 16px rgba(120,180,255,.4)) drop-shadow(0 0 24px rgba(255,255,255,.18));
+  filter:none !important;
+  opacity:.96;
 }
-@media (max-width:760px){.etg2-brand-logo{height:64px}}
+@media (max-width:760px){.etg2-brand-logo{height:46px}}
 
 /* --- Pillar video performance: GPU hint + offscreen pause helper --- */
 .pillar video{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
