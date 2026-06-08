@@ -280,24 +280,91 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   8) HERO IMAGE — show the gentleman on mobile (he sits on the right
-      of the landscape 1550×736 source). Without object-position fix,
-      cover-crop centers on empty colonnade.
+   8) HERO — mobile rebuild: header clearance, brand CTA, readable copy
+      Fixes: H1 colliding with logo, light-grey unreadable sub,
+      generic blue button, edge-flush trustpilot block.
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  .hero{ min-height: 92vh !important; }
-  .hero-bg img{
-    object-position: 78% center !important;
-  }
+  .hero{ min-height: 100vh !important; position: relative; }
+  .hero-bg img{ object-position: 76% center !important; }
+  /* Stronger left-side gradient so body copy stays readable over the suit/face */
   .hero-bg::after{
-    background: linear-gradient(180deg,
-      rgba(8,14,43,.78) 0%,
-      rgba(8,14,43,.55) 36%,
-      rgba(8,14,43,.32) 60%,
-      rgba(8,14,43,.62) 100%) !important;
+    content:''; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,20,.55) 0%, rgba(0,0,20,.15) 22%, rgba(0,0,20,0) 38%, rgba(0,0,20,.55) 100%),
+      linear-gradient(95deg, rgba(0,0,20,.88) 0%, rgba(0,0,20,.72) 38%, rgba(0,0,20,.32) 62%, rgba(0,0,20,0) 90%) !important;
   }
-  .hero h1{ font-size: clamp(2.1rem,8.6vw,2.7rem) !important; line-height:1.08 !important; }
-  .hero-sub{ font-size: .98rem !important; }
+  /* Push hero content BELOW the fixed header (avoids the logo overlap) */
+  .hero .hero-content{
+    padding-top: 110px !important;
+    padding-bottom: 40px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  .hero h1{
+    font-size: 2.35rem !important;
+    line-height: 1.08 !important;
+    margin: 0 0 1.1rem !important;
+    color:#F3EEE3 !important;
+    text-shadow: 0 2px 24px rgba(0,0,16,.55);
+  }
+  .hero h1 .gold-ital{ color:#E8C77A !important; }
+  .hero-sub{
+    font-size: 1.02rem !important;
+    line-height: 1.55 !important;
+    color: rgba(243,238,227,.95) !important;
+    max-width: 30ch !important;
+    margin: 0 0 1.8rem !important;
+    text-shadow: 0 1px 16px rgba(0,0,16,.6);
+  }
+  /* Brand-correct gold CTA on mobile (replaces baby-blue gradient) */
+  .hero .hero-ctas{
+    display:flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.3rem !important;
+    width: 100%;
+  }
+  .hero .hero-ctas .btn-gold,
+  .hero .hero-ctas .btn.btn-gold,
+  .hero .hero-ctas a.btn{
+    background: linear-gradient(135deg,#E8C77A 0%,#C9A24E 100%) !important;
+    color:#0B1027 !important;
+    border: 1px solid rgba(255,255,255,.18) !important;
+    box-shadow: 0 14px 34px rgba(216,188,133,.32), inset 0 1px 0 rgba(255,255,255,.4) !important;
+    font-weight: 700 !important;
+    letter-spacing: .14em !important;
+    text-transform: uppercase !important;
+    font-size: .82rem !important;
+    padding: 1.05rem 1.6rem !important;
+    border-radius: 14px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  /* Trustpilot block: keep it left-aligned with content (not flush to viewport edge) */
+  .hero-trustpilot{
+    display:flex !important;
+    align-items: center !important;
+    gap: .7rem !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    padding-top: .4rem !important;
+    border-top: 1px solid rgba(255,255,255,.16) !important;
+    width: 100%;
+    max-width: 320px;
+  }
+  .hero-trustpilot .tp-logo img{ height: 22px !important; width:auto !important; }
+  .hero-trustpilot .tp-stars img{ height: 22px !important; width:auto !important; }
+  .hero-trustpilot .tp-rating{
+    font-size: .72rem !important;
+    letter-spacing: .22em !important;
+    color: rgba(243,238,227,.85) !important;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────
