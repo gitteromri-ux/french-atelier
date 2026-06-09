@@ -4952,6 +4952,52 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
 #teachers .fac-info{padding:.9rem 1.05rem 1.1rem !important;background:linear-gradient(180deg,transparent 0%,rgba(8,12,28,.92) 100%) !important}
 #teachers .fac-card{position:relative;border-radius:14px;overflow:hidden}
 #teachers .fac-card .fac-info{position:absolute;left:0;right:0;bottom:0}
+
+/* ============================================================
+   UNIFIED SUBHEADER / LEDE TYPOGRAPHY ACROSS ALL FOLDS
+   One font, one size, one width — absolute consistency
+   ============================================================ */
+.lede,.lede-c,.s5-lede,.lg-lede,.ms-lede,
+#method-fold.s5 .s5-lede,
+#lead-form .lg-lede,
+.jul-home .lede,
+#teachers .lede,
+#courses .lede,
+#culture .lede,
+#how-it-works .lede,
+.cta-band .lede,
+#acadomia-power .lede{
+  font-family:var(--sans) !important;
+  font-weight:300 !important;
+  font-size:1.25rem !important;
+  line-height:1.62 !important;
+  letter-spacing:.005em !important;
+  max-width:62ch !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center;
+  color:inherit;
+  text-wrap:pretty;
+}
+/* Folds where lede sits inside a copy block (non-centered split layouts) keep left alignment */
+.jul-home .lede,
+.split .lede,
+.split-wide .lede,
+#lead-form .lg-lede{
+  text-align:left;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+/* Re-apply darker color where background is light, lighter where dark */
+.bg-paper .lede,.bg-ivory .lede,.bg-white .lede,#courses .lede,#teachers .lede,#how-it-works .lede{color:rgba(11,19,64,.74) !important}
+.on-dark .lede,.cta-band .lede,#culture .lede,#method-fold .s5-lede,.jul-home .lede,.lg-fold .lg-lede{color:rgba(243,238,227,.78) !important}
+@media(max-width:720px){
+  .lede,.lede-c,.s5-lede,.lg-lede,.ms-lede{
+    font-size:1.02rem !important;
+    line-height:1.55 !important;
+    max-width:42ch !important;
+  }
+}
 #courses.section-pad{padding-top:4rem !important}
 #culture.section-pad{padding-top:4rem !important}
 #method-fold.s5{padding-top:4.2rem !important;padding-bottom:5rem !important}
