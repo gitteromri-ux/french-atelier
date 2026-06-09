@@ -4391,3 +4391,125 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
   .lead-magnet#placement .lm-card{grid-template-columns:1fr;}
   .lead-magnet#placement .lm-cover{min-height:340px;}
 }
+
+/* ============================================================
+   SORBONNE DESKTOP REFRESH — larger cards, bigger text,
+   premium citation rail, kill stray neon decorations
+   (overrides previous v4 styles above)
+   ============================================================ */
+@media (min-width: 861px){
+  .sorb-v4 .sorb-principles{
+    max-width: 1280px !important;
+    gap: 2rem !important;
+  }
+  .sorb-v4 .sorb-pr{
+    padding: 3rem 2.6rem 2.8rem !important;
+    border-radius: 18px !important;
+    min-height: 360px !important;
+    background: linear-gradient(180deg, #FFFBF0 0%, #F4E6CC 100%) !important;
+    border: 1px solid rgba(140,30,40,.18) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 -1px 0 rgba(140,30,40,.06) inset,
+      0 18px 40px -22px rgba(85,40,20,.28) !important;
+  }
+  /* Refined top accent: single warm gold hairline, no harsh red */
+  .sorb-v4 .sorb-pr::before{
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, #C9A24E 50%, transparent) !important;
+    opacity: .85 !important;
+  }
+  /* Numerals: bigger, gold gradient */
+  .sorb-v4 .sorb-pr-no{
+    font-size: 2.6rem !important;
+    margin: 0 0 .9rem !important;
+    background: linear-gradient(135deg, #D8AE5E 0%, #8C1E28 100%) !important;
+    -webkit-background-clip: text !important;
+            background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    letter-spacing: -.005em !important;
+  }
+  .sorb-v4 .sorb-pr-fr{
+    font-size: 1.05rem !important;
+    margin: 0 0 1rem !important;
+    opacity: .88 !important;
+  }
+  /* Headlines: significantly bigger */
+  .sorb-v4 .sorb-pr-tt{
+    font-size: 1.7rem !important;
+    line-height: 1.18 !important;
+    margin: 0 0 1rem !important;
+  }
+  /* Body copy: bigger, more readable */
+  .sorb-v4 .sorb-pr-tx{
+    font-size: 1.08rem !important;
+    line-height: 1.65 !important;
+    color: rgba(26,20,16,.78) !important;
+  }
+}
+
+/* Kill any stray decorative neon line / separator above the Sorbonne footer */
+.sorb-v4 .sorb-cred::before,
+.sorb-v4 .sorb-cred::after,
+.sorb-v4 .sorb-principles ~ *::before:not(.sorb-cite):not(.sorb-cite-yr){
+  display: none !important;
+}
+
+/* CITATIONS — premium plaque look (desktop) */
+@media (min-width: 861px){
+  .sorb.sorb-v4 .sorb-cred-lab-hi{
+    font-size: .85rem !important;
+    margin: 0 auto 1.8rem !important;
+    color: rgba(26,20,16,.62) !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-lab-hi strong{
+    color: #1a1410 !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2{
+    gap: 1rem !important;
+    max-width: 1280px !important;
+    padding: 0 1.2rem !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2 .sorb-cite{
+    background: linear-gradient(180deg, #FFFEF8 0%, #FBF4E6 100%) !important;
+    border: 1px solid rgba(184,146,79,.45) !important;
+    border-radius: 999px !important;
+    padding: .8rem 1.2rem !important;
+    font-size: .95rem !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.9) inset,
+      0 6px 18px -10px rgba(85,40,20,.18) !important;
+    color: #1a1410 !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2 .sorb-cite:hover{
+    transform: translateY(-2px);
+    border-color: #C9A24E !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 14px 28px -14px rgba(85,40,20,.30) !important;
+  }
+  /* Year badge: warm gold, not blood red */
+  .sorb.sorb-v4 .sorb-cite-yr{
+    background: linear-gradient(135deg, #D8AE5E 0%, #B8924F 100%) !important;
+    color: #1a1410 !important;
+    -webkit-text-fill-color: #1a1410 !important;
+    font-weight: 700 !important;
+    font-size: .68rem !important;
+    letter-spacing: .14em !important;
+    border-radius: 6px !important;
+    min-width: 56px !important;
+  }
+  .sorb.sorb-v4 .sorb-cite-tx{
+    font-size: .92rem !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    color: #1a1410 !important;
+    -webkit-text-fill-color: #1a1410 !important;
+  }
+  .sorb.sorb-v4 .sorb-cite-arrow{
+    color: #B8924F !important;
+    -webkit-text-fill-color: #B8924F !important;
+  }
+}
