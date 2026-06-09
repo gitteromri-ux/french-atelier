@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781033103">
+<link rel="stylesheet" href="css/fa.css?v=1781033915">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781033103">
+<link rel="stylesheet" href="css/mapstr.css?v=1781033915">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -99,11 +99,11 @@
 .tm .tm-name{font-family:var(--serif);font-size:1.2rem;margin-top:.8rem}
 .tm .tm-region{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
-/* ===== TEACHERS — LARGE PORTRAIT GALLERY (homepage fold) ===== */
-.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.2rem;max-width:1100px;margin-left:auto;margin-right:auto}
-.fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 18px 44px -28px rgba(11,19,64,.45);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.fac-card:hover{transform:translateY(-6px);box-shadow:0 34px 70px -30px rgba(11,19,64,.55)}
-.fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
+/* ===== TEACHERS — PORTRAIT GALLERY (homepage fold, compact) ===== */
+.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.6rem;max-width:920px;margin-left:auto;margin-right:auto}
+.fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 14px 34px -24px rgba(11,19,64,.4);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.fac-card:hover{transform:translateY(-5px);box-shadow:0 28px 56px -28px rgba(11,19,64,.5)}
+.fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden;max-height:280px}
 .fac-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 1s var(--ease),filter .6s;filter:saturate(.97)}
 .fac-card:hover .fac-photo img{transform:scale(1.06);filter:saturate(1.05)}
 .fac-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 42%,rgba(0,0,32,.86) 100%);pointer-events:none}
@@ -113,7 +113,7 @@
 .fac-region::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-soft);flex-shrink:0}
 @media(max-width:1100px){.fac-gallery{grid-template-columns:repeat(3,1fr);gap:1rem}}
 @media(max-width:780px){.fac-gallery{grid-template-columns:repeat(2,1fr);gap:.8rem}.fac-name{font-size:1.1rem}}
-#teachers{padding-top:5rem !important;padding-bottom:5rem !important}
+#teachers{padding-top:4rem !important;padding-bottom:4rem !important}
 #teachers .tctr-head{margin-bottom:1.6rem}
 #teachers .tctr-badges{margin-bottom:1.6rem}
 @media(max-width:430px){.fac-gallery{grid-template-columns:repeat(2,1fr);gap:.7rem}.fac-info{padding:1rem .9rem .95rem}.fac-name{font-size:1.1rem}.fac-region{font-size:.6rem;letter-spacing:.1em}}
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781033103">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781033915">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -621,7 +621,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <div class="s5-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
 
     <div class="s5-cred reveal">
-      <p class="s5-cred-lab">Based on Sorbonne Research &amp; Methodologies</p>
       <div class="s5-cred-list">
         <a class="s5-cite" href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener"><span class="s5-cite-yr">2019</span><span class="s5-cite-tx">Piccardo &amp; North &mdash; The Action-Oriented Approach</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
         <a class="s5-cite" href="https://www.ecml.at/" target="_blank" rel="noopener"><span class="s5-cite-yr">2020</span><span class="s5-cite-tx">Council of Europe &mdash; CEFR Companion Volume</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
@@ -629,8 +628,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <a class="s5-cite" href="https://www.caslt.org/en/in-the-classroom/aoa/" target="_blank" rel="noopener"><span class="s5-cite-yr">CASLT</span><span class="s5-cite-tx">Action-Oriented Approach</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
-
-    <p class="s5-disc reveal">Our method draws on the Sorbonne tradition of applied linguistics and the CEFR. The French Atelier is independent and not affiliated with, nor endorsed by, the Sorbonne.</p>
   </div>
 </section>
 
@@ -995,7 +992,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- Julien — transparent character cutout emerging from the navy section -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-master/julien-hero-master.webm" type="video/webm"><source src="assets/juliane/video-master/julien-hero-master.mp4" type="video/mp4"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <video id="jul-home-video" class="jul-cutout" autoplay muted playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-master/julien-hero-master.webm" type="video/webm"><source src="assets/juliane/video-master/julien-hero-master.mp4" type="video/mp4"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
       <button id="jul-home-sound-btn" class="jul-home-sound" type="button" aria-label="Hear Julien introduce himself in French" aria-pressed="false">
         <svg class="jhs-icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="jhs-icon-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1482,8 +1479,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781033103"></script>
-<script src="js/mapstr.js?v=1781033103" defer></script>
+<script src="js/fa.js?v=1781033915"></script>
+<script src="js/mapstr.js?v=1781033915" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
