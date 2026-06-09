@@ -4513,3 +4513,13 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
     -webkit-text-fill-color: #B8924F !important;
   }
 }
+
+/* ============================================================
+   KILL the stray neon-blue line + glow above citations
+   (was: .sorb-cred::before breathing blue halo)
+   ============================================================ */
+.sorb-cred::before{ display: none !important; content: none !important; }
+.sorb-cred{ border-top-color: transparent !important; }
+.sorb-v4 .sorb-cred{ border-top: 0 !important; }
+.sorb-cred-lab{ text-shadow: none !important; color: rgba(26,20,16,.62) !important; }
+.sorb-cred-links a{ text-shadow: none !important; border-bottom-color: transparent !important; }
