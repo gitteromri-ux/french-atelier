@@ -4921,21 +4921,21 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
    ============================================================ */
 #culture .pillar video{will-change:transform;backface-visibility:hidden;transform:translateZ(0);}
 
-/* Mobile Sorbonne H2 — force exactly 2 visual lines (1 per span) */
+/* Mobile Sorbonne H2 — proper hierarchy size */
 @media (max-width:720px){
   #method-fold.s5 .s5-head{max-width:100% !important;padding:0 .25rem;}
   #method-fold.s5 .s5-title{
-    font-size:1.05rem !important;
-    line-height:1.25 !important;
+    font-size:clamp(2.05rem, 7.6vw, 2.6rem) !important;
+    line-height:1.12 !important;
     letter-spacing:-.012em !important;
     text-wrap:balance !important;
     white-space:normal !important;
   }
   #method-fold.s5 .s5-title .gold-ital{
     display:block !important;
-    margin-top:.35em !important;
-    font-size:1.18rem !important;
-    line-height:1.22 !important;
+    margin-top:.18em !important;
+    font-size:clamp(2.05rem, 7.6vw, 2.6rem) !important;
+    line-height:1.12 !important;
   }
 }
 
