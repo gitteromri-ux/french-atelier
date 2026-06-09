@@ -4696,3 +4696,170 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
     color: rgba(243,238,227,.85) !important;
   }
 }
+
+/* ============================================================
+   AGENT C — Mobile Slider Fix  (max-width:720px)
+   All 3+ child grid containers become horizontal swipe sliders.
+   Specific selectors only — no blanket grid override.
+   ============================================================ */
+@media (max-width:720px) {
+
+  /* ── Shared mixin ── */
+  .pillar-grid-about,
+  .lead-grid,
+  .loc-grid,
+  .award-grid,
+  .val-grid,
+  .partner-grid,
+  .blog-grid,
+  .related-grid,
+  .coll-grid,
+  .more-grid,
+  .course-grid,
+  .week-grid,
+  .stack-grid,
+  .tnet-grid,
+  .cap-grid,
+  .aoa-grid,
+  .cando-grid,
+  .trio-grid,
+  .pricing-grid,
+  .faculty-grid,
+  .tpb-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding: 0 16px 8px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    scrollbar-width: none;
+  }
+  .pillar-grid-about::-webkit-scrollbar,
+  .lead-grid::-webkit-scrollbar,
+  .loc-grid::-webkit-scrollbar,
+  .award-grid::-webkit-scrollbar,
+  .val-grid::-webkit-scrollbar,
+  .partner-grid::-webkit-scrollbar,
+  .blog-grid::-webkit-scrollbar,
+  .related-grid::-webkit-scrollbar,
+  .coll-grid::-webkit-scrollbar,
+  .more-grid::-webkit-scrollbar,
+  .course-grid::-webkit-scrollbar,
+  .week-grid::-webkit-scrollbar,
+  .stack-grid::-webkit-scrollbar,
+  .tnet-grid::-webkit-scrollbar,
+  .cap-grid::-webkit-scrollbar,
+  .aoa-grid::-webkit-scrollbar,
+  .cando-grid::-webkit-scrollbar,
+  .trio-grid::-webkit-scrollbar,
+  .pricing-grid::-webkit-scrollbar,
+  .faculty-grid::-webkit-scrollbar,
+  .tpb-grid::-webkit-scrollbar { display: none; }
+
+  /* ── Children snap ── */
+  .pillar-grid-about > *,
+  .lead-grid > *,
+  .loc-grid > *,
+  .award-grid > *,
+  .val-grid > *,
+  .partner-grid > *,
+  .blog-grid > *,
+  .related-grid > *,
+  .coll-grid > *,
+  .more-grid > *,
+  .course-grid > *,
+  .week-grid > *,
+  .stack-grid > *,
+  .tnet-grid > *,
+  .cap-grid > *,
+  .aoa-grid > *,
+  .cando-grid > *,
+  .trio-grid > *,
+  .pricing-grid > *,
+  .faculty-grid > *,
+  .tpb-grid > * {
+    flex: 0 0 78% !important;
+    min-width: 0 !important;
+    max-width: 78% !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* ── .grid.g4 (pricing page generic grid) ── */
+  .grid.g4,
+  .grid.g3 {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding: 0 16px 8px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    scrollbar-width: none;
+  }
+  .grid.g4::-webkit-scrollbar,
+  .grid.g3::-webkit-scrollbar { display: none; }
+  .grid.g4 > *,
+  .grid.g3 > * {
+    flex: 0 0 78% !important;
+    min-width: 0 !important;
+    max-width: 78% !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* ── course.css grids: pillar-grid, learn-grid, method-grid, unit-grid ── */
+  .pillar-grid,
+  .learn-grid,
+  .method-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding: 0 16px 8px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    scrollbar-width: none;
+  }
+  .pillar-grid::-webkit-scrollbar,
+  .learn-grid::-webkit-scrollbar,
+  .method-grid::-webkit-scrollbar { display: none; }
+  .pillar-grid > *,
+  .learn-grid > *,
+  .method-grid > * {
+    flex: 0 0 78% !important;
+    min-width: 0 !important;
+    max-width: 78% !important;
+    scroll-snap-align: start !important;
+  }
+
+  /* unit-grid: 20 items — narrower cards for better scanning */
+  .unit-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px !important;
+    padding: 0 16px 8px !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    scrollbar-width: none;
+  }
+  .unit-grid::-webkit-scrollbar { display: none; }
+  .unit-grid > * {
+    flex: 0 0 78% !important;
+    min-width: 0 !important;
+    max-width: 78% !important;
+    scroll-snap-align: start !important;
+  }
+}
