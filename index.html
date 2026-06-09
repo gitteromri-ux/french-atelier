@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781029599">
+<link rel="stylesheet" href="css/fa.css?v=1781029689">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781029599">
+<link rel="stylesheet" href="css/mapstr.css?v=1781029689">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781029599">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781029689">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -959,7 +959,15 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 .jul-home-points{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.9rem;}
 .jul-home-points li{display:flex;align-items:center;gap:.8rem;color:rgba(243,238,227,.78);font-size:1rem;line-height:1.5;}
 .jul-home-points li svg{width:22px;height:22px;flex:0 0 22px;color:#D8BC85;}
-@media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}}
+.jul-cutout-wrap{position:relative;}
+.jul-home-sound{position:absolute;left:50%;bottom:-1.2rem;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.55rem;background:rgba(11,15,28,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(216,188,133,.45);color:#F3EEE3;padding:.7rem 1.25rem;border-radius:999px;font-family:inherit;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;z-index:3;transition:all .35s cubic-bezier(.2,.7,.25,1);box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 1px rgba(216,188,133,.12);}
+.jul-home-sound:hover{border-color:rgba(216,188,133,.85);background:rgba(11,15,28,.88);transform:translateX(-50%) translateY(-2px);box-shadow:0 16px 36px rgba(0,0,0,.55),0 0 0 1px rgba(216,188,133,.35);}
+.jul-home-sound svg{width:18px;height:18px;color:#D8BC85;flex:0 0 18px;}
+.jul-home-sound .jhs-icon-play{display:none;}
+.jul-home-sound[aria-pressed="true"] .jhs-icon-mute{display:none;}
+.jul-home-sound[aria-pressed="true"] .jhs-icon-play{display:inline-block;}
+.jul-home-sound[aria-pressed="true"]{border-color:#D8BC85;background:rgba(216,188,133,.18);}
+@media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}.jul-home-sound{font-size:.7rem;padding:.6rem 1rem;}}
 </style>
 <section class="section-pad jul-home on-dark" id="julien-fold">
   <div class="jul-home-glow" aria-hidden="true"></div>
@@ -967,7 +975,13 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- Julien — transparent character cutout emerging from the navy section -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <audio id="jul-home-audio" preload="none" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+      <button id="jul-home-sound-btn" class="jul-home-sound" type="button" aria-label="Hear Julien introduce himself in French" aria-pressed="false">
+        <svg class="jhs-icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="jhs-icon-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="jhs-label">Hear Julien</span>
+      </button>
     </div>
     <div class="reveal reveal-d1 jul-home-text">
       <p class="eyebrow eyebrow-line">Practice Between Classes</p>
@@ -982,6 +996,20 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
       <a href="juliane.html" class="btn btn-gold" style="margin-top:1.6rem">Discover Julien</a>
     </div>
   </div>
+<script>
+(function(){
+  var btn=document.getElementById('jul-home-sound-btn');
+  var audio=document.getElementById('jul-home-audio');
+  var video=document.getElementById('jul-home-video');
+  if(!btn||!audio) return;
+  btn.addEventListener('click', function(){
+    var on=btn.getAttribute('aria-pressed')==='true';
+    if(on){ audio.pause(); btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Hear Julien introduce himself in French'); }
+    else{ audio.currentTime=0; var p=audio.play(); if(p&&p.catch){p.catch(function(){});} btn.setAttribute('aria-pressed','true'); btn.setAttribute('aria-label','Stop Julien audio'); }
+  });
+  audio.addEventListener('ended', function(){ btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Hear Julien introduce himself in French'); });
+})();
+</script>
 </section>
 
 <!-- ===== TESTIMONIALS — black background, 3D Apple-sleek student stories ===== -->
@@ -1454,8 +1482,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781029599"></script>
-<script src="js/mapstr.js?v=1781029599" defer></script>
+<script src="js/fa.js?v=1781029689"></script>
+<script src="js/mapstr.js?v=1781029689" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
