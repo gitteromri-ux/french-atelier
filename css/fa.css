@@ -4523,3 +4523,206 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 .sorb-v4 .sorb-cred{ border-top: 0 !important; }
 .sorb-cred-lab{ text-shadow: none !important; color: rgba(26,20,16,.62) !important; }
 .sorb-cred-links a{ text-shadow: none !important; border-bottom-color: transparent !important; }
+
+/* ============================================================
+   TESTIMONIALS DESKTOP — premium hero rail (cards 2x larger)
+   ============================================================ */
+@media (min-width: 861px){
+  #testimonials.tst-fold{
+    padding: 9rem 0 10rem !important;
+    background:
+      radial-gradient(140% 100% at 50% 0%, rgba(216,188,133,.10), transparent 55%),
+      radial-gradient(100% 70% at 50% 100%, rgba(140,30,40,.05), transparent 60%),
+      radial-gradient(80% 60% at 50% 50%, #0A0F1E 0%, #000 100%) !important;
+  }
+  #testimonials .tst-head h2{
+    font-size: clamp(3rem, 4.4vw, 4.2rem) !important;
+    line-height: 1.05 !important;
+    margin-bottom: 1rem !important;
+  }
+  #testimonials .tst-head p{
+    font-size: 1.15rem !important;
+    line-height: 1.6 !important;
+    color: rgba(243,238,227,.78) !important;
+    max-width: 64ch;
+    margin: 0 auto;
+  }
+  #testimonials .tst-stage{
+    margin: 4rem auto 0 !important;
+    max-width: 1480px !important;
+    padding: 0 1rem;
+    overflow: visible !important;
+  }
+  /* 3-up large grid instead of cramped 5-up */
+  #testimonials .tst-track{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    padding: 2rem 0 !important;
+  }
+  /* Hide 4th & 5th cards on desktop (rotate weekly via JS later if needed) */
+  #testimonials .tst-track > .tst-card:nth-child(n+4){
+    display: none !important;
+  }
+  #testimonials .tst-card{
+    background: linear-gradient(180deg, #12182B 0%, #060912 100%) !important;
+    border: 1px solid rgba(216,188,133,.22) !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    transform-style: preserve-3d;
+    box-shadow:
+      0 1px 0 rgba(216,188,133,.18) inset,
+      0 30px 70px -20px rgba(0,0,0,.85),
+      0 0 0 1px rgba(216,188,133,.10) inset,
+      0 0 80px -20px rgba(216,188,133,.18) !important;
+    transition: transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .55s !important;
+  }
+  #testimonials .tst-card:hover{
+    transform: translateY(-10px) rotateX(2deg) !important;
+    box-shadow:
+      0 1px 0 rgba(216,188,133,.3) inset,
+      0 50px 100px -24px rgba(0,0,0,.9),
+      0 0 0 1px rgba(216,188,133,.28) inset,
+      0 0 120px -20px rgba(216,188,133,.35) !important;
+    border-color: rgba(216,188,133,.5) !important;
+  }
+  /* Gold corner ribbon (top) */
+  #testimonials .tst-card::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #E8C77A 25%, #C9A24E 50%, #E8C77A 75%, transparent) !important;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 0 !important;
+    inset: 0 !important;
+    inset: auto !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    height: 4px !important;
+  }
+  #testimonials .tst-card img{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 370 / 520;
+    object-fit: cover;
+    display: block;
+    border-radius: 28px !important;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  #testimonials .tst-card:hover img{
+    transform: scale(1.03);
+  }
+  /* Source line */
+  #testimonials .tst-source{
+    margin-top: 4rem !important;
+    font-size: .85rem !important;
+    letter-spacing: .18em !important;
+    color: rgba(216,188,133,.62) !important;
+  }
+}
+
+/* ============================================================
+   SORBONNE — PREMIUM NAVY CARD REDESIGN (desktop)
+   Override the cream cards with deep-navy editorial cards
+   ============================================================ */
+@media (min-width: 861px){
+  .sorb-v4 .sorb-principles{
+    max-width: 1320px !important;
+    gap: 2rem !important;
+  }
+  .sorb-v4 .sorb-pr{
+    padding: 3.2rem 2.6rem 2.8rem !important;
+    border-radius: 22px !important;
+    min-height: 420px !important;
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgba(232,199,122,.18), transparent 55%),
+      radial-gradient(90% 70% at 100% 100%, rgba(140,30,40,.10), transparent 60%),
+      linear-gradient(168deg, #0E1E40 0%, #061029 60%, #04081A 100%) !important;
+    border: 1px solid rgba(216,188,133,.30) !important;
+    box-shadow:
+      0 1px 0 rgba(232,199,122,.22) inset,
+      0 -1px 0 rgba(255,255,255,.04) inset,
+      0 30px 70px -22px rgba(0,0,16,.45),
+      0 0 0 1px rgba(216,188,133,.10) inset !important;
+    color: #F3EEE3 !important;
+    overflow: hidden !important;
+    transition: transform .5s, box-shadow .5s !important;
+  }
+  .sorb-v4 .sorb-pr:hover{
+    transform: translateY(-8px) !important;
+    box-shadow:
+      0 1px 0 rgba(232,199,122,.35) inset,
+      0 50px 100px -24px rgba(0,0,16,.65),
+      0 0 0 1px rgba(216,188,133,.28) inset,
+      0 0 100px -20px rgba(216,188,133,.22) !important;
+    border-color: rgba(232,199,122,.55) !important;
+  }
+  /* Gold ribbon */
+  .sorb-v4 .sorb-pr::before{
+    height: 3px !important;
+    background: linear-gradient(90deg, transparent, #E8C77A 25%, #C9A24E 50%, #E8C77A 75%, transparent) !important;
+    opacity: 1 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  /* Decorative giant numeral in background */
+  .sorb-v4 .sorb-pr::after{
+    display: block !important;
+    content: attr(data-bg-num) !important;
+    position: absolute !important;
+    right: -16px !important;
+    bottom: -48px !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 16rem !important;
+    font-weight: 700 !important;
+    color: rgba(216,188,133,.06) !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+  /* Foreground big gold numeral */
+  .sorb-v4 .sorb-pr-no{
+    position: relative !important;
+    z-index: 2 !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #FFE9B0 0%, #E8C77A 45%, #C9A24E 100%) !important;
+    -webkit-background-clip: text !important;
+            background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    margin: 0 0 .9rem !important;
+    text-shadow: 0 2px 12px rgba(216,188,133,.25) !important;
+    letter-spacing: -.01em !important;
+  }
+  .sorb-v4 .sorb-pr-fr{
+    position: relative !important;
+    z-index: 2 !important;
+    font-style: italic !important;
+    font-size: 1.05rem !important;
+    color: rgba(232,199,122,.85) !important;
+    margin: 0 0 1rem !important;
+  }
+  .sorb-v4 .sorb-pr-tt{
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 1.7rem !important;
+    line-height: 1.18 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 1rem !important;
+    font-weight: 600 !important;
+  }
+  .sorb-v4 .sorb-pr-tx{
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    color: rgba(243,238,227,.85) !important;
+  }
+}
