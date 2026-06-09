@@ -1092,6 +1092,55 @@
   .ms-tooltip, .mapboxgl-popup { max-width: 220px !important; }
   .ms-modal img, .ms-card img { max-width: 100% !important; height: auto !important; display: block; }
 
+  /* ===== TYPOGRAPHY OVERHAUL — bigger headers, proper hierarchy ===== */
+  body h1, .hero h1, .hero-title{
+    font-size: clamp(2.4rem, 9vw, 3.1rem) !important;
+    line-height: 1.08 !important;
+    font-weight: 500 !important;
+    letter-spacing: -.01em !important;
+  }
+  body h2,
+  #courses h2, #culture h2, #acadomia-power h2, #teachers h2,
+  .jul-home h2, .tst-head h2, #testimonials h2, #faq h2,
+  .hiw3-title, #mapstr h2, #mapstr .ms-title,
+  .lj-title, .stp-title{
+    font-size: clamp(2.05rem, 7.6vw, 2.6rem) !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+    letter-spacing: -.005em !important;
+  }
+  /* Sorbonne h2 was tiny (16.8px) — fix specifically */
+  #method-fold h2, #method-fold .s5-title{
+    font-size: clamp(2.05rem, 7.6vw, 2.6rem) !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+  }
+  body h3, .hiw3-name, .cls-course-title, .fac-name, .s5-cardtitle{
+    font-size: 1.32rem !important;
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+  }
+  body .eyebrow, body [class*="eyebrow"],
+  body .kicker, body [class*="kicker"],
+  body .ms-eyebrow, .s5-eyebrow, .hiw3-eyebrow,
+  .ac-power-eyebrow, .tst-eyebrow, .faq-eyebrow,
+  .tch-eyebrow, .cls-eyebrow, .jul-eyebrow{
+    font-size: .76rem !important;
+    letter-spacing: .22em !important;
+    font-weight: 600 !important;
+  }
+  body p, body .lede, body .section-lede,
+  body .hero .lede, body .hero p,
+  body #courses .lede, body #method-fold .lede,
+  body #culture p, body .hiw3-lede, body .jul-lede,
+  body .tst-head p, body .faq-lede, body .lj-lede{
+    font-size: 1.06rem !important;
+    line-height: 1.6 !important;
+    font-weight: 300 !important;
+    max-width: 38ch !important;
+    text-wrap: pretty !important;
+  }
+
   /* ---- LEARNING JOURNEY steps — stack and contain ---- */
   .lj-steps, .stp-rail, .stp-row { display: flex !important; flex-direction: column !important; gap: 1.4rem !important; max-width: 100% !important; }
   .lj-dots, .stp-dots { max-width: 100% !important; overflow: hidden; }
