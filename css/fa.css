@@ -4897,3 +4897,17 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
   #teachers .fac-card .fac-photo{max-height:240px;overflow:hidden;}
   #teachers .fac-card .fac-photo img{object-fit:cover;width:100%;height:100%;}
 }
+
+/* Mobile Sorbonne H2 — keep to 2 lines */
+@media (max-width:720px){
+  #method-fold.s5 .s5-title{
+    font-size:1.55rem !important;
+    line-height:1.15 !important;
+    letter-spacing:-.01em !important;
+    text-wrap:balance !important;
+  }
+  #method-fold.s5 .s5-title .gold-ital{
+    margin-top:.1em !important;
+  }
+  #method-fold.s5 .s5-head{max-width:100% !important;padding:0 .5rem;}
+}
