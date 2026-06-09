@@ -616,3 +616,69 @@
     text-align: center;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   13) Universal mobile slider dots + edge-peek shadows
+   Makes it OBVIOUS every rail is swipeable on mobile.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width: 760px){
+  .fa-rail-dots{
+    display: flex;
+    justify-content: center;
+    gap: .55rem;
+    margin: .85rem 0 1rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+  .fa-rail-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    background: rgba(201, 162, 78, .28);
+    transition: background .25s ease, transform .25s ease, width .25s ease;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px transparent;
+  }
+  .fa-rail-dot.is-active{
+    background: #C9A24E;
+    width: 22px;
+    border-radius: 4px;
+  }
+  /* On dark sections, brighter dots */
+  .bg-navy .fa-rail-dot,
+  .bg-navy-deep .fa-rail-dot,
+  section[id="culture"] .fa-rail-dot,
+  section[id="testimonials"] .fa-rail-dot,
+  section[id="julien-fold"] .fa-rail-dot{
+    background: rgba(232, 199, 122, .38);
+  }
+  .bg-navy .fa-rail-dot.is-active,
+  .bg-navy-deep .fa-rail-dot.is-active,
+  section[id="culture"] .fa-rail-dot.is-active,
+  section[id="testimonials"] .fa-rail-dot.is-active{
+    background: #E8C77A;
+  }
+
+  /* Visible scroll hint: subtle scrollbar (Chrome/iOS) */
+  .cls-cards, .pillars-grid, .hiw3-journey, .fac-gallery, .tst-track, .etg3-track{
+    scroll-padding-left: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201,162,78,.45) transparent;
+  }
+  .cls-cards::-webkit-scrollbar,
+  .pillars-grid::-webkit-scrollbar,
+  .hiw3-journey::-webkit-scrollbar,
+  .fac-gallery::-webkit-scrollbar,
+  .tst-track::-webkit-scrollbar,
+  .etg3-track::-webkit-scrollbar{ height: 3px; }
+  .cls-cards::-webkit-scrollbar-thumb,
+  .pillars-grid::-webkit-scrollbar-thumb,
+  .hiw3-journey::-webkit-scrollbar-thumb,
+  .fac-gallery::-webkit-scrollbar-thumb,
+  .tst-track::-webkit-scrollbar-thumb,
+  .etg3-track::-webkit-scrollbar-thumb{
+    background: rgba(201,162,78,.45); border-radius: 3px;
+  }
+}

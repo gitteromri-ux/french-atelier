@@ -651,3 +651,71 @@
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', run);
   else run();
 })();
+
+/* ─────────────────────────────────────────────────────────────────
+   Mobile slider indicators — auto-inject dots + side hints
+   Adds visible dots beneath every horizontal-scrolling rail on mobile.
+   ───────────────────────────────────────────────────────────────── */
+(function(){
+  if (window.matchMedia && !window.matchMedia('(max-width: 760px)').matches) return;
+
+  var RAILS = [
+    { sel: '.cls-cards',     label: 'Courses' },
+    { sel: '.pillars-grid',  label: 'Culture' },
+    { sel: '.hiw3-journey',  label: 'Learning Journey' },
+    { sel: '.fac-gallery',   label: 'Teachers' },
+    { sel: '.tst-track',     label: 'Testimonials' }
+  ];
+
+  function buildDots(rail){
+    if (rail.dataset.faDots === '1') return;
+    var n = rail.children.length;
+    if (n < 2) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'fa-rail-dots';
+    wrap.setAttribute('role','tablist');
+    for (var i=0;i<n;i++){
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'fa-rail-dot' + (i===0 ? ' is-active' : '');
+      d.setAttribute('role','tab');
+      d.setAttribute('aria-label','Slide ' + (i+1));
+      d.dataset.idx = String(i);
+      d.addEventListener('click', function(ev){
+        var idx = +ev.currentTarget.dataset.idx;
+        var card = rail.children[idx];
+        if (!card) return;
+        rail.scrollTo({ left: card.offsetLeft - rail.offsetLeft, behavior: 'smooth' });
+      });
+      wrap.appendChild(d);
+    }
+    rail.parentNode.insertBefore(wrap, rail.nextSibling);
+    rail.dataset.faDots = '1';
+
+    function syncActive(){
+      var rect = rail.getBoundingClientRect();
+      var center = rect.left + rect.width/2;
+      var best = 0, bestDist = Infinity;
+      for (var i=0;i<rail.children.length;i++){
+        var cr = rail.children[i].getBoundingClientRect();
+        var cc = cr.left + cr.width/2;
+        var d = Math.abs(cc - center);
+        if (d < bestDist){ bestDist = d; best = i; }
+      }
+      var dots = wrap.querySelectorAll('.fa-rail-dot');
+      dots.forEach(function(d,i){ d.classList.toggle('is-active', i === best); });
+    }
+    rail.addEventListener('scroll', function(){
+      window.requestAnimationFrame(syncActive);
+    }, { passive: true });
+    syncActive();
+  }
+
+  function init(){
+    RAILS.forEach(function(r){
+      document.querySelectorAll(r.sel).forEach(buildDots);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
