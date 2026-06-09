@@ -9,6 +9,7 @@
   min-height: 78vh;
   display: flex;
   align-items: flex-end;
+  padding-top: 5rem;
   padding-bottom: 7rem;
   overflow: hidden;
   background: var(--navy-deep);
@@ -41,7 +42,7 @@
 .teachers-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 68ch;
+  max-width: 72ch;
 }
 .teachers-hero-scroll-hint {
   position: absolute;

@@ -397,7 +397,7 @@ section{position:relative}
 .video-bg.tint-soft::after{background:linear-gradient(180deg,rgba(8,14,43,.35),rgba(8,14,43,.6))}
 
 /* A standalone cinematic band: caption left, ambient video fills section */
-.video-band{position:relative;overflow:hidden;min-height:64vh;display:flex;align-items:center;color:var(--on-dark)}
+.video-band{position:relative;overflow:hidden;min-height:64vh;display:flex;align-items:center;color:var(--on-dark);padding:5rem 0}
 .video-band .video-bg::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(8,14,43,.42)}
 .video-band .video-bg::after{z-index:1;background:linear-gradient(90deg,rgba(8,14,43,.9) 0%,rgba(8,14,43,.78) 45%,rgba(8,14,43,.5) 72%,rgba(8,14,43,.25) 100%)}
 .video-band .vb-inner{position:relative;z-index:2;max-width:42rem}
