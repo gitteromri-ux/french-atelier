@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781029689">
+<link rel="stylesheet" href="css/fa.css?v=1781032320">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781029689">
+<link rel="stylesheet" href="css/mapstr.css?v=1781032320">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781029689">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781032320">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -431,7 +431,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 }
 
 /* ---- Header ---- */
-#method-fold.s5 .s5-head{max-width:46rem;margin:0 auto;text-align:center}
+#method-fold.s5 .s5-head{max-width:58rem;margin:0 auto;text-align:center}
 #method-fold.s5 .s5-eyebrow{
   font-family:var(--sans);font-size:.72rem;font-weight:600;
   letter-spacing:.26em;text-transform:uppercase;color:#D8BC85;
@@ -439,8 +439,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 }
 #method-fold.s5 .s5-title{
   font-family:var(--serif);font-weight:500;font-style:normal;
-  font-size:clamp(2.3rem,5vw,4rem);line-height:1.08;letter-spacing:-.012em;
-  color:#F3EEE3;margin:0;
+  font-size:clamp(2rem,3.7vw,3.2rem);line-height:1.12;letter-spacing:-.012em;
+  color:#F3EEE3;margin:0;text-wrap:balance;
 }
 #method-fold.s5 .s5-title .gold-ital{
   display:block;margin-top:.18em;
@@ -705,6 +705,35 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
+<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
+<section class="ac-power" id="acadomia-power">
+  <div class="wrap">
+    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
+    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
+    <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
+    <div class="ac-power-figs reveal reveal-d2">
+      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
+      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
+      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
+    </div>
+    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
+      <div class="ac-marquee-track">
+        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ===== HOW IT WORKS — Cinematic learning journey (V3 rebuild) ===== -->
 <section class="hiw3-section" id="how-it-works">
   <div class="wrap">
@@ -921,21 +950,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   <div id="mapstr-mount"></div>
 </section>
 
-<!-- ===== LIVE FROM FRANCE (regions band) ===== -->
-<section class="video-band on-dark">
-  <div class="video-bg">
-    <video poster="assets/video/paris-cityscape-poster.jpg" autoplay loop muted playsinline preload="metadata">
-      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Your Lessons, Broadcast Live</p>
-    <h2 class="display-md" style="margin:1.2rem 0">From the heart of <span class="gold-ital">France</span></h2>
-    <p class="lede">Paris, Bordeaux, Provence, the Alps, the Côte d'Azur — every live lesson is broadcast from the places where French is truly lived. You don't just study the language; you step into it.</p>
-    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
-  </div></div>
-</section>
-
 <!-- ===== JULIEN AI (brief) — transparent cutout, emerging from the section ===== -->
 <style>
 /* Self-contained styles for the homepage Julien fold (juliane.css is not loaded here) */
@@ -970,6 +984,12 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 @media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}.jul-home-sound{font-size:.7rem;padding:.6rem 1rem;}}
 </style>
 <section class="section-pad jul-home on-dark" id="julien-fold">
+  <div class="jul-paris-bg" aria-hidden="true">
+    <video class="jul-paris-video" autoplay loop muted playsinline preload="metadata" poster="assets/video/paris-cityscape-poster.jpg">
+      <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
+    </video>
+    <div class="jul-paris-veil"></div>
+  </div>
   <div class="jul-home-glow" aria-hidden="true"></div>
   <div class="wrap jul-home-split">
     <!-- Julien — transparent character cutout emerging from the navy section -->
@@ -1209,33 +1229,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </script>
 </section>
 
-<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
-<section class="ac-power" id="acadomia-power">
-  <div class="wrap">
-    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
-    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
-    <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
-    <div class="ac-power-figs reveal reveal-d2">
-      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
-      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
-      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
-    </div>
-    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
-      <div class="ac-marquee-track">
-        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
-        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================
      SORBONNE METHODOLOGY FOLD — rebuilt LIGHT & on-brand (V3)
@@ -1367,8 +1360,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
 
 
-
-
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
@@ -1482,8 +1473,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781029689"></script>
-<script src="js/mapstr.js?v=1781029689" defer></script>
+<script src="js/fa.js?v=1781032320"></script>
+<script src="js/mapstr.js?v=1781032320" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
