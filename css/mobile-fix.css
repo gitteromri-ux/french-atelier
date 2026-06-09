@@ -618,6 +618,126 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
+   14) SORBONNE METHOD — principle cards become a swipe rail on mobile,
+        and citation links become a horizontal rail (not vertical stack).
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  /* Principles -> horizontal swipe rail */
+  .sorb-principles{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: .9rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: .25rem .25rem 1rem !important;
+    margin: 0 -1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .sorb-principles .sorb-pr{
+    flex: 0 0 84% !important;
+    max-width: 84% !important;
+    scroll-snap-align: center !important;
+  }
+
+  /* Citations -> horizontal pill rail, premium look */
+  .sorb-cred-links,
+  .sorb-cred-links-v2{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: .65rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: .25rem 1rem 1rem !important;
+    margin: 0 -1rem !important;
+  }
+  .sorb-cred-links .sorb-cite,
+  .sorb-cred-links-v2 .sorb-cite{
+    flex: 0 0 78% !important;
+    max-width: 78% !important;
+    scroll-snap-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: .65rem !important;
+    padding: .85rem 1rem !important;
+    background: linear-gradient(135deg, #FFF 0%, #FAF6EC 100%) !important;
+    border: 1px solid rgba(140, 35, 36, .18) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 14px rgba(28,22,15,.06), 0 1px 0 rgba(255,255,255,.6) inset !important;
+    text-decoration: none !important;
+    color: #1a1a1a !important;
+  }
+  .sorb-cite .sorb-cite-yr{
+    flex: 0 0 auto !important;
+    background: linear-gradient(135deg, #8C2324 0%, #6A1A1B 100%) !important;
+    color: #fff !important;
+    font-size: .68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .06em !important;
+    padding: .35rem .55rem !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+    min-width: 48px !important;
+    text-align: center !important;
+  }
+  .sorb-cite .sorb-cite-tx{
+    flex: 1 1 auto !important;
+    font-size: .82rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    color: #1a1a1a !important;
+  }
+  .sorb-cite .sorb-cite-arrow{
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    color: #C9A24E !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   15) TESTIMONIALS FOLD — premium pitch-black background (mobile)
+   Reinforce the deep black + warm gold accents.
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  .tst-fold{
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(201,162,78,.10), transparent 55%),
+      radial-gradient(80% 60% at 50% 100%, rgba(140,35,36,.08), transparent 60%),
+      #000 !important;
+    padding: 5.5rem 0 6rem !important;
+  }
+  .tst-fold::before{
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.02) 0%, transparent 30%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.04'/></svg>") !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+  .tst-fold .wrap{ position: relative; z-index: 1; }
+  /* Eyebrow pill — gold border */
+  .tst-fold .tst-eyebrow,
+  .tst-fold [class*="eyebrow"]{
+    border: 1px solid rgba(201,162,78,.45) !important;
+    background: rgba(0,0,0,.4) !important;
+    color: #E8C77A !important;
+  }
+  /* Cards on solid black, gold edge */
+  .tst-card{
+    background: linear-gradient(180deg, #0A0A0F 0%, #000 100%) !important;
+    border: 1px solid rgba(201,162,78,.16) !important;
+    box-shadow:
+      0 24px 48px rgba(0,0,0,.6),
+      0 0 0 1px rgba(201,162,78,.08) inset !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
    13) Universal mobile slider dots + edge-peek shadows
    Makes it OBVIOUS every rail is swipeable on mobile.
    ───────────────────────────────────────────────────────────────── */

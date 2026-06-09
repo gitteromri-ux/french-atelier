@@ -660,11 +660,13 @@
   if (window.matchMedia && !window.matchMedia('(max-width: 760px)').matches) return;
 
   var RAILS = [
-    { sel: '.cls-cards',     label: 'Courses' },
-    { sel: '.pillars-grid',  label: 'Culture' },
-    { sel: '.hiw3-journey',  label: 'Learning Journey' },
-    { sel: '.fac-gallery',   label: 'Teachers' },
-    { sel: '.tst-track',     label: 'Testimonials' }
+    { sel: '.cls-cards',         label: 'Courses' },
+    { sel: '.pillars-grid',      label: 'Culture' },
+    { sel: '.hiw3-journey',      label: 'Learning Journey' },
+    { sel: '.fac-gallery',       label: 'Teachers' },
+    { sel: '.tst-track',         label: 'Testimonials' },
+    { sel: '.sorb-principles',   label: 'Sorbonne Principles' },
+    { sel: '.sorb-cred-links-v2',label: 'Citations' }
   ];
 
   function buildDots(rail){
