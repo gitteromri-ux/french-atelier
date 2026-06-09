@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781035177">
+<link rel="stylesheet" href="css/fa.css?v=1781036095">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781035177">
+<link rel="stylesheet" href="css/mapstr.css?v=1781036095">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781035177">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781036095">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -428,15 +428,18 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 #method-fold.s5::before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(38% 42% at 18% 22%, rgba(216,188,133,.18) 0%, rgba(216,188,133,0) 64%),
-    radial-gradient(42% 46% at 84% 18%, rgba(108,160,255,.14) 0%, rgba(108,160,255,0) 66%),
-    radial-gradient(54% 50% at 50% 100%, rgba(216,188,133,.10) 0%, rgba(216,188,133,0) 70%),
-    radial-gradient(30% 36% at 70% 60%, rgba(228,166,184,.08) 0%, rgba(228,166,184,0) 70%);
+    radial-gradient(45% 52% at 14% 18%, rgba(216,188,133,.45) 0%, rgba(216,188,133,.18) 30%, rgba(216,188,133,0) 70%),
+    radial-gradient(50% 55% at 86% 14%, rgba(108,160,255,.38) 0%, rgba(108,160,255,.14) 32%, rgba(108,160,255,0) 72%),
+    radial-gradient(58% 55% at 50% 102%, rgba(216,188,133,.32) 0%, rgba(216,188,133,.10) 36%, rgba(216,188,133,0) 76%),
+    radial-gradient(34% 40% at 72% 64%, rgba(228,166,184,.24) 0%, rgba(228,166,184,.08) 38%, rgba(228,166,184,0) 76%),
+    radial-gradient(28% 32% at 22% 74%, rgba(180,150,240,.18) 0%, rgba(180,150,240,0) 72%);
+  mix-blend-mode:screen;
 }
 #method-fold.s5::after{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    linear-gradient(120deg, transparent 0%, transparent 60%, rgba(216,188,133,.06) 78%, transparent 100%);
+    linear-gradient(125deg, transparent 0%, transparent 48%, rgba(216,188,133,.18) 70%, rgba(216,188,133,.05) 85%, transparent 100%),
+    radial-gradient(80% 60% at 50% 50%, transparent 0%, transparent 55%, rgba(0,0,30,.35) 100%);
 }
 #method-fold.s5 .s5-wrap{
   max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);
@@ -1298,14 +1301,101 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-<!-- ===== PRICING TEASER ===== -->
-<section class="section-pad bg-paper">
-  <div class="wrap-narrow" style="text-align:center">
-    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Simple, Transparent Pricing</p>
-    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">Live French from <span class="gold-ital">$39 a week</span></h2>
-    <p class="lede reveal reveal-d2">Every plan includes 20 live lessons, small groups of 8–10, lifetime recordings, a CEFR certificate by Acadomia, $100 in credits, and 24/7 support.</p>
-    <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d3" style="margin-top:1.6rem">View Plans &amp; Enroll</a>
+<!-- ===== LEAD GEN FORM (replaces pricing teaser) ===== -->
+<style id="lg-style">
+.lg-fold{position:relative;background:linear-gradient(180deg,#0B1340 0%,#0A1128 65%,#080E20 100%);color:#F3EEE3;overflow:hidden;isolation:isolate}
+.lg-fold::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(40% 50% at 12% 18%, rgba(216,188,133,.16) 0%, rgba(216,188,133,0) 70%),
+    radial-gradient(46% 56% at 90% 90%, rgba(216,188,133,.10) 0%, rgba(216,188,133,0) 72%);}
+.lg-wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.4rem);align-items:center}
+@media(max-width:900px){.lg-wrap{grid-template-columns:1fr;gap:2.4rem}}
+.lg-left .lg-eyebrow{font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#D8BC85;margin:0 0 1.4rem}
+.lg-left h2{font-family:var(--serif);font-weight:500;font-style:normal;font-size:clamp(2rem,3.7vw,3.2rem);line-height:1.12;letter-spacing:-.012em;color:#F3EEE3;margin:0 0 1.4rem;text-wrap:balance}
+.lg-left h2 .gold-ital{display:block;color:#D8BC85;font-style:italic;font-weight:500;margin-top:.18em}
+.lg-left .lg-lede{font-family:var(--sans);font-weight:300;font-size:clamp(1.02rem,1.35vw,1.16rem);line-height:1.7;color:rgba(243,238,227,.78);margin:0 0 2rem;max-width:42ch}
+.lg-trust{display:flex;flex-direction:column;gap:.9rem;margin-top:1.4rem}
+.lg-trust-item{display:flex;align-items:center;gap:.9rem;font-family:var(--sans);font-weight:400;font-size:.95rem;color:rgba(243,238,227,.86)}
+.lg-trust-item svg{width:18px;height:18px;flex-shrink:0;color:#D8BC85}
+.lg-form{background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.02) 100%);border:1px solid rgba(216,188,133,.22);border-radius:18px;padding:clamp(1.6rem,3vw,2.4rem);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 30px 80px -40px rgba(0,0,15,.7)}
+.lg-form-title{font-family:var(--serif);font-weight:500;font-style:italic;font-size:1.4rem;color:#F3EEE3;margin:0 0 .35rem;letter-spacing:-.005em}
+.lg-form-sub{font-family:var(--sans);font-weight:300;font-size:.92rem;color:rgba(243,238,227,.65);margin:0 0 1.6rem}
+.lg-row{display:grid;gap:1.05rem}
+.lg-row.two{grid-template-columns:1fr 1fr}
+@media(max-width:560px){.lg-row.two{grid-template-columns:1fr}}
+.lg-field{display:flex;flex-direction:column;gap:.4rem}
+.lg-field label{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#D8BC85}
+.lg-field input,.lg-field select{font-family:var(--sans);font-size:.98rem;font-weight:400;color:#F3EEE3;background:rgba(0,0,15,.4);border:1px solid rgba(216,188,133,.22);border-radius:10px;padding:.85rem 1rem;transition:border-color .25s ease,background .25s ease,box-shadow .25s ease;width:100%;box-sizing:border-box}
+.lg-field input::placeholder{color:rgba(243,238,227,.4)}
+.lg-field input:focus,.lg-field select:focus{outline:none;border-color:#D8BC85;background:rgba(0,0,15,.6);box-shadow:0 0 0 3px rgba(216,188,133,.14)}
+.lg-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1l5 5 5-5' stroke='%23D8BC85' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem;cursor:pointer}
+.lg-field select option{background:#0A1128;color:#F3EEE3}
+.lg-submit{margin-top:1.6rem;width:100%;font-family:var(--sans);font-size:.86rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#0A1128;background:linear-gradient(135deg,#E4CC8E 0%,#D8BC85 60%,#C8A96B 100%);border:0;border-radius:10px;padding:1.05rem 1.4rem;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;box-shadow:0 14px 40px -16px rgba(216,188,133,.5)}
+.lg-submit:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 20px 50px -18px rgba(216,188,133,.7)}
+.lg-submit:active{transform:translateY(0)}
+.lg-fineprint{font-family:var(--sans);font-size:.74rem;font-weight:300;color:rgba(243,238,227,.55);margin:1.1rem 0 0;line-height:1.6;text-align:center}
+.lg-fineprint a{color:#D8BC85;text-decoration:underline;text-underline-offset:2px}
+.lg-success{display:none;padding:1.6rem;border:1px solid rgba(216,188,133,.35);border-radius:14px;background:rgba(216,188,133,.06);text-align:center;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:#D8BC85}
+.lg-form.is-sent .lg-form-body{display:none}
+.lg-form.is-sent .lg-success{display:block}
+</style>
+<section class="section-pad lg-fold" id="lead-form" aria-labelledby="lg-title">
+  <div class="lg-wrap">
+    <div class="lg-left reveal">
+      <p class="lg-eyebrow">Begin Your Journey</p>
+      <h2 id="lg-title">Request your personal<span class="gold-ital">enrollment consultation.</span></h2>
+      <p class="lg-lede">Tell us a little about your French goals, and a member of our enrollment team will reach out personally — to walk you through the program, the live classes, and the plan that fits you best.</p>
+      <div class="lg-trust">
+        <div class="lg-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No pressure — a real, human consultation</div>
+        <div class="lg-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Receive plan options &amp; recommended start date</div>
+        <div class="lg-trust-item"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply within one business day</div>
+      </div>
+    </div>
+    <form class="lg-form reveal reveal-d1" id="lg-form" novalidate>
+      <div class="lg-form-body">
+        <p class="lg-form-title">Personal consultation request</p>
+        <p class="lg-form-sub">All fields required. Your information is private and never shared.</p>
+        <div class="lg-row two">
+          <div class="lg-field"><label for="lg-first">First name</label><input id="lg-first" name="first_name" type="text" required autocomplete="given-name" placeholder="Marie"></div>
+          <div class="lg-field"><label for="lg-last">Last name</label><input id="lg-last" name="last_name" type="text" required autocomplete="family-name" placeholder="Laurent"></div>
+        </div>
+        <div class="lg-row" style="margin-top:1.05rem">
+          <div class="lg-field"><label for="lg-email">Email</label><input id="lg-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+        </div>
+        <div class="lg-row two" style="margin-top:1.05rem">
+          <div class="lg-field"><label for="lg-phone">Phone</label><input id="lg-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+1 555 123 4567"></div>
+          <div class="lg-field"><label for="lg-level">French level</label><select id="lg-level" name="level" required><option value="" disabled selected>Select your level</option><option value="absolute-beginner">Absolute beginner</option><option value="beginner">Beginner (A1)</option><option value="elementary">Elementary (A2)</option><option value="intermediate">Intermediate (B1)</option><option value="upper-intermediate">Upper-intermediate (B2)</option><option value="advanced">Advanced (C1+)</option><option value="unsure">I'm not sure</option></select></div>
+        </div>
+        <div class="lg-row two" style="margin-top:1.05rem">
+          <div class="lg-field"><label for="lg-timing">When to start</label><select id="lg-timing" name="timing" required><option value="" disabled selected>Choose timing</option><option value="asap">As soon as possible</option><option value="1-month">Within a month</option><option value="3-months">Within 3 months</option><option value="exploring">Just exploring</option></select></div>
+          <div class="lg-field"><label for="lg-country">Country</label><input id="lg-country" name="country" type="text" required autocomplete="country-name" placeholder="United States"></div>
+        </div>
+        <button type="submit" class="lg-submit">Request my consultation</button>
+        <p class="lg-fineprint">By submitting you agree to our <a href="privacy.html">Privacy Policy</a> and to be contacted by our enrollment team.</p>
+      </div>
+      <div class="lg-success" role="status" aria-live="polite">Merci. Your request has been received — we will reach out within one business day.</div>
+    </form>
   </div>
+  <script>
+  (function(){
+    var f=document.getElementById('lg-form'); if(!f) return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      // Lightweight client validation
+      var inputs=f.querySelectorAll('input[required],select[required]');
+      for(var i=0;i<inputs.length;i++){if(!inputs[i].value){inputs[i].focus();return;}}
+      // Mark as sent (replace this with your CRM endpoint as needed)
+      f.classList.add('is-sent');
+      // POST hook placeholder (customize endpoint when CRM is connected)
+      try{
+        var data={};
+        new FormData(f).forEach(function(v,k){data[k]=v;});
+        // window.fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+        console.log('LEAD:',data);
+      }catch(_){}
+    });
+  })();
+  </script>
 </section>
 
 <!-- ===== FAQ (homepage condensed) ===== -->
@@ -1502,8 +1592,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781035177"></script>
-<script src="js/mapstr.js?v=1781035177" defer></script>
+<script src="js/fa.js?v=1781036095"></script>
+<script src="js/mapstr.js?v=1781036095" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){

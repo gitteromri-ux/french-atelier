@@ -2304,9 +2304,10 @@ body.modal-open{overflow:hidden}
 }
 .tctr-badge{
   display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold-deep);background:linear-gradient(135deg,rgba(200,169,107,.12),rgba(200,169,107,.04));
-  border:1px solid var(--gold-line-soft);border-radius:999px;padding:.52rem 1.1rem;
+  font-family:var(--sans);
+  font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-deep);background:linear-gradient(135deg,rgba(200,169,107,.10),rgba(200,169,107,.03));
+  border:1px solid var(--gold-line-soft);border-radius:999px;padding:.55rem 1.15rem;
 }
 .tctr-badge svg{flex-shrink:0;color:var(--gold-deep)}
 
@@ -4941,6 +4942,16 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 .section-pad:not(#mapstr):not(.hero){padding-top:4rem !important}
 section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
 #teachers.section-pad{padding-top:3rem !important;padding-bottom:4rem !important}
+
+/* ===== TEACHERS FOLD TYPOGRAPHY REFINEMENT (brand consistency) ===== */
+#teachers .eyebrow{font-family:var(--sans) !important;font-weight:500 !important;letter-spacing:.26em !important;font-size:.74rem !important;color:var(--gold-deep) !important;text-transform:uppercase !important}
+#teachers .display-md{font-family:var(--serif) !important;font-weight:500 !important;letter-spacing:-.012em !important}
+#teachers .lede{font-family:var(--sans) !important;font-weight:300 !important;color:rgba(11,19,64,.72) !important;line-height:1.6 !important}
+#teachers .fac-name{font-family:var(--serif) !important;font-weight:500 !important;font-style:italic;font-size:1.4rem !important;color:#F3EEE3 !important;letter-spacing:-.005em;margin:0 0 .25rem !important}
+#teachers .fac-region{font-family:var(--sans) !important;font-weight:500 !important;font-size:.7rem !important;letter-spacing:.22em !important;text-transform:uppercase !important;color:#D8BC85 !important}
+#teachers .fac-info{padding:.9rem 1.05rem 1.1rem !important;background:linear-gradient(180deg,transparent 0%,rgba(8,12,28,.92) 100%) !important}
+#teachers .fac-card{position:relative;border-radius:14px;overflow:hidden}
+#teachers .fac-card .fac-info{position:absolute;left:0;right:0;bottom:0}
 #courses.section-pad{padding-top:4rem !important}
 #culture.section-pad{padding-top:4rem !important}
 #method-fold.s5{padding-top:4.2rem !important;padding-bottom:5rem !important}
