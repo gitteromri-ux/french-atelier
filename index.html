@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780989170">
+<link rel="stylesheet" href="css/fa.css?v=1780992400">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1780989170">
+<link rel="stylesheet" href="css/mapstr.css?v=1780992400">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -143,7 +143,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780989170"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780992400"></head>
 <body>
 
 <header class="site-header">
@@ -839,8 +839,9 @@
           <img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the 24/7 AI French tutor">
         </video>
       </div>
-      <button type="button" class="jul-hero-sound" aria-pressed="false" aria-label="Toggle Julien voice on/off" onclick="(function(b){var v=document.getElementById('julien-hero-video');if(!v)return;v.muted=!v.muted;b.setAttribute('aria-pressed',!v.muted);})(this)">
-        <span class="si-off">▶ Hear Julien</span><span class="si-on">❚❚ Mute</span>
+      <audio id="julien-hero-audio" preload="auto" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+      <button type="button" class="jul-hero-sound" aria-pressed="false" aria-label="Play Julien's voice" onclick="(function(b){var a=document.getElementById('julien-hero-audio');if(!a)return;if(a.paused){a.currentTime=0;a.play().then(function(){b.setAttribute('aria-pressed','true');}).catch(function(){});}else{a.pause();b.setAttribute('aria-pressed','false');}a.onended=function(){b.setAttribute('aria-pressed','false');};})(this)">
+        <span class="si-off">▶ Hear Julien</span><span class="si-on">❚❚ Pause</span>
       </button>
     </div>
   </div>
@@ -1280,7 +1281,7 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780989170"></script>
-<script src="js/mapstr.js?v=1780989170" defer></script>
+<script src="js/fa.js?v=1780992400"></script>
+<script src="js/mapstr.js?v=1780992400" defer></script>
 </body>
 </html>

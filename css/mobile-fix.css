@@ -551,14 +551,19 @@
   }
   #testimonials .tst-track::-webkit-scrollbar{ display: none; }
   #testimonials .tst-card{
-    flex: 0 0 82vw !important;
-    width: 82vw !important;
+    flex: 0 0 90vw !important;
+    width: 90vw !important;
+    min-height: 540px !important;
     scroll-snap-align: center !important;
-    border-radius: 20px !important;
+    border-radius: 24px !important;
     overflow: hidden !important;
-    background: #0e1532 !important;
-    box-shadow: 0 28px 60px -28px rgba(0,0,0,.7), 0 0 0 1px rgba(216,188,133,.18) !important;
+    background: linear-gradient(180deg, #0A0A0F 0%, #000 100%) !important;
+    box-shadow:
+      0 40px 80px -28px rgba(0,0,0,.85),
+      0 0 0 1px rgba(201,162,78,.22),
+      0 0 60px -20px rgba(201,162,78,.18) !important;
   }
+  #testimonials .tst-card img{ width: 100% !important; height: auto !important; }
   #testimonials .tst-card img{ width: 100%; height: auto; display: block; }
 
   #testimonials .tst-head::after{
@@ -639,6 +644,60 @@
     flex: 0 0 84% !important;
     max-width: 84% !important;
     scroll-snap-align: center !important;
+    /* 3D premium card */
+    position: relative !important;
+    background:
+      radial-gradient(120% 90% at 0% 0%, rgba(232,199,122,.18), transparent 55%),
+      radial-gradient(100% 90% at 100% 100%, rgba(140,30,40,.10), transparent 60%),
+      linear-gradient(180deg, #FFFAEF 0%, #F0E2C0 100%) !important;
+    border: 1px solid rgba(140,30,40,.28) !important;
+    border-radius: 18px !important;
+    padding: 1.5rem 1.4rem 1.6rem !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 -1px 0 rgba(140,30,40,.10) inset,
+      0 18px 36px -14px rgba(85,40,20,.32),
+      0 36px 64px -28px rgba(28,18,10,.45),
+      0 2px 0 rgba(184,146,79,.18) !important;
+    transform: perspective(1200px) rotateX(2deg) !important;
+    transform-origin: 50% 100% !important;
+    overflow: hidden !important;
+  }
+  /* Top accent ribbon */
+  .sorb-principles .sorb-pr::before{
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important; left: 0 !important; right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #b8924f 0%, #8c1e28 50%, #b8924f 100%) !important;
+    opacity: 1 !important;
+  }
+  /* Big watermark numeral in the background */
+  .sorb-principles .sorb-pr .sorb-pr-no{
+    font-size: 2.6rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #b8924f 0%, #8c1e28 100%) !important;
+    -webkit-background-clip: text !important;
+            background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    margin: 0 0 .35rem !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-fr{
+    color: #8c1e28 !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    margin: 0 0 .55rem !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-tt{
+    font-size: 1.4rem !important;
+    color: #1a1410 !important;
+    margin: 0 0 .75rem !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-tx{
+    color: rgba(26,20,16,.78) !important;
+    font-size: .95rem !important;
+    line-height: 1.6 !important;
   }
 
   /* Citations -> horizontal pill rail, premium look */
@@ -707,7 +766,8 @@
       radial-gradient(120% 80% at 50% 0%, rgba(201,162,78,.10), transparent 55%),
       radial-gradient(80% 60% at 50% 100%, rgba(140,35,36,.08), transparent 60%),
       #000 !important;
-    padding: 5.5rem 0 6rem !important;
+    padding: 6.5rem 0 7rem !important;
+    min-height: 720px !important;
   }
   .tst-fold::before{
     content: '' !important;
