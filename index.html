@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780993949">
+<link rel="stylesheet" href="css/fa.css?v=1780994181">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1780993949">
+<link rel="stylesheet" href="css/mapstr.css?v=1780994181">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -143,7 +143,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780993949">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780994181">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -847,7 +847,10 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
           <img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the 24/7 AI French tutor">
         </video>
       </div>
-      <!-- Julien video plays silent; lipsync source audio is not bundled to avoid mismatch. -->
+      <audio id="julien-hero-audio" preload="auto" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+      <button type="button" class="jul-hero-sound" aria-pressed="false" aria-label="Play Julien's voice" onclick="(function(b){var a=document.getElementById('julien-hero-audio');if(!a)return;if(a.paused){a.currentTime=0;a.play().then(function(){b.setAttribute('aria-pressed','true');}).catch(function(){});}else{a.pause();b.setAttribute('aria-pressed','false');}a.onended=function(){b.setAttribute('aria-pressed','false');};})(this)">
+        <span class="si-off">▶ Hear Julien</span><span class="si-on">❚❚ Pause</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1286,7 +1289,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1780993949"></script>
-<script src="js/mapstr.js?v=1780993949" defer></script>
+<script src="js/fa.js?v=1780994181"></script>
+<script src="js/mapstr.js?v=1780994181" defer></script>
 </body>
 </html>
