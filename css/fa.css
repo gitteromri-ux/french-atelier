@@ -4049,9 +4049,9 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 .etg3-card.etg3-skyblue h3{ color:#0F2447 !important; }
 .etg3-card.etg3-skyblue p{ color:rgba(15,36,71,.85) !important; }
 
-/* ===== HERO CTA — neon LIGHT BLUE (replaces gold), white text, bigger font ===== */
-.hero .btn-gold,
-.hero-ctas .btn-gold{
+/* ===== HERO CTA — neon LIGHT BLUE (homepage only), white text, bigger font ===== */
+body.home .hero .btn-gold,
+body.home .hero-ctas .btn-gold{
   background:linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
   color:#FFFFFF !important;
   font-size:1.05rem !important;
@@ -4068,8 +4068,8 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
   text-shadow:0 1px 2px rgba(10,30,60,.55), 0 0 12px rgba(95,200,255,.4) !important;
   animation:neonPulse 2.6s ease-in-out infinite !important;
 }
-.hero .btn-gold:hover,
-.hero-ctas .btn-gold:hover{
+body.home .hero .btn-gold:hover,
+body.home .hero-ctas .btn-gold:hover{
   background:linear-gradient(135deg,#7AD4FF 0%,#4FB3F4 50%,#2C95E2 100%) !important;
   transform:translateY(-2px) !important;
   box-shadow:
