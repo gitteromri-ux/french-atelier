@@ -3,8 +3,8 @@
   ============================================================
   MAPSTR MOUNT API (for the homepage to wire in) — see also /MAPSTR_MOUNT_API.md
     Container:    <div id="mapstr-mount"></div>   (the ONLY markup required)
-    Assets:       <link rel="stylesheet" href="css/mapstr.css?v=1780997690">
-                  <script src="js/mapstr.js?v=1780997690" defer></script>
+    Assets:       <link rel="stylesheet" href="css/mapstr.css?v=1780998832">
+                  <script src="js/mapstr.js?v=1780998832" defer></script>
     Self-init:    the module auto-mounts into the first #mapstr-mount on DOM ready.
     Global init:  window.Mapstr.mount(target)  // selector or Element; default '#mapstr-mount'
                   window.Mapstr.data            // city -> course mapping
@@ -26,20 +26,67 @@
 <meta name="description" content="A cinematic, Mapstr-style tour of France. Explore the regions where The French Atelier teaches French live — Paris, Normandy, the Loire, the Atlantic & Basque coast, Provence, the Alps and Alsace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1780997690">
+<link rel="stylesheet" href="css/mapstr.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* Page hero band above the map module */
-.map-hero{position:relative;background:var(--navy-deep);color:var(--on-dark);padding:7.6rem 0 .4rem}
+/* ============================================================
+   MAP PAGE — editorial hero + gold-pinned regions (Apple-tier)
+   Page-scoped only. Shared mapstr.css / mapstr.js untouched.
+   ============================================================ */
+
+/* ---- Editorial hero band above the map module ---- */
+.map-hero{position:relative;overflow:hidden;background:var(--navy-deep);color:var(--on-dark);
+  padding:8rem 0 3rem}
+.map-hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(90% 130% at 18% 0%,rgba(200,169,107,.12),transparent 58%);pointer-events:none}
+.map-hero .wrap{position:relative;z-index:2}
+.map-hero .breadcrumb{margin-bottom:2.6rem}
 .map-hero .eyebrow{color:var(--gold-soft)}
+.map-hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.02;font-weight:600;
+  color:var(--on-dark);letter-spacing:-.015em;margin:1.4rem 0 0;max-width:16ch}
+.map-hero h1 .gold-ital{font-style:italic;color:var(--gold-soft);font-weight:500}
+.map-hero .map-lede{max-width:54ch;color:var(--on-dark-soft);font-weight:300;
+  font-size:clamp(1.08rem,1.5vw,1.32rem);line-height:1.62;margin:1.6rem 0 0}
+
 /* Full-bleed dark band so the map of France dominates the fold */
-.map-module-band{background:var(--navy-deep);width:100%}
+.map-module-band{background:var(--navy-deep);width:100%;padding-bottom:2rem}
 .map-module-band #mapstr-mount{width:100%}
+
+/* ---- GOLD-PINNED REGIONS (page-scoped marker restyle) ----
+   Override the shared blue-dot pins to brand gold, on this page only.
+   Targets the markers mapstr.js injects inside this band. */
+.map-module-band .ms-marker-pin{
+  background:radial-gradient(circle at 36% 28%,#FFF7E6 0%,#F0DDB0 24%,#D8BC85 52%,#C8A96B 76%,#A98D52 100%)!important;
+  border:1px solid rgba(255,247,230,.95)!important;
+  box-shadow:
+    0 1px 2px rgba(0,0,20,.5),
+    0 0 0 4px rgba(200,169,107,.18),
+    0 0 10px 1px rgba(216,188,133,.6),
+    0 0 20px 3px rgba(216,188,133,.4)!important;
+}
+.map-module-band .ms-marker:focus-visible .ms-marker-pin{
+  box-shadow:0 0 0 4px rgba(216,188,133,.9)!important;
+}
+.map-module-band .ms-marker:hover .ms-marker-pin,
+.map-module-band .ms-marker.active .ms-marker-pin{
+  background:radial-gradient(circle at 40% 32%,#FFFBF2 0%,#EBD6A6 30%,#D8BC85 70%,#A98D52 100%)!important;
+  border-color:#FFF7E6!important;
+  box-shadow:
+    0 0 0 5px rgba(200,169,107,.24),
+    0 0 14px 3px rgba(216,188,133,.85),
+    0 0 34px 8px rgba(216,188,133,.55),
+    0 2px 6px rgba(0,0,20,.55)!important;
+}
+/* Readable gold-edged caption labels on the pins */
+.map-module-band .ms-marker-label{
+  border:1px solid var(--gold-line)!important;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.6),0 0 16px rgba(216,188,133,.34)!important;
+}
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -161,6 +208,9 @@
 <section class="map-hero">
   <div class="wrap">
     <nav class="breadcrumb"><a href="index.html">Home</a> · <span>Interactive Map of France</span></nav>
+    <span class="eyebrow eyebrow-line reveal">A Cinematic Tour of France</span>
+    <h1 class="reveal reveal-d1">Learn French <span class="gold-ital">where it lives.</span></h1>
+    <p class="map-lede reveal reveal-d2">Every French Atelier journey is set in a real French place. Follow the gold trail from Paris to Normandy, the Loire and Atlantic coast, Provence, the Alps and Alsace — and discover where each level is taught.</p>
   </div>
 </section>
 
@@ -358,8 +408,8 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
-<script src="js/mapstr.js?v=1780997690" defer></script>
+<script src="js/fa.js?v=1780998832"></script>
+<script src="js/mapstr.js?v=1780998832" defer></script>
 <script type="application/json" id="legacy-disabled">
 (function(){
   var PLACES=[

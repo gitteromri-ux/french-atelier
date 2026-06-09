@@ -11,20 +11,35 @@
 <meta name="description" content="Terms and Conditions for The French Atelier by Acadomia. Read the terms that govern your enrollment, payment, and use of our live French language program.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-.legal-body{font-size:1rem;line-height:1.8;color:var(--on-light);max-width:72ch}
-.legal-body p{margin-bottom:1.1rem}
-.legal-body ul{margin:0 0 1.1rem 1.4rem}
-.legal-body ul li{margin-bottom:.5rem}
-.legal-section{padding-bottom:2.4rem;margin-bottom:2.4rem;border-bottom:1px solid var(--gold-line-soft)}
-.legal-section:last-child{border-bottom:none}
-.legal-section h2{font-family:var(--serif);font-size:1.45rem;margin-bottom:1rem;color:var(--on-light)}
-.legal-section h2 .sec-num{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:.3rem;font-family:var(--sans);font-weight:400;font-style:normal}
-.legal-date{font-size:.82rem;color:var(--on-light-soft);margin-bottom:2.8rem;padding-bottom:1.6rem;border-bottom:1px solid var(--gold-line-soft)}
+/* ===== Legal long-form — premium prose system ===== */
+.legal-hero{min-height:52vh;display:flex;align-items:center}
+.legal-shell{max-width:65ch;margin:0 auto}
+.legal-body{font-family:var(--sans);font-size:1.06rem;line-height:1.85;color:var(--on-light);font-weight:400}
+.legal-body p{margin-bottom:1.25rem;max-width:65ch}
+.legal-body ul{margin:0 0 1.4rem 0;padding-left:1.4rem}
+.legal-body ul li{margin-bottom:.7rem;padding-left:.3rem;position:relative}
+.legal-body ul li::marker{color:var(--gold-deep)}
+.legal-body strong{font-weight:600;color:var(--on-light)}
+.legal-body a{color:var(--gold-deep);border-bottom:1px solid var(--gold-line-soft);transition:border-color .25s}
+.legal-body a:hover{border-color:var(--gold-deep)}
+.legal-section{padding-bottom:3.2rem;margin-bottom:3.2rem;border-bottom:1px solid var(--gold-line-soft)}
+.legal-section:last-child{border-bottom:none;margin-bottom:0}
+.legal-section h2{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.01em;color:var(--gold-deep);margin-bottom:1.3rem}
+.legal-section h2 .sec-num{font-family:var(--sans);font-style:normal;font-weight:600;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--on-light-faint);display:block;margin-bottom:.7rem}
+.legal-date{font-size:.95rem;line-height:1.7;color:var(--on-light-soft);margin-bottom:3.4rem;padding-bottom:2rem;border-bottom:1px solid var(--gold-line-soft);font-style:italic;max-width:65ch}
+.legal-toc{margin:0 0 3.4rem;padding:1.8rem 2rem;border:1px solid var(--gold-line-soft);background:var(--paper)}
+.legal-toc-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:1rem;display:block}
+.legal-toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;counter-reset:toc}
+.legal-toc ol li{counter-increment:toc}
+.legal-toc ol li a{display:flex;gap:.7rem;font-size:.95rem;color:var(--on-light-soft);border:none;padding:.15rem 0}
+.legal-toc ol li a::before{content:counter(toc,decimal-leading-zero);color:var(--gold-deep);font-family:var(--serif);font-style:italic;font-weight:600;flex-shrink:0}
+.legal-toc ol li a:hover{color:var(--gold-deep)}
+@media(max-width:600px){.legal-toc ol{grid-template-columns:1fr}}
 </style>
-</head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -144,29 +159,45 @@
 </div>
 
 <!-- ===== PAGE HERO ===== -->
-<section class="page-hero" style="min-height:36vh">
+<section class="page-hero legal-hero">
   <div class="hero-bg"><img src="assets/gen/culture-tradition.png" alt="The tradition and heritage of France"></div>
   <div class="wrap hero-content">
-    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Legal</p>
+    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Legal &middot; Terms</p>
     <h1 class="display-lg reveal reveal-d1">Terms &amp; <span class="gold-ital">Conditions</span></h1>
+    <p class="hero-sub reveal reveal-d2" style="max-width:52ch">The terms that govern your enrollment in and use of The French Atelier program by Acadomia.</p>
   </div>
 </section>
 
 <!-- ===== LEGAL BODY ===== -->
 <section class="section-pad bg-ivory">
   <div class="wrap-narrow reveal">
+   <div class="legal-shell">
 
     <p class="legal-date">The French Atelier by Acadomia · Effective Date: 2025 · These Terms govern your enrollment in and use of The French Atelier program. By enrolling, you agree to the terms set out below.</p>
 
+    <nav class="legal-toc" aria-label="Sections">
+      <span class="legal-toc-label">On this page</span>
+      <ol>
+        <li><a href="#sec-1">Services</a></li>
+        <li><a href="#sec-2">Enrollment &amp; Payment</a></li>
+        <li><a href="#sec-3">Cancellation &amp; Refunds</a></li>
+        <li><a href="#sec-4">Intellectual Property</a></li>
+        <li><a href="#sec-5">Code of Conduct</a></li>
+        <li><a href="#sec-6">Limitation of Liability</a></li>
+        <li><a href="#sec-7">Governing Law</a></li>
+        <li><a href="#sec-8">Contact</a></li>
+      </ol>
+    </nav>
+
     <div class="legal-body">
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-1">
         <h2><span class="sec-num">Section 1</span>Services</h2>
         <p>The French Atelier by Acadomia ("we", "us", "our") provides live online French language courses, on-demand class recordings, weekly study groups, community access, and a certificate of completion upon fulfilling the program requirements. All classes are delivered via live video streaming and are conducted by native, certified French-language teachers.</p>
         <p>The services are provided by Acadomia, headquartered at 7 rue de la Baume, 75008 Paris, France. By enrolling in The French Atelier, you ("the Student", "you") agree to these Terms &amp; Conditions in their entirety.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-2">
         <h2><span class="sec-num">Section 2</span>Enrollment &amp; Payment</h2>
         <p>Enrollment in The French Atelier is subject to the completion of a placement call to determine the appropriate course level for each student. By enrolling, you confirm that the information you have provided is accurate and complete.</p>
         <p>Plans are billed annually or in monthly installments, depending on the plan selected at enrollment. All prices are stated in US Dollars (USD). Payment is required in advance of access to the program. We reserve the right to update pricing at the start of each program cycle, with reasonable notice to enrolled students.</p>
@@ -177,37 +208,37 @@
         </ul>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-3">
         <h2><span class="sec-num">Section 3</span>Cancellation &amp; Refunds</h2>
         <p>To request a cancellation or inquire about a refund, please contact us at <a href="mailto:advisor@eTeacherGroup.com" style="color:var(--gold-deep)">advisor@eTeacherGroup.com</a>. Refund eligibility is determined by the plan selected at the time of enrollment, as communicated during the enrollment process.</p>
         <p>We are committed to fair and transparent refund practices. Where a refund is granted, it will be processed using the original method of payment within a reasonable timeframe. We reserve the right to assess refund requests on a case-by-case basis and to withhold a refund where the terms of the plan do not permit one.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-4">
         <h2><span class="sec-num">Section 4</span>Intellectual Property</h2>
         <p>All course materials, live class recordings, written resources, cultural content, branding, and other content made available through The French Atelier are the exclusive intellectual property of Acadomia and its licensors. All rights are reserved.</p>
         <p>Students are granted a personal, non-transferable, non-exclusive licence to access and use program materials solely for their own learning purposes. You may not reproduce, distribute, sublicense, publicly display, or otherwise exploit any content from The French Atelier without the prior written consent of Acadomia. This includes but is not limited to screen-recording of live classes, sharing of recordings with third parties, or reproducing written materials.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-5">
         <h2><span class="sec-num">Section 5</span>Code of Conduct</h2>
         <p>The French Atelier is a community built on mutual respect, intellectual curiosity, and a shared love of French language and culture. All students are expected to engage in live classes and the online community in a manner that is respectful, constructive, and inclusive.</p>
         <p>Behaviour that is disruptive, offensive, discriminatory, or otherwise contrary to the spirit of the program may result in suspension or permanent removal from the program, without refund. We reserve the right to take such action at our sole discretion.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-6">
         <h2><span class="sec-num">Section 6</span>Limitation of Liability</h2>
         <p>To the maximum extent permitted by applicable law, Acadomia shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the program or its associated services. This includes, without limitation, loss of data, loss of opportunity, or interruption of service due to technical failure, connectivity issues, or circumstances beyond our control.</p>
         <p>Our total liability to you in connection with these Terms shall not exceed the amount you have paid to us in the three months immediately preceding the event giving rise to the claim.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-7">
         <h2><span class="sec-num">Section 7</span>Governing Law</h2>
         <p>These Terms &amp; Conditions are governed by and construed in accordance with the laws of France. Any dispute arising out of or in connection with these Terms — including any question regarding their existence, validity, or termination — shall be subject to the exclusive jurisdiction of the competent courts of Paris, France.</p>
         <p>If any provision of these Terms is found to be unlawful, void, or for any reason unenforceable, that provision shall be deemed severable from these Terms and shall not affect the validity and enforceability of the remaining provisions.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-8">
         <h2><span class="sec-num">Section 8</span>Contact</h2>
         <p>For any questions relating to these Terms &amp; Conditions, please contact us:</p>
         <ul>
@@ -219,6 +250,7 @@
       </div>
 
     </div><!-- /.legal-body -->
+   </div><!-- /.legal-shell -->
   </div>
 </section>
 
@@ -349,6 +381,6 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <meta name="description" content="A culture-first, Sorbonne-grounded pedagogy taught live from France. Discover the methodology behind The French Atelier: contextual immersion, CEFR alignment, and six cultural pillars.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 .method-hero-img{width:100%;max-width:520px;border:1px solid var(--gold-line-soft)}
@@ -73,8 +73,27 @@
 @media(max-width:600px){.mp-body-inner > div{padding-left:1.8rem}.mp-head{padding:1.2rem 1.3rem;gap:.9rem}.mp-rom{width:1.6rem;font-size:1.4rem}.mp-title{font-size:1.2rem}}
 @media(max-width:980px){.pillar-row{grid-template-columns:repeat(2,1fr)}.principle-row{grid-template-columns:1fr}.trio-grid{grid-template-columns:1fr}.trio-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.trio-item:last-child{border-bottom:none}}
 @media(max-width:600px){.pillar-row{grid-template-columns:1fr}.cefr-table th:nth-child(3),.cefr-table td:nth-child(3){display:none}}
+
+/* ===== CEFR can-do descriptor cards ===== */
+.cando-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.4rem}
+.cando-card{background:var(--white);border:1px solid var(--gold-line-soft);border-radius:8px;padding:1.8rem 1.7rem;box-shadow:0 18px 44px -28px rgba(11,19,64,.45)}
+.cando-card .cd-level{display:inline-block;font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--gold-deep);line-height:1;margin-bottom:.9rem}
+.cando-card h3{font-family:var(--serif);font-size:1.18rem;color:var(--navy);margin:0 0 .9rem;line-height:1.2}
+.cando-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem}
+.cando-card li{display:flex;align-items:flex-start;gap:.6rem;font-size:.86rem;color:var(--on-light-soft);line-height:1.55}
+.cando-card li svg{width:14px;height:14px;color:var(--gold-deep);flex-shrink:0;margin-top:.18rem}
+
+/* ===== action-oriented cycle (expanded methodology) ===== */
+.aoa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(200,165,96,.22);border-radius:10px;overflow:hidden;margin-top:2.8rem}
+.aoa-step{padding:2.4rem 1.8rem;border-right:1px solid rgba(200,165,96,.18);position:relative}
+.aoa-step:last-child{border-right:none}
+.aoa-step .aoa-no{font-family:var(--serif);font-size:2.6rem;color:var(--gold-soft);line-height:1;margin-bottom:.7rem}
+.aoa-step h3{font-size:1.12rem;color:var(--on-dark);margin:0 0 .6rem;line-height:1.2}
+.aoa-step .aoa-fr{display:block;font-family:var(--serif);font-style:italic;font-size:.92rem;color:var(--gold-soft);margin-bottom:.7rem}
+.aoa-step p{font-size:.86rem;color:var(--on-dark-soft);line-height:1.6;margin:0}
+@media(max-width:980px){.cando-grid{grid-template-columns:1fr}.aoa-grid{grid-template-columns:1fr}.aoa-step{border-right:none;border-bottom:1px solid rgba(200,165,96,.18)}.aoa-step:last-child{border-bottom:none}}
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -371,6 +390,38 @@
       </div>
     </div>
 
+    <div class="reveal reveal-d1" style="max-width:1080px;margin:4.6rem auto 0;text-align:center">
+      <p class="eyebrow eyebrow-line" style="justify-content:center;color:var(--gold-soft)">How a Lesson Is Built</p>
+      <h3 class="display-sm" style="margin:1rem 0;color:var(--on-dark);font-size:clamp(1.6rem,3vw,2.2rem)">The action-oriented <span class="gold-ital">cycle</span></h3>
+      <p class="lede" style="color:var(--on-dark-soft);max-width:60ch;margin:0 auto">Every unit follows the same scholarly arc — from a real cultural scenario to a concrete &ldquo;can-do&rdquo; outcome. This is backwards design, drawn directly from the action-oriented approach.</p>
+    </div>
+    <div class="aoa-grid reveal reveal-d2" style="max-width:1080px;margin-left:auto;margin-right:auto">
+      <div class="aoa-step">
+        <div class="aoa-no">01</div>
+        <h3>Cultural Scenario</h3>
+        <span class="aoa-fr">la mise en situation</span>
+        <p>The lesson opens inside a real French situation — a market in Lyon, a gallery in Paris. Meaning comes first; language follows.</p>
+      </div>
+      <div class="aoa-step">
+        <div class="aoa-no">02</div>
+        <h3>Live Interaction</h3>
+        <span class="aoa-fr">l&rsquo;interaction</span>
+        <p>In a group of 8&ndash;10, learners speak, respond, and negotiate meaning with their native teacher — the core of communicative acquisition.</p>
+      </div>
+      <div class="aoa-step">
+        <div class="aoa-no">03</div>
+        <h3>Guided Structure</h3>
+        <span class="aoa-fr">la structuration</span>
+        <p>Grammar and vocabulary are made explicit only after they have been encountered — structure consolidates what conversation revealed.</p>
+      </div>
+      <div class="aoa-step">
+        <div class="aoa-no">04</div>
+        <h3>Real Task</h3>
+        <span class="aoa-fr">la tâche actionnelle</span>
+        <p>Each unit closes on a concrete task with a measurable CEFR &ldquo;can-do&rdquo; outcome — ordering, booking, describing, persuading.</p>
+      </div>
+    </div>
+
     <div class="method-sources reveal">
       <p class="ms-eyebrow">Grounded in peer-reviewed applied-linguistics research</p>
       <ul>
@@ -536,6 +587,36 @@
             <tr><td><span class="cefr-level">LSF · Let's Speak French</span></td><td><span class="cefr-tag">A0 → A1.2</span></td><td>Across France (speaking focus)</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div class="cando-grid">
+      <div class="cando-card reveal">
+        <span class="cd-level">A1 &middot; Breakthrough</span>
+        <h3>What you can do</h3>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Introduce yourself and handle everyday courtesies in French</li>
+          <li><svg><use href="#i-check"/></svg>Order in a café, shop at a market, ask simple directions</li>
+          <li><svg><use href="#i-check"/></svg>Understand slow, clear speech on familiar topics</li>
+        </ul>
+      </div>
+      <div class="cando-card reveal reveal-d1">
+        <span class="cd-level">A2 &middot; Waystage</span>
+        <h3>What you can do</h3>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Describe your background, routine, and immediate environment</li>
+          <li><svg><use href="#i-check"/></svg>Manage short social exchanges — booking, planning, explaining</li>
+          <li><svg><use href="#i-check"/></svg>Read short texts and grasp the gist of everyday conversation</li>
+        </ul>
+      </div>
+      <div class="cando-card reveal reveal-d2">
+        <span class="cd-level">Assessment</span>
+        <h3>How progress is measured</h3>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>DELF/DALF-style &ldquo;can-do&rdquo; descriptors per unit</li>
+          <li><svg><use href="#i-check"/></svg>Continuous teacher feedback in every live class</li>
+          <li><svg><use href="#i-check"/></svg>CEFR-aligned certificate from Acadomia at 20 lessons</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -819,6 +900,6 @@
   });
 })();
 </script>
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

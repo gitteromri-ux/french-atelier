@@ -11,50 +11,167 @@
 <meta name="description" content="Meet Julien — The French Atelier's 24/7 AI French tutor. Conversation practice, pronunciation feedback, vocabulary drilling, cultural guidance. Always on, always in French.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
-<link rel="stylesheet" href="css/juliane.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
+<link rel="stylesheet" href="css/juliane.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* ── juliane.html · visual-variety polish ────────────────────────────────────
-   Fold rhythm:  A = deep navy  B = warm ivory  C = navy+radial  D = ivory+gold
-   Applied via id or order so parallel agent's <video>/<img> tags are untouched.
-   ──────────────────────────────────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════════════════════
+   juliane.html · APPLE-TIER PREMIUM REDESIGN (inline page layer)
+   Obeys _DESIGN_BRIEF.md: navy → ivory → navy alternating rhythm, generous
+   whitespace, one hero element per fold, restrained gold accents.
+   Reuses .jul-cutout / .jul-hero / .cap-card from css/juliane.css.
+   ════════════════════════════════════════════════════════════════════════════ */
 
-/* Shared: every content fold gets at least 80px bottom padding */
-.jul-fold { padding-bottom: 80px !important; }
+/* ── Generous vertical rhythm — every fold breathes ─────────────────────── */
+.jul-fold        { padding-top: clamp(5rem, 8vw, 8rem) !important;
+                   padding-bottom: clamp(5rem, 8vw, 8rem) !important; }
+.jul-fold-navy   { background: var(--navy-deep) !important; color: var(--on-dark); }
+.jul-fold-navy-r { background:
+                     radial-gradient(58% 64% at 76% 42%, rgba(200,169,107,.16), transparent 64%),
+                     linear-gradient(150deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-soft) 120%) !important;
+                   color: var(--on-dark); }
+.jul-fold-ivory  { background: var(--ivory) !important; }
+.jul-fold-paper  { background: var(--paper) !important; }
 
-/* ── Fold A: deep navy ──────────────────────────────────────────────────── */
-.jul-fold-a {
-  background: #0B0C31 !important;
-  padding-bottom: 80px !important;
+/* ── HERO — cinematic split refinements ─────────────────────────────────── */
+.jul-hero h1 { letter-spacing: -.018em; }
+.jul-hero-content .breadcrumb a { color: var(--on-dark-soft); }
+
+/* Sound control — plays julien_intro_fr.mp3 (optional, decorative cutout stays silent) */
+.jul-sound-btn {
+  display: inline-flex; align-items: center; gap: .7rem;
+  background: rgba(200,169,107,.08);
+  border: 1px solid var(--gold-line);
+  color: var(--gold-soft);
+  padding: .85rem 1.5rem; border-radius: 999px;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600;
+  cursor: pointer; transition: background .35s var(--ease-out), border-color .35s, transform .35s;
+}
+.jul-sound-btn:hover { background: rgba(200,169,107,.16); border-color: var(--gold); transform: translateY(-1px); }
+.jul-sound-btn .jul-eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 13px; }
+.jul-sound-btn .jul-eq i { width: 2.5px; background: var(--gold-soft); border-radius: 2px; height: 4px; }
+.jul-sound-btn.is-playing .jul-eq i { animation: jul-eq 1s ease-in-out infinite; }
+.jul-sound-btn.is-playing .jul-eq i:nth-child(2){ animation-delay:.18s } .jul-sound-btn.is-playing .jul-eq i:nth-child(3){ animation-delay:.36s } .jul-sound-btn.is-playing .jul-eq i:nth-child(4){ animation-delay:.5s }
+@keyframes jul-eq { 0%,100%{ height:4px } 50%{ height:13px } }
+@media (prefers-reduced-motion: reduce){ .jul-sound-btn.is-playing .jul-eq i { animation: none; height: 9px; } }
+
+/* ── Section intro block (eyebrow + h2 + lede), centered ────────────────── */
+.jul-head { text-align: center; max-width: 64ch; margin: 0 auto clamp(3rem,5vw,4.4rem); }
+.jul-head .lede { margin: 1.3rem auto 0; max-width: 58ch; }
+
+/* ── CAPABILITIES — premium card grid ───────────────────────────────────── */
+.jul-fold-ivory .cap-grid, .jul-fold-paper .cap-grid { gap: 1.6rem; }
+.cap-card {
+  border-radius: 12px;
+  box-shadow: 0 18px 44px -28px rgba(11,19,64,.45);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .5s;
+}
+.cap-card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px -30px rgba(11,19,64,.5); border-color: var(--gold-line); }
+.cap-card .cc-ico { width: 30px; height: 30px; color: var(--gold-deep); margin-bottom: 1rem; }
+
+/* ── TIMELINE — how Julien fits between live classes ────────────────────── */
+.jul-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; counter-reset: tl; }
+.jul-tl-step {
+  position: relative; padding: 2.2rem 1.6rem 2rem;
+  border: 1px solid rgba(200,169,107,.18); border-radius: 12px;
+  background: rgba(255,255,255,.025);
+  box-shadow: 0 18px 44px -30px rgba(0,0,16,.6);
+}
+.jul-tl-step::before {
+  counter-increment: tl; content: counter(tl,decimal-leading-zero);
+  font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--gold-soft);
+  display: block; margin-bottom: 1rem;
+}
+.jul-tl-step h3 { font-family: var(--serif); font-size: 1.22rem; color: var(--on-dark); margin: 0 0 .7rem; }
+.jul-tl-step p { color: var(--on-dark-soft); font-size: .93rem; line-height: 1.7; margin: 0; }
+.jul-tl-rail { position: relative; height: 1px; background: rgba(200,169,107,.28); margin: 0 0 2.6rem; }
+.jul-tl-rail span { position:absolute; top:50%; transform:translateY(-50%); width:9px; height:9px; border-radius:50%; background:var(--gold); }
+.jul-tl-rail span:nth-child(1){left:11%} .jul-tl-rail span:nth-child(2){left:37%} .jul-tl-rail span:nth-child(3){left:63%} .jul-tl-rail span:nth-child(4){left:89%}
+
+/* ── PRONUNCIATION DRILL demo card ──────────────────────────────────────── */
+.jul-drill {
+  background: var(--navy); border: 1px solid var(--gold-line-soft); border-radius: 14px;
+  padding: clamp(1.8rem, 3vw, 2.6rem); box-shadow: 0 28px 64px -34px rgba(0,0,16,.7);
+}
+.jul-drill-word { font-family: var(--serif); font-size: clamp(2rem,4vw,2.8rem); color: var(--on-dark); line-height: 1.1; }
+.jul-drill-ipa  { font-size: 1.05rem; color: var(--gold-soft); letter-spacing: .04em; margin-top: .4rem; }
+.jul-drill-rows { margin-top: 1.8rem; display: flex; flex-direction: column; gap: 1rem; }
+.jul-drill-row { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,.07); }
+.jul-drill-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.jul-drill-syl { font-family: var(--serif); font-size: 1.15rem; color: var(--on-dark); min-width: 6.5ch; }
+.jul-drill-bar { flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,.08); overflow: hidden; }
+.jul-drill-bar i { display:block; height:100%; border-radius:6px; background: linear-gradient(90deg,var(--gold),var(--gold-deep)); }
+.jul-drill-tag { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); }
+
+/* ── VOCAB + GRAMMAR — coverage list ────────────────────────────────────── */
+.jul-cover { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.jul-cover-col {
+  border: 1px solid var(--gold-line-soft); border-radius: 12px;
+  background: linear-gradient(180deg,#fff,var(--paper));
+  padding: 2.4rem 2.2rem; box-shadow: 0 18px 44px -30px rgba(11,19,64,.4);
+}
+.jul-cover-col h3 { font-family: var(--serif); font-size: 1.45rem; color: var(--navy); margin: 0 0 .4rem; }
+.jul-cover-col > p { color: var(--on-light-soft); font-size: .95rem; line-height: 1.6; margin: 0 0 1.4rem; }
+.jul-cover-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .9rem; }
+.jul-cover-list li { display: flex; gap: .8rem; align-items: flex-start; color: var(--on-light); font-size: .95rem; line-height: 1.55; }
+.jul-cover-list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold-deep); margin-top: .15rem; }
+.jul-chips { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
+.jul-chip { font-size: .8rem; padding: .4rem .85rem; border-radius: 999px; border: 1px solid var(--gold-line-soft); color: var(--gold-deep); background: rgba(200,165,96,.06); }
+
+/* ── CULTURAL MODE / regional French — rich fold ────────────────────────── */
+.jul-region { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2.6rem; }
+.jul-region-card {
+  border: 1px solid rgba(200,169,107,.2); border-radius: 12px;
+  background: rgba(255,255,255,.03); padding: 2rem 1.8rem;
+  box-shadow: 0 18px 44px -30px rgba(0,0,16,.6);
+}
+.jul-region-card .jul-region-place { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--gold-soft); margin: 0 0 .8rem; }
+.jul-region-card p { color: var(--on-dark-soft); font-size: .92rem; line-height: 1.7; margin: 0; }
+.jul-region-card em { color: var(--on-dark); font-style: italic; }
+
+/* ── SAMPLE CONVERSATION — premium transcript card ──────────────────────── */
+.jul-transcript {
+  max-width: 760px; margin: 0 auto;
+  background: linear-gradient(180deg, var(--navy-soft), var(--navy));
+  border: 1px solid var(--gold-line-soft); border-radius: 16px;
+  padding: clamp(1.8rem, 3vw, 2.8rem);
+  box-shadow: 0 34px 80px -40px rgba(0,0,16,.8);
+}
+.jul-transcript .convo-demo { background: transparent; border: 0; padding: 0; max-width: 100%; }
+.jul-transcript-head { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.8rem; padding-bottom: 1.4rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+.jul-transcript-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold-soft); animation: pulse-gold 2s infinite; }
+.jul-transcript-head span { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); }
+
+/* ── FAQ on dark ────────────────────────────────────────────────────────── */
+.jul-fold-navy .faq-item, .jul-fold-navy-r .faq-item {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(200,169,107,.16);
+}
+.jul-fold-navy .faq-item.is-open, .jul-fold-navy-r .faq-item.is-open { border-color: var(--gold-line); box-shadow: 0 22px 50px -30px rgba(0,0,16,.7); }
+.jul-fold-navy .faq-q, .jul-fold-navy-r .faq-q { color: var(--on-dark); }
+.jul-fold-navy .faq-a-inner > div, .jul-fold-navy-r .faq-a-inner > div { color: var(--on-dark-soft); }
+
+/* ── CTA band ───────────────────────────────────────────────────────────── */
+.jul-cta-band {
+  background:
+    radial-gradient(60% 80% at 50% 0%, rgba(200,169,107,.18), transparent 60%),
+    linear-gradient(160deg, var(--navy-deep), var(--navy) 70%) !important;
+  text-align: center;
 }
 
-/* ── Fold B: warm ivory ─────────────────────────────────────────────────── */
-.jul-fold-b {
-  background: #F2EDE3 !important;
-  padding-bottom: 80px !important;
-}
+.jul-cutout { filter: drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35)) !important; }
 
-/* ── Fold C: deep navy + subtle radial gradient ─────────────────────────── */
-.jul-fold-c {
-  background: radial-gradient(circle at top right, rgba(190,163,123,0.15), transparent 60%),
-              #0B0C31 !important;
-  padding-bottom: 80px !important;
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .jul-timeline { grid-template-columns: 1fr 1fr; }
+  .jul-tl-rail { display: none; }
+  .jul-region { grid-template-columns: 1fr; }
 }
-
-/* ── Fold D: ivory + thin gold border-top ───────────────────────────────── */
-.jul-fold-d {
-  background: #F2EDE3 !important;
-  border-top: 2px solid #BEA37B;
-  padding-bottom: 80px !important;
-}
-
-/* ── Drop-shadow on every Julien image ──────────────────────────────────── */
-.jul-cutout {
-  filter: drop-shadow(0 18px 28px rgba(0,0,16,.45)) !important;
+@media (max-width: 760px) {
+  .jul-timeline { grid-template-columns: 1fr; }
+  .jul-cover { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ICON SPRITE -->
@@ -170,11 +287,6 @@
   <!-- Atmospheric glow behind the cutout -->
   <div class="jul-hero-glow" aria-hidden="true"></div>
 
-  <!-- Julien AI cartoon video — the uploaded character clip -->
-  <div class="jul-char-card">
-    <video class="jul-hero-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="1024" height="1536" aria-label="Julien, your 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, your 24/7 AI French tutor"></video>
-  </div>
-
   <!-- Left-to-right veil keeps text legible -->
   <div class="jul-hero-veil"></div>
 
@@ -189,27 +301,38 @@
       <p class="jul-hero-sub reveal reveal-d2">An animated AI French tutor who never sleeps, never judges, and is always ready to practise — at 3 am, between live classes, or in the quiet hour before your next session.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center" class="reveal reveal-d3">
         <a href="pricing.html" class="btn btn-gold btn-lg">Enroll to Meet Julien</a>
+        <button type="button" class="jul-sound-btn" id="jul-sound-btn" aria-pressed="false" aria-label="Play Julien's spoken introduction in French">
+          <span class="jul-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="jul-sound-label">Hear Julien in French</span>
+        </button>
+        <audio id="jul-intro-audio" preload="none" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+      </div>
+      <div class="reveal reveal-d3" style="margin-top:1.4rem">
         <span class="jul-live-badge"><span class="jul-live-dot"></span> Available inside every plan</span>
       </div>
     </div>
   </div>
+
+  <!-- Julien AI cartoon video — the uploaded character clip (cinematic cutout, right) -->
+  <div class="jul-char-card">
+    <video class="jul-hero-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="1024" height="1536" aria-label="Julien, your 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, your 24/7 AI French tutor"></video>
+  </div>
 </section>
 
-<!-- ===== INTRODUCTION — Who Is Julien? ===== -->
-<!-- Fold 1 · A: deep navy -->
-<section class="section-pad bg-navy on-dark jul-fold-a">
+<!-- ===== INTRODUCTION — Who Is Julien? (ivory · alternates after navy hero) ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
   <div class="wrap split split-wide">
     <div class="reveal">
       <p class="eyebrow eyebrow-line">Who Is Julien?</p>
-      <h2 class="display-md" style="margin:1.4rem 0;color:var(--on-dark)">Not a chatbot.<br>A <span class="gold-ital">language coach</span>.</h2>
+      <h2 class="display-md" style="margin:1.4rem 0">Not a chatbot.<br>A <span class="gold-ital">language coach</span>.</h2>
       <p class="lede">Julien is The French Atelier's advanced AI French tutor — built exclusively for learners of French, calibrated to the Atelier's culture-first methodology, and available 24 hours a day, 7 days a week, inside every learner's platform.</p>
       <div class="gold-rule"></div>
-      <p style="color:var(--on-dark-soft);line-height:1.75">The live class is the heart of the French Atelier experience. Language acquisition does not happen only in the classroom — it happens in the spaces between, in the small repetitions, in the moments of quiet rehearsal before confidence arrives. Julien is built for those moments. Patient, precise, and warmly encouraging, he meets you exactly where you are and moves with you toward where you want to be.</p>
-      <p style="color:var(--on-dark-soft);line-height:1.75;margin-top:1rem">Julien speaks French. He expects you to, too.</p>
+      <p style="color:var(--on-light-soft);line-height:1.75">The live class is the heart of the French Atelier experience. Language acquisition does not happen only in the classroom — it happens in the spaces between, in the small repetitions, in the moments of quiet rehearsal before confidence arrives. Julien is built for those moments. Patient, precise, and warmly encouraging, he meets you exactly where you are and moves with you toward where you want to be.</p>
+      <p style="color:var(--on-light-soft);line-height:1.75;margin-top:1rem">Julien speaks French. He expects you to, too.</p>
     </div>
     <div class="reveal reveal-d1">
-      <!-- Julien AI cartoon video — emerges from the navy -->
-      <div class="jul-cutout-wrap jul-cutout-wrap--intro">
+      <!-- Julien AI cartoon video — emerges from the ivory -->
+      <div class="jul-cutout-wrap jul-cutout-wrap--intro jul-cutout-wrap--light">
         <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
         <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-307-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-307.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-307-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
       </div>
@@ -217,52 +340,92 @@
   </div>
 </section>
 
-<!-- ===== CAPABILITIES ===== -->
-<!-- Fold 2 · B: warm ivory -->
-<section class="section-pad bg-paper jul-fold-b">
+<!-- ===== FOLD 2 · CAPABILITIES (navy) ===== -->
+<section class="section-pad on-dark jul-fold jul-fold-navy-r">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.4rem">
+    <div class="jul-head">
       <p class="eyebrow eyebrow-line reveal" style="justify-content:center">What Julien Does</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Six ways Julien <span class="gold-ital">accelerates</span> your French</h2>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Everything a private tutor does — <span class="gold-ital">on demand</span></h2>
+      <p class="lede reveal reveal-d2">Pronunciation, corrections, conversation, available around the clock. Julien brings the full range of one-to-one coaching to every quiet moment of your day.</p>
     </div>
     <div class="cap-grid">
       <div class="cap-card reveal">
-        <div class="cc-num">I</div>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-chat"/></svg>
         <h3>Conversation Practice, Anytime</h3>
         <p>Julien is always ready for a conversation — whether you want to role-play ordering at a brasserie, discuss a film you have just watched, or simply narrate your day in French. He adapts to your level and pushes you gently beyond it.</p>
       </div>
       <div class="cap-card reveal reveal-d1">
-        <div class="cc-num">II</div>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-check"/></svg>
         <h3>Instant Correction &amp; Feedback</h3>
         <p>Every response from Julien includes precise, non-judgmental correction — not just of errors, but of register, naturalness, and cultural appropriateness. Feedback arrives immediately, while the context is still alive in your memory.</p>
       </div>
       <div class="cap-card reveal reveal-d2">
-        <div class="cc-num">III</div>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-sparkle"/></svg>
         <h3>Pronunciation Coaching</h3>
         <p>French pronunciation is a world of its own — liaison, elision, nasal vowels, the silent letters that are never quite silent. Julien isolates the sounds that challenge you and guides you through them with the patience of a private coach.</p>
       </div>
       <div class="cap-card reveal">
-        <div class="cc-num">IV</div>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-certificate"/></svg>
         <h3>Vocabulary Drilling</h3>
         <p>From the vocabulary of a specific lesson to the specialist language of wine, fashion, or French cinema — Julien drills any vocabulary set in context, using real sentences rather than isolated word lists. Language lives in sentences, not lists.</p>
       </div>
       <div class="cap-card reveal reveal-d1">
-        <div class="cc-num">V</div>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-globe"/></svg>
         <h3>Cultural Questions &amp; Insights</h3>
         <p>Why do the French greet strangers with a formal <em>vous</em>? What does it mean to invite someone for <em>un verre</em>? What is the etiquette of the <em>bise</em>? Julien navigates the cultural codes that textbooks omit and native speakers take for granted.</p>
       </div>
       <div class="cap-card reveal reveal-d2">
-        <div class="cc-num">VI</div>
-        <h3>Homework Help &amp; Class Preparation</h3>
+        <svg class="cc-ico" aria-hidden="true"><use href="#i-clock"/></svg>
+        <h3>24/7 Homework Help &amp; Class Prep</h3>
         <p>Review the vocabulary from last week's class. Prepare for the next lesson's cultural theme. Work through an exercise that confused you. Julien knows your course, knows your level, and is aligned with the Atelier's curriculum at every step.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PRONUNCIATION FEATURE ===== -->
-<!-- Fold 3 · C: deep navy + radial gradient -->
-<section class="section-pad bg-navy on-dark jul-fold-c">
+<!-- ===== FOLD 3 · HOW JULIEN FITS BETWEEN LIVE CLASSES (ivory · timeline) ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
+  <div class="wrap">
+    <div class="jul-head">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Ecosystem</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Julien lives in the <span class="gold-ital">spaces between</span> your live classes</h2>
+      <p class="lede reveal reveal-d2">The live class is irreplaceable — a native certified teacher, broadcasting from France, in a real communicative event with eight peers. Julien is built around that core, never in competition with it.</p>
+    </div>
+    <div class="split split-wide reveal" style="align-items:center;margin-bottom:3.4rem">
+      <div>
+        <div class="jul-cutout-wrap jul-cutout-wrap--light" style="max-width:380px;margin:0 auto">
+          <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-kling2-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-kling2.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-kling2-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--on-light-soft);line-height:1.8;font-size:1.05rem">A typical week with Julien follows a simple rhythm. He prepares you before each live class, consolidates what you learned after it, and keeps the language alive in the days between — so you arrive to every session sharper than you left the last.</p>
+        <p style="color:var(--on-light-soft);line-height:1.8;font-size:1.05rem;margin-top:1rem">Every day without French is a small forgetting. Julien makes sure no day is without it.</p>
+      </div>
+    </div>
+    <div class="jul-tl-rail reveal" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="jul-timeline reveal reveal-d1" style="--tl-dark:1">
+      <div class="jul-tl-step" style="background:linear-gradient(180deg,#fff,var(--paper));border-color:var(--gold-line-soft)">
+        <h3 style="color:var(--navy)">Before class</h3>
+        <p style="color:var(--on-light-soft)">Review the week's vocabulary and rehearse the cultural theme, so class time is spent speaking — not catching up.</p>
+      </div>
+      <div class="jul-tl-step" style="background:linear-gradient(180deg,#fff,var(--paper));border-color:var(--gold-line-soft)">
+        <h3 style="color:var(--navy)">After class</h3>
+        <p style="color:var(--on-light-soft)">Consolidate what you just learned, replay a phrase that escaped you, and go deeper into a point that sparked your curiosity.</p>
+      </div>
+      <div class="jul-tl-step" style="background:linear-gradient(180deg,#fff,var(--paper));border-color:var(--gold-line-soft)">
+        <h3 style="color:var(--navy)">Between classes</h3>
+        <p style="color:var(--on-light-soft)">Maintain momentum with a five-minute exchange. A little French every day keeps the language alive and ready.</p>
+      </div>
+      <div class="jul-tl-step" style="background:linear-gradient(180deg,#fff,var(--paper));border-color:var(--gold-line-soft)">
+        <h3 style="color:var(--navy)">At 3 am, any timezone</h3>
+        <p style="color:var(--on-light-soft)">Julien does not sleep. Whenever inspiration or insomnia strikes, French is waiting for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOLD 4 · PRONUNCIATION DRILL DEMO (navy · showcase) ===== -->
+<section class="section-pad on-dark jul-fold jul-fold-navy-r">
   <div class="wrap">
     <div class="jul-feature">
       <!-- Transparent cutout left -->
@@ -271,28 +434,122 @@
           <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-719-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-719.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-719-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
         </div>
       </div>
-      <!-- Text right -->
+      <!-- Demo right -->
       <div class="jul-feature-text reveal reveal-d1">
-        <p class="eyebrow eyebrow-line">Feature</p>
-        <h2 class="display-sm" style="color:var(--on-dark)">Pronunciation <span class="gold-ital">Practice</span></h2>
-        <p>French pronunciation is a world of its own — liaison, elision, nasal vowels, the silent letters that are never quite silent. Julien isolates the sounds that challenge you and guides you through them with infinite patience. No embarrassment. No time pressure. Just progress.</p>
-        <p>He listens, he models, he coaches — exactly as a one-to-one private coach would, available any hour you choose to practise.</p>
-        <a href="pricing.html" class="btn btn-gold" style="align-self:flex-start;margin-top:.8rem">Start Practising</a>
+        <p class="eyebrow eyebrow-line">Showcase · Pronunciation Drill</p>
+        <h2 class="display-sm" style="color:var(--on-dark)">Master the sounds, <span class="gold-ital">syllable by syllable</span></h2>
+        <p>Liaison, elision, nasal vowels, the silent letters that are never quite silent. Julien isolates the sounds that challenge you and coaches you through each one — no embarrassment, no time pressure, just progress.</p>
+        <div class="jul-drill" role="img" aria-label="Pronunciation drill example for the word grenouille">
+          <div class="jul-drill-tag">Word of the drill</div>
+          <div class="jul-drill-word">grenouille</div>
+          <div class="jul-drill-ipa">/ɡʀə.nuj/ · “frog”</div>
+          <div class="jul-drill-rows">
+            <div class="jul-drill-row"><span class="jul-drill-syl">gre</span><span class="jul-drill-bar"><i style="width:96%"></i></span><span class="jul-drill-tag">Clear</span></div>
+            <div class="jul-drill-row"><span class="jul-drill-syl">nou</span><span class="jul-drill-bar"><i style="width:72%"></i></span><span class="jul-drill-tag">Almost</span></div>
+            <div class="jul-drill-row"><span class="jul-drill-syl">ille</span><span class="jul-drill-bar"><i style="width:48%"></i></span><span class="jul-drill-tag">Work the /j/</span></div>
+          </div>
+        </div>
+        <a href="pricing.html" class="btn btn-gold" style="align-self:flex-start;margin-top:.4rem">Start Practising</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CONVERSATION REHEARSAL + DEMO ===== -->
-<!-- Fold 4 · D: ivory + gold border-top -->
-<section class="section-pad bg-navy-deep on-dark jul-fold-d" style="color:var(--on-dark)">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">A Glimpse Inside</p>
-      <h2 class="display-md" style="margin:1.4rem 0;color:var(--on-dark)">Julien in <span class="gold-ital">conversation</span></h2>
-      <p class="lede">Every exchange with Julien is conducted in French — with English available when you need a lifeline. He meets your current level and gently expands it.</p>
-      <div class="gold-rule" style="margin:2rem 0"></div>
-      <div class="convo-demo reveal reveal-d1">
+<!-- ===== FOLD 5 · VOCABULARY + GRAMMAR COVERAGE (ivory) ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
+  <div class="wrap">
+    <div class="jul-head">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Vocabulary &amp; Grammar</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">From first words to <span class="gold-ital">fine grammar</span></h2>
+      <p class="lede reveal reveal-d2">Language lives in sentences, not lists. Julien drills vocabulary and grammar in real context — always aligned with the Atelier's CEFR-mapped curriculum.</p>
+    </div>
+    <div class="jul-cover">
+      <div class="jul-cover-col reveal">
+        <h3>Vocabulary in context</h3>
+        <p>From everyday essentials to the specialist language of wine, fashion, and cinema — drilled in full sentences, never isolated word lists.</p>
+        <ul class="jul-cover-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Lesson-specific sets, pulled straight from your course</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Thematic fields: food, travel, work, art, daily life</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Synonyms, register, and natural collocations</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Spaced revision so words actually stick</li>
+        </ul>
+        <div class="jul-chips"><span class="jul-chip">la gastronomie</span><span class="jul-chip">le cinéma</span><span class="jul-chip">le travail</span><span class="jul-chip">les voyages</span></div>
+      </div>
+      <div class="jul-cover-col reveal reveal-d1">
+        <h3>Grammar that finally clicks</h3>
+        <p>Julien explains the rule, shows it living in a sentence, then has you use it — the way a patient tutor would, one point at a time.</p>
+        <ul class="jul-cover-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Gender, articles, and agreement</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Verb tenses: présent, passé composé, imparfait, futur</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Pronouns, prepositions, and word order</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Subjunctive and the conditional, demystified</li>
+        </ul>
+        <div class="jul-chips"><span class="jul-chip">A0 → A2.2</span><span class="jul-chip">CEFR-aligned</span><span class="jul-chip">in context</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOLD 6 · CULTURAL MODE / REGIONAL FRENCH (navy · rich) ===== -->
+<section class="section-pad on-dark jul-fold jul-fold-navy-r">
+  <div class="wrap">
+    <div class="jul-feature">
+      <div class="jul-feature-text reveal">
+        <p class="eyebrow eyebrow-line">Cultural Mode</p>
+        <h2 class="display-sm" style="color:var(--on-dark)">The codes textbooks <span class="gold-ital">leave out</span></h2>
+        <p>Why do the French greet strangers with a formal <em>vous</em>? What does it mean to invite someone for <em>un verre</em>? What is the etiquette of the <em>bise</em>? Switch Julien into cultural mode and he navigates the unwritten rules native speakers take for granted.</p>
+        <p>He also tunes to the French you actually hear — the rhythm of Paris, the lilt of the Midi, the warmth of Québec — so you understand French wherever it is spoken.</p>
+        <a href="culture.html" class="btn btn-outline" style="align-self:flex-start;margin-top:.4rem">Explore French Culture</a>
+      </div>
+      <div class="reveal reveal-d1">
+        <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:360px;margin:0 auto">
+          <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-309-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-309.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-309-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
+        </div>
+      </div>
+    </div>
+    <div class="jul-region">
+      <div class="jul-region-card reveal">
+        <p class="jul-region-place">Paris &amp; the North</p>
+        <p>Crisp, standard French — the reference accent of broadcast and the classroom. Julien starts here and branches out as your ear sharpens. <em>« On y va ? »</em></p>
+      </div>
+      <div class="jul-region-card reveal reveal-d1">
+        <p class="jul-region-place">The Midi &amp; Provence</p>
+        <p>The sunlit cadence of the south, where final syllables ring and the <em>accent du Midi</em> colours every phrase. <em>« Putain, công ! »</em> — affectionate, unmistakably southern.</p>
+      </div>
+      <div class="jul-region-card reveal reveal-d2">
+        <p class="jul-region-place">Québec &amp; la Francophonie</p>
+        <p>From Montréal to Dakar, French travels and transforms. Julien introduces the vocabulary and music of la Francophonie. <em>« Bienvenue à toute la gang ! »</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ALWAYS ON (AMBIENT VIDEO BAND) — preserved ===== -->
+<section class="video-band on-dark">
+  <div class="video-bg tint-soft">
+    <video poster="assets/video/paris-seine-poster.jpg" autoplay loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-seine.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Always On &middot; Any Hour &middot; Any Timezone</p>
+    <h2 class="display-md">While Paris sleeps,<br><span class="gold-ital">Julien</span> is awake.</h2>
+    <p class="lede">Language doesn't keep office hours. Neither does Julien. Wherever you are in the world — at midnight in New York, at dawn in Tokyo, in the quiet hour before a Paris morning — your French coach is ready.</p>
+  </div></div>
+</section>
+
+<!-- ===== FOLD 7 · SAMPLE CONVERSATION TRANSCRIPT (ivory · premium card) ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
+  <div class="wrap">
+    <div class="jul-head">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">A Glimpse Inside</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Julien in <span class="gold-ital">conversation</span></h2>
+      <p class="lede reveal reveal-d2">Every exchange is conducted in French — with English available when you need a lifeline. He meets your current level and gently expands it, correcting in the flow of the conversation.</p>
+    </div>
+    <div class="split split-wide reveal reveal-d1" style="align-items:center;gap:3rem">
+    <div class="jul-transcript" style="margin:0">
+      <div class="jul-transcript-head"><span class="jul-transcript-dot"></span><span>Live transcript · Julien · AI Tutor</span></div>
+      <div class="convo-demo">
         <div class="msg user">
           <span class="msg-label">You</span>
           <div class="msg-bubble">Je veux parler de le film que j'ai regardé hier soir.</div>
@@ -311,21 +568,23 @@
         </div>
       </div>
     </div>
-    <!-- Transparent cutout right side -->
-    <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1.6rem;align-items:center">
-      <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:380px;width:100%">
-        <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-kling-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-kling.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-kling-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
+      <div style="display:flex;flex-direction:column;gap:1.6rem;align-items:center">
+        <div class="jul-cutout-wrap jul-cutout-wrap--light" style="max-width:340px;width:100%">
+          <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-kling-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-kling.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-kling-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
+        </div>
+        <div class="pullquote" style="margin:0;max-width:340px;text-align:center">
+          <p>“He never loses patience. He never grows tired. He is always ready for one more sentence in French.”</p>
+        </div>
       </div>
-      <div class="pullquote" style="margin:0;max-width:380px">
-        <p>"He never loses patience. He never grows tired. He is always ready for one more sentence in French."</p>
-      </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:2.6rem" class="reveal reveal-d2">
+      <a href="pricing.html" class="btn btn-gold btn-lg">Start a Conversation</a>
     </div>
   </div>
 </section>
 
-<!-- ===== INSTANT CORRECTIONS FEATURE ===== -->
-<!-- Fold 5 · A: deep navy -->
-<section class="section-pad bg-navy on-dark jul-fold-a">
+<!-- ===== SUPPORTING · INSTANT CORRECTIONS FEATURE (navy) — preserved ===== -->
+<section class="section-pad on-dark jul-fold jul-fold-navy-r">
   <div class="wrap">
     <div class="jul-feature reverse">
       <!-- Text left -->
@@ -346,93 +605,47 @@
   </div>
 </section>
 
-<!-- ===== AT A GLANCE (lightweight feature band, no video) ===== -->
-<!-- Fold 6 · B: warm ivory -->
-<section class="section-pad-sm bg-paper jul-fold-b">
+<!-- ===== FOLD 8 · FAQ SPECIFIC TO JULIEN (ivory) ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
   <div class="wrap">
-    <div class="jul-glance reveal">
-      <div class="jul-glance-item">
-        <span class="jul-glance-num">01</span>
-        <h3>Conversation Practice</h3>
-        <p>Role-play a brasserie, debate a film, or narrate your day &mdash; Julien adapts to your level and pushes you a little further.</p>
+    <div class="jul-head">
+      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Questions about Julien</p>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Everything you might <span class="gold-ital">wonder</span></h2>
+      <p class="lede reveal reveal-d2">A few of the questions learners ask most often before they meet Julien for the first time.</p>
+    </div>
+    <div class="faq-list reveal reveal-d1">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Is Julien a replacement for my live teacher?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>No — and that is by design. Your live class with a native, certified teacher is the heart of the French Atelier experience. Julien complements it: he prepares you before class, consolidates after, and keeps the language alive in between.</p></div></div></div>
       </div>
-      <div class="jul-glance-item">
-        <span class="jul-glance-num">02</span>
-        <h3>Pronunciation Coaching</h3>
-        <p>Liaison, elision, nasal vowels &mdash; he isolates the sounds that challenge you and guides you through them, sound by sound.</p>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Does Julien speak English?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Julien works in French and expects you to, too — that is how progress happens. But English is always there as a lifeline: ask for a translation, a clarification, or a grammar explanation in English whenever you need one.</p></div></div></div>
       </div>
-      <div class="jul-glance-item">
-        <span class="jul-glance-num">03</span>
-        <h3>Cultural Guidance</h3>
-        <p>The codes textbooks omit: <em>vous</em> versus <em>tu</em>, the etiquette of the <em>bise</em>, what it means to invite someone for <em>un verre</em>.</p>
+      <div class="faq-item">
+        <button class="faq-q" type="button">When is Julien available?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Always. Julien is on call 24 hours a day, 7 days a week, in every timezone — at midnight in New York, at dawn in Tokyo, or in the quiet hour before a Paris morning.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Does Julien know what we covered in class?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Yes. Julien is aligned with the Atelier's CEFR-mapped curriculum. He knows your course and your level, so he can review last week's vocabulary or prepare you for the next lesson's cultural theme.</p></div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How much does Julien cost?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner"><div><p>Nothing extra. Julien is included in every French Atelier enrollment — from the first plan to the most advanced course — from the moment you join the platform to the day you receive your certificate.</p></div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ALWAYS ON (AMBIENT VIDEO BAND) ===== -->
-<section class="video-band on-dark">
-  <div class="video-bg tint-soft">
-    <video poster="assets/video/paris-seine-poster.jpg" autoplay loop muted playsinline preload="metadata">
-      <source src="assets/video/paris-seine.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap"><div class="vb-inner reveal">
-    <p class="eyebrow eyebrow-line">Always On &middot; Any Hour &middot; Any Timezone</p>
-    <h2 class="display-md">While Paris sleeps,<br><span class="gold-ital">Julien</span> is awake.</h2>
-    <p class="lede">Language doesn't keep office hours. Neither does Julien. Wherever you are in the world — at midnight in New York, at dawn in Tokyo, in the quiet hour before a Paris morning — your French coach is ready.</p>
-  </div></div>
-</section>
-
-<!-- ===== HOW JULIEN COMPLEMENTS LIVE CLASSES ===== -->
-<!-- Fold 8 · C: deep navy + radial gradient -->
-<section class="section-pad bg-ivory on-dark jul-fold-c">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:3.4rem">
-      <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Ecosystem</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Julien <span class="gold-ital">complements</span> — never replaces — the live class</h2>
-    </div>
-    <div class="split split-wide reveal">
-      <div>
-        <!-- Transparent cutout on a soft pink panel (light section, on-brand) -->
-        <div class="jul-cutout-wrap jul-cutout-wrap--light" style="max-width:440px;margin:0 auto">
-          <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-kling2-poster.png" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-kling2.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-kling2-poster.png" alt="Julien, the French Atelier AI French tutor"></video>
-        </div>
-      </div>
-      <div>
-        <p class="lede" style="margin-bottom:1.4rem">The live class is irreplaceable. A native certified teacher, broadcasting from France, creating a real communicative event with eight peers — that is the core of French Atelier learning. Julien is built around that core, not in competition with it.</p>
-        <div style="display:flex;flex-direction:column;gap:1.6rem">
-          <div style="border-left:2px solid var(--gold-deep);padding-left:1.4rem">
-            <strong style="font-family:var(--serif);font-size:1.1rem">Before class</strong>
-            <p style="color:var(--on-light-soft);font-size:.93rem;margin-top:.4rem;line-height:1.65">Review the week's vocabulary, rehearse the cultural theme, and arrive prepared — so that class time is spent speaking, not catching up.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold-deep);padding-left:1.4rem">
-            <strong style="font-family:var(--serif);font-size:1.1rem">After class</strong>
-            <p style="color:var(--on-light-soft);font-size:.93rem;margin-top:.4rem;line-height:1.65">Consolidate what you have just learned. Replay a phrase that escaped you. Go deeper into a cultural point that sparked your curiosity.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold-deep);padding-left:1.4rem">
-            <strong style="font-family:var(--serif);font-size:1.1rem">Between classes</strong>
-            <p style="color:var(--on-light-soft);font-size:.93rem;margin-top:.4rem;line-height:1.65">Maintain momentum. Every day without French is a small forgetting. Julien ensures that no day is without French — even a five-minute exchange keeps the language alive.</p>
-          </div>
-          <div style="border-left:2px solid var(--gold-deep);padding-left:1.4rem">
-            <strong style="font-family:var(--serif);font-size:1.1rem">At 3 am, in any timezone</strong>
-            <p style="color:var(--on-light-soft);font-size:.93rem;margin-top:.4rem;line-height:1.65">Julien does not sleep. Wherever you are in the world, whenever inspiration or insomnia strikes, French is waiting for you.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INCLUDED IN EVERY PLAN ===== -->
-<!-- Fold 9 · D: ivory + gold border-top -->
-<section class="section-pad bg-cream jul-fold-d">
+<!-- ===== INCLUDED IN EVERY PLAN (ivory) — preserved ===== -->
+<section class="section-pad jul-fold jul-fold-ivory">
   <div class="wrap-narrow" style="text-align:center">
     <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Included in Every Plan</p>
     <h2 class="display-md reveal reveal-d1" style="margin:1.2rem 0">Julien is part of <span class="gold-ital">every</span> French Atelier enrollment</h2>
     <p class="lede reveal reveal-d2 lede-c" style="max-width:58ch;margin:0 auto 2.4rem">From the first plan to the most advanced course, every French Atelier learner has Julien — available from the moment they join the platform to the moment they receive their certificate.</p>
-    <div class="stat reveal reveal-d3" style="display:inline-flex;flex-direction:column;align-items:center;gap:.4rem;border:1px solid var(--gold-line-soft);padding:2rem 3.6rem">
-      <span class="numeral" style="font-size:3rem">24/7</span>
+    <div class="stat reveal reveal-d3" style="display:inline-flex;flex-direction:column;align-items:center;gap:.4rem;border:1px solid var(--gold-line-soft);padding:2rem 3.6rem;border-radius:12px">
+      <span class="numeral" style="font-size:3rem;color:var(--gold-deep)">24/7</span>
       <span style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-light-soft)">Always Available · Always in French</span>
     </div>
     <div style="margin-top:2.4rem" class="reveal reveal-d4">
@@ -441,22 +654,21 @@
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<!-- Fold 10 · A: deep navy -->
-<section class="section-pad bg-navy-deep on-dark jul-fold-a" style="text-align:center">
+<!-- ===== FOLD 9 · CTA BAND — TRY JULIEN (navy) ===== -->
+<section class="section-pad on-dark jul-fold jul-cta-band">
   <div class="wrap-narrow">
-    <h2 class="display-md reveal" style="color:var(--on-dark)">Begin with <span class="gold-ital">Julien</span> at your side</h2>
-    <p class="lede reveal reveal-d1 lede-c" style="max-width:58ch;margin:1.4rem auto 2.4rem">Enroll in The French Atelier today and meet Julien the moment you log in. Your live classes and your AI tutor — together, they are your fastest path to French.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d2">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Try Julien</p>
+    <h2 class="display-md reveal reveal-d1" style="color:var(--on-dark);margin-top:1rem">Begin with <span class="gold-ital">Julien</span> at your side</h2>
+    <p class="lede reveal reveal-d2 lede-c" style="max-width:58ch;margin:1.4rem auto 2.4rem">Enroll in The French Atelier today and meet Julien the moment you log in. Your live classes and your AI tutor — together, they are your fastest path to French.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="reveal reveal-d3">
       <a href="pricing.html" class="btn btn-gold btn-lg">Enroll Now</a>
       <a href="how-it-works.html" class="btn btn-outline btn-lg">How It Works</a>
     </div>
   </div>
 </section>
 
-<!-- ===== LEAD FORM ===== -->
-<!-- Fold 11 · B: warm ivory -->
-<section class="section-pad bg-ivory advisor-section jul-fold-b" id="talk-to-advisor">
+<!-- ===== LEAD FORM (ivory) — preserved ===== -->
+<section class="section-pad advisor-section jul-fold jul-fold-ivory" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
       <div class="reveal">
@@ -619,8 +831,33 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
-<!-- Julien is now a fast transparent PNG cutout — no character videos to boot.
-     Only the ambient Paris-Seine band remains (lazy, preload=none). -->
+<script src="js/fa.js?v=1780998832"></script>
+<script>
+/* Julien spoken-intro sound button — plays julien_intro_fr.mp3 (15s French voice).
+   The looping cutout videos stay silent and decorative; this is the only audio. */
+(function(){
+  var btn = document.getElementById('jul-sound-btn');
+  var audio = document.getElementById('jul-intro-audio');
+  if(!btn || !audio) return;
+  var label = btn.querySelector('.jul-sound-label');
+  function reset(){ btn.classList.remove('is-playing'); btn.setAttribute('aria-pressed','false'); if(label) label.textContent='Hear Julien in French'; }
+  btn.addEventListener('click', function(){
+    if(audio.paused){
+      audio.currentTime = 0;
+      audio.play().then(function(){
+        btn.classList.add('is-playing');
+        btn.setAttribute('aria-pressed','true');
+        if(label) label.textContent='Pause';
+      }).catch(function(){ reset(); });
+    } else {
+      audio.pause();
+      reset();
+    }
+  });
+  audio.addEventListener('ended', reset);
+})();
+</script>
+<!-- The looping Julien cutouts are silent, decorative WebM (transparent bg).
+     The only audio is julien_intro_fr.mp3, played on demand via the hero sound button. -->
 </body>
 </html>

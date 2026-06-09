@@ -11,7 +11,7 @@
 <meta name="description" content="Acadomia, founded in 1989 and headquartered in Paris 8th, is France's leading personalized learning institute — and the force behind The French Atelier.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 .acad-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--gold-line-soft)}
@@ -32,9 +32,16 @@
 .partner-logo-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;align-items:center;justify-items:center;margin-bottom:3.6rem;padding:3rem 2.4rem;border:1px solid rgba(200,165,96,.28);border-radius:4px;background:rgba(255,255,255,.03)}
 .partner-logo-strip img{height:84px;max-width:100%;width:auto;object-fit:contain;opacity:.92;transition:opacity .3s ease}
 .partner-logo-strip img:hover{opacity:1}
+/* Welcome line now sits on an ivory band (light) — keep gold legible */
+.welcome-band{background:var(--ivory)}
+.welcome-band .welcome-line{color:var(--gold-deep)}
+/* Trophée on light — the dark inset card stands out against ivory */
+.trophee-wrap{border-radius:6px}
+.acad-stat-row{border-radius:6px;overflow:hidden}
+.partner-card{border-radius:6px}
 @media(max-width:800px){.acad-stat-row{grid-template-columns:1fr}.acad-stat-row .asr-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.partner-grid{grid-template-columns:1fr}.partner-logo-strip{grid-template-columns:repeat(2,1fr);gap:2rem 1.5rem;padding:2.2rem 1.6rem}.partner-logo-strip img{height:60px}.partner-logo-strip img:last-child{grid-column:1 / -1}}
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -168,7 +175,7 @@
 </section>
 
 <!-- ===== WELCOME LINE ===== -->
-<section class="section-pad-sm bg-navy on-dark">
+<section class="section-pad-sm welcome-band">
   <div class="wrap reveal">
     <p class="welcome-line">« Bienvenue chez Acadomia »</p>
   </div>
@@ -331,7 +338,7 @@
 </section>
 
 <!-- ===== TROPHÉE DES PASSIONNÉS ===== -->
-<section class="section-pad bg-navy on-dark">
+<section class="section-pad bg-paper">
   <div class="wrap split split-wide">
     <div class="reveal">
       <p class="eyebrow eyebrow-line">Annual Distinction</p>
@@ -373,7 +380,7 @@
      (not as a modal). Same validation/success behavior as the modal.
      Wrap is .advisor-section; left column is editorial copy, right is the card.
      ============================================================ -->
-<section class="section-pad bg-ivory advisor-section" id="talk-to-advisor">
+<section class="section-pad bg-cream advisor-section" id="talk-to-advisor">
   <div class="wrap">
     <div class="advisor-split">
       <div class="reveal">
@@ -546,6 +553,6 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

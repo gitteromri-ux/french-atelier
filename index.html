@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1780997690">
+<link rel="stylesheet" href="css/mapstr.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -412,46 +412,225 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-<section class="sorb sorb-v4" id="method-fold" aria-labelledby="sorb-title">
-  <div class="wrap">
-    <div class="sorb-head reveal">
-      <p class="sorb-eyebrow">A Research-Grade Curriculum</p>
-      <h2 class="sorb-title" id="sorb-title">Designed Curriculum, based upon the<br><span class="gold-ital">Sorbonne linguistics research &amp; methodologies.</span></h2>
-      <p class="sorb-sub">Action-oriented, communicative learning &mdash; grounded in the applied-linguistics tradition of the Sorbonne and the Common European Framework (CEFR). You don&rsquo;t study French. You act in it.</p>
+<!-- ===== SORBONNE METHODOLOGY FOLD — V5 editorial rebuild (Apple/Hermès-tier) ===== -->
+<style id="s5-style">
+/* Scoped to #method-fold via .s5 namespace — no legacy .sorb-* rules apply.
+   Brand tokens only: navy #00001F, gold #D8BC85 / #C8A96B, cream #F3EEE3. */
+#method-fold.s5{
+  position:relative;
+  background:linear-gradient(178deg,#000018 0%,#00001F 46%,#020226 100%);
+  color:#F3EEE3;
+  padding:clamp(5.5rem,9vw,8.5rem) 0;
+  border-top:1px solid rgba(216,188,133,.16);
+  border-bottom:1px solid rgba(216,188,133,.16);
+  overflow:hidden;
+}
+#method-fold.s5 .s5-wrap{
+  max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);
+  position:relative;z-index:2;
+}
+
+/* ---- Header ---- */
+#method-fold.s5 .s5-head{max-width:46rem;margin:0 auto;text-align:center}
+#method-fold.s5 .s5-eyebrow{
+  font-family:var(--sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:#D8BC85;
+  margin:0 0 1.6rem;
+}
+#method-fold.s5 .s5-title{
+  font-family:var(--serif);font-weight:500;font-style:normal;
+  font-size:clamp(2.3rem,5vw,4rem);line-height:1.08;letter-spacing:-.012em;
+  color:#F3EEE3;margin:0;
+}
+#method-fold.s5 .s5-title .gold-ital{
+  display:block;margin-top:.18em;
+  font-style:italic;font-weight:500;color:#D8BC85;
+}
+#method-fold.s5 .s5-lede{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(1.02rem,1.35vw,1.16rem);line-height:1.66;
+  color:rgba(243,238,227,.62);
+  max-width:40rem;margin:1.7rem auto 0;
+}
+
+/* ---- Three editorial principle cards ---- */
+#method-fold.s5 .s5-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem,1.8vw,1.6rem);
+  margin:clamp(3.4rem,5.5vw,5rem) auto 0;
+}
+#method-fold.s5 .s5-card{
+  position:relative;
+  display:flex;flex-direction:column;
+  padding:clamp(2.1rem,2.6vw,2.7rem) clamp(1.7rem,2.1vw,2.1rem) clamp(2.1rem,2.6vw,2.6rem);
+  background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,0)) , #00001F;
+  border:1px solid rgba(216,188,133,.22);
+  border-radius:14px;
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 26px 60px -42px rgba(0,0,0,.9);
+  transition:transform .55s cubic-bezier(.22,.61,.36,1), border-color .55s ease, box-shadow .55s ease;
+}
+#method-fold.s5 .s5-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(216,188,133,.42);
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 40px 80px -42px rgba(0,0,0,.95);
+}
+#method-fold.s5 .s5-num{
+  font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1;
+  color:#C8A96B;font-variant-numeric:lining-nums;letter-spacing:.02em;
+  margin:0 0 1.5rem;
+}
+#method-fold.s5 .s5-num::after{
+  content:"";display:block;width:26px;height:1px;
+  background:rgba(216,188,133,.5);margin-top:.85rem;
+}
+#method-fold.s5 .s5-fr{
+  display:block;font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:1.06rem;color:#D8BC85;letter-spacing:.005em;margin:0 0 .5rem;
+}
+#method-fold.s5 .s5-cardtt{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.45rem,1.9vw,1.72rem);line-height:1.16;
+  color:#F3EEE3;margin:0 0 .85rem;letter-spacing:-.005em;
+}
+#method-fold.s5 .s5-cardtx{
+  font-family:var(--sans);font-weight:300;
+  font-size:.97rem;line-height:1.64;color:rgba(243,238,227,.66);margin:0;
+}
+
+/* ---- Citations: elegant typographic credits (no boxes, no pills, no neon) ---- */
+#method-fold.s5 .s5-cred{
+  margin:clamp(3.6rem,5.5vw,5rem) auto 0;
+  max-width:60rem;text-align:center;
+}
+#method-fold.s5 .s5-cred-lab{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:#C8A96B;
+  margin:0 0 1.7rem;
+}
+#method-fold.s5 .s5-cred-list{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;
+  gap:.55rem 0;
+}
+#method-fold.s5 .s5-cite{
+  display:inline-flex;align-items:baseline;gap:.5rem;
+  padding:0 1.25rem;text-decoration:none;
+  position:relative;
+  transition:opacity .35s ease;
+}
+/* thin gold dot separator between entries */
+#method-fold.s5 .s5-cite + .s5-cite::before{
+  content:"";position:absolute;left:-2.5px;top:50%;transform:translateY(-50%);
+  width:3px;height:3px;border-radius:50%;background:rgba(216,188,133,.5);
+}
+#method-fold.s5 .s5-cite-yr{
+  font-family:var(--serif);font-weight:600;font-size:1.02rem;
+  color:#D8BC85;letter-spacing:.01em;white-space:nowrap;
+}
+#method-fold.s5 .s5-cite-tx{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:1.02rem;color:#F3EEE3;line-height:1.4;
+  border-bottom:1px solid transparent;transition:border-color .35s ease,color .35s ease;
+}
+#method-fold.s5 .s5-cite-arrow{
+  font-family:var(--sans);font-size:.78rem;color:#C8A96B;
+  transform:translateY(-1px);transition:transform .35s ease,color .35s ease;
+}
+#method-fold.s5 .s5-cite:hover .s5-cite-tx{
+  color:#fff;border-bottom-color:rgba(216,188,133,.5);
+}
+#method-fold.s5 .s5-cite:hover .s5-cite-arrow{
+  transform:translate(2px,-3px);color:#D8BC85;
+}
+#method-fold.s5 .s5-cite:focus-visible{
+  outline:2px solid rgba(216,188,133,.6);outline-offset:4px;border-radius:4px;
+}
+#method-fold.s5 .s5-disc{
+  font-family:var(--sans);font-weight:300;font-size:.82rem;line-height:1.6;
+  color:rgba(243,238,227,.4);
+  max-width:54ch;margin:clamp(2.6rem,4vw,3.4rem) auto 0;text-align:center;
+}
+
+/* ---- Tablet ---- */
+@media(max-width:880px){
+  #method-fold.s5 .s5-grid{grid-template-columns:1fr;max-width:34rem;gap:1rem}
+}
+
+/* ---- Mobile: swipe rail with dots ---- */
+@media(max-width:600px){
+  #method-fold.s5{padding:4.5rem 0}
+  #method-fold.s5 .s5-grid{
+    grid-template-columns:none;display:flex;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    gap:.9rem;max-width:none;
+    margin-left:calc(-1*clamp(1.4rem,4vw,2.6rem));
+    margin-right:calc(-1*clamp(1.4rem,4vw,2.6rem));
+    padding:0 clamp(1.4rem,4vw,2.6rem) .4rem;
+    scrollbar-width:none;
+  }
+  #method-fold.s5 .s5-grid::-webkit-scrollbar{display:none}
+  #method-fold.s5 .s5-card{
+    flex:0 0 82%;scroll-snap-align:center;
+  }
+  #method-fold.s5 .s5-dots{
+    display:flex;justify-content:center;gap:.5rem;margin-top:1.3rem;
+  }
+  #method-fold.s5 .s5-dots span{
+    width:6px;height:6px;border-radius:50%;background:rgba(216,188,133,.3);
+    transition:background .3s ease,transform .3s ease;
+  }
+  #method-fold.s5 .s5-dots span.is-active{background:#D8BC85;transform:scale(1.25)}
+  #method-fold.s5 .s5-cite{padding:0 .9rem}
+  #method-fold.s5 .s5-cite-yr,#method-fold.s5 .s5-cite-tx{font-size:.96rem}
+}
+@media(min-width:601px){
+  #method-fold.s5 .s5-dots{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #method-fold.s5 .s5-card,#method-fold.s5 .s5-cite-tx,#method-fold.s5 .s5-cite-arrow{transition:none}
+}
+</style>
+
+<section class="s5" id="method-fold" aria-labelledby="sorb-title">
+  <div class="s5-wrap">
+    <header class="s5-head reveal">
+      <p class="s5-eyebrow">A Research-Grade Curriculum</p>
+      <h2 class="s5-title" id="sorb-title">Designed Curriculum, based upon the<span class="gold-ital">Sorbonne linguistics research &amp; methodologies.</span></h2>
+      <p class="s5-lede">Action-oriented, communicative learning &mdash; grounded in the applied-linguistics tradition of the Sorbonne and the Common European Framework. You don&rsquo;t study French. You act in it.</p>
+    </header>
+
+    <div class="s5-grid reveal reveal-d1">
+      <article class="s5-card">
+        <span class="s5-num">01</span>
+        <span class="s5-fr">l&rsquo;approche actionnelle</span>
+        <h3 class="s5-cardtt">You act, you speak</h3>
+        <p class="s5-cardtx">A social agent acts with intention &mdash; ordering, asking, negotiating. Every lesson moves you toward doing something real in French.</p>
+      </article>
+      <article class="s5-card">
+        <span class="s5-num">02</span>
+        <span class="s5-fr">situated learning</span>
+        <h3 class="s5-cardtt">Learned where it&rsquo;s lived</h3>
+        <p class="s5-cardtx">Every unit is anchored to a real French place. Small live groups of 8&ndash;10 built for interaction &mdash; not lectures.</p>
+      </article>
+      <article class="s5-card">
+        <span class="s5-num">03</span>
+        <span class="s5-fr">culture au c&oelig;ur</span>
+        <h3 class="s5-cardtt">Culture at the core</h3>
+        <p class="s5-cardtx">CEFR-aligned (A0 &rarr; A2.2) with DELF/DALF can-do assessment &mdash; cultural fluency and measurable progress, together.</p>
+      </article>
+    </div>
+    <div class="s5-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
+
+    <div class="s5-cred reveal">
+      <p class="s5-cred-lab">Based on Sorbonne Research &amp; Methodologies</p>
+      <div class="s5-cred-list">
+        <a class="s5-cite" href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener"><span class="s5-cite-yr">2019</span><span class="s5-cite-tx">Piccardo &amp; North &mdash; The Action-Oriented Approach</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
+        <a class="s5-cite" href="https://www.ecml.at/" target="_blank" rel="noopener"><span class="s5-cite-yr">2020</span><span class="s5-cite-tx">Council of Europe &mdash; CEFR Companion Volume</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
+        <a class="s5-cite" href="https://www.sorbonne-nouvelle.fr/master-applied-linguistics-868627.kjsp" target="_blank" rel="noopener"><span class="s5-cite-yr">Univ.</span><span class="s5-cite-tx">Sorbonne Nouvelle &mdash; Applied Linguistics</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
+        <a class="s5-cite" href="https://www.caslt.org/en/in-the-classroom/aoa/" target="_blank" rel="noopener"><span class="s5-cite-yr">CASLT</span><span class="s5-cite-tx">Action-Oriented Approach</span><span class="s5-cite-arrow" aria-hidden="true">&#8599;</span></a>
+      </div>
     </div>
 
-    <div class="sorb-principles reveal reveal-d1">
-      <div class="sorb-pr" data-bg-num="01">
-        <span class="sorb-pr-no">01</span>
-        <span class="sorb-pr-fr">l&rsquo;approche actionnelle</span>
-        <h3 class="sorb-pr-tt">You act, you speak</h3>
-        <p class="sorb-pr-tx">A social agent acts with intention &mdash; ordering, asking, negotiating. Every lesson moves you toward doing something real in French.</p>
-      </div>
-      <div class="sorb-pr" data-bg-num="02">
-        <span class="sorb-pr-no">02</span>
-        <span class="sorb-pr-fr">situated learning</span>
-        <h3 class="sorb-pr-tt">Learned where it&rsquo;s lived</h3>
-        <p class="sorb-pr-tx">Every unit is anchored to a real French place. Small live groups of 8&ndash;10 built for interaction &mdash; not lectures.</p>
-      </div>
-      <div class="sorb-pr" data-bg-num="03">
-        <span class="sorb-pr-no">03</span>
-        <span class="sorb-pr-fr">culture au c&oelig;ur</span>
-        <h3 class="sorb-pr-tt">Culture at the core</h3>
-        <p class="sorb-pr-tx">CEFR-aligned (A0 &rarr; A2.2) with DELF/DALF can-do assessment &mdash; cultural fluency and measurable progress, together.</p>
-      </div>
-    </div>
-
-    <div class="sorb-cred reveal">
-      <p class="sorb-cred-lab sorb-cred-lab-hi">Based on <strong>Sorbonne Research &amp; Methodologies</strong></p>
-      <div class="sorb-cred-links sorb-cred-links-v2">
-        <a class="sorb-cite" href="https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/" target="_blank" rel="noopener"><span class="sorb-cite-yr">2019</span><span class="sorb-cite-tx">Piccardo &amp; North · The Action-Oriented Approach</span><span class="sorb-cite-arrow" aria-hidden="true">↗</span></a>
-        <a class="sorb-cite" href="https://www.ecml.at/" target="_blank" rel="noopener"><span class="sorb-cite-yr">2020</span><span class="sorb-cite-tx">Council of Europe · CEFR Companion Volume</span><span class="sorb-cite-arrow" aria-hidden="true">↗</span></a>
-        <a class="sorb-cite" href="https://www.sorbonne-nouvelle.fr/master-applied-linguistics-868627.kjsp" target="_blank" rel="noopener"><span class="sorb-cite-yr">Univ.</span><span class="sorb-cite-tx">Sorbonne Nouvelle · Applied Linguistics</span><span class="sorb-cite-arrow" aria-hidden="true">↗</span></a>
-        <a class="sorb-cite" href="https://www.caslt.org/en/in-the-classroom/aoa/" target="_blank" rel="noopener"><span class="sorb-cite-yr">CASLT</span><span class="sorb-cite-tx">Action-Oriented Approach</span><span class="sorb-cite-arrow" aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-
-    <p class="sorb-disclaimer reveal">Our method draws on the Sorbonne tradition of applied linguistics and the CEFR. The French Atelier is independent and not affiliated with, nor endorsed by, the Sorbonne.</p>
+    <p class="s5-disc reveal">Our method draws on the Sorbonne tradition of applied linguistics and the CEFR. The French Atelier is independent and not affiliated with, nor endorsed by, the Sorbonne.</p>
   </div>
 </section>
 
@@ -1275,7 +1454,21 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
-<script src="js/mapstr.js?v=1780997690" defer></script>
+<script src="js/fa.js?v=1780998832"></script>
+<script src="js/mapstr.js?v=1780998832" defer></script>
+<script>
+/* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
+(function(){
+  var rail=document.querySelector('#method-fold .s5-grid');
+  var dots=document.querySelectorAll('#method-fold .s5-dots span');
+  if(!rail||!dots.length)return;
+  var cards=rail.querySelectorAll('.s5-card');
+  rail.addEventListener('scroll',function(){
+    var i=Math.round(rail.scrollLeft/(rail.scrollWidth-rail.clientWidth)*(cards.length-1));
+    if(isNaN(i)||i<0)i=0;if(i>dots.length-1)i=dots.length-1;
+    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);});
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

@@ -11,10 +11,31 @@
 <meta name="description" content="Eight native, certified French teachers broadcasting live from across France — Strasbourg to Nice, Paris to Pau. Meet the voices behind The French Atelier.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
-<link rel="stylesheet" href="css/teachers.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
+<link rel="stylesheet" href="css/teachers.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832">
+<style>
+/* ===== TEACHERS PAGE — premium faculty cards (inline overrides) ===== */
+/* Tighter, premium 4-col grid — cards sized to breathe, not oversized */
+.faculty-grid{grid-template-columns:repeat(4,1fr);gap:1.4rem;max-width:1180px;margin:0 auto}
+.fc{border-radius:8px}
+.fc-photo{aspect-ratio:4/5}            /* less tall than 3/4 → cards not oversized */
+.fc-body{padding:1.35rem 1.35rem 1.5rem}
+.fc-name{font-size:1.42rem;margin-bottom:.25rem}
+.fc-location{font-size:.62rem;letter-spacing:.18em;margin-bottom:.7rem}
+.fc-bio{font-size:.84rem;line-height:1.62;-webkit-line-clamp:4}
+
+/* CEFR / qualifications row inside each card */
+.fc-quals{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gold-line-soft)}
+.fc-qual{display:inline-flex;align-items:center;gap:.34rem;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);background:rgba(200,169,107,.08);border:1px solid var(--gold-line-soft);border-radius:4px;padding:.3rem .55rem;line-height:1}
+.fc-qual svg{width:11px;height:11px;color:var(--gold-deep);flex-shrink:0}
+.fc-cefr{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--gold-deep);background:none;border:none;padding:.3rem 0;letter-spacing:0;text-transform:none}
+
+@media (max-width:1100px){.faculty-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.faculty-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.fc-photo{aspect-ratio:4/5}.fc-bio{-webkit-line-clamp:3}}
+@media (max-width:430px){.faculty-grid{grid-template-columns:1fr}.fc-photo{aspect-ratio:4/3}}
+</style></head>
 <body>
 
 <!-- ===== SVG ICON SPRITE ===== -->
@@ -253,6 +274,11 @@
           <div class="fc-name">Caitlin</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Strasbourg</div>
           <p class="fc-bio">Rooted at the crossroads of France and Germany, Caitlin teaches contextual French with the precision and warmth of Alsatian culture — where every word carries the weight of a rich bilingual history.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A0 → A2.2</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>DELF Examiner</span>
+          </div>
         </div>
       </div>
 
@@ -267,6 +293,11 @@
           <div class="fc-name">Carmèle</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Paris</div>
           <p class="fc-bio">A Parisienne by birth and by sensibility, Carmèle brings the capital's intellectual rigour and social grace into every class — teaching the French of the gallery, the salon, and the café terrace with the easy authority of someone who has lived it all her life.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A1 → B1</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>Master FLE</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>DALF Examiner</span>
+          </div>
         </div>
       </div>
 
@@ -281,6 +312,11 @@
           <div class="fc-name">Charline</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Paris</div>
           <p class="fc-bio">Charline's teaching is lit by a deep love of Parisian literature and contemporary culture — she guides learners through the language of the city with the curiosity of a writer and the generosity of a guide who wants you to fall in love with what she loves.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A0 → A2.1</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>CECRL Trained</span>
+          </div>
         </div>
       </div>
 
@@ -295,6 +331,11 @@
           <div class="fc-name">Corentin</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Pau</div>
           <p class="fc-bio">From the foothills of the Pyrénées, Corentin brings the unhurried, melodious French of the South-West — a region where Gascon pride, Basque spirit, and Béarnaise warmth meet in a language as rich and clear as mountain water.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A1 → A2.2</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>CLT Specialist</span>
+          </div>
         </div>
       </div>
 
@@ -309,6 +350,11 @@
           <div class="fc-name">Iris Linza</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Lyon</div>
           <p class="fc-bio">Lyon — France's gastronomic capital — is the source of Iris's teaching. She weaves the language of the <em>bouchon</em>, the <em>traboule</em>, and the city's silk-weaving heritage into lessons as nourishing as the city itself.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A0 → B1</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>Master FLE</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>DELF/DALF Examiner</span>
+          </div>
         </div>
       </div>
 
@@ -323,6 +369,11 @@
           <div class="fc-name">Philippe</div>
           <div class="fc-location"><span class="fc-location-dot"></span>West Paris</div>
           <p class="fc-bio">Philippe teaches with the quiet authority of a man who has spent a lifetime in the western quartiers of Paris — bringing learners into the conversational French of the city's most storied neighbourhoods with ease and elegance.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A2 → B1</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>Conversation Lead</span>
+          </div>
         </div>
       </div>
 
@@ -337,6 +388,11 @@
           <div class="fc-name">Shanice</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Montpellier</div>
           <p class="fc-bio">Shanice teaches the warm, sun-drenched French of the Mediterranean coast — where Occitan inflections colour the vowels, the rhythm of life is generous and unhurried, and the language opens like a window onto a France that is vivid and utterly alive.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A0 → A2.1</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>CECRL Trained</span>
+          </div>
         </div>
       </div>
 
@@ -351,6 +407,11 @@
           <div class="fc-name">Stan</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Nice</div>
           <p class="fc-bio">From the shimmering coast of the Côte d'Azur, Stan brings the luminous, cosmopolitan French of Nice — teaching a French that sparkles with Mediterranean light and the sophistication of its storied waterfront.</p>
+          <div class="fc-quals">
+            <span class="fc-cefr">A1 → A2.2</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>Master FLE</span>
+            <span class="fc-qual"><svg><use href="#i-check"/></svg>DELF Examiner</span>
+          </div>
         </div>
       </div>
 
@@ -598,6 +659,6 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

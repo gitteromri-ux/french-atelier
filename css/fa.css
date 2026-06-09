@@ -2816,40 +2816,10 @@ body.modal-open{overflow:hidden}
 }
 
 /* ============================================================
-   RESEARCH SOURCES — light-blue neon glow (map shine) per client request
+   [REMOVED — Sorbonne fold V5 rebuild] Legacy neon-blue citation
+   glow / breathing line removed per client feedback. The fold now
+   uses scoped .s5 styles in an inline <style> above #method-fold.
    ============================================================ */
-.sorb-cred{ --src-neon:#2FA4FF; --src-neon-bright:#6FC4FF; }
-.sorb-cred-lab{
-  color:var(--src-neon-bright)!important;
-  text-shadow:0 0 14px rgba(47,164,255,.55), 0 0 30px rgba(47,164,255,.28);
-}
-.sorb-cred-links a{
-  color:rgba(214,236,255,.9)!important;
-  border-bottom:1px solid rgba(111,196,255,.42)!important;
-  text-shadow:0 0 10px rgba(47,164,255,.32);
-  transition:color .3s, border-color .3s, text-shadow .3s!important;
-}
-.sorb-cred-links a:hover{
-  color:#EAF6FF!important;border-color:var(--src-neon-bright)!important;
-  text-shadow:0 0 14px rgba(111,196,255,.85), 0 0 30px rgba(47,164,255,.5);
-}
-.sorb-cred{
-  border-top-color:rgba(111,196,255,.3)!important;
-  position:relative;
-}
-/* soft neon halo line under the top border, echoing the map shine */
-.sorb-cred::before{
-  content:"";position:absolute;left:50%;top:-1px;transform:translateX(-50%);
-  width:min(560px,80%);height:2px;border-radius:2px;
-  background:linear-gradient(90deg,rgba(47,164,255,0),rgba(111,196,255,.9),rgba(47,164,255,0));
-  box-shadow:0 0 16px 2px rgba(47,164,255,.6);
-  animation:srcNeonBreath 3s ease-in-out infinite;
-}
-@keyframes srcNeonBreath{
-  0%,100%{opacity:.6}
-  50%{opacity:1}
-}
-@media(prefers-reduced-motion:reduce){ .sorb-cred::before{animation:none} }
 
 /* ============================================================
    ROUND-5 GLOBAL TEXT CONSISTENCY

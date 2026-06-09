@@ -11,31 +11,52 @@
 <meta name="description" content="Explore all French Atelier courses: the FA main track (Foundation to Intermediate, A0–A2.2) and the LSF Let's Speak French conversation track (A0–A2.1). Live, cultural, certified.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 .courses-hero{min-height:62vh}
 
 /* Track headers */
-.track-header{border-left:2px solid var(--gold-deep);padding-left:1.4rem;margin-bottom:3rem}
+.track-header{border-left:2px solid var(--gold-deep);padding-left:1.4rem;margin-bottom:3.4rem}
+.on-dark .track-header .lede{color:var(--on-dark-soft)}
 
 /* Course cards grid */
 .course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-.course-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--gold-line-soft);overflow:hidden;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
-.course-card:hover{box-shadow:0 8px 32px rgba(8,14,43,.12);transform:translateY(-3px)}
+.course-card{display:flex;flex-direction:column;border-radius:10px;overflow:hidden;transition:box-shadow .45s var(--ease),transform .45s var(--ease),border-color .45s var(--ease)}
+.course-card:hover{transform:translateY(-4px)}
 .cc-hero{position:relative;aspect-ratio:16/7;overflow:hidden}
 .cc-hero img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .course-card:hover .cc-hero img{transform:scale(1.05)}
-.cc-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,43,.08) 30%,rgba(8,14,43,.75));display:flex;align-items:flex-end;padding:1.4rem 1.6rem}
+.cc-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,31,.10) 30%,rgba(0,0,31,.78));display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:1.4rem 1.6rem}
 .cc-cefr{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--gold-soft);letter-spacing:.02em}
-.cc-body{padding:1.8rem 1.8rem 2rem;display:flex;flex-direction:column;flex:1}
-.cc-track{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.5rem}
-.cc-title{font-family:var(--serif);font-size:1.9rem;line-height:1.15;margin-bottom:.7rem}
-.cc-desc{font-size:.95rem;color:var(--on-light-soft);line-height:1.6;margin-bottom:1.2rem;flex:1}
-.cc-meta{display:flex;gap:1.4rem;margin-bottom:1.4rem;flex-wrap:wrap}
-.cc-meta-item{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-light-soft);}
-.cc-meta-item strong{display:block;font-family:var(--serif);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--navy)}
+.cc-badge{align-self:flex-start;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-deep);background:linear-gradient(135deg,#D8BC85,#B7965D);padding:.42rem .7rem;border-radius:999px;white-space:nowrap}
+.cc-body{padding:1.9rem 1.9rem 2.1rem;display:flex;flex-direction:column;flex:1}
+.cc-track{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.55rem}
+.cc-title{font-family:var(--serif);font-size:1.95rem;line-height:1.12;margin-bottom:.7rem}
+.cc-desc{font-size:.95rem;line-height:1.62;margin-bottom:1.3rem;flex:1}
+.cc-meta{display:flex;gap:1.4rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.cc-meta-item{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.cc-meta-item strong{display:block;font-family:var(--serif);font-size:1.05rem;letter-spacing:0;text-transform:none;margin-top:.15rem}
 .cc-actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}
+
+/* ===== FA cards — navy backgrounds, gold hairline ===== */
+.cc-fa{background:linear-gradient(165deg,#00001F,#000034 60%,#00001F);border:1px solid rgba(216,188,133,.20);box-shadow:0 18px 44px -28px rgba(11,19,64,.55)}
+.cc-fa:hover{border-color:rgba(216,188,133,.45);box-shadow:0 26px 60px -30px rgba(0,0,20,.7)}
+.cc-fa .cc-title{color:var(--on-dark)}
+.cc-fa .cc-title .gold-ital{color:var(--gold-soft)}
+.cc-fa .cc-desc{color:var(--on-dark-soft)}
+.cc-fa .cc-meta-item{color:var(--gold-soft)}
+.cc-fa .cc-meta-item strong{color:var(--on-dark)}
+.cc-fa .cc-body{border-top:1px solid rgba(216,188,133,.16)}
+
+/* ===== LSF cards — ivory backgrounds, gold hairline ===== */
+.cc-lsf{background:linear-gradient(165deg,#FAF6EE,#F2EDE3 70%,#F3EEE3);border:1px solid rgba(216,188,133,.30);box-shadow:0 18px 44px -28px rgba(11,19,64,.30)}
+.cc-lsf:hover{border-color:rgba(216,188,133,.55);box-shadow:0 26px 56px -30px rgba(11,19,64,.40)}
+.cc-lsf .cc-title{color:var(--navy)}
+.cc-lsf .cc-desc{color:var(--on-light-soft)}
+.cc-lsf .cc-meta-item{color:var(--gold-deep)}
+.cc-lsf .cc-meta-item strong{color:var(--navy)}
+.cc-lsf .cc-body{border-top:1px solid rgba(216,188,133,.22)}
 
 /* Level arc */
 .level-arc{display:flex;align-items:center;gap:0;margin-bottom:4rem}
@@ -59,7 +80,7 @@
 @media(max-width:980px){.course-grid{grid-template-columns:1fr}.stat-row{grid-template-columns:repeat(2,1fr)}.stat-cell:nth-child(2){border-right:none}.level-arc{flex-wrap:wrap;gap:.5rem}}
 @media(max-width:600px){.stat-row{grid-template-columns:1fr}.stat-cell{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.arc-line{display:none}}
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <header class="site-header">
@@ -230,7 +251,7 @@
 </section>
 
 <!-- ===== FA MAIN TRACK ===== -->
-<section class="section-pad bg-paper">
+<section class="section-pad bg-navy on-dark">
   <div class="wrap">
     <div class="track-header reveal">
       <p class="eyebrow eyebrow-line">The French Atelier Main Track</p>
@@ -240,11 +261,12 @@
     <div class="course-grid">
 
       <!-- FA Foundation -->
-      <div class="course-card reveal">
+      <div class="course-card cc-fa reveal">
         <div class="cc-hero">
           <img src="assets/gen/hero-paris.png" alt="Paris — home of FA Foundation">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A0 → A1.1 · Paris</span>
+            <span class="cc-cefr">A0 → A1.1</span>
+            <span class="cc-badge">Paris</span>
           </div>
         </div>
         <div class="cc-body">
@@ -264,11 +286,12 @@
       </div>
 
       <!-- FA Beginner -->
-      <div class="course-card reveal reveal-d1">
+      <div class="course-card cc-fa reveal reveal-d1">
         <div class="cc-hero">
           <img src="assets/gen/region-normandy.png" alt="Normandy coast — home of FA Beginner">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A1.1 → A1.2 · Normandy → Paris</span>
+            <span class="cc-cefr">A1.1 → A1.2</span>
+            <span class="cc-badge">Normandy · Paris</span>
           </div>
         </div>
         <div class="cc-body">
@@ -288,11 +311,12 @@
       </div>
 
       <!-- FA Elementary -->
-      <div class="course-card reveal">
+      <div class="course-card cc-fa reveal">
         <div class="cc-hero">
           <img src="assets/gen/region-loire.png" alt="Loire Valley — home of FA Elementary">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A1.2 → A2.1 · Loire · Atlantic · Basque</span>
+            <span class="cc-cefr">A1.2 → A2.1</span>
+            <span class="cc-badge">Loire · Atlantic · Basque</span>
           </div>
         </div>
         <div class="cc-body">
@@ -312,15 +336,16 @@
       </div>
 
       <!-- FA Intermediate -->
-      <div class="course-card reveal reveal-d1">
+      <div class="course-card cc-fa reveal reveal-d1">
         <div class="cc-hero">
           <img src="assets/gen/region-marseille.png" alt="Marseille and beyond — home of FA Intermediate">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A2.1 → A2.2 · Marseille · Alps · Alsace · Reims</span>
+            <span class="cc-cefr">A2.1 → A2.2</span>
+            <span class="cc-badge">Marseille · Alps · Reims</span>
           </div>
         </div>
         <div class="cc-body">
-          <div class="cc-track">FA Main Track · Course 4 of 4 · <span style="color:var(--gold-deep)">New</span></div>
+          <div class="cc-track">FA Main Track · Course 4 of 4 · <span style="color:var(--gold-soft)">New</span></div>
           <h3 class="cc-title">FA <span class="gold-ital">Intermediate</span></h3>
           <p class="cc-desc">From the Vieux-Port of Marseille to the glaciers of Chamonix, the Gothic cathedral of Strasbourg, and a closing dinner in Reims. Debate, negotiate, narrate past events with nuance, and engage in intercultural comparison.</p>
           <div class="cc-meta">
@@ -340,7 +365,7 @@
 </section>
 
 <!-- ===== PULLQUOTE ===== -->
-<section class="section-pad bg-navy on-dark">
+<section class="section-pad bg-ivory">
   <div class="wrap-narrow" style="text-align:center">
     <div class="pullquote reveal">
       <p>«&nbsp;Language and landscape are inseparable. In the French Atelier, every speech act grows from a real encounter with a real place.&nbsp;»</p>
@@ -350,7 +375,7 @@
 </section>
 
 <!-- ===== LSF TRACK ===== -->
-<section class="section-pad bg-ivory">
+<section class="section-pad bg-navy on-dark">
   <div class="wrap">
     <div class="track-header reveal">
       <p class="eyebrow eyebrow-line">Let's Speak French · Conversation Track</p>
@@ -374,11 +399,12 @@
     <div class="course-grid">
 
       <!-- LSF Foundation -->
-      <div class="course-card reveal">
+      <div class="course-card cc-lsf reveal">
         <div class="cc-hero">
           <img src="assets/gen/hero-paris.png" alt="Paris — LSF Foundation">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A0 → A1.1 · Conversation Track</span>
+            <span class="cc-cefr">A0 → A1.1</span>
+            <span class="cc-badge">Spoken · Paris</span>
           </div>
         </div>
         <div class="cc-body">
@@ -398,11 +424,12 @@
       </div>
 
       <!-- LSF Beginner -->
-      <div class="course-card reveal reveal-d1">
+      <div class="course-card cc-lsf reveal reveal-d1">
         <div class="cc-hero">
           <img src="assets/gen/culture-travel.png" alt="Daily life in France — LSF Beginner">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A1.1 → A1.2 · Conversation Track</span>
+            <span class="cc-cefr">A1.1 → A1.2</span>
+            <span class="cc-badge">Spoken · Daily life</span>
           </div>
         </div>
         <div class="cc-body">
@@ -422,11 +449,12 @@
       </div>
 
       <!-- LSF Elementary -->
-      <div class="course-card reveal">
+      <div class="course-card cc-lsf reveal">
         <div class="cc-hero">
           <img src="assets/gen/culture-travel.png" alt="Life in France — LSF Elementary">
           <div class="cc-hero-overlay">
-            <span class="cc-cefr">A1.2 → A2.1 · Conversation Track</span>
+            <span class="cc-cefr">A1.2 → A2.1</span>
+            <span class="cc-badge">Spoken · Autonomy</span>
           </div>
         </div>
         <div class="cc-body">
@@ -527,6 +555,6 @@
     <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2026. All Rights Reserved.</p>
   </div>
 </footer>
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

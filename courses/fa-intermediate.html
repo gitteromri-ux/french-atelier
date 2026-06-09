@@ -12,9 +12,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap">
-<link rel="stylesheet" href="../css/fa.css?v=1780997690">
-<link rel="stylesheet" href="../css/course.css?v=1780997690">
+<link rel="stylesheet" href="../css/fa.css?v=1780998832">
+<link rel="stylesheet" href="../css/course.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+<style>
+/* ===== FA course page — Apple-tier polish (page-specific) ===== */
+/* Acadomia proof band sits on IVORY in the alternating rhythm */
+.acadomia-band{}
+.acadomia-band .counter-card{background:rgba(255,255,255,.72);border:1px solid var(--gold-line-soft)}
+.acadomia-band .c-num{color:var(--gold-deep)}
+.acadomia-band .c-label{color:var(--on-light-soft)}
+.acadomia-band .power-strip-eyebrow{color:var(--on-light-soft)}
+.acadomia-band .marquee img{filter:none;opacity:.78}
+/* Pricing band now sits on NAVY */
+.pricing-band .glass-light{background:rgba(255,255,255,.94)}
+.pricing-band .disclaimer{color:var(--on-dark-soft)}
+/* Closing dark movement: sibling-nav + final CTA read as one navy fold */
+.closing-nav .sib-card{background:rgba(255,255,255,.05);border:1px solid var(--dark-line)}
+.closing-nav .sib-title{color:var(--on-dark)}
+.closing-nav .sib-dir,.closing-nav .sib-cefr{color:var(--on-dark-soft)}
+.closing-nav .sib-card:hover{border-color:var(--gold-soft)}
+</style>
 </head>
 <body data-course="fa-intermediate" class="light-hero">
 
@@ -265,7 +283,7 @@
     </div>
   </div>
 </section>
-<section class="sec bg-navy-grad on-dark">
+<section class="sec bg-beige-grad acadomia-band">
   <div class="cw">
     <div class="sec-head" data-reveal>
   <span class="eyebrow eyebrow-line">Presented by Acadomia</span>
@@ -283,13 +301,13 @@
     <div class="power-strip-eyebrow">Trusted across French institutions</div>
     <div class="marquee" aria-label="Partners">
       <div class="marquee-track">
-        <div class="marquee-group"><img src="../assets/partners/white/fft.png" alt="fft" loading="lazy"><img src="../assets/partners/white/ffgolf.png" alt="ffgolf" loading="lazy"><img src="../assets/partners/white/grandprix.png" alt="grandprix" loading="lazy"><img src="../assets/partners/white/tonyparker.png" alt="tonyparker" loading="lazy"><img src="../assets/partners/white/capital.png" alt="capital" loading="lazy"></div>
-        <div class="marquee-group" aria-hidden="true"><img src="../assets/partners/white/fft.png" alt="fft" loading="lazy"><img src="../assets/partners/white/ffgolf.png" alt="ffgolf" loading="lazy"><img src="../assets/partners/white/grandprix.png" alt="grandprix" loading="lazy"><img src="../assets/partners/white/tonyparker.png" alt="tonyparker" loading="lazy"><img src="../assets/partners/white/capital.png" alt="capital" loading="lazy"></div>
+        <div class="marquee-group"><img src="../assets/partners/fft.jpg" alt="fft" loading="lazy"><img src="../assets/partners/ffgolf.png" alt="ffgolf" loading="lazy"><img src="../assets/partners/grandprix.png" alt="grandprix" loading="lazy"><img src="../assets/partners/tonyparker.png" alt="tonyparker" loading="lazy"><img src="../assets/partners/capital.png" alt="capital" loading="lazy"></div>
+        <div class="marquee-group" aria-hidden="true"><img src="../assets/partners/fft.jpg" alt="fft" loading="lazy"><img src="../assets/partners/ffgolf.png" alt="ffgolf" loading="lazy"><img src="../assets/partners/grandprix.png" alt="grandprix" loading="lazy"><img src="../assets/partners/tonyparker.png" alt="tonyparker" loading="lazy"><img src="../assets/partners/capital.png" alt="capital" loading="lazy"></div>
       </div>
     </div>
   </div>
 </section>
-<section class="sec bg-beige-grad" id="pricing">
+<section class="sec bg-navy-grad on-dark pricing-band" id="pricing">
   <div class="cw">
     <div class="sec-head" data-reveal>
   <span class="eyebrow eyebrow-line">Tuition</span>
@@ -342,7 +360,7 @@
     </div></div>
   </div>
 </section>
-<section class="sec-sm bg-ivory">
+<section class="sec-sm bg-navy-grad on-dark closing-nav">
   <div class="cw">
     <div class="sibling-nav"><a class="sib-card glass-light" href="fa-elementary.html">
       <span class="sib-dir">&larr; Previous level</span>
@@ -414,7 +432,7 @@
     <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2026. All Rights Reserved.</p>
   </div>
 </footer>
-<script src="../js/fa.js?v=1780997690"></script>
-<script src="../js/course.js?v=1780997690"></script>
+<script src="../js/fa.js?v=1780998832"></script>
+<script src="../js/course.js?v=1780998832"></script>
 </body>
 </html>

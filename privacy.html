@@ -11,20 +11,35 @@
 <meta name="description" content="Privacy Policy for The French Atelier by Acadomia (livefrenchatelier.com). How we collect, use, and protect your personal data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-.legal-body{font-size:1rem;line-height:1.8;color:var(--on-light);max-width:72ch}
-.legal-body p{margin-bottom:1.1rem}
-.legal-body ul{margin:0 0 1.1rem 1.4rem}
-.legal-body ul li{margin-bottom:.5rem}
-.legal-section{padding-bottom:2.4rem;margin-bottom:2.4rem;border-bottom:1px solid var(--gold-line-soft)}
-.legal-section:last-child{border-bottom:none}
-.legal-section h2{font-family:var(--serif);font-size:1.45rem;margin-bottom:1rem;color:var(--on-light)}
-.legal-section h2 .sec-num{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:.3rem;font-family:var(--sans);font-weight:400;font-style:normal}
-.legal-date{font-size:.82rem;color:var(--on-light-soft);margin-bottom:2.8rem;padding-bottom:1.6rem;border-bottom:1px solid var(--gold-line-soft)}
+/* ===== Legal long-form — premium prose system ===== */
+.legal-hero{min-height:52vh;display:flex;align-items:center}
+.legal-shell{max-width:65ch;margin:0 auto}
+.legal-body{font-family:var(--sans);font-size:1.06rem;line-height:1.85;color:var(--on-light);font-weight:400}
+.legal-body p{margin-bottom:1.25rem;max-width:65ch}
+.legal-body ul{margin:0 0 1.4rem 0;padding-left:1.4rem}
+.legal-body ul li{margin-bottom:.7rem;padding-left:.3rem;position:relative}
+.legal-body ul li::marker{color:var(--gold-deep)}
+.legal-body strong{font-weight:600;color:var(--on-light)}
+.legal-body a{color:var(--gold-deep);border-bottom:1px solid var(--gold-line-soft);transition:border-color .25s}
+.legal-body a:hover{border-color:var(--gold-deep)}
+.legal-section{padding-bottom:3.2rem;margin-bottom:3.2rem;border-bottom:1px solid var(--gold-line-soft)}
+.legal-section:last-child{border-bottom:none;margin-bottom:0}
+.legal-section h2{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.01em;color:var(--gold-deep);margin-bottom:1.3rem}
+.legal-section h2 .sec-num{font-family:var(--sans);font-style:normal;font-weight:600;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--on-light-faint);display:block;margin-bottom:.7rem}
+.legal-date{font-size:.95rem;line-height:1.7;color:var(--on-light-soft);margin-bottom:3.4rem;padding-bottom:2rem;border-bottom:1px solid var(--gold-line-soft);font-style:italic;max-width:65ch}
+.legal-toc{margin:0 0 3.4rem;padding:1.8rem 2rem;border:1px solid var(--gold-line-soft);background:var(--paper)}
+.legal-toc-label{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:1rem;display:block}
+.legal-toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 2rem;counter-reset:toc}
+.legal-toc ol li{counter-increment:toc}
+.legal-toc ol li a{display:flex;gap:.7rem;font-size:.95rem;color:var(--on-light-soft);border:none;padding:.15rem 0}
+.legal-toc ol li a::before{content:counter(toc,decimal-leading-zero);color:var(--gold-deep);font-family:var(--serif);font-style:italic;font-weight:600;flex-shrink:0}
+.legal-toc ol li a:hover{color:var(--gold-deep)}
+@media(max-width:600px){.legal-toc ol{grid-template-columns:1fr}}
 </style>
-</head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -144,23 +159,38 @@
 </div>
 
 <!-- ===== PAGE HERO ===== -->
-<section class="page-hero" style="min-height:36vh">
+<section class="page-hero legal-hero">
   <div class="hero-bg"><img src="assets/gen/culture-art.png" alt="The elegance and culture of France"></div>
   <div class="wrap hero-content">
-    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Legal</p>
+    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Legal &middot; Privacy</p>
     <h1 class="display-lg reveal reveal-d1">Privacy <span class="gold-ital">Policy</span></h1>
+    <p class="hero-sub reveal reveal-d2" style="max-width:52ch">How The French Atelier collects, uses, and protects your personal data — and the rights you hold as a data subject.</p>
   </div>
 </section>
 
 <!-- ===== LEGAL BODY ===== -->
 <section class="section-pad bg-ivory">
   <div class="wrap-narrow reveal">
+   <div class="legal-shell">
 
     <p class="legal-date">The French Atelier by Acadomia · Website: livefrenchatelier.com · Effective Date: 2025 · We respect your privacy. This policy explains what personal data we collect, how we use it, and your rights as a data subject.</p>
 
+    <nav class="legal-toc" aria-label="Sections">
+      <span class="legal-toc-label">On this page</span>
+      <ol>
+        <li><a href="#sec-1">Data We Collect</a></li>
+        <li><a href="#sec-2">How We Use It</a></li>
+        <li><a href="#sec-3">Cookies &amp; Analytics</a></li>
+        <li><a href="#sec-4">Data Sharing</a></li>
+        <li><a href="#sec-5">Your Rights</a></li>
+        <li><a href="#sec-6">Data Retention</a></li>
+        <li><a href="#sec-7">Controller</a></li>
+      </ol>
+    </nav>
+
     <div class="legal-body">
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-1">
         <h2><span class="sec-num">Section 1</span>Data We Collect</h2>
         <p>When you interact with livefrenchatelier.com or enroll in The French Atelier program, we may collect the following categories of personal data:</p>
         <ul>
@@ -173,7 +203,7 @@
         </ul>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-2">
         <h2><span class="sec-num">Section 2</span>How We Use It</h2>
         <p>We use your personal data for the following purposes, and only where we have a lawful basis to do so:</p>
         <ul>
@@ -186,20 +216,20 @@
         <p>We will not use your data for purposes incompatible with those stated above without first obtaining your consent.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-3">
         <h2><span class="sec-num">Section 3</span>Cookies &amp; Analytics</h2>
         <p>Our website, livefrenchatelier.com, uses cookies — small text files stored on your device — to improve your browsing experience, remember your preferences, and gather analytics data about how the site is used. We use analytics tools to understand traffic patterns and page performance.</p>
         <p>You can control or disable cookies through your browser settings at any time. Please note that disabling certain cookies may affect the functionality of parts of our website. Where required by law, we will request your consent before placing non-essential cookies.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-4">
         <h2><span class="sec-num">Section 4</span>Data Sharing</h2>
         <p>We do not sell your personal data to third parties under any circumstances.</p>
         <p>We may share your data with carefully selected service providers who assist us in operating The French Atelier program — including payment processors, learning platform providers, and email delivery services. All such providers are bound by contractual obligations to process your data only as instructed by us and to maintain appropriate security measures.</p>
         <p>We may also disclose your data where required by law, regulation, or a court order, or where necessary to protect the rights, property, or safety of Acadomia, our students, or the public.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-5">
         <h2><span class="sec-num">Section 5</span>Your Rights</h2>
         <p>Depending on your location and applicable law, you may have the following rights in relation to your personal data:</p>
         <ul>
@@ -213,7 +243,7 @@
         <p>To exercise any of these rights, please contact us at <a href="mailto:advisor@eTeacherGroup.com" style="color:var(--gold-deep)">advisor@eTeacherGroup.com</a>. We will respond within one month. If you believe we have not handled your data appropriately, you have the right to lodge a complaint with the relevant data protection authority.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-6">
         <h2><span class="sec-num">Section 6</span>Data Retention</h2>
         <p>We retain your personal data only for as long as is necessary for the purposes for which it was collected, or as required by applicable law. In practice, this means:</p>
         <ul>
@@ -224,7 +254,7 @@
         <p>When data is no longer required, it is securely deleted or anonymised.</p>
       </div>
 
-      <div class="legal-section">
+      <div class="legal-section" id="sec-7">
         <h2><span class="sec-num">Section 7</span>Controller</h2>
         <p>The data controller responsible for the processing of your personal data in connection with The French Atelier is:</p>
         <ul>
@@ -238,6 +268,7 @@
       </div>
 
     </div><!-- /.legal-body -->
+   </div><!-- /.legal-shell -->
   </div>
 </section>
 
@@ -368,6 +399,6 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>

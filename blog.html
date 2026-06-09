@@ -11,43 +11,62 @@
 <meta name="description" content="Dispatches from France: essays on gastronomy, travel, language, film, and the art of living French. The Cultural Journal of The French Atelier by Acadomia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780997690">
+<link rel="stylesheet" href="css/fa.css?v=1780998832">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
-/* Blog index page */
-.blog-hero{min-height:52vh;display:flex;align-items:flex-end;padding-bottom:4rem;position:relative;overflow:hidden}
-.blog-hero-content{position:relative;z-index:2}
+/* ============================================================
+   CULTURAL JOURNAL — Apple-tier editorial index
+   ============================================================ */
 
-.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--gold-line-soft);overflow:hidden}
-.featured-img{aspect-ratio:3/2;overflow:hidden;position:relative}
-.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.featured-article:hover .featured-img img{transform:scale(1.04)}
-.featured-badge{position:absolute;top:1.2rem;left:1.2rem;z-index:3;background:var(--navy-deep);color:var(--gold-soft);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:.4rem .85rem;border-radius:2px}
-.featured-body{padding:3.6rem 3.2rem;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
-.featured-body .eyebrow{margin-bottom:1rem}
-.featured-body h2{font-size:clamp(1.9rem,2.8vw,2.8rem);line-height:1.18;margin-bottom:1.1rem}
-.featured-body .dek{font-size:1.05rem;color:var(--on-light-soft);line-height:1.6;margin-bottom:2rem;max-width:42ch}
+/* ---- Hero ---- */
+.blog-hero{min-height:58vh;display:flex;align-items:flex-end;padding-bottom:5rem;position:relative;overflow:hidden}
+.blog-hero-content{position:relative;z-index:2;max-width:60ch}
+.blog-hero-content .eyebrow{margin-bottom:1.4rem}
+.blog-hero-content h1{margin:0}
+.blog-hero-content .hero-dek{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--on-dark-soft);max-width:48ch;margin-top:1.4rem;font-weight:300;line-height:1.6}
 
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.blog-card{display:flex;flex-direction:column;border:1px solid var(--gold-line-soft);overflow:hidden;background:var(--white);transition:box-shadow .3s var(--ease)}
-.blog-card:hover{box-shadow:0 8px 32px rgba(8,14,43,.1)}
+/* ---- Shared editorial meta row ---- */
+.bc-meta{display:flex;align-items:center;gap:.7rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-light-faint);font-weight:500}
+.bc-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.7;flex:none}
+.bc-cat{font-family:var(--sans);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+
+/* ---- Featured hero essay ---- */
+.featured-article{display:grid;grid-template-columns:1.05fr .95fr;gap:0;border:1px solid var(--gold-line-soft);border-radius:8px;overflow:hidden;background:var(--paper);box-shadow:0 24px 60px -40px rgba(8,14,43,.5);transition:box-shadow .5s var(--ease),transform .5s var(--ease)}
+.featured-article:hover{box-shadow:0 34px 80px -42px rgba(8,14,43,.55);transform:translateY(-3px)}
+.featured-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+.featured-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.featured-article:hover .featured-img img{transform:scale(1.05)}
+.featured-badge{position:absolute;top:1.3rem;left:1.3rem;z-index:3;background:rgba(0,0,31,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--gold-soft);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;padding:.45rem .9rem;border-radius:999px;border:1px solid rgba(216,188,133,.3)}
+.featured-body{padding:clamp(2.6rem,4vw,4.2rem);display:flex;flex-direction:column;justify-content:center}
+.featured-body .bc-cat{margin-bottom:1.1rem}
+.featured-body h2{font-size:clamp(2rem,3vw,3rem);line-height:1.12;margin-bottom:1.2rem;letter-spacing:-.012em}
+.featured-body .dek{font-size:clamp(1.05rem,1.3vw,1.2rem);color:var(--on-light-soft);line-height:1.65;margin-bottom:1.8rem;max-width:44ch;font-weight:300}
+.featured-body .bc-meta{margin-bottom:1.8rem}
+.featured-body .bc-read{font-size:.74rem;letter-spacing:.2em}
+
+/* ---- Article grid ---- */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem 2.2rem}
+.blog-card{display:flex;flex-direction:column;border:1px solid var(--gold-line-soft);border-radius:8px;overflow:hidden;background:var(--paper);transition:box-shadow .45s var(--ease),transform .45s var(--ease),border-color .45s var(--ease)}
+.blog-card:hover{box-shadow:0 22px 52px -34px rgba(8,14,43,.46);transform:translateY(-4px);border-color:var(--gold-line)}
 .bc-img{aspect-ratio:3/2;overflow:hidden;position:relative}
-.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.blog-card:hover .bc-img img{transform:scale(1.05)}
-.bc-tag{position:absolute;bottom:0;left:0;background:rgba(8,14,43,.82);color:var(--gold-soft);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:.38rem .8rem}
-.bc-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
-.bc-body h3{font-size:1.4rem;line-height:1.25;margin-bottom:.7rem}
-.bc-body .bc-dek{font-size:.91rem;color:var(--on-light-soft);line-height:1.55;flex:1;margin-bottom:1.4rem}
-.bc-read{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
-.bc-read svg{width:16px;height:10px;transition:transform .3s}
-.bc-read:hover svg{transform:translateX(4px)}
+.bc-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.blog-card:hover .bc-img img{transform:scale(1.06)}
+.bc-tag{position:absolute;top:1rem;left:1rem;background:rgba(0,0,31,.74);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--gold-soft);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:.4rem .82rem;border-radius:999px;border:1px solid rgba(216,188,133,.26)}
+.bc-body{padding:1.9rem 1.8rem 1.7rem;flex:1;display:flex;flex-direction:column}
+.bc-body h3{font-size:1.5rem;line-height:1.22;margin-bottom:.75rem;letter-spacing:-.01em}
+.bc-body .bc-dek{font-size:.95rem;color:var(--on-light-soft);line-height:1.6;flex:1;margin-bottom:1.5rem;font-weight:300}
+.bc-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:1.2rem;border-top:1px solid var(--gold-line-soft);margin-top:auto}
+.bc-read{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;font-weight:600}
+.bc-read svg{width:16px;height:10px;transition:transform .35s var(--ease)}
+.blog-card:hover .bc-read svg{transform:translateX(5px)}
 
-.journal-intro{max-width:56ch;margin:0 auto;text-align:center}
+.journal-intro{max-width:58ch;margin:0 auto;text-align:center}
+.grid-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:3.4rem}
 
-@media(max-width:980px){.featured-article{grid-template-columns:1fr}.featured-body{padding:2.4rem 2rem}.blog-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.blog-grid{grid-template-columns:1fr}.blog-hero{min-height:40vh}}
+@media(max-width:980px){.featured-article{grid-template-columns:1fr}.featured-img{aspect-ratio:16/9}.featured-body{padding:2.6rem 2rem}.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}.blog-hero{min-height:46vh}}
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690"></head>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780998832"></head>
 <body>
 
 <!-- ============================================================
@@ -176,7 +195,7 @@
   <div class="wrap blog-hero-content">
     <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">The French Atelier</p>
     <h1 class="display-xl reveal reveal-d1" style="color:var(--on-dark)">Cultural <span class="gold-ital">Journal</span></h1>
-    <p class="reveal reveal-d2" style="font-size:1.1rem;color:var(--on-dark-soft);max-width:46ch;margin-top:.8rem">Dispatches from France — on gastronomy, language, travel, film, and the art of living beautifully.</p>
+    <p class="hero-dek reveal reveal-d2">Dispatches from France — on gastronomy, language, travel, film, and the art of living beautifully.</p>
   </div>
 </section>
 
@@ -202,9 +221,10 @@
         <img src="assets/blog/blog1.jpg" alt="A Culinary Journey Through France">
       </div>
       <div class="featured-body">
-        <p class="eyebrow eyebrow-line">Gastronomy &amp; Travel</p>
+        <p class="bc-cat">Gastronomy &amp; Travel</p>
         <h2>A Culinary Journey<br>Through <span class="gold-ital">France</span></h2>
         <p class="dek">From the boulangeries of Lyon to the oyster beds of Brittany — how the French table is not merely a meal, but a language unto itself, spoken region by region.</p>
+        <div class="bc-meta"><span>14 Jul 2025</span><span class="dot"></span><span>8 min read</span></div>
         <span class="bc-read">Read the Essay <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
       </div>
     </a>
@@ -214,7 +234,7 @@
 <!-- ===== ARTICLE GRID ===== -->
 <section class="section-pad bg-cream">
   <div class="wrap">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:3rem">
+    <div class="grid-head">
       <div>
         <p class="eyebrow eyebrow-line reveal">All Essays</p>
         <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Eleven dispatches from <span class="gold-ital">France</span></h2>
@@ -230,7 +250,10 @@
         <div class="bc-body">
           <h3>Hidden Gems of Paris</h3>
           <p class="bc-dek">Beyond the Eiffel Tower: the forgotten courtyards, covered passages, and neighbourhood tabacs that reveal the city only the French know.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>28 May 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -242,7 +265,10 @@
         <div class="bc-body">
           <h3>The Art of Contextual French Conversation</h3>
           <p class="bc-dek">Why grammar alone will never teach you to speak French — and how culture, context, and real situations unlock fluency.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>12 Jun 2025</span><span class="dot"></span><span>8 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -254,7 +280,10 @@
         <div class="bc-body">
           <h3>France's 100-Million-Visitor Milestone</h3>
           <p class="bc-dek">France has become the world's most visited country. What draws so many, and what awaits those who arrive speaking the language?</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>03 Apr 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -266,7 +295,10 @@
         <div class="bc-body">
           <h3>The French Spell: A Dictation on the Champs-Élysées</h3>
           <p class="bc-dek">On the oldest literary tradition in French education — the dictée — and what it means to write a language as though it were music.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>21 Feb 2025</span><span class="dot"></span><span>8 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -278,7 +310,10 @@
         <div class="bc-body">
           <h3>Bastille Day 2025</h3>
           <p class="bc-dek">The 14th of July, seen through French eyes: the parade on the Champs-Élysées, the fireworks over the Trocadéro, and the deeper story behind the fête.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>14 Jul 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -290,7 +325,10 @@
         <div class="bc-body">
           <h3>Mastering French Through Film</h3>
           <p class="bc-dek">From Godard to Audiard, how French cinema teaches the language in the way no textbook can — in tone, rhythm, silence, and slang.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>09 Jan 2025</span><span class="dot"></span><span>8 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -302,7 +340,10 @@
         <div class="bc-body">
           <h3>Why Learning French Transforms Travel</h3>
           <p class="bc-dek">The moment you speak French in France, the country changes. Doors open, menus expand, and the conversation shifts to something far more personal.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>16 Mar 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -314,7 +355,10 @@
         <div class="bc-body">
           <h3>How Learning French Rekindles Romance</h3>
           <p class="bc-dek">On the unexpected intimacy of learning a language together — and why French, above all others, has a way of drawing people closer.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>07 Feb 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -326,7 +370,10 @@
         <div class="bc-body">
           <h3>The Paris Passlib' City Pass</h3>
           <p class="bc-dek">Everything you need to know about the Passlib' — Paris's city pass for museums, monuments, and transport — and how French speakers get far more from it.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>22 Apr 2025</span><span class="dot"></span><span>6 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -338,7 +385,10 @@
         <div class="bc-body">
           <h3>The Paris Museum Pass</h3>
           <p class="bc-dek">The Louvre, Musée d'Orsay, Versailles, and sixty more — how the Paris Museum Pass turns a holiday into an education, and what French adds to the experience.</p>
-          <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          <div class="bc-foot">
+            <div class="bc-meta"><span>19 May 2025</span><span class="dot"></span><span>7 min read</span></div>
+            <span class="bc-read">Read <svg viewBox="0 0 18 10"><path d="M0 5h16M12 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></span>
+          </div>
         </div>
       </a>
 
@@ -538,6 +588,6 @@
   </div>
 </div>
 
-<script src="js/fa.js?v=1780997690"></script>
+<script src="js/fa.js?v=1780998832"></script>
 </body>
 </html>
