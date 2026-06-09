@@ -895,3 +895,148 @@
     background: rgba(201,162,78,.45); border-radius: 3px;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   16) TESTIMONIALS 2X — cards and quotes scaled up (mobile)
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  #testimonials .tst-track{
+    gap: 1.2rem !important;
+    padding: 0 1rem 1.6rem !important;
+  }
+  #testimonials .tst-card{
+    flex: 0 0 96vw !important;
+    max-width: 96vw !important;
+    min-height: 1100px !important;
+    border-radius: 30px !important;
+    padding: 1.6rem 1.4rem 1.8rem !important;
+    background: linear-gradient(180deg, #0A0A0F 0%, #000 100%) !important;
+    border: 1px solid rgba(232,199,122,.28) !important;
+    box-shadow:
+      0 28px 60px rgba(0,0,0,.65),
+      0 0 80px rgba(232,199,122,.10),
+      0 0 0 1px rgba(232,199,122,.10) inset !important;
+  }
+  /* Photo area — much larger */
+  #testimonials .tst-card img,
+  #testimonials .tst-card .tst-img,
+  #testimonials .tst-card .tst-media,
+  #testimonials .tst-card figure img{
+    width: 100% !important;
+    min-height: 560px !important;
+    height: 560px !important;
+    object-fit: cover !important;
+    border-radius: 22px !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+  }
+  /* Quote text — 2x */
+  #testimonials .tst-card blockquote,
+  #testimonials .tst-card .tst-quote,
+  #testimonials .tst-card .tst-text,
+  #testimonials .tst-card p{
+    font-size: 1.55rem !important;
+    line-height: 1.45 !important;
+    color: #F3EEE3 !important;
+    margin: .9rem 0 !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+  }
+  /* Attribution name */
+  #testimonials .tst-card .tst-name,
+  #testimonials .tst-card cite,
+  #testimonials .tst-card .tst-author,
+  #testimonials .tst-card footer{
+    font-size: 1.05rem !important;
+    color: #E8C77A !important;
+    font-weight: 600 !important;
+    font-style: normal !important;
+    letter-spacing: .02em !important;
+  }
+  #testimonials .tst-card .tst-role,
+  #testimonials .tst-card .tst-sub{
+    font-size: .92rem !important;
+    color: rgba(243,238,227,.65) !important;
+  }
+  /* Big decorative opening quote */
+  #testimonials .tst-card::before{
+    content: '\201C';
+    position: absolute;
+    top: .2rem;
+    left: 1.2rem;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: rgba(232,199,122,.22);
+    pointer-events: none;
+    z-index: 0;
+  }
+  #testimonials .tst-card{ position: relative !important; }
+  #testimonials .tst-card > *{ position: relative; z-index: 1; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   17) SORBONNE — calm premium pass: less ornament, more hierarchy
+   ───────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+  /* Card sizing + breathing room */
+  .sorb-principles .sorb-pr{
+    flex: 0 0 84% !important;
+    max-width: 84% !important;
+    min-height: 420px !important;
+    padding: 2.2rem 1.7rem 2rem !important;
+    transform: none !important;        /* remove the 3D tilt — was reading wrong */
+    border-radius: 24px !important;
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgba(232,199,122,.16), transparent 55%),
+      linear-gradient(165deg, #0E1E40 0%, #061029 60%, #04081A 100%) !important;
+    box-shadow:
+      0 1px 0 rgba(232,199,122,.18) inset,
+      0 30px 60px -20px rgba(0,0,0,.7),
+      0 0 0 1px rgba(216,188,133,.08) inset !important;
+  }
+  /* Soften gold ribbon */
+  .sorb-principles .sorb-pr::before{
+    height: 3px !important;
+    background: linear-gradient(90deg, transparent, #C9A24E 50%, transparent) !important;
+    opacity: .8 !important;
+  }
+  /* Calm the watermark numeral */
+  .sorb-principles .sorb-pr::after{
+    font-size: 9rem !important;
+    color: rgba(216,188,133,.05) !important;
+    right: -4px !important;
+    bottom: -18px !important;
+  }
+  /* Foreground numeral — bigger but quieter */
+  .sorb-principles .sorb-pr .sorb-pr-no{
+    font-size: 2.6rem !important;
+    margin: 0 0 .6rem !important;
+    text-shadow: none !important;
+    letter-spacing: -.01em !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-fr{
+    font-size: 1rem !important;
+    color: rgba(232,199,122,.78) !important;
+    margin: 0 0 1rem !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-tt{
+    font-size: 1.45rem !important;
+    line-height: 1.22 !important;
+    margin: 0 0 .9rem !important;
+    color: #FFF !important;
+    letter-spacing: -.01em !important;
+  }
+  .sorb-principles .sorb-pr .sorb-pr-tx{
+    font-size: 1.02rem !important;
+    line-height: 1.7 !important;
+    color: rgba(243,238,227,.88) !important;
+  }
+  /* Section title polish */
+  .sorb-v4 .sorb-title{
+    font-size: 2.15rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -.015em !important;
+  }
+}
