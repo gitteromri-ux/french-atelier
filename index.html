@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781037461">
+<link rel="stylesheet" href="css/fa.css?v=1781038155">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781037461">
+<link rel="stylesheet" href="css/mapstr.css?v=1781038155">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781037461">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781038155">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -419,35 +419,51 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 #method-fold.s5{
   position:relative;
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(20,28,68,.85) 0%, rgba(8,12,34,0) 60%),
-    linear-gradient(180deg,#05071A 0%,#0A0E26 50%,#05071A 100%);
+    radial-gradient(60% 40% at 22% 12%, rgba(82,98,168,.30) 0%, rgba(20,28,68,0) 55%),
+    radial-gradient(50% 38% at 82% 18%, rgba(168,140,90,.14) 0%, rgba(20,28,68,0) 60%),
+    radial-gradient(80% 60% at 50% 100%, rgba(40,52,108,.45) 0%, rgba(8,12,34,0) 65%),
+    linear-gradient(180deg,#03051A 0%,#0B1130 38%,#141A40 62%,#05081E 100%);
   color:#F3EEE3;
   padding:clamp(5.5rem,9vw,8.5rem) 0;
-  border-top:1px solid rgba(216,188,133,.18);
-  border-bottom:1px solid rgba(216,188,133,.18);
+  border-top:1px solid rgba(216,188,133,.22);
+  border-bottom:1px solid rgba(216,188,133,.22);
   overflow:hidden;
 }
-/* Subtle starfield / fine grain — no color splashes */
+/* Layer 1: deep starfield + atmospheric particles */
 #method-fold.s5::before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:
-    radial-gradient(1px 1px at 12% 18%, rgba(243,238,227,.18), transparent 50%),
-    radial-gradient(1px 1px at 82% 14%, rgba(243,238,227,.14), transparent 50%),
-    radial-gradient(1px 1px at 28% 62%, rgba(243,238,227,.12), transparent 50%),
-    radial-gradient(1px 1px at 72% 78%, rgba(243,238,227,.16), transparent 50%),
-    radial-gradient(1px 1px at 48% 32%, rgba(243,238,227,.10), transparent 50%),
-    radial-gradient(1px 1px at 92% 48%, rgba(243,238,227,.14), transparent 50%),
-    radial-gradient(1px 1px at 18% 88%, rgba(243,238,227,.12), transparent 50%),
-    radial-gradient(1.2px 1.2px at 62% 22%, rgba(216,188,133,.22), transparent 50%),
-    radial-gradient(1.2px 1.2px at 38% 76%, rgba(216,188,133,.18), transparent 50%);
-  opacity:.7;
+    radial-gradient(1.2px 1.2px at 8% 14%, rgba(255,250,236,.55), transparent 55%),
+    radial-gradient(.9px .9px at 22% 8%, rgba(243,238,227,.32), transparent 55%),
+    radial-gradient(1px 1px at 41% 16%, rgba(243,238,227,.42), transparent 55%),
+    radial-gradient(1.4px 1.4px at 58% 6%, rgba(255,250,236,.58), transparent 55%),
+    radial-gradient(.8px .8px at 71% 13%, rgba(243,238,227,.32), transparent 55%),
+    radial-gradient(1.1px 1.1px at 88% 18%, rgba(243,238,227,.48), transparent 55%),
+    radial-gradient(.9px .9px at 14% 36%, rgba(243,238,227,.28), transparent 55%),
+    radial-gradient(1.3px 1.3px at 36% 42%, rgba(216,188,133,.36), transparent 55%),
+    radial-gradient(.9px .9px at 67% 38%, rgba(243,238,227,.30), transparent 55%),
+    radial-gradient(1.2px 1.2px at 92% 44%, rgba(216,188,133,.32), transparent 55%),
+    radial-gradient(1px 1px at 6% 62%, rgba(243,238,227,.26), transparent 55%),
+    radial-gradient(1.5px 1.5px at 28% 68%, rgba(255,250,236,.50), transparent 55%),
+    radial-gradient(1px 1px at 52% 74%, rgba(243,238,227,.32), transparent 55%),
+    radial-gradient(1.2px 1.2px at 78% 82%, rgba(216,188,133,.30), transparent 55%),
+    radial-gradient(.9px .9px at 96% 88%, rgba(243,238,227,.28), transparent 55%),
+    radial-gradient(1.1px 1.1px at 18% 92%, rgba(243,238,227,.34), transparent 55%),
+    radial-gradient(1px 1px at 44% 96%, rgba(243,238,227,.26), transparent 55%);
+  opacity:.95;
 }
-/* Single, soft, very subtle vignette — refined, not splashy */
+/* Layer 2: cinematic light beams + atmospheric vignette */
 #method-fold.s5::after{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(75% 60% at 50% 45%, rgba(255,255,255,.018) 0%, transparent 70%),
-    radial-gradient(100% 80% at 50% 50%, transparent 0%, transparent 60%, rgba(0,0,12,.45) 100%);
+    /* warm gold rim-light top-right (soft, never splashy) */
+    radial-gradient(45% 28% at 88% 8%, rgba(200,169,107,.10) 0%, transparent 70%),
+    /* cool moonlight top-left */
+    radial-gradient(50% 35% at 12% 4%, rgba(140,162,220,.12) 0%, transparent 70%),
+    /* central focus spotlight on content */
+    radial-gradient(50% 42% at 50% 48%, rgba(255,250,236,.045) 0%, transparent 75%),
+    /* deep vignette */
+    radial-gradient(100% 85% at 50% 50%, transparent 30%, transparent 55%, rgba(0,0,8,.55) 100%);
 }
 #method-fold.s5 .s5-wrap{
   max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);
@@ -1600,8 +1616,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781037461"></script>
-<script src="js/mapstr.js?v=1781037461" defer></script>
+<script src="js/fa.js?v=1781038155"></script>
+<script src="js/mapstr.js?v=1781038155" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
