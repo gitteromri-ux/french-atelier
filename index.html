@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1780996985">
+<link rel="stylesheet" href="css/fa.css?v=1780997690">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1780996985">
+<link rel="stylesheet" href="css/mapstr.css?v=1780997690">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -100,19 +100,22 @@
 .tm .tm-region{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
 /* ===== TEACHERS — LARGE PORTRAIT GALLERY (homepage fold) ===== */
-.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;margin-top:3rem}
+.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:2.2rem;max-width:1100px;margin-left:auto;margin-right:auto}
 .fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 18px 44px -28px rgba(11,19,64,.45);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .fac-card:hover{transform:translateY(-6px);box-shadow:0 34px 70px -30px rgba(11,19,64,.55)}
-.fac-photo{position:relative;aspect-ratio:3/4;overflow:hidden}
+.fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
 .fac-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 1s var(--ease),filter .6s;filter:saturate(.97)}
 .fac-card:hover .fac-photo img{transform:scale(1.06);filter:saturate(1.05)}
 .fac-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 42%,rgba(0,0,32,.86) 100%);pointer-events:none}
-.fac-info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.5rem 1.4rem 1.4rem;text-align:left}
-.fac-name{font-family:var(--serif);font-size:1.55rem;font-weight:600;line-height:1.05;color:#fff;margin:0}
+.fac-info{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1rem 1rem .9rem;text-align:left}
+.fac-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;line-height:1.05;color:#fff;margin:0}
 .fac-region{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-top:.45rem}
 .fac-region::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-soft);flex-shrink:0}
-@media(max-width:1100px){.fac-gallery{grid-template-columns:repeat(3,1fr);gap:1.3rem}}
-@media(max-width:780px){.fac-gallery{grid-template-columns:repeat(2,1fr);gap:1rem}.fac-name{font-size:1.35rem}}
+@media(max-width:1100px){.fac-gallery{grid-template-columns:repeat(3,1fr);gap:1rem}}
+@media(max-width:780px){.fac-gallery{grid-template-columns:repeat(2,1fr);gap:.8rem}.fac-name{font-size:1.1rem}}
+#teachers{padding-top:5rem !important;padding-bottom:5rem !important}
+#teachers .tctr-head{margin-bottom:1.6rem}
+#teachers .tctr-badges{margin-bottom:1.6rem}
 @media(max-width:430px){.fac-gallery{grid-template-columns:repeat(2,1fr);gap:.7rem}.fac-info{padding:1rem .9rem .95rem}.fac-name{font-size:1.1rem}.fac-region{font-size:.6rem;letter-spacing:.1em}}
 
 /* ===== ACADOMIA STATS ===== */
@@ -143,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1780996985">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1780997690">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -234,6 +237,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   <a href="culture.html">French Culture</a>
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
+
 
 <!-- ===== HERO (original WordPress banner image + text, restored verbatim) ===== -->
 <section class="hero">
@@ -522,36 +526,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-
-<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
-<section class="ac-power" id="acadomia-power">
-  <div class="wrap">
-    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
-    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
-    <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
-    <div class="ac-power-figs reveal reveal-d2">
-      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
-      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
-      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
-    </div>
-    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
-      <div class="ac-marquee-track">
-        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
-        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- ===== HOW IT WORKS — Cinematic learning journey (V3 rebuild) ===== -->
 <section class="hiw3-section" id="how-it-works">
   <div class="wrap">
@@ -660,8 +634,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-
-
 <!-- ===== COURSES SHOWCASE (two clickable cluster cards → reveal horizontal slider) ===== -->
 
 <!-- ===== MEET OUR TEACHERS — Premium Faculty Section ===== -->
@@ -737,7 +709,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-
 <!-- ===== WATCH A REAL CLASS ===== -->
 <section class="section-pad bg-navy-deep on-dark">
   <div class="wrap split split-wide">
@@ -761,7 +732,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-
 <!-- ===== SIX-PILLAR CULTURE (motion-video brand statement · dark immersive fold) ===== -->
 <!-- ============================================================
      MAPSTR SIGNATURE FOLD — self-contained engine (js/mapstr.js + css/mapstr.css)
@@ -772,85 +742,65 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   <div id="mapstr-mount"></div>
 </section>
 
-
-<!-- ===== JULIEN AI — cinematic Paris-cityscape backdrop (replaces "Live from France") ===== -->
-<style>
-/* Julien hero — cinematic backdrop (Paris cityscape video, audio-only Julien voice) */
-.jul-hero{position:relative;overflow:hidden;min-height:680px;color:#F3EEE3;isolation:isolate;background:#00001F;}
-.jul-hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
-.jul-hero-bg video, .jul-hero-bg img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) brightness(.55);}
-.jul-hero-bg::after{content:'';position:absolute;inset:0;background:
-  linear-gradient(120deg,rgba(0,0,20,.88) 0%,rgba(0,0,20,.55) 45%,rgba(0,0,20,.25) 75%,rgba(0,0,20,.6) 100%),
-  radial-gradient(60% 80% at 18% 50%,rgba(0,0,20,.7) 0%,rgba(0,0,20,0) 60%);}
-.jul-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:3.5rem;align-items:center;padding:6.5rem 0;}
-.jul-hero-text .jul-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#D8BC85;}
-.jul-hero-text .jul-eyebrow::before{content:'';width:34px;height:1px;background:#D8BC85;display:inline-block;}
-.jul-hero-text h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.05;margin:1.2rem 0 1.4rem;color:#F3EEE3;}
-.jul-hero-text h2 .gold-ital{color:#D8BC85;font-style:italic;}
-.jul-hero-text p.lede{font-size:1.06rem;line-height:1.65;color:rgba(243,238,227,.82);max-width:52ch;}
-.jul-hero-pts{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.8rem 1.6rem;}
-.jul-hero-pts li{display:flex;align-items:center;gap:.7rem;font-size:.95rem;color:rgba(243,238,227,.85);}
-.jul-hero-pts li svg{width:18px;height:18px;color:#D8BC85;flex:0 0 18px;}
-.jul-hero-cta{margin-top:2rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;}
-.jul-hero-cta .btn-gold{background:linear-gradient(135deg,#D8BC85,#B7965D);color:#00001F;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;padding:1rem 1.8rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 10px 30px rgba(216,188,133,.25);}
-.jul-hero-cta .btn-gold:hover{filter:brightness(1.08);}
-/* The Julien character card with audio-only playback */
-.jul-hero-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;border-radius:32px;overflow:hidden;
-  background:radial-gradient(80% 80% at 50% 35%,rgba(28,34,56,.85) 0%,rgba(0,0,20,.6) 65%);
-  border:1px solid rgba(216,188,133,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-height:560px;
-  box-shadow:0 30px 70px rgba(0,0,16,.55), inset 0 1px 0 rgba(255,255,255,.06);}
-.jul-hero-card-badge{position:absolute;top:1.2rem;left:1.2rem;display:inline-flex;align-items:center;gap:.55rem;background:rgba(0,0,31,.6);backdrop-filter:blur(8px);border:1px solid rgba(216,188,133,.45);padding:.5rem 1rem;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#D8BC85;border-radius:999px;z-index:3;}
-.jul-hero-card-badge .dot{width:7px;height:7px;background:#D8BC85;border-radius:50%;animation:julDot 1.6s ease-in-out infinite;}
-@keyframes julDot{0%,100%{opacity:.45}50%{opacity:1}}
-.jul-hero-card-video{position:relative;width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;z-index:1;}
-.jul-hero-card-video video{width:auto;height:100%;max-height:600px;object-fit:contain;filter:drop-shadow(0 22px 30px rgba(0,0,16,.45));}
-.jul-hero-sound{position:absolute;bottom:1.2rem;right:1.2rem;z-index:3;display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,31,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);color:#F3EEE3;padding:.55rem 1.1rem;border-radius:999px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;}
-.jul-hero-sound:hover{background:rgba(216,188,133,.18);border-color:rgba(216,188,133,.6);}
-.jul-hero-sound .si-on{display:none;}
-.jul-hero-sound[aria-pressed="true"] .si-off{display:none;}
-.jul-hero-sound[aria-pressed="true"] .si-on{display:inline;}
-@media (max-width:1000px){
-  .jul-hero-inner{grid-template-columns:1fr;gap:2.4rem;padding:5rem 0;}
-  .jul-hero-card{min-height:440px;}
-  .jul-hero-pts{grid-template-columns:1fr;}
-}
-</style>
-<section class="jul-hero" id="julien-fold" aria-label="Meet Julien — your 24/7 AI French tutor">
-  <div class="jul-hero-bg" aria-hidden="true">
+<!-- ===== LIVE FROM FRANCE (regions band) ===== -->
+<section class="video-band on-dark">
+  <div class="video-bg">
     <video poster="assets/video/paris-cityscape-poster.jpg" autoplay loop muted playsinline preload="metadata">
       <source src="assets/video/paris-cityscape.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="wrap jul-hero-inner">
-    <div class="reveal jul-hero-text">
-      <span class="jul-eyebrow">Practice Between Classes</span>
-      <h2>Meet <span class="gold-ital">Julien</span><br>your 24/7 French coach.</h2>
-      <p class="lede">Between live classes, Julien is your always-on AI French tutor inside the platform — ready the moment inspiration, or insomnia, strikes. In any timezone. In any mood. Always in French.</p>
-      <ul class="jul-hero-pts">
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pronunciation, sound by sound</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant, kind corrections</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Real conversation on demand</li>
-        <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Available 24/7, always in French</li>
-      </ul>
-      <div class="jul-hero-cta">
-        <a href="juliane.html" class="btn-gold">Discover Julien <span aria-hidden="true">→</span></a>
-        <a href="map.html" class="link-arrow" style="color:#D8BC85">Explore the map of France
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
+  <div class="wrap"><div class="vb-inner reveal">
+    <p class="eyebrow eyebrow-line">Your Lessons, Broadcast Live</p>
+    <h2 class="display-md" style="margin:1.2rem 0">From the heart of <span class="gold-ital">France</span></h2>
+    <p class="lede">Paris, Bordeaux, Provence, the Alps, the Côte d'Azur — every live lesson is broadcast from the places where French is truly lived. You don't just study the language; you step into it.</p>
+    <a href="map.html" class="btn btn-outline" style="margin-top:1.4rem">Explore the Map of France</a>
+  </div></div>
+</section>
+
+<!-- ===== JULIEN AI (brief) — transparent cutout, emerging from the section ===== -->
+<style>
+/* Self-contained styles for the homepage Julien fold (juliane.css is not loaded here) */
+.jul-home{position:relative;overflow:hidden;background:
+  radial-gradient(110% 90% at 22% 55%, rgba(28,34,56,.7) 0%, rgba(0,0,31,0) 60%),
+  linear-gradient(120deg,#00001F 0%,#000034 60%,#1C2238 100%);}
+.jul-home-glow{position:absolute;left:-6%;top:50%;transform:translateY(-50%);width:56%;height:110%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 52% 56% at 50% 48%,rgba(200,169,107,.18) 0%,rgba(200,169,107,.06) 40%,transparent 72%);filter:blur(6px);}
+.jul-home-split{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;}
+.jul-cutout-wrap{position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate;}
+.jul-cutout-wrap::before{content:'';position:absolute;inset:-6% -4% 4% -4%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 56% 64% at 50% 42%,rgba(200,169,107,.20) 0%,rgba(200,169,107,.07) 40%,transparent 72%);filter:blur(6px);}
+.jul-cutout-wrap::after{content:'';position:absolute;left:50%;bottom:2%;transform:translateX(-50%);width:62%;height:5%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,16,.55) 0%,rgba(0,0,16,0) 70%);filter:blur(3px);}
+.jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;
+  filter:drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35));}
+.jul-cutout-badge{position:absolute;top:6%;left:4%;z-index:2;display:inline-flex;align-items:center;gap:.55rem;
+  background:rgba(0,0,31,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,169,107,.45);
+  padding:.5rem 1rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#D8BC85;border-radius:999px;}
+.jul-cutout-dot{width:7px;height:7px;border-radius:50%;background:#D8BC85;}
+.jul-home-points{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:.9rem;}
+.jul-home-points li{display:flex;align-items:center;gap:.8rem;color:rgba(243,238,227,.78);font-size:1rem;line-height:1.5;}
+.jul-home-points li svg{width:22px;height:22px;flex:0 0 22px;color:#D8BC85;}
+@media (max-width:1000px){.jul-home-split{grid-template-columns:1fr;gap:2.4rem;}.jul-home .jul-cutout{max-width:340px;margin:0 auto;}}
+</style>
+<section class="section-pad jul-home on-dark" id="julien-fold">
+  <div class="jul-home-glow" aria-hidden="true"></div>
+  <div class="wrap jul-home-split">
+    <!-- Julien — transparent character cutout emerging from the navy section -->
+    <div class="reveal jul-cutout-wrap">
+      <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
+      <video class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
     </div>
-    <div class="reveal jul-hero-card">
-      <span class="jul-hero-card-badge"><span class="dot"></span> Julien · Live AI Tutor</span>
-      <div class="jul-hero-card-video">
-        <video id="julien-hero-video" autoplay loop playsinline muted preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" aria-label="Julien, the 24/7 AI French tutor">
-          <source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm">
-          <img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the 24/7 AI French tutor">
-        </video>
-      </div>
-      <audio id="julien-hero-audio" preload="auto" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
-      <button type="button" class="jul-hero-sound" aria-pressed="false" aria-label="Play Julien's voice" onclick="(function(b){var a=document.getElementById('julien-hero-audio');if(!a)return;if(a.paused){a.currentTime=0;a.play().then(function(){b.setAttribute('aria-pressed','true');}).catch(function(){});}else{a.pause();b.setAttribute('aria-pressed','false');}a.onended=function(){b.setAttribute('aria-pressed','false');};})(this)">
-        <span class="si-off">▶ Hear Julien</span><span class="si-on">❚❚ Pause</span>
-      </button>
+    <div class="reveal reveal-d1 jul-home-text">
+      <p class="eyebrow eyebrow-line">Practice Between Classes</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Meet <span class="gold-ital">Julien</span>, your 24/7 French coach</h2>
+      <p class="lede">Between live classes, Julien is your always-on AI French tutor inside the platform — ready the moment inspiration or insomnia strikes, in any timezone.</p>
+      <ul class="jul-home-points">
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pronunciation coaching, sound by sound</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant, non-judgmental corrections</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Real conversation practice on demand</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Available 24/7, always in French</li>
+      </ul>
+      <a href="juliane.html" class="btn btn-gold" style="margin-top:1.6rem">Discover Julien</a>
     </div>
   </div>
 </section>
@@ -1052,6 +1002,33 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </script>
 </section>
 
+<!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
+<section class="ac-power" id="acadomia-power">
+  <div class="wrap">
+    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
+    <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
+    <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">France&rsquo;s <em>#1</em> private learning institute.</h2>
+    <div class="ac-power-figs reveal reveal-d2">
+      <div class="apf"><div class="apf-num" data-count="150" data-suffix="K">150K</div><div class="apf-lab">Students enrolled annually</div></div>
+      <div class="apf"><div class="apf-num" data-count="20" data-suffix="K+">20K+</div><div class="apf-lab">Acclaimed French teachers</div></div>
+      <div class="apf"><div class="apf-num" data-count="3" data-suffix=" Million">3 Million</div><div class="apf-lab">Hours of French teaching</div></div>
+    </div>
+    <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
+      <div class="ac-marquee-track">
+        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      SORBONNE METHODOLOGY FOLD — rebuilt LIGHT & on-brand (V3)
@@ -1092,6 +1069,15 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
+<!-- ===== PRICING TEASER ===== -->
+<section class="section-pad bg-paper">
+  <div class="wrap-narrow" style="text-align:center">
+    <p class="eyebrow eyebrow-line reveal" style="justify-content:center">Simple, Transparent Pricing</p>
+    <h2 class="display-sm reveal reveal-d1" style="margin:1.2rem 0">Live French from <span class="gold-ital">$39 a week</span></h2>
+    <p class="lede reveal reveal-d2">Every plan includes 20 live lessons, small groups of 8–10, lifetime recordings, a CEFR certificate by Acadomia, $100 in credits, and 24/7 support.</p>
+    <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d3" style="margin-top:1.6rem">View Plans &amp; Enroll</a>
+  </div>
+</section>
 
 <!-- ===== FAQ (homepage condensed) ===== -->
 <section class="section-pad bg-ivory" id="faq">
@@ -1162,7 +1148,6 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
-
 <!-- ===== CTA BAND (verbatim brand line) ===== -->
 <section class="cta-band section-pad framed on-dark">
   <div class="frame-border"></div>
@@ -1172,6 +1157,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <a href="pricing.html" class="btn btn-gold btn-lg reveal reveal-d2">Begin Your Journey</a>
   </div>
 </section>
+
 
 
 
@@ -1289,7 +1275,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1780996985"></script>
-<script src="js/mapstr.js?v=1780996985" defer></script>
+<script src="js/fa.js?v=1780997690"></script>
+<script src="js/mapstr.js?v=1780997690" defer></script>
 </body>
 </html>
