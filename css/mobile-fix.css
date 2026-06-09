@@ -899,85 +899,6 @@
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   16) TESTIMONIALS 2X — cards and quotes scaled up (mobile)
-   ───────────────────────────────────────────────────────────────── */
-@media (max-width:760px){
-  #testimonials .tst-track{
-    gap: 1.2rem !important;
-    padding: 0 1rem 1.6rem !important;
-  }
-  #testimonials .tst-card{
-    flex: 0 0 96vw !important;
-    max-width: 96vw !important;
-    min-height: 1100px !important;
-    border-radius: 30px !important;
-    padding: 1.6rem 1.4rem 1.8rem !important;
-    background: linear-gradient(180deg, #0A0A0F 0%, #000 100%) !important;
-    border: 1px solid rgba(232,199,122,.28) !important;
-    box-shadow:
-      0 28px 60px rgba(0,0,0,.65),
-      0 0 80px rgba(232,199,122,.10),
-      0 0 0 1px rgba(232,199,122,.10) inset !important;
-  }
-  /* Photo area — much larger */
-  #testimonials .tst-card img,
-  #testimonials .tst-card .tst-img,
-  #testimonials .tst-card .tst-media,
-  #testimonials .tst-card figure img{
-    width: 100% !important;
-    min-height: 560px !important;
-    height: 560px !important;
-    object-fit: cover !important;
-    border-radius: 22px !important;
-    margin-bottom: 1rem !important;
-    display: block !important;
-  }
-  /* Quote text — 2x */
-  #testimonials .tst-card blockquote,
-  #testimonials .tst-card .tst-quote,
-  #testimonials .tst-card .tst-text,
-  #testimonials .tst-card p{
-    font-size: 1.55rem !important;
-    line-height: 1.45 !important;
-    color: #F3EEE3 !important;
-    margin: .9rem 0 !important;
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-style: italic !important;
-    font-weight: 500 !important;
-  }
-  /* Attribution name */
-  #testimonials .tst-card .tst-name,
-  #testimonials .tst-card cite,
-  #testimonials .tst-card .tst-author,
-  #testimonials .tst-card footer{
-    font-size: 1.05rem !important;
-    color: #E8C77A !important;
-    font-weight: 600 !important;
-    font-style: normal !important;
-    letter-spacing: .02em !important;
-  }
-  #testimonials .tst-card .tst-role,
-  #testimonials .tst-card .tst-sub{
-    font-size: .92rem !important;
-    color: rgba(243,238,227,.65) !important;
-  }
-  /* Big decorative opening quote */
-  #testimonials .tst-card::before{
-    content: '\201C';
-    position: absolute;
-    top: .2rem;
-    left: 1.2rem;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 7rem;
-    line-height: 1;
-    color: rgba(232,199,122,.22);
-    pointer-events: none;
-    z-index: 0;
-  }
-  #testimonials .tst-card{ position: relative !important; }
-  #testimonials .tst-card > *{ position: relative; z-index: 1; }
-}
 
 /* ─────────────────────────────────────────────────────────────────
    17) SORBONNE — calm premium pass: less ornament, more hierarchy
@@ -1175,9 +1096,43 @@
   .lj-steps, .stp-rail, .stp-row { display: flex !important; flex-direction: column !important; gap: 1.4rem !important; max-width: 100% !important; }
   .lj-dots, .stp-dots { max-width: 100% !important; overflow: hidden; }
 
-  /* ---- SORBONNE citations — wrap properly ---- */
-  .s5-cite, .s5-citations, .cite-row { display: flex !important; flex-direction: column !important; gap: 0.6rem !important; align-items: flex-start !important; padding-left: 0 !important; }
-  .s5-cite > *, .s5-citations > * { max-width: 100% !important; font-size: 0.85rem !important; }
+  /* ---- LEARNING JOURNEY CEFR arc — labels need to fit ---- */
+  .hiw3-arc{ gap: .15rem !important; padding: 0 .2rem !important; }
+  .hiw3-arc .han{ min-width: 0 !important; }
+  .hiw3-arc .han-lvl{ font-size: .78rem !important; }
+  .hiw3-arc .han-cap{ font-size: .58rem !important; line-height: 1.15 !important; word-break: break-word !important; }
+
+  /* ---- SORBONNE citations — clean stack on mobile ---- */
+  #method-fold.s5 .s5-cred-list{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem 0 !important;
+  }
+  #method-fold.s5 .s5-cite{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: .45rem !important;
+    padding: 0 .4rem !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  #method-fold.s5 .s5-cite + .s5-cite::before{ display: none !important; }
+  #method-fold.s5 .s5-cite-yr{
+    font-size: .82rem !important;
+    color: #D8BC85 !important;
+  }
+  #method-fold.s5 .s5-cite-tx{
+    font-size: .95rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  #method-fold.s5 .s5-cite-arrow{
+    font-size: .72rem !important;
+  }
 
   /* ---- LEAD FORM ---- */
   #lead-form .lg-wrap, #lead-form .lg-grid { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; gap: 1.6rem !important; }
