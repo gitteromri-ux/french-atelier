@@ -4049,14 +4049,14 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 .etg3-card.etg3-skyblue h3{ color:#0F2447 !important; }
 .etg3-card.etg3-skyblue p{ color:rgba(15,36,71,.85) !important; }
 
-/* ===== HERO CTA — neon LIGHT BLUE (homepage only), white text, bigger font ===== */
+/* ===== HERO CTA — neon LIGHT BLUE (homepage only) — refined proportion ===== */
 body.home .hero .btn-gold,
 body.home .hero-ctas .btn-gold{
   background:linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
   color:#FFFFFF !important;
-  font-size:1.05rem !important;
-  padding:1.35rem 2.9rem !important;
-  letter-spacing:.16em !important;
+  font-size:.84rem !important;
+  padding:1.05rem 2.2rem !important;
+  letter-spacing:.18em !important;
   font-weight:700 !important;
   border:1px solid rgba(220,240,255,.7) !important;
   box-shadow:
@@ -4110,17 +4110,17 @@ body.home .hero-ctas .btn-gold:hover{
 }
 .hero-trustpilot .tp-logo{ display:inline-flex; }
 .hero-trustpilot .tp-logo img{
-  height:30px; width:auto; display:block;
+  height:22px; width:auto; display:block;
   filter:drop-shadow(0 2px 4px rgba(0,0,0,.55));
 }
 .hero-trustpilot .tp-stars{ display:inline-flex; align-items:center; }
 .hero-trustpilot .tp-stars img{
-  height:34px; width:auto; display:block;
+  height:24px; width:auto; display:block;
   filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
 }
 .hero-trustpilot .tp-rating{
   font-family:var(--sans);
-  font-size:.78rem;
+  font-size:.64rem;
   letter-spacing:.22em;
   text-transform:uppercase;
   color:rgba(255,255,255,.88);
@@ -4886,17 +4886,37 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 }
 
 /* ============================================================
-   TEACHERS HOMEPAGE FOLD — More compact (user: "teachers fold too large")
+   TEACHERS HOMEPAGE FOLD — balanced: fold smaller, but images at proper size
    ============================================================ */
-#teachers.section-pad{padding-top:5rem !important;padding-bottom:5rem !important;}
-#teachers .tctr-head{margin-bottom:2rem !important;}
-#teachers .fac-gallery{gap:1rem !important;}
+#teachers.section-pad{padding-top:5.5rem !important;padding-bottom:5.5rem !important;}
+#teachers .tctr-head{margin-bottom:2.4rem !important;}
+#teachers .fac-gallery{gap:1.2rem !important;}
 #teachers .fac-card .fac-photo img{aspect-ratio:3/4;}
 @media (min-width:1000px){
-  #teachers .fac-gallery{grid-template-columns:repeat(8,1fr) !important;}
-  #teachers .fac-card .fac-photo{max-height:240px;overflow:hidden;}
+  #teachers .fac-gallery{grid-template-columns:repeat(4,1fr) !important;}
+  #teachers .fac-card .fac-photo{max-height:380px;overflow:hidden;}
   #teachers .fac-card .fac-photo img{object-fit:cover;width:100%;height:100%;}
 }
+
+/* ============================================================
+   TESTIMONIALS — reduce vertical scale (user: "too large, exaggerated")
+   ============================================================ */
+.tst-fold{padding:5rem 0 5.5rem !important;}
+.tst-head{margin-bottom:2.4rem !important;}
+.tst-head h2{font-size:clamp(1.9rem,3.6vw,3.1rem) !important;}
+.tst-track{gap:.9rem !important;}
+.tst-card{border-radius:18px !important;}
+.tst-card img{border-radius:18px 18px 0 0 !important;}
+@media (min-width:1181px){
+  .tst-track{grid-template-columns:repeat(5,minmax(0,1fr)) !important;}
+}
+
+/* ============================================================
+   CULTURE 6-THEMES — perf fix: prevent 6 simultaneous decodes from stuttering
+   Browser should pace these; we hint via metadata preload + slight scale stability.
+   The JS observer (below) will play only what's visible.
+   ============================================================ */
+#culture .pillar video{will-change:transform;backface-visibility:hidden;transform:translateZ(0);}
 
 /* Mobile Sorbonne H2 — force exactly 2 visual lines (1 per span) */
 @media (max-width:720px){

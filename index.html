@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781032660">
+<link rel="stylesheet" href="css/fa.css?v=1781033103">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781032660">
+<link rel="stylesheet" href="css/mapstr.css?v=1781033103">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781032660">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781033103">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -642,7 +642,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     </div>
     <div class="pillars-grid">
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-art-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-art-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-art.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -652,7 +652,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-gastronomy-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-gastronomy-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-gastronomy.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -662,7 +662,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-travel-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-travel-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-travel.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -672,7 +672,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-fashion-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-fashion-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-fashion.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -682,7 +682,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-music-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-music-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-music.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -692,7 +692,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         </div>
       </a>
       <a class="pillar reveal" href="culture.html">
-        <video poster="assets/video/pillar-tradition-poster.jpg" autoplay muted loop playsinline preload="auto">
+        <video poster="assets/video/pillar-tradition-poster.jpg" autoplay muted loop playsinline preload="metadata" data-pillar-video>
           <source src="assets/video/pillar-tradition.mp4" type="video/mp4">
         </video>
         <div class="pillar-body">
@@ -995,8 +995,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- Julien — transparent character cutout emerging from the navy section -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
-      <audio id="jul-home-audio" preload="none" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-336-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-master/julien-hero-master.webm" type="video/webm"><source src="assets/juliane/video-master/julien-hero-master.mp4" type="video/mp4"><img src="assets/juliane/video-alpha/julian-336-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
       <button id="jul-home-sound-btn" class="jul-home-sound" type="button" aria-label="Hear Julien introduce himself in French" aria-pressed="false">
         <svg class="jhs-icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="jhs-icon-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1019,15 +1018,25 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <script>
 (function(){
   var btn=document.getElementById('jul-home-sound-btn');
-  var audio=document.getElementById('jul-home-audio');
   var video=document.getElementById('jul-home-video');
-  if(!btn||!audio) return;
+  if(!btn||!video) return;
+  // Audio is baked into the master video — toggling sound = unmute/mute the video itself.
+  // This guarantees perfect lipsync (no separate audio track to drift).
   btn.addEventListener('click', function(){
     var on=btn.getAttribute('aria-pressed')==='true';
-    if(on){ audio.pause(); btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Hear Julien introduce himself in French'); }
-    else{ audio.currentTime=0; var p=audio.play(); if(p&&p.catch){p.catch(function(){});} btn.setAttribute('aria-pressed','true'); btn.setAttribute('aria-label','Stop Julien audio'); }
+    if(on){
+      video.muted=true;
+      btn.setAttribute('aria-pressed','false');
+      btn.setAttribute('aria-label','Hear Julien introduce himself in French');
+    } else {
+      try{ video.currentTime=0; }catch(e){}
+      video.muted=false;
+      video.volume=1;
+      var p=video.play(); if(p&&p.catch){p.catch(function(){});}
+      btn.setAttribute('aria-pressed','true');
+      btn.setAttribute('aria-label','Stop Julien audio');
+    }
   });
-  audio.addEventListener('ended', function(){ btn.setAttribute('aria-pressed','false'); btn.setAttribute('aria-label','Hear Julien introduce himself in French'); });
 })();
 </script>
 </section>
@@ -1473,8 +1482,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781032660"></script>
-<script src="js/mapstr.js?v=1781032660" defer></script>
+<script src="js/fa.js?v=1781033103"></script>
+<script src="js/mapstr.js?v=1781033103" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
@@ -1487,6 +1496,24 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     if(isNaN(i)||i<0)i=0;if(i>dots.length-1)i=dots.length-1;
     dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);});
   },{passive:true});
+})();
+</script>
+<script>
+/* Culture 6-pillar video pacer — pause off-screen, play in view. Prevents 6-up GPU/decoder thrash. */
+(function(){
+  var vids = document.querySelectorAll('video[data-pillar-video]');
+  if(!vids.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if(e.isIntersecting){
+        if(v.paused){ var p=v.play(); if(p&&p.catch){p.catch(function(){});} }
+      } else {
+        if(!v.paused){ v.pause(); }
+      }
+    });
+  }, { rootMargin: '120px 0px', threshold: 0.15 });
+  vids.forEach(function(v){ v.muted=true; v.playsInline=true; io.observe(v); });
 })();
 </script>
 </body>
