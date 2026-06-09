@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781036095">
+<link rel="stylesheet" href="css/fa.css?v=1781036323">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781036095">
+<link rel="stylesheet" href="css/mapstr.css?v=1781036323">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781036095">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781036323">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -418,28 +418,31 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
    Brand tokens only: navy #00001F, gold #D8BC85 / #C8A96B, cream #F3EEE3. */
 #method-fold.s5{
   position:relative;
-  background:linear-gradient(178deg,#000018 0%,#00001F 46%,#020226 100%);
+  background:
+    radial-gradient(70% 60% at 15% 12%, rgba(216,188,133,.22) 0%, rgba(216,188,133,0) 60%),
+    radial-gradient(75% 65% at 88% 18%, rgba(108,160,255,.20) 0%, rgba(108,160,255,0) 62%),
+    radial-gradient(85% 70% at 50% 105%, rgba(216,188,133,.18) 0%, rgba(216,188,133,0) 60%),
+    radial-gradient(50% 45% at 75% 65%, rgba(228,166,184,.14) 0%, rgba(228,166,184,0) 65%),
+    linear-gradient(178deg,#0A0D26 0%,#0F1230 46%,#181A3C 100%);
   color:#F3EEE3;
   padding:clamp(5.5rem,9vw,8.5rem) 0;
-  border-top:1px solid rgba(216,188,133,.16);
-  border-bottom:1px solid rgba(216,188,133,.16);
+  border-top:1px solid rgba(216,188,133,.22);
+  border-bottom:1px solid rgba(216,188,133,.22);
   overflow:hidden;
 }
 #method-fold.s5::before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(45% 52% at 14% 18%, rgba(216,188,133,.45) 0%, rgba(216,188,133,.18) 30%, rgba(216,188,133,0) 70%),
-    radial-gradient(50% 55% at 86% 14%, rgba(108,160,255,.38) 0%, rgba(108,160,255,.14) 32%, rgba(108,160,255,0) 72%),
-    radial-gradient(58% 55% at 50% 102%, rgba(216,188,133,.32) 0%, rgba(216,188,133,.10) 36%, rgba(216,188,133,0) 76%),
-    radial-gradient(34% 40% at 72% 64%, rgba(228,166,184,.24) 0%, rgba(228,166,184,.08) 38%, rgba(228,166,184,0) 76%),
-    radial-gradient(28% 32% at 22% 74%, rgba(180,150,240,.18) 0%, rgba(180,150,240,0) 72%);
-  mix-blend-mode:screen;
+    radial-gradient(35% 45% at 18% 22%, rgba(255,225,160,.18) 0%, rgba(255,225,160,0) 70%),
+    radial-gradient(40% 50% at 82% 22%, rgba(140,180,255,.16) 0%, rgba(140,180,255,0) 72%),
+    radial-gradient(45% 40% at 50% 100%, rgba(216,188,133,.14) 0%, rgba(216,188,133,0) 70%);
+  filter:blur(8px);
 }
 #method-fold.s5::after{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    linear-gradient(125deg, transparent 0%, transparent 48%, rgba(216,188,133,.18) 70%, rgba(216,188,133,.05) 85%, transparent 100%),
-    radial-gradient(80% 60% at 50% 50%, transparent 0%, transparent 55%, rgba(0,0,30,.35) 100%);
+    linear-gradient(125deg, transparent 0%, transparent 42%, rgba(255,225,160,.10) 60%, rgba(255,225,160,.04) 78%, transparent 95%),
+    radial-gradient(90% 65% at 50% 50%, transparent 0%, transparent 55%, rgba(0,0,20,.28) 100%);
 }
 #method-fold.s5 .s5-wrap{
   max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);
@@ -1592,8 +1595,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781036095"></script>
-<script src="js/mapstr.js?v=1781036095" defer></script>
+<script src="js/fa.js?v=1781036323"></script>
+<script src="js/mapstr.js?v=1781036323" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
