@@ -551,19 +551,28 @@
   }
   #testimonials .tst-track::-webkit-scrollbar{ display: none; }
   #testimonials .tst-card{
-    flex: 0 0 90vw !important;
-    width: 90vw !important;
-    min-height: 540px !important;
+    flex: 0 0 92vw !important;
+    width: 92vw !important;
+    min-height: 680px !important;
     scroll-snap-align: center !important;
-    border-radius: 24px !important;
+    border-radius: 28px !important;
     overflow: hidden !important;
     background: linear-gradient(180deg, #0A0A0F 0%, #000 100%) !important;
+    border: 1px solid rgba(201,162,78,.28) !important;
     box-shadow:
-      0 40px 80px -28px rgba(0,0,0,.85),
-      0 0 0 1px rgba(201,162,78,.22),
-      0 0 60px -20px rgba(201,162,78,.18) !important;
+      0 50px 100px -28px rgba(0,0,0,.92),
+      0 0 0 1px rgba(201,162,78,.20),
+      0 0 80px -16px rgba(201,162,78,.22) !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
-  #testimonials .tst-card img{ width: 100% !important; height: auto !important; }
+  #testimonials .tst-card img{
+    width: 100% !important;
+    height: auto !important;
+    min-height: 460px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
   #testimonials .tst-card img{ width: 100%; height: auto; display: block; }
 
   #testimonials .tst-head::after{
@@ -641,63 +650,87 @@
     padding-right: 1rem !important;
   }
   .sorb-principles .sorb-pr{
-    flex: 0 0 84% !important;
-    max-width: 84% !important;
+    flex: 0 0 86% !important;
+    max-width: 86% !important;
+    min-height: 360px !important;
     scroll-snap-align: center !important;
-    /* 3D premium card */
+    /* DEEP NAVY 3D PREMIUM CARD */
     position: relative !important;
     background:
-      radial-gradient(120% 90% at 0% 0%, rgba(232,199,122,.18), transparent 55%),
-      radial-gradient(100% 90% at 100% 100%, rgba(140,30,40,.10), transparent 60%),
-      linear-gradient(180deg, #FFFAEF 0%, #F0E2C0 100%) !important;
-    border: 1px solid rgba(140,30,40,.28) !important;
-    border-radius: 18px !important;
-    padding: 1.5rem 1.4rem 1.6rem !important;
+      radial-gradient(110% 70% at 0% 0%, rgba(232,199,122,.22), transparent 55%),
+      radial-gradient(90% 70% at 100% 100%, rgba(201,162,78,.14), transparent 60%),
+      linear-gradient(165deg, #0E1E40 0%, #061029 60%, #04081A 100%) !important;
+    border: 1px solid rgba(216,188,133,.38) !important;
+    border-radius: 22px !important;
+    padding: 1.9rem 1.6rem 1.9rem !important;
     box-shadow:
-      0 1px 0 rgba(255,255,255,.85) inset,
-      0 -1px 0 rgba(140,30,40,.10) inset,
-      0 18px 36px -14px rgba(85,40,20,.32),
-      0 36px 64px -28px rgba(28,18,10,.45),
-      0 2px 0 rgba(184,146,79,.18) !important;
-    transform: perspective(1200px) rotateX(2deg) !important;
+      0 1px 0 rgba(232,199,122,.22) inset,
+      0 -1px 0 rgba(255,255,255,.05) inset,
+      0 24px 48px -16px rgba(0,0,0,.65),
+      0 56px 100px -32px rgba(0,0,16,.7),
+      0 0 0 1px rgba(216,188,133,.10) inset,
+      0 0 60px -10px rgba(216,188,133,.18) !important;
+    transform: perspective(1100px) rotateX(2deg) !important;
     transform-origin: 50% 100% !important;
     overflow: hidden !important;
+    color: #F3EEE3 !important;
   }
-  /* Top accent ribbon */
+  /* Top gold ribbon */
   .sorb-principles .sorb-pr::before{
     content: '' !important;
     position: absolute !important;
     top: 0 !important; left: 0 !important; right: 0 !important;
     height: 4px !important;
-    background: linear-gradient(90deg, #b8924f 0%, #8c1e28 50%, #b8924f 100%) !important;
+    background: linear-gradient(90deg, transparent 0%, #E8C77A 25%, #C9A24E 50%, #E8C77A 75%, transparent 100%) !important;
     opacity: 1 !important;
   }
-  /* Big watermark numeral in the background */
-  .sorb-principles .sorb-pr .sorb-pr-no{
-    font-size: 2.6rem !important;
+  /* Huge watermark numeral on the right (decorative) */
+  .sorb-principles .sorb-pr::after{
+    content: attr(data-bg-num) !important;
+    position: absolute !important;
+    right: -8px !important; bottom: -34px !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 11rem !important;
     font-weight: 700 !important;
-    background: linear-gradient(135deg, #b8924f 0%, #8c1e28 100%) !important;
+    color: rgba(216,188,133,.07) !important;
+    line-height: 1 !important;
+    pointer-events: none !important;
+  }
+  /* Foreground numeral in gold gradient */
+  .sorb-principles .sorb-pr .sorb-pr-no{
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #FFE9B0 0%, #E8C77A 40%, #C9A24E 100%) !important;
     -webkit-background-clip: text !important;
             background-clip: text !important;
     color: transparent !important;
     -webkit-text-fill-color: transparent !important;
-    margin: 0 0 .35rem !important;
+    margin: 0 0 .4rem !important;
+    text-shadow: 0 2px 12px rgba(216,188,133,.25) !important;
+    position: relative !important; z-index: 2 !important;
   }
   .sorb-principles .sorb-pr .sorb-pr-fr{
-    color: #8c1e28 !important;
-    font-size: 1rem !important;
+    color: #E8C77A !important;
+    font-size: 1.05rem !important;
     font-weight: 500 !important;
-    margin: 0 0 .55rem !important;
+    margin: 0 0 .6rem !important;
+    font-style: italic !important;
+    opacity: .92 !important;
+    position: relative !important; z-index: 2 !important;
   }
   .sorb-principles .sorb-pr .sorb-pr-tt{
-    font-size: 1.4rem !important;
-    color: #1a1410 !important;
-    margin: 0 0 .75rem !important;
+    font-size: 1.55rem !important;
+    color: #FFFFFF !important;
+    margin: 0 0 .8rem !important;
+    font-weight: 600 !important;
+    line-height: 1.18 !important;
+    position: relative !important; z-index: 2 !important;
   }
   .sorb-principles .sorb-pr .sorb-pr-tx{
-    color: rgba(26,20,16,.78) !important;
-    font-size: .95rem !important;
-    line-height: 1.6 !important;
+    color: rgba(243,238,227,.82) !important;
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    position: relative !important; z-index: 2 !important;
   }
 
   /* Citations -> horizontal pill rail, premium look */
