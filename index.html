@@ -11,10 +11,10 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 8–10, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1781034469">
+<link rel="stylesheet" href="css/fa.css?v=1781035177">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
-<link rel="stylesheet" href="css/mapstr.css?v=1781034469">
+<link rel="stylesheet" href="css/mapstr.css?v=1781035177">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
 /* ===== HERO ===== */
@@ -146,7 +146,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1781034469">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1781035177">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -424,6 +424,19 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   border-top:1px solid rgba(216,188,133,.16);
   border-bottom:1px solid rgba(216,188,133,.16);
   overflow:hidden;
+}
+#method-fold.s5::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38% 42% at 18% 22%, rgba(216,188,133,.18) 0%, rgba(216,188,133,0) 64%),
+    radial-gradient(42% 46% at 84% 18%, rgba(108,160,255,.14) 0%, rgba(108,160,255,0) 66%),
+    radial-gradient(54% 50% at 50% 100%, rgba(216,188,133,.10) 0%, rgba(216,188,133,0) 70%),
+    radial-gradient(30% 36% at 70% 60%, rgba(228,166,184,.08) 0%, rgba(228,166,184,0) 70%);
+}
+#method-fold.s5::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(120deg, transparent 0%, transparent 60%, rgba(216,188,133,.06) 78%, transparent 100%);
 }
 #method-fold.s5 .s5-wrap{
   max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,4vw,2.6rem);
@@ -961,7 +974,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   background:radial-gradient(ellipse 56% 64% at 50% 42%,rgba(200,169,107,.20) 0%,rgba(200,169,107,.07) 40%,transparent 72%);filter:blur(6px);}
 .jul-cutout-wrap::after{content:'';position:absolute;left:50%;bottom:2%;transform:translateX(-50%);width:62%;height:5%;z-index:-1;pointer-events:none;
   background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,16,.55) 0%,rgba(0,0,16,0) 70%);filter:blur(3px);}
-.jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;
+.jul-home .jul-cutout{width:100%;max-width:420px;height:auto;display:block;object-fit:contain;background:transparent;
   filter:drop-shadow(0 22px 30px rgba(0,0,16,.5)) drop-shadow(0 3px 8px rgba(0,0,16,.35));}
 .jul-cutout-badge{position:absolute;top:6%;left:4%;z-index:2;display:inline-flex;align-items:center;gap:.55rem;
   background:rgba(0,0,31,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(200,169,107,.45);
@@ -992,7 +1005,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- Julien — transparent character cutout emerging from the navy section -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-735-poster.png" width="760" height="1000" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-master/julien-hero-master.webm" type="video/webm"><source src="assets/juliane/video-master/julien-hero-master.mp4" type="video/mp4"><img src="assets/juliane/video-alpha/julian-735-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="auto" poster="assets/juliane/video-alpha/julian-735-poster.png" width="720" height="980" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-735.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-735-poster.png" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <audio id="jul-home-audio" preload="auto" src="assets/juliane/audio/julien-735.mp3"></audio>
       <button id="jul-home-sound-btn" class="jul-home-sound" type="button" aria-label="Hear Julien introduce himself in French" aria-pressed="false">
         <svg class="jhs-icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="jhs-icon-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1016,17 +1030,29 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 (function(){
   var btn=document.getElementById('jul-home-sound-btn');
   var video=document.getElementById('jul-home-video');
-  if(!btn||!video) return;
+  var audio=document.getElementById('jul-home-audio');
+  if(!btn||!video||!audio) return;
+  // Lipsync strategy: alpha video (silent, 3.125s) + companion audio (3.07s, same source).
+  // Both share the same source clip so mouth + audio match. On click, both reset to 0
+  // and play in parallel — the video is throttled so the audio drives perceived rhythm.
+  function syncStart(){
+    try{ video.currentTime=0; }catch(e){}
+    try{ audio.currentTime=0; }catch(e){}
+    var pv=video.play(); if(pv&&pv.catch) pv.catch(function(){});
+    var pa=audio.play(); if(pa&&pa.catch) pa.catch(function(){});
+  }
+  // Keep audio looping in sync with the video while sound is on
+  audio.addEventListener('ended', function(){
+    if(btn.getAttribute('aria-pressed')==='true'){ syncStart(); }
+  });
   btn.addEventListener('click', function(){
     var on=btn.getAttribute('aria-pressed')==='true';
     if(on){
-      video.muted=true;
+      audio.pause(); audio.currentTime=0;
       btn.setAttribute('aria-pressed','false');
       btn.setAttribute('aria-label','Hear Julien introduce himself in French');
     } else {
-      try{ video.currentTime=0; }catch(e){}
-      video.muted=false; video.volume=1;
-      var p=video.play(); if(p&&p.catch){p.catch(function(){});}
+      syncStart();
       btn.setAttribute('aria-pressed','true');
       btn.setAttribute('aria-label','Stop Julien audio');
     }
@@ -1476,8 +1502,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </div>
 
-<script src="js/fa.js?v=1781034469"></script>
-<script src="js/mapstr.js?v=1781034469" defer></script>
+<script src="js/fa.js?v=1781035177"></script>
+<script src="js/mapstr.js?v=1781035177" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */
 (function(){
