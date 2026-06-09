@@ -1100,7 +1100,7 @@
   .hiw3-arc{ gap: .15rem !important; padding: 0 .2rem !important; }
   .hiw3-arc .han{ min-width: 0 !important; }
   .hiw3-arc .han-lvl{ font-size: .78rem !important; }
-  .hiw3-arc .han-cap{ font-size: .58rem !important; line-height: 1.15 !important; word-break: break-word !important; }
+  .hiw3-arc .han-cap{ font-size: .52rem !important; line-height: 1.12 !important; word-break: normal !important; overflow-wrap: break-word !important; hyphens: none !important; letter-spacing: .04em !important; }
 
   /* ---- SORBONNE citations — clean stack on mobile ---- */
   #method-fold.s5 .s5-cred-list{
