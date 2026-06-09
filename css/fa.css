@@ -4726,3 +4726,103 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
     color: rgba(243,238,227,.85) !important;
   }
 }
+
+/* ============================================================
+   CITATIONS — premium navy plaques (desktop) — REPLACE prior pills
+   ============================================================ */
+@media (min-width: 861px){
+  .sorb.sorb-v4 .sorb-cred{
+    margin-top: 4rem !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-lab-hi{
+    font-size: .75rem !important;
+    margin: 0 auto 2rem !important;
+    color: rgba(26,20,16,.55) !important;
+    letter-spacing: .26em !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-lab-hi strong{
+    color: #0E1E40 !important;
+    font-weight: 700 !important;
+    letter-spacing: .14em !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2{
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.2rem !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+    flex-wrap: nowrap !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2 .sorb-cite{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .7rem !important;
+    padding: 1.4rem 1.4rem 1.2rem !important;
+    border-radius: 14px !important;
+    background:
+      radial-gradient(120% 80% at 0% 0%, rgba(232,199,122,.10), transparent 60%),
+      linear-gradient(168deg, #0E1E40 0%, #061029 60%, #04081A 100%) !important;
+    border: 1px solid rgba(216,188,133,.25) !important;
+    box-shadow:
+      0 1px 0 rgba(232,199,122,.15) inset,
+      0 10px 24px -12px rgba(0,0,16,.55) !important;
+    color: #F3EEE3 !important;
+    -webkit-text-fill-color: initial !important;
+    font-weight: 500 !important;
+    min-height: 130px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: transform .35s, border-color .35s, box-shadow .35s !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2 .sorb-cite:hover{
+    transform: translateY(-4px) !important;
+    border-color: rgba(232,199,122,.55) !important;
+    box-shadow:
+      0 1px 0 rgba(232,199,122,.30) inset,
+      0 26px 50px -18px rgba(0,0,16,.70),
+      0 0 60px -16px rgba(232,199,122,.30) !important;
+  }
+  /* Year badge: warm gold tile */
+  .sorb.sorb-v4 .sorb-cite-yr{
+    background: linear-gradient(135deg, #E8C77A 0%, #C9A24E 100%) !important;
+    color: #0E1E40 !important;
+    -webkit-text-fill-color: #0E1E40 !important;
+    font-weight: 800 !important;
+    font-size: .68rem !important;
+    letter-spacing: .14em !important;
+    border-radius: 6px !important;
+    padding: .35rem .6rem !important;
+    min-width: 0 !important;
+    text-transform: uppercase !important;
+    align-self: flex-start !important;
+  }
+  /* Citation text */
+  .sorb.sorb-v4 .sorb-cite-tx{
+    color: #F3EEE3 !important;
+    -webkit-text-fill-color: #F3EEE3 !important;
+    font-size: .98rem !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    letter-spacing: 0 !important;
+    flex: 1 1 auto !important;
+  }
+  .sorb.sorb-v4 .sorb-cite-arrow{
+    color: #E8C77A !important;
+    -webkit-text-fill-color: #E8C77A !important;
+    align-self: flex-end !important;
+    margin-top: auto !important;
+    font-size: 1.1rem !important;
+    opacity: .85 !important;
+  }
+  .sorb.sorb-v4 .sorb-cred-links.sorb-cred-links-v2 .sorb-cite:hover .sorb-cite-arrow{ opacity: 1 !important; }
+  /* Disclaimer */
+  .sorb.sorb-v4 .sorb-disclaimer{
+    margin-top: 2.6rem !important;
+    color: rgba(26,20,16,.55) !important;
+  }
+}
