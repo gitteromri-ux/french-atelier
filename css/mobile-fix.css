@@ -250,11 +250,25 @@
       User: "mapstr map tiny, bug card tiny image appear. map not visible"
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  #mapstr-mount{ padding: 0; }
+  /* Mapstr full-width on mobile — no horizontal padding to crop France */
+  #mapstr{ padding-left: 8px !important; padding-right: 8px !important; }
+  #mapstr .ms-shell{ padding-left: 0 !important; padding-right: 0 !important; }
+  #mapstr-mount{ padding: 0 !important; }
   .ms-stage{
     height: 64vh !important;
-    min-height: 460px !important;
+    min-height: 520px !important;
     border-radius: 16px !important;
+    width: 100% !important;
+  }
+  /* Bottom info card — contain so it doesn't overlap CARTO legend */
+  .ms-stage .ms-info, .ms-stage .ms-summary, .ms-stage .ms-legend-card{
+    left: 8px !important; right: 8px !important;
+    bottom: 8px !important;
+    max-width: calc(100% - 16px) !important;
+  }
+  /* CARTO attribution — keep small bottom right */
+  .ms-map .maplibregl-ctrl-bottom-right, .ms-map .maplibregl-ctrl-attrib{
+    bottom: 4px !important; right: 4px !important;
   }
   /* zoom controls — push to bottom-right, smaller, less obstructive */
   .ms-zoom, .ms-zoom-controls, .mapboxgl-ctrl-top-right, .leaflet-control-zoom{
