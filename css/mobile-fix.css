@@ -350,7 +350,7 @@
   }
   /* Push hero content BELOW the fixed header (avoids the logo overlap) */
   .hero .hero-content{
-    padding-top: 110px !important;
+    padding-top: 180px !important;
     padding-bottom: 40px !important;
     padding-left: 22px !important;
     padding-right: 22px !important;
