@@ -1092,11 +1092,48 @@
   .logo, .nav-logo, .brand, .brand-logo { max-width: 160px !important; height: auto !important; }
   .logo img, .nav-logo img, .brand img { max-width: 100% !important; height: auto !important; display: block; }
 
-  /* ---- COURSES — ensure horizontal slider on mobile ---- */
-  .cls-cards { display: flex !important; flex-direction: column !important; gap: 1rem !important; grid-template-columns: 1fr !important; }
+  /* ---- COURSES — horizontal slider, compact card height ---- */
+  .cls-cards {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 14px !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 4px 16px 18px !important;
+    margin: 0 -16px !important;
+  }
   .cls-rail { display: flex !important; flex-direction: row !important; overflow-x: auto !important; gap: 12px !important; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0 1rem !important; margin: 0 -1rem !important; scrollbar-width: none; }
   .cls-rail::-webkit-scrollbar { display: none; }
   .cls-rail > .cls-course { flex: 0 0 84vw !important; max-width: 84vw !important; width: 84vw !important; scroll-snap-align: start !important; }
+  /* Tighten course card height — was 498px, target ~360px */
+  #courses .cls-card,
+  .cls-card.cls-card-fa,
+  .cls-card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 1.1rem 1.15rem 1.1rem !important;
+  }
+  #courses .cls-card-title, .cls-card-title { font-size: 1.35rem !important; line-height: 1.15 !important; margin: .25rem 0 .35rem !important; }
+  #courses .cls-card-sub, .cls-card-sub { font-size: .85rem !important; line-height: 1.45 !important; margin: 0 0 .6rem !important; }
+  #courses .cls-card-eyebrow, .cls-card-eyebrow { font-size: .55rem !important; margin-bottom: .35rem !important; }
+  #courses .cls-card-meta, .cls-card-meta { margin-top: .6rem !important; padding-top: .7rem !important; gap: .5rem .5rem !important; }
+  #courses .cls-meta-val { font-size: 1.05rem !important; }
+  #courses .cls-meta-key { font-size: .58rem !important; }
+  #courses .cls-card-action { font-size: .7rem !important; margin-top: .7rem !important; padding-top: .6rem !important; }
+
+  /* ---- HERO — lighten top of gradient so image is visible ---- */
+  .hero-bg::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(8,14,43,0.05) 0%,
+      rgba(8,14,43,0.10) 35%,
+      rgba(8,14,43,0.55) 70%,
+      rgba(8,14,43,0.90) 100%
+    ) !important;
+  }
+  .hero-bg img { object-fit: cover !important; object-position: center 35% !important; width: 100% !important; height: 100% !important; }
 
   /* ---- TEACHERS slider ---- */
   .faculty-grid, .fac-grid, .tctr-grid {
@@ -1319,10 +1356,10 @@
     position: absolute !important;
     inset: 0 !important;
     background: linear-gradient(180deg,
-      rgba(8,14,43,0.30) 0%,
-      rgba(8,14,43,0.30) 30%,
-      rgba(8,14,43,0.72) 75%,
-      rgba(8,14,43,0.94) 100%) !important;
+      rgba(8,14,43,0.05) 0%,
+      rgba(8,14,43,0.10) 35%,
+      rgba(8,14,43,0.55) 72%,
+      rgba(8,14,43,0.90) 100%) !important;
     z-index: 1 !important;
   }
   .hero-content {
