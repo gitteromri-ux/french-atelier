@@ -2266,14 +2266,19 @@
     white-space: normal !important;
   }
   #placement .lede, #placement p, #placement .lm-sub { font-size: .9rem !important; line-height: 1.45 !important; }
-  #placement .lm-btn, #placement .btn, #placement .cta-pill {
+  #placement .lm-btn, #placement .btn, #placement .cta-pill, #placement .btn-3d {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    padding: 1rem !important;
+    padding: .95rem 1rem !important;
     font-size: .85rem !important;
     text-align: center !important;
+    justify-content: center !important;
+    gap: .6rem !important;
   }
+  #placement .btn-3d .fa-icon, #placement .btn-3d svg { width: 16px !important; height: 16px !important; font-size: 14px !important; flex-shrink: 0 !important; }
+  #placement .link-arrow { font-size: .82rem !important; }
+  #placement .link-arrow svg { width: 14px !important; height: 14px !important; }
 
   /* --- 14. LEAD FORM — tighten header, keep inputs 16px --- */
   #lead-form.lg-fold { padding-top: 1.6rem !important; padding-bottom: 1.8rem !important; }
