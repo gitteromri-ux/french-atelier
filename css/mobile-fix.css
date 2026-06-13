@@ -2243,20 +2243,33 @@
 
   /* --- 13. PLACEMENT — fix headline overflow + compact --- */
   #placement { padding-top: 1.8rem !important; padding-bottom: 1.8rem !important; }
-  #placement h2, #placement .display-sm, #placement .pl-title {
-    font-size: 1.55rem !important;
+  #placement .lm-card { overflow: hidden !important; max-width: 100% !important; width: auto !important; }
+  #placement .lm-cover, #placement .lm-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+  }
+  #placement .lm-cover img, #placement .lm-cover { max-height: 220px !important; }
+  #placement h2, #placement .display-sm, #placement .pl-title, #placement .lm-title {
+    font-size: 1.45rem !important;
     line-height: 1.12 !important;
-    padding-right: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
     white-space: normal !important;
-    hyphens: none !important;
   }
-  #placement .pl-hero, #placement img[src*="placement"], #placement .placement-img,
-  #placement .pl-image, #placement .pl-bg { max-height: 240px !important; object-fit: cover !important; }
-  #placement .lede, #placement p { font-size: .9rem !important; line-height: 1.45 !important; }
+  #placement .lede, #placement p, #placement .lm-sub { font-size: .9rem !important; line-height: 1.45 !important; }
+  #placement .lm-btn, #placement .btn, #placement .cta-pill {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 1rem !important;
+    font-size: .85rem !important;
+    text-align: center !important;
+  }
 
   /* --- 14. LEAD FORM — tighten header, keep inputs 16px --- */
   #lead-form { padding-top: 1.8rem !important; padding-bottom: 2rem !important; }
