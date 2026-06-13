@@ -1921,3 +1921,133 @@
     text-wrap: balance !important;
   }
 }
+
+/* ============================================================
+   PATCH 4 — CONVERT ALL CARD FOLDS TO HORIZONTAL SLIDERS
+   Per user spec: every card fold = swipeable slider on mobile
+   ============================================================ */
+@media (max-width: 760px) {
+
+  /* Remove the destructive universal rule for SVGs */
+  .jul-cutout-badge svg, .jul-home-points svg, .cls-card svg, .faq-btn svg,
+  .tctr-badge svg, .ac-power-marquee svg, button svg, a svg {
+    max-width: none !important;
+    width: auto !important;
+    height: auto !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ---------- COURSES → horizontal slider ---------- */
+  #courses .cls-cards {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 0.5rem 1.15rem 2rem !important;
+    margin: 0 -1.15rem !important;
+    scrollbar-width: none !important;
+  }
+  #courses .cls-cards::-webkit-scrollbar { display: none !important; }
+  #courses .cls-card {
+    flex: 0 0 86% !important;
+    scroll-snap-align: center !important;
+    min-height: auto !important;
+    width: 86% !important;
+    max-width: 86% !important;
+  }
+
+  /* ---------- CULTURE → horizontal slider ---------- */
+  #culture .culture-grid, #culture .culture-pillars,
+  #culture [class*="culture-cards"], #culture .pillar-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 0.5rem 1.15rem 2rem !important;
+    margin: 0 -1.15rem !important;
+    scrollbar-width: none !important;
+    grid-template-columns: none !important;
+  }
+  #culture .culture-grid::-webkit-scrollbar,
+  #culture .culture-pillars::-webkit-scrollbar { display: none !important; }
+  #culture .culture-pillar, #culture .culture-card, #culture .pillar-card {
+    flex: 0 0 86% !important;
+    scroll-snap-align: center !important;
+    width: 86% !important;
+    max-width: 86% !important;
+  }
+
+  /* ---------- LEARNING JOURNEY (HIW3) → horizontal slider ---------- */
+  #how-it-works .hiw3-steps, #how-it-works .stp-rail {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 0.5rem 1.15rem 2rem !important;
+    margin: 0 -1.15rem !important;
+    scrollbar-width: none !important;
+    grid-template-columns: none !important;
+  }
+  #how-it-works .hiw3-steps::-webkit-scrollbar,
+  #how-it-works .stp-rail::-webkit-scrollbar { display: none !important; }
+  #how-it-works .hiw3-step, #how-it-works .stp-card {
+    flex: 0 0 86% !important;
+    scroll-snap-align: center !important;
+    width: 86% !important;
+    max-width: 86% !important;
+    min-height: 280px !important;
+  }
+
+  /* ---------- TEACHERS → horizontal portrait slider ---------- */
+  #teachers .fac-gallery {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 0.9rem !important;
+    padding: 0.5rem 1.15rem 2rem !important;
+    margin: 0 -1.15rem !important;
+    scrollbar-width: none !important;
+    grid-template-columns: none !important;
+    max-width: none !important;
+  }
+  #teachers .fac-gallery::-webkit-scrollbar { display: none !important; }
+  #teachers .fac-card {
+    flex: 0 0 62% !important;
+    scroll-snap-align: center !important;
+    width: 62% !important;
+    max-width: 62% !important;
+    aspect-ratio: auto !important;
+  }
+  #teachers .fac-card .fac-photo {
+    aspect-ratio: 3 / 4 !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  #teachers .fac-card .fac-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* ---------- Universal swipe hint visibility on sliders ---------- */
+  #courses, #culture, #how-it-works, #teachers, #testimonials, #method-fold {
+    overflow: hidden !important;
+  }
+}
