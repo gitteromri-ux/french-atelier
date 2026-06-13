@@ -1178,8 +1178,8 @@
   }
   .jul-home .jul-cutout,
   .jul-home #jul-home-video{
-    width: 92vw !important;
-    max-width: 92vw !important;
+    width: 78% !important;
+    max-width: 280px !important;
     height: auto !important;
     margin: 0 auto !important;
     display: block !important;
