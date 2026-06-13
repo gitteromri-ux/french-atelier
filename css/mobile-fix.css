@@ -130,9 +130,9 @@
     margin-top: 0 !important;
     position: relative !important;
     z-index: 2 !important;
-    order: 2 !important;
+    order: 99 !important;
   }
-  #culture .pillar video, #culture .pillar > video:first-child{ order: 1 !important; flex: 0 0 360px !important; }
+  #culture .pillar video, #culture .pillar > video:first-child{ order: 0 !important; flex: 0 0 360px !important; height: 360px !important; }
   #culture .pillar-num{ color: #d8bc85 !important; font-size: .9rem !important; opacity: .9 !important; }
   #culture .pillar-title{ color: #f3eee3 !important; font-size: 1.5rem !important; line-height: 1.15 !important; margin: .3rem 0 .5rem !important; }
   #culture .pillar-desc{ color: rgba(243,238,227,.85) !important; font-size: .95rem !important; line-height: 1.45 !important; }
