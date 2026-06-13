@@ -84,22 +84,17 @@
   }
   #culture .pillars-grid::-webkit-scrollbar{ display:none; }
   #culture .pillar{
-    flex: 0 0 78vw !important;
-    width: 78vw !important;
+    flex: 0 0 86vw !important;
+    width: 86vw !important;
     scroll-snap-align: center !important;
-    min-height: 360px;
+    scroll-snap-stop: always !important;
+    min-height: 420px;
+    aspect-ratio: 3/4;
+    border-radius: 18px;
+    overflow: hidden;
   }
-  /* swipe hint */
-  #culture .culture-head::after{
-    content: "← swipe →";
-    display: block;
-    margin-top: 14px;
-    font-family: 'Inter', sans-serif;
-    font-size: .68rem;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    color: rgba(200,169,107,.7);
-  }
+  /* swipe hint REMOVED — dots are sufficient affordance */
+  #culture .culture-head::after{ content: none !important; display: none !important; }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -109,13 +104,18 @@
       pillar bodies distinguishable accent borders/gradients.
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  /* Six culture pillars get six different accent strips at the top */
-  #culture .pillar:nth-child(1) .pillar-body{ border-top: 3px solid #C8A96B; }   /* gold */
-  #culture .pillar:nth-child(2) .pillar-body{ border-top: 3px solid #8C1E28; }   /* terra-deep */
-  #culture .pillar:nth-child(3) .pillar-body{ border-top: 3px solid #2FA4FF; }   /* neon blue */
-  #culture .pillar:nth-child(4) .pillar-body{ border-top: 3px solid #E498A6; }   /* rose */
-  #culture .pillar:nth-child(5) .pillar-body{ border-top: 3px solid #BEA37B; }   /* sand */
-  #culture .pillar:nth-child(6) .pillar-body{ border-top: 3px solid #4A2818; }   /* espresso */
+  /* Accent border-top REMOVED — was cutting through the video frame as ugly horizontal stripe */
+  #culture .pillar .pillar-body{ border-top: 0 !important; }
+  /* Disable autoplaying video in pillars on mobile — it caused scroll jank and the poster→frame transition created a visual stripe */
+  #culture .pillar video{ display: none !important; }
+  /* Use the poster image as the pillar background */
+  #culture .pillar{ position: relative; background-color: #0a1128; background-size: cover; background-position: center; }
+  #culture .pillar:nth-child(1){ background-image: url('../assets/video/pillar-art-poster.jpg'); }
+  #culture .pillar:nth-child(2){ background-image: url('../assets/video/pillar-gastronomy-poster.jpg'); }
+  #culture .pillar:nth-child(3){ background-image: url('../assets/video/pillar-travel-poster.jpg'); }
+  #culture .pillar:nth-child(4){ background-image: url('../assets/video/pillar-fashion-poster.jpg'); }
+  #culture .pillar:nth-child(5){ background-image: url('../assets/video/pillar-music-poster.jpg'); }
+  #culture .pillar:nth-child(6){ background-image: url('../assets/video/pillar-tradition-poster.jpg'); }
 
   /* Research citations alternate cream/ivory/pale-rose */
   .sorb-v4 .sorb-cite:nth-child(1){ background: #FFFCF4 !important; border-color:#C8A96B !important; }
@@ -448,7 +448,7 @@
   .hiw3-slider .hiw3-arrow{ display: none !important; }
   /* Add a swipe hint above the cards */
   .hiw3-slider::before{
-    content: "← swipe →";
+    content: none !important; /* swipe hint removed */
     display: block; text-align: center;
     font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
     color: var(--gold-deep); margin-bottom: .8rem; opacity: .75;
@@ -540,7 +540,7 @@
 
   /* swipe hint under teachers */
   .tctr-head::after{
-    content: "← swipe →";
+    content: none !important; /* swipe hint removed */
     display: block;
     margin-top: 14px;
     font-family: 'Inter', sans-serif;
@@ -598,7 +598,7 @@
   }
 
   #testimonials .tst-head::after{
-    content: "← swipe →";
+    content: none !important; /* swipe hint removed */
     display: block;
     margin-top: 14px;
     font-family: 'Inter', sans-serif;
@@ -641,7 +641,7 @@
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
   #courses .wrap > div:first-child::after{
-    content: "← swipe →";
+    content: none !important; /* swipe hint removed */
     display: block;
     margin-top: 14px;
     font-family: 'Inter', sans-serif;
@@ -1420,21 +1420,28 @@
     border-radius: 22px !important;
     width: 100% !important;
   }
-  /* Best Seller pill — sits at TOP of card on its own row, no overlap with eyebrow */
+  /* Best Seller pill — top-right, never overlaps anything because eyebrow sits BELOW it */
   #courses .cls-card { padding-top: 3.4rem !important; }
   .cls-bestseller {
-    top: 0.85rem !important;
-    right: 0.85rem !important;
-    font-size: 0.78rem !important;
-    padding: 0.35rem 0.75rem 0.32rem !important;
-    letter-spacing: 0.02em !important;
+    top: 0.9rem !important;
+    right: 0.9rem !important;
+    font-size: 0.66rem !important;
+    padding: 0.28rem 0.7rem !important;
+    letter-spacing: 0.06em !important;
+    z-index: 5 !important;
   }
-  .cls-bestseller::before { font-size: 0.85em !important; }
+  .cls-bestseller::before { font-size: 0.8em !important; }
+  /* Eyebrow on its own line UNDER the badge area — full-width, single-line where possible */
   #courses .cls-card-eyebrow {
-    font-size: 0.7rem !important;
-    letter-spacing: 0.18em !important;
-    margin-bottom: 0.6rem !important;
-    padding-right: 6.5rem !important; /* leave room next to badge */
+    display: block !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.14em !important;
+    margin-bottom: 0.55rem !important;
+    padding-right: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    opacity: .72 !important;
   }
   #courses .cls-card-title {
     font-size: 1.55rem !important;
@@ -2304,4 +2311,116 @@
   #faq { padding-top: 1.6rem !important; padding-bottom: 1.6rem !important; }
   #faq .faq-question, #faq summary { padding: .85rem 0 !important; font-size: .95rem !important; }
   #faq .faq-body { font-size: .85rem !important; }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   FINAL POLISH PASS — readability, theming, jank
+   Addresses user's brutal feedback: tiny fonts, ugly stripes, cream
+   bands between dark sections, slider arrows ugly.
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width:760px){
+
+  /* 1. Body must be NAVY behind dark sections — kill cream gaps */
+  html, body{ background:#0a1128 !important; }
+  /* Sections that ARE cream/paper keep their bg explicitly */
+  #courses, #faq, #lead-form{ background-color: var(--paper, #f7f3ea) !important; }
+  /* Make sure dark sections fully fill */
+  #culture, #mapstr, #julien-fold, #testimonials, #placement, #how-it-works, #teachers, #platform, #acadomia-power, #method-fold{
+    background-color: #0a1128 !important;
+  }
+
+  /* 2. Bump readable copy sizes — user said "fucking tiny fonts" */
+  body{ font-size: 16px !important; line-height: 1.6 !important; }
+  p, .lede, .desc, .sub, .crd-body, .stp-body, .pl-body, .tst-quote, .fac-bio{
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+  .eyebrow, .pl-eyebrow, .culture-eyebrow, .hiw3-eyebrow, .ms-eyebrow, .tst-eyebrow{
+    font-size: .72rem !important;
+    letter-spacing: .18em !important;
+  }
+  h2, .display-sm, .pl-title, .culture-head h2, .lm-title, .tst-title{
+    font-size: 1.75rem !important;
+    line-height: 1.12 !important;
+  }
+  /* Pillar copy bumped */
+  #culture .pillar-title{ font-size: 1.5rem !important; line-height: 1.12 !important; }
+  #culture .pillar-desc{ font-size: .98rem !important; line-height: 1.5 !important; opacity: .94 !important; max-width: none !important; }
+  #culture .pillar-num{ font-size: .8rem !important; letter-spacing: .2em !important; }
+
+  /* 3. Pagination dots — unify across all sliders to a clean look */
+  .slider-dots, .swiper-pagination, .tst-dots, .cls-dots, .fac-dots, .pillars-dots, .etg3-dots, .hiw3-dots {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 16px auto 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .slider-dots > *, .swiper-pagination > *, .tst-dots > *, .cls-dots > *,
+  .fac-dots > *, .pillars-dots > *, .etg3-dots > *, .hiw3-dots > *,
+  .swiper-pagination-bullet{
+    width: 7px !important;
+    height: 7px !important;
+    border-radius: 50% !important;
+    background: rgba(216, 188, 133, .35) !important;
+    border: 0 !important;
+    flex: 0 0 7px !important;
+    transition: width .25s, background .25s !important;
+  }
+  .slider-dots > .active, .slider-dots > [aria-current="true"],
+  .swiper-pagination-bullet-active,
+  .tst-dots > .active, .cls-dots > .active, .fac-dots > .active,
+  .pillars-dots > .active, .etg3-dots > .active, .hiw3-dots > .active{
+    background: #d8bc85 !important;
+    width: 22px !important;
+    border-radius: 6px !important;
+  }
+  /* Kill obnoxious old pagination shapes (those ovals/bars in screenshots) */
+  .swiper-pagination-bullet, .tst-dots span, .cls-dots span,
+  .fac-dots span, .pillars-dots span, .hiw3-dots span{
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* 4. Reduce header padding so it doesn't dominate small viewports */
+  .site-header, header.site-header{ padding-top: 8px !important; padding-bottom: 8px !important; }
+
+  /* 5. Mapstr panel: dark-theme on mobile so it doesn't clash with section bg */
+  #mapstr .ms-panel, #mapstr .ms-card{
+    background: rgba(8, 14, 43, .94) !important;
+    color: #f3eee3 !important;
+    border: 1px solid rgba(216,188,133,.22) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+  #mapstr .ms-panel-city, #mapstr .ms-panel-step{ color: #d8bc85 !important; }
+  #mapstr .ms-panel-city{ color: #f3eee3 !important; }
+  #mapstr .ms-unit-fr{ color: #f3eee3 !important; }
+  #mapstr .ms-unit-en{ color: rgba(243,238,227,.78) !important; }
+  #mapstr .ms-unit{ background: rgba(255,255,255,.04) !important; border-color: rgba(216,188,133,.2) !important; }
+  #mapstr .ms-unit-num{ color: #d8bc85 !important; }
+  #mapstr .ms-panel-close{ background: rgba(255,255,255,.08) !important; border-color: rgba(255,255,255,.18) !important; color: #f3eee3 !important; }
+  #mapstr .ms-panel-loc{ color: rgba(243,238,227,.62) !important; }
+  /* Match photo-pop too */
+  #mapstr .ms-photo-pop{
+    background: rgba(8, 14, 43, .92) !important;
+    color: #f3eee3 !important;
+    border: 1px solid rgba(216,188,133,.22) !important;
+  }
+
+  /* 6. Section vertical rhythm — kill awkward gaps between adjacent dark sections */
+  #culture + section, #mapstr + section, #julien-fold + section, #testimonials + section,
+  #placement + section, #how-it-works + section, #teachers + section, #platform + section,
+  #acadomia-power + section, #method-fold + section { margin-top: 0 !important; }
+
+  /* 7. Hero text MUST be visible immediately — force opacity */
+  .hero .display, .hero h1, .hero .hero-lede, .hero .hero-cta, .hero .hero-trust{
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* 8. Hide any swipe-hint-flagged elements */
+  [data-swipe-hint], .swipe-hint{ display: none !important; }
 }
