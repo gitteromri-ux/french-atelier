@@ -90,7 +90,7 @@
     width: 90vw !important;
     scroll-snap-align: center !important;
     scroll-snap-stop: always !important;
-    min-height: 560px !important;
+    min-height: auto !important;
     height: auto !important;
     aspect-ratio: auto !important;
     border-radius: 20px !important;
@@ -98,7 +98,7 @@
     background-size: cover !important;
     background-position: center !important;
   }
-  #culture .pillars-grid{ align-items: stretch !important; min-height: 580px !important; }
+  #culture .pillars-grid{ align-items: stretch !important; }
   /* Pillar VIDEO/IMAGE area: large hero portion */
   #culture .pillar .pillar-media,
   #culture .pillar > video:first-child,
@@ -119,11 +119,11 @@
       pillar bodies distinguishable accent borders/gradients.
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  /* Pillar body: solid dark band below video */
+  /* Pillar body: solid dark band below video — fixed height, doesn't push video */
   #culture .pillar .pillar-body{
     border-top: 0 !important;
-    flex: 1 1 auto !important;
-    padding: 1.2rem 1.4rem 1.6rem !important;
+    flex: 0 0 auto !important;
+    padding: 1.1rem 1.3rem 1.4rem !important;
     background: #0a1128 !important;
     color: #f3eee3 !important;
     margin-top: 0 !important;
@@ -131,7 +131,7 @@
     z-index: 2 !important;
     order: 2 !important;
   }
-  #culture .pillar video, #culture .pillar > video:first-child{ order: 1 !important; }
+  #culture .pillar video, #culture .pillar > video:first-child{ order: 1 !important; flex: 0 0 360px !important; }
   #culture .pillar-num{ color: #d8bc85 !important; font-size: .9rem !important; opacity: .9 !important; }
   #culture .pillar-title{ color: #f3eee3 !important; font-size: 1.5rem !important; line-height: 1.15 !important; margin: .3rem 0 .5rem !important; }
   #culture .pillar-desc{ color: rgba(243,238,227,.85) !important; font-size: .95rem !important; line-height: 1.45 !important; }
