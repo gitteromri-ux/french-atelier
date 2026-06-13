@@ -90,13 +90,14 @@
     width: 90vw !important;
     scroll-snap-align: center !important;
     scroll-snap-stop: always !important;
-    min-height: auto !important;
-    height: auto !important;
+    min-height: 560px !important;
+    height: 560px !important;
     aspect-ratio: auto !important;
     border-radius: 20px !important;
     overflow: hidden !important;
     background-size: cover !important;
     background-position: center !important;
+    align-self: stretch !important;
   }
   #culture .pillars-grid{ align-items: stretch !important; }
   /* Pillar VIDEO/IMAGE area: large hero portion */
