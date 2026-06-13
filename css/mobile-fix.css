@@ -159,21 +159,26 @@
   }
   .cls-card-title{ font-size: 1.6rem !important; }
   .cls-card-sub{ font-size: .92rem !important; }
-  /* Best Seller badge: move from absolute over-the-eyebrow position to a clean inline pill */
+  /* Best Seller badge: compact pill, never overlap the eyebrow text */
   .cls-card .cls-bestseller{
     position: absolute !important;
-    top: 14px !important;
-    right: 14px !important;
-    font-size: .62rem !important;
-    padding: .3rem .6rem !important;
+    top: 12px !important;
+    right: 12px !important;
+    font-size: .56rem !important;
+    padding: .25rem .55rem !important;
+    letter-spacing: .08em !important;
     z-index: 4 !important;
+    max-width: 92px !important;
+    white-space: nowrap !important;
     box-shadow: 0 4px 12px rgba(0,0,16,.35);
   }
-  /* Reserve space for the badge so the eyebrow doesn’t collide */
+  /* Reserve space for the badge; allow eyebrow to wrap cleanly */
   .cls-card-eyebrow{
-    padding-right: 96px !important;
-    font-size: .66rem !important;
-    letter-spacing: .18em !important;
+    padding-right: 112px !important;
+    font-size: .6rem !important;
+    letter-spacing: .14em !important;
+    line-height: 1.4 !important;
+    word-spacing: 0 !important;
   }
   /* Hide the giant 01 / 02 watermark numeral on mobile (it overlapped the badge) */
   .cls-card::after,
@@ -1184,13 +1189,21 @@
   }
   .jul-home .jul-home-sound{
     margin: 1rem auto 0 !important;
+    padding: .55rem 1rem !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+  .jul-home .jul-home-sound .jhs-label{
+    font-size: .78rem !important;
+    letter-spacing: .16em !important;
+    white-space: nowrap !important;
   }
 
   /* ---- LEARNING JOURNEY CEFR arc — labels need to fit ---- */
-  .hiw3-arc{ gap: .15rem !important; padding: 0 .2rem !important; }
-  .hiw3-arc .han{ min-width: 0 !important; }
-  .hiw3-arc .han-lvl{ font-size: .78rem !important; }
-  .hiw3-arc .han-cap{ font-size: .52rem !important; line-height: 1.12 !important; word-break: normal !important; overflow-wrap: break-word !important; hyphens: none !important; letter-spacing: .04em !important; }
+  .hiw3-arc{ gap: .1rem !important; padding: 0 .15rem !important; }
+  .hiw3-arc .han{ min-width: 0 !important; flex: 1 1 0 !important; }
+  .hiw3-arc .han-lvl{ font-size: .74rem !important; }
+  .hiw3-arc .han-cap{ font-size: .48rem !important; line-height: 1.12 !important; word-break: keep-all !important; overflow-wrap: normal !important; hyphens: none !important; letter-spacing: .02em !important; white-space: normal !important; }
 
   /* ---- SORBONNE citations — clean stack on mobile ---- */
   #method-fold.s5 .s5-cred-list{

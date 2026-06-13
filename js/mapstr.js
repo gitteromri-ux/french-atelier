@@ -373,7 +373,7 @@
       container: mapEl.id,
       style: style,
       center: FRANCE_CENTER,
-      zoom: (window.innerWidth <= 760) ? (FRANCE_ZOOM - 0.9) : (compact ? FRANCE_ZOOM - 0.2 : FRANCE_ZOOM),
+      zoom: (window.innerWidth <= 760) ? (FRANCE_ZOOM - 0.4) : (compact ? FRANCE_ZOOM - 0.2 : FRANCE_ZOOM),
       pitch: MAP_PITCH,
       bearing: MAP_BEARING,
       minZoom: 3.8,
