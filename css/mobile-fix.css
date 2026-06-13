@@ -1253,3 +1253,556 @@
   /* ---- Generic safety: any element with absolute fixed width gets capped ---- */
   [style*="width:"][style*="px"] { max-width: 100% !important; }
 }
+
+/* ============================================================
+   AWARD-WINNING MOBILE REBUILD — June 13 2026
+   Fold-by-fold mobile polish. Loads last → wins cascade.
+   Constraint: mobile only (≤760px). Desktop untouched.
+   ============================================================ */
+@media (max-width: 760px) {
+
+  /* GLOBAL: lock horizontal overflow, normalize gutters */
+  html, body { overflow-x: hidden !important; }
+  body { -webkit-text-size-adjust: 100% !important; }
+  * { max-width: 100% !important; }
+  img, video, svg, iframe { max-width: 100% !important; height: auto !important; }
+
+  /* Reusable container gutter */
+  .wrap, section > .wrap, section > .container {
+    padding-left: 1.15rem !important;
+    padding-right: 1.15rem !important;
+    width: 100% !important;
+  }
+
+  /* ============================================================
+     FOLD 1 — HERO: image visible, gradient scrim, premium typo
+     ============================================================ */
+  .hero {
+    min-height: 92vh !important;
+    padding: 8.5rem 0 4rem !important;
+    display: flex !important;
+    align-items: flex-end !important;
+  }
+  .hero-bg { position: absolute !important; inset: 0 !important; z-index: 0 !important; }
+  .hero-bg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 60% 35% !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  .hero-bg::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg,
+      rgba(8,14,43,0.30) 0%,
+      rgba(8,14,43,0.30) 30%,
+      rgba(8,14,43,0.72) 75%,
+      rgba(8,14,43,0.94) 100%) !important;
+    z-index: 1 !important;
+  }
+  .hero-content {
+    position: relative !important;
+    z-index: 3 !important;
+    text-align: left !important;
+    padding-top: 0 !important;
+  }
+  .hero h1, .hero .display-xl, .hero .display-lg {
+    font-size: clamp(2.4rem, 9.4vw, 3.1rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.015em !important;
+    margin-bottom: 1.1rem !important;
+    text-wrap: balance !important;
+  }
+  .hero-sub, .hero .lede {
+    font-size: 1.02rem !important;
+    line-height: 1.5 !important;
+    max-width: 36ch !important;
+    margin-bottom: 1.6rem !important;
+    color: rgba(255,255,255,0.88) !important;
+  }
+  .hero-ctas {
+    flex-direction: column !important;
+    gap: 0.7rem !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+  .hero-ctas .btn, .hero-ctas a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 1.05rem 1.4rem !important;
+    font-size: 1rem !important;
+  }
+  .hero .eyebrow { font-size: 0.72rem !important; letter-spacing: 0.22em !important; margin-bottom: 1rem !important; }
+
+  /* ============================================================
+     FOLD 2 — COURSES: tight cards, badge inline, no overlap
+     ============================================================ */
+  #courses { padding: 4.5rem 0 4rem !important; }
+  #courses .display-md, #courses h2 {
+    font-size: clamp(1.85rem, 6.8vw, 2.3rem) !important;
+    line-height: 1.08 !important;
+    margin-bottom: 0.7rem !important;
+  }
+  #courses .eyebrow { font-size: 0.7rem !important; letter-spacing: 0.22em !important; }
+  #courses .lede { font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 1.8rem !important; }
+  #courses .cls-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.4rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  #courses .cls-card {
+    min-height: auto !important;
+    padding: 2.6rem 1.4rem 2rem !important;
+    border-radius: 22px !important;
+    width: 100% !important;
+  }
+  /* Best Seller pill — sits at TOP of card on its own row, no overlap with eyebrow */
+  #courses .cls-card { padding-top: 3.4rem !important; }
+  .cls-bestseller {
+    top: 0.85rem !important;
+    right: 0.85rem !important;
+    font-size: 0.78rem !important;
+    padding: 0.35rem 0.75rem 0.32rem !important;
+    letter-spacing: 0.02em !important;
+  }
+  .cls-bestseller::before { font-size: 0.85em !important; }
+  #courses .cls-card-eyebrow {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 0.6rem !important;
+    padding-right: 6.5rem !important; /* leave room next to badge */
+  }
+  #courses .cls-card-title {
+    font-size: 1.55rem !important;
+    line-height: 1.12 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  #courses .cls-card-sub {
+    font-size: 0.98rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1rem !important;
+  }
+  #courses .cls-card-meta { font-size: 0.85rem !important; gap: 0.4rem !important; }
+  #courses .cls-card .btn, #courses .cls-card a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 0.95rem 1.2rem !important;
+    font-size: 0.95rem !important;
+    margin-top: 1rem !important;
+  }
+
+  /* ============================================================
+     FOLD 3 — SORBONNE: compact, refined
+     ============================================================ */
+  #method-fold.s5, .s5 { padding: 4rem 0 3.5rem !important; }
+  #method-fold.s5 .s5-wrap { padding: 0 1.15rem !important; }
+  #method-fold.s5 h2, #method-fold.s5 .display-md {
+    font-size: clamp(1.75rem, 6.4vw, 2.2rem) !important;
+    line-height: 1.1 !important;
+  }
+  #method-fold.s5 .lede, #method-fold.s5 .s5-lede {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.4rem !important;
+  }
+  #method-fold.s5 .s5-cite-tx { font-size: 0.92rem !important; line-height: 1.4 !important; }
+  #method-fold.s5 .s5-cite-yr { font-size: 0.78rem !important; }
+  #method-fold.s5 .s5-cred-list { gap: 0.85rem 0 !important; }
+
+  /* ============================================================
+     FOLD 4 — CULTURE: pillar cards contained, no edge bleed
+     ============================================================ */
+  #culture { padding: 4rem 0 3.5rem !important; overflow: hidden !important; }
+  #culture .wrap { padding: 0 1.15rem !important; }
+  #culture .culture-head h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.08 !important;
+  }
+  #culture .culture-head .lede { font-size: 1rem !important; line-height: 1.5 !important; }
+  .culture-grid, .culture-pillars {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .culture-pillar, .culture-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1.6rem 1.3rem !important;
+    border-radius: 18px !important;
+  }
+  .culture-pillar h3, .culture-card h3 {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .culture-pillar p, .culture-card p { font-size: 0.95rem !important; line-height: 1.45 !important; }
+
+  /* ============================================================
+     FOLD 5 — ACADOMIA STATS: centered grid, premium spacing
+     ============================================================ */
+  #acadomia-power { padding: 4rem 0 3.5rem !important; }
+  #acadomia-power .ac-power-wrap { padding: 0 1.15rem !important; }
+  #acadomia-power h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+  #acadomia-power .lede { font-size: 1rem !important; text-align: center !important; line-height: 1.5 !important; }
+  .ac-power-stats, .acadomia-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+  }
+  .ac-power-stat, .acadomia-stat {
+    padding: 1.4rem 0.9rem !important;
+    text-align: center !important;
+  }
+  .ac-power-stat .num, .ac-power-stat-num, .acadomia-stat .num {
+    font-size: clamp(2rem, 8.4vw, 2.7rem) !important;
+    line-height: 1 !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .ac-power-stat .lbl, .ac-power-stat-label, .acadomia-stat .lbl {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* ============================================================
+     FOLD 6 — LEARNING JOURNEY (HIW3): arc readable, steps swipe
+     ============================================================ */
+  #how-it-works { padding: 4rem 0 3.5rem !important; overflow: hidden !important; }
+  #how-it-works .hiw3-head h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.08 !important;
+    text-align: center !important;
+  }
+  .hiw3-arc {
+    transform: scale(0.94) !important;
+    transform-origin: center top !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  .hiw3-steps {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  .hiw3-step {
+    width: 100% !important;
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 16px !important;
+  }
+
+  /* ============================================================
+     FOLD 7 — TEACHERS: horizontal chip swipe
+     ============================================================ */
+  #teachers { padding: 4rem 0 3.5rem !important; }
+  #teachers .tctr-head h2, #teachers h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+  }
+  #teachers .tctr-head .lede { font-size: 1rem !important; line-height: 1.5 !important; }
+  /* Tab/chip filter row: horizontal scroll instead of stacked buttons */
+  #teachers .tctr-tabs, #teachers .teacher-filters, #teachers .filter-chips {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0.4rem 1.15rem 0.8rem !important;
+    margin: 0 -1.15rem 1.2rem !important;
+    scrollbar-width: none !important;
+  }
+  #teachers .tctr-tabs::-webkit-scrollbar,
+  #teachers .filter-chips::-webkit-scrollbar { display: none !important; }
+  #teachers .tctr-tab, #teachers .filter-chip, #teachers .tctr-tabs button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    padding: 0.55rem 1rem !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
+    scroll-snap-align: start !important;
+    border-radius: 999px !important;
+  }
+  /* Teacher cards: 1 column */
+  #teachers .tctr-grid, #teachers .teachers-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  #teachers .tctr-card, #teachers .teacher-card {
+    width: 100% !important;
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 18px !important;
+  }
+
+  /* ============================================================
+     FOLD 8 — WATCH REAL CLASS: fits, controls visible
+     ============================================================ */
+  .watch-real-class, #watch-class, .class-video-fold { padding: 4rem 0 3.5rem !important; }
+  .watch-real-class h2, #watch-class h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+  }
+  .watch-real-class video, #watch-class video, .class-video {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 14px !important;
+  }
+
+  /* ============================================================
+     FOLD 9 — MAPSTR: bigger France, category chips visible
+     ============================================================ */
+  #mapstr { padding: 4rem 0 3.5rem !important; overflow: hidden !important; }
+  #mapstr .ms-wrap { padding: 0 1.15rem !important; }
+  #mapstr h2, #mapstr .display-md {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+  }
+  #mapstr .lede { font-size: 1rem !important; line-height: 1.5 !important; }
+  /* The france map container — make it dominant */
+  #mapstr .ms-map, #mapstr .france-map, #mapstr svg.france,
+  #mapstr [class*="map-container"], #mapstr .ms-canvas {
+    width: 100% !important;
+    min-height: 380px !important;
+    height: 56vh !important;
+    max-height: 540px !important;
+  }
+  /* Category chips: horizontal scroll, no wrap */
+  #mapstr .ms-cats, #mapstr .ms-categories, #mapstr .ms-filters,
+  #mapstr .map-categories, #mapstr [class*="categories"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 0.45rem !important;
+    padding: 0.5rem 1.15rem !important;
+    margin: 0.6rem -1.15rem 1rem !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  #mapstr .ms-cats::-webkit-scrollbar,
+  #mapstr .ms-categories::-webkit-scrollbar { display: none !important; }
+  #mapstr .ms-cat, #mapstr .ms-cat-chip, #mapstr .ms-categories button,
+  #mapstr .map-cat, #mapstr [class*="cat-chip"] {
+    flex: 0 0 auto !important;
+    padding: 0.5rem 0.95rem !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap !important;
+    border-radius: 999px !important;
+  }
+  /* Info card / details panel on right side → stack below map */
+  #mapstr .ms-detail, #mapstr .ms-info, #mapstr .ms-card,
+  #mapstr [class*="info-panel"], #mapstr [class*="detail-card"] {
+    width: 100% !important;
+    margin: 1rem 0 0 !important;
+    padding: 1.2rem 1.1rem !important;
+    border-radius: 16px !important;
+    position: relative !important;
+    inset: auto !important;
+  }
+  #mapstr .ms-grid, #mapstr .ms-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ============================================================
+     FOLD 10 — JULIEN: clean cutout, single-line button
+     ============================================================ */
+  #julien-fold { padding: 4rem 0 3.5rem !important; overflow: hidden !important; }
+  #julien-fold .wrap, #julien-fold .jul-wrap { padding: 0 1.15rem !important; }
+  #julien-fold h2, #julien-fold .display-md {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.7rem !important;
+  }
+  #julien-fold .lede, #julien-fold p { font-size: 1rem !important; line-height: 1.5 !important; }
+  #julien-fold .jul-grid, #julien-fold .julien-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.4rem !important;
+    grid-template-columns: 1fr !important;
+    align-items: center !important;
+  }
+  /* Julien video container */
+  #julien-fold video, #julien-fold .julien-video, #julien-fold .jul-video {
+    width: min(78%, 320px) !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    background: transparent !important;
+  }
+  /* "HEAR JULIEN" button — single line, no wrap */
+  #julien-fold .btn, #julien-fold a.btn, #julien-fold button {
+    white-space: nowrap !important;
+    padding: 0.95rem 1.3rem !important;
+    font-size: 0.92rem !important;
+    letter-spacing: 0.05em !important;
+    width: auto !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+
+  /* ============================================================
+     FOLD 11 — TESTIMONIALS: contained, no horizontal overflow
+     ============================================================ */
+  #testimonials, .tst-fold { padding: 4rem 0 3.5rem !important; overflow: hidden !important; }
+  #testimonials .wrap, .tst-fold .wrap { padding: 0 1.15rem !important; }
+  #testimonials h2, .tst-fold h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+  }
+  .tst-grid, .testimonial-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  .tst-card, .testimonial-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1.5rem 1.3rem !important;
+    border-radius: 18px !important;
+  }
+  .tst-card blockquote, .testimonial-card blockquote, .tst-card .quote {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  .tst-card .author, .testimonial-card .author { font-size: 0.88rem !important; }
+
+  /* ============================================================
+     FOLD 12-14 — eTeacher / Placement / Lead Gen
+     ============================================================ */
+  #platform, #placement, #lead-form, .lead-magnet, .lg-fold {
+    padding: 3.8rem 0 3.2rem !important;
+  }
+  #platform .wrap, #placement .wrap, #lead-form .wrap, .lead-magnet .wrap, .lg-fold .wrap {
+    padding: 0 1.15rem !important;
+  }
+  #platform h2, #placement h2, #lead-form h2, .lead-magnet h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+  }
+  #platform .lede, #placement .lede, #lead-form .lede { font-size: 1rem !important; line-height: 1.5 !important; }
+  /* eTeacher feature grid → 1 column */
+  #platform .etg, #platform .etg-grid, #platform .features {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  #platform .etg > *, #platform .feature-card {
+    width: 100% !important;
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 16px !important;
+  }
+  /* Lead form: all fields full-width, 16px to prevent iOS zoom */
+  #lead-form .lg-wrap, #lead-form .lg-grid, #lead-form form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+    grid-template-columns: 1fr !important;
+  }
+  #lead-form .lg-field, #lead-form .form-row, #lead-form .field {
+    width: 100% !important;
+  }
+  #lead-form input, #lead-form select, #lead-form textarea {
+    width: 100% !important;
+    font-size: 16px !important;
+    padding: 0.95rem 1rem !important;
+    border-radius: 12px !important;
+  }
+  #lead-form label { font-size: 0.85rem !important; margin-bottom: 0.35rem !important; }
+  #lead-form button, #lead-form .btn {
+    width: 100% !important;
+    padding: 1.05rem 1.4rem !important;
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* ============================================================
+     FOLD 15 — FAQ: clean hairlines, smooth accordion
+     ============================================================ */
+  #faq { padding: 3.8rem 0 3.5rem !important; }
+  #faq .wrap { padding: 0 1.15rem !important; }
+  #faq h2 {
+    font-size: clamp(1.85rem, 6.6vw, 2.3rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.4rem !important;
+  }
+  .faq-list { border-top: 1px solid rgba(0,0,0,0.08) !important; }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
+  .faq-btn, .faq-q {
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+    padding: 1.15rem 0.2rem !important;
+    gap: 0.7rem !important;
+    text-align: left !important;
+  }
+  .faq-body, .faq-a {
+    font-size: 0.93rem !important;
+    line-height: 1.55 !important;
+    padding: 0 0.2rem 1.15rem !important;
+  }
+
+  /* ============================================================
+     FOLD 16 — CTA FOOTER
+     ============================================================ */
+  .cta-fold, #cta, .final-cta { padding: 4rem 0 4rem !important; }
+  .cta-fold h2, #cta h2, .final-cta h2 {
+    font-size: clamp(1.9rem, 7vw, 2.4rem) !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+  .cta-fold .btn, #cta .btn, .final-cta .btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 1.05rem 1.4rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* ============================================================
+     UNIVERSAL POLISH
+     ============================================================ */
+  /* Section heading consistency */
+  section .eyebrow {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.22em !important;
+    margin-bottom: 0.7rem !important;
+  }
+  /* Buttons baseline */
+  .btn, a.btn, button.btn {
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+  /* Tap targets */
+  a, button { min-height: 44px !important; }
+  /* Smoother scrolling for horizontal swipers */
+  [class*="swiper"], .scroll-x { -webkit-overflow-scrolling: touch !important; scroll-behavior: smooth !important; }
+  /* Anything absolutely positioned with negative offset that bleeds */
+  [style*="position: absolute"], [style*="position:absolute"] { max-width: 100vw !important; }
+
+}
