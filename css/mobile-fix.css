@@ -2415,11 +2415,17 @@
   #acadomia-power + section, #method-fold + section { margin-top: 0 !important; }
 
   /* 7. Hero text MUST be visible immediately — force opacity */
-  .hero .display, .hero h1, .hero .hero-lede, .hero .hero-cta, .hero .hero-trust{
+  .hero .display, .hero h1, .hero .hero-lede, .hero .hero-cta, .hero .hero-trust,
+  .hero .reveal, .hero .reveal-d1, .hero .reveal-d2, .hero .reveal-d3,
+  .hero .hero-sub, .hero .hero-ctas, .hero .hero-trustpilot{
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
   }
+  /* Hero bg fallback so it never appears blank/white before image loads */
+  .hero{ background: #0a1128 !important; }
+  .hero-bg{ background: linear-gradient(180deg, #1a2750 0%, #0a1128 100%) !important; }
+  .hero-bg img{ opacity: 1 !important; visibility: visible !important; }
 
   /* 8. Hide any swipe-hint-flagged elements */
   [data-swipe-hint], .swipe-hint{ display: none !important; }
