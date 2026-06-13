@@ -141,7 +141,14 @@
   /* Kill desktop gradient overlay that darkens the bottom of the pillar (designed for absolute body overlay) */
   #culture .pillar::after,
   #culture .pillar::before{ display: none !important; content: none !important; }
-  #culture .pillar video, #culture .pillar > video:first-child{ order: 0 !important; flex: 0 0 360px !important; height: 360px !important; }
+  #culture .pillar video, #culture .pillar > video:first-child{
+    position: static !important;
+    left: auto !important; right: auto !important; top: auto !important; bottom: auto !important;
+    order: 0 !important;
+    flex: 0 0 360px !important;
+    height: 360px !important;
+    width: 100% !important;
+  }
   #culture .pillar-num{ color: #d8bc85 !important; font-size: .9rem !important; opacity: .9 !important; }
   #culture .pillar-title{ color: #f3eee3 !important; font-size: 1.5rem !important; line-height: 1.15 !important; margin: .3rem 0 .5rem !important; }
   #culture .pillar-desc{ color: rgba(243,238,227,.85) !important; font-size: .95rem !important; line-height: 1.45 !important; }
