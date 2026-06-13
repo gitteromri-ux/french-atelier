@@ -2243,9 +2243,11 @@
 
   /* --- 13. PLACEMENT — fix headline overflow + compact --- */
   #placement { padding-top: 1.8rem !important; padding-bottom: 1.8rem !important; }
-  /* Critical: collapse 2-col grid to 1-col on mobile (overrides .lead-magnet .lm-card !important from fa.css:3950) */
-  #placement .lm-card, .lead-magnet .lm-card { grid-template-columns: 1fr !important; max-width: 100% !important; width: auto !important; overflow: hidden !important; }
-  #placement .lm-cover, .lead-magnet .lm-cover { min-height: 200px !important; aspect-ratio: 16/10 !important; }
+  /* Critical: collapse 2-col grid to 1-col on mobile + force min-width:0 to defeat grid track auto-expansion from intrinsic image width */
+  #placement .lm-card, .lead-magnet .lm-card, .lead-magnet#placement .lm-card { grid-template-columns: minmax(0,1fr) !important; max-width: 100% !important; width: auto !important; overflow: hidden !important; }
+  #placement .lm-card > *, .lead-magnet .lm-card > * { min-width: 0 !important; max-width: 100% !important; }
+  #placement .lm-cover, .lead-magnet .lm-cover { min-height: 200px !important; max-height: 240px !important; aspect-ratio: 16/10 !important; width: 100% !important; }
+  #placement .lm-cover img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
   #placement .lm-cover, #placement .lm-body {
     width: 100% !important;
     max-width: 100% !important;
