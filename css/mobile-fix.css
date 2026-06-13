@@ -84,15 +84,21 @@
   }
   #culture .pillars-grid::-webkit-scrollbar{ display:none; }
   #culture .pillar{
+    display: flex !important;
+    flex-direction: column !important;
     flex: 0 0 90vw !important;
     width: 90vw !important;
     scroll-snap-align: center !important;
     scroll-snap-stop: always !important;
-    min-height: 560px;
+    min-height: 560px !important;
+    height: auto !important;
     aspect-ratio: auto !important;
-    border-radius: 20px;
-    overflow: hidden;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
+  #culture .pillars-grid{ align-items: stretch !important; min-height: 580px !important; }
   /* Pillar VIDEO/IMAGE area: large hero portion */
   #culture .pillar .pillar-media,
   #culture .pillar > video:first-child,
@@ -113,8 +119,20 @@
       pillar bodies distinguishable accent borders/gradients.
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
-  /* Accent border-top REMOVED — was cutting through the video frame as ugly horizontal stripe */
-  #culture .pillar .pillar-body{ border-top: 0 !important; }
+  /* Pillar body: fill remaining space below video, dark glass effect */
+  #culture .pillar .pillar-body{
+    border-top: 0 !important;
+    flex: 1 1 auto !important;
+    padding: 1.3rem 1.4rem 1.6rem !important;
+    background: linear-gradient(180deg, rgba(8,14,43,.0) 0%, rgba(8,14,43,.85) 35%, rgba(8,14,43,.95) 100%) !important;
+    color: #f3eee3 !important;
+    margin-top: -80px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  #culture .pillar-num{ color: #d8bc85 !important; font-size: .9rem !important; opacity: .9 !important; }
+  #culture .pillar-title{ color: #f3eee3 !important; font-size: 1.5rem !important; line-height: 1.15 !important; margin: .3rem 0 .5rem !important; }
+  #culture .pillar-desc{ color: rgba(243,238,227,.85) !important; font-size: .95rem !important; line-height: 1.45 !important; }
   /* Disable autoplaying video in pillars on mobile — it caused scroll jank and the poster→frame transition created a visual stripe */
   /* Pillar videos: visible, large, performant */
   #culture .pillar video{
@@ -1456,13 +1474,13 @@
     z-index: 5 !important;
   }
   .cls-bestseller::before { font-size: 0.8em !important; }
-  /* Eyebrow on its own line UNDER the badge area — full-width, allow wrapping */
+  /* Eyebrow MUST clear the Best Seller pill at top-right */
   #courses .cls-card-eyebrow {
     display: block !important;
     font-size: 0.6rem !important;
     letter-spacing: 0.12em !important;
     margin-bottom: 0.55rem !important;
-    padding-right: 0 !important;
+    padding-right: 105px !important;
     white-space: normal !important;
     overflow: visible !important;
     text-overflow: clip !important;
