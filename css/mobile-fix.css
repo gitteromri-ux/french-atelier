@@ -84,14 +84,23 @@
   }
   #culture .pillars-grid::-webkit-scrollbar{ display:none; }
   #culture .pillar{
-    flex: 0 0 86vw !important;
-    width: 86vw !important;
+    flex: 0 0 90vw !important;
+    width: 90vw !important;
     scroll-snap-align: center !important;
     scroll-snap-stop: always !important;
-    min-height: 420px;
-    aspect-ratio: 3/4;
-    border-radius: 18px;
+    min-height: 560px;
+    aspect-ratio: auto !important;
+    border-radius: 20px;
     overflow: hidden;
+  }
+  /* Pillar VIDEO/IMAGE area: large hero portion */
+  #culture .pillar .pillar-media,
+  #culture .pillar > video:first-child,
+  #culture .pillar > .pillar-vid{
+    width: 100% !important;
+    height: 360px !important;
+    object-fit: cover !important;
+    display: block !important;
   }
   /* swipe hint REMOVED — dots are sufficient affordance */
   #culture .culture-head::after{ content: none !important; display: none !important; }
@@ -107,9 +116,16 @@
   /* Accent border-top REMOVED — was cutting through the video frame as ugly horizontal stripe */
   #culture .pillar .pillar-body{ border-top: 0 !important; }
   /* Disable autoplaying video in pillars on mobile — it caused scroll jank and the poster→frame transition created a visual stripe */
-  #culture .pillar video{ display: none !important; }
-  /* Use the poster image as the pillar background */
-  #culture .pillar{ position: relative; background-color: #0a1128; background-size: cover; background-position: center; }
+  /* Pillar videos: visible, large, performant */
+  #culture .pillar video{
+    display: block !important;
+    width: 100% !important;
+    height: 360px !important;
+    object-fit: cover !important;
+    border-radius: 20px 20px 0 0 !important;
+  }
+  /* Poster fallback bg for slow load */
+  #culture .pillar{ position: relative; background-color: #0a1128; }
   #culture .pillar:nth-child(1){ background-image: url('../assets/video/pillar-art-poster.jpg'); }
   #culture .pillar:nth-child(2){ background-image: url('../assets/video/pillar-gastronomy-poster.jpg'); }
   #culture .pillar:nth-child(3){ background-image: url('../assets/video/pillar-travel-poster.jpg'); }
@@ -380,47 +396,55 @@
     text-shadow: 0 1px 16px rgba(0,0,16,.6);
   }
   /* Brand-correct gold CTA on mobile (replaces baby-blue gradient) */
+  /* Hero CTA + Trustpilot: ROW like desktop — blue neon CTA next to Trustpilot */
   .hero .hero-ctas{
     display:flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1.3rem !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
     width: 100%;
+    flex-wrap: wrap !important;
   }
   .hero .hero-ctas .btn-gold,
   .hero .hero-ctas .btn.btn-gold,
   .hero .hero-ctas a.btn{
-    background: linear-gradient(135deg,#E8C77A 0%,#C9A24E 100%) !important;
-    color:#0B1027 !important;
-    border: 1px solid rgba(255,255,255,.18) !important;
-    box-shadow: 0 14px 34px rgba(216,188,133,.32), inset 0 1px 0 rgba(255,255,255,.4) !important;
+    background: linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
+    color:#FFFFFF !important;
+    border: 1px solid rgba(220,240,255,.7) !important;
+    box-shadow: 0 0 0 1px rgba(170,220,255,.35), 0 0 22px rgba(95,200,255,.65), 0 0 48px rgba(95,200,255,.45), 0 0 90px rgba(63,168,240,.35), inset 0 1px 0 rgba(255,255,255,.55) !important;
+    text-shadow: 0 1px 2px rgba(10,30,60,.55), 0 0 12px rgba(95,200,255,.4) !important;
     font-weight: 700 !important;
     letter-spacing: .14em !important;
     text-transform: uppercase !important;
-    font-size: .82rem !important;
-    padding: 1.05rem 1.6rem !important;
+    font-size: .78rem !important;
+    padding: 1rem 1.4rem !important;
     border-radius: 14px !important;
-    width: 100% !important;
-    max-width: 320px !important;
+    width: auto !important;
+    max-width: none !important;
     text-align: center !important;
     justify-content: center !important;
+    flex: 0 0 auto !important;
   }
-  /* Trustpilot block: keep it left-aligned with content (not flush to viewport edge) */
+  /* Trustpilot block: inline beside CTA */
   .hero-trustpilot{
     display:flex !important;
-    align-items: center !important;
-    gap: .7rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .3rem !important;
     flex-wrap: wrap !important;
     margin: 0 !important;
-    padding-top: .4rem !important;
-    border-top: 1px solid rgba(255,255,255,.16) !important;
-    width: 100%;
-    max-width: 320px;
+    padding: 0 0 0 .3rem !important;
+    border-top: 0 !important;
+    border-left: 1px solid rgba(255,255,255,.18) !important;
+    padding-left: .9rem !important;
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
   }
-  .hero-trustpilot .tp-logo img{ height: 22px !important; width:auto !important; }
-  .hero-trustpilot .tp-stars img{ height: 22px !important; width:auto !important; }
+  .hero-trustpilot .tp-logo img{ height: 16px !important; width:auto !important; }
+  .hero-trustpilot .tp-stars img{ height: 18px !important; width:auto !important; }
   .hero-trustpilot .tp-rating{
-    font-size: .72rem !important;
+    font-size: .58rem !important;
     letter-spacing: .22em !important;
     color: rgba(243,238,227,.85) !important;
   }
@@ -1383,13 +1407,14 @@
     color: rgba(255,255,255,0.88) !important;
   }
   .hero-ctas {
-    flex-direction: column !important;
-    gap: 0.7rem !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
     width: 100% !important;
-    align-items: stretch !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
   }
   .hero-ctas .btn, .hero-ctas a.btn {
-    width: 100% !important;
+    width: auto !important;
     text-align: center !important;
     justify-content: center !important;
     padding: 1.05rem 1.4rem !important;
@@ -1431,16 +1456,17 @@
     z-index: 5 !important;
   }
   .cls-bestseller::before { font-size: 0.8em !important; }
-  /* Eyebrow on its own line UNDER the badge area — full-width, single-line where possible */
+  /* Eyebrow on its own line UNDER the badge area — full-width, allow wrapping */
   #courses .cls-card-eyebrow {
     display: block !important;
-    font-size: 0.62rem !important;
-    letter-spacing: 0.14em !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.12em !important;
     margin-bottom: 0.55rem !important;
     padding-right: 0 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.35 !important;
     opacity: .72 !important;
   }
   #courses .cls-card-title {
@@ -2094,11 +2120,17 @@
   }
   #teachers .fac-gallery::-webkit-scrollbar { display: none !important; }
   #teachers .fac-card {
-    flex: 0 0 62% !important;
+    flex: 0 0 80% !important;
     scroll-snap-align: center !important;
-    width: 62% !important;
-    max-width: 62% !important;
+    width: 80% !important;
+    max-width: 80% !important;
     aspect-ratio: auto !important;
+  }
+  #teachers .fac-photo, #teachers .fac-card img{
+    width: 100% !important;
+    height: auto !important;
+    min-height: 380px !important;
+    object-fit: cover !important;
   }
   #teachers .fac-card .fac-photo {
     aspect-ratio: 3 / 4 !important;
