@@ -2139,9 +2139,13 @@
   #courses .cls-card-action { font-size: .65rem !important; padding-top: .5rem !important; margin-top: .5rem !important; }
 
   /* --- 4. SORBONNE / method-fold — compact --- */
-  #method-fold, .s5 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  #method-fold, .s5 { padding-top: 1.8rem !important; padding-bottom: 1.6rem !important; }
   #method-fold .s5-cardtitle, .s5 .s5-cardtitle { font-size: 1.1rem !important; }
-  #method-fold .s5-card, .s5 .s5-card { padding: 1rem 1.05rem !important; }
+  #method-fold .s5-card, .s5 .s5-card { padding: 1rem 1.05rem !important; min-height: 0 !important; }
+  #method-fold .s5-body, .s5 .s5-body { font-size: .85rem !important; line-height: 1.45 !important; }
+  /* Trim citation block */
+  #method-fold .sorb-v4, .sorb-v4 { padding: 1rem !important; }
+  #method-fold .sorb-cite, .sorb-cite { padding: .7rem .9rem !important; font-size: .8rem !important; }
 
   /* --- 5. CULTURE — compact --- */
   #culture { padding-top: 1.8rem !important; padding-bottom: 1.8rem !important; }
@@ -2201,27 +2205,58 @@
 
   /* --- 12. PLATFORM (eTeacher) — stats horizontal not stacked --- */
   #platform, .etg2-section { padding-top: 1.8rem !important; padding-bottom: 1.8rem !important; }
-  .etg2-trust {
+  #platform .etg2-trust, .etg2-section .etg2-trust {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     gap: 8px !important;
-    margin-top: 1.2rem !important;
+    margin: 1.2rem 0 1rem !important;
+    max-width: 100% !important;
+    padding: 6px !important;
+    background: linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02)) !important;
+    border: 1px solid rgba(200,169,107,.22) !important;
+    border-radius: 16px !important;
   }
-  .etg2-tf {
-    padding: .85rem .4rem !important;
+  #platform .etg2-tf, .etg2-section .etg2-tf {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    width: auto !important;
+    padding: .85rem .3rem !important;
     text-align: center !important;
     min-height: 0 !important;
-    border: 1px solid rgba(255,255,255,.10) !important;
-    border-radius: 12px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
   }
-  .etg2-tf-num { font-size: 1.35rem !important; display: block !important; margin-bottom: .25rem !important; }
-  .etg2-tf-lab { font-size: .55rem !important; letter-spacing: .06em !important; text-transform: uppercase !important; line-height: 1.25 !important; }
+  #platform .etg2-sep, .etg2-section .etg2-sep { display: none !important; }
+  #platform .etg2-tf-num, .etg2-section .etg2-tf-num { font-size: 1.4rem !important; display: block !important; margin-bottom: .35rem !important; line-height: 1 !important; }
+  #platform .etg2-tf-lab, .etg2-section .etg2-tf-lab { font-size: .52rem !important; letter-spacing: .06em !important; text-transform: uppercase !important; line-height: 1.25 !important; margin-top: 0 !important; }
   .etg2-brand-logo { max-width: 120px !important; height: auto !important; }
+  /* Platform capability slider — compact cards */
+  #platform .etg3-card { padding: 1.2rem 1.1rem !important; }
+  #platform .etg3-card h3 { font-size: 1.15rem !important; margin: .5rem 0 .4rem !important; }
+  #platform .etg3-card p { font-size: .85rem !important; line-height: 1.45 !important; margin: 0 0 .7rem !important; }
+  #platform .etg3-no { font-size: .8rem !important; }
+  #platform .etg3-pill { font-size: .6rem !important; padding: .3rem .65rem !important; }
+  #platform .etg3-ic { width: 38px !important; height: 38px !important; }
+  #platform .etg3-ic svg { width: 20px !important; height: 20px !important; }
 
   /* --- 13. PLACEMENT — fix headline overflow + compact --- */
   #placement { padding-top: 1.8rem !important; padding-bottom: 1.8rem !important; }
-  #placement h2, #placement .display-sm { font-size: 1.55rem !important; padding-right: .5rem !important; word-wrap: break-word !important; overflow-wrap: break-word !important; hyphens: auto !important; }
-  #placement .pl-hero, #placement img[src*="placement"], #placement .placement-img { max-height: 280px !important; object-fit: cover !important; }
+  #placement h2, #placement .display-sm, #placement .pl-title {
+    font-size: 1.55rem !important;
+    line-height: 1.12 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    hyphens: none !important;
+  }
+  #placement .pl-hero, #placement img[src*="placement"], #placement .placement-img,
+  #placement .pl-image, #placement .pl-bg { max-height: 240px !important; object-fit: cover !important; }
+  #placement .lede, #placement p { font-size: .9rem !important; line-height: 1.45 !important; }
 
   /* --- 14. LEAD FORM — tighten header, keep inputs 16px --- */
   #lead-form { padding-top: 1.8rem !important; padding-bottom: 2rem !important; }
