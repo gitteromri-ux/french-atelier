@@ -5057,12 +5057,11 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   .hero-acadomia-badge img{height:18px}
 }
 
-/* 2. Hero text shifted slightly down */
-.hero.hero-shift .hero-content{padding-top:clamp(2.2rem, 6vh, 5.5rem)}
-.hero.hero-shift{align-items:flex-start}
-.hero.hero-shift .hero-content{margin-top:clamp(4rem, 12vh, 9rem)}
+/* 2. Hero text shifted slightly down (centered + extra top padding) */
+.hero.hero-shift{align-items:center}
+.hero.hero-shift .hero-content{padding-top:clamp(7rem, 14vh, 11rem)}
 @media (max-width:760px){
-  .hero.hero-shift .hero-content{margin-top:clamp(3rem, 9vh, 5rem)}
+  .hero.hero-shift .hero-content{padding-top:clamp(5rem, 10vh, 7rem)}
 }
 
 /* 3. Sticky always-on enrollment console (light-blue, hero-matched) */
