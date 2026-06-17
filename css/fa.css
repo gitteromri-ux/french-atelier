@@ -5017,29 +5017,26 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
    3) Sticky enrollment console (light-blue like hero)
    ============================================================ */
 
-/* 1. Acadomia hero badge — top-right, refined, light-blue palette */
+/* 1. Acadomia hero badge — sits ABOVE the H1, inside hero content (elegant credential mark) */
 .hero-acadomia-badge{
-  position:absolute;
-  top:clamp(7.2rem, 11vh, 9.5rem);
-  right:clamp(1.2rem, 3vw, 3rem);
-  z-index:4;
   display:inline-flex;
   align-items:center;
-  gap:.7rem;
-  padding:.55rem .95rem .55rem .85rem;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(167,201,235,.42);
+  gap:.75rem;
+  padding:.5rem .95rem .5rem .85rem;
+  margin:0 0 1.6rem 0;
+  background:rgba(167,201,235,.10);
+  border:1px solid rgba(167,201,235,.45);
   border-radius:999px;
-  backdrop-filter:blur(10px) saturate(140%);
-  -webkit-backdrop-filter:blur(10px) saturate(140%);
-  box-shadow:0 4px 18px rgba(8,14,43,.28);
+  backdrop-filter:blur(8px) saturate(140%);
+  -webkit-backdrop-filter:blur(8px) saturate(140%);
+  box-shadow:0 4px 18px rgba(8,14,43,.32);
   transition:transform .4s ease, background .4s ease;
 }
-.hero-acadomia-badge:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.hero-acadomia-badge:hover{background:rgba(167,201,235,.16);transform:translateY(-1px)}
 .hero-acadomia-badge .hab-tag{
   font-family:var(--serif,Georgia,serif);
   font-style:italic;
-  font-size:.78rem;
+  font-size:.8rem;
   letter-spacing:.04em;
   color:#cfe1f5;
   white-space:nowrap;
@@ -5048,16 +5045,15 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   height:22px;
   width:auto;
   display:block;
-  filter:brightness(1.08);
+  filter:brightness(1.12) contrast(1.02);
 }
 @media (max-width:760px){
   .hero-acadomia-badge{
-    top:5.6rem;
-    right:1rem;
-    padding:.45rem .75rem .45rem .7rem;
-    gap:.55rem;
+    padding:.42rem .8rem .42rem .72rem;
+    gap:.6rem;
+    margin-bottom:1.2rem;
   }
-  .hero-acadomia-badge .hab-tag{font-size:.68rem}
+  .hero-acadomia-badge .hab-tag{font-size:.72rem}
   .hero-acadomia-badge img{height:18px}
 }
 
