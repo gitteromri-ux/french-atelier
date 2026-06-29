@@ -1411,26 +1411,9 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
       <div class="lg-success" role="status" aria-live="polite">Merci. Your request has been received — we will reach out within one business day.</div>
     </form>
   </div>
-  <script>
-  (function(){
-    var f=document.getElementById('lg-form'); if(!f) return;
-    f.addEventListener('submit',function(e){
-      e.preventDefault();
-      // Lightweight client validation
-      var inputs=f.querySelectorAll('input[required],select[required]');
-      for(var i=0;i<inputs.length;i++){if(!inputs[i].value){inputs[i].focus();return;}}
-      // Mark as sent (replace this with your CRM endpoint as needed)
-      f.classList.add('is-sent');
-      // POST hook placeholder (customize endpoint when CRM is connected)
-      try{
-        var data={};
-        new FormData(f).forEach(function(v,k){data[k]=v;});
-        // window.fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-        console.log('LEAD:',data);
-      }catch(_){}
-    });
-  })();
-  </script>
+  <!-- The #lg-form submit is handled by js/eteacher-leads.js, which posts the
+       lead to the eTeacher CRM (French Atelier = ProductID 25) and adds the
+       .is-sent class on success. The old console.log placeholder was removed. -->
 </section>
 
 <!-- ===== FAQ (homepage condensed) ===== -->
@@ -1595,6 +1578,16 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <input id="adv-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
         <span class="err-msg" aria-live="polite"></span>
       </div>
+          <div class="field">
+            <label for="adv-phone">Phone</label>
+            <input id="adv-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="adv-country">Country</label>
+            <input id="adv-country" name="country" type="text" autocomplete="country-name" placeholder="United States">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
       <div class="field">
         <label for="adv-level">French level</label>
         <select id="adv-level" name="level">
@@ -1628,6 +1621,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 </div>
 
 <script src="js/fa.js?v=1781381809"></script>
+<script src="js/eteacher-leads.js?v=1"></script>
 <script src="js/mapstr.js?v=1781381809" defer></script>
 <script>
 /* Sorbonne fold (#method-fold) — sync mobile swipe-rail dots with scroll position */

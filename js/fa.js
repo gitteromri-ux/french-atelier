@@ -294,62 +294,13 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
   }
 
-  /* ---------- Advisor form: client-side validation + success state ---------- */
-  // NOTE: No backend invented. Falls back to mailto:advisor@eTeacherGroup.com.
-  // ▶ TO WIRE A REAL ENDPOINT: replace the mailto block below with a
-  //   fetch('https://YOUR-ENDPOINT', {method:'POST', body:new FormData(form)}) call.
-  function setError(field,msg){
-    field.classList.add('has-error');
-    var el=field.querySelector('.err-msg');
-    if(el)el.textContent=msg;
-  }
-  function clearError(field){field.classList.remove('has-error');}
-
+  /* ---------- Advisor form ---------- */
+  // Submission + validation are now handled by js/eteacher-leads.js, which posts
+  // leads to the eTeacher CRM (French Atelier = ProductID 25). The old mailto
+  // fallback handler was removed so it does not double-handle submits.
+  // We keep only the lightweight "clear error styling as the user edits" UX.
+  function clearError(field){ if(field) field.classList.remove('has-error'); }
   document.querySelectorAll('.advisor-form').forEach(function(form){
-    form.setAttribute('novalidate','');
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      var valid=true;
-      var name=form.querySelector('[name="name"]');
-      var email=form.querySelector('[name="email"]');
-      var level=form.querySelector('[name="level"]');
-      var time=form.querySelector('[name="time"]');
-
-      [name,email,level,time].forEach(function(inp){if(inp)clearError(inp.closest('.field'));});
-
-      if(name&&!name.value.trim()){setError(name.closest('.field'),'Please enter your name.');valid=false;}
-      if(email){
-        var ev=email.value.trim();
-        if(!ev){setError(email.closest('.field'),'Please enter your email.');valid=false;}
-        else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev)){setError(email.closest('.field'),'Please enter a valid email.');valid=false;}
-      }
-      if(level&&!level.value){setError(level.closest('.field'),'Please choose your French level.');valid=false;}
-      if(time&&!time.value){setError(time.closest('.field'),'Please pick a preferred time.');valid=false;}
-
-      if(!valid){
-        var firstErr=form.querySelector('.field.has-error input,.field.has-error select');
-        if(firstErr)firstErr.focus();
-        return;
-      }
-
-      // ----- Submission (mailto fallback — replace with real endpoint) -----
-      var subject=encodeURIComponent('French Atelier — Advisor Request');
-      var body=encodeURIComponent(
-        'Name: '+(name?name.value:'')+'\n'+
-        'Email: '+(email?email.value:'')+'\n'+
-        'French level: '+(level?level.value:'')+'\n'+
-        'Preferred time: '+(time?time.value:'')
-      );
-      window.location.href='mailto:advisor@eTeacherGroup.com?subject='+subject+'&body='+body;
-
-      // ----- Success state -----
-      var card=form.closest('.advisor-card')||form.parentNode;
-      if(card){card.classList.add('is-success');}
-      form.classList.add('is-success');
-      form.reset();
-    });
-
-    // clear error as user edits
     form.querySelectorAll('input,select').forEach(function(inp){
       inp.addEventListener('input',function(){clearError(inp.closest('.field'));});
       inp.addEventListener('change',function(){clearError(inp.closest('.field'));});
