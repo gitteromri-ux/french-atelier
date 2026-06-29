@@ -18,9 +18,9 @@
   'use strict';
 
   // ---- Environment ---------------------------------------------------------
-  // Staging first per docs §6; flip to 'production' after eTeacher signs off
-  // on French Atelier (ProductID 25) staging traffic.
-  var ETEACHER_ENV = 'staging';
+  // PRODUCTION: live eTeacher CRM endpoint (switched 2026-06-29 per user).
+  // Staging was validated end-to-end (HTTP 200, lead queued) before this flip.
+  var ETEACHER_ENV = 'production';
 
   // eTeacher AWS API Gateway endpoints (from the official API doc, §2).
   // The site posts directly here — no proxy.
