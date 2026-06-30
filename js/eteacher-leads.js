@@ -22,11 +22,16 @@
   // Staging was validated end-to-end (HTTP 200, lead queued) before this flip.
   var ETEACHER_ENV = 'production';
 
-  // eTeacher AWS API Gateway endpoints (from the official API doc, §2).
-  // The site posts directly here — no proxy.
+  // Routed through the French Atelier CORS relay (adds the CORS headers the
+  // eTeacher AWS API does not send; forwards to eTeacher; forces ProductID 25).
+  // This is a SEPARATE relay from Longevity's — Longevity is never touched.
+  // Relay source: workspace/fa-leads-proxy/api/leads.js (Vercel).
+  // Upstream eTeacher endpoints it forwards to (official API doc §2):
+  //   staging:    https://81pg281wke.execute-api.eu-west-1.amazonaws.com/staging/leads
+  //   production: https://u6ygel4ywa.execute-api.eu-west-1.amazonaws.com/prod/leads
   var ENDPOINTS = {
-    staging:    'https://81pg281wke.execute-api.eu-west-1.amazonaws.com/staging/leads',
-    production: 'https://u6ygel4ywa.execute-api.eu-west-1.amazonaws.com/prod/leads'
+    staging:    'https://fa-leads-proxy.vercel.app/leads/staging',
+    production: 'https://fa-leads-proxy.vercel.app/leads/production'
   };
 
   // French Atelier product id in the eTeacher CRM.
