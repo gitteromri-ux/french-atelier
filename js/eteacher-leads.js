@@ -274,6 +274,10 @@
       first = nm.first; last = nm.last;
     }
     var countryIso = val(form, 'country') || val(form, 'countryIso') || val(form, 'lg-country');
+    // Capture any free-text message (contact form) into AdminNotes so it is not lost.
+    var message = val(form, 'message');
+    var baseNotes = form.dataset.adminNotes || '';
+    if (message) baseNotes = (baseNotes ? baseNotes + ' | ' : '') + 'Message: ' + message;
     var fields = {
       firstName: first,
       lastName: last,
@@ -283,7 +287,7 @@
       level: val(form, 'level'),
       timing: val(form, 'timing'),
       preferredTime: val(form, 'time'),
-      adminNotes: form.dataset.adminNotes || '',
+      adminNotes: baseNotes,
       campaignId: (window.FA_CAMPAIGN_IDS && window.FA_CAMPAIGN_IDS[form.id]) || '',
       googleCampaignId: ''
     };
