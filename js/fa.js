@@ -93,7 +93,7 @@
     });
   });
 
-  // Sorbonne pillars (click-to-open accordion cards, keyboard accessible)
+  // Method principle pillars (click-to-open accordion cards, keyboard accessible)
   document.querySelectorAll('.sorb-pillar .sorb-ph').forEach(function(head){
     head.addEventListener('click',function(){
       var pillar=head.closest('.sorb-pillar');
@@ -616,7 +616,6 @@
     { sel: '.hiw3-journey',      label: 'Learning Journey' },
     { sel: '.fac-gallery',       label: 'Teachers' },
     { sel: '.tst-track',         label: 'Testimonials' },
-    { sel: '.sorb-principles',   label: 'Sorbonne Principles' },
     { sel: '.sorb-cred-links-v2',label: 'Citations' }
   ];
 

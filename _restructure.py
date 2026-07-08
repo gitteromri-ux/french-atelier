@@ -28,7 +28,7 @@ def cut(start_marker, stop_markers):
 ANCHORS = [
     "<!-- ===== HERO",
     '<section class="section-pad bg-ivory" id="courses">',
-    '<section class="sorb sorb-v4" id="method-fold"',
+    '<section class="method method-v4" id="method-fold"',
     '<section class="section-pad culture-dark" id="culture">',
     '<!-- ===== HOW IT WORKS',
     '<!-- ===== MEET OUR TEACHERS',
@@ -37,7 +37,7 @@ ANCHORS = [
     '<!-- ===== LIVE FROM FRANCE',
     '<!-- ===== JULIEN AI',
     '<!-- ===== eTEACHER GROUP PLATFORM',
-    '<!-- ============================================================\n     SORBONNE METHODOLOGY FOLD',
+    '<!-- ============================================================\n     METHOD METHODOLOGY FOLD',
     '<!-- ===== ACADOMIA BLACK POWER STRIP',
     '<!-- ===== PLACEMENT-TEST LEAD MAGNET STRIP',
     '<!-- ===== FAQ (homepage condensed)',

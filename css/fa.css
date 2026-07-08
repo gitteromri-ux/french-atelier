@@ -1440,7 +1440,7 @@ body.modal-open{overflow:hidden}
    HOMEPAGE POWER FOLDS — 2026 (Homepage agent)
    Added classes:
    .ac-cred (Acadomia power-numbers strip)
-   .sorb (BLACK Sorbonne methodology fold) + pillar accordion
+   .sorb (BLACK Method methodology fold) + pillar accordion
    .lead-magnet (placement-test strip)
    .etg (eTeacher Group platform/LMS features block)
    ============================================================ */
@@ -1498,9 +1498,9 @@ body.modal-open{overflow:hidden}
   .ac-cell:last-child{border-bottom:none}
 }
 
-/* ---------- 2. BLACK SORBONNE METHODOLOGY FOLD ---------- */
-/* === SORBONNE FOLD — V3 rebuild: LIGHT, on-brand, matches site === */
-/* ---- DARK premium Sorbonne fold (restored — navy + gold, consistent
+/* ---------- 2. BLACK Method METHODOLOGY FOLD ---------- */
+/* === Method FOLD — V3 rebuild: LIGHT, on-brand, matches site === */
+/* ---- DARK premium Method fold (restored — navy + gold, consistent
         with the Julien / Acadomia dark folds; user: "not dull") ---- */
 .sorb{
   position:relative;overflow:hidden;
@@ -2366,7 +2366,7 @@ body.modal-open{overflow:hidden}
 }
 
 /* ============================================================
-   FIX 3 — SORBONNE FOLD — V3 rebuilt LIGHT & on-brand
+   FIX 3 — Method FOLD — V3 rebuilt LIGHT & on-brand
    (old dark/compressed overrides removed; disclaimer restored)
    ============================================================ */
 .sorb{padding:clamp(3.4rem,6vw,5.6rem) 0}
@@ -2818,7 +2818,7 @@ body.modal-open{overflow:hidden}
 }
 
 /* ============================================================
-   [REMOVED — Sorbonne fold V5 rebuild] Legacy neon-blue citation
+   [REMOVED — Method fold V5 rebuild] Legacy neon-blue citation
    glow / breathing line removed per client feedback. The fold now
    uses scoped .s5 styles in an inline <style> above #method-fold.
    ============================================================ */
@@ -4149,7 +4149,7 @@ body.home .hero-ctas .btn-gold:hover{
   .hero .btn-gold,.hero-ctas .btn-gold{font-size:.92rem !important;padding:1.1rem 1.6rem !important}
 }
 
-/* ===== Sorbonne section: wider+larger title (2 lines), wider sub, larger citation chips ===== */
+/* ===== Method section: wider+larger title (2 lines), wider sub, larger citation chips ===== */
 .sorb-v4 .sorb-head{ max-width:1280px !important; }
 .sorb-v4 .sorb-title{
   font-size:clamp(2.4rem,4.2vw,3.7rem) !important;
@@ -4162,7 +4162,7 @@ body.home .hero-ctas .btn-gold:hover{
   max-width:78ch !important;
   line-height:1.62 !important;
 }
-/* sorbonne cite legacy block superseded by v2 polish below */
+/* Method cite legacy block superseded by v2 polish below */
 @media(max-width:820px){
   .sorb-v4 .sorb-title{ font-size:clamp(1.9rem,7vw,2.8rem) !important; max-width:none !important; }
   .sorb-v4 .sorb-sub{ font-size:1.02rem !important; }
@@ -4292,13 +4292,13 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 #courses .cls-card-lsf .cls-card-chevron{background:rgba(20,28,60,.08) !important; color:#1a1f3a !important;}
 
 /* ============================================================
-   ADDITIONS (homepage rebuild) — neon CTA, Sorbonne v2 polish,
+   ADDITIONS (homepage rebuild) — neon CTA, Method v2 polish,
    eTeacher neon backdrop, placement test premium card v2.
    ============================================================ */
 
 /* neon CTA removed per user request */
 
-/* --- Sorbonne fold v2 polish (DARK on LIGHT beige bg) --- */
+/* --- Method fold v2 polish (DARK on LIGHT beige bg) --- */
 .sorb.sorb-v4 > .wrap{max-width:1440px !important;}
 .sorb.sorb-v4 .sorb-cred{max-width:1380px !important;}
 .sorb.sorb-v4 .sorb-cred-lab-hi{display:block;text-align:center;font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;
@@ -4371,7 +4371,7 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 }
 
 /* ============================================================
-   SORBONNE DESKTOP REFRESH — larger cards, bigger text,
+   Method DESKTOP REFRESH — larger cards, bigger text,
    premium citation rail, kill stray neon decorations
    (overrides previous v4 styles above)
    ============================================================ */
@@ -4426,7 +4426,7 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
   }
 }
 
-/* Kill any stray decorative neon line / separator above the Sorbonne footer */
+/* Kill any stray decorative neon line / separator above the Method footer */
 .sorb-v4 .sorb-cred::before,
 .sorb-v4 .sorb-cred::after,
 .sorb-v4 .sorb-principles ~ *::before:not(.sorb-cite):not(.sorb-cite-yr){
@@ -4604,7 +4604,7 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
 }
 
 /* ============================================================
-   SORBONNE — PREMIUM NAVY CARD REDESIGN (desktop)
+   Method — PREMIUM NAVY CARD REDESIGN (desktop)
    Override the cream cards with deep-navy editorial cards
    ============================================================ */
 @media (min-width: 861px){
@@ -4926,7 +4926,7 @@ section#courses .cls-card-lsf .cls-card-eyebrow{
    ============================================================ */
 #culture .pillar video{will-change:transform;backface-visibility:hidden;transform:translateZ(0);}
 
-/* Mobile Sorbonne H2 — proper hierarchy size */
+/* Mobile Method H2 — proper hierarchy size */
 @media (max-width:720px){
   #method-fold.s5 .s5-head{max-width:100% !important;padding:0 .25rem;}
   #method-fold.s5 .s5-title{

@@ -32,7 +32,7 @@ Generated after QA on desktop (1440px) and mobile (390px).
 | Page | Status | Key work |
 |------|--------|----------|
 | **acadomia.html** | ✅ Reframed | Full prestige-institute reframe (see above). Zero kids/tutoring language. |
-| **method.html** | ✅ Enriched | New dark **"Science Beneath the Atelier"** fold: 5 click-to-open methodological pillars (Action-Oriented Approach, Real Scenarios & Tasks, Four Modes of Communication, Communicative+Eclectic Instruction, Plurilingual/Pluricultural Competence), each with a scholarly quote + real citation. New `.method-sources` block with 4 real links + explicit **"not affiliated with, nor an official partner of, the Sorbonne"** disclaimer. Accordion JS wired (inline, single-open) and verified working. |
+| **method.html** | ✅ Enriched | New dark **"Science Beneath the Atelier"** fold: 5 click-to-open methodological pillars (Action-Oriented Approach, Real Scenarios & Tasks, Four Modes of Communication, Communicative+Eclectic Instruction, Plurilingual/Pluricultural Competence), each with a scholarly quote + real citation. New `.method-sources` block with 4 real links + explicit **"not affiliated with, nor an official partner of, the method"** disclaimer. Accordion JS wired (inline, single-open) and verified working. |
 | **pricing.html** | ✅ Fixed | Premium **2-plan** layout confirmed: Annual $42/wk ($840 / 20 lessons × 85 min) + Monthly $56/wk, groups 8–10, CEFR A1/A2 by ACADOMIA. Updated stale meta description (was "from $39/week, Three plans" → now "$42/week, Two plans"). Fixed mobile overflow: pricing grid now collapses 2-col → 1-col at ≤720px. |
 | **contact.html** | ✅ Fixed | Quick-links 3-column grid converted to responsive `auto-fit/minmax(240px)` so it stacks cleanly on mobile (was overflowing at 773px). advisor@eTeacherGroup.com + advisor form intact. |
 | **teachers.html** | ✅ Verified | All 8 teacher bios (Caitlin/Strasbourg, Carmèle/Paris, Charline/Paris, Corentin/Pau, Iris/Lyon, Philippe/West Paris, Shanice/Montpellier, Stan/Nice) + 4 YouTube video embeds present and rendering correctly on desktop & mobile. |
@@ -41,7 +41,7 @@ Generated after QA on desktop (1440px) and mobile (390px).
 | **map.html** | ✅ Verified | Interactive maplibre-gl France journey renders cleanly. No overflow. |
 | **how-it-works.html** | ✅ Verified | "These are not tutors. They are cultural guides…" framing intact. No overflow. |
 | **faq.html** | ✅ Verified | FAQ accordion functional. No overflow. |
-| **about.html** | ✅ Verified | Sorbonne mention is "grounded in research" (text-trust only). No overflow. |
+| **about.html** | ✅ Verified | method mention is "grounded in research" (text-trust only). No overflow. |
 | **capsules.html** | ✅ Verified | No overflow. |
 | **courses.html** | ✅ Verified | Links to all **7 courses** (fa-foundation/beginner/elementary/intermediate, lsf-foundation/beginner/elementary) matching `data/courses_geo.json`. No overflow. |
 
@@ -49,15 +49,15 @@ Generated after QA on desktop (1440px) and mobile (390px).
 
 ---
 
-## Sorbonne handling (compliance)
-- All Sorbonne references are framed as **"grounded in / built upon the tradition / research"** — **text trust only**.
-- **No Sorbonne logo. No partnership claim.**
-- method.html carries the explicit disclaimer: *"The French Atelier is built upon the Sorbonne applied-linguistics tradition and the CEFR. It is not affiliated with, nor an official partner of, the Sorbonne."*
+## method handling (compliance)
+- All method references are framed as **"grounded in / built upon the tradition / research"** — **text trust only**.
+- **No method logo. No partnership claim.**
+- method.html carries the explicit disclaimer: *"The French Atelier is built upon the method applied-linguistics tradition and the CEFR. It is not affiliated with, nor an official partner of, the method."*
 
 ## Real source links used (method.html)
 - Piccardo & North (2019), *The Action-Oriented Approach* — https://channelviewpublications.wordpress.com/2019/07/31/what-is-the-action-oriented-approach-to-language-education/
 - Council of Europe / ECML, *CEFR Companion Volume* — https://www.ecml.at/
-- Sorbonne Nouvelle – Paris 3, Master in Applied Linguistics — https://www.sorbonne-nouvelle.fr/master-applied-linguistics-868627.kjsp
+- method Nouvelle – Paris 3, Master in Applied Linguistics — https://www.method-nouvelle.fr/master-applied-linguistics-868627.kjsp
 - CASLT, Action-Oriented Approach overview — https://www.caslt.org/en/in-the-classroom/aoa/
 
 ---

@@ -285,7 +285,7 @@ def faq_html(c):
          + " Recordings are available so you never miss a step.</p>"),
         ("Do I receive a certificate?",
          "<p>Yes. On completion you receive a CEFR-aligned certificate of achievement issued by Acadomia, France's #1 private learning institute. "
-         "Our framework follows the same Common European levels recognised across French academia and employers — the standard of reference used by institutions including the Sorbonne.</p>"),
+         "Our framework follows the same Common European levels recognised across French academia and employers — the international standard of reference.</p>"),
         ("Who is behind The French Atelier?",
          "<p>The French Atelier is presented by <strong>Acadomia</strong> — founded in 1989 and France's #1 private learning institute — in partnership with the <strong>eTeacher</strong> award-winning live online learning platform. "
          "You learn from native, certified French teachers, supported around the clock by Juliane, our 24/7 AI tutor.</p>"),
@@ -374,7 +374,7 @@ def trust_banner(c, variant=1):
       </div>
       <div class="cp-trust-item reveal reveal-d2">
         <div class="tnum">CEFR</div>
-        <div class="tlabel"><strong>Internationally recognised</strong> levels — the standards used across French academia, including the Sorbonne.</div>
+        <div class="tlabel"><strong>Internationally recognised</strong> levels — the standards used across French academia.</div>
       </div>
     </div>
   </div>'''

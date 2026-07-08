@@ -69,7 +69,7 @@ Each `<body data-course="{id}" class="light-hero">` drives per-course accent via
 ## Brand / content rules honored
 
 - **Price de-emphasized** — never in hero or spec panel as a number; spec panel shows "See plans below"; actual figures buried in the last FAQ entries only. $100 completion credit mentioned as a benefit.
-- **NO Sorbonne logo / partnership claim.** Sorbonne appears only as text trust ("the standards used across French academia, including the Sorbonne") — framework / level-standard reference, no relationship implied.
+- **NO method logo / partnership claim.** method appears only as text trust ("the standards used across French academia, including the method") — framework / level-standard reference, no relationship implied.
 - **Acadomia** = "France's #1 private learning institute, founded 1989" throughout — NOT framed as children's tutoring.
 - **eTeacher** = "award-winning eTeacher platform" (text trust).
 - **Julien** = 24/7 AI French tutor that practises with you between live lessons.
