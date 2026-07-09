@@ -715,7 +715,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   14) Method METHOD — principle cards become a swipe rail on mobile,
+   14) SORBONNE METHOD — principle cards become a swipe rail on mobile,
         and citation links become a horizontal rail (not vertical stack).
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
@@ -981,7 +981,7 @@
 
 
 /* ─────────────────────────────────────────────────────────────────
-   17) Method — calm premium pass: less ornament, more hierarchy
+   17) SORBONNE — calm premium pass: less ornament, more hierarchy
    ───────────────────────────────────────────────────────────────── */
 @media (max-width:760px){
   /* Card sizing + breathing room */
@@ -1248,7 +1248,7 @@
     font-weight: 500 !important;
     letter-spacing: -.005em !important;
   }
-  /* Method h2 was tiny (16.8px) — fix specifically */
+  /* Sorbonne h2 was tiny (16.8px) — fix specifically */
   #method-fold h2, #method-fold .s5-title{
     font-size: clamp(2.05rem, 7.6vw, 2.6rem) !important;
     line-height: 1.1 !important;
@@ -1325,7 +1325,7 @@
   .hiw3-arc .han-lvl{ font-size: .74rem !important; }
   .hiw3-arc .han-cap{ font-size: .48rem !important; line-height: 1.12 !important; word-break: keep-all !important; overflow-wrap: normal !important; hyphens: none !important; letter-spacing: .02em !important; white-space: normal !important; }
 
-  /* ---- Method citations — clean stack on mobile ---- */
+  /* ---- SORBONNE citations — clean stack on mobile ---- */
   #method-fold.s5 .s5-cred-list{
     display: flex !important;
     flex-direction: column !important;
@@ -1527,7 +1527,7 @@
   }
 
   /* ============================================================
-     FOLD 3 — Method: compact, refined
+     FOLD 3 — SORBONNE: compact, refined
      ============================================================ */
   #method-fold.s5, .s5 { padding: 4rem 0 3.5rem !important; }
   #method-fold.s5 .s5-wrap { padding: 0 1.15rem !important; }
@@ -2214,7 +2214,7 @@
   #courses .cls-meta-key { font-size: .54rem !important; }
   #courses .cls-card-action { font-size: .65rem !important; padding-top: .5rem !important; margin-top: .5rem !important; }
 
-  /* --- 4. Method / method-fold — compact --- */
+  /* --- 4. SORBONNE / method-fold — compact --- */
   #method-fold, .s5 { padding-top: 1.8rem !important; padding-bottom: 1.6rem !important; }
   #method-fold .s5-cardtitle, .s5 .s5-cardtitle { font-size: 1.1rem !important; }
   #method-fold .s5-card, .s5 .s5-card { padding: 1rem 1.05rem !important; min-height: 0 !important; }

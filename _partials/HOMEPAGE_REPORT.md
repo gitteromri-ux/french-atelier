@@ -25,22 +25,22 @@
   - "Just **8–10**" / Students per Live Group
 - Eyebrow: "Presented by Acadomia".
 
-### 2. BLACK method methodology fold (5 click-to-open pillars)
-- **HTML:** `index.html` lines **715–828** — `<section class="method" id="method-fold" aria-labelledby="method-title">`, inserted **between the courses showcase `</section>` and the Mapstr fold** (Mapstr preserved).
+### 2. BLACK Sorbonne methodology fold (5 click-to-open pillars)
+- **HTML:** `index.html` lines **715–828** — `<section class="sorb" id="method-fold" aria-labelledby="sorb-title">`, inserted **between the courses showcase `</section>` and the Mapstr fold** (Mapstr preserved).
 - Background `#0A0A0C` (the required black). Headline + eyebrow "THE SCIENCE OF OUR METHOD".
-- **5 `.method-pillar` accordion cards** (each a `<button class="method-ph">` head with `aria-expanded` + `aria-controls=method-p1..p5`, body `.method-pbody > .method-pcard`, per-card accent via inline `--pcard-accent`):
+- **5 `.sorb-pillar` accordion cards** (each a `<button class="sorb-ph">` head with `aria-expanded` + `aria-controls=sorb-p1..p5`, body `.sorb-pbody > .sorb-pcard`, per-card accent via inline `--pcard-accent`):
   1. The Action-Oriented Approach — *l'approche actionnelle*
   2. Real Scenarios & Tasks — *situated learning*
   3. Four Modes of Communication — *Reception · Production · Interaction · Mediation*
   4. Communicative + Eclectic Instruction — *with explicit, guided structure*
   5. Plurilingual & Pluricultural Competence — *culture at the core*
 - Each card grounded in `data/method_research.md` with a pull-quote + real source link.
-- **Credibility row** `.method-cred` with 4 real source links:
+- **Credibility row** `.sorb-cred` with 4 real source links:
   - Piccardo & North (2019), *The Action-Oriented Approach*
   - Council of Europe (2020), *CEFR Companion Volume* (ecml.at)
-  - method Nouvelle — Applied Linguistics / Didactique des langues
+  - Sorbonne Nouvelle — Applied Linguistics / Didactique des langues
   - CASLT — Action-Oriented Approach
-- **Disclaimer note** (`.method-cred-note`): "Our method draws on the method tradition of applied linguistics and the CEFR. The French Atelier is independent and **not affiliated with, nor endorsed by, the method**."
+- **Disclaimer note** (`.sorb-cred-note`): "Our method draws on the Sorbonne tradition of applied linguistics and the CEFR. The French Atelier is independent and **not affiliated with, nor endorsed by, the Sorbonne**."
 
 ### 3. Placement-test lead magnet strip (lower-middle)
 - **HTML:** `index.html` lines **1658–1686** — `<section class="lead-magnet bg-ivory" id="placement">`, placed in the lower-middle (before the pricing teaser).
@@ -68,7 +68,7 @@
 New block appended at **lines 1311–1507** (header comment at 1311–1318; rules from 1319). All classes have responsive `@media` breakpoints (≤900 / ≤820 / ≤760 / ≤600px) — grids collapse to single column on mobile.
 
 - **Acadomia:** `.ac-cred`, `.ac-cred-eyebrow`, `.ac-cred-inner`, `.ac-cell`, `.ac-fig`, `.ac-lab`
-- **method fold:** `.method`, `.method-head`, `.method-title`, `.method-sub`, `.method-pillars`, `.method-pillar`, `.method-ph`, `.method-ph-idx`, `.method-ph-name`, `.method-ph-fr`, `.method-ph-ico`, `.method-pbody`, `.method-pcard`, `.method-pull`, `.method-src`, `.method-cred`, `.method-cred-links`, `.method-cred-note` (open state via `.method-pillar.is-open`)
+- **Sorbonne fold:** `.sorb`, `.sorb-head`, `.sorb-title`, `.sorb-sub`, `.sorb-pillars`, `.sorb-pillar`, `.sorb-ph`, `.sorb-ph-idx`, `.sorb-ph-name`, `.sorb-ph-fr`, `.sorb-ph-ico`, `.sorb-pbody`, `.sorb-pcard`, `.sorb-pull`, `.sorb-src`, `.sorb-cred`, `.sorb-cred-links`, `.sorb-cred-note` (open state via `.sorb-pillar.is-open`)
 - **Lead magnet:** `.lead-magnet`, `.lm-card`, `.lm-cover`, `.lm-cover-badge`, `.lm-body`, `.lm-eyebrow`, `.lm-meta`, `.lm-actions`
 - **eTeacher:** `.etg`, `.etg-head`, `.etg-grid`, `.etg-feat`, `.etg-ic`, `.etg-foot`
 
@@ -78,7 +78,7 @@ All colors use existing brand vars (`--navy`, `--pink`, `--terra`, `--gold`/`--g
 
 ## New JS (js/fa.js)
 
-- **method pillar accordion** added at **lines 44–61** (inside the first IIFE, after the worlds accordion, before pillar videos). Single-open behavior: opening one pillar closes siblings; toggles `.is-open` and `aria-expanded`; keyboard-accessible because heads are real `<button>` elements.
+- **Sorbonne pillar accordion** added at **lines 44–61** (inside the first IIFE, after the worlds accordion, before pillar videos). Single-open behavior: opening one pillar closes siblings; toggles `.is-open` and `aria-expanded`; keyboard-accessible because heads are real `<button>` elements.
 - No changes to the existing advisor-modal logic (already present).
 
 ---
@@ -93,7 +93,7 @@ All colors use existing brand vars (`--navy`, `--pink`, `--terra`, `--gold`/`--g
 
 **Desktop (1280×900):**
 - No console or page errors on load.
-- Acadomia strip, eTeacher grid, lead-magnet (real cover image), method fold all render correctly.
+- Acadomia strip, eTeacher grid, lead-magnet (real cover image), Sorbonne fold all render correctly.
 - Pillar accordion: 5 heads detected; click sets `aria-expanded=true`, opens card with pull-quote + source link.
 - Advisor modal: `[data-advisor]` click → `advisor-modal open` (display:flex, card 560px, arrow icon visible); ESC → display:none, `open` removed.
 
@@ -102,9 +102,9 @@ All colors use existing brand vars (`--navy`, `--pink`, `--terra`, `--gold`/`--g
 - Acadomia: 3 cells stack vertically with dividers — true facts, no fake numbers.
 - eTeacher: 6 feature cards single-column, icons render.
 - Lead magnet: cover image, navy body, stacked meta, both CTAs render cleanly.
-- method fold: black bg, 5 pillars stack, first pillar opens (body ~605px) showing card + source citation; credibility row + disclaimer render. No wrapping/contrast issues.
+- Sorbonne fold: black bg, 5 pillars stack, first pillar opens (body ~605px) showing card + source citation; credibility row + disclaimer render. No wrapping/contrast issues.
 
-**Screenshots** saved in `_qa/` (QA scratch): `acadomia.png`, `method_open.png`, `pillar1_open.png`, `leadmagnet.png`, `eteacher.png`, `advisor_modal.png`, `m_leadmagnet.png`, `m2_acadomia.png`, `m2_eteacher.png`, `m3_method.png`.
+**Screenshots** saved in `_qa/` (QA scratch): `acadomia.png`, `sorbonne_open.png`, `pillar1_open.png`, `leadmagnet.png`, `eteacher.png`, `advisor_modal.png`, `m_leadmagnet.png`, `m2_acadomia.png`, `m2_eteacher.png`, `m3_sorbonne.png`.
 
 ---
 
