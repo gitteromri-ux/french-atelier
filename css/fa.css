@@ -963,8 +963,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .advisor-head h3{font-family:var(--serif);font-size:clamp(1.7rem,2.6vw,2.3rem);font-weight:600;line-height:1.08;color:var(--on-light)}
 .advisor-head p{color:var(--on-light-soft);font-size:.96rem;margin:.6rem 0 0;font-weight:300}
 
-.advisor-form{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-.advisor-form .field{display:flex;flex-direction:column;gap:.45rem}
+.advisor-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.1rem}
+.advisor-form input,.advisor-form select{min-width:0}
+.advisor-form .field{display:flex;flex-direction:column;gap:.45rem;min-width:0}
 .advisor-form .field.full{grid-column:1 / -1}
 .advisor-form label{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-light-soft)}
 .advisor-form input,.advisor-form select{
@@ -1024,7 +1025,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 body.modal-open{overflow:hidden}
 
 @media(max-width:680px){
-  .advisor-form{grid-template-columns:1fr}
+  .advisor-form{grid-template-columns:minmax(0,1fr)}
   .advisor-section .advisor-split{grid-template-columns:1fr;gap:2.2rem}
   .advisor-card{padding:2rem 1.5rem}
 }
