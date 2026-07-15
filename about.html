@@ -54,14 +54,14 @@
 .loc-city{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-top:.35rem;line-height:1.05}
 .loc-note{font-size:.86rem;color:var(--on-dark-soft);margin-top:.5rem;max-width:30ch}
 /* ===== Awards strip ===== */
-.award-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+.award-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem;max-width:960px;margin-left:auto;margin-right:auto}
 .award-card{border:1px solid var(--gold-line-soft);padding:2.2rem 1.6rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.7rem;transition:border-color .3s,transform .3s}
 .award-card:hover{border-color:var(--gold-line);transform:translateY(-3px)}
 .award-icon{width:40px;height:40px;color:var(--gold-deep)}
 .award-year{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--gold-deep)}
 .award-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;line-height:1.2;color:var(--on-light)}
 .award-org{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-light-soft)}
-@media(max-width:980px){.pledge-four{grid-template-columns:repeat(2,1fr)}.pledge-four .pf-item:nth-child(2){border-right:none}.pillar-grid-about{grid-template-columns:repeat(2,1fr)}.lead-grid{grid-template-columns:1fr 1fr}.loc-grid{grid-template-columns:1fr 1fr}.award-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:980px){.pledge-four{grid-template-columns:repeat(2,1fr)}.pledge-four .pf-item:nth-child(2){border-right:none}.pillar-grid-about{grid-template-columns:repeat(2,1fr)}.lead-grid{grid-template-columns:1fr 1fr}.loc-grid{grid-template-columns:1fr 1fr}.award-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.pledge-four{grid-template-columns:1fr}.pledge-four .pf-item{border-right:none;border-bottom:1px solid var(--gold-line-soft)}.pillar-grid-about{grid-template-columns:1fr}.lead-grid{grid-template-columns:1fr}.loc-grid{grid-template-columns:1fr}.award-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="css/mobile-fix.css?v=1781381809"></head>
@@ -535,18 +535,12 @@
         <p class="award-org">ACADOMIA · France</p>
       </div>
       <div class="award-card reveal reveal-d1">
-        <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
-        <p class="award-year">2025</p>
-        <h3 class="award-title">Trophée des Passionnés</h3>
-        <p class="award-org">300+ Candidates</p>
-      </div>
-      <div class="award-card reveal reveal-d2">
         <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9S9.5 5.5 12 3z"/></svg>
         <p class="award-year">CEFR</p>
         <h3 class="award-title">A1–C2 Aligned Certification</h3>
         <p class="award-org">Common European Framework</p>
       </div>
-      <div class="award-card reveal reveal-d3">
+      <div class="award-card reveal reveal-d2">
         <svg class="award-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg>
         <p class="award-year">100% Native</p>
         <h3 class="award-title">Certified French Teachers</h3>
