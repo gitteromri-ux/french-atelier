@@ -164,7 +164,7 @@
   /* Poster fallback bg for slow load */
   #culture .pillar{ position: relative; background-color: #0a1128; }
   #culture .pillar:nth-child(1){ background-image: url('../assets/video/pillar-art-poster.jpg'); }
-  #culture .pillar:nth-child(2){ background-image: url('../assets/video/pillar-gastronomy-poster.jpg'); }
+  #culture .pillar:nth-child(2){ background-image: url('../assets/video/wine-tasting-poster.jpg'); }
   #culture .pillar:nth-child(3){ background-image: url('../assets/video/pillar-travel-poster.jpg'); }
   #culture .pillar:nth-child(4){ background-image: url('../assets/video/pillar-fashion-poster.jpg'); }
   #culture .pillar:nth-child(5){ background-image: url('../assets/video/pillar-music-poster.jpg'); }
