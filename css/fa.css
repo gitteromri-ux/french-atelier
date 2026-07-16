@@ -5170,3 +5170,99 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   .enroll-console .ec-title{font-size:.85rem}
   .enroll-console .ec-cta{padding:.55rem .85rem;font-size:.8rem}
 }
+
+/* =====================================================================
+   PREMIUM INTERNAL-PAGE HERO + SECTION PATTERN  (2026 upgrade)
+   Raises internal .page-hero pages to the homepage .hero standard:
+   ~78vh full-bleed image/video, layered dark gradient, eyebrow + gold
+   rule, large serif h1 with italic gold accent, left-aligned, generous
+   padding. Reuses existing :root tokens only. Homepage .hero untouched.
+   Applied via the .page-hero--premium modifier on target pages.
+   ===================================================================== */
+.page-hero.page-hero--premium{
+  min-height:78vh;
+  padding:0;
+  display:flex;
+  align-items:center;
+  background:var(--navy-deep);
+  overflow:hidden;
+}
+/* Full-strength background media (kill the washed opacity:.34) */
+.page-hero--premium .page-hero-bg,
+.page-hero--premium .video-bg,
+.page-hero--premium .hero-bg{
+  position:absolute;inset:0;z-index:0;opacity:1;
+}
+.page-hero--premium .page-hero-bg img,
+.page-hero--premium .hero-bg img,
+.page-hero--premium .page-hero-bg video,
+.page-hero--premium .video-bg video{
+  width:100%;height:100%;object-fit:cover;
+}
+/* Layered cinematic overlay for depth + left-side legibility.
+   Neutralise any older ::after gradients from base classes. */
+.page-hero--premium .page-hero-bg::after,
+.page-hero--premium .video-bg::after,
+.page-hero--premium.page-hero::after{ background:none !important; content:none !important; }
+.page-hero--premium::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(0,0,31,.94) 0%, rgba(0,0,52,.72) 42%, rgba(0,0,31,.40) 74%, rgba(0,0,31,.30) 100%),
+    linear-gradient(180deg, rgba(0,0,31,.55) 0%, rgba(0,0,31,.10) 40%, rgba(0,0,31,.72) 100%),
+    radial-gradient(120% 120% at 12% 62%, rgba(0,0,31,.42), transparent 62%);
+}
+/* Content: left-aligned, generous padding matching homepage rhythm */
+.page-hero--premium .wrap{
+  position:relative;z-index:3;width:100%;
+  max-width:var(--maxw);margin:0 auto;
+  padding-left:clamp(2rem,7vw,7rem);
+  padding-right:clamp(2rem,5vw,4rem);
+  padding-top:clamp(6rem,12vh,9rem);
+  padding-bottom:clamp(3rem,6vh,5rem);
+  display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+}
+.page-hero--premium .wrap>*{max-width:none}
+.page-hero--premium .breadcrumb{margin-bottom:1.6rem;color:var(--on-dark-soft)}
+.page-hero--premium .eyebrow{margin-bottom:1.4rem;color:var(--gold-soft) !important;justify-content:flex-start}
+.page-hero--premium h1{
+  font-family:var(--serif);
+  font-size:clamp(3rem,5.5vw,5rem) !important;
+  line-height:1.05 !important;
+  font-weight:500 !important;
+  letter-spacing:-.012em;
+  color:var(--on-dark);-webkit-text-fill-color:var(--on-dark);
+  margin:0 0 1.6rem;
+  max-width:20ch;
+  text-shadow:0 2px 40px rgba(0,0,20,.35);
+}
+.page-hero--premium h1 .gold-ital,
+.page-hero--premium h1 em{font-style:italic;color:var(--gold-soft);font-weight:500;-webkit-text-fill-color:var(--gold-soft)}
+.page-hero--premium .hero-sub,
+.page-hero--premium .lede{
+  font-size:clamp(1.15rem,1.5vw,1.5rem) !important;
+  color:var(--on-dark-soft) !important;
+  max-width:52ch !important;
+  font-weight:300;
+  line-height:1.6;
+  margin:0 0 2.2rem !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  text-align:left !important;
+}
+.page-hero--premium .btn{margin-top:.4rem}
+
+/* Mobile: full-width padding, tighter type */
+@media (max-width:820px){
+  .page-hero.page-hero--premium{min-height:66vh}
+  .page-hero--premium .wrap{
+    padding-left:1.4rem;padding-right:1.4rem;
+    padding-top:clamp(7rem,20vh,9rem);padding-bottom:2.6rem;
+  }
+  .page-hero--premium h1{font-size:clamp(2.4rem,9vw,3.4rem) !important;max-width:none}
+  .page-hero--premium .hero-sub,
+  .page-hero--premium .lede{font-size:1.05rem !important;max-width:none}
+  .page-hero--premium::before{
+    background:
+      linear-gradient(180deg, rgba(0,0,31,.72) 0%, rgba(0,0,31,.45) 45%, rgba(0,0,31,.88) 100%);
+  }
+}
