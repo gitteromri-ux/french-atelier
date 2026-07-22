@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css?v=1781381809">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
-<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js" defer></script>
 <link rel="stylesheet" href="css/mapstr.css?v=1781381809">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
@@ -126,7 +126,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="nav-logo" href="index.html">
-      <img class="nav-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165">
+      <img class="nav-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" decoding="async">
     </a>
     <nav class="nav-menu" aria-label="Primary">
       <div class="nav-item">
@@ -319,7 +319,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         
-        <img class="footer-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" style="height:54px;width:auto;margin-bottom:.9rem;display:block">
+        <img class="footer-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" style="height:54px;width:auto;margin-bottom:.9rem;display:block" loading="lazy" decoding="async">
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by one of France's leading private education groups.</p>
       </div>
       <div class="footer-col">
@@ -470,7 +470,7 @@
 
   var markers=[], popups=[];
   function makePopupHTML(p){
-    return '<div class="fa-pop-img"><img src="'+p.img+'" alt="'+p.name+'"></div>'+
+    return '<div class="fa-pop-img"><img src="'+p.img+'" alt="'+p.name+'" loading="lazy" decoding="async"></div>'+
       '<div class="fa-pop-body"><p class="fp-region">'+p.region+'</p>'+
       '<h3>'+p.name+'</h3><p>'+p.blurb+'</p>'+
       '<a href="'+p.href+'">'+p.course+' →</a></div>';

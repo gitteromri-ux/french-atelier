@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css?v=1781381809">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css">
-<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js" defer></script>
 <link rel="stylesheet" href="css/mapstr.css?v=1781381809">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <style>
@@ -162,7 +162,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <header class="site-header">
   <div class="wrap nav">
     <a class="nav-logo" href="index.html">
-      <img class="nav-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165">
+      <img class="nav-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" decoding="async">
     </a>
     <nav class="nav-menu" aria-label="Primary">
       <div class="nav-item">
@@ -257,8 +257,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <div class="hero-ctas reveal reveal-d3">
       <a href="contact.html" class="btn btn-gold btn-lg">Talk to an Advisor</a>
       <div class="hero-trustpilot" aria-label="Trustpilot rating">
-        <span class="tp-logo"><img src="assets/logo/trustpilot-logo.svg" alt="Trustpilot"></span>
-        <span class="tp-stars"><img src="assets/logo/trustpilot-stars.svg" alt="5 out of 5 stars on Trustpilot"></span>
+        <span class="tp-logo"><img src="assets/logo/trustpilot-logo.svg" alt="Trustpilot" decoding="async"></span>
+        <span class="tp-stars"><img src="assets/logo/trustpilot-stars.svg" alt="5 out of 5 stars on Trustpilot" decoding="async"></span>
         <span class="tp-rating">Excellent</span>
       </div>
     </div>
@@ -314,7 +314,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- FA 1 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/courses/fa-foundation-1.jpg" alt="FA Foundation — first conversations at a Parisian café" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-foundation-1.jpg" alt="FA Foundation — first conversations at a Parisian café" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A0 &rarr; A1.1</span>
               <h4 class="cls-course-name">FA Foundation</h4>
@@ -326,7 +326,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- FA 2 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/courses/fa-beginner-1.jpg" alt="FA Beginner — daily life from Normandy to Paris" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-beginner-1.jpg" alt="FA Beginner — daily life from Normandy to Paris" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.1 &rarr; A1.2</span>
               <h4 class="cls-course-name">FA Beginner</h4>
@@ -338,7 +338,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- FA 3 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/courses/fa-elementary-1.jpg" alt="FA Elementary — from the Loire to the Basque Country" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-elementary-1.jpg" alt="FA Elementary — from the Loire to the Basque Country" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.2 &rarr; A2.1</span>
               <h4 class="cls-course-name">FA Elementary</h4>
@@ -350,7 +350,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- FA 4 -->
           <article class="cls-course cls-course-fa">
-            <div class="cls-course-media"><img src="assets/courses/fa-intermediate-1.jpg" alt="FA Intermediate — Marseille, Chamonix and Alsace" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/fa-intermediate-1.jpg" alt="FA Intermediate — Marseille, Chamonix and Alsace" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A2.1 &rarr; A2.2</span>
               <h4 class="cls-course-name">FA Intermediate</h4>
@@ -377,7 +377,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- LSF 1 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/courses/lsf-foundation-1.jpg" alt="LSF Foundation — speak from your very first session" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-foundation-1.jpg" alt="LSF Foundation — speak from your very first session" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A0 &rarr; A1.1</span>
               <h4 class="cls-course-name">LSF Foundation</h4>
@@ -389,7 +389,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- LSF 2 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/courses/lsf-beginner-1.jpg" alt="LSF Beginner — the practical situations of daily French life" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-beginner-1.jpg" alt="LSF Beginner — the practical situations of daily French life" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.1 &rarr; A1.2</span>
               <h4 class="cls-course-name">LSF Beginner</h4>
@@ -401,7 +401,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
           <!-- LSF 3 -->
           <article class="cls-course cls-course-lsf">
-            <div class="cls-course-media"><img src="assets/courses/lsf-elementary-1.jpg" alt="LSF Elementary — cultural and professional life in French" loading="lazy"></div>
+            <div class="cls-course-media"><img src="assets/courses/lsf-elementary-1.jpg" alt="LSF Elementary — cultural and professional life in French" loading="lazy" decoding="async"></div>
             <div class="cls-course-body">
               <span class="cls-course-level">A1.2 &rarr; A2.1</span>
               <h4 class="cls-course-name">LSF Elementary</h4>
@@ -863,7 +863,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <!-- ===== ACADOMIA BLACK POWER STRIP (numbers + partner logos, like the LP) ===== -->
 <section class="ac-power" id="acadomia-power">
   <div class="wrap">
-    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48">
+    <img class="ac-power-logo reveal" src="assets/logo/acadomia-blue.png" alt="Acadomia" width="160" height="48" loading="lazy" decoding="async">
     <p class="ac-power-eyebrow reveal">Presented by <span>Acadomia</span></p>
     <h2 class="ac-power-head ac-power-head-oneline reveal reveal-d1">One of France&rsquo;s <em>leading</em> private education groups.</h2>
     <div class="ac-power-figs reveal reveal-d2">
@@ -873,16 +873,16 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     </div>
     <div class="ac-power-marquee reveal reveal-d3" aria-label="Acadomia partners">
       <div class="ac-marquee-track">
-        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy">
-        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/partners/white/fft.png" alt="Fédération Française de Tennis" loading="lazy" decoding="async">
+        <img src="assets/partners/white/ffgolf.png" alt="Fédération Française de Golf" loading="lazy" decoding="async">
+        <img src="assets/partners/white/grandprix.png" alt="Grand Prix" loading="lazy" decoding="async">
+        <img src="assets/partners/white/tonyparker.png" alt="Tony Parker Academy" loading="lazy" decoding="async">
+        <img src="assets/partners/white/capital.png" alt="Capital" loading="lazy" decoding="async">
+        <img src="assets/partners/white/fft.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img src="assets/partners/white/ffgolf.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img src="assets/partners/white/grandprix.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img src="assets/partners/white/tonyparker.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img src="assets/partners/white/capital.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -923,31 +923,31 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- LARGE PORTRAIT GALLERY — all 7 teachers -->
     <div class="fac-gallery reveal reveal-d2">
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/iris.jpg" alt="Iris Linza, French teacher from Lyon" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/iris.jpg" alt="Iris Linza, French teacher from Lyon" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Iris Linza</p><span class="fac-region">Lyon</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/stan.jpg" alt="Stan, French teacher from Nice" loading="lazy" width="600" height="800"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/stan.jpg" alt="Stan, French teacher from Nice" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Stan</p><span class="fac-region">Nice</span></div>
       </a>
     </div><!-- /fac-gallery -->
@@ -1037,7 +1037,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <!-- Julien — transparent character cutout emerging from the navy section -->
     <div class="reveal jul-cutout-wrap">
       <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-336-poster.webp" width="1024" height="1536" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.webp" alt="Julien, the French Atelier 24/7 AI French tutor"></video>
+      <video id="jul-home-video" class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-336-poster.webp" width="1024" height="1536" aria-label="Julien, the French Atelier 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-336.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.webp" alt="Julien, the French Atelier 24/7 AI French tutor" loading="lazy" decoding="async"></video>
       <audio id="jul-home-audio" preload="auto" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
       <button id="jul-home-sound-btn" class="jul-home-sound" type="button" aria-label="Hear Julien introduce himself in French" aria-pressed="false">
         <svg class="jhs-icon-mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1157,11 +1157,11 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     </div>
     <div class="tst-stage">
       <div class="tst-track reveal reveal-d1">
-        <article class="tst-card"><img src="assets/testimonials/testimonial-1.png" alt="Chaffee Kurt — It has been fun, good materials, an excellent teacher, and a learning environment." loading="lazy" width="380" height="500"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-2.png" alt="Freddie Deckow — I have received teaching over and above what I expected." loading="lazy" width="380" height="500"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-3.png" alt="McCollin John — A well structured and systematic course delivering high value content." loading="lazy" width="380" height="500"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-4.png" alt="Nieuwenhuize Yaacov — I never would have thought it would be so good." loading="lazy" width="380" height="500"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-5.png" alt="Glumac Biljana — Our teacher is really great. Looking forward to the next lessons." loading="lazy" width="380" height="500"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-1.png" alt="Chaffee Kurt — It has been fun, good materials, an excellent teacher, and a learning environment." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-2.png" alt="Freddie Deckow — I have received teaching over and above what I expected." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-3.png" alt="McCollin John — A well structured and systematic course delivering high value content." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-4.png" alt="Nieuwenhuize Yaacov — I never would have thought it would be so good." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-5.png" alt="Glumac Biljana — Our teacher is really great. Looking forward to the next lessons." loading="lazy" width="380" height="500" decoding="async"></article>
       </div>
     </div>
     <p class="tst-source">From learners of French Atelier by Acadomia</p>
@@ -1173,7 +1173,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   <div class="wrap">
 
     <div class="etg2-head reveal">
-      <img class="etg2-brand-logo" src="assets/logo/eteacher-group.png" alt="eTeacher Group" width="140" height="40">
+      <img class="etg2-brand-logo" src="assets/logo/eteacher-group.png" alt="eTeacher Group" width="140" height="40" loading="lazy" decoding="async">
       <h2 class="display-sm" style="margin-top:1rem">One <em class="gold-ital">award-winning</em> learning platform</h2>
       <p class="lede lede-c" style="max-width:58ch;margin:1rem auto 0">French Atelier runs on eTeacher Group's world-class live language platform — trusted by over a million learners across 190+ countries since 2002.</p>
     </div>
@@ -1316,7 +1316,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <div class="lm-card reveal">
       <div class="lm-cover">
         <span class="lm-cover-badge">Free &middot; 5 minutes</span>
-        <img src="assets/gen/hero-paris.webp" alt="A Parisian rooftop at golden hour — begin your French journey" loading="lazy" onerror="this.style.display='none'">
+        <img src="assets/gen/hero-paris.webp" alt="A Parisian rooftop at golden hour — begin your French journey" loading="lazy" onerror="this.style.display='none'" decoding="async">
       </div>
       <div class="lm-body">
         <p class="eyebrow eyebrow-line lm-eyebrow">Find Your Level</p>
@@ -1507,7 +1507,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <div class="footer-top">
       <div class="footer-brand">
         
-        <img class="footer-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" style="height:54px;width:auto;margin-bottom:.9rem;display:block">
+        <img class="footer-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" style="height:54px;width:auto;margin-bottom:.9rem;display:block" loading="lazy" decoding="async">
         <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by one of France's leading private education groups.</p>
       </div>
       <div class="footer-col">

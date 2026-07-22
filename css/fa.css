@@ -4058,52 +4058,48 @@ section h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 .etg3-card.etg3-skyblue h3{ color:#0F2447 !important; }
 .etg3-card.etg3-skyblue p{ color:rgba(15,36,71,.85) !important; }
 
-/* ===== HERO CTA — neon LIGHT BLUE (homepage only) — refined proportion ===== */
+/* ===== HERO CTA — brand GOLD (homepage only) — refined luxury proportion ===== */
 body.home .hero .btn-gold,
 body.home .hero-ctas .btn-gold{
-  background:linear-gradient(135deg,#5EC8FF 0%,#3FA8F0 50%,#1F86D6 100%) !important;
-  color:#FFFFFF !important;
+  background:linear-gradient(135deg,#F3DFA6 0%,#D9B45A 45%,#B8862F 100%) !important;
+  color:#1A1205 !important;
   font-size:.84rem !important;
   padding:1.05rem 2.2rem !important;
   letter-spacing:.18em !important;
   font-weight:700 !important;
-  border:1px solid rgba(220,240,255,.7) !important;
+  border:1px solid rgba(243,223,166,.75) !important;
   box-shadow:
-    0 0 0 1px rgba(170,220,255,.35),
-    0 0 22px rgba(95,200,255,.65),
-    0 0 48px rgba(95,200,255,.45),
-    0 0 90px rgba(63,168,240,.35),
-    inset 0 1px 0 rgba(255,255,255,.55) !important;
-  text-shadow:0 1px 2px rgba(10,30,60,.55), 0 0 12px rgba(95,200,255,.4) !important;
-  animation:neonPulse 2.6s ease-in-out infinite !important;
+    0 0 0 1px rgba(217,180,90,.35),
+    0 10px 30px rgba(184,134,47,.35),
+    0 0 48px rgba(217,180,90,.28),
+    inset 0 1px 0 rgba(255,248,225,.6) !important;
+  text-shadow:0 1px 1px rgba(255,246,220,.5) !important;
+  animation:neonPulse 3.2s ease-in-out infinite !important;
 }
 body.home .hero .btn-gold:hover,
 body.home .hero-ctas .btn-gold:hover{
-  background:linear-gradient(135deg,#7AD4FF 0%,#4FB3F4 50%,#2C95E2 100%) !important;
+  background:linear-gradient(135deg,#F8E9BE 0%,#E4C069 45%,#C6952F 100%) !important;
   transform:translateY(-2px) !important;
   box-shadow:
-    0 0 0 1px rgba(200,235,255,.55),
-    0 0 30px rgba(95,200,255,.85),
-    0 0 65px rgba(95,200,255,.6),
-    0 0 120px rgba(63,168,240,.45),
-    inset 0 1px 0 rgba(255,255,255,.6) !important;
+    0 0 0 1px rgba(243,223,166,.55),
+    0 14px 40px rgba(184,134,47,.45),
+    0 0 70px rgba(217,180,90,.4),
+    inset 0 1px 0 rgba(255,250,232,.65) !important;
 }
 @keyframes neonPulse{
   0%,100%{
     box-shadow:
-      0 0 0 1px rgba(170,220,255,.35),
-      0 0 22px rgba(95,200,255,.55),
-      0 0 48px rgba(95,200,255,.4),
-      0 0 90px rgba(63,168,240,.3),
-      inset 0 1px 0 rgba(255,255,255,.55);
+      0 0 0 1px rgba(217,180,90,.32),
+      0 10px 30px rgba(184,134,47,.32),
+      0 0 42px rgba(217,180,90,.24),
+      inset 0 1px 0 rgba(255,248,225,.6);
   }
   50%{
     box-shadow:
-      0 0 0 1px rgba(200,235,255,.55),
-      0 0 32px rgba(95,200,255,.85),
-      0 0 70px rgba(95,200,255,.65),
-      0 0 130px rgba(63,168,240,.45),
-      inset 0 1px 0 rgba(255,255,255,.65);
+      0 0 0 1px rgba(243,223,166,.5),
+      0 12px 38px rgba(184,134,47,.42),
+      0 0 64px rgba(217,180,90,.4),
+      inset 0 1px 0 rgba(255,250,232,.68);
   }
 }
 /* Trustpilot block: transparent, larger, right of CTA — order: Logo > Stars > Excellent */
@@ -5081,11 +5077,11 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   align-items:center;
   gap:.8rem;
   padding:.85rem 1.15rem .85rem 1rem;
-  background:linear-gradient(135deg,rgba(8,14,43,.92) 0%,rgba(28,52,98,.92) 60%,rgba(56,96,160,.92) 100%);
-  border:1px solid rgba(167,201,235,.55);
+  background:linear-gradient(135deg,rgba(5,12,34,.94) 0%,rgba(10,20,50,.94) 60%,rgba(18,30,64,.94) 100%);
+  border:1px solid rgba(217,180,90,.5);
   border-radius:18px;
   color:#fff;
-  box-shadow:0 12px 36px rgba(8,14,43,.45), 0 0 0 1px rgba(167,201,235,.12) inset;
+  box-shadow:0 12px 36px rgba(5,12,34,.5), 0 0 0 1px rgba(217,180,90,.14) inset;
   backdrop-filter:blur(14px) saturate(150%);
   -webkit-backdrop-filter:blur(14px) saturate(150%);
   transform:translateY(0);
@@ -5098,19 +5094,19 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   inset:-1px;
   border-radius:18px;
   pointer-events:none;
-  background:linear-gradient(135deg,rgba(167,201,235,.45),rgba(167,201,235,0) 55%);
+  background:linear-gradient(135deg,rgba(217,180,90,.4),rgba(217,180,90,0) 55%);
   opacity:.7;
   mix-blend-mode:overlay;
 }
 .enroll-console .ec-dot{
   width:8px;height:8px;border-radius:50%;
-  background:#7fc4ff;
-  box-shadow:0 0 0 4px rgba(127,196,255,.18), 0 0 12px rgba(127,196,255,.7);
+  background:#E4C069;
+  box-shadow:0 0 0 4px rgba(217,180,90,.18), 0 0 12px rgba(217,180,90,.7);
   animation:ec-pulse 2.4s ease-in-out infinite;
 }
 @keyframes ec-pulse{
-  0%,100%{box-shadow:0 0 0 4px rgba(127,196,255,.18),0 0 10px rgba(127,196,255,.55)}
-  50%{box-shadow:0 0 0 7px rgba(127,196,255,.05),0 0 18px rgba(127,196,255,.95)}
+  0%,100%{box-shadow:0 0 0 4px rgba(217,180,90,.18),0 0 10px rgba(217,180,90,.55)}
+  50%{box-shadow:0 0 0 7px rgba(217,180,90,.05),0 0 18px rgba(217,180,90,.95)}
 }
 .enroll-console .ec-text{display:flex;flex-direction:column;line-height:1.15}
 .enroll-console .ec-eyebrow{
@@ -5118,7 +5114,7 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   font-style:italic;
   font-size:.72rem;
   letter-spacing:.06em;
-  color:#cfe1f5;
+  color:#E8D6A8;
 }
 .enroll-console .ec-title{
   font-size:.95rem;
@@ -5130,30 +5126,30 @@ section[id]:not(.hero):not(#mapstr):not([id="hero"]){padding-top:4rem}
   margin-left:.4rem;
   padding:.6rem 1.05rem;
   border-radius:999px;
-  background:linear-gradient(180deg,#a7c9eb 0%,#7fb0e0 100%);
-  color:#0b1736;
-  font-weight:600;
+  background:linear-gradient(135deg,#F3DFA6 0%,#D9B45A 50%,#B8862F 100%);
+  color:#1A1205;
+  font-weight:700;
   font-size:.86rem;
   letter-spacing:.02em;
   text-decoration:none;
-  border:1px solid rgba(255,255,255,.4);
-  box-shadow:0 4px 14px rgba(127,176,224,.45);
+  border:1px solid rgba(243,223,166,.55);
+  box-shadow:0 4px 14px rgba(184,134,47,.4);
   white-space:nowrap;
   transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
 .enroll-console .ec-cta:hover{
   transform:translateY(-1px);
   filter:brightness(1.05);
-  box-shadow:0 6px 18px rgba(127,176,224,.7);
+  box-shadow:0 6px 18px rgba(184,134,47,.6);
 }
 .enroll-console .ec-close{
   position:absolute;
   top:-9px;right:-9px;
   width:22px;height:22px;
   border-radius:50%;
-  background:#0b1736;
-  border:1px solid rgba(167,201,235,.55);
-  color:#cfe1f5;
+  background:#050C22;
+  border:1px solid rgba(217,180,90,.5);
+  color:#E8D6A8;
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;line-height:1;
   cursor:pointer;
