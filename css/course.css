@@ -213,11 +213,16 @@ img,video{max-width:100%}
 .testi-card .stars svg{width:18px;height:18px;fill:var(--gold)}
 .testi-card blockquote{font-family:var(--serif);font-size:1.25rem;line-height:1.4;margin:0 0 1.3rem;font-style:italic}
 .on-dark .testi-card blockquote{color:var(--on-dark)}
+/* light glass cards must keep dark text even inside on-dark sections */
+.on-dark .testi-card.glass-light blockquote{color:var(--on-light)}
+.on-dark .testi-card.glass-light .who .nm{color:var(--on-light)}
+.on-dark .testi-card.glass-light .who .rl{color:var(--on-light-soft)}
 .testi-card .who{display:flex;align-items:center;gap:.8rem}
 .testi-card .who .av{width:44px;height:44px;border-radius:50%;object-fit:cover}
 .testi-card .who .nm{font-weight:600;font-size:.95rem}
 .testi-card .who .rl{font-size:.78rem;color:var(--on-light-soft)}
 .on-dark .testi-card .who .rl{color:var(--on-dark-soft)}
+.on-dark .testi-card.glass-light .who .rl{color:var(--on-light-soft)}
 
 /* =====================================================================
    PRICING
