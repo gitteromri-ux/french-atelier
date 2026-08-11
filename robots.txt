@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /_partials/
+Disallow: /downloads/
+Disallow: /data/
+
+Sitemap: https://www.frenchatelierlive.com/sitemap.xml
