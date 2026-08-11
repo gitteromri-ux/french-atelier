@@ -34,6 +34,13 @@ html,body{overflow-x:hidden !important;max-width:100vw}
     font-size:.85rem !important;letter-spacing:.12em !important
   }
   html body .nav-drawer .drawer-group-label{font-size:.8rem !important;letter-spacing:.18em !important}
+  /* Targeted floor for pricing-table + plan-card micro-copy found in audit */
+  html body .plan-eyebrow,html body .plan-badge,html body .bd-th,html body .bd-td,
+  html body .plan-includes-label,html body .plan-includes li,html body .price-card ul li,
+  html body .plan-card ul li,html body table th,html body table td,
+  html body .bd-plan,html body .bd-save,html body .bd-save-0{
+    font-size:.85rem !important;line-height:1.4 !important
+  }
   /* Headings sized to the homepage-standard scale but mobile-tuned */
   h1,.display-xl,.display-lg{font-size:clamp(2.4rem,10vw,3.6rem) !important;line-height:1.02 !important}
   h2,.display-md{font-size:clamp(2rem,7vw,2.8rem) !important;line-height:1.05 !important}
@@ -235,3 +242,17 @@ html,body{overflow-x:hidden !important;max-width:100vw}
 
 /* ---------- 18. Print / performance safety ---------- */
 @media print{.nav,.site-header,.site-footer,.footer,.mobile-drawer{display:none !important}}
+
+/* ---------- FINAL HARD FLOOR (appended last, wins all cascade ties) ---------- */
+@media (max-width:760px){
+  html body :where(p,li,dd,dt,label,span,small,em,strong,a,button,td,th,div,figcaption){
+    font-size:max(13px,1em) !important;
+  }
+  /* Restore intended large sizes explicitly so the floor above never shrinks headings/prices */
+  html body :where(h1,.display-xl,.display-lg){font-size:clamp(2.4rem,10vw,3.6rem) !important}
+  html body :where(h2,.display-md){font-size:clamp(2rem,7vw,2.8rem) !important}
+  html body :where(h3,.display-sm){font-size:clamp(1.5rem,5vw,2rem) !important}
+  html body .plan-price,html body .pc-amt{font-size:3.2rem !important}
+  html body .plan-per,html body .pc-amt small{font-size:1rem !important}
+  html body .hero-sub,html body .lede,html body p.lede{font-size:1.0625rem !important}
+}
