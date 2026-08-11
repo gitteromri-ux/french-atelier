@@ -23,9 +23,14 @@ html,body{overflow-x:hidden !important;max-width:100vw}
   [style*="font-size:.6"], [style*="font-size:.5"], [style*="font-size:.7"]{font-size:.85rem !important}
   .hm-k,.stat-label,.hiw3-kick,.tl-label,.hiw3-kick-final,.sc-label,.m-k,.cc-eyebrow{font-size:.82rem !important;letter-spacing:.14em !important}
   .breadcrumb{font-size:.85rem !important}
-  /* Hard floor: ANY eyebrow/label/tag/badge class anywhere, regardless of specificity */
-  .eyebrow,.eyebrow-line,.cs-tag,.cin-kicker,.legal-toc-label,.sec-num,
-  .drawer-group-label,.fa-sound-txt,.jul-sound-label,.ss-label{
+  /* Hard floor: ANY eyebrow/label/tag/badge class anywhere, regardless of specificity.
+     Boosted selector specificity (html body .class) to beat any other !important same-specificity rule
+     loaded earlier in the cascade (mobile-fix.css uses bare .eyebrow{...!important}). */
+  html body .eyebrow,html body .eyebrow-line,html body .cs-tag,html body .cin-kicker,
+  html body .legal-toc-label,html body .sec-num,html body .drawer-group-label,
+  html body .fa-sound-txt,html body .jul-sound-label,html body .ss-label,
+  html body .h-badge,html body .apf-lab,html body .cc-eyebrow,html body .cf-meta,
+  html body section .eyebrow,html body .hero .eyebrow,html body #courses .eyebrow{
     font-size:.85rem !important;letter-spacing:.12em !important
   }
   /* Headings sized to the homepage-standard scale but mobile-tuned */
