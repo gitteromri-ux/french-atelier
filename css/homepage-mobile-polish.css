@@ -33,6 +33,7 @@ html,body{overflow-x:hidden !important;max-width:100vw}
   html body section .eyebrow,html body .hero .eyebrow,html body #courses .eyebrow{
     font-size:.85rem !important;letter-spacing:.12em !important
   }
+  html body .nav-drawer .drawer-group-label{font-size:.8rem !important;letter-spacing:.18em !important}
   /* Headings sized to the homepage-standard scale but mobile-tuned */
   h1,.display-xl,.display-lg{font-size:clamp(2.4rem,10vw,3.6rem) !important;line-height:1.02 !important}
   h2,.display-md{font-size:clamp(2rem,7vw,2.8rem) !important;line-height:1.05 !important}
