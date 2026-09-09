@@ -2600,3 +2600,8 @@
   html body span.gi{ color:#8C7040 !important; }
   html body .on-dark span.gi, html body [class*="navy"] span.gi, html body .hero span.gi{ color:#D8BC85 !important; }
 }
+
+/* pass 5: breadcrumb must clear the fixed header on internal heroes */
+@media (max-width:760px){
+  html body .page-hero .breadcrumb, html body .page-hero--premium .breadcrumb, html body .breadcrumb{ margin-top:2.4rem !important; display:block !important; position:relative !important; z-index:2 !important; font-size:12.5px !important; }
+}
