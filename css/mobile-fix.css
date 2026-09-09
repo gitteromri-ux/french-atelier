@@ -2591,3 +2591,12 @@
   :is(.bg-ivory,.bg-paper,.bg-white) p[style*="BEA37B"], :is(.bg-ivory,.bg-paper,.bg-white) span.gi{ color:#8C7040 !important; }
   .price-card.glass-light .btn-outline, .price-card.alt .btn-outline, .bg-white .btn-outline{ color:#8C7040 !important; border-color:#8C7040 !important; }
 }
+
+/* ---------- MOBILE FINAL 2026-09-10 (pass 4): label floor at ID specificity, capsule gold ---------- */
+@media (max-width:760px){
+  html body #teachers .fac-region, html body #lead-form label, html body #lead-form .lg-eyebrow, html body #placement .han-cap,
+  html body #julien-fold .jul-cutout-badge, html body .fac-region, html body label, html body .han-cap, html body .lg-eyebrow,
+  html body .jul-cutout-badge, html body .ts-label, html body .tl-tag, html body .jul-drill-tag, html body .sc-recap{ font-size:12.5px !important; line-height:1.35 !important; }
+  html body span.gi{ color:#8C7040 !important; }
+  html body .on-dark span.gi, html body [class*="navy"] span.gi, html body .hero span.gi{ color:#D8BC85 !important; }
+}
