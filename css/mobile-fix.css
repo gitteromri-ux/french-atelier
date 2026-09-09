@@ -2573,7 +2573,10 @@
 @media (max-width:760px){
   /* Placement fold is a light fold */
   #placement, .lead-magnet{ background:var(--paper,#f7f3ea) !important; }
-  #placement h2, #placement .lede, #placement p{ color:#1A1E33 !important; }
+  #placement .lm-card, #placement .lm-body{ background:#00001F !important; }
+  #placement .lm-body h2, #placement .lm-body p, #placement .lm-body .lede, #placement .lm-body li{ color:#F3EEE3 !important; }
+  #placement .lm-body .gold-ital, #placement .lm-body em, #placement .lm-body .eyebrow{ color:#D8BC85 !important; }
+  .bg-ivory span.gi, .bg-paper span.gi, .capsule-intro .gi{ color:#8C7040 !important; }
   /* Rails must run horizontally (earlier generic rules force column) */
   .stat-strip, .acad-stat-row, .ladder, .jul-timeline, .reveal.reveal-d1:has(> .stat){ flex-direction:row !important; align-items:stretch !important; }
   .stat-strip > .ss-item, .acad-stat-row > .asr-item{ padding:1.4rem 1rem !important; border:1px solid rgba(200,165,96,.18) !important; border-radius:10px !important; }
