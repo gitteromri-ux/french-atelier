@@ -2411,9 +2411,9 @@
   /* 1. Body must be NAVY behind dark sections — kill cream gaps */
   html, body{ background:#0a1128 !important; }
   /* Sections that ARE cream/paper keep their bg explicitly */
-  #courses, #faq, #lead-form{ background-color: var(--paper, #f7f3ea) !important; }
+  #courses, #faq, #how-it-works, #teachers{ background-color: var(--paper, #f7f3ea) !important; }
   /* Make sure dark sections fully fill */
-  #culture, #mapstr, #julien-fold, #testimonials, #placement, #how-it-works, #teachers, #platform, #acadomia-power, #method-fold{
+  #culture, #mapstr, #julien-fold, #testimonials, #placement, #lead-form, #platform, #acadomia-power, #method-fold{
     background-color: #0a1128 !important;
   }
 
@@ -2529,4 +2529,41 @@
   }
   html body .link-arrow svg{ width: 18px !important; height: 10px !important; }
   html body .btn svg, html body .btn-3d svg, html body .bfaq-q svg, html body .bc-read svg{ width: 1.1em !important; height: 1.1em !important; }
+}
+
+
+/* ---------- MOBILE FINAL 2026-09-10: contrast repair, label floor, rails, tighter scroll ---------- */
+@media (max-width:760px){
+  /* 1. Light folds stay light; their navy copy is readable again */
+  #how-it-works, #teachers{ background:var(--paper,#f7f3ea) !important; }
+  #teachers h2, #teachers .lede, #teachers .display-md, #how-it-works .hiw3-title, #how-it-works .lede{ color:#1A1E33 !important; }
+  /* 2. Lead form is a dark fold — keep its navy ground under the cream copy */
+  #lead-form, .lg-fold{ background:linear-gradient(180deg,#0B1340 0%,#0A1128 65%,#080E20 100%) !important; }
+  #lead-form h2, #lead-form .lg-lede, #lead-form .lg-trust-item, #lead-form label{ color:#F3EEE3 !important; }
+  #lead-form .lg-eyebrow, #lead-form .gold-ital{ color:#D8BC85 !important; }
+  /* 3. Brand gold on light grounds: deeper gold so eyebrows, italics and tags pass contrast */
+  :is(.bg-ivory,.bg-paper,.bg-cream,.bg-white,.bg-sand,.hiw3-section,#courses,#faq,#teachers,.legal-body,.post-body,.blog-grid,.faq-wrap,.pricing-grid)
+    :is(.eyebrow,.eyebrow-line,.gold-ital,em,.tag,.faq-num,.faq-group-eyebrow,.faq-group-count,.fc-qual,.fc-location,.fc-cefr,.bc-read,.cap,.fr,.ix-num,.pf-num,.ts-num,.asr-num,.an-course,.cdb-label,.lead-role,.award-year,.dp-no,.trust-icon,.principle-num,.btn-outline):not(.on-dark *){
+    color:#8C7040 !important;
+  }
+  :is(.bg-ivory,.bg-paper,.bg-cream,.bg-white,.hiw3-section,#courses,#faq,#teachers) .btn-outline{ border-color:#8C7040 !important; }
+  :is(.bg-ivory,.bg-paper,.bg-cream,.bg-white,.post-body) h2:not(.on-dark *){ color:#1A1E33 !important; }
+  :is(.bg-ivory,.bg-paper,.bg-cream,.bg-white,.post-body) h2 .gold-ital, :is(.bg-ivory,.bg-paper,.bg-cream,.bg-white,.post-body) h2 em{ color:#8C7040 !important; }
+  /* 4. No text under 12.5px anywhere */
+  html body :is(.fac-region,label,.han-cap,.sc-recap,.tl-tag,.ts-label,.jul-drill-tag,.si-muted,.stars,.tst-trust,.lg-eyebrow,.scroll-cue,.fr,.ms-legend-sub,.jul-cutout-badge,.bc-read,.bc-meta,.bc-meta span,.blog-meta span,footer h4,.foot h4,.maplibregl-ctrl-attrib-inner,.maplibregl-ctrl-attrib-inner a){ font-size:12.5px !important; line-height:1.35 !important; }
+  /* 5. Stacked stat rows and step ladders become swipe rails */
+  .stat-strip, .acad-stat-row, .ladder, .jul-timeline, .pillar-grid-about, .reveal.reveal-d1:has(> .stat){
+    display:flex !important; flex-wrap:nowrap !important; overflow-x:auto !important; overflow-y:hidden !important;
+    scroll-snap-type:x mandatory !important; -webkit-overflow-scrolling:touch; gap:.9rem !important; padding:0 1.2rem 1rem !important;
+    scrollbar-width:none; grid-template-columns:none !important;
+  }
+  .stat-strip::-webkit-scrollbar, .acad-stat-row::-webkit-scrollbar, .ladder::-webkit-scrollbar, .jul-timeline::-webkit-scrollbar{ display:none; }
+  .stat-strip > *, .acad-stat-row > *, .ladder > *, .jul-timeline > *, .reveal.reveal-d1:has(> .stat) > .stat{
+    flex:0 0 76% !important; max-width:76% !important; scroll-snap-align:center !important; border-right:0 !important; border-bottom:0 !important; height:auto !important;
+  }
+  .stat-strip > *, .acad-stat-row > *, .reveal.reveal-d1:has(> .stat) > .stat{ flex-basis:58% !important; max-width:58% !important; }
+  /* 6. Shorter pages: tighter fold rhythm */
+  .section-pad{ padding-top:3.2rem !important; padding-bottom:3.2rem !important; }
+  .section-pad-0{ padding-top:0 !important; }
+  #teachers{ padding:3.2rem 0 2.8rem !important; }
 }
