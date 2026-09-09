@@ -162,7 +162,7 @@
     'https://c.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png',
     'https://d.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png'
   ];
-  var ATTRIB = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>';
+  var ATTRIB = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors © <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a>';
   var FRANCE_CENTER = [2.6, 46.6];
   var FRANCE_ZOOM = 5.1;
   var MAP_PITCH = 40;   // subtle 3D tilt for depth
@@ -352,22 +352,9 @@
     }
 
     /* ----- Build map ----- */
-    var style = {
-      version: 8,
-      sources: {
-        'carto-dark': {
-          type: 'raster',
-          tiles: DARK_TILES,
-          tileSize: 256,
-          attribution: ATTRIB
-        }
-      },
-      layers: [
-        { id: 'bg', type: 'background', paint: { 'background-color': '#00001F' } },
-        { id: 'carto-dark', type: 'raster', source: 'carto-dark',
-          paint: { 'raster-opacity': 1, 'raster-saturation': 0.05, 'raster-contrast': 0.08, 'raster-brightness-max': 0.92 } }
-      ]
-    };
+    // Key-free vector dark basemap (OpenFreeMap) — replaces CARTO raster tiles,
+    // which now watermark "API KEY REQUIRED" on every tile without a paid key.
+    var style = 'https://tiles.openfreemap.org/styles/dark';
 
     map = new maplibregl.Map({
       container: mapEl.id,
@@ -383,6 +370,14 @@
       cooperativeGestures: compact,
       dragRotate: true,
       pitchWithRotate: true
+    });
+    map.on('style.load', function () {
+      try {
+        map.setPaintProperty('background', 'background-color', '#00001F');
+        map.setPaintProperty('water', 'fill-color', '#050A2E');
+        map.setPaintProperty('landuse_park', 'fill-color', '#0B1230');
+        map.setPaintProperty('landcover_wood', 'fill-color', '#0B1230');
+      } catch (e) {}
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
     map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: true }), 'top-right');
