@@ -1402,7 +1402,9 @@
   html, body { overflow-x: hidden !important; }
   body { -webkit-text-size-adjust: 100% !important; }
   * { max-width: 100% !important; }
-  img, video, svg, iframe { max-width: 100% !important; height: auto !important; }
+  img, video, iframe { max-width: 100% !important; height: auto !important; }
+  /* Inline SVG icons keep their designed size; a blanket height:auto made every icon 150px tall */
+  svg { max-width: 100%; }
 
   /* Reusable container gutter */
   .wrap, section > .wrap, section > .container {
@@ -2078,10 +2080,10 @@
   .jul-cutout-badge svg, .jul-home-points svg, .cls-card svg, .faq-btn svg,
   .tctr-badge svg, .ac-power-marquee svg, button svg, a svg {
     max-width: none !important;
-    width: auto !important;
-    height: auto !important;
     flex-shrink: 0 !important;
   }
+  /* Icons with no CSS size of their own: sensible inline-icon default (component CSS overrides) */
+  a svg:not([width]), button svg:not([width]), span svg:not([width]) { width: 1.1em; height: 1.1em; }
 
   /* ---------- COURSES → horizontal slider ---------- */
   #courses .cls-cards {
@@ -2515,4 +2517,16 @@
 
   /* 8. Hide any swipe-hint-flagged elements */
   [data-swipe-hint], .swipe-hint{ display: none !important; }
+}
+
+/* ---------- HOMEPAGE MOBILE REPAIR 2026-09-09: label floor (12px) for the exact tiny classes found by live scan ---------- */
+@media (max-width:760px){
+  html body .cs-tag, html body .tp-rating, html body .cls-bestseller, html body .cls-card-eyebrow,
+  html body .cls-meta-key, html body .cls-card-action-text, html body .han-cap, html body .han-lvl,
+  html body .hiw3-kick, html body .hiw3-tag, html body .drawer-group-label, html body .eyebrow,
+  html body .eyebrow-line, html body .ms-tab-level, html body .tp-badge{
+    font-size: 12px !important; line-height: 1.3 !important;
+  }
+  html body .link-arrow svg{ width: 18px !important; height: 10px !important; }
+  html body .btn svg, html body .btn-3d svg, html body .bfaq-q svg, html body .bc-read svg{ width: 1.1em !important; height: 1.1em !important; }
 }
