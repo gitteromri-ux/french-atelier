@@ -370,7 +370,7 @@
   line-height: 1;
   margin-bottom: .8rem;
 }
-.cap-card h3 { font-size: 1.2rem; margin: .2rem 0 .8rem; }
+.cap-card h3 { font-size: 1.2rem; margin: .2rem 0 .8rem; color: var(--navy); }
 .cap-card p  { font-size: .93rem; color: var(--on-light-soft); line-height: 1.7; }
 
 /* ===== CONVERSATION DEMO ===== */
