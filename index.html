@@ -1741,6 +1741,10 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   /* Chip rows: start-aligned, scrollable, never clipped */
   html body .tctr-badges,html body .hiw3-journey,html body .ms-tabs{justify-content:flex-start !important;overflow-x:auto !important;flex-wrap:nowrap !important;padding:0 1.2rem !important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   html body .tctr-badges > *{flex:0 0 auto !important;white-space:nowrap !important}
+  /* course-card metrics: value large, key small; CTA one line */
+  html:root:root:root:root body#fa #courses .cls-card .cls-meta-val,html body :is(#courses,*) :is(#courses,*) :is(#courses,*) .cls-card .cls-meta-val{font-size:1.4rem !important;line-height:1.1 !important;display:block !important;font-family:var(--serif) !important;color:var(--gold-soft,#d8bc85) !important}
+  html:root:root:root:root body#fa #courses .cls-card .cls-meta-key,html body :is(#courses,*) :is(#courses,*) :is(#courses,*) .cls-card .cls-meta-key{font-size:11.5px !important;letter-spacing:.06em !important;opacity:.8 !important}
+  html:root:root:root:root body#fa #courses .cls-card .cls-card-action-text,html body :is(#courses,*) :is(#courses,*) :is(#courses,*) .cls-card .cls-card-action-text{font-size:14px !important;white-space:nowrap !important}
 }
 </style>
 </body>
