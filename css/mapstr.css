@@ -378,7 +378,7 @@
 /* ----- Fallback (no MapLibre) ----- */
 .ms-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;text-align:center;padding:2rem;color:var(--ms-on-dark-soft)}
 .ms-fallback p{margin:0;font-family:var(--ms-serif);font-size:1.3rem;color:var(--ms-on-dark)}
-.ms-fallback-sub{font-family:var(--ms-sans)!important;font-size:.85rem!important;max-width:42ch}
+.ms-fallback-sub{font-family:var(--ms-sans)!important;max-width:42ch}
 
 /* ----- Responsive ----- */
 @media (max-width:760px){
