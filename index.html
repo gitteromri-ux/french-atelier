@@ -147,7 +147,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1789024130">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1789035292">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -952,27 +952,51 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 </section>
 
 <!-- ===== WATCH A REAL CLASS ===== -->
-<section class="section-pad bg-navy-deep on-dark">
-  <div class="wrap split split-wide">
-    <div class="reveal reveal-d1">
-      <div class="sound-video" data-soundvideo>
-        <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
-          <source src="assets/video/demo-class.mp4" type="video/mp4">
-        </video>
-        <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-          <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
-        </button>
+<section class="section-pad bg-navy-deep on-dark" id="taste">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:64ch;margin:0 auto 2.4rem">
+      <p class="eyebrow eyebrow-line">Get a taste of French Atelier</p>
+      <h2 class="display-md" style="margin:1.4rem 0">Hear from our teachers, <span class="gold-ital">live from France</span></h2>
+      <p class="lede">Three teachers, three voices. Turn the sound on any clip and hear the French Atelier for yourself.</p>
+    </div>
+    <div class="taste-grid">
+      <div class="taste-card reveal ">
+        <div class="sound-video" data-soundvideo>
+          <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
+            <source src="assets/video/demo-class.mp4" type="video/mp4">
+          </video>
+          <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
+            <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
+          </button>
+        </div>
+        <p class="taste-line">Wine and art speak French. What about you?</p>
+        <p class="taste-who">Philippe · West Paris</p>
       </div>
-      <p class="img-caption">A real live class — Discover French with Philippe, from West Paris.</p>
+      <div class="taste-card reveal reveal-d1">
+        <div class="sound-video" data-soundvideo>
+          <video poster="assets/video/charline-ad-poster.jpg" autoplay loop muted playsinline preload="metadata">
+            <source src="assets/video/charline-ad.mp4" type="video/mp4">
+          </video>
+          <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
+            <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
+          </button>
+        </div>
+        <p class="taste-line">Speak French with effortless Parisian poise</p>
+        <p class="taste-who">Charline · Paris</p>
+      </div>
     </div>
-    <div class="reveal">
-      <p class="eyebrow eyebrow-line">What Sets Us Apart</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Watch a real <span class="gold-ital">30-minute class</span></h2>
-      <p class="lede">No scripts, no pre-recordings. See exactly what it's like to learn French live from France — the warmth, the energy, and the real conversation that happen in every class.</p>
-      <a href="how-it-works.html" class="btn btn-outline" style="margin-top:1.2rem">How Classes Work</a>
-    </div>
+    <div class="reveal" style="text-align:center;margin-top:2.2rem"><a href="how-it-works.html" class="btn btn-outline">How Classes Work</a></div>
   </div>
 </section>
+<style>
+.taste-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;max-width:1100px;margin:0 auto}
+.taste-grid.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.taste-card .sound-video{border-radius:12px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(0,0,0,.8);border:1px solid rgba(200,169,107,.22)}
+.taste-card .sound-video video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.taste-line{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-soft);margin:1rem 0 .2rem;line-height:1.3}
+.taste-who{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,227,.7);margin:0}
+@media(max-width:900px){.taste-grid,.taste-grid.is-3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding:0 1.2rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}.taste-grid::-webkit-scrollbar{display:none}.taste-card{flex:0 0 84%;scroll-snap-align:center}}
+</style>
 
 <!-- ===== SIX-PILLAR CULTURE (motion-video brand statement · dark immersive fold) ===== -->
 <!-- ============================================================
