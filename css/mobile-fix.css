@@ -2614,7 +2614,8 @@ html body .eyebrow,html body [class*="eyebrow"],html body .btn,html body .nav-ct
   html{font-size:17px}
   html body p,html body li,html body dd,html body blockquote,html body .lede,html body td,html body th{font-size:max(1rem,16px)!important;line-height:1.6!important}
   html body .lede{font-size:1.08rem!important}
-  html body small,html body .eyebrow,html body [class*="eyebrow"],html body .img-caption,html body figcaption,html body .taste-who,html body .credit,html body [class*="meta"],html body [class*="cap"],html body [class*="note"],html body span{font-size:max(13.5px,.8rem)}
+  html body small,html body .eyebrow,html body [class*="eyebrow"],html body .img-caption,html body figcaption,html body .taste-who,html body .credit,html body [class*="meta"],html body [class*="cap"],html body [class*="note"]{font-size:max(13.5px,.8rem)}
+  html body h1 *,html body h2 *,html body h3 *{font-size:inherit!important}
   html body h1,html body .display-xl{font-size:clamp(2.35rem,10.5vw,3.1rem)!important;line-height:1.08!important}
   html body h2,html body .display-md,html body .display-lg{font-size:clamp(2rem,8.6vw,2.6rem)!important;line-height:1.12!important}
   html body h3{font-size:max(1.3rem,21px)!important;line-height:1.25!important}
