@@ -380,6 +380,8 @@
       } catch (e) {}
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+    // Start with the compact attribution collapsed (MapLibre opens it by default on narrow screens)
+    map.once('load', function () { document.querySelectorAll('#mapstr .maplibregl-ctrl-attrib').forEach(function (e) { e.classList.remove('maplibregl-compact-show'); }); });
     map.addControl(new maplibregl.NavigationControl({ showCompass: true, visualizePitch: true }), 'top-right');
 
     // Metropolitan France boundary (mainland + Corsica) — used to make France
