@@ -414,3 +414,12 @@ html body svg:not([class]):has(> use),html body .sk-ico svg,html body .stack-car
   html body .bfaq-a > *:first-child,html body .faq-a > *:first-child,html body .faq-answer > *:first-child{margin-top:.75rem !important}
   html body .bfaq-a > *:last-child,html body .faq-a > *:last-child,html body .faq-answer > *:last-child{margin-bottom:1rem !important}
 }
+
+/* ===== 2026-09-11 pass 4: hero meta values readable, About culture video tiles single column ===== */
+@media (max-width:760px){
+  html:root:root:root:root body#fa .hero-meta-strip .hm-v,html:root:root:root:root body#fa .hm-v,html:root:root:root:root body#fa .hero-info-strip .v{font-size:17px !important;line-height:1.3 !important}
+  html:root:root:root:root body#fa .hero-meta-strip .hm-k,html:root:root:root:root body#fa .hm-k{font-size:12px !important;letter-spacing:.08em !important;opacity:.8}
+  html body .wrap > div:has(> figure.video-frame){display:grid !important;grid-template-columns:1fr !important;gap:1rem !important}
+  html body figure.video-frame{width:100% !important;height:auto !important}
+  html body figure.video-frame video{width:100% !important;height:auto !important;aspect-ratio:16/9 !important;object-fit:cover !important}
+}
