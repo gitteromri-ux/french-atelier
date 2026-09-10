@@ -403,3 +403,14 @@ html body svg:not([class]):has(> use),html body .sk-ico svg,html body .stack-car
   html body .cls-card .cls-meta-key{font-size:11.5px !important;letter-spacing:.06em !important;opacity:.8}
   html body .cls-card .cls-card-action-text{font-size:14px !important;white-space:nowrap !important}
 }
+
+/* ===== 2026-09-11 pass 3: course hero legibility, hero meta values, FAQ collapsed leak ===== */
+@media (max-width:760px){
+  html body .course-hero::before{content:"" !important;position:absolute !important;inset:0 !important;z-index:1 !important;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,52,.45) 0%,rgba(0,0,52,.78) 45%,rgba(0,0,52,.96) 100%) !important}
+  html body .course-hero .hero-media{z-index:0 !important}
+  html body .course-hero > *:not(.hero-media){position:relative !important;z-index:2 !important}
+  html body .hero-meta-strip .hm-v,html body .hm-v{font-size:1rem !important;line-height:1.3 !important}
+  html body .bfaq-a,html body .faq-a,html body .faq-answer{padding-top:0 !important;padding-bottom:0 !important}
+  html body .bfaq-a > *:first-child,html body .faq-a > *:first-child,html body .faq-answer > *:first-child{margin-top:.75rem !important}
+  html body .bfaq-a > *:last-child,html body .faq-a > *:last-child,html body .faq-answer > *:last-child{margin-bottom:1rem !important}
+}
