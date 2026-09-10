@@ -196,7 +196,7 @@
         }
         btn.setAttribute('aria-pressed',String(on));
         btn.classList.toggle('is-on',on);
-        btn.querySelector('.fa-sound-ico').textContent=on?'🔈':'🔊';
+        btn.querySelector('.fa-sound-txt').textContent=on?'Mute':'Sound';
         btn.querySelector('.fa-sound-txt').textContent=on?'Mute':(audioSrc?'Hear Julien':'Sound');
       });
       if(audioSrc){ btn.querySelector('.fa-sound-txt').textContent='Hear Julien'; }

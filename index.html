@@ -11,7 +11,7 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 10–12, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1789022625">
+<link rel="stylesheet" href="css/fa.css?v=1789037752">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
 <link rel="stylesheet" href="css/mapstr.css?v=1781381809">
@@ -147,7 +147,7 @@
   .arc-node{flex:0 0 45%}
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1789035292">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1789037752">
 <script>
 /* Force-refresh: unregister any SW + clear caches so users always see latest deploy. */
 if('serviceWorker' in navigator){
@@ -966,7 +966,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
             <source src="assets/video/demo-class.mp4" type="video/mp4">
           </video>
           <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-            <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
+            <span class="si-muted">Sound on</span><span class="si-on">Mute</span>
           </button>
         </div>
         <p class="taste-line">Wine and art speak French. What about you?</p>
@@ -978,7 +978,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
             <source src="assets/video/charline-ad.mp4" type="video/mp4">
           </video>
           <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-            <span class="si-muted">► Sound On</span><span class="si-on">❚❚ Mute</span>
+            <span class="si-muted">Sound on</span><span class="si-on">Mute</span>
           </button>
         </div>
         <p class="taste-line">Speak French with effortless Parisian poise</p>
@@ -989,13 +989,13 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 <style>
-.taste-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;max-width:1100px;margin:0 auto}
-.taste-grid.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.taste-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;max-width:1280px;margin:0 auto}
+.taste-card:nth-child(3){grid-column:1/-1;max-width:640px;margin:0 auto;width:100%}
 .taste-card .sound-video{border-radius:12px;overflow:hidden;box-shadow:0 30px 70px -40px rgba(0,0,0,.8);border:1px solid rgba(200,169,107,.22)}
 .taste-card .sound-video video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.taste-line{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--gold-soft);margin:1rem 0 .2rem;line-height:1.3}
-.taste-who{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,227,.7);margin:0}
-@media(max-width:900px){.taste-grid,.taste-grid.is-3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding:0 1.2rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}.taste-grid::-webkit-scrollbar{display:none}.taste-card{flex:0 0 84%;scroll-snap-align:center}}
+.taste-line{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--gold-soft);margin:1rem 0 .2rem;line-height:1.3}
+.taste-who{font-size:14px;letter-spacing:.06em;color:rgba(243,238,227,.7);margin:0}
+@media(max-width:900px){.taste-grid,.taste-grid.is-3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding:0 1.2rem 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}.taste-grid::-webkit-scrollbar{display:none}.taste-card{flex:0 0 92%;scroll-snap-align:center}.taste-card:nth-child(3){max-width:none}}
 </style>
 
 <!-- ===== SIX-PILLAR CULTURE (motion-video brand statement · dark immersive fold) ===== -->

@@ -2605,3 +2605,22 @@
 @media (max-width:760px){
   html body .page-hero .breadcrumb, html body .page-hero--premium .breadcrumb, html body .breadcrumb{ margin-top:2.4rem !important; display:block !important; position:relative !important; z-index:2 !important; font-size:12.5px !important; }
 }
+
+/* ===== HOUSE STYLE 2026-09-10: sentence case everywhere, no all-caps ===== */
+html body *,html body *::before,html body *::after{text-transform:none!important}
+html body .eyebrow,html body [class*="eyebrow"],html body .btn,html body .nav-cta,html body .taste-who,html body [class*="badge"],html body [class*="tag"],html body [class*="label"],html body .sound-toggle,html body .fa-sound-btn,html body .jul-say-btn{letter-spacing:.04em!important}
+/* ===== MOBILE TYPE FLOOR 2026-09-10 ===== */
+@media (max-width:760px){
+  html{font-size:17px}
+  html body p,html body li,html body dd,html body blockquote,html body .lede,html body td,html body th{font-size:max(1rem,16px)!important;line-height:1.6!important}
+  html body .lede{font-size:1.08rem!important}
+  html body small,html body .eyebrow,html body [class*="eyebrow"],html body .img-caption,html body figcaption,html body .taste-who,html body .credit,html body [class*="meta"],html body [class*="cap"],html body [class*="note"],html body span{font-size:max(13.5px,.8rem)}
+  html body h1,html body .display-xl{font-size:clamp(2.35rem,10.5vw,3.1rem)!important;line-height:1.08!important}
+  html body h2,html body .display-md,html body .display-lg{font-size:clamp(2rem,8.6vw,2.6rem)!important;line-height:1.12!important}
+  html body h3{font-size:max(1.3rem,21px)!important;line-height:1.25!important}
+  html body h4{font-size:max(1.1rem,18px)!important}
+  html body .btn,html body button:not(.mapstr-marker):not(.sound-toggle){font-size:15px!important;padding:.95rem 1.4rem!important}
+  html body .sound-toggle{font-size:14px!important}
+  html body .taste-line{font-size:1.25rem!important}
+  html body .taste-card{flex:0 0 92%!important}
+}
