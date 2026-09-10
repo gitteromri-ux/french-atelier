@@ -329,3 +329,5 @@ img,video{max-width:100%}
   .pillar-grid,.learn-grid,.learn-grid.two,.method-grid{grid-template-columns:1fr}
   .course-hero .cw{padding-top:7rem}
 }
+
+.testi-card .who .av-ini{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#D8BC85,#C8A96B);color:#00001F;font-family:var(--serif,Georgia,serif);font-weight:600;font-size:1.15rem;flex:0 0 44px}
