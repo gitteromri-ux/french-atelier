@@ -356,9 +356,14 @@ html,body{overflow-x:hidden !important;max-width:100vw}
 }
 /* ---------- 2026-09-10 strict re-audit: course stat counters + How-It-Works journey → swipe rails ---------- */
 @media (max-width:760px){
-  .counter-row,.journey{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;scroll-snap-type:x mandatory !important;
+  .counter-row,.journey,.pillar-row,.quick-links{display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;overflow-x:auto !important;scroll-snap-type:x mandatory !important;
     -webkit-overflow-scrolling:touch;gap:14px !important;padding:0 4px 1.2rem !important;scrollbar-width:none;grid-template-columns:none !important}
-  .counter-row::-webkit-scrollbar,.journey::-webkit-scrollbar{display:none}
+  .counter-row::-webkit-scrollbar,.journey::-webkit-scrollbar,.pillar-row::-webkit-scrollbar,.quick-links::-webkit-scrollbar{display:none}
   .counter-row > *{flex:0 0 62vw !important;max-width:260px !important;scroll-snap-align:start !important;scroll-snap-stop:always}
-  .journey > *{flex:0 0 84vw !important;max-width:340px !important;scroll-snap-align:start !important;scroll-snap-stop:always}
+  .journey > *,.pillar-row > *,.quick-links > *{flex:0 0 84vw !important;max-width:340px !important;scroll-snap-align:start !important;scroll-snap-stop:always}
+}
+@media (max-width:760px){
+  html body .diff-image-overlay span,html body .diff-image-overlay{font-size:12px !important}
+  /* every rail defined in this file scrolls horizontally, never as a column */
+  .etg3-track,.def-points,.img-trio,.jul-region,.jstep,.pledge-four,.trio-band,.jul-cover,.counter-row,.journey,.pillar-row,.quick-links{flex-direction:row !important}
 }
