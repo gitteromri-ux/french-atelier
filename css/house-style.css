@@ -107,4 +107,5 @@ html:root:root:root body#fa .hm-k,html:root:root:root body#fa .hero-meta-strip .
 html:root:root:root body#fa .fac-card .fac-region,html:root:root:root body#fa #teachers .fac-region{font-size:14px!important}
 html:root:root:root body#fa #lead-form label,html:root:root:root body#fa .lead-form label,html:root:root:root body#fa .lg-form label,html:root:root:root body#fa form label,html:root:root:root body#fa .lg-eyebrow{font-size:15px!important}
 html:root:root:root body#fa .jul-transcript-head span,html:root:root:root body#fa .diff-image-overlay span,html:root:root:root body#fa .diff-image-overlay,html:root:root:root body#fa .sib-dir,html:root:root:root body#fa .bc-meta,html:root:root:root body#fa .bc-meta *,html:root:root:root body#fa .article-meta,html:root:root:root body#fa .article-meta *,html:root:root:root body#fa .bc-read,html:root:root:root body#fa .post-meta *,html:root:root:root body#fa [class*="meta"] *{font-size:14px!important}
+html:root:root:root body#fa .article-byline,html:root:root:root body#fa .article-byline *,html:root:root:root body#fa [class*="byline"],html:root:root:root body#fa [class*="byline"] *{font-size:14px!important}
 }
