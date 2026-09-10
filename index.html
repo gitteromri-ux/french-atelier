@@ -1713,5 +1713,35 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   html body .etg3-track > *{flex:0 0 84vw !important;max-width:340px !important;scroll-snap-align:start !important;scroll-snap-stop:always}
 }
 </style>
+<style id="mobile-visual-2026-09-11">
+@media (max-width:760px){
+  /* Hero image must be visible */
+  html body .hero .hero-bg{position:absolute !important;inset:0 !important;z-index:0 !important;background:#0a1128 !important}
+  html body .hero .hero-bg img{display:block !important;width:100% !important;height:100% !important;object-fit:cover !important;object-position:60% center !important;opacity:1 !important;visibility:visible !important;filter:none !important}
+  html body .hero .hero-bg::after{opacity:.85 !important}
+  html body .hero .hero-content{position:relative;z-index:2}
+  /* Slider dots: dots, not 48px squares */
+  html body :is(#courses,*) :is(#courses,*) .fa-rail-dot,html body :is(#courses,*) :is(#courses,*) .fa-rail-dots button,
+  html body :is(#courses,*) :is(#courses,*) .slider-dots button,html body :is(#courses,*) :is(#courses,*) .cls-dots button{
+    width:10px !important;height:10px !important;min-width:0 !important;min-height:0 !important;padding:0 !important;border-radius:50% !important;display:block !important}
+  html body .fa-rail-dots,html body .slider-dots,html body .cls-dots{display:flex !important;gap:8px !important;justify-content:center !important;align-items:center !important;height:auto !important}
+  /* Best Seller badge: in flow above the title, never over text */
+  html body :is(#courses,*) :is(#courses,*) .cls-card .cls-bestseller{position:static !important;display:inline-flex !important;margin:0 0 .6rem !important;top:auto !important;right:auto !important}
+  html body :is(#courses,*) :is(#courses,*) .cls-card .cls-card-eyebrow{padding-right:0 !important;display:block !important}
+  /* CEFR step labels: 4 across 390px */
+  html body :is(#courses,*) :is(#courses,*) .hiw3-arc .han{flex:1 1 0 !important;min-width:0 !important;padding:0 2px !important}
+  html body :is(#courses,*) :is(#courses,*) .hiw3-arc .han-cap{font-size:10.5px !important;line-height:1.15 !important;letter-spacing:.04em !important;word-break:normal !important;overflow-wrap:anywhere !important}
+  html body :is(#courses,*) :is(#courses,*) .hiw3-arc .han-lvl{font-size:12px !important}
+  /* Teacher films: full-width cards, 16:9 video */
+  html body .taste-grid{display:flex !important;overflow-x:auto !important;scroll-snap-type:x mandatory !important;gap:1rem !important;padding:0 1.2rem 1rem !important}
+  html body .taste-card{flex:0 0 88vw !important;max-width:none !important;width:88vw !important;scroll-snap-align:center !important}
+  html body .taste-card .sound-video{width:100% !important;height:auto !important;aspect-ratio:16/9 !important}
+  html body .taste-card .sound-video video{width:100% !important;height:100% !important;aspect-ratio:16/9 !important;object-fit:cover !important}
+  html body .taste-card .sound-toggle{position:absolute !important;right:.6rem !important;bottom:.6rem !important;top:auto !important;left:auto !important}
+  /* Chip rows: start-aligned, scrollable, never clipped */
+  html body .tctr-badges,html body .hiw3-journey,html body .ms-tabs{justify-content:flex-start !important;overflow-x:auto !important;flex-wrap:nowrap !important;padding:0 1.2rem !important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html body .tctr-badges > *{flex:0 0 auto !important;white-space:nowrap !important}
+}
+</style>
 </body>
 </html>
