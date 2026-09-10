@@ -171,7 +171,7 @@
   .jul-cover { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1789034509"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1789032106">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1789034827"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1789032106">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body>
@@ -893,6 +893,9 @@
 <style>
 .jul-say{margin-top:.9rem;display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;width:100%;flex:0 0 100%;order:99}
 .jul-cutout-wrap{flex-wrap:wrap}
+.jul-say{max-width:100%;padding:0 .8rem;box-sizing:border-box}
+.jul-say-fr,.jul-say-en{white-space:normal;overflow-wrap:anywhere;max-width:100%}
+@media(max-width:760px){.jul-char-card .jul-say{max-width:calc(100vw - 2.4rem);margin-left:auto;margin-right:auto}}
 .jul-say-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .95rem;border-radius:999px;border:1px solid rgba(200,169,107,.55);background:rgba(11,15,28,.72);color:#F3EEE3;font:600 12.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(6px)}
 .jul-say-btn svg{width:16px;height:16px;color:#D8BC85}
 .jul-say-btn[aria-pressed="true"]{background:#D8BC85;color:#00001F}.jul-say-btn[aria-pressed="true"] svg{color:#00001F}
