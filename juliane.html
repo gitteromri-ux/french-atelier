@@ -171,7 +171,7 @@
   .jul-cover { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="css/mobile-fix.css?v=1789022625"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1789032106">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1789034509"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1789032106">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body>
@@ -310,11 +310,7 @@
       <p class="jul-hero-sub reveal reveal-d2">An animated AI French tutor who never sleeps, never judges, and is always ready to practise — at 3 am, between live classes, or in the quiet hour before your next session.</p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center" class="reveal reveal-d3">
         <a href="pricing.html" class="btn btn-gold btn-lg">Enroll to Meet Julien</a>
-        <button type="button" class="jul-sound-btn" id="jul-sound-btn" aria-pressed="false" aria-label="Play Julien's spoken introduction in French">
-          <span class="jul-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          <span class="jul-sound-label">Hear Julien in French</span>
-        </button>
-        <audio id="jul-intro-audio" preload="none" src="assets/julien/audio/julien_intro_fr.mp3"></audio>
+        
       </div>
       <div class="reveal reveal-d3" style="margin-top:1.4rem">
         <span class="jul-live-badge"><span class="jul-live-dot"></span> Available inside every plan</span>
@@ -324,7 +320,8 @@
 
   <!-- Julien AI cartoon video — the uploaded character clip (cinematic cutout, right) -->
   <div class="jul-char-card">
-    <video class="jul-hero-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-309-poster.webp" width="1024" height="1536" aria-label="Julien, your 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-309.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.webp" alt="Julien, your 24/7 AI French tutor" decoding="async"></video>
+    <video data-speak="assets/julien/audio/julien-309.mp3" class="jul-hero-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-309-poster.webp" width="1024" height="1536" aria-label="Julien, your 24/7 AI French tutor"><source src="assets/juliane/video-alpha/julian-309.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-336-poster.webp" alt="Julien, your 24/7 AI French tutor" decoding="async"></video>
+        <div class="jul-say"><button type="button" class="jul-say-btn" aria-pressed="false" aria-label="Hear Julien say this line in French"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Hear Julien</span></button><p class="jul-say-fr">« Tu es dans quel arrondissement&nbsp;? »</p><p class="jul-say-en">Which arrondissement are you in?</p></div>
   </div>
 </section>
 
@@ -343,7 +340,8 @@
       <!-- Julien AI cartoon video — emerges from the ivory -->
       <div class="jul-cutout-wrap jul-cutout-wrap--intro jul-cutout-wrap--light">
         <span class="jul-cutout-badge"><span class="jul-cutout-dot"></span> Julien · AI Tutor</span>
-        <video class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-307-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-307.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-307-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+        <video data-speak="assets/julien/audio/julien-307.mp3" class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-307-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-307.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-307-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+        <div class="jul-say"><button type="button" class="jul-say-btn" aria-pressed="false" aria-label="Hear Julien say this line in French"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Hear Julien</span></button><p class="jul-say-fr">« Moi aussi, je suis à Paris. »</p><p class="jul-say-en">Me too, I'm in Paris.</p></div>
       </div>
     </div>
   </div>
@@ -440,7 +438,8 @@
       <!-- Transparent cutout left -->
       <div class="reveal">
         <div class="jul-cutout-wrap jul-cutout-wrap--feature">
-          <video class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-719-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-719.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-719-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+          <video data-speak="assets/julien/audio/julien-719.mp3" class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-719-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-719.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-719-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+        <div class="jul-say"><button type="button" class="jul-say-btn" aria-pressed="false" aria-label="Hear Julien say this line in French"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Hear Julien</span></button><p class="jul-say-fr">« Je vais prendre la formule à 30&nbsp;euros. »</p><p class="jul-say-en">I'll have the 30-euro set menu.</p></div>
         </div>
       </div>
       <!-- Demo right -->
@@ -512,7 +511,8 @@
       </div>
       <div class="reveal reveal-d1">
         <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:360px;margin:0 auto">
-          <video class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-base-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-base.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-309-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+          <video data-speak="assets/julien/audio/julien-735.mp3" class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-735-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-735.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-309-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+        <div class="jul-say"><button type="button" class="jul-say-btn" aria-pressed="false" aria-label="Hear Julien say this line in French"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 8a5 5 0 010 8M19 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Hear Julien</span></button><p class="jul-say-fr">« Prenons un sac, allons choisir de bons produits. »</p><p class="jul-say-en">Let's take a bag and go pick out good produce.</p></div>
         </div>
       </div>
     </div>
@@ -607,7 +607,7 @@
       <!-- Transparent cutout right -->
       <div class="reveal reveal-d1">
         <div class="jul-cutout-wrap jul-cutout-wrap--feature" style="max-width:380px;margin:0 auto">
-          <video class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-735-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-735.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-735-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
+          <video class="jul-cutout" autoplay muted loop playsinline preload="metadata" poster="assets/juliane/video-alpha/julian-base-poster.webp" width="760" height="1140" aria-label="Julien, the French Atelier AI French tutor"><source src="assets/juliane/video-alpha/julian-base.webm" type="video/webm"><img src="assets/juliane/video-alpha/julian-735-poster.webp" alt="Julien, the French Atelier AI French tutor" loading="lazy" decoding="async"></video>
         </div>
       </div>
     </div>
@@ -889,5 +889,36 @@
 </script>
 <!-- The looping Julien cutouts are silent, decorative WebM (transparent bg).
      The only audio is julien_intro_fr.mp3, played on demand via the hero sound button. -->
+
+<style>
+.jul-say{margin-top:.9rem;display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center}
+.jul-say-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .95rem;border-radius:999px;border:1px solid rgba(200,169,107,.55);background:rgba(11,15,28,.72);color:#F3EEE3;font:600 12.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(6px)}
+.jul-say-btn svg{width:16px;height:16px;color:#D8BC85}
+.jul-say-btn[aria-pressed="true"]{background:#D8BC85;color:#00001F}.jul-say-btn[aria-pressed="true"] svg{color:#00001F}
+.jul-say-fr{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--gold-soft);margin:.2rem 0 0}
+.jul-say-en{font-size:12.5px;color:rgba(243,238,227,.75);margin:0}
+.jul-cutout-wrap--light .jul-say-fr{color:#8C7040}.jul-cutout-wrap--light .jul-say-en{color:#5A5A66}
+</style>
+<script>
+(function(){
+  var items=[].slice.call(document.querySelectorAll('video[data-speak]'));
+  var players=[];
+  items.forEach(function(v){
+    var a=new Audio(v.getAttribute('data-speak')); a.preload='auto';
+    var btn=v.parentElement.querySelector('.jul-say-btn'); if(!btn) return;
+    players.push({v:v,a:a,btn:btn});
+    function stop(){ a.pause(); a.currentTime=0; btn.setAttribute('aria-pressed','false'); v.loop=true; }
+    btn.addEventListener('click',function(){
+      players.forEach(function(p){ if(p.btn!==btn){ p.a.pause(); p.a.currentTime=0; p.btn.setAttribute('aria-pressed','false'); p.v.loop=true; } });
+      if(btn.getAttribute('aria-pressed')==='true'){ stop(); return; }
+      btn.setAttribute('aria-pressed','true'); v.loop=false;
+      try{ v.currentTime=0; }catch(e){} a.currentTime=0;
+      var pv=v.play(); if(pv&&pv.catch) pv.catch(function(){}); var pa=a.play(); if(pa&&pa.catch) pa.catch(function(){});
+    });
+    a.addEventListener('ended',function(){ btn.setAttribute('aria-pressed','false'); v.loop=true; var p=v.play(); if(p&&p.catch) p.catch(function(){}); });
+    v.addEventListener('ended',function(){ if(btn.getAttribute('aria-pressed')!=='true'){ v.loop=true; v.play(); } });
+  });
+})();
+</script>
 </body>
 </html>
