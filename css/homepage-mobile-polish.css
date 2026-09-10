@@ -373,3 +373,20 @@ html,body{overflow-x:hidden !important;max-width:100vw}
   .on-dark .eyebrow, .on-dark .eyebrow-line, [class*="navy"] .eyebrow, .hero .eyebrow, .cta-band .eyebrow{ color:#D8BC85 !important; }
   .jul-transcript-head span{  }
 }
+
+/* ===== 2026-09-11 mobile visual repair: hero media fills hero, numerals restored ===== */
+@media (max-width:760px){
+  html body .page-hero,html body .course-hero,html body .hero{position:relative !important;overflow:hidden !important;isolation:isolate}
+  html body .page-hero-bg,html body .hero-media,html body .video-bg,html body .hero-bg{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;z-index:0 !important;overflow:hidden !important}
+  html body .page-hero-bg img,html body .page-hero-bg video,html body .hero-media img,html body .hero-media video,html body .video-bg video,html body .video-bg img,html body .hero-bg img,html body .hero-bg video{
+    position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;min-height:100% !important;max-height:none !important;object-fit:cover !important;object-position:center 30% !important;opacity:1 !important;visibility:visible !important;display:block !important}
+  html body .page-hero > *:not(.page-hero-bg):not(.video-bg),html body .course-hero > *:not(.hero-media):not(.video-bg),html body .hero > *:not(.hero-bg):not(.video-bg){position:relative;z-index:2}
+  /* numerals: never flattened */
+  html body .sc-num,html body .ss-num,html body .m-num,html body .p-num,html body .u-no,html body .numeral,html body .jn-fig,html body .c-num,html body .stat-num,html body .counter-num,html body .cnt-num,html body .hm-v,html body .price-num,html body .plan-price,html body .bd-price{font-size:clamp(1.6rem,7vw,2.4rem) !important;line-height:1.1 !important}
+  html body .trust-icon{font-size:1.25rem !important}
+  html body .bd-save{font-size:14px !important}
+  /* pricing comparison table scrolls instead of crushing */
+  html body .breakdown-table,html body .price-table,html body table.compare{display:block !important;overflow-x:auto !important;-webkit-overflow-scrolling:touch}
+  html body .breakdown-table table,html body .price-table table{min-width:560px !important}
+  html body .breakdown-table th,html body .breakdown-table td,html body table.compare th,html body table.compare td{white-space:nowrap !important;font-size:14px !important;padding:.6rem .7rem !important}
+}
