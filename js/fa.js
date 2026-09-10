@@ -207,6 +207,8 @@
       // custom .jul-hero-sound toggle. Avoid injecting duplicate buttons.
       if(v.closest('#julien-fold'))return;
       if(isJulienCutout(v)){
+        // Julien page: each speaking clip has its own line + button; silent gesture clips get no intro audio
+        if(v.hasAttribute('data-speak') || /juliane\.html/.test(location.pathname)) return;
         attachToggle(v, JULIEN_AUDIO);
         return;
       }
