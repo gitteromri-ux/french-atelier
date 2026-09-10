@@ -2,7 +2,6 @@
 html:root:root:root body#fa *,html:root:root:root body#fa *::before,html:root:root:root body#fa *::after{text-transform:none!important}
 html:root:root:root body#fa .eyebrow,html:root:root:root body#fa [class*="eyebrow"],html:root:root:root body#fa .btn,html:root:root:root body#fa [class*="badge"],html:root:root:root body#fa [class*="tag"],html:root:root:root body#fa [class*="label"],html:root:root:root body#fa .sound-toggle,html:root:root:root body#fa .fa-sound-btn,html:root:root:root body#fa .jul-say-btn,html:root:root:root body#fa .drawer-group-label,html:root:root:root body#fa .footer-col h4{letter-spacing:.04em!important}
 @media (max-width:760px){
-html:root:root:root body#fa h1 *,html:root:root:root body#fa h2 *,html:root:root:root body#fa h3 *{font-size:inherit!important}
 html:root:root:root body#fa p,html:root:root:root body#fa li,html:root:root:root body#fa dd,html:root:root:root body#fa blockquote,html:root:root:root body#fa td,html:root:root:root body#fa th{font-size:max(1rem,16px)!important;line-height:1.6!important}
 html:root:root:root body#fa .lede{font-size:1.08rem!important}
 html:root:root:root body#fa small,html:root:root:root body#fa .small,html:root:root:root body#fa figcaption,html:root:root:root body#fa .img-caption,html:root:root:root body#fa .eyebrow,html:root:root:root body#fa [class*="eyebrow"],html:root:root:root body#fa [class*="badge"],html:root:root:root body#fa [class*="tag"],html:root:root:root body#fa [class*="label"],html:root:root:root body#fa [class*="meta"] span,html:root:root:root body#fa [class*="pill"],html:root:root:root body#fa .breadcrumb,html:root:root:root body#fa .breadcrumb *{font-size:14px!important;line-height:1.4!important}
@@ -108,7 +107,8 @@ html:root:root:root body#fa div.wc-day{font-size:14px!important}
 html:root:root:root body#fa span.wc-tag{font-size:14px!important}
 html:root:root:root body#fa span.tn-region{font-size:14px!important}
 html:root:root:root body#fa div{font-size:14px!important}
-html:root:root:root body#fa span.fr{font-size:14px!important}
 html:root:root:root body#fa span.cefr-tag{font-size:14px!important}
 html:root:root:root body#fa span.pf-label{font-size:14px!important}
+html:root:root:root body#fa h1 *,html:root:root:root body#fa h2 *,html:root:root:root body#fa h3 *,html:root:root:root body#fa .display-xl *,html:root:root:root body#fa .display-md *,html:root:root:root body#fa .display-lg *{font-size:inherit!important;line-height:inherit!important}
+html:root:root:root body#fa span.fac-region,html:root:root:root body#fa .fac-region{font-size:14px!important}
 }
