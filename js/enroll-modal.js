@@ -33,6 +33,9 @@
     // pre-build so eTeacher's init (DOMContentLoaded) can bind the form
     build();
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire); else wire();
+  if (document.body) wire(); // script sits at end of body: build now so eTeacher's deferred init binds the popup form
+  document.addEventListener('DOMContentLoaded', wire);
+  window.addEventListener('load', wire);
+  try { new MutationObserver(function(){ wire(); }).observe(document.documentElement, { childList: true, subtree: true }); } catch (err) {}
   window.openEnrollModal = open;
 })();
