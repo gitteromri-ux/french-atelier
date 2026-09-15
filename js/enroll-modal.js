@@ -13,6 +13,8 @@
     overlay.querySelector('.em-close').addEventListener('click', close);
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
     var f = overlay.querySelector('form');
+    f.dataset.formId = 'lg-form'; // identical tracking id to the homepage form
+    if (!document.getElementById('lg-form')) f.id = 'lg-form';
     if (window.eTeacherLeads && typeof window.eTeacherLeads.bind === 'function') window.eTeacherLeads.bind(f);
     else if (window.__eTeacherBind) window.__eTeacherBind(f);
     return overlay;

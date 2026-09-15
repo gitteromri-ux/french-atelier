@@ -293,7 +293,7 @@
       timing: val(form, 'timing'),
       preferredTime: val(form, 'time'),
       adminNotes: baseNotes,
-      campaignId: (window.FA_CAMPAIGN_IDS && window.FA_CAMPAIGN_IDS[form.id]) || '',
+      campaignId: (window.FA_CAMPAIGN_IDS && window.FA_CAMPAIGN_IDS[form.dataset.formId || form.id]) || '',
       googleCampaignId: ''
     };
     if (countryIso && window.FA_GOOGLE_CAMPAIGN_IDS) {
@@ -324,7 +324,7 @@
           try {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-              event: 'lead_form_submit', form_id: form.id || form.className || 'fa-form',
+              event: 'lead_form_submit', form_id: form.dataset.formId || form.id || form.className || 'fa-form',
               crm_status: 'ok', product_id: 25, env: window.eTeacherLeads.env,
               gclid: attr.gclid || '', fbclid: attr.fbclid || '',
               utm_source: attr.utm_source || '', utm_campaign: attr.utm_campaign || '',
@@ -335,7 +335,7 @@
         } else {
           try {
             window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'lead_form_submit_error', form_id: form.id || 'fa-form', crm_status: res.status, product_id: 25, env: window.eTeacherLeads.env });
+            window.dataLayer.push({ event: 'lead_form_submit_error', form_id: form.dataset.formId || form.id || 'fa-form', crm_status: res.status, product_id: 25, env: window.eTeacherLeads.env });
           } catch (err) {}
           showError(form, "We couldn't submit your details right now. Please try again in a moment, or email advisor@eTeacherGroup.com.");
         }
