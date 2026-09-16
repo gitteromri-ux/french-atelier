@@ -315,6 +315,9 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) { showError(form, 'Please enter a valid email address.'); return; }
       if (!f.phone) { showError(form, 'Please enter a phone number so an advisor can reach you.'); return; }
       if (!f.countryIso) { showError(form, 'Please enter your country.'); return; }
+      // "All fields required": enforce the level / timing selects when the form has them.
+      if (form.querySelector('select[name="level"]') && !f.level) { showError(form, 'Please select your French level.'); return; }
+      if (form.querySelector('select[name="timing"]') && !f.timing) { showError(form, 'Please choose when you would like to start.'); return; }
 
       form.classList.add('is-submitting');
       window.eTeacherLeads.submit(f).then(function (res) {
