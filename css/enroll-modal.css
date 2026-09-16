@@ -29,3 +29,6 @@ body.em-lock{overflow:hidden}
 .em-modal .lg-form.is-sent .lg-success{display:block}
 
 @media (max-width:640px){.em-overlay{padding:0;align-items:flex-end}.em-modal{max-width:none;max-height:92dvh;border-radius:20px 20px 0 0}.em-modal .lg-form{border-radius:20px 20px 0 0;padding:1.4rem 1.1rem 1.6rem}.em-modal .lg-row.two{grid-template-columns:1fr}.em-modal .lg-field input,.em-modal .lg-field select{font-size:16px}}
+
+/* validation message readable on the navy form */
+.lg-form .fa-form-error{color:#F6CDD2 !important;background:rgba(176,28,46,.22) !important;border-color:rgba(246,205,210,.45) !important;font-size:15px !important}
