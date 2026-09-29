@@ -108,6 +108,8 @@
 }
 #teachers .fac-card--christ .fac-photo img{transform:scale(1.05);transform-origin:50% 40%}
 #teachers .fac-card--christ:hover .fac-photo img{transform:scale(1.11)}
+#teachers .fac-card--delphine .fac-photo img{transform:scale(1.4);transform-origin:50% 30%}
+#teachers .fac-card--delphine:hover .fac-photo img{transform:scale(1.44)}
 .fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 14px 34px -24px rgba(11,19,64,.4);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .fac-card:hover{transform:translateY(-5px);box-shadow:0 28px 56px -28px rgba(11,19,64,.5)}
 .fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden;max-height:290px}
@@ -942,7 +944,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
       </a>
-      <a class="fac-card" href="teachers.html">
+      <a class="fac-card fac-card--delphine" href="teachers.html">
         <div class="fac-photo"><img src="assets/teachers/upscaled/delphine-reframed.jpg?v=3" alt="Delphine, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Delphine</p><span class="fac-region">Paris</span></div>
       </a>
