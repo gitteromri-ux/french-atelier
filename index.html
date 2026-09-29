@@ -11,7 +11,7 @@
 <meta name="description" content="Learn French live from France with native certified teachers. Small groups of 10–12, CEFR certification by Acadomia, lifetime recordings. Seven structured courses from beginner to conversation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="css/fa.css?v=1789545501">
+<link rel="stylesheet" href="css/fa.css?v=1790664439">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
 <link rel="stylesheet" href="css/mapstr.css?v=1789545501">
@@ -101,10 +101,10 @@
 .tm .tm-region{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
 /* ===== TEACHERS — PORTRAIT GALLERY (homepage fold, compact) ===== */
-.fac-gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem;margin-top:1.6rem;max-width:1180px;margin-left:auto;margin-right:auto}
+.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.6rem;max-width:960px;margin-left:auto;margin-right:auto}
 .fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 14px 34px -24px rgba(11,19,64,.4);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .fac-card:hover{transform:translateY(-5px);box-shadow:0 28px 56px -28px rgba(11,19,64,.5)}
-.fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden;max-height:280px}
+.fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden;max-height:290px}
 .fac-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 1s var(--ease),filter .6s;filter:saturate(.97)}
 .fac-card:hover .fac-photo img{transform:scale(1.06);filter:saturate(1.05)}
 .fac-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 42%,rgba(0,0,32,.86) 100%);pointer-events:none}
@@ -922,8 +922,24 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
       </span>
     </div>
 
-    <!-- LARGE PORTRAIT GALLERY — all 5 teachers -->
+    <!-- LARGE PORTRAIT GALLERY — all 7 teachers, 4 + 3 -->
     <div class="fac-gallery reveal reveal-d2">
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/delphine.jpg" alt="Delphine, French teacher from France" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Delphine</p><span class="fac-region">France</span></div>
+      </a>
       <a class="fac-card" href="teachers.html">
         <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
@@ -933,16 +949,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/christ.jpg" alt="Christ, French teacher from France" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Christ</p><span class="fac-region">France</span></div>
       </a>
     </div><!-- /fac-gallery -->
 
