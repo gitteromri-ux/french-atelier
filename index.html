@@ -101,7 +101,13 @@
 .tm .tm-region{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
 
 /* ===== TEACHERS — PORTRAIT GALLERY (homepage fold, compact) ===== */
-.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.6rem;max-width:960px;margin-left:auto;margin-right:auto}
+.fac-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.6rem;max-width:1080px;margin-left:auto;margin-right:auto}
+@media(min-width:1000px){
+  #teachers .fac-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem !important}
+  #teachers .fac-gallery .fac-card{flex:0 0 calc((100% - 6rem)/4);width:calc((100% - 6rem)/4)}
+}
+#teachers .fac-card--christ .fac-photo img{transform:scale(1.05);transform-origin:50% 40%}
+#teachers .fac-card--christ:hover .fac-photo img{transform:scale(1.11)}
 .fac-card{position:relative;display:block;border-radius:6px;overflow:hidden;background:var(--navy-deep);box-shadow:0 14px 34px -24px rgba(11,19,64,.4);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .fac-card:hover{transform:translateY(-5px);box-shadow:0 28px 56px -28px rgba(11,19,64,.5)}
 .fac-photo{position:relative;aspect-ratio:4/5;overflow:hidden;max-height:290px}
@@ -937,7 +943,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/delphine.jpg?v=2" alt="Delphine, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-photo"><img src="assets/teachers/upscaled/delphine-reframed.jpg?v=3" alt="Delphine, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Delphine</p><span class="fac-region">Paris</span></div>
       </a>
       <a class="fac-card" href="teachers.html">
@@ -948,7 +954,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
         <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
       </a>
-      <a class="fac-card" href="teachers.html">
+      <a class="fac-card fac-card--christ" href="teachers.html">
         <div class="fac-photo"><img src="assets/teachers/upscaled/christ.jpg?v=2" alt="Christ, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
         <div class="fac-info"><p class="fac-name">Christ</p><span class="fac-region">Paris</span></div>
       </a>
