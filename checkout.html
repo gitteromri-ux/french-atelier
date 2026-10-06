@@ -18,7 +18,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
-<link rel="stylesheet" href="css/fa-checkout.css?v=20261006k">
+<link rel="stylesheet" href="css/fa-checkout.css?v=20261006u">
 </head>
 <body id="fa" class="light-hero">
 
@@ -149,29 +149,45 @@
 <!-- ===== SECURE CHECKOUT (step 3 of the self-service enrollment) ===== -->
 <section class="fa-pay-page">
   <div class="wrap">
-    <div class="fa-ck-steps" style="margin-bottom:1.6rem"><span class="fa-ck-step is-done" data-step="1"><i>1</i>Your details</span><span class="fa-ck-step is-done" data-step="2"><i>2</i>Your plan</span><span class="fa-ck-step is-on" data-step="3"><i>3</i>Secure payment</span></div>
+    <div class="fa-ck-steps fa-pay-steps"><span class="fa-ck-step is-done" data-step="1"><i>1</i>Register</span><span class="fa-ck-step is-done" data-step="2"><i>2</i>Your course</span><span class="fa-ck-step is-on" data-step="3"><i>3</i>Secure payment</span></div>
     <div class="fa-pay-grid">
-      <div class="fa-pay-card" id="payCard">
-        <h1>Secure <span class="gi">payment</span></h1>
-        <p class="fa-pay-lead" id="payLead">Choose how you would like to pay. Your seat is reserved while you complete this step.</p>
-        <div class="fa-pay-tabs" id="payTabs" role="tablist">
-          <button class="fa-pay-tab active" type="button" role="tab" data-tab="card"><span class="long">Card · Apple Pay · Google Pay</span><span class="short">Card &amp; wallets</span></button>
-          <button class="fa-pay-tab" type="button" role="tab" data-tab="paypal">PayPal</button>
+      <div class="fa-pay-main">
+        <div class="fa-pay-card fa-pay-course" id="courseCard">
+          <div class="fa-ck-eyebrow">Your enrollment</div>
+          <h1 id="courseTitle">—</h1><div class="fa-ck-aside-meta" id="courseMeta"></div>
+          <div id="courseFacts"></div>
+          <div id="courseBand"></div>
         </div>
-        <div id="cardBox"><div id="awx-dropin"></div></div>
-        <div id="paypalBox" style="display:none"><div id="paypal-buttons"></div><p class="fa-pay-status" id="paypal-status"></p></div>
-        <div id="fallbackBox" style="display:none"></div>
-        <p class="fa-pay-status" id="payStatus" aria-live="polite">Preparing your secure payment form…</p>
-        <div class="fa-pay-secure"><span>256-bit TLS</span><span>PCI DSS via Airwallex</span><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Apple Pay</span><span>Google Pay</span><span>PayPal</span></div>
+        <div class="fa-pay-card" id="payCard">
+          <h2 class="fa-pay-h">Secure <span class="gi">payment</span></h2>
+          <p class="fa-pay-lead" id="payLead">Pay today's amount by card, Apple Pay, Google Pay or PayPal. Your remaining monthly payments are collected automatically to the same method.</p>
+          <div class="fa-pay-tabs" id="payTabs" role="tablist">
+            <button class="fa-pay-tab active" type="button" role="tab" data-tab="card"><img src="assets/pay/visa.svg" alt="Visa"><img src="assets/pay/mastercard.svg" alt="Mastercard"><img src="assets/pay/amex.svg" alt="American Express"><span class="fa-ck-mark-txt">Apple Pay</span><span class="fa-ck-mark-txt"><img src="assets/pay/google-g.svg" alt="">Pay</span></button>
+            <button class="fa-pay-tab" type="button" role="tab" data-tab="paypal"><img src="assets/pay/paypal.svg" alt="PayPal" class="pp"></button>
+          </div>
+          <div id="cardBox"><div id="awx-dropin"></div></div>
+          <div id="paypalBox" style="display:none"><div id="paypal-buttons"></div><p class="fa-pay-status" id="paypal-status"></p></div>
+          <div id="fallbackBox" style="display:none"></div>
+          <p class="fa-pay-status" id="payStatus" aria-live="polite">Preparing your secure payment form…</p>
+          <div class="fa-pay-secure"><span>256-bit TLS encryption</span><span>PCI DSS via Airwallex</span><span>eTeacher Group · since 2000</span></div>
+        </div>
       </div>
-      <aside class="fa-pay-summary" id="paySummary">
-        <div class="img"><img id="sumImg" src="assets/gen/hero-paris.webp" alt=""><div class="k" id="sumKicker">Your enrollment</div></div>
-        <div class="body">
-          <div class="fa-ck-eyebrow">The French Atelier by Acadomia</div>
-          <h2 id="sumTitle">—</h2><div class="fa-ck-aside-meta" id="sumMeta"></div>
-          <div id="sumRows"></div>
-          <ul id="sumIncludes"></ul>
-          <div class="buyer" id="sumBuyer"></div>
+      <aside class="fa-pay-side">
+        <div class="fa-pay-summary" id="paySummary">
+          <div class="img"><img id="sumImg" src="assets/gen/hero-paris.webp" alt=""><span class="fa-ck-route" id="sumRoute"></span></div>
+          <div class="body">
+            <div class="fa-ck-eyebrow">The French Atelier by Acadomia</div>
+            <h2 id="sumTitle">—</h2><div class="fa-ck-aside-meta" id="sumMeta"></div>
+            <div id="sumRows"></div>
+            <ul id="sumIncludes"></ul>
+            <div class="buyer" id="sumBuyer"></div>
+          </div>
+        </div>
+        <div class="fa-pay-help">
+          <div class="fa-pay-help-tp"><img src="assets/logo/trustpilot-logo.svg" alt=""><b>Trustpilot</b><img src="assets/logo/trustpilot-stars.svg" alt="5 out of 5 stars"><span>Excellent</span></div>
+          <p>Questions before you pay? Our admissions team answers in English and French.</p>
+          <a class="fa-pay-help-tel" href="tel:+18882305110">Call +1-888-230-5110</a>
+          <p class="fa-pay-help-fine">Cancellation and refund terms are set out in our <a href="terms.html" target="_blank" rel="noopener">Terms</a>. Payments are processed by eTeacher Group for The French Atelier by Acadomia.</p>
         </div>
       </aside>
     </div>
@@ -227,9 +243,9 @@
 </footer>
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-geo.js?v=20261006k"></script>
-<script src="js/fa-checkout-config.js?v=20261006k"></script>
-<script src="js/fa-checkout.js?v=20261006k"></script>
+<script src="js/fa-geo.js?v=20261006u"></script>
+<script src="js/fa-checkout-config.js?v=20261006u"></script>
+<script src="js/fa-checkout.js?v=20261006u"></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
 /* Step 3 — payment. Same sequence as the proven Longevity checkout:
@@ -242,11 +258,11 @@
   var $ = function(id){ return document.getElementById(id); };
   var status = function(msg, cls){ var el=$('payStatus'); el.textContent = msg || ''; el.className = 'fa-pay-status' + (cls ? ' ' + cls : ''); };
   if (!FA) { status('Checkout could not load. Please refresh the page.', 'err'); return; }
-  if (CFG.env === 'staging') { var rb=document.createElement('div'); rb.className='fa-env-ribbon'; document.querySelector('.fa-pay-page').classList.add('has-ribbon'); rb.textContent='Staging environment — test payments only, no real charge'; document.body.appendChild(rb); }
+  if (CFG.env === 'staging') { var rb=document.createElement('div'); rb.className='fa-env-ribbon'; document.querySelector('.fa-pay-page').classList.add('has-ribbon'); rb.textContent='Staging · test payments only · no real charge'; document.body.appendChild(rb); }
 
   var q = new URLSearchParams(location.search);
   var staged = FA.loadLead();
-  var sel = { product: q.get('product') || (staged && staged.sel.product), level: q.get('level') || (staged && staged.sel.level), capsules: (q.get('capsules') || (staged && (staged.sel.capsules||[]).join(',')) || '').split(',').filter(Boolean) };
+  var sel = { product: q.get('product') || (staged && staged.sel.product), level: q.get('level') || (staged && staged.sel.level), classTime: q.get('time') || (staged && staged.sel.classTime) || '', capsules: (q.get('capsules') || (staged && (staged.sel.capsules||[]).join(',')) || '').split(',').filter(Boolean) };
   var p = FA.product(sel.product);
   var backHref = sel.product && /capsule|membership/.test(sel.product) ? 'capsules.html' : 'pricing.html';
 
@@ -254,7 +270,8 @@
   function renderSummary(){
     if (!p) return;
     (function(){ var t = FA.productTitle(sel), i = t.indexOf(' · '); $('sumTitle').textContent = i > 0 ? t.slice(0, i) : t; $('sumMeta').textContent = i > 0 ? t.slice(i + 3) : ''; })();
-    $('sumKicker').textContent = p.offerLabel; if (FA.productImage) { $('sumImg').src = FA.productImage(sel); }
+    if (FA.productImage) { $('sumImg').src = FA.productImage(sel); } $('sumRoute').textContent = FA.routeFor ? FA.routeFor(sel) : '';
+    (function(){ var t = FA.productTitle(sel), i = t.indexOf(' · '); $('courseTitle').textContent = i > 0 ? t.slice(0, i) : t; $('courseMeta').textContent = i > 0 ? t.slice(i + 3) : ''; })(); $('courseFacts').innerHTML = FA.factRows(p); $('courseBand').innerHTML = FA.tuitionBand(p);
     var rows = '';
     if (p.kind === 'course') rows = '<div class="row accent"><span>Today — first month 50% off</span><strong>' + FA.fmt2(p.firstPayment) + '</strong></div><div class="row"><span>Then 4 monthly payments</span><strong>' + FA.fmt2(p.monthly) + '/mo</strong></div><div class="row"><span>Total (15% off ' + FA.fmt(p.listTotal) + ')</span><strong>' + FA.fmt2(p.total) + '</strong></div>';
     else rows = '<div class="row accent"><span>Today</span><strong>' + FA.fmt2(p.firstPayment) + '</strong></div><div class="row"><span>' + p.numberOfPayments + ' monthly payments</span><strong>' + FA.fmt2(p.monthly) + '/mo</strong></div><div class="row"><span>Total</span><strong>' + FA.fmt2(p.total) + '</strong></div>';
@@ -292,7 +309,7 @@
     $('payLead').style.display = 'none'; document.querySelector('.fa-pay-secure').style.display = 'none';
     status('');
     $('fallbackBox').style.display = ''; $('fallbackBox').className = 'fa-pay-done';
-    $('fallbackBox').innerHTML = '<div class="seal">&#10003;</div><h2>Bienvenue, ' + FA.h(staged.lead.firstName) + '.</h2><p>Your payment of <strong>' + FA.fmt2(amount) + ' USD</strong> was received' + (method ? ' via ' + method : '') + '. Order #' + FA.h(ids.orderid) + '.<br>Your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> is confirmed — a confirmation email and your advisor\'s welcome call follow within one business day.</p><p style="margin-top:1.2rem"><a class="btn btn-gold" href="index.html">Back to The French Atelier</a></p>';
+    $('fallbackBox').innerHTML = '<div class="seal">&#10003;</div><h2>Bienvenue, ' + FA.h(staged.lead.firstName) + '.</h2><p>Your payment of <strong>' + FA.fmt2(amount) + ' USD</strong> was received' + (method ? ' via ' + method : '') + '. Order #' + FA.h(ids.orderid) + '.<br>Your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> is confirmed. Your confirmation email is on its way and an admissions advisor will contact you to schedule your first class.</p><p style="margin-top:1.2rem"><a class="btn btn-gold" href="index.html">Back to The French Atelier</a></p>';
     FA.clearIds();
     FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: String(ids.orderid), num_items: 1 }, { eventId: 'fa_purchase_' + ids.orderid });
     try { sessionStorage.removeItem('fa_ck_lead_v1'); } catch(e){}
@@ -305,7 +322,7 @@
     $('fallbackBox').innerHTML = '<strong>Reserving your seat…</strong>';
     FA.reserveViaLeads(staged, reason).then(function(r){
       if (r && r.ok) {
-        $('fallbackBox').innerHTML = '<strong>Your seat is reserved, ' + FA.h(staged.lead.firstName) + '.</strong> ' + friendly + ' Nothing has been charged. A French Atelier advisor will confirm your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> at <strong>' + FA.fmt2(p.firstPayment) + ' today</strong> (' + p.numberOfPayments + ' payments, ' + FA.fmt2(p.total) + ' total) and send your secure payment link within one business day.<br><br><a class="btn btn-gold" href="index.html">Back to The French Atelier</a>';
+        $('fallbackBox').innerHTML = '<strong>Your seat is reserved, ' + FA.h(staged.lead.firstName) + '.</strong> ' + friendly + ' Nothing has been charged. A French Atelier advisor will confirm your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> at <strong>' + FA.fmt2(p.firstPayment) + ' today</strong> (' + p.numberOfPayments + ' payments, ' + FA.fmt2(p.total) + ' total) and send your secure payment link.<br><br><a class="btn btn-gold" href="index.html">Back to The French Atelier</a>';
         FA.track('Lead', { content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: 'reserve_' + sel.product });
       } else {
         $('fallbackBox').innerHTML = '<strong>We could not reserve your seat automatically.</strong> Nothing has been charged. Please email <a href="mailto:' + CFG.advisorEmail + '">' + CFG.advisorEmail + '</a> or <a href="contact.html">contact an advisor</a> and we will complete your enrollment by hand.';

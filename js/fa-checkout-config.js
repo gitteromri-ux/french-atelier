@@ -42,11 +42,28 @@
 
     /* Course levels sold on the homepage / course pages. */
     levels: {
-      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1', page: 'courses/fa-foundation.html' },
-      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', page: 'courses/fa-beginner.html' },
-      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', page: 'courses/fa-elementary.html' },
-      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', page: 'courses/fa-intermediate.html' }
+      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1',   route: 'Paris',                         page: 'courses/fa-foundation.html' },
+      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', route: 'Normandy to Paris',             page: 'courses/fa-beginner.html' },
+      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', route: 'Loire · Bordeaux · Basque',     page: 'courses/fa-elementary.html' },
+      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', route: 'Marseille · Chamonix · Alsace', page: 'courses/fa-intermediate.html' }
     },
+    /* Course facts shown in the checkout (source: how-it-works.html, faq.html, course pages). */
+    courseFacts: [
+      ['Format', '20 live lessons · one class a week'],
+      ['Lesson', '85 minutes · live from France'],
+      ['Group', 'Small groups of 10–12 learners'],
+      ['Class times', 'Sunday to Friday · matched to your timezone'],
+      ['Certificate', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
+      ['Recordings', 'Every lesson recorded · on-demand in your dashboard']
+    ],
+    capsuleFacts: [
+      ['Format', '10 live one-hour conferences · once a week'],
+      ['Speaker', 'Bilingual signature speaker · 15–20 min Q&A'],
+      ['Language', 'No French required'],
+      ['Platform', 'Zoom · recordings included']
+    ],
+    classTimes: ['Weekday evenings (my timezone)', 'Weekday mornings or midday', 'Weekend', 'Any — next available start'],
+    phone: '+1-888-230-5110',
 
     /* Culture Capsules — three thematic packs, 10 live one-hour Zoom conferences each, once a week. */
     capsules: {
@@ -65,7 +82,7 @@
         offerLabel: 'Online enrollment · 15% off · first month 50% off',
         listMonthly: 336, listTotal: 1680, numberOfPayments: 5,
         monthly: 285.60, firstPayment: 142.80, total: 1285.20,
-        includes: ['20 live classes · 85 minutes each', 'Certified native French teacher, live from France', 'Small groups — 10 to 12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime on-demand recordings', 'CEFR certificate by ACADOMIA'],
+        includes: ['20 live lessons · 85 minutes each', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },
       'capsule-1': {

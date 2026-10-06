@@ -111,6 +111,7 @@
     dyn.push('faproduct=' + sel.product, 'faplan=' + p.numberOfPayments + 'pay', 'fafirstpayment=' + p.firstPayment, 'fatotal=' + p.total);
     if (sel.level) dyn.push('falevel=' + sel.level);
     if (sel.capsules && sel.capsules.length) dyn.push('facapsules=' + sel.capsules.join('_'));
+    if (sel.classTime) dyn.push('faclasstime=' + encodeURIComponent(sel.classTime));
 
     var payload = {
       FirstName: lead.firstName, LastName: lead.lastName, Email: lead.email, MobilePhone: lead.e164,
@@ -201,7 +202,7 @@
       '<button type="button" class="fa-ck-close" aria-label="Close">&times;</button>' +
       '<aside class="fa-ck-aside"></aside>' +
       '<div class="fa-ck-main">' +
-      '<div class="fa-ck-steps"><span class="fa-ck-step is-on" data-step="1"><i>1</i>Your details</span><span class="fa-ck-step" data-step="2"><i>2</i>Your plan</span><span class="fa-ck-step" data-step="3"><i>3</i>Secure payment</span></div>' +
+      '<div class="fa-ck-steps"><span class="fa-ck-step is-on" data-step="1"><i>1</i>Register</span><span class="fa-ck-step" data-step="2"><i>2</i>Your course</span><span class="fa-ck-step" data-step="3"><i>3</i>Secure payment</span></div>' +
       '<div class="fa-ck-body"></div></div></div>';
     document.body.appendChild(wrap);
     wrap.addEventListener('click', function (e) { if (e.target === wrap || e.target.closest('.fa-ck-close')) close(); });
@@ -230,67 +231,69 @@
     if (!p) return '';
     if (p.kind === 'course') return b + 'assets/courses_webp/fa-' + (sel.level || 'beginner') + '-1.webp';
     if (p.kind === 'membership') return b + 'assets/gen/hero-paris.webp';
-    var caps = sel.capsules || [], map = { 'fashion-art': 'assets/img/culture/fashion-hero.jpg', 'gastronomy': 'assets/img/culture/wine-hero.jpg', 'cinema-music': 'assets/img/culture/music-hero.jpg' };
+    var caps = sel.capsules || [], map = { 'fashion-art': 'assets/capsules/capsule-chanel.jpg', 'gastronomy': 'assets/img/culture/wine-hero.jpg', 'cinema-music': 'assets/img/culture/music-hero.jpg' };
     if (caps.length === 1 && map[caps[0]]) return b + map[caps[0]];
-    return b + 'assets/img/culture/art-hero.jpg';
+    return b + 'assets/capsules/hero-versailles.jpg';
   }
-  function priceRows(p) {
-    if (p.kind === 'course') return '<div class="fa-ck-sum-row"><span>' + h(p.numberOfPayments) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
-      '<div class="fa-ck-sum-row"><span>Then 4 × ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>' +
-      '<div class="fa-ck-sum-row is-muted"><span>Website price</span><s>' + fmt(p.listTotal) + '</s></div>';
-    return '<div class="fa-ck-sum-row"><span>' + p.numberOfPayments + ' monthly payments of ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>';
+  function titleParts(sel) { var t = productTitle(sel), i = t.indexOf(' · '); return { name: i > 0 ? t.slice(0, i) : t, meta: i > 0 ? t.slice(i + 3) : '' }; }
+  function routeFor(sel) { var p = product(sel.product); if (p.kind === 'membership') return 'A year at the Atelier'; if (p.kind === 'course') { var lv = CFG.levels[sel.level]; return lv ? lv.route : ''; } return (sel.capsules || []).map(function (c) { return (CFG.capsules[c] || {}).tagline || ''; }).filter(Boolean).join(' · '); }
+  function factsFor(p) { return p.kind === 'capsules' ? CFG.capsuleFacts : CFG.courseFacts; }
+  function factRows(p) { return '<dl class="fa-ck-facts">' + factsFor(p).map(function (f) { return '<div><dt>' + h(f[0]) + '</dt><dd>' + h(f[1]) + '</dd></div>'; }).join('') + '</dl>'; }
+  function tuitionBand(p) {
+    if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-l">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listMonthly) + '</s>' + fmt2(p.monthly) + ' monthly for ' + p.numberOfPayments + ' months<span class="fa-ck-off">15% OFF</span></div><div class="fa-ck-band-s">First month 50% off — ' + fmt2(p.firstPayment) + ' today · ' + fmt2(p.total) + ' total instead of ' + fmt(p.listTotal) + '</div></div>';
+    if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-l">Atelier Membership</div><div class="fa-ck-band-v">' + fmt(p.monthly) + ' monthly for 12 months</div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' total</div></div>';
+    var per = p.packs === 1 ? '$89' : p.packs === 2 ? '$79' : '$69';
+    return '<div class="fa-ck-band"><div class="fa-ck-band-l">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + per + ' per capsule · 3 monthly payments</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' total</div></div>';
+  }
+  function sumRows(p) {
+    if (p.kind === 'course') return '<div class="fa-ck-sum-row is-accent"><span>Today · first month 50% off</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
+      '<div class="fa-ck-sum-row"><span>Then 4 monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
+      '<div class="fa-ck-sum-row is-total"><span>Total · 15% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>';
+    return '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
+      '<div class="fa-ck-sum-row"><span>' + p.numberOfPayments + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
+      '<div class="fa-ck-sum-row is-total"><span>Total</span><strong>' + fmt2(p.total) + '</strong></div>';
   }
   function renderAside() {
     var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
-    var aside = modal.querySelector('.fa-ck-aside');
-    aside.innerHTML = '<div class="fa-ck-aside-img"><img src="' + productImage(sel) + '" alt=""><span class="fa-ck-aside-tag">' + h(p.offerLabel) + '</span></div>' +
+    var aside = modal.querySelector('.fa-ck-aside'), tp = titleParts(sel), route = routeFor(sel);
+    aside.innerHTML = '<div class="fa-ck-aside-img"><img src="' + productImage(sel) + '" alt="">' +
+      (route ? '<span class="fa-ck-route">' + h(route) + '</span>' : '') + '</div>' +
       '<div class="fa-ck-aside-body">' +
       '<div class="fa-ck-eyebrow">The French Atelier by Acadomia</div>' +
-      (function(){ var t = productTitle(sel), i = t.indexOf(' · '); return '<h3 class="fa-ck-aside-title">' + h(i > 0 ? t.slice(0, i) : t) + '</h3>' + (i > 0 ? '<div class="fa-ck-aside-meta">' + h(t.slice(i + 3)) + '</div>' : ''); })() +
-      '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">' + (p.kind === 'course' ? 'today · first month 50% off' : 'today · then monthly') + '</span></div>' +
-      '<div class="fa-ck-rows">' + priceRows(p) + '</div>' +
-      '<ul class="fa-ck-trust"><li>Secure payment · Card, Apple Pay, Google Pay, PayPal</li><li>Live from France · certified native teachers</li><li>Nothing is charged until you confirm</li></ul>' +
+      '<h3 class="fa-ck-aside-title">' + h(tp.name) + '</h3>' + (tp.meta ? '<div class="fa-ck-aside-meta">' + h(tp.meta) + '</div>' : '') +
+      '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">' + (p.kind === 'course' ? 'due today · first month 50% off' : 'due today · then monthly') + '</span></div>' +
+      '<div class="fa-ck-rows">' + sumRows(p) + '</div>' +
+      '<ul class="fa-ck-trust">' + p.includes.slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
       '</div>';
   }
-
-  function summaryCard(sel) {
-    var p = product(sel.product);
-    var lines = '';
-    if (p.kind === 'course') lines = '<div class="fa-ck-sum-row"><span>' + h(p.numberOfPayments) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '/mo</strong></div>' +
-      '<div class="fa-ck-sum-row is-accent"><span>Today — first month 50% off</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
-      '<div class="fa-ck-sum-row"><span>Then 4 × ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>' +
-      '<div class="fa-ck-sum-row is-muted"><span>Website price</span><s>' + fmt(p.listTotal) + '</s></div>';
-    else lines = '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
-      '<div class="fa-ck-sum-row"><span>' + p.numberOfPayments + ' monthly payments of ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>';
-    return '<div class="fa-ck-sum"><div class="fa-ck-kicker">' + h(p.offerLabel) + '</div><h4 class="fa-ck-sum-title">' + h(productTitle(sel)) + '</h4>' + lines + '</div>';
+  function payMarks() {
+    var b = assetBase() + 'assets/pay/';
+    return '<div class="fa-ck-marks"><img src="' + b + 'visa.svg" alt="Visa"><img src="' + b + 'mastercard.svg" alt="Mastercard"><img src="' + b + 'amex.svg" alt="American Express"><span class="fa-ck-mark-txt">Apple Pay</span><span class="fa-ck-mark-txt"><img src="' + b + 'google-g.svg" alt="">Pay</span><img src="' + b + 'paypal.svg" alt="PayPal" class="pp"></div>';
   }
 
   function renderStep1(prefill) {
     setStep(1); renderAside();
     var sel = state.sel, p = product(sel.product), lead = prefill || {};
     var body = modal.querySelector('.fa-ck-body');
-    var levelField = (p.kind === 'course' || p.kind === 'membership') ? '<div class="fa-ck-field"><label for="fa-ck-level">' + (p.kind === 'membership' ? 'Your language course (one of our 4 levels)' : 'Your level') + '</label><select id="fa-ck-level">' + levelOptions(sel.level) + '</select></div>' : '';
-    var capsField = '';
-    if (p.kind === 'capsules' && p.packs < 3) {
-      capsField = '<div class="fa-ck-field"><label>Choose ' + (p.packs === 1 ? 'your capsule' : 'your 2 capsules') + '</label><div class="fa-ck-caps">' + Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-cap"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (sel.capsules.indexOf(k) > -1 ? ' checked' : '') + '><span><b>' + h(c.name) + '</b><small>' + h(c.status) + '</small></span></label>'; }).join('') + '</div></div>';
-    }
-    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Enroll <span class="gi">online</span></h3>' +
-      '<p class="fa-ck-sub">Your details take two minutes. Your seat is held while you complete the secure payment.</p>' +
-      '<form class="fa-ck-form" novalidate>' + levelField + capsField +
-      '<div class="fa-ck-row two"><div class="fa-ck-field"><label for="fa-ck-fn">First name</label><input id="fa-ck-fn" autocomplete="given-name" required value="' + h(lead.firstName || '') + '"></div><div class="fa-ck-field"><label for="fa-ck-ln">Last name</label><input id="fa-ck-ln" autocomplete="family-name" required value="' + h(lead.lastName || '') + '"></div></div>' +
-      '<div class="fa-ck-field"><label for="fa-ck-em">Email</label><input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" required value="' + h(lead.email || '') + '"></div>' +
-      '<div class="fa-ck-row two"><div class="fa-ck-field"><label for="fa-ck-co">Country</label><select id="fa-ck-co" autocomplete="country">' + countryOptions(lead.countryIso || 'US') + '</select></div><div class="fa-ck-field"><label for="fa-ck-ph">Mobile phone</label><input id="fa-ck-ph" type="tel" autocomplete="tel" inputmode="tel" required placeholder="+1 (212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div></div>' +
-      '<div class="fa-ck-field" id="fa-ck-st-wrap"' + ((lead.countryIso || 'US') === 'US' ? '' : ' hidden') + '><label for="fa-ck-st">State</label><select id="fa-ck-st">' + stateOptions() + '</select></div>' +
+    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your French <span class="gi">starts here.</span></h3>' +
+      '<p class="fa-ck-sub">Register in a minute. Your seat is held while you complete the secure payment.</p>' +
+      '<form class="fa-ck-form" novalidate>' +
+      '<div class="fa-ck-row two"><div class="fa-ck-field"><label for="fa-ck-fn">First name</label><input id="fa-ck-fn" autocomplete="given-name" required placeholder="Camille" value="' + h(lead.firstName || '') + '"></div><div class="fa-ck-field"><label for="fa-ck-ln">Last name</label><input id="fa-ck-ln" autocomplete="family-name" required placeholder="Durand" value="' + h(lead.lastName || '') + '"></div></div>' +
+      '<div class="fa-ck-field"><label for="fa-ck-em">Email</label><input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" required placeholder="camille@example.com" value="' + h(lead.email || '') + '"></div>' +
+      '<div class="fa-ck-field"><label for="fa-ck-co">Country</label><select id="fa-ck-co" autocomplete="country">' + countryOptions(lead.countryIso || 'US') + '</select></div>' +
+      '<div class="fa-ck-row two"><div class="fa-ck-field fa-ck-phone"><label for="fa-ck-ph">Mobile number</label><div class="fa-ck-phone-wrap"><span class="fa-ck-dial" id="fa-ck-dial">+1</span><input id="fa-ck-ph" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div></div>' +
+      '<div class="fa-ck-field" id="fa-ck-st-wrap"' + ((lead.countryIso || 'US') === 'US' ? '' : ' hidden') + '><label for="fa-ck-st">State</label><select id="fa-ck-st">' + stateOptions() + '</select></div></div>' +
       '<p class="fa-ck-error" hidden></p>' +
-      '<button type="submit" class="fa-ck-submit">Continue to your plan</button>' +
-      '<p class="fa-ck-fine">Secure checkout by eTeacher Group for The French Atelier by Acadomia. Card, Apple Pay, Google Pay and PayPal accepted. By continuing you agree to our <a href="terms.html" target="_blank" rel="noopener">Terms</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+      '<button type="submit" class="fa-ck-submit">Continue</button>' +
+      '<label class="fa-ck-consent"><input type="checkbox" id="fa-ck-sms" checked><span>I agree to receive a call, SMS and email from The French Atelier by Acadomia about my enrollment. Message frequency varies, message and data rates may apply.</span></label>' +
+      '<p class="fa-ck-fine">Secure checkout by eTeacher Group for The French Atelier by Acadomia. By continuing you agree to our <a href="' + assetBase() + 'terms.html" target="_blank" rel="noopener">Terms</a> and <a href="' + assetBase() + 'privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
       '</form>';
-    var co = body.querySelector('#fa-ck-co'), ph = body.querySelector('#fa-ck-ph'), stWrap = body.querySelector('#fa-ck-st-wrap'), st = body.querySelector('#fa-ck-st');
+    var co = body.querySelector('#fa-ck-co'), ph = body.querySelector('#fa-ck-ph'), stWrap = body.querySelector('#fa-ck-st-wrap'), st = body.querySelector('#fa-ck-st'), dial = body.querySelector('#fa-ck-dial');
+    function syncDial() { var g = GEO.BY_ISO[co.value]; dial.textContent = g ? '+' + g.dial : '+'; stWrap.hidden = co.value !== 'US'; }
     if (lead.stateCode) st.value = lead.stateCode;
-    if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; stWrap.hidden = ip !== 'US'; } });
-    co.addEventListener('change', function () { stWrap.hidden = co.value !== 'US'; });
-    var lvEl = body.querySelector('#fa-ck-level'); if (lvEl) lvEl.addEventListener('change', function () { state.sel.level = lvEl.value; renderAside(); });
-    body.querySelectorAll('input[name="fa-ck-cap"]').forEach(function (cb) { cb.addEventListener('change', function () { state.sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; }); renderAside(); }); });
+    syncDial();
+    if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } });
+    co.addEventListener('change', syncDial);
     var stateTouched = false; st.addEventListener('change', function () { stateTouched = true; });
     ph.addEventListener('input', function () { if (co.value === 'US' && !stateTouched) { var s = GEO.stateForPhone(ph.value); if (s && GEO.US_STATES[s]) st.value = s; } });
     body.querySelector('form').addEventListener('submit', function (e) {
@@ -298,20 +301,32 @@
       var err = body.querySelector('.fa-ck-error'); err.hidden = true;
       var fn = body.querySelector('#fa-ck-fn').value.trim(), ln = body.querySelector('#fa-ck-ln').value.trim(), em = body.querySelector('#fa-ck-em').value.trim();
       var iso = co.value, phone = GEO.toE164(ph.value, iso);
-      var lv = body.querySelector('#fa-ck-level'); if (lv) sel.level = lv.value;
-      if (p.kind === 'capsules' && p.packs < 3) { sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; }); }
       var msg = '';
       if (!fn || !ln) msg = 'Please enter your first and last name.';
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) msg = 'Please enter a valid email address.';
       else if (!phone.ok) msg = iso === 'US' ? 'Please enter a valid US mobile number (10 digits, a real area code).' : 'Please enter a valid mobile number for ' + GEO.BY_ISO[iso].name + '.';
       else if (iso === 'US' && !GEO.US_STATES[st.value]) msg = 'Please select your state.';
-      else if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) msg = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.');
       if (msg) { err.textContent = msg; err.hidden = false; return; }
-      var leadObj = { firstName: fn, lastName: ln, email: em, countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '' };
+      var leadObj = { firstName: fn, lastName: ln, email: em, countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!body.querySelector('#fa-ck-sms').checked };
       saveLead(leadObj, sel);
       track('Lead', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product' }, { suffix: sel.product });
+      registerLead(leadObj, sel);
       renderStep2(leadObj);
     });
+  }
+
+  /* Step 1 = CRM lead, exactly like the Longevity checkout: the advisor sees the
+     prospect even if the payment is never completed. Production only — on the
+     staging host nothing is sent (no test leads in the production CRM). */
+  function registerLead(lead, sel) {
+    try {
+      if (CFG.env !== 'production' || !window.eTeacherLeads || typeof window.eTeacherLeads.submit !== 'function') return;
+      if (sessionStorage.getItem('fa_ck_lead_sent') === lead.email) return;
+      var lv = CFG.levels[sel.level];
+      window.eTeacherLeads.submit({ firstName: lead.firstName, lastName: lead.lastName, email: lead.email, phone: lead.e164, countryIso: lead.countryIso,
+        level: lv ? lv.name + ' (' + lv.cefr + ')' : '', adminNotes: 'Self-service checkout started: ' + productTitle(sel) + (lead.stateCode ? ' | State: ' + lead.stateCode : '') + ' | SMS consent: ' + (lead.consent ? 'yes' : 'no') })
+        .then(function (r) { if (r && r.ok) sessionStorage.setItem('fa_ck_lead_sent', lead.email); });
+    } catch (e) {}
   }
 
   function renderStep2(lead) {
@@ -319,22 +334,35 @@
     var sel = state.sel, p = product(sel.product);
     var body = modal.querySelector('.fa-ck-body');
     renderAside();
-    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your <span class="gi">plan</span></h3>' +
-      '<p class="fa-ck-sub">' + h(lead.firstName) + ', here is exactly what you are enrolling in — nothing is charged until you confirm on the next screen.</p>' +
-      '<div class="fa-ck-plan"><div class="fa-ck-plan-head"><span>' + h(productTitle(sel)) + '</span><strong>' + fmt2(p.firstPayment) + ' today</strong></div>' +
-      '<ul class="fa-ck-includes">' + p.includes.map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul></div>' +
-      (p.kind === 'capsules' || p.kind === 'membership' ? '<p class="fa-ck-note">Fashion &amp; Art has already started — you join the running pack. Gastronomy &amp; Wine and Cinema &amp; Music start in November. Every capsule is 10 weekly one-hour conferences on Zoom.</p>' : '') +
-      '<div class="fa-ck-buyer"><span>' + h(lead.firstName + ' ' + lead.lastName) + '</span><span>' + h(lead.email) + '</span><span>' + h(lead.e164) + '</span></div>' +
+    var levelField = (p.kind === 'course' || p.kind === 'membership') ? '<div class="fa-ck-field"><label for="fa-ck-level">' + (p.kind === 'membership' ? 'Your language course (one of our 4 levels)' : 'Your level') + '</label><select id="fa-ck-level">' + levelOptions(sel.level) + '</select><a class="fa-ck-help" href="' + assetBase() + 'courses.html" target="_blank" rel="noopener">Not sure? Compare the four levels →</a></div>' : '';
+    var timeField = p.kind === 'capsules' ? '' : '<div class="fa-ck-field"><label for="fa-ck-time">Preferred class time</label><select id="fa-ck-time">' + CFG.classTimes.map(function (t) { return '<option' + (sel.classTime === t ? ' selected' : '') + '>' + h(t) + '</option>'; }).join('') + '</select></div>';
+    var capsField = '';
+    if (p.kind === 'capsules' && p.packs < 3) {
+      capsField = '<div class="fa-ck-field"><label>Choose ' + (p.packs === 1 ? 'your capsule' : 'your 2 capsules') + '</label><div class="fa-ck-caps">' + Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-cap"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (sel.capsules.indexOf(k) > -1 ? ' checked' : '') + '><span><b>' + h(c.name) + '</b><small>' + h(c.status) + '</small></span></label>'; }).join('') + '</div></div>';
+    }
+    var promo = p.kind === 'course' ? 'First month 50% off applied' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied' : 'Standard capsule price';
+    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your <span class="gi">course.</span></h3>' +
+      '<p class="fa-ck-sub">' + h(lead.firstName) + ', confirm what you are enrolling in. Nothing is charged until the next screen.</p>' +
+      levelField + timeField + capsField +
+      '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
+      (p.kind === 'capsules' || p.kind === 'membership' ? '<p class="fa-ck-note">Fashion &amp; Art has already started — you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
+      '<div class="fa-ck-promo"><span class="fa-ck-promo-tag">Promo</span><span>' + promo + '</span></div>' +
       '<p class="fa-ck-error" hidden></p>' +
-      '<button type="button" class="fa-ck-submit" id="fa-ck-pay">Continue to secure payment · ' + fmt2(p.firstPayment) + ' today</button>' +
-      '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>';
+      '<button type="button" class="fa-ck-submit" id="fa-ck-pay">Continue to secure payment</button>' +
+      '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>' +
+      payMarks();
+    var lvEl = body.querySelector('#fa-ck-level'); if (lvEl) lvEl.addEventListener('change', function () { state.sel.level = lvEl.value; renderAside(); body.querySelector('#fa-ck-course-name').textContent = productTitle(state.sel); });
+    var tEl = body.querySelector('#fa-ck-time'); if (tEl) { sel.classTime = tEl.value; tEl.addEventListener('change', function () { state.sel.classTime = tEl.value; }); }
+    body.querySelectorAll('input[name="fa-ck-cap"]').forEach(function (cb) { cb.addEventListener('change', function () { state.sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; }); renderAside(); body.querySelector('#fa-ck-course-name').textContent = productTitle(state.sel); }); });
     body.querySelector('#fa-ck-back').addEventListener('click', function () { renderStep1(lead); });
     body.querySelector('#fa-ck-pay').addEventListener('click', function () {
+      var err = body.querySelector('.fa-ck-error'); err.hidden = true;
+      if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) { err.textContent = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.'); err.hidden = false; return; }
       track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
       saveLead(lead, sel);
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       var inSub = /\/courses\//.test(location.pathname);
-      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (CFG.env === 'staging' ? '&env=staging' : '');
+      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (sel.classTime ? '&time=' + encodeURIComponent(sel.classTime) : '');
     });
   }
 
@@ -350,6 +378,6 @@
   window.FA_CHECKOUT = {
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
-    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
+    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
   };
 })();
