@@ -177,7 +177,6 @@
   function reserveViaLeads(staged, reason) {
     var lead = staged.lead, sel = staged.sel, p = product(sel.product);
     if (!window.eTeacherLeads || typeof window.eTeacherLeads.submit !== 'function') return Promise.resolve({ ok: false, error: 'leads_unavailable' });
-    if (CFG.env === 'staging') { try { console.info('[FA checkout] staging: reserve lead NOT sent to production CRM', { product: sel.product, reason: reason }); } catch (e) {} return Promise.resolve({ ok: true, simulated: true }); }
     var notes = 'SELF-SERVICE CHECKOUT (reserve, not charged: ' + reason + ') | Product: ' + productTitle(sel) + ' | Plan: ' + p.numberOfPayments + ' payments of ' + fmt2(p.monthly) + (p.firstPayment !== p.monthly ? ' (first ' + fmt2(p.firstPayment) + ')' : '') + ' | Total: ' + fmt2(p.total) + ' | Buyer country: ' + lead.countryIso + (lead.stateCode ? ' ' + lead.stateCode : '');
     return window.eTeacherLeads.submit({ firstName: lead.firstName, lastName: lead.lastName, email: lead.email, phone: lead.e164, countryIso: lead.countryIso, level: sel.level ? (CFG.levels[sel.level] || {}).name : undefined, adminNotes: notes });
   }
