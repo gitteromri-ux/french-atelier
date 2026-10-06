@@ -4,7 +4,7 @@
    House style: sentence case everywhere (css/house-style.css), so no all-caps here.
    Separate namespace (.fa-ck-*, .fa-pay-*) from the lead popup (.em-*, #lg-form). */
 
-:root{--nx-0:#00001F;--nx-1:#050B24;--nx-2:#0B1634;--nx-neon:#2FA4FF;--nx-neon-b:#6FC4FF;--nx-neon-d:#0A6BD6;--nx-ice:rgba(214,232,255,.82);--nx-ice-2:rgba(191,228,255,.62);--nx-text:#F6FAFF;--nx-line:rgba(111,196,255,.18);--nx-line-2:rgba(111,196,255,.32);--nx-gold:#D8BC85;--nx-gold-2:#C8A96B;--nx-gold-3:#E8D3A6;--nx-err:#FF8A96}
+:root{--nx-0:#00001F;--nx-1:#050B24;--nx-2:#0B1634;--nx-neon:#2FA4FF;--nx-neon-b:#6FC4FF;--nx-neon-d:#0A6BD6;--nx-ice:rgba(224,238,255,.88);--nx-ice-2:rgba(205,230,255,.76);--nx-text:#F6FAFF;--nx-line:rgba(111,196,255,.18);--nx-line-2:rgba(111,196,255,.32);--nx-gold:#D8BC85;--nx-gold-2:#C8A96B;--nx-gold-3:#E8D3A6;--nx-err:#FF8A96}
 .fa-ck-overlay,.fa-ck-overlay *,.fa-pay-page,.fa-pay-page *,.fa-offer,.fa-offer *,.fa-caps-grid,.fa-caps-grid *{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1,"kern" 1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 /* ============ MODAL ============ */
@@ -28,7 +28,7 @@ body.fa-ck-lock{overflow:hidden}
 .fa-ck-aside-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) contrast(1.03)}
 .fa-ck-aside-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,31,0) 35%,rgba(4,9,31,.7) 78%,#06102A 100%)}
 .fa-ck-aside-img::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:2;background:linear-gradient(90deg,transparent,rgba(111,196,255,.85),transparent);box-shadow:0 0 14px rgba(47,164,255,.9)}
-.fa-ck-route{position:absolute;left:1.8rem;bottom:1.15rem;z-index:3;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.3rem;color:#fff;text-shadow:0 2px 16px rgba(0,0,20,.8)}
+.fa-ck-route{position:absolute;left:1.8rem;bottom:1.15rem;z-index:3;font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.45rem;color:#fff;text-shadow:0 2px 16px rgba(0,0,20,.8)}
 .fa-ck-aside-body{position:relative;z-index:1;padding:1.5rem 2rem 2rem;display:flex;flex-direction:column;gap:1rem}
 .fa-ck-brandline{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.08rem;color:var(--nx-gold);letter-spacing:.01em}
 .fa-ck-aside-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,2.5vw,2.4rem);line-height:1.04;margin:-.3rem 0 0;color:#fff;letter-spacing:-.01em}
@@ -67,13 +67,16 @@ body.fa-ck-lock{overflow:hidden}
 .fa-ck-field.is-hidden{display:none}
 .fa-ck-field>label{font-family:var(--sans);font-size:.95rem;font-weight:500;letter-spacing:.005em;color:var(--nx-ice)}
 .fa-ck-field input,.fa-ck-field select{width:100%;height:58px;padding:0 1.1rem;border-radius:14px;border:1px solid var(--nx-line-2);background:rgba(4,10,30,.55);color:var(--nx-text);font-family:var(--sans);font-size:17px;font-weight:500;outline:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),inset 0 -12px 24px -18px rgba(47,164,255,.25);transition:border-color .2s,box-shadow .25s,background .2s;-webkit-appearance:none;appearance:none}
-.fa-ck-field input::placeholder{color:rgba(191,228,255,.38);font-weight:400}
+.fa-ck-field input::placeholder{color:rgba(205,230,255,.5);font-weight:400}
 .fa-ck-field input:hover,.fa-ck-field select:hover{border-color:rgba(111,196,255,.55)}
 .fa-ck-field input:focus,.fa-ck-field select:focus{border-color:var(--nx-neon-b);background:rgba(6,16,44,.8);box-shadow:0 0 0 4px rgba(47,164,255,.18),0 0 26px -4px rgba(47,164,255,.6),inset 0 1px 0 rgba(255,255,255,.05)}
 .fa-ck-field input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #0A1636 inset;-webkit-text-fill-color:#F6FAFF;caret-color:#F6FAFF}
 .fa-ck-field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236FC4FF' stroke-width='2' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.8rem;cursor:pointer}
 .fa-ck-field select option{background:#0A1430;color:#F6FAFF}
-.fa-ck-field.is-valid input{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236FC4FF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.8rem}
+.fa-ck-field{position:relative}
+.fa-ck-field.is-valid[data-f="fa-ck-fn"]::after,.fa-ck-field.is-valid[data-f="fa-ck-ln"]::after,.fa-ck-field.is-valid[data-f="fa-ck-em"]::after,.fa-ck-field.is-valid[data-f="fa-ck-ph"]::after{content:"";position:absolute;right:1rem;bottom:20px;width:18px;height:18px;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236FC4FF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>") no-repeat center/18px 18px;filter:drop-shadow(0 0 6px rgba(47,164,255,.8))}
+.fa-ck-field.is-valid:has(.fa-ck-msg:not(:empty))::after{display:none}
+.fa-ck-field.is-valid input{padding-right:2.8rem}
 .fa-ck-field.is-invalid input,.fa-ck-field.is-invalid select{border-color:var(--nx-err);box-shadow:0 0 0 4px rgba(255,107,122,.14)}
 .fa-ck-msg{margin:0;min-height:0;font-family:var(--sans);font-size:.9rem;line-height:1.4;color:var(--nx-err)}
 .fa-ck-msg:empty{display:none}
@@ -172,7 +175,7 @@ input:checked+.fa-ck-opt-in .fa-ck-opt-dot,input:checked+.fa-ck-pick-in .fa-ck-o
   .fa-ck-sumbar-img{flex:0 0 54px;height:54px;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(111,196,255,.4),0 0 14px -2px rgba(47,164,255,.6)}
   .fa-ck-sumbar-img img{width:100%;height:100%;object-fit:cover;display:block}
   .fa-ck-sumbar-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}
-  .fa-ck-sumbar-txt b{font-family:var(--serif);font-weight:600;font-size:1.3rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fa-ck-sumbar-txt b{font-family:var(--serif);font-weight:600;font-size:1.3rem;line-height:1.08;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .fa-ck-sumbar-txt>span{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--nx-neon-b)}
   .fa-ck-sumbar-price{display:flex;flex-direction:column;align-items:flex-end;font-family:var(--serif);font-weight:600;font-size:1.45rem;line-height:1;color:var(--nx-gold)}
   .fa-ck-sumbar-price>b{font:inherit;color:inherit}
