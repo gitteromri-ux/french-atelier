@@ -166,6 +166,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <link rel="preload" as="image" href="assets/gen/hero-original.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
+<link rel="stylesheet" href="css/fa-checkout.css?v=20261006b">
 </head>
 <body id="fa" class="home">
 
@@ -184,7 +185,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
             <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
             <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
             <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
-            <a href="capsules.html" class="nav-dd-comingsoon">Culture Capsules <span class="cs-tag">Coming Soon</span></a>
+            <a href="capsules.html" class="nav-dd-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
           </div>
           <div class="nav-dd-col">
             <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Spoken &middot; Conversation</span>
@@ -239,7 +240,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <a href="courses/lsf-beginner.html">LSF Beginner</a>
     <a href="courses/lsf-elementary.html">LSF Elementary</a>
     <a href="map.html">Interactive Map of France</a>
-      <a href="capsules.html" class="drawer-comingsoon">Culture Capsules <span class="cs-tag">Coming Soon</span></a>
+      <a href="capsules.html" class="drawer-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
   </div>
   <span class="drawer-group-label">About Us</span>
   <div class="drawer-sub">
@@ -265,7 +266,8 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
     <h1 class="reveal reveal-d1">Master the Art of<br>French <span class="gold-ital">through Culture</span></h1>
     <p class="hero-sub reveal reveal-d2">French Atelier by Acadomia is an exclusive, culturally immersive, certified, live French language program, tailored for adult lifelong learners.</p>
     <div class="hero-ctas reveal reveal-d3">
-      <a href="contact.html" class="btn btn-gold btn-lg">Talk to an Advisor</a>
+      <a href="#enroll-online" class="btn btn-gold btn-lg" data-fa-buy="fa-course">Enroll Online · 15% Off</a>
+      <a href="contact.html" class="btn btn-ghost-dark btn-lg">Talk to an Advisor</a>
       <div class="hero-trustpilot" aria-label="Trustpilot rating">
         <span class="tp-logo"><img src="assets/logo/trustpilot-logo.svg" alt="Trustpilot" decoding="async"></span>
         <span class="tp-stars"><img src="assets/logo/trustpilot-stars.svg" alt="5 out of 5 stars on Trustpilot" decoding="async"></span>
@@ -1375,6 +1377,34 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   </div>
 </section>
 
+
+<!-- ===== ENROLL ONLINE — self-service checkout offer (added 2026-10-06) ===== -->
+<section class="section-pad bg-ivory" id="enroll-online">
+  <div class="wrap">
+    <div class="fa-offer on-dark reveal">
+      <span class="fa-offer-badge">Online enrollment offer · 15% off</span>
+      <div>
+        <p class="fa-offer-eyebrow">Enroll online today</p>
+        <h2 class="fa-offer-title">The full course, <span class="gi">15% off</span> — and your first month at half price.</h2>
+        <p class="fa-offer-copy">Enroll yourself in minutes, choose your level, and pay securely in 5 monthly payments. Same 20 live lessons from France, same certified native teachers, same CEFR certificate by Acadomia.</p>
+        <ul class="fa-offer-points">
+          <li>5 monthly payments of <strong>$285.60</strong> instead of $336</li>
+          <li>First month <strong>50% off: $142.80 today</strong></li>
+          <li>Total $1,285.20 — you save $394.80 on the website price</li>
+          <li>Card, Apple Pay, Google Pay or PayPal · all countries</li>
+        </ul>
+      </div>
+      <div class="fa-offer-price">
+        <p class="was">Website price $336 / month</p>
+        <p class="now">$285.60<small>/ month × 5</small></p>
+        <p class="today">Today: <strong>$142.80</strong> · first month 50% off</p>
+        <p class="total">$1,285.20 total · no bundles, no hidden fees</p>
+        <button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course">Enroll Online &amp; Pay</button>
+        <div class="pay-icons"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Apple Pay</span><span>Google Pay</span><span>PayPal</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ===== LEAD GEN FORM (replaces pricing teaser) ===== -->
 <style id="lg-style">
 .lg-fold{position:relative;background:linear-gradient(180deg,#0B1340 0%,#0A1128 65%,#080E20 100%);color:#F3EEE3;overflow:hidden;isolation:isolate}
@@ -1660,6 +1690,9 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 </div>
 
 <script src="js/fa.js?v=1790665240" defer></script>
+<script src="js/fa-geo.js?v=20261006b" defer></script>
+<script src="js/fa-checkout-config.js?v=20261006b" defer></script>
+<script src="js/fa-checkout.js?v=20261006b" defer></script>
 <script src="js/enroll-modal.js?v=1790665240"></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/mapstr.js?v=1790665240" defer></script>
