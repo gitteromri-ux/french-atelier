@@ -1,0 +1,7 @@
+.git
+CNAME
+_*.py
+*.sh
+crush_images.py
+recompress_hq.py
+_partials

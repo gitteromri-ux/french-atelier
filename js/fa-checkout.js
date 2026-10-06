@@ -165,7 +165,7 @@
     if (!a.paymentIntentId || !a.clientSecret || d.PaymentID == null) return { ok: false, reason: 'PAYMENT_DETAILS_INCOMPLETE' };
     var amount = Number(a.amount), n = Number(d.NumOfPayments);
     if (String(a.currency || d.CurrencyCode || '').toUpperCase() !== 'USD') return { ok: false, reason: 'CURRENCY_NOT_USD', amount: amount, n: n };
-    if (Math.abs(amount - p.firstPayment) > 0.005 || n !== p.numberOfPayments) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice };
+    if (Math.abs(amount - p.firstPayment) > 0.005 || n !== p.numberOfPayments) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice, paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
     return { ok: true, amount: amount, currency: 'USD', paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
   }
   function reportPayment(report) {
@@ -199,8 +199,10 @@
     wrap.className = 'fa-ck-overlay'; wrap.id = 'fa-ck'; wrap.setAttribute('aria-hidden', 'true');
     wrap.innerHTML = '<div class="fa-ck-modal" role="dialog" aria-modal="true" aria-labelledby="fa-ck-title">' +
       '<button type="button" class="fa-ck-close" aria-label="Close">&times;</button>' +
+      '<aside class="fa-ck-aside"></aside>' +
+      '<div class="fa-ck-main">' +
       '<div class="fa-ck-steps"><span class="fa-ck-step is-on" data-step="1"><i>1</i>Your details</span><span class="fa-ck-step" data-step="2"><i>2</i>Your plan</span><span class="fa-ck-step" data-step="3"><i>3</i>Secure payment</span></div>' +
-      '<div class="fa-ck-body"></div></div>';
+      '<div class="fa-ck-body"></div></div></div>';
     document.body.appendChild(wrap);
     wrap.addEventListener('click', function (e) { if (e.target === wrap || e.target.closest('.fa-ck-close')) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && wrap.classList.contains('is-open')) close(); });
@@ -222,6 +224,35 @@
   }
   function close() { if (!modal) return; modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('fa-ck-lock'); }
 
+  function assetBase() { return /\/courses\//.test(location.pathname) ? '../' : ''; }
+  function productImage(sel) {
+    var p = product(sel.product), b = assetBase();
+    if (!p) return '';
+    if (p.kind === 'course') return b + 'assets/courses_webp/fa-' + (sel.level || 'beginner') + '-1.webp';
+    if (p.kind === 'membership') return b + 'assets/gen/hero-paris.webp';
+    var caps = sel.capsules || [], map = { 'fashion-art': 'assets/img/culture/fashion-hero.jpg', 'gastronomy': 'assets/img/culture/wine-hero.jpg', 'cinema-music': 'assets/img/culture/music-hero.jpg' };
+    if (caps.length === 1 && map[caps[0]]) return b + map[caps[0]];
+    return b + 'assets/img/culture/art-hero.jpg';
+  }
+  function priceRows(p) {
+    if (p.kind === 'course') return '<div class="fa-ck-sum-row"><span>' + h(p.numberOfPayments) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
+      '<div class="fa-ck-sum-row"><span>Then 4 × ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>' +
+      '<div class="fa-ck-sum-row is-muted"><span>Website price</span><s>' + fmt(p.listTotal) + '</s></div>';
+    return '<div class="fa-ck-sum-row"><span>' + p.numberOfPayments + ' monthly payments of ' + fmt2(p.monthly) + '</span><strong>' + fmt2(p.total) + ' total</strong></div>';
+  }
+  function renderAside() {
+    var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
+    var aside = modal.querySelector('.fa-ck-aside');
+    aside.innerHTML = '<div class="fa-ck-aside-img"><img src="' + productImage(sel) + '" alt=""><span class="fa-ck-aside-tag">' + h(p.offerLabel) + '</span></div>' +
+      '<div class="fa-ck-aside-body">' +
+      '<div class="fa-ck-eyebrow">The French Atelier by Acadomia</div>' +
+      (function(){ var t = productTitle(sel), i = t.indexOf(' · '); return '<h3 class="fa-ck-aside-title">' + h(i > 0 ? t.slice(0, i) : t) + '</h3>' + (i > 0 ? '<div class="fa-ck-aside-meta">' + h(t.slice(i + 3)) + '</div>' : ''); })() +
+      '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">' + (p.kind === 'course' ? 'today · first month 50% off' : 'today · then monthly') + '</span></div>' +
+      '<div class="fa-ck-rows">' + priceRows(p) + '</div>' +
+      '<ul class="fa-ck-trust"><li>Secure payment · Card, Apple Pay, Google Pay, PayPal</li><li>Live from France · certified native teachers</li><li>Nothing is charged until you confirm</li></ul>' +
+      '</div>';
+  }
+
   function summaryCard(sel) {
     var p = product(sel.product);
     var lines = '';
@@ -235,7 +266,7 @@
   }
 
   function renderStep1(prefill) {
-    setStep(1);
+    setStep(1); renderAside();
     var sel = state.sel, p = product(sel.product), lead = prefill || {};
     var body = modal.querySelector('.fa-ck-body');
     var levelField = (p.kind === 'course' || p.kind === 'membership') ? '<div class="fa-ck-field"><label for="fa-ck-level">' + (p.kind === 'membership' ? 'Your language course (one of our 4 levels)' : 'Your level') + '</label><select id="fa-ck-level">' + levelOptions(sel.level) + '</select></div>' : '';
@@ -244,7 +275,7 @@
       capsField = '<div class="fa-ck-field"><label>Choose ' + (p.packs === 1 ? 'your capsule' : 'your 2 capsules') + '</label><div class="fa-ck-caps">' + Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-cap"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (sel.capsules.indexOf(k) > -1 ? ' checked' : '') + '><span><b>' + h(c.name) + '</b><small>' + h(c.status) + '</small></span></label>'; }).join('') + '</div></div>';
     }
     body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Enroll <span class="gi">online</span></h3>' +
-      '<p class="fa-ck-sub">' + h(p.title) + ' · ' + h(p.offerLabel) + '</p>' +
+      '<p class="fa-ck-sub">Your details take two minutes. Your seat is held while you complete the secure payment.</p>' +
       '<form class="fa-ck-form" novalidate>' + levelField + capsField +
       '<div class="fa-ck-row two"><div class="fa-ck-field"><label for="fa-ck-fn">First name</label><input id="fa-ck-fn" autocomplete="given-name" required value="' + h(lead.firstName || '') + '"></div><div class="fa-ck-field"><label for="fa-ck-ln">Last name</label><input id="fa-ck-ln" autocomplete="family-name" required value="' + h(lead.lastName || '') + '"></div></div>' +
       '<div class="fa-ck-field"><label for="fa-ck-em">Email</label><input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" required value="' + h(lead.email || '') + '"></div>' +
@@ -258,6 +289,8 @@
     if (lead.stateCode) st.value = lead.stateCode;
     if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; stWrap.hidden = ip !== 'US'; } });
     co.addEventListener('change', function () { stWrap.hidden = co.value !== 'US'; });
+    var lvEl = body.querySelector('#fa-ck-level'); if (lvEl) lvEl.addEventListener('change', function () { state.sel.level = lvEl.value; renderAside(); });
+    body.querySelectorAll('input[name="fa-ck-cap"]').forEach(function (cb) { cb.addEventListener('change', function () { state.sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; }); renderAside(); }); });
     var stateTouched = false; st.addEventListener('change', function () { stateTouched = true; });
     ph.addEventListener('input', function () { if (co.value === 'US' && !stateTouched) { var s = GEO.stateForPhone(ph.value); if (s && GEO.US_STATES[s]) st.value = s; } });
     body.querySelector('form').addEventListener('submit', function (e) {
@@ -285,11 +318,13 @@
     setStep(2);
     var sel = state.sel, p = product(sel.product);
     var body = modal.querySelector('.fa-ck-body');
+    renderAside();
     body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your <span class="gi">plan</span></h3>' +
-      '<p class="fa-ck-sub">' + h(lead.firstName) + ', here is exactly what you are enrolling in.</p>' +
-      summaryCard(sel) +
-      '<ul class="fa-ck-includes">' + p.includes.map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
+      '<p class="fa-ck-sub">' + h(lead.firstName) + ', here is exactly what you are enrolling in — nothing is charged until you confirm on the next screen.</p>' +
+      '<div class="fa-ck-plan"><div class="fa-ck-plan-head"><span>' + h(productTitle(sel)) + '</span><strong>' + fmt2(p.firstPayment) + ' today</strong></div>' +
+      '<ul class="fa-ck-includes">' + p.includes.map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul></div>' +
       (p.kind === 'capsules' || p.kind === 'membership' ? '<p class="fa-ck-note">Fashion &amp; Art has already started — you join the running pack. Gastronomy &amp; Wine and Cinema &amp; Music start in November. Every capsule is 10 weekly one-hour conferences on Zoom.</p>' : '') +
+      '<div class="fa-ck-buyer"><span>' + h(lead.firstName + ' ' + lead.lastName) + '</span><span>' + h(lead.email) + '</span><span>' + h(lead.e164) + '</span></div>' +
       '<p class="fa-ck-error" hidden></p>' +
       '<button type="button" class="fa-ck-submit" id="fa-ck-pay">Continue to secure payment · ' + fmt2(p.firstPayment) + ' today</button>' +
       '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>';
@@ -315,6 +350,6 @@
   window.FA_CHECKOUT = {
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
-    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
+    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
   };
 })();

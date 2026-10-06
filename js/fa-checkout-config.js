@@ -19,7 +19,7 @@
   'use strict';
   var qs = new URLSearchParams(location.search);
   var host = location.hostname;
-  var env = (qs.get('env') === 'staging' || /github\.io$|^localhost$|^127\./.test(host)) ? 'staging' : 'production';
+  var env = (qs.get('env') === 'staging' || /github\.io$|vercel\.app$|^localhost$|^127\./.test(host)) ? 'staging' : 'production';
   try {
     if (qs.get('env') === 'staging') sessionStorage.setItem('fa_ck_env', 'staging');
     else if (qs.get('env') === 'production') sessionStorage.removeItem('fa_ck_env');
