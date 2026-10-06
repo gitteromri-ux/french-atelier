@@ -132,6 +132,8 @@
       if(!NANP[ac]) return {ok:false, reason:'non_us_area_code'};
       return {ok:true, e164:'+1'+d, state:NANP[ac]};
     }
+    var LEN = {CA:[10],FR:[9],GB:[10],IL:[8,9],AU:[9],CH:[9],BE:[8,9],ES:[9],IT:[9,10],NL:[9],DE:[10,11],MX:[10],BR:[10,11],IN:[10],IE:[9],PT:[9],LU:[6,7,8,9],MC:[8,9]};
+    if(LEN[iso]){ var nat = digits.slice(c.dial.length); if(LEN[iso].indexOf(nat.length)<0) return {ok:false, reason:'phone_length'}; }
     return {ok:true, e164:'+'+digits};
   }
   window.FA_GEO = { LIST:LIST, BY_ISO:BY_ISO, NANP:NANP, US_STATES:US_STATES, toE164:toE164,

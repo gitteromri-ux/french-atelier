@@ -186,7 +186,7 @@
   /* ======================================================================
      ENROLLMENT MODAL (steps 1–2). Separate DOM (#fa-ck) from the lead popup.
      ====================================================================== */
-  var modal = null, state = { sel: null, step: 1 };
+  var modal = null, state = { sel: null, step: 1, asideOpen: false };
   function h(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function countryOptions(selected) {
     return GEO.LIST.map(function (c) { return '<option value="' + c.iso + '"' + (c.iso === selected ? ' selected' : '') + '>' + h(c.name) + ' (+' + c.dial + ')</option>'; }).join('');
@@ -194,120 +194,205 @@
   function stateOptions() { return '<option value="">Select your state</option>' + Object.keys(GEO.US_STATES).map(function (k) { return '<option value="' + k + '">' + h(GEO.US_STATES[k]) + '</option>'; }).join(''); }
   function levelOptions(sel) { return Object.keys(CFG.levels).map(function (k) { return '<option value="' + k + '"' + (k === sel ? ' selected' : '') + '>' + h(CFG.levels[k].name) + ' · ' + h(CFG.levels[k].cefr) + '</option>'; }).join(''); }
 
+  /* ---------- modal shell: neon glass dialog, focus trap, ESC, backdrop ---------- */
+  var lastFocus = null;
+  var ICON = {
+    close: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    check: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    chev: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>',
+    lock: '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>'
+  };
+  var STEPS = ['Register', 'Your course', 'Secure payment'];
+  function progressHtml(n) {
+    return '<ol class="fa-ck-progress" aria-label="Checkout steps">' + STEPS.map(function (s, i) {
+      var k = i + 1;
+      return '<li class="fa-ck-step' + (k === n ? ' is-on' : '') + (k < n ? ' is-done' : '') + '"' + (k === n ? ' aria-current="step"' : '') + '><i>' + (k < n ? ICON.check : k) + '</i><span>' + s + '</span></li>';
+    }).join('') + '</ol>';
+  }
   function ensureModal() {
     if (modal) return modal;
     var wrap = document.createElement('div');
     wrap.className = 'fa-ck-overlay'; wrap.id = 'fa-ck'; wrap.setAttribute('aria-hidden', 'true');
     wrap.innerHTML = '<div class="fa-ck-modal" role="dialog" aria-modal="true" aria-labelledby="fa-ck-title">' +
-      '<button type="button" class="fa-ck-close" aria-label="Close">&times;</button>' +
-      '<aside class="fa-ck-aside"></aside>' +
-      '<div class="fa-ck-main">' +
-      '<div class="fa-ck-steps"><span class="fa-ck-step is-on" data-step="1"><i>1</i>Register</span><span class="fa-ck-step" data-step="2"><i>2</i>Your course</span><span class="fa-ck-step" data-step="3"><i>3</i>Secure payment</span></div>' +
-      '<div class="fa-ck-body"></div></div></div>';
+      '<button type="button" class="fa-ck-close" aria-label="Close checkout">' + ICON.close + '</button>' +
+      '<aside class="fa-ck-aside" aria-label="Your enrollment"></aside>' +
+      '<div class="fa-ck-main">' + progressHtml(1) + '<div class="fa-ck-body"></div></div></div>';
     document.body.appendChild(wrap);
     wrap.addEventListener('click', function (e) { if (e.target === wrap || e.target.closest('.fa-ck-close')) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && wrap.classList.contains('is-open')) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!wrap.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') {
+        var f = Array.prototype.filter.call(wrap.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled])'), function (el) { return el.offsetParent !== null; });
+        if (!f.length) return;
+        if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+      }
+    });
     modal = wrap; return wrap;
   }
   function setStep(n) {
     state.step = n;
-    modal.querySelectorAll('.fa-ck-step').forEach(function (s) { var k = Number(s.getAttribute('data-step')); s.classList.toggle('is-on', k === n); s.classList.toggle('is-done', k < n); });
+    var old = modal.querySelector('.fa-ck-progress'); if (old) old.outerHTML = progressHtml(n);
+    modal.querySelector('.fa-ck-main').scrollTop = 0; modal.querySelector('.fa-ck-modal').scrollTop = 0;
   }
+  function isDesktop() { return window.matchMedia('(min-width: 901px)').matches; }
   function open(productId, opts) {
     opts = opts || {};
     var p = product(productId); if (!p) return;
-    ensureModal();
-    state.sel = { product: productId, level: opts.level || (p.kind !== 'capsules' ? 'beginner' : undefined), capsules: opts.capsules || (productId === 'capsule-3' ? Object.keys(CFG.capsules) : []) };
+    ensureModal(); lastFocus = document.activeElement;
+    state.sel = { product: productId, level: opts.level || (p.kind !== 'capsules' ? 'beginner' : undefined), classTime: '', capsules: opts.capsules && opts.capsules.length ? opts.capsules : (productId === 'capsule-3' ? Object.keys(CFG.capsules) : []) };
+    state.asideOpen = false;
     var saved = loadLead();
     renderStep1(saved && saved.lead);
     modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('fa-ck-lock');
+    if (isDesktop()) setTimeout(function () { var f = modal.querySelector('#fa-ck-fn'); if (f && !f.value) f.focus(); }, 380);
     track('InitiateCheckout', { content_name: productTitle(state.sel), content_ids: [productId], content_type: 'product', value: p.firstPayment, currency: 'USD', num_items: 1 }, { suffix: productId });
   }
-  function close() { if (!modal) return; modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('fa-ck-lock'); }
+  function close() {
+    if (!modal) return;
+    modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('fa-ck-lock');
+    try { if (lastFocus && lastFocus.focus) lastFocus.focus(); } catch (e) {}
+  }
 
   function assetBase() { return /\/courses\//.test(location.pathname) ? '../' : ''; }
+  var CAP_IMG = { 'fashion-art': 'assets/capsules/capsule-chanel.jpg', 'gastronomy': 'assets/img/culture/wine-hero.jpg', 'cinema-music': 'assets/img/culture/music-hero.jpg' };
   function productImage(sel) {
     var p = product(sel.product), b = assetBase();
     if (!p) return '';
     if (p.kind === 'course') return b + 'assets/courses_webp/fa-' + (sel.level || 'beginner') + '-1.webp';
     if (p.kind === 'membership') return b + 'assets/gen/hero-paris.webp';
-    var caps = sel.capsules || [], map = { 'fashion-art': 'assets/capsules/capsule-chanel.jpg', 'gastronomy': 'assets/img/culture/wine-hero.jpg', 'cinema-music': 'assets/img/culture/music-hero.jpg' };
-    if (caps.length === 1 && map[caps[0]]) return b + map[caps[0]];
+    var caps = sel.capsules || [];
+    if (caps.length === 1 && CAP_IMG[caps[0]]) return b + CAP_IMG[caps[0]];
     return b + 'assets/capsules/hero-versailles.jpg';
   }
-  function titleParts(sel) { var t = productTitle(sel), i = t.indexOf(' · '); return { name: i > 0 ? t.slice(0, i) : t, meta: i > 0 ? t.slice(i + 3) : '' }; }
-  function routeFor(sel) { var p = product(sel.product); if (p.kind === 'membership') return 'A year at the Atelier'; if (p.kind === 'course') { var lv = CFG.levels[sel.level]; return lv ? lv.route : ''; } return (sel.capsules || []).map(function (c) { return (CFG.capsules[c] || {}).tagline || ''; }).filter(Boolean).join(' · '); }
+  function titleParts(sel) { var t = productTitle(sel), i = t.indexOf(' · '); return { name: i > 0 ? t.slice(0, i) : t, sub: i > 0 ? t.slice(i + 3) : '' }; }
+  function routeFor(sel) {
+    var p = product(sel.product);
+    if (p.kind === 'membership') return 'A year at the Atelier';
+    if (p.kind === 'course') { var lv = CFG.levels[sel.level]; return lv ? lv.route : ''; }
+    return (sel.capsules || []).map(function (c) { return (CFG.capsules[c] || {}).tagline || ''; }).filter(Boolean).join(' · ');
+  }
   function factsFor(p) { return p.kind === 'capsules' ? CFG.capsuleFacts : CFG.courseFacts; }
   function factRows(p) { return '<dl class="fa-ck-facts">' + factsFor(p).map(function (f) { return '<div><dt>' + h(f[0]) + '</dt><dd>' + h(f[1]) + '</dd></div>'; }).join('') + '</dl>'; }
   function tuitionBand(p) {
-    if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-l">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listMonthly) + '</s>' + fmt2(p.monthly) + ' monthly for ' + p.numberOfPayments + ' months<span class="fa-ck-off">15% OFF</span></div><div class="fa-ck-band-s">First month 50% off — ' + fmt2(p.firstPayment) + ' today · ' + fmt2(p.total) + ' total instead of ' + fmt(p.listTotal) + '</div></div>';
-    if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-l">Atelier Membership</div><div class="fa-ck-band-v">' + fmt(p.monthly) + ' monthly for 12 months</div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' total</div></div>';
+    if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listMonthly) + '</s><span>' + fmt2(p.monthly) + ' a month for ' + p.numberOfPayments + ' months</span><em class="fa-ck-off">15% off</em></div><div class="fa-ck-band-s">First month 50% off: <b>' + fmt2(p.firstPayment) + ' today</b> · ' + fmt2(p.total) + ' in total instead of ' + fmt(p.listTotal) + '</div></div>';
+    if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Atelier Membership</div><div class="fa-ck-band-v"><span>' + fmt(p.monthly) + ' a month for 12 months</span></div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' in total</div></div>';
     var per = p.packs === 1 ? '$89' : p.packs === 2 ? '$79' : '$69';
-    return '<div class="fa-ck-band"><div class="fa-ck-band-l">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + per + ' per capsule · 3 monthly payments</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' total</div></div>';
+    return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $60 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
   }
   function sumRows(p) {
     if (p.kind === 'course') return '<div class="fa-ck-sum-row is-accent"><span>Today · first month 50% off</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
       '<div class="fa-ck-sum-row"><span>Then 4 monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
       '<div class="fa-ck-sum-row is-total"><span>Total · 15% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>';
     return '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
-      '<div class="fa-ck-sum-row"><span>' + p.numberOfPayments + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
+      '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
       '<div class="fa-ck-sum-row is-total"><span>Total</span><strong>' + fmt2(p.total) + '</strong></div>';
   }
   function renderAside() {
     var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
-    var aside = modal.querySelector('.fa-ck-aside'), tp = titleParts(sel), route = routeFor(sel);
-    aside.innerHTML = '<div class="fa-ck-aside-img"><img src="' + productImage(sel) + '" alt="">' +
-      (route ? '<span class="fa-ck-route">' + h(route) + '</span>' : '') + '</div>' +
-      '<div class="fa-ck-aside-body">' +
-      '<div class="fa-ck-eyebrow">The French Atelier by Acadomia</div>' +
-      '<h3 class="fa-ck-aside-title">' + h(tp.name) + '</h3>' + (tp.meta ? '<div class="fa-ck-aside-meta">' + h(tp.meta) + '</div>' : '') +
-      '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">' + (p.kind === 'course' ? 'due today · first month 50% off' : 'due today · then monthly') + '</span></div>' +
-      '<div class="fa-ck-rows">' + sumRows(p) + '</div>' +
-      '<ul class="fa-ck-trust">' + p.includes.slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
+    var aside = modal.querySelector('.fa-ck-aside'), tp = titleParts(sel), route = routeFor(sel), img = productImage(sel);
+    aside.classList.toggle('is-open', !!state.asideOpen);
+    aside.innerHTML =
+      '<button type="button" class="fa-ck-sumbar" aria-expanded="' + (state.asideOpen ? 'true' : 'false') + '" aria-controls="fa-ck-aside-full">' +
+        '<span class="fa-ck-sumbar-img"><img src="' + img + '" alt=""></span>' +
+        '<span class="fa-ck-sumbar-txt"><b>' + h(tp.name) + '</b><span>' + (state.asideOpen ? 'Hide details' : 'Show details') + '</span></span>' +
+        '<span class="fa-ck-sumbar-price"><b>' + fmt2(p.firstPayment) + '</b><span>today</span></span>' +
+        '<span class="fa-ck-sumbar-chev">' + ICON.chev + '</span>' +
+      '</button>' +
+      '<div class="fa-ck-aside-full" id="fa-ck-aside-full">' +
+        '<div class="fa-ck-aside-img"><img src="' + img + '" alt="">' + (route ? '<span class="fa-ck-route">' + h(route) + '</span>' : '') + '</div>' +
+        '<div class="fa-ck-aside-body">' +
+          '<div class="fa-ck-brandline">The French Atelier by Acadomia</div>' +
+          '<h3 class="fa-ck-aside-title">' + h(tp.name) + '</h3>' + (tp.sub ? '<div class="fa-ck-aside-sub">' + h(tp.sub) + '</div>' : '') +
+          '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">due today<br>' + (p.kind === 'course' ? 'first month 50% off' : 'then monthly') + '</span></div>' +
+          '<div class="fa-ck-rows">' + sumRows(p) + '</div>' +
+          '<ul class="fa-ck-trust">' + p.includes.slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
+        '</div>' +
       '</div>';
+    aside.querySelector('.fa-ck-sumbar').addEventListener('click', function () { state.asideOpen = !state.asideOpen; renderAside(); });
   }
   function payMarks() {
     var b = assetBase() + 'assets/pay/';
-    return '<div class="fa-ck-marks"><img src="' + b + 'visa.svg" alt="Visa"><img src="' + b + 'mastercard.svg" alt="Mastercard"><img src="' + b + 'amex.svg" alt="American Express"><span class="fa-ck-mark-txt">Apple Pay</span><span class="fa-ck-mark-txt"><img src="' + b + 'google-g.svg" alt="">Pay</span><img src="' + b + 'paypal.svg" alt="PayPal" class="pp"></div>';
+    return '<div class="fa-ck-marks" aria-label="Accepted payment methods"><span><img src="' + b + 'visa.svg" alt="Visa"></span><span><img src="' + b + 'mastercard.svg" alt="Mastercard"></span><span><img src="' + b + 'amex.svg" alt="American Express"></span><span class="fa-ck-mark-txt">Apple Pay</span><span class="fa-ck-mark-txt"><img src="' + b + 'google-g.svg" alt="">Pay</span><span><img src="' + b + 'paypal.svg" alt="PayPal" class="pp"></span></div>';
   }
+  function field(id, label, control, extraClass) {
+    return '<div class="fa-ck-field' + (extraClass ? ' ' + extraClass : '') + '" data-f="' + id + '"><label for="' + id + '">' + label + '</label>' + control + '<p class="fa-ck-msg" id="' + id + '-msg" aria-live="polite"></p></div>';
+  }
+  var EMAIL_FIX = { 'gmial.com': 'gmail.com', 'gmal.com': 'gmail.com', 'gamil.com': 'gmail.com', 'gnail.com': 'gmail.com', 'gmail.co': 'gmail.com', 'gmail.con': 'gmail.com', 'gmaill.com': 'gmail.com', 'gmail.cm': 'gmail.com', 'hotmial.com': 'hotmail.com', 'hotmal.com': 'hotmail.com', 'hotmail.con': 'hotmail.com', 'hotmail.co': 'hotmail.com', 'yahooo.com': 'yahoo.com', 'yaho.com': 'yahoo.com', 'yahoo.con': 'yahoo.com', 'yahoo.co': 'yahoo.com', 'outlok.com': 'outlook.com', 'outlook.con': 'outlook.com', 'iclod.com': 'icloud.com', 'icloud.con': 'icloud.com', 'icoud.com': 'icloud.com' };
+  function suggestEmail(v) {
+    var m = /^([^@\s]+)@([^@\s]+)$/.exec(v || ''); if (!m) return '';
+    var d = m[2].toLowerCase(), s = EMAIL_FIX[d] || (/\.(con|cmo|cm|om|comm|vom)$/.test(d) ? d.replace(/\.(con|cmo|cm|om|comm|vom)$/, '.com') : '');
+    return s && s !== d ? m[1] + '@' + s : '';
+  }
+  function fmtNanp(v) {
+    var d = String(v || '').replace(/\D/g, ''); if (d.length === 11 && d.charAt(0) === '1') d = d.slice(1); d = d.slice(0, 10);
+    if (d.length < 4) return d; if (d.length < 7) return '(' + d.slice(0, 3) + ') ' + d.slice(3); return '(' + d.slice(0, 3) + ') ' + d.slice(3, 6) + '-' + d.slice(6);
+  }
+  function btnBusy(b, label) { b.disabled = true; b.classList.add('is-busy'); b.setAttribute('aria-busy', 'true'); b.innerHTML = '<span class="fa-ck-spin" aria-hidden="true"></span><span>' + label + '</span>'; }
 
+  /* ---------- step 1: Register ---------- */
   function renderStep1(prefill) {
     setStep(1); renderAside();
-    var sel = state.sel, p = product(sel.product), lead = prefill || {};
+    var sel = state.sel, lead = prefill || {}, iso0 = lead.countryIso || 'US';
     var body = modal.querySelector('.fa-ck-body');
-    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your French <span class="gi">starts here.</span></h3>' +
-      '<p class="fa-ck-sub">Register in a minute. Your seat is held while you complete the secure payment.</p>' +
+    body.innerHTML = '<header class="fa-ck-head"><div class="fa-ck-stepline">Step 1 of 3</div><h3 id="fa-ck-title" class="fa-ck-title">Your French <span class="gi">starts here.</span></h3>' +
+      '<p class="fa-ck-sub">Register in a minute. Your seat is held while you complete the secure payment.</p></header>' +
       '<form class="fa-ck-form" novalidate>' +
-      '<div class="fa-ck-row two"><div class="fa-ck-field"><label for="fa-ck-fn">First name</label><input id="fa-ck-fn" autocomplete="given-name" required placeholder="Camille" value="' + h(lead.firstName || '') + '"></div><div class="fa-ck-field"><label for="fa-ck-ln">Last name</label><input id="fa-ck-ln" autocomplete="family-name" required placeholder="Durand" value="' + h(lead.lastName || '') + '"></div></div>' +
-      '<div class="fa-ck-field"><label for="fa-ck-em">Email</label><input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" required placeholder="camille@example.com" value="' + h(lead.email || '') + '"></div>' +
-      '<div class="fa-ck-field"><label for="fa-ck-co">Country</label><select id="fa-ck-co" autocomplete="country">' + countryOptions(lead.countryIso || 'US') + '</select></div>' +
-      '<div class="fa-ck-row two"><div class="fa-ck-field fa-ck-phone"><label for="fa-ck-ph">Mobile number</label><div class="fa-ck-phone-wrap"><span class="fa-ck-dial" id="fa-ck-dial">+1</span><input id="fa-ck-ph" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div></div>' +
-      '<div class="fa-ck-field" id="fa-ck-st-wrap"' + ((lead.countryIso || 'US') === 'US' ? '' : ' hidden') + '><label for="fa-ck-st">State</label><select id="fa-ck-st">' + stateOptions() + '</select></div></div>' +
+      '<div class="fa-ck-row two">' + field('fa-ck-fn', 'First name', '<input id="fa-ck-fn" autocomplete="given-name" autocapitalize="words" required placeholder="Camille" value="' + h(lead.firstName || '') + '">') +
+        field('fa-ck-ln', 'Last name', '<input id="fa-ck-ln" autocomplete="family-name" autocapitalize="words" required placeholder="Durand" value="' + h(lead.lastName || '') + '">') + '</div>' +
+      field('fa-ck-em', 'Email', '<input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required placeholder="camille@example.com" value="' + h(lead.email || '') + '">') +
+      field('fa-ck-co', 'Country', '<select id="fa-ck-co" autocomplete="country">' + countryOptions(iso0) + '</select>') +
+      '<div class="fa-ck-row two">' + field('fa-ck-ph', 'Mobile number', '<div class="fa-ck-tel"><span class="fa-ck-dial" id="fa-ck-dial">+1</span><input id="fa-ck-ph" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="(212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div>') +
+        field('fa-ck-st', 'State', '<select id="fa-ck-st" autocomplete="address-level1">' + stateOptions() + '</select>', iso0 === 'US' ? '' : 'is-hidden') + '</div>' +
+      '<label class="fa-ck-consent"><input type="checkbox" id="fa-ck-sms"' + (lead.consent === false ? '' : ' checked') + '><span>I agree to receive a call, SMS and email from The French Atelier by Acadomia about my enrollment. Message frequency varies, message and data rates may apply.</span></label>' +
       '<p class="fa-ck-error" hidden></p>' +
-      '<button type="submit" class="fa-ck-submit">Continue</button>' +
-      '<label class="fa-ck-consent"><input type="checkbox" id="fa-ck-sms" checked><span>I agree to receive a call, SMS and email from The French Atelier by Acadomia about my enrollment. Message frequency varies, message and data rates may apply.</span></label>' +
-      '<p class="fa-ck-fine">Secure checkout by eTeacher Group for The French Atelier by Acadomia. By continuing you agree to our <a href="' + assetBase() + 'terms.html" target="_blank" rel="noopener">Terms</a> and <a href="' + assetBase() + 'privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
+      '<div class="fa-ck-go"><button type="submit" class="fa-ck-submit"><span>Continue</span>' + ICON.arrow + '</button></div>' +
+      '<p class="fa-ck-fine">' + ICON.lock + ' Secure checkout by eTeacher Group for The French Atelier by Acadomia. By continuing you agree to our <a href="' + assetBase() + 'terms.html" target="_blank" rel="noopener">Terms</a> and <a href="' + assetBase() + 'privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>' +
       '</form>';
-    var co = body.querySelector('#fa-ck-co'), ph = body.querySelector('#fa-ck-ph'), stWrap = body.querySelector('#fa-ck-st-wrap'), st = body.querySelector('#fa-ck-st'), dial = body.querySelector('#fa-ck-dial');
-    function syncDial() { var g = GEO.BY_ISO[co.value]; dial.textContent = g ? '+' + g.dial : '+'; stWrap.hidden = co.value !== 'US'; }
+    var $f = function (id) { return body.querySelector('#' + id); };
+    var co = $f('fa-ck-co'), ph = $f('fa-ck-ph'), st = $f('fa-ck-st'), dial = $f('fa-ck-dial'), em = $f('fa-ck-em');
+    var stWrap = body.querySelector('[data-f="fa-ck-st"]');
+    function nanp() { return co.value === 'US' || co.value === 'CA'; }
+    function syncDial() { var g = GEO.BY_ISO[co.value]; dial.textContent = g ? '+' + g.dial : '+'; stWrap.classList.toggle('is-hidden', co.value !== 'US'); ph.placeholder = nanp() ? '(212) 555-0147' : 'Mobile number'; if (nanp() && ph.value) ph.value = fmtNanp(ph.value); }
     if (lead.stateCode) st.value = lead.stateCode;
     syncDial();
     if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } });
-    co.addEventListener('change', syncDial);
+    var rules = {
+      'fa-ck-fn': function () { return $f('fa-ck-fn').value.trim() ? '' : 'Please enter your first name.'; },
+      'fa-ck-ln': function () { return $f('fa-ck-ln').value.trim() ? '' : 'Please enter your last name.'; },
+      'fa-ck-em': function () { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim()) ? '' : 'Please enter a valid email address.'; },
+      'fa-ck-ph': function () { var r = GEO.toE164(ph.value, co.value); return r.ok ? '' : (co.value === 'US' ? 'Please enter a 10-digit US mobile number.' : 'Please enter a valid mobile number for ' + (GEO.BY_ISO[co.value] || {}).name + '.'); },
+      'fa-ck-st': function () { return co.value !== 'US' || GEO.US_STATES[st.value] ? '' : 'Please select your state.'; }
+    };
+    function mark(id, show) {
+      var wrap = body.querySelector('[data-f="' + id + '"]'), msg = $f(id + '-msg'), m = rules[id]();
+      if (show) { wrap.classList.toggle('is-invalid', !!m); msg.textContent = m; }
+      else if (!m && wrap.classList.contains('is-invalid')) { wrap.classList.remove('is-invalid'); msg.textContent = ''; }
+      wrap.classList.toggle('is-valid', !m);
+      if (id === 'fa-ck-em' && !m) { var s = suggestEmail(em.value.trim()); if (s) { msg.innerHTML = 'Did you mean <button type="button" class="fa-ck-suggest">' + h(s) + '</button>?'; msg.querySelector('button').addEventListener('click', function () { em.value = s; mark('fa-ck-em', true); }); } else if (show) msg.textContent = ''; }
+      return !m;
+    }
+    Object.keys(rules).forEach(function (id) {
+      var el = $f(id);
+      el.addEventListener('blur', function () { if (el.value) mark(id, true); });
+      el.addEventListener('input', function () { var w = body.querySelector('[data-f="' + id + '"]'); mark(id, w.classList.contains('is-invalid')); });
+      el.addEventListener('change', function () { mark(id, true); });
+      if (el.value) mark(id, false);
+    });
+    co.addEventListener('change', function () { syncDial(); if (ph.value) mark('fa-ck-ph', true); mark('fa-ck-st', false); });
     var stateTouched = false; st.addEventListener('change', function () { stateTouched = true; });
-    ph.addEventListener('input', function () { if (co.value === 'US' && !stateTouched) { var s = GEO.stateForPhone(ph.value); if (s && GEO.US_STATES[s]) st.value = s; } });
+    ph.addEventListener('input', function () {
+      if (nanp()) { var end = ph.selectionStart === ph.value.length; var f = fmtNanp(ph.value); if (end && f !== ph.value) ph.value = f; }
+      if (co.value === 'US' && !stateTouched) { var s = GEO.stateForPhone(ph.value); if (s && GEO.US_STATES[s]) { st.value = s; mark('fa-ck-st', false); } }
+    });
     body.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
-      var err = body.querySelector('.fa-ck-error'); err.hidden = true;
-      var fn = body.querySelector('#fa-ck-fn').value.trim(), ln = body.querySelector('#fa-ck-ln').value.trim(), em = body.querySelector('#fa-ck-em').value.trim();
+      var bad = Object.keys(rules).filter(function (id) { return !(id === 'fa-ck-st' && co.value !== 'US') && !mark(id, true); });
+      if (bad.length) { var first = $f(bad[0]); first.focus(); try { first.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (x) {} return; }
       var iso = co.value, phone = GEO.toE164(ph.value, iso);
-      var msg = '';
-      if (!fn || !ln) msg = 'Please enter your first and last name.';
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) msg = 'Please enter a valid email address.';
-      else if (!phone.ok) msg = iso === 'US' ? 'Please enter a valid US mobile number (10 digits, a real area code).' : 'Please enter a valid mobile number for ' + GEO.BY_ISO[iso].name + '.';
-      else if (iso === 'US' && !GEO.US_STATES[st.value]) msg = 'Please select your state.';
-      if (msg) { err.textContent = msg; err.hidden = false; return; }
-      var leadObj = { firstName: fn, lastName: ln, email: em, countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!body.querySelector('#fa-ck-sms').checked };
+      var leadObj = { firstName: $f('fa-ck-fn').value.trim(), lastName: $f('fa-ck-ln').value.trim(), email: em.value.trim(), countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!$f('fa-ck-sms').checked };
       saveLead(leadObj, sel);
       track('Lead', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product' }, { suffix: sel.product });
       registerLead(leadObj, sel);
@@ -329,38 +414,60 @@
     } catch (e) {}
   }
 
+  /* ---------- step 2: Your course ---------- */
   function renderStep2(lead) {
     setStep(2);
     var sel = state.sel, p = product(sel.product);
     var body = modal.querySelector('.fa-ck-body');
     renderAside();
-    var levelField = (p.kind === 'course' || p.kind === 'membership') ? '<div class="fa-ck-field"><label for="fa-ck-level">' + (p.kind === 'membership' ? 'Your language course (one of our 4 levels)' : 'Your level') + '</label><select id="fa-ck-level">' + levelOptions(sel.level) + '</select><a class="fa-ck-help" href="' + assetBase() + 'courses.html" target="_blank" rel="noopener">Not sure? Compare the four levels →</a></div>' : '';
-    var timeField = p.kind === 'capsules' ? '' : '<div class="fa-ck-field"><label for="fa-ck-time">Preferred class time</label><select id="fa-ck-time">' + CFG.classTimes.map(function (t) { return '<option' + (sel.classTime === t ? ' selected' : '') + '>' + h(t) + '</option>'; }).join('') + '</select></div>';
-    var capsField = '';
-    if (p.kind === 'capsules' && p.packs < 3) {
-      capsField = '<div class="fa-ck-field"><label>Choose ' + (p.packs === 1 ? 'your capsule' : 'your 2 capsules') + '</label><div class="fa-ck-caps">' + Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-cap"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (sel.capsules.indexOf(k) > -1 ? ' checked' : '') + '><span><b>' + h(c.name) + '</b><small>' + h(c.status) + '</small></span></label>'; }).join('') + '</div></div>';
+    var noun = p.kind === 'course' ? 'course.' : p.kind === 'membership' ? 'membership.' : (p.packs === 1 ? 'capsule.' : 'capsules.');
+    var html = '<header class="fa-ck-head"><div class="fa-ck-stepline">Step 2 of 3</div><h3 id="fa-ck-title" class="fa-ck-title">Your <span class="gi">' + noun + '</span></h3>' +
+      '<p class="fa-ck-sub">' + h(lead.firstName) + ', confirm what you are enrolling in. Nothing is charged until the next screen.</p></header>';
+    if (p.kind === 'course' || p.kind === 'membership') {
+      html += '<fieldset class="fa-ck-group"><legend>' + (p.kind === 'membership' ? 'Your language course · one of our 4 levels' : 'Choose your level') + '</legend><div class="fa-ck-levels">' +
+        Object.keys(CFG.levels).map(function (k) { var lv = CFG.levels[k]; return '<label class="fa-ck-opt"><input type="radio" name="fa-ck-lv" value="' + k + '"' + (k === sel.level ? ' checked' : '') + '><span class="fa-ck-opt-in"><span class="fa-ck-opt-cefr">' + h(lv.cefr) + '</span><b>' + h(lv.name) + '</b><span class="fa-ck-opt-route">' + h(lv.route) + '</span><i class="fa-ck-opt-dot">' + ICON.check + '</i></span></label>'; }).join('') +
+        '</div><a class="fa-ck-help" href="' + assetBase() + 'courses.html" target="_blank" rel="noopener">Not sure? Compare the four levels ' + ICON.arrow + '</a></fieldset>';
+      html += '<fieldset class="fa-ck-group"><legend>Preferred class time</legend><div class="fa-ck-chips">' +
+        CFG.classTimes.map(function (t, i) { return '<label class="fa-ck-chip"><input type="radio" name="fa-ck-time" value="' + h(t) + '"' + ((sel.classTime ? sel.classTime === t : i === 0) ? ' checked' : '') + '><span>' + h(t) + '</span></label>'; }).join('') +
+        '</div><p class="fa-ck-hint">Classes run Sunday to Friday at times matched to your timezone.</p></fieldset>';
     }
-    var promo = p.kind === 'course' ? 'First month 50% off applied' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied' : 'Standard capsule price';
-    body.innerHTML = '<h3 id="fa-ck-title" class="fa-ck-title">Your <span class="gi">course.</span></h3>' +
-      '<p class="fa-ck-sub">' + h(lead.firstName) + ', confirm what you are enrolling in. Nothing is charged until the next screen.</p>' +
-      levelField + timeField + capsField +
-      '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
-      (p.kind === 'capsules' || p.kind === 'membership' ? '<p class="fa-ck-note">Fashion &amp; Art has already started — you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
-      '<div class="fa-ck-promo"><span class="fa-ck-promo-tag">Promo</span><span>' + promo + '</span></div>' +
+    if (p.kind === 'capsules') {
+      var locked = p.packs === 3;
+      html += '<fieldset class="fa-ck-group"><legend>' + (p.packs === 1 ? 'Choose your capsule' : p.packs === 2 ? 'Choose your 2 capsules' : 'Your 3 capsules') + (p.packs === 2 ? ' <span class="fa-ck-count" id="fa-ck-count"></span>' : '') + '</legend><div class="fa-ck-picks">' +
+        Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-pick"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (locked || sel.capsules.indexOf(k) > -1 ? ' checked' : '') + (locked ? ' disabled' : '') + '><span class="fa-ck-pick-in"><span class="fa-ck-pick-img"><img src="' + assetBase() + CAP_IMG[k] + '" alt=""></span><span class="fa-ck-pick-txt"><b>' + h(c.name) + '</b><span>' + h(c.status) + '</span></span><i class="fa-ck-opt-dot">' + ICON.check + '</i></span></label>'; }).join('') +
+        '</div><p class="fa-ck-hint">Each capsule is 10 live one-hour conferences on Zoom, once a week. No French required.</p></fieldset>';
+    }
+    html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
+      (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
+      '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · 15% off + first month 50% off' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied · ' + (p.packs === 2 ? '$79' : '$69') + ' per capsule' : 'Capsule price · $89 a month') + '</span></div>' +
       '<p class="fa-ck-error" hidden></p>' +
-      '<button type="button" class="fa-ck-submit" id="fa-ck-pay">Continue to secure payment</button>' +
+      '<div class="fa-ck-go"><button type="button" class="fa-ck-submit" id="fa-ck-pay"><span>Continue to secure payment</span><span class="fa-ck-submit-amt">' + fmt2(p.firstPayment) + ' today</span>' + ICON.arrow + '</button></div>' +
       '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>' +
       payMarks();
-    var lvEl = body.querySelector('#fa-ck-level'); if (lvEl) lvEl.addEventListener('change', function () { state.sel.level = lvEl.value; renderAside(); body.querySelector('#fa-ck-course-name').textContent = productTitle(state.sel); });
-    var tEl = body.querySelector('#fa-ck-time'); if (tEl) { sel.classTime = tEl.value; tEl.addEventListener('change', function () { state.sel.classTime = tEl.value; }); }
-    body.querySelectorAll('input[name="fa-ck-cap"]').forEach(function (cb) { cb.addEventListener('change', function () { state.sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; }); renderAside(); body.querySelector('#fa-ck-course-name').textContent = productTitle(state.sel); }); });
+    body.innerHTML = html;
+    function refresh() { renderAside(); var n = body.querySelector('#fa-ck-course-name'); if (n) n.textContent = productTitle(state.sel); }
+    body.querySelectorAll('input[name="fa-ck-lv"]').forEach(function (r) { r.addEventListener('change', function () { state.sel.level = r.value; refresh(); }); });
+    body.querySelectorAll('input[name="fa-ck-time"]').forEach(function (r) { if (r.checked) sel.classTime = r.value; r.addEventListener('change', function () { state.sel.classTime = r.value; }); });
+    var caps = body.querySelectorAll('input[name="fa-ck-cap"]');
+    function syncCaps() {
+      state.sel.capsules = Array.prototype.map.call(body.querySelectorAll('input[name="fa-ck-cap"]:checked'), function (i) { return i.value; });
+      if (p.kind === 'capsules' && p.packs === 2) {
+        var full = state.sel.capsules.length >= 2;
+        caps.forEach(function (c) { c.disabled = full && !c.checked; c.closest('.fa-ck-pick').classList.toggle('is-off', full && !c.checked); });
+        var cnt = body.querySelector('#fa-ck-count'); if (cnt) cnt.textContent = state.sel.capsules.length + ' of 2 selected';
+      }
+      refresh();
+    }
+    caps.forEach(function (c) { c.addEventListener('change', syncCaps); });
+    if (caps.length) syncCaps();
     body.querySelector('#fa-ck-back').addEventListener('click', function () { renderStep1(lead); });
     body.querySelector('#fa-ck-pay').addEventListener('click', function () {
-      var err = body.querySelector('.fa-ck-error'); err.hidden = true;
+      var err = body.querySelector('.fa-ck-error'), btn = this; err.hidden = true;
       if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) { err.textContent = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.'); err.hidden = false; return; }
       track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
       saveLead(lead, sel);
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
+      btnBusy(btn, 'Opening secure payment…');
       var inSub = /\/courses\//.test(location.pathname);
       location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (sel.classTime ? '&time=' + encodeURIComponent(sel.classTime) : '');
     });
@@ -378,6 +485,6 @@
   window.FA_CHECKOUT = {
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
-    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
+    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
   };
 })();
