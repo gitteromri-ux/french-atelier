@@ -1,32 +1,7 @@
 /* Culture Capsules page — hero theme rotation, capsule reveals, lazy motion. */
 (function () {
   'use strict';
-  var DUR = 8000;
-  var hero = document.querySelector('.kps-hero');
-  if (hero) {
-    hero.style.setProperty('--kps-dur', DUR + 'ms');
-    var slides = [].slice.call(hero.querySelectorAll('.slide'));
-    var tabs = [].slice.call(hero.querySelectorAll('.ht'));
-    var idx = 0, timer = null;
-    function play(v) { if (!v) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    function show(i, manual) {
-      idx = (i + slides.length) % slides.length;
-      slides.forEach(function (s, n) {
-        var on = n === idx; s.classList.toggle('is-on', on);
-        var v = s.querySelector('video'); if (!v) return;
-        if (on) { if (v.preload !== 'auto') v.preload = 'auto'; play(v); } else { try { v.pause(); } catch (e) {} }
-      });
-      tabs.forEach(function (t, n) {
-        var on = n === idx; t.classList.toggle('is-on', on); t.setAttribute('aria-selected', on ? 'true' : 'false');
-        var bar = t.querySelector('.bar'); if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
-      });
-      clearTimeout(timer);
-      if (!document.hidden) timer = setTimeout(function () { show(idx + 1); }, DUR);
-    }
-    tabs.forEach(function (t, n) { t.addEventListener('click', function () { show(n, true); }); t.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(n, true); } }); });
-    document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else show(idx); });
-    show(0);
-  }
+  [].slice.call(document.querySelectorAll('.kps-hero video')).forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
 
   /* ---- capsule cards → reveal (one open at a time) ---- */
   var cards = [].slice.call(document.querySelectorAll('.kps-card[data-pack]'));
