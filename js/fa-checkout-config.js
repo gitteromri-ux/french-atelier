@@ -92,25 +92,25 @@
       'capsule-1': {
         kind: 'capsules', packs: 1,
         title: '1 Culture Capsule',
-        offerLabel: '3 monthly payments of $89',
-        numberOfPayments: 3, monthly: 89, firstPayment: 89, total: 267,
+        offerLabel: '3 monthly payments of $99',
+        numberOfPayments: 3, monthly: 99, firstPayment: 99, total: 297, perCapsule: 99,
         includes: ['10 live one-hour conferences on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each talk', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-2': {
         kind: 'capsules', packs: 2,
         title: '2 Culture Capsules',
-        offerLabel: '3 monthly payments of $158 · $79 per capsule',
-        numberOfPayments: 3, monthly: 158, firstPayment: 158, total: 474, perCapsule: 79,
-        includes: ['20 live one-hour conferences on Zoom', 'Bilingual signature speakers', 'Second capsule at $79 a month instead of $89', 'No French required', 'Sold independently of the language courses'],
+        offerLabel: '3 monthly payments of $178 · $89 per capsule',
+        numberOfPayments: 3, monthly: 178, firstPayment: 178, total: 534, perCapsule: 89,
+        includes: ['20 live one-hour conferences on Zoom', 'Bilingual signature speakers', 'Each capsule at $89 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-3': {
         kind: 'capsules', packs: 3,
         title: 'All 3 Culture Capsules',
-        offerLabel: '3 monthly payments of $207 · $69 per capsule',
-        numberOfPayments: 3, monthly: 207, firstPayment: 207, total: 621, perCapsule: 69,
-        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $69 a month instead of $89', 'No French required', 'Sold independently of the language courses'],
+        offerLabel: '3 monthly payments of $237 · $79 per capsule',
+        numberOfPayments: 3, monthly: 237, firstPayment: 237, total: 711, perCapsule: 79,
+        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $79 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'membership-12': {

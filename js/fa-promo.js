@@ -41,8 +41,8 @@
     var card = btn.closest('.fa-cap-offer'); if (!card || card.querySelector('.fa-promo-tag')) return;
     var p = FA.product('capsule-1');
     var price = card.querySelector('.price'), sub = card.querySelector('.sub');
-    if (price) price.innerHTML = '<s>' + FA.fmt(p.baseMonthly) + '</s>' + FA.fmt2(p.monthly) + '<small>/ month × 3</small>';
-    if (sub) sub.textContent = FA.fmt2(p.total) + ' total instead of ' + FA.fmt(p.baseTotal) + ' · choose Fashion & Art, Gastronomy & Wine, or Cinema & Music';
+    if (price) price.innerHTML = '<s>' + FA.fmt(p.baseMonthly) + '</s>' + FA.fmt2(p.monthly) + '<small>/ month</small>';
+    if (sub) sub.innerHTML = '<strong>Code ' + pr.code + ' applied · ' + pr.def.pct + '% off</strong> · 3 monthly payments<br><span class="fa-tot">' + FA.fmt2(p.total) + ' over three months instead of ' + FA.fmt(p.baseTotal) + '</span>';
     var tag = document.createElement('div'); tag.className = 'fa-promo-tag'; tag.textContent = pr.code + ' applied · ' + pr.def.pct + '% off';
     card.insertBefore(tag, card.querySelector('h3'));
   }
@@ -53,8 +53,8 @@
   cta.className = 'fa-float-cta'; cta.id = 'faFloatCta';
   var course = FA.product('fa-course');
   if (isCaps) {
-    cta.href = '#offers'; cta.setAttribute('aria-label', 'Join the Culture Capsules — from $69 a month per capsule');
-    cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · 3 monthly payments</span><span class="fa-cta-title">Culture Capsules</span></span><span class="fa-cta-pill"><span class="price">from $69</span><span class="mo">/ MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
+    cta.href = '#offers'; cta.setAttribute('aria-label', 'Join the Culture Capsules — from $79 a month per capsule');
+    cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · 3 monthly payments</span><span class="fa-cta-title">Culture Capsules</span></span><span class="fa-cta-pill"><span class="price">from $79</span><span class="mo">/ MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
     cta.addEventListener('click', function (e) { var t = document.getElementById('offers'); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   } else {
     cta.href = base + 'pricing.html#enroll-online'; cta.setAttribute('aria-label', 'Enroll now in the French Atelier live course — ' + FA.fmt2(course.firstPayment) + ' for the first month, then ' + FA.fmt2(course.monthly) + ' a month');

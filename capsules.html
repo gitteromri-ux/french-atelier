@@ -8,195 +8,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Culture Capsules — The French Atelier by Acadomia</title>
-<meta name="description" content="Culture Capsules — short, cinematic cultural French lessons. Each capsule tells the story of one icon, one movement, one idea that shaped France and its language. The story behind the words you are learning to speak.">
+<meta name="description" content="Culture Capsules by The French Atelier — live one-hour conferences on French culture from Paris: Fashion &amp; Art, Gastronomy &amp; Wine, Cinema &amp; Music. Ten conferences per capsule, bilingual signature speakers, no French required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<style>
-/* ============================================================
-   CULTURE CAPSULES — luxury editorial page
-   Reuses fa.css tokens: --navy --navy-deep --gold --gold-soft
-   --gold-deep --ivory --paper --on-dark --serif --sans, .wrap etc.
-   ============================================================ */
-
-.cap-page{background:var(--navy-deep);color:var(--on-dark)}
-
-/* Thin gold inset frame, like the deck slides */
-.gold-frame{position:relative}
-.gold-frame::before{
-  content:"";position:absolute;inset:1.4rem;
-  border:1px solid var(--gold-line);pointer-events:none;z-index:4;
-}
-@media(max-width:640px){.gold-frame::before{inset:.9rem}}
-
-/* Eyebrow / kicker — letterspaced caps */
-.cap-kicker{
-  font-family:var(--sans);font-size:.7rem;font-weight:600;
-  letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);
-  display:inline-flex;align-items:center;gap:.85rem;
-}
-.cap-kicker.dark{color:var(--gold-deep)}
-.cap-kicker .k-rule{width:34px;height:1px;background:var(--gold-line);display:inline-block}
-
-/* slide-number motif */
-.slide-no{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;letter-spacing:.05em}
-.slide-no .sn-small{font-size:.7rem;color:var(--on-dark-faint);letter-spacing:.18em;vertical-align:super;margin-left:.35rem}
-
-/* gold-italic accent (on dark + on light) */
-.gi{font-style:italic;color:var(--gold-soft);font-weight:500}
-.bg-ivory .gi,.bg-paper .gi{color:var(--gold-deep)}
-
-/* ---------------- HERO ---------------- */
-.cap-hero{
-  position:relative;min-height:92vh;display:flex;align-items:flex-end;
-  background:var(--navy-deep);overflow:hidden;padding-top:5rem;
-}
-.cap-hero-bg{position:absolute;inset:0;z-index:0}
-.cap-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-.cap-hero-bg::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,31,.62) 0%,rgba(0,0,31,.30) 38%,rgba(0,0,31,.74) 78%,rgba(0,0,31,.94) 100%);
-}
-.cap-hero .wrap{position:relative;z-index:5;width:100%;padding-bottom:5.5rem;padding-top:9rem}
-.cap-hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:auto}
-.cap-hero h1{
-  font-size:clamp(3.4rem,10vw,8rem);line-height:.94;margin:1.4rem 0 1.5rem;
-  color:var(--on-dark);font-weight:600;letter-spacing:-.015em;
-}
-.cap-hero-sub{
-  font-family:var(--sans);font-weight:300;font-size:clamp(1.05rem,1.5vw,1.28rem);
-  line-height:1.6;max-width:52ch;color:var(--on-dark-soft);margin-bottom:0;
-}
-.cap-hero-meta{
-  display:flex;gap:2.4rem;flex-wrap:wrap;margin-top:2.6rem;
-  padding-top:1.7rem;border-top:1px solid var(--dark-line);
-}
-.cap-hero-meta .m-item .m-k{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--on-dark-faint);margin-bottom:.35rem}
-.cap-hero-meta .m-item .m-v{font-family:var(--serif);font-size:1.5rem;color:var(--gold-soft);line-height:1}
-
-/* ---------------- DEFINITION FOLD ---------------- */
-.cap-def{background:var(--ivory);color:var(--on-light)}
-.cap-def .def-head{max-width:760px;margin-bottom:3.4rem}
-.cap-def h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.06;margin:1.3rem 0 0;color:var(--navy)}
-.def-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
-.def-points{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem 2.6rem}
-.def-point{border-top:1px solid var(--gold-line);padding-top:1.2rem}
-.def-point .dp-no{font-family:var(--serif);font-size:1.2rem;color:var(--gold-deep);font-style:italic}
-.def-point h3{font-family:var(--serif);font-size:1.45rem;color:var(--navy);margin:.45rem 0 .55rem;line-height:1.12}
-.def-point p{font-size:.95rem;line-height:1.62;color:var(--on-light-soft);margin:0}
-.def-figure{position:relative}
-.def-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.def-figure .fig-tag{
-  position:absolute;top:1.1rem;left:1.1rem;background:var(--ivory);
-  font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--navy);
-  padding:.35rem .85rem;letter-spacing:.02em;
-}
-.def-figure .fig-frame{position:absolute;inset:.85rem;border:1px solid rgba(243,238,227,.55);pointer-events:none}
-
-/* ---------------- THE COLLECTION ---------------- */
-.cap-collection{background:var(--navy-deep);color:var(--on-dark)}
-.coll-head{max-width:780px;margin-bottom:3.6rem}
-.coll-head h2{font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.05;margin:1.3rem 0 1.1rem;color:var(--on-dark)}
-.coll-head p{color:var(--on-dark-soft);font-weight:300;font-size:1.1rem;max-width:60ch;margin:0}
-
-.coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem;max-width:1480px;margin:0 auto}
-.cap-card{
-  display:flex;flex-direction:column;background:var(--navy);
-  border:1px solid var(--dark-line);overflow:hidden;border-radius:8px;
-  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
-  box-shadow:0 20px 50px -20px rgba(0,0,30,.6);
-}
-.cap-card:hover{transform:translateY(-7px);border-color:var(--gold-line);box-shadow:0 40px 80px rgba(0,0,20,.65)}
-.cc-img{position:relative;aspect-ratio:4/3.6;overflow:hidden;flex:0 0 auto}
-.cc-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.cap-card:hover .cc-img img{transform:scale(1.06)}
-.cc-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,31,0) 45%,rgba(0,0,31,.55) 100%)}
-.cc-no{
-  position:absolute;top:1.2rem;left:1.2rem;z-index:2;
-  font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--gold-soft);
-  background:rgba(0,0,31,.6);backdrop-filter:blur(3px);
-  padding:.4rem 1rem;border:1px solid var(--gold-line);letter-spacing:.04em;
-}
-.cc-body{padding:2.3rem 2rem 2.2rem;display:flex;flex-direction:column;flex:1 1 auto}
-.cc-eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem}
-.cc-title{font-family:var(--serif);font-size:2.25rem;line-height:1.1;color:var(--on-dark);margin-bottom:1.1rem;font-weight:600}
-.cc-desc{font-size:1.04rem;line-height:1.64;color:var(--on-dark-soft);margin:0 0 1.1rem;font-weight:300}
-.cc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1.3rem;border-top:1px solid var(--dark-line);margin-top:auto}
-.cc-foot .cf-meta{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-faint)}
-.cc-foot .cf-link{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);display:inline-flex;align-items:center;gap:.45rem}
-.cc-foot .cf-link svg{width:15px;height:9px;transition:transform .4s var(--ease)}
-.cap-card:hover .cf-link svg{transform:translateX(4px)}
-
-/* ---------------- PULL-QUOTE EDITORIAL ---------------- */
-.cap-quote{position:relative;background:var(--navy-deep);overflow:hidden}
-.cap-quote-bg{position:absolute;inset:0;z-index:0}
-.cap-quote-bg img{width:100%;height:100%;object-fit:cover}
-.cap-quote-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,31,.92) 0%,rgba(0,0,31,.72) 55%,rgba(0,0,31,.55) 100%)}
-.cap-quote .wrap{position:relative;z-index:5}
-.cap-quote-inner{max-width:880px}
-.cap-quote .q-mark{font-family:var(--serif);font-size:5rem;line-height:.5;color:var(--gold-soft);display:block;height:2.4rem}
-.cap-quote blockquote{
-  font-family:var(--serif);font-size:clamp(1.9rem,4vw,3.2rem);line-height:1.16;
-  color:var(--on-dark);font-weight:500;margin:0 0 1.8rem;letter-spacing:-.01em;
-}
-.cap-quote cite{font-style:normal;font-family:var(--sans);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);display:inline-flex;align-items:center;gap:.85rem}
-.cap-quote cite::before{content:"";width:34px;height:1px;background:var(--gold-line)}
-
-/* ---------------- MORE / UPCOMING ---------------- */
-.cap-more{background:var(--paper);color:var(--on-light)}
-.more-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.4rem;margin-bottom:3rem}
-.more-head h2{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.06;color:var(--navy);margin:1rem 0 0}
-.more-head .mh-note{font-size:.95rem;color:var(--on-light-soft);max-width:34ch;font-weight:300}
-.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
-.more-item{
-  background:var(--white);border:1px solid var(--light-line);border-radius:8px;
-  padding:1.7rem 1.5rem 1.6rem;display:flex;flex-direction:column;
-  transition:border-color .4s var(--ease),transform .4s var(--ease);
-}
-.more-item:hover{border-color:var(--gold-line);transform:translateY(-4px)}
-.more-item .mi-no{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold-deep);margin-bottom:.9rem}
-.more-item h3{font-family:var(--serif);font-size:1.3rem;line-height:1.14;color:var(--navy);margin:0 0 .6rem;font-weight:600}
-.more-item p{font-size:.88rem;line-height:1.55;color:var(--on-light-soft);margin:0 0 1.2rem;font-weight:300;flex:1 1 auto}
-.more-item .mi-tag{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);padding-top:1rem;border-top:1px solid var(--light-line);margin-top:auto}
-
-/* ---------------- CTA BAND ---------------- */
-.cap-cta{position:relative;background:var(--navy-deep);overflow:hidden}
-.cap-cta-bg{position:absolute;inset:0;z-index:0}
-.cap-cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.cap-cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,31,.86),rgba(0,0,31,.78))}
-.cap-cta .wrap{position:relative;z-index:5;text-align:center}
-.cap-cta h2{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.05;color:var(--on-dark);margin:1.3rem auto 1.3rem;max-width:18ch}
-.cap-cta p{color:var(--on-dark-soft);font-weight:300;font-size:1.12rem;max-width:54ch;margin:0 auto 2.4rem}
-.cap-cta .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.cap-cta .cap-kicker{justify-content:center}
-
-/* ---------------- RESPONSIVE ---------------- */
-@media(max-width:980px){
-  .def-grid{grid-template-columns:1fr;gap:2.6rem}
-  .def-figure{order:-1}
-  .def-figure img{aspect-ratio:16/10}
-  .coll-grid{grid-template-columns:1fr;gap:1.6rem;max-width:520px}
-  .more-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .cap-hero .wrap{padding-bottom:3.4rem;padding-top:7rem}
-  .cap-hero-meta{gap:1.6rem}
-  .def-points{grid-template-columns:1fr;gap:1.6rem}
-  .more-grid{grid-template-columns:1fr}
-  .cap-hero-top .slide-no{display:none}
-}
-</style>
 <link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
-<link rel="stylesheet" href="css/fa-checkout.css?v=20261008f">
-<link rel="stylesheet" href="css/fa-whatsapp.css?v=20261008f">
-<link rel="stylesheet" href="css/fa-promo.css?v=20261008f">
-<link rel="stylesheet" href="css/fa-pop.css?v=20261008f">
-<link rel="stylesheet" href="css/fa-type.css?v=20261008f">
-<style>.cap-syllabus{margin:0 0 1.6rem;padding:0 0 0 1.2rem;columns:2;column-gap:1.4rem;font-family:var(--sans);font-size:.84rem;line-height:1.55;color:var(--on-dark-soft)}.cap-syllabus li{break-inside:avoid;padding-left:.1rem}.cf-buy{background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;display:inline-flex;align-items:center;gap:.4rem}@media(max-width:560px){.cap-syllabus{columns:1}}</style>
+<link rel="stylesheet" href="css/fa-checkout.css?v=20261008l">
+<link rel="stylesheet" href="css/fa-whatsapp.css?v=20261008l">
+<link rel="stylesheet" href="css/fa-promo.css?v=20261008l">
+<link rel="stylesheet" href="css/fa-pop.css?v=20261008l">
+<link rel="stylesheet" href="css/fa-capsules.css?v=20261008l">
+<link rel="stylesheet" href="css/fa-type.css?v=20261008l">
 </head>
 <body id="fa" class="cap-page">
 
@@ -288,204 +114,276 @@
   <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
 </div>
 
+
 <!-- ===== HERO ===== -->
-<section class="cap-hero gold-frame">
-  <div class="cap-hero-bg"><img src="assets/capsules/hero-versailles.jpg" alt="The Hall of Mirrors at Versailles bathed in golden-hour light" decoding="async"></div>
-  <div class="wrap">
-    <div class="cap-hero-top">
-      <span class="cap-kicker"><span class="k-rule"></span>Culture Capsules &middot; A Collection</span>
-      <span class="slide-no">30<span class="sn-small">conferences</span></span>
+<section class="kps-hero" id="top">
+  <div class="slide is-on" data-theme="fashion"><video muted loop playsinline preload="auto" poster="assets/video/pillar-fashion-poster.jpg"><source src="assets/video/pillar-fashion.mp4" type="video/mp4"></video></div><div class="slide" data-theme="gastro"><video muted loop playsinline preload="metadata" poster="assets/video/wine-tasting-poster.jpg"><source src="assets/video/wine-tasting.mp4" type="video/mp4"></video></div><div class="slide" data-theme="cinema"><video muted loop playsinline preload="metadata" poster="assets/video/pillar-music-poster.jpg"><source src="assets/video/pillar-music.mp4" type="video/mp4"></video></div>
+  <div class="kps-wrap">
+    <div class="hero-themes" role="tablist" aria-label="Capsule themes"><span role="tab" tabindex="0" class="ht is-on" data-theme="fashion"><i></i>Fashion &amp; Art<span class="bar"></span></span><span role="tab" tabindex="0" class="ht" data-theme="gastro"><i></i>Gastronomy &amp; Wine<span class="bar"></span></span><span role="tab" tabindex="0" class="ht" data-theme="cinema"><i></i>Cinema &amp; Music<span class="bar"></span></span></div>
+    <span class="kps-kicker">The French Atelier &middot; Culture Capsules</span>
+    <h1 class="kps-h1">Authentic French culture,<br><span class="gi">taught live from Paris.</span></h1>
+    <p class="hero-sub">Thirty one-hour conferences in three capsules — <strong>Fashion &amp; Art</strong>, <strong>Gastronomy &amp; Wine</strong>, <strong>Cinema &amp; Music</strong> — led live on Zoom by bilingual signature speakers. The small stories that carry the big History. <strong>No French required.</strong></p>
+    <div class="hero-cta">
+      <a class="kps-btn kps-btn-gold" href="#offers">Join the Capsules <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      <a class="kps-btn kps-btn-ghost" href="#themes">Explore the 30 conferences</a>
     </div>
-    <h1>Culture <span class="gi">Capsules</span></h1>
-    <p class="cap-hero-sub">Three thematic packs, thirty live one-hour conferences on French culture. Delivered on Zoom by a bilingual signature speaker and followed by fifteen to twenty minutes of your questions. No French required — just curiosity.</p>
-    <div class="cap-hero-meta">
-      <div class="m-item"><div class="m-k">Format</div><div class="m-v">1 hour &middot; weekly</div></div>
-      <div class="m-item"><div class="m-k">Delivered</div><div class="m-v">Live on Zoom</div></div>
-      <div class="m-item"><div class="m-k">French level</div><div class="m-v">None required</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHAT IS A CAPSULE ===== -->
-<section class="cap-def section-pad">
-  <div class="wrap">
-    <div class="def-head">
-      <span class="cap-kicker dark"><span class="k-rule"></span>What is a capsule?</span>
-      <h2>One icon, one hour, one bilingual storyteller — <span class="gi">every week for ten weeks.</span></h2>
-    </div>
-    <div class="def-grid">
-      <div class="def-points">
-        <div class="def-point">
-          <div class="dp-no">i.</div>
-          <h3>One story, beautifully told</h3>
-          <p>Each conference takes a single cultural icon — a king, a couturière, a cheese, a chanson — and tells its story live, with the images, music and anecdotes that made it part of France.</p>
-        </div>
-        <div class="def-point">
-          <div class="dp-no">ii.</div>
-          <h3>One hour, then your questions</h3>
-          <p>A live one-hour conference on Zoom, followed by fifteen to twenty minutes of open questions with the speaker. Once a week, ten weeks per pack.</p>
-        </div>
-        <div class="def-point">
-          <div class="dp-no">iii.</div>
-          <h3>A bilingual signature speaker</h3>
-          <p>Delivered in English by a bilingual expert who lives the subject, with the French words culture actually uses — terroir, silhouette, polar — explained as they appear. No French required.</p>
-        </div>
-        <div class="def-point">
-          <div class="dp-no">iv.</div>
-          <h3>Three packs, thirty conferences</h3>
-          <p>Fashion &amp; Art, Gastronomy &amp; Wine, Cinema &amp; Music. Take one pack, two, or all three — or pair them with a French Atelier course in the Atelier Membership.</p>
-        </div>
-      </div>
-      <figure class="def-figure">
-        <img src="assets/gen/hero-paris.webp" alt="A Parisian rooftop at golden hour with the Eiffel Tower in the distance" loading="lazy" decoding="async">
-        <span class="fig-tag">N&deg; i</span>
-        <span class="fig-frame"></span>
-      </figure>
+    <div class="hero-trust">
+      <span class="tp"><img src="assets/logo/trustpilot-logo-dark.svg" alt="Trustpilot" style="filter:brightness(0) invert(1)"><span class="stars"><i></i><i></i><i></i><i></i><i></i></span>Excellent</span>
+      <span class="sep"></span>
+      <img class="logo" src="assets/logo/acadomia-blue.png" alt="Acadomia">
+      <span class="sep"></span>
+      <span class="fact"><b>50+ years</b> of teaching French in France</span>
+      <span class="sep"></span>
+      <span class="fact"><b>Live</b> on Zoom &middot; from Paris</span>
     </div>
   </div>
 </section>
 
-<!-- ===== THE COLLECTION — three thematic packs (syllabus 2026) ===== -->
-<section class="cap-collection section-pad" id="packs">
-  <div class="wrap">
-    <div class="coll-head">
-      <span class="cap-kicker"><span class="k-rule"></span>The Collection &middot; Three Thematic Packs</span>
-      <h2>Thirty doorways into <span class="gi">French culture.</span></h2>
-      <p>Three packs of ten live conferences each. Fashion &amp; Art has already begun and welcomes you into the running pack; Gastronomy &amp; Wine and Cinema &amp; Music open in November.</p>
+<!-- ===== THESIS ===== -->
+<section class="kps-thesis">
+  <div class="kps-wrap">
+    <p class="script">Les petites histoires qui font la grande Histoire</p>
+    <h2>Each capsule begins with something you think you know — <em>the baguette, Chanel, Piaf</em> — and works outward into the history hiding behind the cliché.</h2>
+    <p>A salt tax that explains why butter is salted in Brittany. A laboratory sample number that becomes the world’s best-selling perfume. A bitter French song about a couple falling out of love that Frank Sinatra turned into the American anthem of self-determination. Every subject is tied back to what binds France to the United States: the collectors, the soldiers, the films, the songs and the arguments the two countries have shared for two hundred years.</p>
+  </div>
+</section>
+
+<!-- ===== HOW A CAPSULE WORKS ===== -->
+<section class="kps-how" id="how">
+  <div class="kps-wrap">
+    <div class="head">
+      <div><span class="kps-kicker dark">How a capsule works</span><h2 class="kps-h2">One theme. Ten evenings. <span class="gi">Live.</span></h2></div>
+      <p>Capsules are sold in packs of ten around a single theme, independently of the language courses. You join from anywhere; the speaker is in France.</p>
     </div>
-    <div class="coll-grid">
-
-      <article class="cap-card">
-        <div class="cc-img">
-          <span class="cc-no">Pack I</span>
-          <img src="assets/capsules/capsule-chanel.jpg" alt="A little black dress and pearls in a 1920s Parisian atelier, black and white" loading="lazy" decoding="async">
-        </div>
-        <div class="cc-body">
-          <div class="cc-eyebrow">Pack 1 &middot; French aesthetics &middot; Already started</div>
-          <h3 class="cc-title">Fashion &amp; <span class="gi">Art</span></h3>
-          <p class="cc-desc">From the Sun King who invented luxury to JR pasting giant faces on Paris walls: three centuries of silhouettes, light and provocation.</p>
-          <ol class="cap-syllabus"><li>Louis XIV</li><li>Claude Monet</li><li>Auguste Rodin</li><li>Henri Matisse</li><li>Coco Chanel</li><li>Christian Dior</li><li>Yves Saint Laurent</li><li>Hubert de Givenchy</li><li>Jean-Paul Gaultier</li><li>JR</li></ol>
-          <div class="cc-foot">
-            <span class="cf-meta">10 conferences &middot; 1 hour &middot; weekly &middot; In progress</span>
-            <button type="button" class="cf-link cf-buy" data-fa-buy="capsule-1" data-fa-capsules="fashion-art">Join this pack <svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7h21M16 1l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="cap-card">
-        <div class="cc-img">
-          <span class="cc-no">Pack II</span>
-          <img src="assets/img/culture/wine-hero.jpg" alt="A glass of red wine over French vineyards" loading="lazy" decoding="async">
-        </div>
-        <div class="cc-body">
-          <div class="cc-eyebrow">Pack 2 &middot; Terroir on the plate &middot; Starts November</div>
-          <h3 class="cc-title">Gastronomy &amp; <span class="gi">Wine</span></h3>
-          <p class="cc-desc">Ten things France eats, drinks and argues about — and the history, chemistry and pride behind each of them.</p>
-          <ol class="cap-syllabus"><li>The Baguette</li><li>Salted Butter</li><li>Camembert</li><li>Champagne</li><li>The Macaron</li><li>Snails &amp; Frogs</li><li>Foie Gras</li><li>Chocolate</li><li>The Black Truffle</li><li>Ratatouille</li></ol>
-          <div class="cc-foot">
-            <span class="cf-meta">10 conferences &middot; 1 hour &middot; weekly &middot; Enrolling now</span>
-            <button type="button" class="cf-link cf-buy" data-fa-buy="capsule-1" data-fa-capsules="gastronomy">Join this pack <svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7h21M16 1l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="cap-card">
-        <div class="cc-img">
-          <span class="cc-no">Pack III</span>
-          <img src="assets/gen/culture-music.webp" alt="A vintage microphone on a Parisian cabaret stage" loading="lazy" decoding="async">
-        </div>
-        <div class="cc-body">
-          <div class="cc-eyebrow">Pack 3 &middot; Screens and songs &middot; Starts November</div>
-          <h3 class="cc-title">Cinema &amp; <span class="gi">Music</span></h3>
-          <p class="cc-desc">From Méliès’ trip to the moon to Hollywood’s French accent: the voices, faces and soundtracks that taught the world to feel in French.</p>
-          <ol class="cap-syllabus"><li>Georges Méliès</li><li>Édith Piaf</li><li>Yves Montand</li><li>Charles Aznavour</li><li>Brigitte Bardot &amp; the Nouvelle Vague</li><li>Serge Gainsbourg</li><li>Alain Delon, Melville &amp; the French polar</li><li>Johnny Hallyday &amp; Françoise Hardy</li><li>Amélie Poulain &amp; Yann Tiersen</li><li>Hollywood has a French accent: Jarre to Desplat</li></ol>
-          <div class="cc-foot">
-            <span class="cf-meta">10 conferences &middot; 1 hour &middot; weekly &middot; Enrolling now</span>
-            <button type="button" class="cf-link cf-buy" data-fa-buy="capsule-1" data-fa-capsules="cinema-music">Join this pack <svg viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 7h21M16 1l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-      </article>
-
+    <div class="kps-rail">
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></span><div class="n">10</div><div class="k">Live conferences</div><div class="s">per capsule, one theme</div></div>
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div class="n">60<small>min</small></div><div class="k">Each conference</div><div class="s">one hour, live on Zoom</div></div>
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/></svg></span><div class="n">15<small>–20 min</small></div><div class="k">Questions after each talk</div><div class="s">ask the speaker directly</div></div>
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div class="n">1</div><div class="k">Signature speaker</div><div class="s">bilingual, expert in the field</div></div>
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 21h8M12 16v5"/></svg></span><div class="n">0</div><div class="k">French required</div><div class="s">taught in English, à la française</div></div>
+      <div class="cell"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M2 10h20"/></svg></span><div class="n">3</div><div class="k">Monthly payments</div><div class="s">per capsule, nothing more to pay</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== PULL-QUOTE EDITORIAL ===== -->
-<section class="cap-quote section-pad gold-frame">
-  <div class="cap-quote-bg"><img src="assets/capsules/bg-salon.jpg" alt="A candlelit Parisian salon at night" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <div class="cap-quote-inner">
-      <span class="q-mark">&ldquo;</span>
-      <blockquote>Culture is not a subject you study. It is a table you are <span class="gi">invited to.</span></blockquote>
-      <cite>Culture Capsules &middot; Thirty live conferences, one bilingual voice</cite>
+<!-- ===== THREE CAPSULES ===== -->
+<section class="kps-themes" id="themes">
+  <div class="kps-wrap">
+    <div class="head"><span class="kps-kicker center">Three capsules &middot; thirty conferences</span><h2 class="kps-h2">Choose your <span class="gi">world.</span></h2><p>Open a capsule to see its ten conferences. Each one starts from an icon and ends with a France you did not know — and you can download the full syllabus.</p></div>
+    <div class="kps-cards">
+      <div role="button" tabindex="0" class="kps-card" data-pack="fashion" aria-expanded="false" aria-controls="kps-reveal-fashion">
+        <img src="assets/capsules/gen/card-fashion.jpg" alt="Fashion &amp; Art — Culture Capsule" loading="lazy" decoding="async">
+        <span class="top"><span class="num">Pack 01</span><span class="pill">10 conferences</span></span>
+        <span class="q">Did you know?</span>
+        <h3>The most visited museum on earth is in Paris: <span class="gi">8.7 million</span> people walked into the Louvre last year.</h3>
+        <p class="hook">Fashion &amp; Art — french aesthetics, told through ten icons the world thinks it already knows.</p>
+        <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
+        <span class="open">Open the 10 conferences <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 8,11 13,6"/></svg></span>
+      </div>
+      <div role="button" tabindex="0" class="kps-card" data-pack="gastro" aria-expanded="false" aria-controls="kps-reveal-gastro">
+        <img src="assets/capsules/gen/card-gastro.jpg" alt="Gastronomy &amp; Wine — Culture Capsule" loading="lazy" decoding="async">
+        <span class="top"><span class="num">Pack 02</span><span class="pill">10 conferences</span></span>
+        <span class="q">Did you know?</span>
+        <h3>France bakes more than <span class="gi">6 billion</span> baguettes a year — and the law defines what may be called bread.</h3>
+        <p class="hook">Gastronomy &amp; Wine — terroir on the plate, told through ten icons the world thinks it already knows.</p>
+        <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
+        <span class="open">Open the 10 conferences <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 8,11 13,6"/></svg></span>
+      </div>
+      <div role="button" tabindex="0" class="kps-card" data-pack="cinema" aria-expanded="false" aria-controls="kps-reveal-cinema">
+        <img src="assets/capsules/gen/card-cinema.jpg" alt="Cinema &amp; Music — Culture Capsule" loading="lazy" decoding="async">
+        <span class="top"><span class="num">Pack 03</span><span class="pill">10 conferences</span></span>
+        <span class="q">Did you know?</span>
+        <h3>Cinema was born in a Paris café: <span class="gi">28 December 1895</span>, the Grand Café, about forty paying viewers.</h3>
+        <p class="hook">Cinema &amp; Music — screens and songs, told through ten icons the world thinks it already knows.</p>
+        <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
+        <span class="open">Open the 10 conferences <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 8,11 13,6"/></svg></span>
+      </div>
+    </div>
+    <div class="kps-reveal" id="kps-reveal-fashion" data-pack="fashion">
+      <div class="kps-stage">
+        <video muted loop playsinline preload="metadata" poster="assets/video/pillar-fashion-poster.jpg"><source data-src="assets/video/pillar-fashion.mp4" type="video/mp4"></video>
+        <div class="inner">
+          <span class="q">Pack 01 &middot; Fashion &amp; Art &middot; French aesthetics</span>
+          <h3>The most visited museum on earth is in Paris: <span class="gi">8.7 million</span> people walked into the Louvre last year.</h3>
+          <p>French elegance is not a gift of national temperament: it is a construction, mixing technical rigor with freedom of spirit. This pack shows taste being manufactured by a king, prised away from authority by artists, and finally handed to the street — from Versailles to the walls of the world.</p>
+          <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule</a><a class="kps-btn kps-btn-ghost" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener">Download the syllabus (PDF)</a></div>
+        </div>
+      </div>
+      <div class="kps-lessons">
+        <div class="lhead"><h4>The ten conferences of <em>Fashion &amp; Art</em></h4><a class="dl" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg>Syllabus PDF</a></div>
+        <div class="kps-grid">
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-01-louis.jpg" alt="Louis XIV" loading="lazy" decoding="async"><span class="n">1</span></div><div class="body"><span class="sub">Fashion as state strategy</span><h5>Louis XIV</h5><p>Colbert, the silk of Lyon, the Gobelins: the moment French elegance began as industrial policy and soft power.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-02-monet.jpg" alt="Claude Monet" loading="lazy" decoding="async"><span class="n">2</span></div><div class="body"><span class="sub">The eye set free</span><h5>Claude Monet</h5><p>Why Impressionism began as a critic’s insult, what it did to painting, and how America bought Monet before France stopped arguing.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-03-rodin.jpg" alt="Auguste Rodin" loading="lazy" decoding="async"><span class="n">3</span></div><div class="body"><span class="sub">Emotion over decoration</span><h5>Auguste Rodin</h5><p>The scandal of his early work, The Thinker, The Kiss — and the shadow of Camille Claudel, finally restored.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-04-matisse.jpg" alt="Henri Matisse" loading="lazy" decoding="async"><span class="n">4</span></div><div class="body"><span class="sub">The lesson of colour</span><h5>Henri Matisse</h5><p>The Fauve scandal, the discipline behind the joy, and the cut-outs invented from a wheelchair.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-05-chanel.jpg" alt="Coco Chanel" loading="lazy" decoding="async"><span class="n">5</span></div><div class="body"><span class="sub">The comfort revolution</span><h5>Coco Chanel</h5><p>Jersey, the little black dress, No. 5, the chain strap — and the documented shadow of the Occupation years.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-06-dior.jpg" alt="Christian Dior" loading="lazy" decoding="async"><span class="n">6</span></div><div class="body"><span class="sub">February 1947</span><h5>Christian Dior</h5><p>One collection relaunched a ruined industry. Weigh the New Look’s critics, and meet Catherine Dior, resistance fighter.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-07-ysl.jpg" alt="Yves Saint Laurent" loading="lazy" decoding="async"><span class="n">7</span></div><div class="body"><span class="sub">The emancipation wardrobe</span><h5>Yves Saint Laurent</h5><p>Le Smoking, the trench, the safari jacket, luxury ready-to-wear — and the 1983 Met retrospective, a first for a living designer.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-08-givenchy.jpg" alt="Hubert de Givenchy" loading="lazy" decoding="async"><span class="n">8</span></div><div class="body"><span class="sub">A 25-year alliance</span><h5>Hubert de Givenchy</h5><p>A young couturier, an unknown actress named Audrey Hepburn, and how a wardrobe builds a persona.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-09-gaultier.jpg" alt="Jean-Paul Gaultier" loading="lazy" decoding="async"><span class="n">9</span></div><div class="body"><span class="sub">The rebel who opened the doors</span><h5>Jean-Paul Gaultier</h5><p>Sailor stripes, men in skirts, every body on the runway — decades before anyone called it inclusion.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/fa-10-jr.jpg" alt="JR" loading="lazy" decoding="async"><span class="n">10</span></div><div class="body"><span class="sub">Art off the wall</span><h5>JR</h5><p>Monumental portraits on favelas, borders, prisons and the Louvre pyramid: participation as an artistic medium.</p></div></article>
+        </div>
+      </div>
+    </div>
+    <div class="kps-reveal" id="kps-reveal-gastro" data-pack="gastro">
+      <div class="kps-stage">
+        <video muted loop playsinline preload="metadata" poster="assets/video/wine-tasting-poster.jpg"><source data-src="assets/video/wine-tasting.mp4" type="video/mp4"></video>
+        <div class="inner">
+          <span class="q">Pack 02 &middot; Gastronomy &amp; Wine &middot; Terroir on the plate</span>
+          <h3>France bakes more than <span class="gi">6 billion</span> baguettes a year — and the law defines what may be called bread.</h3>
+          <p>For the French, eating is a political, historical and identitarian act. A loaf is protected by decree, a cheese is a battlefield, a name is defended in court across five continents. You arrive expecting recipes and leave with an argument about what a country chooses to protect.</p>
+          <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule</a><a class="kps-btn kps-btn-ghost" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener">Download the syllabus (PDF)</a></div>
+        </div>
+      </div>
+      <div class="kps-lessons">
+        <div class="lhead"><h4>The ten conferences of <em>Gastronomy &amp; Wine</em></h4><a class="dl" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg>Syllabus PDF</a></div>
+        <div class="kps-grid">
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-01-baguette.jpg" alt="The Baguette" loading="lazy" decoding="async"><span class="n">1</span></div><div class="body"><span class="sub">Bread as a right</span><h5>The Baguette</h5><p>The Décret Pain, UNESCO heritage in 2022, and why Napoleon’s soldiers never carried a baguette in their trousers.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-02-butter.jpg" alt="Salted Butter" loading="lazy" decoding="async"><span class="n">2</span></div><div class="body"><span class="sub">A tax you can taste</span><h5>Salted Butter</h5><p>The gabelle, the salt tax Brittany escaped — the reason salted butter is Breton and sweet butter Norman.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-03-camembert.jpg" alt="Camembert" loading="lazy" decoding="async"><span class="n">3</span></div><div class="body"><span class="sub">Raw milk vs. the world</span><h5>Camembert</h5><p>Two food cultures in a small round box: flavour against sanitary norms, Normandy farm to Great War symbol.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-04-champagne.jpg" alt="Champagne" loading="lazy" decoding="async"><span class="n">4</span></div><div class="body"><span class="sub">Defending a name</span><h5>Champagne</h5><p>The second fermentation, the riots of 1911, the birth of the AOC — and the long argument with California over a word.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-05-macaron.jpg" alt="The Macaron" loading="lazy" decoding="async"><span class="n">5</span></div><div class="body"><span class="sub">Affordable luxury, perfected</span><h5>The Macaron</h5><p>From convent biscuit to Parisian double-decker: the most efficient piece of luxury marketing ever devised.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-06-snails.jpg" alt="Snails &amp; Frogs" loading="lazy" decoding="async"><span class="n">6</span></div><div class="body"><span class="sub">The cultural dare</span><h5>Snails &amp; Frogs</h5><p>Roman farms to Burgundian butter, monastic loophole to Lyonnais delicacy — and the ecology of an imported trade.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-07-foiegras.jpg" alt="Foie Gras" loading="lazy" decoding="async"><span class="n">7</span></div><div class="body"><span class="sub">The honest argument</span><h5>Foie Gras</h5><p>Heritage protected by law, the producers’ case and the welfare scientists’ case — no verdict handed down.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-08-chocolate.jpg" alt="Chocolate" loading="lazy" decoding="async"><span class="n">8</span></div><div class="body"><span class="sub">Paris, capital of craft</span><h5>Chocolate</h5><p>From the Spanish court to Bayonne’s Sephardic chocolatiers and on to the Parisian ateliers.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-09-truffle.jpg" alt="The Black Truffle" loading="lazy" decoding="async"><span class="n">9</span></div><div class="body"><span class="sub">The diamond of Périgord</span><h5>The Black Truffle</h5><p>Why it cannot be farmed, why production collapsed, and why the pig was retired in favour of the dog.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/gw-10-ratatouille.jpg" alt="Ratatouille" loading="lazy" decoding="async"><span class="n">10</span></div><div class="body"><span class="sub">Peasant genius</span><h5>Ratatouille</h5><p>A poor man’s stew from the Provençal garden to Escoffier — and the chefs who rebuilt French cooking around vegetables.</p></div></article>
+        </div>
+      </div>
+    </div>
+    <div class="kps-reveal" id="kps-reveal-cinema" data-pack="cinema">
+      <div class="kps-stage">
+        <video muted loop playsinline preload="metadata" poster="assets/video/pillar-music-poster.jpg"><source data-src="assets/video/pillar-music.mp4" type="video/mp4"></video>
+        <div class="inner">
+          <span class="q">Pack 03 &middot; Cinema &amp; Music &middot; Screens and songs</span>
+          <h3>Cinema was born in a Paris café: <span class="gi">28 December 1895</span>, the Grand Café, about forty paying viewers.</h3>
+          <p>French cinema and French song are two forms of popular literature: a country that gives its highest cultural status to the lyricist and the auteur, and that has spent a century exporting its faces, its stories and its melodies to America — often without America noticing where they came from.</p>
+          <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule</a><a class="kps-btn kps-btn-ghost" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener">Download the syllabus (PDF)</a></div>
+        </div>
+      </div>
+      <div class="kps-lessons">
+        <div class="lhead"><h4>The ten conferences of <em>Cinema &amp; Music</em></h4><a class="dl" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg>Syllabus PDF</a></div>
+        <div class="kps-grid">
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-01-melies.jpg" alt="Georges Méliès" loading="lazy" decoding="async"><span class="n">1</span></div><div class="body"><span class="sub">The magician of cinema</span><h5>Georges Méliès</h5><p>A Belle Époque conjuror invents special effects, loses everything, sells toys in a railway station — and is resurrected by Hollywood.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-02-piaf.jpg" alt="Édith Piaf" loading="lazy" decoding="async"><span class="n">2</span></div><div class="body"><span class="sub">The icon of resilience</span><h5>Édith Piaf</h5><p>From the Paris streets to the conquest of America: tragedy turned into a universal language, legend set gently aside.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-03-montand.jpg" alt="Yves Montand" loading="lazy" decoding="async"><span class="n">3</span></div><div class="body"><span class="sub">The singer who conquered America</span><h5>Yves Montand</h5><p>Son of Italian refugees, summit of the music hall, Signoret, the Marilyn scandal, redemption through engagement.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-04-aznavour.jpg" alt="Charles Aznavour" loading="lazy" decoding="async"><span class="n">4</span></div><div class="body"><span class="sub">Songs as screenplays</span><h5>Charles Aznavour</h5><p>A methodical songwriter who overcame relentless criticism of his voice to become France itself.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-05-bardot.jpg" alt="Bardot &amp; the Nouvelle Vague" loading="lazy" decoding="async"><span class="n">5</span></div><div class="body"><span class="sub">Freedom, filmed</span><h5>Bardot &amp; the Nouvelle Vague</h5><p>A new feminine myth and a band of young critics with hand-held cameras rewrite the grammar of cinema.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-06-gainsbourg.jpg" alt="Serge Gainsbourg" loading="lazy" decoding="async"><span class="n">6</span></div><div class="body"><span class="sub">The genius of provocation</span><h5>Serge Gainsbourg</h5><p>A failed painter turns his fractures into a signature and masters the art of scandal — craft celebrated, shadows faced.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-07-delon.jpg" alt="Delon, Melville &amp; the polar" loading="lazy" decoding="async"><span class="n">7</span></div><div class="body"><span class="sub">Cold magnetism</span><h5>Delon, Melville &amp; the polar</h5><p>The silence of Le Samouraï, and a star who never went to Hollywood yet is everywhere in it.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-08-yeye.jpg" alt="Hallyday &amp; Hardy" loading="lazy" decoding="async"><span class="n">8</span></div><div class="body"><span class="sub">The yéyé explosion</span><h5>Hallyday &amp; Hardy</h5><p>The rock animal and the melancholy icon: a generation imports American rock and sends something new back.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-09-amelie.jpg" alt="Amélie &amp; Yann Tiersen" loading="lazy" decoding="async"><span class="n">9</span></div><div class="body"><span class="sub">The imaginary Paris</span><h5>Amélie &amp; Yann Tiersen</h5><p>Fairy-tale Montmartre, the casting gamble, and the accordion restored to respectability.</p></div></article>
+          <article class="kps-tile"><div class="img"><img src="assets/capsules/gen/cm-10-oscar.jpg" alt="Hollywood’s French accent" loading="lazy" decoding="async"><span class="n">10</span></div><div class="body"><span class="sub">Sixty years of Oscars</span><h5>Hollywood’s French accent</h5><p>From Maurice Jarre to Alexandre Desplat: the closed circle of French composers the Academy keeps rewarding.</p></div></article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== OFFERS — Culture Capsules pricing (only on this page) ===== -->
-<section class="cap-more section-pad" id="offers">
-  <div class="wrap">
-    <div class="more-head">
-      <div>
-        <span class="cap-kicker dark"><span class="k-rule"></span>Join the Capsules</span>
-        <h2>Choose your capsules, <span class="gi">pay monthly.</span></h2>
-      </div>
-      <p class="mh-note">One capsule, two, or all three — each in three monthly payments, and the more you add the less each costs. Or take the Atelier Membership: a full French course, all three capsules and the Benefits hub for $99 a month.</p>
+<!-- ===== METHOD / SPEAKERS ===== -->
+<section class="kps-method" id="speakers">
+  <div class="bg"><img src="assets/capsules/bg-salon.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="kps-wrap">
+    <span class="kps-kicker">Who is speaking</span>
+    <h2 class="kps-h2">Bilingual signature speakers, <span class="gi">live from France.</span></h2>
+    <p class="kps-lede">Each capsule is led by one signature speaker — a bilingual expert in the field, broadcasting live. They teach the way the best French conférenciers do: a precise story, an argument, and the questions you came with answered on the spot.</p>
+    <div class="kps-steps">
+      <div class="kps-step"><div class="r">I.</div><h4>Start with what you know</h4><p>The baguette, Chanel, Piaf. Every conference opens on an icon <em>the audience thinks it already understands</em>.</p></div>
+      <div class="kps-step"><div class="r">II.</div><h4>Work outward into History</h4><p>The history and the sociology hiding behind the cliché — a salt tax, a sample number, a critic’s insult that named a movement.</p></div>
+      <div class="kps-step"><div class="r">III.</div><h4>Tie it back across the Atlantic</h4><p>Every subject returns to what binds France and the United States: <em>the collectors, the soldiers, the films, the songs</em>.</p></div>
     </div>
-    <div class="fa-caps-grid">
-      <div class="fa-cap-offer">
-        <div class="k">One capsule</div>
-        <h3>1 Culture <span class="gi">Capsule</span></h3>
-        <div class="price">$89<small>/ month</small></div>
-        <p class="sub"><strong>3 monthly payments</strong> · code CAPSULE20: first month $71.20 · choose Fashion &amp; Art, Gastronomy &amp; Wine, or Cinema &amp; Music<br><span class="fa-tot">$267 over three months, nothing more to pay</span></p>
-        <ul><li>10 live one-hour conferences on Zoom</li><li>Bilingual signature speaker</li><li>15–20 minutes of questions after each talk</li><li>No French required</li></ul>
-        <button type="button" class="btn btn-gold" data-fa-buy="capsule-1">Join 1 Capsule</button>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="kps-pricing" id="offers">
+  <div class="kps-wrap">
+    <div class="head"><span class="kps-kicker dark center">Join the Capsules</span><h2 class="kps-h2">Three monthly payments. <span class="gi">The more you add, the less each costs.</span></h2><p>Every capsule is ten live one-hour conferences with its signature speaker. Pay monthly over three months, and nothing more.</p></div>
+    <div class="kps-plans">
+      <div class="kps-plan featured fa-cap-offer" data-plan="capsule-3">
+        <span class="badge">Best value &middot; all three worlds</span>
+        <span class="k">All three capsules</span>
+        <h3>Fashion &amp; Art + Gastronomy &amp; Wine + <span class="gi">Cinema &amp; Music</span></h3>
+        <div class="price"><s>$99</s>$79<small>per capsule / month</small></div>
+        <p class="sub"><strong>Save $20 per capsule, every month.</strong> 3 monthly payments of $237<span class="fa-tot">$711 over three months, nothing more to pay</span></p>
+        <span class="save">30 live conferences &middot; the complete programme</span>
+        <ul class="kps-spec"><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>30 live one-hour conferences</b> on Zoom</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Three signature speakers, three worlds</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>15–20 minutes of questions after every talk</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>No French required</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Full syllabus for all three capsules (PDF)</span></li></ul>
+        <button type="button" class="kps-btn kps-btn-gold" data-fa-buy="capsule-3">Join all three capsules</button>
+        <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
-      <div class="fa-cap-offer">
-        <div class="k">Two capsules</div>
-        <h3>2 Culture <span class="gi">Capsules</span></h3>
-        <div class="price">$79<small>per capsule / mo</small></div>
-        <p class="sub"><strong>Instead of $89</strong> · save $10 per capsule every month · 3 monthly payments of $158<br><span class="fa-tot">$474 over three months, nothing more to pay</span></p>
-        <ul><li>20 live one-hour conferences on Zoom</li><li>Pick any two of the three packs</li><li>Second capsule at $79 a month</li><li>No French required</li></ul>
-        <button type="button" class="btn btn-gold" data-fa-buy="capsule-2">Join 2 Capsules</button>
+      <div class="kps-plan fa-cap-offer" data-plan="capsule-2">
+        <span class="k">Two capsules</span>
+        <h3>Pick any two <span class="gi">worlds</span></h3>
+        <div class="price"><s>$99</s>$89<small>per capsule / month</small></div>
+        <p class="sub"><strong>Save $10 per capsule, every month.</strong> 3 monthly payments of $178<span class="fa-tot">$534 over three months, nothing more to pay</span></p>
+        <span class="save navy">20 live conferences</span>
+        <ul class="kps-spec"><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>20 live one-hour conferences</b> on Zoom</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Choose two of the three capsules at checkout</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>15–20 minutes of questions after every talk</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>No French required</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Syllabus for your two capsules (PDF)</span></li></ul>
+        <button type="button" class="kps-btn kps-btn-navy" data-fa-buy="capsule-2">Join two capsules</button>
+        <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
-      <div class="fa-cap-offer">
-        <div class="k">All three</div>
-        <h3>3 Culture <span class="gi">Capsules</span></h3>
-        <div class="price">$69<small>per capsule / mo</small></div>
-        <p class="sub"><strong>Instead of $89</strong> · save $20 per capsule every month · 3 monthly payments of $207<br><span class="fa-tot">$621 over three months, nothing more to pay</span></p>
-        <ul><li>All 30 live one-hour conferences</li><li>Fashion &amp; Art · Gastronomy &amp; Wine · Cinema &amp; Music</li><li>Every capsule at $69 a month</li><li>No French required</li></ul>
-        <button type="button" class="btn btn-gold" data-fa-buy="capsule-3">Join All 3</button>
-      </div>
-      <div class="fa-cap-offer featured">
-        <span class="fa-cap-badge">Best value</span>
-        <div class="k">Atelier Membership · 12 months</div>
-        <h3>Course + Capsules + <span class="gi">Benefits</span></h3>
+      <div class="kps-plan fa-cap-offer" data-plan="capsule-1">
+        <span class="k">One capsule &middot; try the Atelier</span>
+        <h3>One world, <span class="gi">ten evenings</span></h3>
         <div class="price">$99<small>/ month</small></div>
-        <p class="sub"><strong>Everything The French Atelier offers</strong>, in one subscription · 12 monthly payments<br><span class="fa-tot">$1,188 over the year, nothing more to pay</span></p>
-        <ul><li><strong>1 French Atelier language course</strong> — one of our 4 levels</li><li><strong>All 3 Culture Capsules</strong> — 30 conferences</li><li><strong>The Benefits hub</strong>: ~10% at partner French restaurants, 15% on famous macarons, travel-in-France perks</li><li>Julien, your 24/7 AI French tutor</li></ul>
-        <button type="button" class="btn btn-gold" data-fa-buy="membership-12">Become a Member</button>
+        <p class="sub"><strong>Code CAPSULE20: $79.20 a month, 20% off.</strong> 3 monthly payments<span class="fa-tot">$297 over three months &middot; $237.60 with the code</span></p>
+        <span class="save navy">Promo code CAPSULE20 &middot; 7 days</span>
+        <ul class="kps-spec"><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span><b>10 live one-hour conferences</b> on Zoom</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Fashion &amp; Art, Gastronomy &amp; Wine or Cinema &amp; Music</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>15–20 minutes of questions after every talk</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>No French required</span></li><li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Syllabus for your capsule (PDF)</span></li></ul>
+        <button type="button" class="kps-btn kps-btn-navy" data-fa-buy="capsule-1">Join one capsule</button>
+        <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
     </div>
-    <div class="fa-caps-status">
-      <div><b>Fashion &amp; Art</b>Already started — join the running pack today.</div>
-      <div><b>Gastronomy &amp; Wine</b>Enrolling now · first conference in November.</div>
-      <div><b>Cinema &amp; Music</b>Enrolling now · first conference in November.</div>
+    <div class="kps-pay"><span>We accept</span><span class="chip">Visa</span><span class="chip">Mastercard</span><span class="chip">Amex</span><span class="chip">Apple Pay</span><span class="chip">Google Pay</span><span class="chip">PayPal</span><span>&middot; Prices in USD &middot; Capsules are sold independently of the language courses</span></div>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="kps-trust">
+  <div class="kps-wrap">
+    <div class="row">
+      <div class="t"><img src="assets/logo/trustpilot-logo-dark.svg" alt="Trustpilot"><p><strong>Excellent</strong> — rated by learners of The French Atelier on Trustpilot.</p></div>
+      <div class="t"><img src="assets/logo/acadomia-blue.png" alt="Acadomia"><p>The French Atelier is the online school of Acadomia, France’s leading private education group — <strong>50+ years</strong> of teaching.</p></div>
+      <div class="t"><div class="n">Live<small> from France</small></div><p>Every conference is broadcast live on Zoom from France, with your questions answered on the spot.</p></div>
+      <div class="t"><img src="assets/logo/eteacher-group-color.png" alt="eTeacher Group"><p>Payments and your learning platform are operated by eTeacher Group, Acadomia’s online partner.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA BAND ===== -->
-<section class="cap-cta section-pad gold-frame">
-  <div class="cap-cta-bg"><img src="assets/capsules/bg-rooftops.jpg" alt="Parisian rooftops at golden-hour twilight" loading="lazy" decoding="async"></div>
-  <div class="wrap">
-    <span class="cap-kicker"><span class="k-rule"></span>Step beyond the lesson</span>
-    <h2>Pair a capsule with <span class="gi">your French course.</span></h2>
-    <p>Every French Atelier course can be enriched with Culture Capsules — the cinematic context that turns vocabulary into a world. Speak the language, and live the culture it comes from.</p>
-    <div class="cta-btns">
-      <a href="#offers" class="btn btn-gold btn-lg">Choose Your Capsules</a>
-      <a href="contact.html" class="btn btn-ghost-dark btn-lg">Talk to an Advisor</a>
+<!-- ===== FAQ ===== -->
+<section class="kps-faq" id="faq">
+  <div class="kps-wrap">
+    <span class="kps-kicker dark center" style="display:flex">Questions</span>
+    <h2 class="kps-h2">Before you <span class="gi">join.</span></h2>
+    <div class="list">
+      <details open><summary>Do I need to speak French?</summary><p>No. The Culture Capsules are taught in English by bilingual speakers, with the French words, names and places pronounced as the French do. No prior knowledge is assumed.</p></details>
+      <details><summary>What exactly is a capsule?</summary><p>A pack of ten live one-hour conferences around a single theme — Fashion &amp; Art, Gastronomy &amp; Wine, or Cinema &amp; Music — delivered on Zoom by a signature speaker and followed by 15–20 minutes of questions.</p></details>
+      <details><summary>How do the payments work?</summary><p>Each capsule is paid in three monthly payments. One capsule is $99 a month; two capsules are $89 per capsule a month ($178); all three are $79 per capsule a month ($237). The totals are $297, $534 and $711 over three months, and there is nothing more to pay.</p></details>
+      <details><summary>How does the CAPSULE20 code work?</summary><p>Enter CAPSULE20 at checkout on a single capsule and the price drops by 20%: $79.20 a month, $237.60 over three months. The code is valid for 7 days from the moment you claim it.</p></details>
+      <details><summary>Do I need a language course to join?</summary><p>No. The Capsules are sold independently of the language courses. Many participants join for the culture alone; others add a capsule alongside their French course.</p></details>
+      <details><summary>Where can I read the full programme?</summary><p>Open any capsule above to see its ten conferences, or download the complete syllabus as a PDF.</p></details>
     </div>
+  </div>
+</section>
+
+<!-- ===== KEEP READING ===== -->
+<section class="kps-read">
+  <div class="kps-wrap">
+    <div class="head"><div><span class="kps-kicker">Cultural resources</span><h2 class="kps-h2">Keep reading <span class="gi">France.</span></h2></div><a href="culture.html">All six cultural worlds &rarr;</a></div>
+    <div class="grid">
+      <a class="rc" href="culture.html#chapter-fashion"><img src="assets/img/culture/fashion-hero.jpg" alt="" loading="lazy"><div><span>French Culture &middot; Chapter IV</span><b>Fashion &amp; Couture</b></div></a>
+      <a class="rc" href="culture.html#chapter-gastronomy"><img src="assets/img/culture/wine-hero.jpg" alt="" loading="lazy"><div><span>French Culture &middot; Chapter II</span><b>Gastronomy &amp; Wine</b></div></a>
+      <a class="rc" href="culture.html#chapter-music"><img src="assets/img/culture/music-hero.jpg" alt="" loading="lazy"><div><span>French Culture &middot; Chapter V</span><b>Music &amp; Poetry</b></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="kps-final">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-sunset-street-poster.jpg"><source src="assets/video/paris-sunset-street.mp4" type="video/mp4"></video>
+  <div class="kps-wrap">
+    <span class="kps-kicker center" style="display:flex">The French Atelier by Acadomia</span>
+    <h2>Thirty evenings in France, <span class="gi">from your sofa.</span></h2>
+    <p>Choose one world or all three. Live, from Paris, with the questions you have always wanted to ask.</p>
+    <a class="kps-btn kps-btn-gold" href="#offers">See the three capsules</a>
   </div>
 </section>
 
@@ -538,12 +436,13 @@
 </footer>
 
 <script src="js/fa.js?v=1790665240" defer></script>
-<script src="js/fa-geo.js?v=20261008f" defer></script>
-<script src="js/fa-checkout-config.js?v=20261008f" defer></script>
-<script src="js/fa-checkout.js?v=20261008f" defer></script>
-<script src="js/fa-whatsapp.js?v=20261008f" defer></script>
-<script src="js/fa-promo.js?v=20261008f" defer></script>
+<script src="js/fa-geo.js?v=20261008l" defer></script>
+<script src="js/fa-checkout-config.js?v=20261008l" defer></script>
+<script src="js/fa-checkout.js?v=20261008l" defer></script>
+<script src="js/fa-whatsapp.js?v=20261008l" defer></script>
+<script src="js/fa-promo.js?v=20261008l" defer></script>
 <script src="js/enroll-modal.js?v=1790665240"></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
+<script src="js/fa-capsules.js?v=20261008l" defer></script>
 </body>
 </html>

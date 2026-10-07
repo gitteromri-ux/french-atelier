@@ -30,8 +30,8 @@
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008f'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
-        if (t === 'midnight') { var m = document.createElement('link'); m.rel = 'stylesheet'; m.href = base + 'css/fa-midnight.css?v=20261008f'; var ty = document.querySelector('link[href*="fa-type.css"]'); if (ty) ty.parentNode.insertBefore(m, ty); else document.head.appendChild(m); }
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008l'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
+        if (t === 'midnight') { var m = document.createElement('link'); m.rel = 'stylesheet'; m.href = base + 'css/fa-midnight.css?v=20261008l'; var ty = document.querySelector('link[href*="fa-type.css"]'); if (ty) ty.parentNode.insertBefore(m, ty); else document.head.appendChild(m); }
       }
       return t;
     } catch (e) { return ''; }
@@ -313,8 +313,8 @@
     if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listTotal) + '</s><span>' + fmt2(p.total) + ' for the full course</span><em class="fa-ck-off">41% off</em></div><div class="fa-ck-band-s">First month only <b>' + fmt2(p.firstPayment) + ' today</b> — your first two weeks free — then 4 × ' + fmt2(p.monthly) + ' · ' + fmt2(p.total) + ' in total instead of ' + fmt(p.listTotal) + '</div></div>';
     if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Atelier Membership</div><div class="fa-ck-band-v"><span>' + fmt(p.monthly) + ' a month for 12 months</span></div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' in total</div></div>';
     if (p.promo) return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsule tuition · code ' + h(p.promo.code) + '</div><div class="fa-ck-band-v"><s>' + fmt(p.baseMonthly) + '</s><span>' + fmt2(p.monthly) + ' a month for 3 months</span><em class="fa-ck-off">' + p.promo.pct + '% off</em></div><div class="fa-ck-band-s">' + fmt2(p.total) + ' in total instead of ' + fmt(p.baseTotal) + '</div></div>';
-    var per = p.packs === 1 ? '$89' : p.packs === 2 ? '$79' : '$69';
-    return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $60 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
+    var per = p.packs === 1 ? '$99' : p.packs === 2 ? '$89' : '$79';
+    return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$99</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $60 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
   }
   function savings(p) {
     var base = p.kind === 'course' ? p.listTotal : p.promo ? p.baseTotal : (p.kind === 'capsules' && p.packs > 1 ? 89 * 3 * p.packs : 0);
@@ -481,7 +481,7 @@
     }
     html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
       (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
-      '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · 41% off · $99 first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied · ' + (p.packs === 2 ? '$79' : '$69') + ' per capsule' : 'Capsule price · $89 a month') + '</span></div>' +
+      '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · 41% off · $99 first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied · ' + (p.packs === 2 ? '$89' : '$79') + ' per capsule' : 'Capsule price · $99 a month') + '</span></div>' +
       (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">I have a promo code</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code"><button type="button" class="fa-ck-code-go" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +
       '<p class="fa-ck-error" hidden></p>' +
       '<div class="fa-ck-go"><button type="button" class="fa-ck-submit" id="fa-ck-pay"><span>Continue to secure payment</span><span class="fa-ck-submit-amt">' + fmt2(p.firstPayment) + ' today</span>' + ICON.arrow + '</button></div>' +
