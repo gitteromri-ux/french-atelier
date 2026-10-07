@@ -30,7 +30,7 @@
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007s'; document.head.appendChild(l);
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007v'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
       }
       return t;
     } catch (e) { return ''; }
@@ -315,13 +315,21 @@
     var per = p.packs === 1 ? '$89' : p.packs === 2 ? '$79' : '$69';
     return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $60 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
   }
+  function savings(p) {
+    var base = p.kind === 'course' ? p.listTotal : p.promo ? p.baseTotal : (p.kind === 'capsules' && p.packs > 1 ? 89 * 3 * p.packs : 0);
+    var s = base ? Math.round((base - p.total) * 100) / 100 : 0; if (s <= 0) return null;
+    var why = p.kind === 'course' ? 'vs. the website monthly price' : p.promo ? 'with code ' + p.promo.code : 'vs. buying each capsule alone';
+    return { amount: s, label: 'You save ' + fmt2(s) + ' ' + why };
+  }
+  var SAVE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  function saveChip(p, cls) { var s = savings(p); return s ? '<span class="' + cls + '">' + SAVE_ICON + h(s.label) + '</span>' : ''; }
   function sumRows(p) {
     if (p.kind === 'course') return '<div class="fa-ck-sum-row is-accent"><span>Today · first month 50% off</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
       '<div class="fa-ck-sum-row"><span>Then 4 monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
-      '<div class="fa-ck-sum-row is-total"><span>Total · 15% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>';
+      '<div class="fa-ck-sum-row is-total"><span>Total · 15% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>' + saveChip(p, 'fa-ck-save');
     return '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
       '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
-      '<div class="fa-ck-sum-row is-total"><span>Total' + (p.promo ? ' · ' + p.promo.pct + '% off ' + fmt(p.baseTotal) : '') + '</span><strong>' + fmt2(p.total) + '</strong></div>';
+      '<div class="fa-ck-sum-row is-total"><span>Total' + (p.promo ? ' · ' + p.promo.pct + '% off ' + fmt(p.baseTotal) : '') + '</span><strong>' + fmt2(p.total) + '</strong></div>' + saveChip(p, 'fa-ck-save');
   }
   function renderAside() {
     var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
@@ -521,7 +529,7 @@
   /* ?buy=<product>&level=<level> deep link (e.g. from ads) */
   try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy'))) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
 
-  window.FA_CHECKOUT = {
+  window.FA_CHECKOUT = { savings: savings, saveChip: saveChip,
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
     reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor

@@ -18,8 +18,10 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
-<link rel="stylesheet" href="css/fa-checkout.css?v=20261007s">
-<link rel="stylesheet" href="css/fa-pay-et.css?v=20261007s">
+<link rel="stylesheet" href="css/fa-checkout.css?v=20261007v">
+<link rel="stylesheet" href="css/fa-whatsapp.css?v=20261007v">
+<link rel="stylesheet" href="css/fa-pay-et.css?v=20261007v">
+<link rel="stylesheet" href="css/fa-pop.css?v=20261007v">
 </head>
 <body id="fa" class="light-hero">
 
@@ -259,9 +261,10 @@
 </footer>
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-geo.js?v=20261007s"></script>
-<script src="js/fa-checkout-config.js?v=20261007s"></script>
-<script src="js/fa-checkout.js?v=20261007s"></script>
+<script src="js/fa-geo.js?v=20261007v"></script>
+<script src="js/fa-checkout-config.js?v=20261007v"></script>
+<script src="js/fa-checkout.js?v=20261007v"></script>
+<script src="js/fa-whatsapp.js?v=20261007v" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
 /* Step 3 — payment. Same sequence as the proven Longevity checkout:
@@ -288,8 +291,9 @@
     var tp = FA.titleParts(sel), img = FA.productImage(sel), n = p.numberOfPayments, lv = CFG.levels[sel.level] || {};
     $('sumTitle').textContent = tp.name; $('sumSub').textContent = tp.sub; $('sumBarName').textContent = tp.name; $('sumThumb').src = img;
     $('sumBarPrice').textContent = FA.fmt2(p.firstPayment);
-    if (p.kind === 'course') { $('payPlanV').textContent = 'Pay monthly \u00b7 ' + FA.fmt2(p.firstPayment) + ' today'; $('payPlanS').textContent = 'then 4 \u00d7 ' + FA.fmt2(p.monthly) + ' \u00b7 ' + FA.fmt2(p.total) + ' total \u00b7 15% off ' + FA.fmt(p.listTotal); }
-    else { $('payPlanV').textContent = 'Pay monthly \u00b7 ' + FA.fmt2(p.monthly) + ' \u00d7 ' + n + ' months'; $('payPlanS').textContent = FA.fmt2(p.total) + ' total' + (p.promo ? ' \u00b7 code ' + p.promo.code + ' applied (' + p.promo.pct + '% off)' : ''); }
+    if (p.kind === 'course') { $('payPlanV').innerHTML = 'Pay monthly \u00b7 <span class="amt">' + FA.fmt2(p.firstPayment) + '</span> today'; $('payPlanS').textContent = 'then 4 \u00d7 ' + FA.fmt2(p.monthly) + ' \u00b7 ' + FA.fmt2(p.total) + ' total \u00b7 15% off ' + FA.fmt(p.listTotal); }
+    else { $('payPlanV').innerHTML = 'Pay monthly \u00b7 <span class="amt">' + FA.fmt2(p.monthly) + '</span> \u00d7 ' + n + ' months'; $('payPlanS').textContent = FA.fmt2(p.total) + ' total' + (p.promo ? ' \u00b7 code ' + p.promo.code + ' applied (' + p.promo.pct + '% off)' : ''); }
+    (function(){ var old = document.querySelector('#payPlan .fa-pay-save'); if (old) old.remove(); var d = document.createElement('span'); d.innerHTML = FA.saveChip(p, 'fa-pay-save'); if (d.firstChild) $('payPlan').appendChild(d.firstChild); })();
     var L;
     if (p.kind === 'course') L = [['Course', (lv.name || 'French Atelier course') + (lv.cefr ? ' \u00b7 ' + lv.cefr : '') + (lv.route ? ' \u00b7 ' + lv.route : '')], ['Course duration', '20 weeks'], ['Schedule', '20 live lessons, one class a week'], ['Class time', sel.classTime || 'As selected in step 2'], ['Lesson duration', '85 minutes'], ['Location', 'Online \u00b7 live from France \u00b7 group of 10\u201312']];
     else if (p.kind === 'capsules') { var caps = sel.capsules || []; L = [['Course', p.title + (caps.length ? ' \u00b7 ' + caps.map(function(c){ return CFG.capsules[c].name; }).join(' + ') : '')], ['Duration', '10 weeks per capsule'], ['Schedule', '10 live conferences per capsule, one a week'], ['Start', caps.map(function(c){ return CFG.capsules[c].name + ': ' + CFG.capsules[c].start; }).join(' \u00b7 ') || 'Chosen in step 2'], ['Conference', '1 hour, then 15\u201320 minutes of questions'], ['Location', 'Online \u00b7 live on Zoom \u00b7 no French required']]; }
@@ -301,7 +305,7 @@
     var rows;
     if (p.kind === 'course') rows = row('First month tuition \u00b7 50% off', 'Charged today to confirm your seat.', '<s>' + FA.fmt2(p.monthly) + '</s>' + FA.fmt2(p.firstPayment)) + row('Monthly tuition fee', 'Collected monthly on the same payment method.', '<s>4 \u00d7 ' + FA.fmt2(p.listMonthly) + '</s>4 \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total \u00b7 15% off', '<s>' + FA.fmt(p.listTotal) + '</s>' + FA.fmt2(p.total));
     else rows = row('First monthly payment', 'Charged today to confirm your seat.', (p.promo ? '<s>' + FA.fmt2(p.baseMonthly) + '</s>' : '') + FA.fmt2(p.firstPayment)) + row('Monthly fee', 'Collected monthly on the same payment method.', (p.promo ? '<s>' + (n - 1) + ' \u00d7 ' + FA.fmt2(p.baseMonthly) + '</s>' : '') + (n - 1) + ' \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total' + (p.promo ? ' \u00b7 ' + p.promo.pct + '% off' : ''), (p.promo ? '<s>' + FA.fmt(p.baseTotal) + '</s>' : '') + FA.fmt2(p.total));
-    $('sumRows').innerHTML = rows;
+    $('sumRows').innerHTML = rows + FA.saveChip(p, 'fa-pay-save');
     $('payToday').innerHTML = '<span class="k">Due today</span><strong>' + FA.fmt2(p.firstPayment) + '</strong>';
     if (staged) { var l = staged.lead; $('sumBuyer').innerHTML = '<span class="k">Enrolling</span>' + FA.h(l.firstName + ' ' + l.lastName) + '<br>' + FA.h(l.email) + '<br>' + FA.h(l.e164) + ' \u00b7 ' + FA.h((window.FA_GEO.BY_ISO[l.countryIso]||{}).name || l.countryIso) + (l.stateCode ? ', ' + FA.h(l.stateCode) : '') + '<br><a href="#" id="editDetails">Edit details</a>';
       $('editDetails').addEventListener('click', function(e){ e.preventDefault(); FA.open(sel.product, { level: sel.level, capsules: sel.capsules }); }); }
