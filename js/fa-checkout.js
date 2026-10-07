@@ -22,15 +22,16 @@
   var CKT = (function () {
     try {
       /* Presentation builds: the "-light" staging host defaults to the Paper & Gold theme; the main staging host stays Neon dark. ?ckt= still overrides on either. */
-      var HOST_DEFAULT = /^fa-staging-light/.test(location.hostname) ? 'paper' : '';
+      var HOST_DEFAULT = /^fa-staging-light/.test(location.hostname) ? 'paper' : 'midnight';
       var q = new URLSearchParams(location.search).get('ckt');
       if (q === 'neon' || q === 'dark') { sessionStorage.setItem('fa_ckt', 'neon'); }
-      else if (/^(paper|ivory|split)$/.test(q || '')) sessionStorage.setItem('fa_ckt', q);
+      else if (/^(paper|ivory|split|midnight)$/.test(q || '')) sessionStorage.setItem('fa_ckt', q);
       var t = sessionStorage.getItem('fa_ckt') || HOST_DEFAULT; if (t === 'neon') t = '';
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008a'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008d'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
+        if (t === 'midnight') { var m = document.createElement('link'); m.rel = 'stylesheet'; m.href = base + 'css/fa-midnight.css?v=20261008d'; var ty = document.querySelector('link[href*="fa-type.css"]'); if (ty) ty.parentNode.insertBefore(m, ty); else document.head.appendChild(m); }
       }
       return t;
     } catch (e) { return ''; }

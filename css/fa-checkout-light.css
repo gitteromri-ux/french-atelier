@@ -1,10 +1,10 @@
-/* French Atelier checkout — LIGHT THEME VARIANTS (staging mockups, selected with ?ckt=paper|ivory|split)
-   paper : bright paper & gold, whole flow light (site's --paper / --cream / gold)
+/* French Atelier checkout — LIGHT THEME VARIANTS (staging mockups,selected with ?ckt=paper|ivory|split)
+   paper : bright paper & gold,whole flow light (site's --paper / --cream / gold)
    ivory : bright paper with the Mapstr light-blue accents instead of gold
    split : light form + navy/gold summary panel (site's white-card + navy-featured pairing)
    Default (no ?ckt=) stays the dark Neon Atelier version. */
 
-body.fa-ckt-paper,body.fa-ckt-split{--lt-acc:#C8A96B;--lt-acc-2:#A98D52;--lt-acc-3:#E8D3A6;--lt-acc-rgb:200,169,107;--lt-line:rgba(200,169,107,.32);--lt-line-2:rgba(200,169,107,.55);--lt-sel-bg:linear-gradient(170deg,#FFFFFF,#FBF5E8);--lt-step-txt:#00001F}
+body.fa-ckt-paper,body.fa-ckt-split,body.fa-ckt-midnight{--lt-acc:#C8A96B;--lt-acc-2:#A98D52;--lt-acc-3:#E8D3A6;--lt-acc-rgb:200,169,107;--lt-line:rgba(200,169,107,.32);--lt-line-2:rgba(200,169,107,.55);--lt-sel-bg:linear-gradient(170deg,#FFFFFF,#FBF5E8);--lt-step-txt:#00001F}
 body.fa-ckt-ivory{--lt-acc:#2FA4FF;--lt-acc-2:#0A6BD6;--lt-acc-3:#6FC4FF;--lt-acc-rgb:47,164,255;--lt-line:rgba(10,107,214,.22);--lt-line-2:rgba(47,164,255,.5);--lt-sel-bg:linear-gradient(170deg,#FFFFFF,#F1F8FF);--lt-step-txt:#FFFFFF}
 body[class*="fa-ckt-"]{--lt-bg:#FAF7F1;--lt-bg-2:#F3EDE1;--lt-card:#FFFFFF;--lt-ink:#1A1E33;--lt-ink-2:rgba(26,30,51,.74);--lt-ink-3:rgba(26,30,51,.58);--lt-gold:#A98D52;--lt-shadow:0 40px 80px -40px rgba(11,19,64,.28),0 18px 40px -30px rgba(11,19,64,.18)}
 
@@ -45,8 +45,8 @@ body[class*="fa-ckt-"] .fa-ck-field input:hover,body[class*="fa-ckt-"] .fa-ck-fi
 body[class*="fa-ckt-"] .fa-ck-field input:focus,body[class*="fa-ckt-"] .fa-ck-field select:focus{border-color:var(--lt-acc);background-color:#fff;box-shadow:0 0 0 4px rgba(var(--lt-acc-rgb),.18),0 10px 24px -14px rgba(var(--lt-acc-rgb),.6)}
 body[class*="fa-ckt-"] .fa-ck-field input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #fff inset;-webkit-text-fill-color:var(--lt-ink)}
 body[class*="fa-ckt-"] .fa-ck-field select option{background:#fff;color:var(--lt-ink)}
-body.fa-ckt-paper .fa-ck-field select,body.fa-ckt-split .fa-ck-field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>")}
-body.fa-ckt-paper .fa-ck-field.is-valid::after,body.fa-ckt-split .fa-ck-field.is-valid::after{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>");filter:none}
+body.fa-ckt-paper .fa-ck-field select,body.fa-ckt-split .fa-ck-field select,body.fa-ckt-midnight .fa-ck-field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>")}
+body.fa-ckt-paper .fa-ck-field.is-valid::after,body.fa-ckt-split .fa-ck-field.is-valid::after,body.fa-ckt-midnight .fa-ck-field.is-valid::after{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12.5l4.5 4.5L19 7.5'/></svg>");filter:none}
 body.fa-ckt-ivory .fa-ck-field.is-valid::after{filter:none}
 body[class*="fa-ckt-"] .fa-ck-field.is-valid .fa-ck-msg{color:var(--lt-ink-3)}
 body[class*="fa-ckt-"] .fa-ck-field.is-invalid input,body[class*="fa-ckt-"] .fa-ck-field.is-invalid select{border-color:#C6414F;box-shadow:0 0 0 4px rgba(198,65,79,.12)}
@@ -99,10 +99,10 @@ body.fa-ckt-paper .fa-ck-price-num,body.fa-ckt-ivory .fa-ck-price-num,body.fa-ck
 body.fa-ckt-paper .fa-ck-price,body.fa-ckt-ivory .fa-ck-price,body.fa-ckt-paper .fa-ck-sum-row,body.fa-ckt-ivory .fa-ck-sum-row,body.fa-ckt-paper .fa-ck-trust,body.fa-ckt-ivory .fa-ck-trust{border-top-color:rgba(26,30,51,.12)}
 body.fa-ckt-paper .fa-ck-sum-row.is-total,body.fa-ckt-ivory .fa-ck-sum-row.is-total{border-top-color:rgba(26,30,51,.25)}
 body.fa-ckt-paper .fa-ck-trust li::before,body.fa-ckt-ivory .fa-ck-trust li::before{background:var(--lt-acc);box-shadow:0 0 0 3px rgba(var(--lt-acc-rgb),.18)}
-body.fa-ckt-split .fa-ck-aside{border-right-color:rgba(200,169,107,.35)}
-body.fa-ckt-split .fa-ck-aside-img::before{background:linear-gradient(90deg,transparent,rgba(232,211,166,.9),transparent);box-shadow:0 0 14px rgba(200,169,107,.8)}
-body.fa-ckt-split .fa-ck-trust li::before{background:var(--nx-gold);box-shadow:0 0 0 3px rgba(200,169,107,.18),0 0 10px rgba(200,169,107,.7)}
-body.fa-ckt-split .fa-ck-aside::after{background:radial-gradient(60% 60% at 30% 70%,rgba(200,169,107,.18),transparent 70%)}
+body.fa-ckt-split .fa-ck-aside,body.fa-ckt-midnight .fa-ck-aside{border-right-color:rgba(200,169,107,.35)}
+body.fa-ckt-split .fa-ck-aside-img::before,body.fa-ckt-midnight .fa-ck-aside-img::before{background:linear-gradient(90deg,transparent,rgba(232,211,166,.9),transparent);box-shadow:0 0 14px rgba(200,169,107,.8)}
+body.fa-ckt-split .fa-ck-trust li::before,body.fa-ckt-midnight .fa-ck-trust li::before{background:var(--nx-gold);box-shadow:0 0 0 3px rgba(200,169,107,.18),0 0 10px rgba(200,169,107,.7)}
+body.fa-ckt-split .fa-ck-aside::after,body.fa-ckt-midnight .fa-ck-aside::after{background:radial-gradient(60% 60% at 30% 70%,rgba(200,169,107,.18),transparent 70%)}
 
 /* ---- modal mobile ---- */
 @media (max-width:900px){
@@ -112,8 +112,8 @@ body.fa-ckt-split .fa-ck-aside::after{background:radial-gradient(60% 60% at 30% 
   body.fa-ckt-paper .fa-ck-sumbar-price,body.fa-ckt-ivory .fa-ck-sumbar-price{color:var(--lt-gold)}
   body.fa-ckt-paper .fa-ck-sumbar-price>span,body.fa-ckt-ivory .fa-ck-sumbar-price>span{color:var(--lt-ink-3)}
   body.fa-ckt-paper .fa-ck-sumbar-img,body.fa-ckt-ivory .fa-ck-sumbar-img{box-shadow:0 0 0 1px rgba(var(--lt-acc-rgb),.5),0 8px 16px -8px rgba(11,19,64,.3)}
-  body.fa-ckt-split .fa-ck-aside{border-bottom-color:rgba(200,169,107,.4);box-shadow:0 10px 30px -12px rgba(0,0,31,.4)}
-  body.fa-ckt-split .fa-ck-sumbar-txt>span,body.fa-ckt-split .fa-ck-sumbar-chev{color:var(--nx-gold)}
+  body.fa-ckt-split .fa-ck-aside,body.fa-ckt-midnight .fa-ck-aside{border-bottom-color:rgba(200,169,107,.4);box-shadow:0 10px 30px -12px rgba(0,0,31,.4)}
+  body.fa-ckt-split .fa-ck-sumbar-txt>span,body.fa-ckt-split .fa-ck-sumbar-chev,body.fa-ckt-midnight .fa-ck-sumbar-txt>span,body.fa-ckt-midnight .fa-ck-sumbar-chev{color:var(--nx-gold)}
   body[class*="fa-ckt-"] .fa-ck-go{background:linear-gradient(180deg,rgba(250,247,241,0),rgba(250,247,241,.94) 30%,var(--lt-bg))}
   body[class*="fa-ckt-"] .fa-ck-modal{border:0}
 }
@@ -164,19 +164,20 @@ body.fa-ckt-paper .fa-pay-summary .fa-ck-brandline,body.fa-ckt-ivory .fa-pay-sum
 body.fa-ckt-paper .fa-pay-summary .fa-ck-aside-sub,body.fa-ckt-ivory .fa-pay-summary .fa-ck-aside-sub,body.fa-ckt-paper .fa-pay-summary .fa-ck-sum-row,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sum-row,body.fa-ckt-paper .fa-pay-summary .buyer,body.fa-ckt-ivory .fa-pay-summary .buyer,body.fa-ckt-paper .fa-pay-summary .fa-ck-facts dd,body.fa-ckt-ivory .fa-pay-summary .fa-ck-facts dd{color:var(--lt-ink-2)}
 body.fa-ckt-paper .fa-pay-summary .fa-ck-sum-row,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sum-row,body.fa-ckt-paper .fa-pay-summary .fa-ck-facts,body.fa-ckt-ivory .fa-pay-summary .fa-ck-facts,body.fa-ckt-paper .fa-pay-summary .fa-ck-facts>div,body.fa-ckt-ivory .fa-pay-summary .fa-ck-facts>div,body.fa-ckt-paper .fa-pay-summary .buyer,body.fa-ckt-ivory .fa-pay-summary .buyer{border-color:rgba(26,30,51,.12)}
 body.fa-ckt-paper .fa-pay-summary .buyer a,body.fa-ckt-ivory .fa-pay-summary .buyer a{color:var(--lt-acc-2)}
-body.fa-ckt-split .fa-pay-summary{border-color:rgba(200,169,107,.4);box-shadow:0 0 0 1px rgba(200,169,107,.15),0 60px 110px -50px rgba(0,0,31,.6)}
-body.fa-ckt-split .fa-pay-summary .img::before{background:linear-gradient(90deg,transparent,rgba(232,211,166,.9),transparent);box-shadow:0 0 14px rgba(200,169,107,.8)}
+body.fa-ckt-split .fa-pay-summary,body.fa-ckt-midnight .fa-pay-summary{border-color:rgba(200,169,107,.4);box-shadow:0 0 0 1px rgba(200,169,107,.15),0 60px 110px -50px rgba(0,0,31,.6)}
+body.fa-ckt-split .fa-pay-summary .img::before,body.fa-ckt-midnight .fa-pay-summary .img::before{background:linear-gradient(90deg,transparent,rgba(232,211,166,.9),transparent);box-shadow:0 0 14px rgba(200,169,107,.8)}
 @media (max-width:960px){
   body.fa-ckt-paper .fa-pay-sumbar,body.fa-ckt-ivory .fa-pay-sumbar{color:var(--lt-ink)}
   body.fa-ckt-paper .fa-pay-summary .fa-ck-sumbar-txt>span,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sumbar-txt>span,body.fa-ckt-paper .fa-pay-summary .fa-ck-sumbar-chev,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sumbar-chev{color:var(--lt-acc-2)}
   body.fa-ckt-paper .fa-pay-summary .fa-ck-sumbar-price,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sumbar-price{color:var(--lt-gold)}
   body.fa-ckt-paper .fa-pay-summary .fa-ck-sumbar-price>span,body.fa-ckt-ivory .fa-pay-summary .fa-ck-sumbar-price>span{color:var(--lt-ink-3)}
-  body.fa-ckt-split .fa-pay-summary .fa-ck-sumbar-txt>span,body.fa-ckt-split .fa-pay-summary .fa-ck-sumbar-chev{color:var(--nx-gold)}
+  body.fa-ckt-split .fa-pay-summary .fa-ck-sumbar-txt>span,body.fa-ckt-split .fa-pay-summary .fa-ck-sumbar-chev,body.fa-ckt-midnight .fa-pay-summary .fa-ck-sumbar-txt>span,body.fa-ckt-midnight .fa-pay-summary .fa-ck-sumbar-chev{color:var(--nx-gold)}
 }
 /* split: keep navy summary text legible */
-body.fa-ckt-split .fa-pay-summary .fa-ck-facts dd,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dd{color:var(--nx-text)}
-body.fa-ckt-split .fa-pay-summary .fa-ck-facts dt,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dt{color:var(--nx-gold)}
-body.fa-ckt-split .fa-pay-summary .buyer{color:var(--nx-ice)}
+body.fa-ckt-split .fa-pay-summary .fa-ck-facts dd,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dd,/* split: keep navy summary text legible */
+body.fa-ckt-midnight .fa-pay-summary .fa-ck-facts dd,body.fa-ckt-midnight .fa-ck-aside .fa-ck-facts dd{color:var(--nx-text)}
+body.fa-ckt-split .fa-pay-summary .fa-ck-facts dt,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dt,body.fa-ckt-midnight .fa-pay-summary .fa-ck-facts dt,body.fa-ckt-midnight .fa-ck-aside .fa-ck-facts dt{color:var(--nx-gold)}
+body.fa-ckt-split .fa-pay-summary .buyer,body.fa-ckt-midnight .fa-pay-summary .buyer{color:var(--nx-ice)}
 /* step 2 · promo code (light) */
 body[class*="fa-ckt-"] .fa-ck-code-lb{color:var(--lt-ink)}
 body[class*="fa-ckt-"] .fa-ck-code-row input{background:#fff;border-color:var(--lt-line);color:var(--lt-ink)}
@@ -189,4 +190,4 @@ body[class*="fa-ckt-"] .fa-ck-code-on{background:#EEF8F1;border-color:#9BD8B0;co
 body[class*="fa-ckt-"] .fa-ck-code-on b{color:#1F7A45}
 body[class*="fa-ckt-"] .fa-ck-code-x{color:var(--lt-ink-2)}
 /* light cards: the Trustpilot wordmark asset is white — render it in ink */
-body.fa-ckt-paper .fa-pay-help .tp-logo,body.fa-ckt-ivory .fa-pay-help .tp-logo,body.fa-ckt-split .fa-pay-help .tp-logo{content:url("../assets/logo/trustpilot-logo-dark.svg")}
+body.fa-ckt-paper .fa-pay-help .tp-logo,body.fa-ckt-ivory .fa-pay-help .tp-logo,body.fa-ckt-split .fa-pay-help .tp-logo,body.fa-ckt-midnight .fa-pay-help .tp-logo{content:url("../assets/logo/trustpilot-logo-dark.svg")}

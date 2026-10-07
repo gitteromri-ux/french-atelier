@@ -13,7 +13,7 @@
 #fa-ck .fa-ck-price::before{content:"";position:absolute;left:0;top:14%;bottom:14%;width:3px;border-radius:3px;background:var(--fa-gold-grad);box-shadow:0 0 16px rgba(216,188,133,.8)}
 
 /* ---- savings = mint ---- */
-#fa-ck .fa-ck-off,#fa-pay .fa-ck-off,.fa-promo-tag,#fa-ck .fa-ck-save,#fa-pay .fa-pay-save{font-style:normal;font-family:var(--sans);font-weight:700;color:#03301A;background:linear-gradient(135deg,#8CF5CB,#2EE59D 55%,#19C98A);box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 0 18px -2px rgba(var(--fa-mint-rgb),.75);text-shadow:none}
+#fa-ck .fa-ck-off,#fa-pay .fa-ck-off,.fa-promo-tag,#fa-ck .fa-ck-save,#fa-pay .fa-pay-save{font-style:normal;font-family:var(--sans);font-weight:700;color:#00001F;background:linear-gradient(135deg,#F6E7C3,#D8BC85 55%,#C09A5A);box-shadow:0 0 0 1px rgba(255,255,255,.35) inset,0 0 20px -2px rgba(216,188,133,.8);text-shadow:none}
 #fa-ck .fa-ck-save,#fa-pay .fa-pay-save{display:inline-flex;align-items:center;gap:.4rem;padding:.38rem .8rem;border-radius:999px;font-size:.88rem;letter-spacing:.01em;white-space:nowrap}
 #fa-ck .fa-ck-save svg,#fa-pay .fa-pay-save svg{width:14px;height:14px}
 #fa-ck .fa-ck-rows .fa-ck-save{margin:.7rem 0 .1rem}
@@ -33,7 +33,7 @@
 #fa-ck .fa-ck-opt input:checked+.fa-ck-opt-in .fa-ck-opt-dot,#fa-ck .fa-ck-pick input:checked+.fa-ck-pick-in .fa-ck-opt-dot{background:radial-gradient(circle at 40% 30%,#6FC4FF,#0A6BD6);border-color:#fff;box-shadow:0 0 0 4px rgba(47,164,255,.2),0 0 18px rgba(47,164,255,.95)}
 
 /* ---- payment page ---- */
-#fa-pay .fa-pay-atmos{background:radial-gradient(55% 45% at 12% 8%,rgba(47,164,255,.30),transparent 70%),radial-gradient(40% 40% at 92% 22%,rgba(10,107,214,.30),transparent 70%),radial-gradient(50% 36% at 80% 100%,rgba(216,188,133,.20),transparent 70%),radial-gradient(40% 30% at 10% 95%,rgba(var(--fa-mint-rgb),.10),transparent 70%)}
+#fa-pay .fa-pay-atmos{background:radial-gradient(55% 45% at 12% 8%,rgba(47,164,255,.30),transparent 70%),radial-gradient(40% 40% at 92% 22%,rgba(10,107,214,.30),transparent 70%),radial-gradient(50% 36% at 80% 100%,rgba(216,188,133,.20),transparent 70%),radial-gradient(40% 30% at 10% 95%,rgba(216,188,133,.10),transparent 70%)}
 #fa-pay.fa-pay-et .fa-pay-plan{position:relative;overflow:hidden;align-items:center;padding:1.3rem 1.7rem 1.3rem 1.9rem;background:linear-gradient(115deg,#153F8F 0%,#0C2359 46%,#071028 100%);border:1px solid rgba(111,196,255,.45);box-shadow:0 0 0 1px rgba(47,164,255,.2),0 0 60px -14px rgba(47,164,255,.7),0 30px 70px -40px rgba(0,0,0,.9)}
 #fa-pay.fa-pay-et .fa-pay-plan::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--fa-gold-grad);box-shadow:0 0 22px rgba(216,188,133,.9)}
 #fa-pay.fa-pay-et .fa-pay-plan::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;width:35%;background:linear-gradient(90deg,transparent,#6FC4FF,transparent);filter:blur(.5px);animation:faBar 4.5s ease-in-out infinite}
@@ -84,13 +84,13 @@
 body[class*="fa-ckt-"] #fa-ck .fa-ck-price-num,body[class*="fa-ckt-"] #fa-pay .fa-pay-today strong,body[class*="fa-ckt-"] #fa-pay .fee-total .fee-row .v,body[class*="fa-ckt-"] #fa-pay .fa-pay-plan strong .amt,body[class*="fa-ckt-"] #fa-pay.fa-pay-et .fa-pay-tband .fa-ck-band-v span,body[class*="fa-ckt-"] #fa-ck .fa-ck-sumbar-price b,body[class*="fa-ckt-"] #fa-pay .fa-ck-sumbar-price b{background:linear-gradient(135deg,#C9A961 0%,#A98D52 55%,#8B6F2E 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 6px 14px rgba(169,141,82,.35))}
 body[class*="fa-ckt-"] #fa-ck .fa-ck-price{background:radial-gradient(90% 120% at 0% 50%,rgba(200,169,107,.22),transparent 70%),#fff;border-color:rgba(200,169,107,.5);box-shadow:0 18px 36px -24px rgba(26,30,51,.3)}
 body[class*="fa-ckt-"] #fa-ck .fa-ck-price::before{background:linear-gradient(180deg,#E8D3A6,#A98D52);box-shadow:0 0 14px rgba(200,169,107,.7)}
-body[class*="fa-ckt-"] #fa-ck .fa-ck-off,body[class*="fa-ckt-"] #fa-pay .fa-ck-off,body[class*="fa-ckt-"] #fa-ck .fa-ck-save,body[class*="fa-ckt-"] #fa-pay .fa-pay-save{color:#fff;background:linear-gradient(135deg,#2FBE57,#0E8A3A);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 10px 22px -12px rgba(14,138,58,.9)}
+body[class*="fa-ckt-"] #fa-ck .fa-ck-off,body[class*="fa-ckt-"] #fa-pay .fa-ck-off,body[class*="fa-ckt-"] #fa-ck .fa-ck-save,body[class*="fa-ckt-"] #fa-pay .fa-pay-save{color:#fff;background:linear-gradient(135deg,#1A2A5C,#0B1340);box-shadow:0 0 0 1px rgba(200,169,107,.6) inset,0 10px 22px -12px rgba(11,19,64,.7)}
 body[class*="fa-ckt-"] #fa-ck .fa-ck-sum-row.is-total strong{color:var(--lt-ink)}
 body[class*="fa-ckt-"] #fa-ck .fa-ck-sum-row.is-accent{background:rgba(200,169,107,.12)}
-body.fa-ckt-split #fa-ck .fa-ck-sum-row.is-accent{background:rgba(216,188,133,.12)}
-body.fa-ckt-split #fa-ck .fa-ck-sum-row.is-total strong{color:#fff}
-body.fa-ckt-split #fa-ck .fa-ck-price{background:radial-gradient(90% 120% at 0% 50%,rgba(216,188,133,.18),transparent 70%),rgba(216,188,133,.05);border-color:rgba(216,188,133,.32);box-shadow:none}
-body.fa-ckt-split #fa-ck .fa-ck-price-num{background:var(--fa-gold-grad);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 18px rgba(216,188,133,.35))}
+body.fa-ckt-split #fa-ck .fa-ck-sum-row.is-accent,body.fa-ckt-midnight #fa-ck .fa-ck-sum-row.is-accent{background:rgba(216,188,133,.12)}
+body.fa-ckt-split #fa-ck .fa-ck-sum-row.is-total strong,body.fa-ckt-midnight #fa-ck .fa-ck-sum-row.is-total strong{color:#fff}
+body.fa-ckt-split #fa-ck .fa-ck-price,body.fa-ckt-midnight #fa-ck .fa-ck-price{background:radial-gradient(90% 120% at 0% 50%,rgba(216,188,133,.18),transparent 70%),rgba(216,188,133,.05);border-color:rgba(216,188,133,.32);box-shadow:none}
+body.fa-ckt-split #fa-ck .fa-ck-price-num,body.fa-ckt-midnight #fa-ck .fa-ck-price-num{background:var(--fa-gold-grad);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 18px rgba(216,188,133,.35))}
 body[class*="fa-ckt-"] #fa-ck .fa-ck-submit,body[class*="fa-ckt-"] #fa-pay .fa-ck-submit{animation:faGlowPulse 2.6s ease-in-out infinite}
 body[class*="fa-ckt-"] #fa-pay .fa-pay-atmos{background:radial-gradient(55% 45% at 10% 5%,rgba(200,169,107,.22),transparent 70%),radial-gradient(45% 45% at 95% 20%,rgba(var(--lt-acc-rgb),.16),transparent 70%),radial-gradient(50% 40% at 70% 105%,rgba(200,169,107,.18),transparent 70%)}
 body[class*="fa-ckt-"] #fa-pay.fa-pay-et .fa-pay-plan{background:linear-gradient(115deg,#1A2A5C 0%,#1A1E33 60%,#0F1428 100%);border-color:rgba(200,169,107,.55);box-shadow:0 0 0 1px rgba(200,169,107,.25),0 30px 60px -30px rgba(26,30,51,.6)}
@@ -113,5 +113,5 @@ body.fa-ckt-paper #fa-pay .fa-pay-summary .fa-ck-brandline,body.fa-ckt-ivory #fa
 body.fa-ckt-paper #fa-pay .fa-pay-fees .fee:first-child .fee-row .v,body.fa-ckt-ivory #fa-pay .fa-pay-fees .fee:first-child .fee-row .v{color:#8B6F2E}
 body[class*="fa-ckt-"] #fa-pay.fa-pay-et .fee-total{border-color:rgba(200,169,107,.55);background:radial-gradient(90% 130% at 100% 50%,rgba(200,169,107,.22),transparent 70%),rgba(200,169,107,.06);box-shadow:none}
 body.fa-ckt-paper #fa-pay.fa-pay-et .fee-total .fee-row .k,body.fa-ckt-ivory #fa-pay.fa-pay-et .fee-total .fee-row .k{color:var(--lt-ink)}
-body.fa-ckt-split #fa-pay.fa-pay-et .fee-total .fee-row .v,body.fa-ckt-split #fa-pay .fa-pay-fees .fee:first-child .fee-row .v{background:var(--fa-gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+body.fa-ckt-split #fa-pay.fa-pay-et .fee-total .fee-row .v,body.fa-ckt-split #fa-pay .fa-pay-fees .fee:first-child .fee-row .v,body.fa-ckt-midnight #fa-pay.fa-pay-et .fee-total .fee-row .v,body.fa-ckt-midnight #fa-pay .fa-pay-fees .fee:first-child .fee-row .v{background:var(--fa-gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 body.fa-ckt-paper #fa-pay .fa-pay-help,body.fa-ckt-ivory #fa-pay .fa-pay-help{background:#fff;border-color:rgba(200,169,107,.4)}
