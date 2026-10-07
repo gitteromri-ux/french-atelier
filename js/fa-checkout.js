@@ -18,6 +18,22 @@
   'use strict';
   if (window.FA_CHECKOUT) return;
   var CFG = window.FA_ECOMM_CONFIG;
+  /* staging design mockups: ?ckt=paper|ivory|split (default = Neon dark). Carried across pages via sessionStorage. */
+  var CKT = (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('ckt');
+      if (q === 'neon' || q === 'dark') { sessionStorage.removeItem('fa_ckt'); return ''; }
+      if (/^(paper|ivory|split)$/.test(q || '')) sessionStorage.setItem('fa_ckt', q);
+      var t = sessionStorage.getItem('fa_ckt') || '';
+      if (t) {
+        document.body.classList.add('fa-ckt-' + t);
+        var base = /\/courses\//.test(location.pathname) ? '../' : '';
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007k'; document.head.appendChild(l);
+      }
+      return t;
+    } catch (e) { return ''; }
+  })();
+  window.FA_CKT = CKT;
   var GEO = window.FA_GEO;
   if (!CFG || !GEO) { console.warn('[fa-checkout] config or geo missing'); return; }
 
