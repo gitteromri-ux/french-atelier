@@ -359,3 +359,10 @@ html:root:root:root:root body#fa .kps-plan .kps-btn{width:100%}
 /* let the footage breathe */
 .kps-hero::before{background:linear-gradient(180deg,rgba(0,0,31,.5) 0%,rgba(0,0,31,.1) 30%,rgba(0,0,31,.42) 62%,rgba(0,0,31,.96) 100%),radial-gradient(55% 75% at 8% 78%,rgba(0,0,31,.55),transparent 70%)}
 .kps-stage::before{background:linear-gradient(180deg,rgba(0,0,31,.18) 0%,rgba(0,0,31,.06) 30%,rgba(0,0,31,.66) 68%,rgba(0,0,31,.96) 100%)}
+@media (max-width:600px){
+  .kps-hero::before{background:linear-gradient(180deg,rgba(0,0,31,.55) 0%,rgba(0,0,31,.3) 28%,rgba(0,0,31,.62) 52%,rgba(0,0,31,.97) 100%)}
+  .kps-hero .bg video{object-position:50% 35%}
+}
+.kps-h1,.kps-h1 .gi{text-shadow:0 1px 3px rgba(0,0,31,.75),0 2px 28px rgba(0,0,31,.85)}
+.kps-hero .sub{text-shadow:0 1px 3px rgba(0,0,31,.8),0 1px 22px rgba(0,0,31,.85)}
+@media (max-width:600px){.kps-hero::before{background:linear-gradient(180deg,rgba(0,0,31,.6) 0%,rgba(0,0,31,.4) 28%,rgba(0,0,31,.74) 50%,rgba(0,0,31,.98) 100%)}}
