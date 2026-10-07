@@ -83,9 +83,9 @@
       'fa-course': {
         kind: 'course',
         title: 'The French Atelier — 20 live lessons',
-        offerLabel: 'Online enrollment · 36% off · $99 first month, then 4 × $244.05',
-        listMonthly: 336, listTotal: 1680, numberOfPayments: 5,
-        monthly: 244.05, firstPayment: 99, total: 1075.20, pct: 36,
+        offerLabel: 'Online enrollment · 41% off · $99 first month, then 4 × $189',
+        listMonthly: 292, listTotal: 1460, numberOfPayments: 5,
+        monthly: 189, firstPayment: 99, total: 855, pct: 41,
         includes: ['20 live lessons · 85 minutes each', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },
