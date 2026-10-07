@@ -30,7 +30,7 @@
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007y'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008a'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
       }
       return t;
     } catch (e) { return ''; }
