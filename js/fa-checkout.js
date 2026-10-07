@@ -21,14 +21,16 @@
   /* staging design mockups: ?ckt=paper|ivory|split (default = Neon dark). Carried across pages via sessionStorage. */
   var CKT = (function () {
     try {
+      /* Presentation builds: the "-light" staging host defaults to the Paper & Gold theme; the main staging host stays Neon dark. ?ckt= still overrides on either. */
+      var HOST_DEFAULT = /^fa-staging-light/.test(location.hostname) ? 'paper' : '';
       var q = new URLSearchParams(location.search).get('ckt');
-      if (q === 'neon' || q === 'dark') { sessionStorage.removeItem('fa_ckt'); return ''; }
-      if (/^(paper|ivory|split)$/.test(q || '')) sessionStorage.setItem('fa_ckt', q);
-      var t = sessionStorage.getItem('fa_ckt') || '';
+      if (q === 'neon' || q === 'dark') { sessionStorage.setItem('fa_ckt', 'neon'); }
+      else if (/^(paper|ivory|split)$/.test(q || '')) sessionStorage.setItem('fa_ckt', q);
+      var t = sessionStorage.getItem('fa_ckt') || HOST_DEFAULT; if (t === 'neon') t = '';
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007k'; document.head.appendChild(l);
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261007s'; document.head.appendChild(l);
       }
       return t;
     } catch (e) { return ''; }
@@ -94,7 +96,21 @@
   function relay(path) { return CFG.relayBase.replace(/\/$/, '') + (CFG.env === 'staging' ? '/staging' : '') + path; }
 
   /* ---------- product helpers ---------- */
-  function product(id) { return CFG.products[id] || null; }
+  /* ---------- promo codes (top strip / step 2 field). Stored for 7 days from first use. ---------- */
+  var STORE_PROMO = 'fa_promo_v1';
+  function promoGet() { try { var o = JSON.parse(localStorage.getItem(STORE_PROMO) || 'null'); if (!o || !CFG.promos || !CFG.promos[o.code]) return null; if (o.exp && Date.now() > o.exp) { localStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
+  function promoApply(code) { code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { localStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp })); } catch (e) {} return { code: code, exp: exp, def: def }; }
+  function promoClear() { try { localStorage.removeItem(STORE_PROMO); } catch (e) {} }
+  function promoFor(id) { var pr = promoGet(); return pr && pr.def.applies.indexOf(id) > -1 ? pr : null; }
+  function product(id) {
+    var base = CFG.products[id] || null; if (!base) return null;
+    var pr = promoFor(id); if (!pr) return base;
+    var k = 1 - pr.def.pct / 100, m = Math.round(base.monthly * k * 100) / 100, f = Math.round(base.firstPayment * k * 100) / 100;
+    var p = {}; for (var key in base) p[key] = base[key];
+    p.monthly = m; p.firstPayment = f; p.total = Math.round((f + m * (base.numberOfPayments - 1)) * 100) / 100;
+    p.baseMonthly = base.monthly; p.baseTotal = base.total; p.promo = { code: pr.code, pct: pr.def.pct, label: pr.def.label, exp: pr.exp };
+    return p;
+  }
   function productTitle(sel) {
     var p = product(sel.product); if (!p) return '';
     if (p.kind === 'course') { var lv = CFG.levels[sel.level]; return lv ? lv.name + ' · ' + lv.cefr + ' · 20 live lessons' : p.title; }
@@ -295,6 +311,7 @@
   function tuitionBand(p) {
     if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listMonthly) + '</s><span>' + fmt2(p.monthly) + ' a month for ' + p.numberOfPayments + ' months</span><em class="fa-ck-off">15% off</em></div><div class="fa-ck-band-s">First month 50% off: <b>' + fmt2(p.firstPayment) + ' today</b> · ' + fmt2(p.total) + ' in total instead of ' + fmt(p.listTotal) + '</div></div>';
     if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Atelier Membership</div><div class="fa-ck-band-v"><span>' + fmt(p.monthly) + ' a month for 12 months</span></div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' in total</div></div>';
+    if (p.promo) return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsule tuition · code ' + h(p.promo.code) + '</div><div class="fa-ck-band-v"><s>' + fmt(p.baseMonthly) + '</s><span>' + fmt2(p.monthly) + ' a month for 3 months</span><em class="fa-ck-off">' + p.promo.pct + '% off</em></div><div class="fa-ck-band-s">' + fmt2(p.total) + ' in total instead of ' + fmt(p.baseTotal) + '</div></div>';
     var per = p.packs === 1 ? '$89' : p.packs === 2 ? '$79' : '$69';
     return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$89</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $60 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
   }
@@ -304,7 +321,7 @@
       '<div class="fa-ck-sum-row is-total"><span>Total · 15% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>';
     return '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
       '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
-      '<div class="fa-ck-sum-row is-total"><span>Total</span><strong>' + fmt2(p.total) + '</strong></div>';
+      '<div class="fa-ck-sum-row is-total"><span>Total' + (p.promo ? ' · ' + p.promo.pct + '% off ' + fmt(p.baseTotal) : '') + '</span><strong>' + fmt2(p.total) + '</strong></div>';
   }
   function renderAside() {
     var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
@@ -456,12 +473,17 @@
     html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
       (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
       '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · 15% off + first month 50% off' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied · ' + (p.packs === 2 ? '$79' : '$69') + ' per capsule' : 'Capsule price · $89 a month') + '</span></div>' +
+      (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">I have a promo code</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code"><button type="button" class="fa-ck-code-go" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +
       '<p class="fa-ck-error" hidden></p>' +
       '<div class="fa-ck-go"><button type="button" class="fa-ck-submit" id="fa-ck-pay"><span>Continue to secure payment</span><span class="fa-ck-submit-amt">' + fmt2(p.firstPayment) + ' today</span>' + ICON.arrow + '</button></div>' +
       '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>' +
       payMarks();
     body.innerHTML = html;
     function refresh() { renderAside(); var n = body.querySelector('#fa-ck-course-name'); if (n) n.textContent = productTitle(state.sel); }
+    var codeGo = body.querySelector('#fa-ck-code-go'), codeRm = body.querySelector('#fa-ck-code-rm');
+    function tryCode() { var inp = body.querySelector('#fa-ck-code-in'), msg = body.querySelector('#fa-ck-code-msg'), v = (inp.value || '').trim(); if (!v) { inp.focus(); return; } var r = promoApply(v); if (!r) { msg.hidden = false; msg.textContent = 'This code is not valid for this offer.'; inp.setAttribute('aria-invalid', 'true'); return; } if (r.def.applies.indexOf(sel.product) < 0) { msg.hidden = false; msg.textContent = r.code + ' applies to ' + r.def.label.toLowerCase() + ' (1 Culture Capsule).'; return; } renderStep2(lead); }
+    if (codeGo) { codeGo.addEventListener('click', tryCode); body.querySelector('#fa-ck-code-in').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); tryCode(); } }); }
+    if (codeRm) codeRm.addEventListener('click', function () { promoClear(); renderStep2(lead); });
     body.querySelectorAll('input[name="fa-ck-lv"]').forEach(function (r) { r.addEventListener('change', function () { state.sel.level = r.value; refresh(); }); });
     body.querySelectorAll('input[name="fa-ck-time"]').forEach(function (r) { if (r.checked) sel.classTime = r.value; r.addEventListener('change', function () { state.sel.classTime = r.value; }); });
     var caps = body.querySelectorAll('input[name="fa-ck-cap"]');
@@ -495,12 +517,13 @@
     e.preventDefault();
     open(el.getAttribute('data-fa-buy'), { level: el.getAttribute('data-fa-level') || undefined, capsules: (el.getAttribute('data-fa-capsules') || '').split(',').filter(Boolean) });
   });
+  try { var qp = new URLSearchParams(location.search); if (qp.get('promo')) promoApply(qp.get('promo')); } catch (e) {}
   /* ?buy=<product>&level=<level> deep link (e.g. from ads) */
   try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy'))) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
 
   window.FA_CHECKOUT = {
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
-    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h
+    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
   };
 })();

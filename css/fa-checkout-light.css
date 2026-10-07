@@ -177,3 +177,16 @@ body.fa-ckt-split .fa-pay-summary .img::before{background:linear-gradient(90deg,
 body.fa-ckt-split .fa-pay-summary .fa-ck-facts dd,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dd{color:var(--nx-text)}
 body.fa-ckt-split .fa-pay-summary .fa-ck-facts dt,body.fa-ckt-split .fa-ck-aside .fa-ck-facts dt{color:var(--nx-gold)}
 body.fa-ckt-split .fa-pay-summary .buyer{color:var(--nx-ice)}
+/* step 2 · promo code (light) */
+body[class*="fa-ckt-"] .fa-ck-code-lb{color:var(--lt-ink)}
+body[class*="fa-ckt-"] .fa-ck-code-row input{background:#fff;border-color:var(--lt-line);color:var(--lt-ink)}
+body[class*="fa-ckt-"] .fa-ck-code-row input::placeholder{color:rgba(26,30,51,.45)}
+body[class*="fa-ckt-"] .fa-ck-code-row input:focus{border-color:var(--lt-acc);box-shadow:0 0 0 3px rgba(var(--lt-acc-rgb),.2)}
+body[class*="fa-ckt-"] .fa-ck-code-go{border-color:var(--lt-acc);background:#fff;color:var(--lt-acc-2)}
+body[class*="fa-ckt-"] .fa-ck-code-go:hover{background:var(--lt-sel-bg)}
+body[class*="fa-ckt-"] .fa-ck-code-msg{color:#9A5B00}
+body[class*="fa-ckt-"] .fa-ck-code-on{background:#EEF8F1;border-color:#9BD8B0;color:var(--lt-ink)}
+body[class*="fa-ckt-"] .fa-ck-code-on b{color:#1F7A45}
+body[class*="fa-ckt-"] .fa-ck-code-x{color:var(--lt-ink-2)}
+/* light cards: the Trustpilot wordmark asset is white — render it in ink */
+body.fa-ckt-paper .fa-pay-help .tp-logo,body.fa-ckt-ivory .fa-pay-help .tp-logo,body.fa-ckt-split .fa-pay-help .tp-logo{content:url("../assets/logo/trustpilot-logo-dark.svg")}

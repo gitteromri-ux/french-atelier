@@ -446,3 +446,16 @@ html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-page.has-rib
 .fa-cap-offer li{font-size:.95rem}
 .fa-cap-offer.featured li::before{background:var(--nx-neon-b);box-shadow:0 0 10px rgba(47,164,255,.9)}
 @media (prefers-reduced-motion:reduce){.fa-offer,.fa-cap-offer.featured{animation:none}}
+/* step 2 · promo code */
+.fa-ck-code{margin:.2rem 0 1.1rem}
+.fa-ck-code-lb{display:block;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--nx-text);margin-bottom:.45rem}
+.fa-ck-code-row{display:flex;gap:.6rem}
+.fa-ck-code-row input{flex:1;min-width:0;height:52px;padding:0 1rem;border-radius:12px;border:1px solid var(--nx-line-2);background:rgba(4,10,30,.55);color:#fff;font-family:var(--sans);font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+.fa-ck-code-row input::placeholder{text-transform:none;letter-spacing:0;color:rgba(214,232,255,.45)}
+.fa-ck-code-row input:focus{outline:none;border-color:var(--nx-neon-b);box-shadow:0 0 0 3px rgba(47,164,255,.25)}
+.fa-ck-code-go{flex:0 0 auto;height:52px;padding:0 1.3rem;border-radius:12px;border:1px solid var(--nx-neon-b);background:rgba(47,164,255,.14);color:var(--nx-neon-b);font-family:var(--sans);font-weight:600;font-size:.98rem;cursor:pointer}
+.fa-ck-code-go:hover{background:rgba(47,164,255,.26)}
+.fa-ck-code-msg{font-family:var(--sans);font-size:.9rem;color:#FFD58A;margin:.5rem 0 0}
+.fa-ck-code-on{display:flex;align-items:center;gap:.7rem;padding:.85rem 1rem;border-radius:12px;border:1px solid rgba(127,227,176,.45);background:rgba(127,227,176,.1);font-family:var(--sans);font-size:.95rem;color:var(--nx-text)}
+.fa-ck-code-on b{color:#7FE3B0;letter-spacing:.06em}
+.fa-ck-code-x{margin-left:auto;background:none;border:0;color:var(--nx-ice);font-family:var(--sans);font-size:.88rem;text-decoration:underline;cursor:pointer}

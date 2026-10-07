@@ -60,8 +60,12 @@
       ['Format', '10 live one-hour conferences · once a week'],
       ['Speaker', 'Bilingual signature speaker · 15–20 min Q&A'],
       ['Language', 'No French required'],
-      ['Platform', 'Zoom · recordings included']
+      ['Platform', 'Live on Zoom · 10 weeks, one conference a week']
     ],
+    /* Promo codes shown in the top strip. Display-level pricing; the CRM price plan is the charge of record. */
+    promos: {
+      CAPSULE20: { pct: 20, applies: ['capsule-1'], label: '20% off your first Culture Capsule', days: 7 }
+    },
     classTimes: ['Weekday evenings (my timezone)', 'Weekday mornings or midday', 'Weekend', 'Any — next available start'],
     phone: '+1-888-230-5110',
 
@@ -90,7 +94,7 @@
         title: '1 Culture Capsule',
         offerLabel: '3 monthly payments of $89',
         numberOfPayments: 3, monthly: 89, firstPayment: 89, total: 267,
-        includes: ['10 live one-hour conferences on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each talk', 'No French required', 'Recordings included'],
+        includes: ['10 live one-hour conferences on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each talk', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-2': {
@@ -98,7 +102,7 @@
         title: '2 Culture Capsules',
         offerLabel: '3 monthly payments of $158 · $79 per capsule',
         numberOfPayments: 3, monthly: 158, firstPayment: 158, total: 474, perCapsule: 79,
-        includes: ['20 live one-hour conferences on Zoom', 'Bilingual signature speakers', 'Second capsule at $79 a month instead of $89', 'No French required', 'Recordings included'],
+        includes: ['20 live one-hour conferences on Zoom', 'Bilingual signature speakers', 'Second capsule at $79 a month instead of $89', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-3': {
@@ -106,7 +110,7 @@
         title: 'All 3 Culture Capsules',
         offerLabel: '3 monthly payments of $207 · $69 per capsule',
         numberOfPayments: 3, monthly: 207, firstPayment: 207, total: 621, perCapsule: 69,
-        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $69 a month instead of $89', 'No French required', 'Recordings included'],
+        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $69 a month instead of $89', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'membership-12': {
