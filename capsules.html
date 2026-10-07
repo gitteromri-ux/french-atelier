@@ -17,12 +17,12 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
-<link rel="stylesheet" href="css/fa-checkout.css?v=20261008n">
-<link rel="stylesheet" href="css/fa-whatsapp.css?v=20261008n">
-<link rel="stylesheet" href="css/fa-promo.css?v=20261008n">
-<link rel="stylesheet" href="css/fa-pop.css?v=20261008n">
-<link rel="stylesheet" href="css/fa-capsules.css?v=20261008n">
-<link rel="stylesheet" href="css/fa-type.css?v=20261008n">
+<link rel="stylesheet" href="css/fa-checkout.css?v=20261008r">
+<link rel="stylesheet" href="css/fa-whatsapp.css?v=20261008r">
+<link rel="stylesheet" href="css/fa-promo.css?v=20261008r">
+<link rel="stylesheet" href="css/fa-pop.css?v=20261008r">
+<link rel="stylesheet" href="css/fa-capsules.css?v=20261008r">
+<link rel="stylesheet" href="css/fa-type.css?v=20261008r">
 </head>
 <body id="fa" class="cap-page">
 
@@ -117,15 +117,23 @@
 
 <!-- ===== HERO ===== -->
 <section class="kps-hero" id="top">
-  <div class="bg"><video autoplay muted loop playsinline preload="auto" poster="assets/video/pillar-travel-poster.jpg"><source src="assets/video/pillar-travel.mp4" type="video/mp4"></video></div>
+  <div class="bg">
+    <video class="is-on" data-theme="fashion" autoplay muted loop playsinline preload="auto" poster="assets/video/pillar-fashion-poster.jpg"><source src="assets/video/pillar-fashion.mp4" type="video/mp4"></video>
+    <video data-theme="gastro" muted loop playsinline preload="auto" poster="assets/video/pillar-gastronomy-poster.jpg"><source src="assets/video/wine-tasting.mp4" type="video/mp4"></video>
+    <video data-theme="cinema" muted loop playsinline preload="auto" poster="assets/video/pillar-music-poster.jpg"><source src="assets/video/pillar-music.mp4" type="video/mp4"></video>
+  </div>
   <div class="kps-wrap">
-    <span class="kps-kicker">The French Atelier by Acadomia</span>
+    <div class="kps-reel" role="tablist" aria-label="Three Culture Capsules">
+      <span class="kps-pill w-fashion is-on" role="tab" data-theme="fashion"><i></i>Fashion &amp; Art</span>
+      <span class="kps-pill w-gastro" role="tab" data-theme="gastro"><i></i>Gastronomy &amp; Wine</span>
+      <span class="kps-pill w-cinema" role="tab" data-theme="cinema"><i></i>Cinema &amp; Music</span>
+    </div>
     <h1 class="kps-h1">Culture Capsules.<span class="gi">French culture, live from France.</span></h1>
-    <p class="sub">Thirty live one-hour conferences on what France gave the world — <strong>fashion and art, gastronomy and wine, cinema and music</strong>. In English, on Zoom, with a bilingual speaker in France. From <strong>$79 a month</strong>.</p>
+    <p class="sub">Thirty live one-hour conferences on what France gave the world. In English, on Zoom, with a bilingual speaker in France. <b>From $79 a month.</b></p>
     <div class="cta">
       <a class="kps-btn kps-btn-gold" href="#offers">Choose your capsules <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       <a class="kps-btn kps-btn-light" href="#capsules">See the programme</a>
-      <span class="tp"><img src="assets/logo/trustpilot-logo-dark.svg" alt="Trustpilot"><span class="stars"><i></i><i></i><i></i><i></i><i></i></span>Excellent</span>
+      <span class="tp"><img src="assets/logo/trustpilot-logo.svg" alt="Trustpilot"><span class="stars"><i></i><i></i><i></i><i></i><i></i></span>Excellent</span>
     </div>
     <div class="kps-stats">
       <div><b>30</b><span>live conferences</span></div>
@@ -139,40 +147,40 @@
 <!-- ===== THREE CAPSULES ===== -->
 <section class="kps-three" id="capsules">
   <div class="kps-wrap">
-    <div class="head"><span class="kps-kicker dark center">What we teach</span><h2 class="kps-h2">Three Culture Capsules, <span class="gi">one France.</span></h2><p class="kps-sub">Three cultural worlds, each told in ten live conferences by a bilingual speaker in France. Open a capsule to see its programme and download the syllabus.</p></div>
+    <div class="head"><span class="kps-kicker dark center">What we teach</span><h2 class="kps-h2 dark">Three Culture Capsules, <span class="gi">one France.</span></h2><p class="kps-sub dark">Three cultural worlds, each told in <b>ten live conferences</b> by a bilingual speaker in France. Open a capsule to see its programme and download the syllabus.</p></div>
     <div class="kps-cards">
       <div role="button" tabindex="0" class="kps-card w-fashion" data-pack="fashion" aria-expanded="false" aria-controls="kps-reveal-fashion">
         <span class="ph"><img src="assets/capsules/gen/card-fashion.jpg" alt="" loading="lazy" decoding="async"></span>
-        <span class="eyebrow">Capsule 01 &middot; 10 live conferences</span>
+        <span class="eyebrow kps-pill"><i></i>Capsule 01 &middot; 10 live conferences</span>
         <span class="title">Fashion &amp; Art</span>
         <span class="what">How France invented elegance — from Versailles to Chanel.</span>
         <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
-        <span class="action">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
+        <span class="action kps-pill">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
       </div>
       <div role="button" tabindex="0" class="kps-card w-gastro" data-pack="gastro" aria-expanded="false" aria-controls="kps-reveal-gastro">
         <span class="ph"><img src="assets/capsules/gen/card-gastro.jpg" alt="" loading="lazy" decoding="async"></span>
-        <span class="eyebrow">Capsule 02 &middot; 10 live conferences</span>
+        <span class="eyebrow kps-pill"><i></i>Capsule 02 &middot; 10 live conferences</span>
         <span class="title">Gastronomy &amp; Wine</span>
         <span class="what">Why the French table is law, history and identity.</span>
         <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
-        <span class="action">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
+        <span class="action kps-pill">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
       </div>
       <div role="button" tabindex="0" class="kps-card w-cinema" data-pack="cinema" aria-expanded="false" aria-controls="kps-reveal-cinema">
         <span class="ph"><img src="assets/capsules/gen/card-cinema.jpg" alt="" loading="lazy" decoding="async"></span>
-        <span class="eyebrow">Capsule 03 &middot; 10 live conferences</span>
+        <span class="eyebrow kps-pill"><i></i>Capsule 03 &middot; 10 live conferences</span>
         <span class="title">Cinema &amp; Music</span>
         <span class="what">How French film and song conquered America.</span>
         <span class="meta"><span><b>10</b><small>Live talks</small></span><span><b>60′</b><small>Each</small></span><span><b>Q&amp;A</b><small>After each</small></span></span>
-        <span class="action">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
+        <span class="action kps-pill">See the 10 conferences <i><svg viewBox="0 0 16 16"><polyline points="3,6 8,11 13,6"/></svg></i></span>
       </div>
     </div>
     <div class="kps-reveal w-fashion" id="kps-reveal-fashion" data-pack="fashion">
       <div class="kps-stage">
-        <video muted loop playsinline preload="metadata" poster="assets/video/pillar-fashion-poster.jpg"><source data-src="assets/video/pillar-fashion.mp4" type="video/mp4"></video>
+        <video class="is-on" muted loop playsinline preload="none" poster="assets/video/pillar-fashion-poster.jpg"><source data-src="assets/video/pillar-fashion.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/pillar-art-poster.jpg"><source data-src="assets/video/pillar-art.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/pillar-tradition-poster.jpg"><source data-src="assets/video/pillar-tradition.mp4" type="video/mp4"></video><div class="reel" aria-hidden="true"><i class="is-on"></i><i class=""></i><i class=""></i></div>
         <div class="inner">
           <div>
-            <span class="eyebrow">Capsule 01 &middot; Fashion &amp; Art</span>
-            <h3>How France invented elegance<br>— from Versailles to Chanel.</h3>
+            <span class="eyebrow kps-pill"><i></i>Capsule 01 &middot; Fashion &amp; Art</span>
+            <h3>How France invented elegance — <span class="gi">from Versailles to Chanel.</span></h3>
             <p>From Louis XIV to JR: how taste was manufactured by a king, set free by artists, and handed to the street.</p>
             <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a><a class="kps-btn kps-btn-light" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg> Download the syllabus (PDF)</a></div>
           </div>
@@ -197,11 +205,11 @@
     </div>
     <div class="kps-reveal w-gastro" id="kps-reveal-gastro" data-pack="gastro">
       <div class="kps-stage">
-        <img src="assets/video/pillar-gastronomy-poster.jpg" alt="" loading="lazy" decoding="async">
+        <video class="is-on" muted loop playsinline preload="none" poster="assets/video/pillar-gastronomy-poster.jpg"><source data-src="assets/video/wine-tasting.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/pillar-gastronomy-poster.jpg"><source data-src="assets/video/pastry.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/pillar-gastronomy-poster.jpg"><source data-src="assets/video/restaurant.mp4" type="video/mp4"></video><div class="reel" aria-hidden="true"><i class="is-on"></i><i class=""></i><i class=""></i></div>
         <div class="inner">
           <div>
-            <span class="eyebrow">Capsule 02 &middot; Gastronomy &amp; Wine</span>
-            <h3>Why the French table is law, history and identity.</h3>
+            <span class="eyebrow kps-pill"><i></i>Capsule 02 &middot; Gastronomy &amp; Wine</span>
+            <h3>Why the French table is <span class="gi">law, history and identity.</span></h3>
             <p>Bread protected by decree, a cheese that is a battlefield, a name defended in court on five continents.</p>
             <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a><a class="kps-btn kps-btn-light" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg> Download the syllabus (PDF)</a></div>
           </div>
@@ -226,11 +234,11 @@
     </div>
     <div class="kps-reveal w-cinema" id="kps-reveal-cinema" data-pack="cinema">
       <div class="kps-stage">
-        <video muted loop playsinline preload="metadata" poster="assets/video/pillar-music-poster.jpg"><source data-src="assets/video/pillar-music.mp4" type="video/mp4"></video>
+        <video class="is-on" muted loop playsinline preload="none" poster="assets/video/pillar-music-poster.jpg"><source data-src="assets/video/pillar-music.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/paris-seine-poster.jpg"><source data-src="assets/video/paris-sunset-street.mp4" type="video/mp4"></video><video class="" muted loop playsinline preload="none" poster="assets/video/paris-seine-poster.jpg"><source data-src="assets/video/paris-seine.mp4" type="video/mp4"></video><div class="reel" aria-hidden="true"><i class="is-on"></i><i class=""></i><i class=""></i></div>
         <div class="inner">
           <div>
-            <span class="eyebrow">Capsule 03 &middot; Cinema &amp; Music</span>
-            <h3>How French film and song conquered America.</h3>
+            <span class="eyebrow kps-pill"><i></i>Capsule 03 &middot; Cinema &amp; Music</span>
+            <h3>How French film and song <span class="gi">conquered America.</span></h3>
             <p>From Méliès to Amélie, from Piaf to Gainsbourg: a century of French faces, stories and melodies exported to America.</p>
             <div class="acts"><a class="kps-btn kps-btn-gold" href="#offers">Join this capsule <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a><a class="kps-btn kps-btn-light" href="downloads/culture-capsules-syllabus.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3h16v-3"/></svg> Download the syllabus (PDF)</a></div>
           </div>
@@ -259,11 +267,11 @@
 <!-- ===== WHAT YOU WILL LEARN ===== -->
 <section class="kps-learn" id="learn">
   <div class="kps-wrap">
-    <div class="head"><span class="kps-kicker">What you will learn and experience</span><h2 class="kps-h2">The stories behind the icons <span class="gi">the world thinks it knows.</span></h2><p class="kps-sub">Every conference starts with a name you know — the baguette, Chanel, Piaf — and goes into the history behind it. Taught live, in English, from France.</p></div>
+    <div class="head"><span class="kps-kicker">What you will learn and experience</span><h2 class="kps-h2">The stories behind the icons <span class="gi">the world thinks it knows.</span></h2><p class="kps-sub">Every conference starts with a name you know — <b>the baguette, Chanel, Piaf</b> — and goes into the history behind it. Taught live, in English, from France.</p></div>
     <div class="cols">
-      <div class="col c-fashion"><span class="lab">Fashion &amp; Art</span><h3>How France invented elegance.</h3><p>Ten conferences on the people who made French taste: a king who turned fashion into state policy, the painters who broke the rules, the couturiers who dressed the century.</p><div class="big"><b>8.7<small>M</small></b><span>visitors to the Louvre in 2024 — the most visited museum on earth.</span></div></div>
-      <div class="col c-gastro"><span class="lab">Gastronomy &amp; Wine</span><h3>Why the French table is law.</h3><p>Ten conferences on what France chose to protect: the loaf, the butter, the cheese, the bubble, the truffle — and the laws, riots and treaties behind each of them.</p><div class="big"><b>6 <small>billion</small></b><span>baguettes baked in France every year — and a law that says what may be called bread.</span></div></div>
-      <div class="col c-cinema"><span class="lab">Cinema &amp; Music</span><h3>How French film and song conquered America.</h3><p>Ten conferences on the screen and the song: the magician who invented special effects, the voice that conquered New York, the directors who rewrote the grammar of cinema.</p><div class="big"><b>1895</b><span>the year cinema was born — at the Grand Café, Paris, before forty paying viewers.</span></div></div>
+      <div class="col w-fashion"><span class="lab">Fashion &amp; Art</span><h3>How France invented elegance.</h3><p>Ten conferences on the people who made French taste: a king who turned fashion into state policy, the painters who broke the rules, the couturiers who dressed the century.</p><div class="big"><b>8.7<small>M</small></b><span>visitors to the Louvre in 2024 — the most visited museum on earth.</span></div></div>
+      <div class="col w-gastro"><span class="lab">Gastronomy &amp; Wine</span><h3>Why the French table is law.</h3><p>Ten conferences on what France chose to protect: the loaf, the butter, the cheese, the bubble, the truffle — and the laws, riots and treaties behind each of them.</p><div class="big"><b>6 <small>billion</small></b><span>baguettes baked in France every year — and a law that says what may be called bread.</span></div></div>
+      <div class="col w-cinema"><span class="lab">Cinema &amp; Music</span><h3>How French film and song conquered America.</h3><p>Ten conferences on the screen and the song: the magician who invented special effects, the voice that conquered New York, the directors who rewrote the grammar of cinema.</p><div class="big"><b>1895</b><span>the year cinema was born — at the Grand Café, Paris, before forty paying viewers.</span></div></div>
     </div>
   </div>
 </section>
@@ -271,21 +279,21 @@
 <!-- ===== HOW IT WORKS ===== -->
 <section class="kps-how" id="how">
   <div class="kps-wrap">
-    <div class="head"><div><span class="kps-kicker dark">How it works</span><h2 class="kps-h2">Ten evenings. <span class="gi">One world.</span></h2></div><p class="kps-sub">A capsule is ten live conferences on one theme. Join from anywhere; the speaker is in France. Sold independently of our language courses.</p></div>
+    <div class="head"><div><span class="kps-kicker dark">How it works</span><h2 class="kps-h2 dark">Ten evenings. <span class="gi">One world.</span></h2></div><p class="kps-sub dark">A capsule is <b>ten live conferences on one theme</b>. Join from anywhere; the speaker is in France. Sold independently of our language courses.</p></div>
     <div class="kps-rail">
       <div class="cell"><div class="n">10</div><div class="k">Live conferences</div><div class="s">per capsule, one theme</div></div>
       <div class="cell"><div class="n">60<small>min</small></div><div class="k">Each conference</div><div class="s">live on Zoom</div></div>
       <div class="cell"><div class="n">15<small>–20 min</small></div><div class="k">Your questions</div><div class="s">answered after every talk</div></div>
-      <div class="cell"><div class="n">1</div><div class="k">Signature speaker</div><div class="s">bilingual, expert in the field</div></div>
+      <div class="cell"><div class="n">1</div><div class="k">Expert speaker</div><div class="s">bilingual, expert in the field</div></div>
       <div class="cell"><div class="n">EN</div><div class="k">Taught in English</div><div class="s">no French required</div></div>
-      <div class="cell"><div class="n">3</div><div class="k">Monthly payments</div><div class="s">per capsule, nothing more</div></div>
+      <div class="cell"><div class="n">3</div><div class="k">Payments</div><div class="s">monthly, nothing more</div></div>
     </div>
   </div>
 </section>
 
 <!-- ===== SPEAKERS ===== -->
 <section class="kps-method" id="speakers">
-  <div class="bg"><img src="assets/video/pillar-art-poster.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="bg"><video class="is-on" muted loop playsinline preload="none" poster="assets/video/pillar-art-poster.jpg"><source data-src="assets/video/pillar-art.mp4" type="video/mp4"></video></div>
   <div class="kps-wrap">
     <span class="kps-kicker">Who is speaking</span>
     <h2 class="kps-h2">Bilingual speakers, <span class="gi">live from France.</span></h2>
@@ -301,37 +309,37 @@
 <!-- ===== PRICING ===== -->
 <section class="kps-pricing" id="offers">
   <div class="kps-wrap">
-    <div class="head"><span class="kps-kicker dark center">Enroll online</span><h2 class="kps-h2">Choose your <span class="gi">capsules.</span></h2><p class="kps-sub">Three monthly payments per capsule. Add a capsule, pay less for each. Nothing more to pay.</p></div>
+    <div class="head"><span class="kps-kicker center">Enroll online</span><h2 class="kps-h2">Choose your <span class="gi">capsules.</span></h2><p class="kps-sub"><b>Three monthly payments per capsule.</b> Add a capsule, pay less for each. Nothing more to pay.</p></div>
     <div class="kps-plans">
       <div class="kps-plan p-3 fa-cap-offer featured" data-plan="capsule-3">
-        <span class="badge">Best value &middot; save $60 a month</span>
+        <span class="badge">Best value &middot; save $180</span>
         <span class="k">All three capsules</span>
-        <h3>Fashion &amp; Art, Gastronomy &amp; Wine, Cinema &amp; Music</h3>
+        <h3>All three worlds, thirty evenings</h3>
         <span class="was">$99 per capsule a month</span>
-        <div class="price">$79<small>per capsule / month</small></div>
-        <p class="pay">3 monthly payments of $237<span class="fa-tot">$711 in total &middot; 30 live conferences</span></p>
-        <ul class="kps-spec"><li><b>30 live one-hour conferences</b> on Zoom</li><li>Three signature speakers, three worlds</li><li>Your questions answered after every talk</li><li>Taught in English — no French required</li><li>The full syllabus for all three capsules (PDF)</li></ul>
+        <div class="price">$79<small>per capsule<br>a month</small></div>
+        <p class="pay">3 monthly payments of $237<span class="fa-tot"><b>$711</b> in total &middot; 30 live conferences</span></p>
+        <ul class="kps-spec"><li><b>30 live conferences</b></li><li><b>One hour</b> each, then Q&amp;A</li><li><b>3 speakers</b>, 3 worlds</li><li>In English, <b>no French needed</b></li></ul>
         <button type="button" class="kps-btn kps-btn-gold" data-fa-buy="capsule-3">Join all three capsules</button>
         <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
       <div class="kps-plan p-2 fa-cap-offer" data-plan="capsule-2">
-        <span class="badge">Save $20 a month</span>
+        <span class="badge">Save $60</span>
         <span class="k">Two capsules</span>
         <h3>Pick any two worlds</h3>
         <span class="was">$99 per capsule a month</span>
-        <div class="price">$89<small>per capsule / month</small></div>
-        <p class="pay">3 monthly payments of $178<span class="fa-tot">$534 in total &middot; 20 live conferences</span></p>
-        <ul class="kps-spec"><li><b>20 live one-hour conferences</b> on Zoom</li><li>Choose your two capsules at checkout</li><li>Your questions answered after every talk</li><li>Taught in English — no French required</li><li>The syllabus for your two capsules (PDF)</li></ul>
+        <div class="price">$89<small>per capsule<br>a month</small></div>
+        <p class="pay">3 monthly payments of $178<span class="fa-tot"><b>$534</b> in total &middot; 20 live conferences</span></p>
+        <ul class="kps-spec"><li><b>20 live conferences</b></li><li><b>One hour</b> each, then Q&amp;A</li><li><b>Pick any two</b> worlds</li><li>In English, <b>no French needed</b></li></ul>
         <button type="button" class="kps-btn kps-btn-gold" data-fa-buy="capsule-2">Join two capsules</button>
         <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
       <div class="kps-plan p-1 fa-cap-offer" data-plan="capsule-1">
-        <span class="badge">Code CAPSULE20 &middot; 20% off</span>
+        <span class="badge">CAPSULE20 &middot; 20% off</span>
         <span class="k">One capsule</span>
         <h3>One world, ten evenings</h3>
-                <div class="price">$99<small>/ month</small></div>
-        <p class="pay">3 monthly payments of $99<span class="fa-tot">$297 in total &middot; $237.60 with code CAPSULE20</span></p>
-        <ul class="kps-spec"><li><b>10 live one-hour conferences</b> on Zoom</li><li>Fashion &amp; Art, Gastronomy &amp; Wine or Cinema &amp; Music</li><li>Your questions answered after every talk</li><li>Taught in English — no French required</li><li>The syllabus for your capsule (PDF)</li></ul>
+                <div class="price">$99<small>per capsule<br>a month</small></div>
+        <p class="pay">3 monthly payments of $99<span class="fa-tot"><b>$297</b> in total &middot; <b>$237.60</b> with CAPSULE20</span></p>
+        <ul class="kps-spec"><li><b>10 live conferences</b></li><li><b>One hour</b> each, then Q&amp;A</li><li><b>Pick one world</b> of three</li><li>In English, <b>no French needed</b></li></ul>
         <button type="button" class="kps-btn kps-btn-gold" data-fa-buy="capsule-1">Join one capsule</button>
         <p class="note">Secure checkout &middot; card, Apple Pay, Google Pay or PayPal</p>
       </div>
@@ -356,7 +364,7 @@
 <section class="kps-faq" id="faq">
   <div class="kps-wrap">
     <span class="kps-kicker dark center" style="display:flex">Questions</span>
-    <h2 class="kps-h2">Before you <span class="gi">join.</span></h2>
+    <h2 class="kps-h2 dark">Before you <span class="gi">join.</span></h2>
     <div class="list">
       <details open><summary>Do I need to speak French?</summary><p>No. The Culture Capsules are taught in English by bilingual speakers, with the French names and places pronounced as the French do. No prior knowledge is assumed.</p></details>
       <details><summary>What exactly is a capsule?</summary><p>Ten live one-hour conferences on one theme — Fashion &amp; Art, Gastronomy &amp; Wine, or Cinema &amp; Music — on Zoom, led by a signature speaker, followed by 15–20 minutes of your questions.</p></details>
@@ -384,7 +392,7 @@
 <section class="kps-final">
   <video autoplay muted loop playsinline preload="metadata" poster="assets/video/paris-seine-poster.jpg"><source src="assets/video/paris-seine.mp4" type="video/mp4"></video>
   <div class="kps-wrap">
-    <span class="kps-kicker center" style="display:flex">The French Atelier by Acadomia</span>
+    <span class="kps-kicker gold center" style="display:flex">The French Atelier by Acadomia</span>
     <h2>Thirty evenings in France, <span class="gi">from home.</span></h2>
     <p>One capsule or all three. Live, from France, in English — with the questions you have always wanted to ask.</p>
     <a class="kps-btn kps-btn-gold" href="#offers">Choose your capsules <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
@@ -440,13 +448,13 @@
 </footer>
 
 <script src="js/fa.js?v=1790665240" defer></script>
-<script src="js/fa-geo.js?v=20261008n" defer></script>
-<script src="js/fa-checkout-config.js?v=20261008n" defer></script>
-<script src="js/fa-checkout.js?v=20261008n" defer></script>
-<script src="js/fa-whatsapp.js?v=20261008n" defer></script>
-<script src="js/fa-promo.js?v=20261008n" defer></script>
+<script src="js/fa-geo.js?v=20261008r" defer></script>
+<script src="js/fa-checkout-config.js?v=20261008r" defer></script>
+<script src="js/fa-checkout.js?v=20261008r" defer></script>
+<script src="js/fa-whatsapp.js?v=20261008r" defer></script>
+<script src="js/fa-promo.js?v=20261008r" defer></script>
 <script src="js/enroll-modal.js?v=1790665240"></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-capsules.js?v=20261008n" defer></script>
+<script src="js/fa-capsules.js?v=20261008r" defer></script>
 </body>
 </html>
