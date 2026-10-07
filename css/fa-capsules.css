@@ -356,3 +356,6 @@ html:root:root:root:root body#fa .kps-plan .kps-btn{width:100%}
   .kps-tile p{font-size:1.02rem;line-height:1.4}
   .kps-reel .kps-pill{font-size:.72rem;padding:.48rem .75rem;letter-spacing:.12em}
 }
+/* let the footage breathe */
+.kps-hero::before{background:linear-gradient(180deg,rgba(0,0,31,.5) 0%,rgba(0,0,31,.1) 30%,rgba(0,0,31,.42) 62%,rgba(0,0,31,.96) 100%),radial-gradient(55% 75% at 8% 78%,rgba(0,0,31,.55),transparent 70%)}
+.kps-stage::before{background:linear-gradient(180deg,rgba(0,0,31,.18) 0%,rgba(0,0,31,.06) 30%,rgba(0,0,31,.66) 68%,rgba(0,0,31,.96) 100%)}
