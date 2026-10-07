@@ -30,8 +30,8 @@
       if (t) {
         document.body.classList.add('fa-ckt-' + t);
         var base = /\/courses\//.test(location.pathname) ? '../' : '';
-        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008d'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
-        if (t === 'midnight') { var m = document.createElement('link'); m.rel = 'stylesheet'; m.href = base + 'css/fa-midnight.css?v=20261008d'; var ty = document.querySelector('link[href*="fa-type.css"]'); if (ty) ty.parentNode.insertBefore(m, ty); else document.head.appendChild(m); }
+        var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'css/fa-checkout-light.css?v=20261008f'; var pop = document.querySelector('link[href*="fa-pop.css"]'); if (pop) pop.parentNode.insertBefore(l, pop); else document.head.appendChild(l);
+        if (t === 'midnight') { var m = document.createElement('link'); m.rel = 'stylesheet'; m.href = base + 'css/fa-midnight.css?v=20261008f'; var ty = document.querySelector('link[href*="fa-type.css"]'); if (ty) ty.parentNode.insertBefore(m, ty); else document.head.appendChild(m); }
       }
       return t;
     } catch (e) { return ''; }
