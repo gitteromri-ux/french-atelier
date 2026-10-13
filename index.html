@@ -171,7 +171,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <link rel="stylesheet" href="css/fa-promo.css?v=20261008y">
 <link rel="stylesheet" href="css/fa-pop.css?v=20261008y">
 <link rel="stylesheet" href="css/fa-type.css?v=20261008y">
-<link rel="stylesheet" href="css/fa-ecom.css?v=20261013e">
+<link rel="stylesheet" href="css/fa-ecom.css?v=20261013f">
 </head>
 <body id="fa" class="home">
 
@@ -355,27 +355,24 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
   <header class="ec-head"><div class="ec-eyebrow">Price · enroll online</div><h2 class="ec-h2">Start for <span class="ec-g">$99</span>. Try <span class="ec-b">2 weeks free</span>. <span class="ec-r">Cancel anytime.</span></h2>
   <p class="ec-lede">Regular price <s class="ec-strike">$1,460</s>. Enroll online and pay <b class="ec-g">$799 in total</b>, <b class="ec-m">45% off</b>.</p></header>
   <div class="ec-plans ec-two">
-   <article class="ec-plan">
-    <div class="ec-pn"><span class="ec-l">Pay in full</span></div>
-    <div class="ec-pp"><span class="cur">$</span><span class="amt">799</span><span class="per">one payment</span></div>
-    <div class="ec-pw"><s>$1,460</s> <b class="ec-save">Save $661</b></div>
-    <p class="ec-pd">One payment, and you get the twice-weekly study groups.</p>
-    <ul class="ec-pl"><li><b>Twice-weekly study groups</b></li><li>The full 20-lesson course</li></ul>
-    <button type="button" class="btn btn-outline btn-lg ec-btn" data-fa-buy="fa-course-full">Pay $799</button>
+   <article class="ec-plan ec-wine">
+    <div class="ec-tag">Pay once</div>
+    <div class="ec-pn">Pay in full</div>
+    <div class="ec-pp"><span class="cur">$</span><span class="amt">799</span></div>
+    <div class="ec-pw">one payment · <s>$1,460</s> · <b class="ec-save">You save $661</b></div>
+    <dl class="ec-ledger"><div><dt>Today</dt><dd>$799</dd></div><div><dt>Then</dt><dd>Nothing more</dd></div><div class="tot"><dt>Total</dt><dd>$799</dd></div></dl>
+    <ul class="ec-pl"><li>The full 20-lesson course</li><li><b>Bonus:</b> twice-weekly study groups</li></ul>
+    <button type="button" class="btn btn-lg ec-btn ec-btn-wine" data-fa-buy="fa-course-full">Pay $799 once</button>
    </article>
    <article class="ec-plan ec-hot">
     <div class="ec-flag">Most popular · 45% off</div>
     <div class="ec-pn">Start for $99</div>
     <div class="ec-pp"><span class="cur">$</span><span class="amt">99</span><span class="per">today</span></div>
-    <div class="ec-pw"><s>$292</s> first month, then <b class="ec-b">4 × $175</b></div>
-    <div class="ec-sched" aria-label="Payment schedule">
-     <div class="on"><b>$99</b><span>Today</span></div><div><b>$175</b><span>Mo. 2</span></div><div><b>$175</b><span>Mo. 3</span></div><div><b>$175</b><span>Mo. 4</span></div><div><b>$175</b><span>Mo. 5</span></div>
-    </div>
-    <div class="ec-tot"><b class="ec-g">$799 total</b> instead of <s>$1,460</s> · <b class="ec-m">≈ $40 a live lesson</b></div>
-    <div class="ec-guar"><span class="seal">14<small>days</small></span><p><b>Your first 2 weeks are free.</b> Join your first live classes. Not for you? Cancel within 14 days and get your $99 back. After that, cancel anytime and no more payments are taken.</p></div>
-    <button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course">Start for $99 →</button>
+    <div class="ec-pw">then 4 monthly payments of <b class="ec-b">$175</b></div>
+    <dl class="ec-ledger"><div><dt>Today</dt><dd>$99</dd></div><div><dt>Months 2–5</dt><dd>$175 / month</dd></div><div class="tot"><dt>Total</dt><dd>$799 <s>$1,460</s></dd></div></dl>
+    <div class="ec-guar"><span class="seal">14<small>days</small></span><p><b>Your first 2 weeks are free.</b> Join your first live classes. Not for you? Cancel within 14 days and get your $99 back. After that, cancel anytime. No more payments.</p></div>
+    <button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course">Start for $99 today</button>
    </article>
-   
   </div>
   <div class="ec-incl"><div class="ec-inclh">Every enrollment includes</div><ul>
    <li>20 live lessons · 85 min each</li><li>Native certified teachers, live from France</li><li>Small groups of 10–12</li><li>Every lesson recorded, for life</li><li>Julien, your 24/7 AI tutor</li><li>CEFR certificate by Acadomia</li><li>$100 credit when you finish</li><li>Class times in your timezone</li></ul></div>

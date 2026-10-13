@@ -294,3 +294,61 @@ b.ec-g,.ec-tot .ec-g{font-style:normal}
 .ec-compare .x{color:var(--ec-coral)!important;opacity:.8}
 @media(max-width:900px){.ec-plans.ec-two{grid-template-columns:1fr}}
 html body .ec-paysec img{width:auto!important;height:24px!important;max-width:none!important;display:inline-block!important}
+/* v5 — two lit cards, ledger, airy lists */
+.ec-plans.ec-two{max-width:1100px;gap:2.2rem}
+.ec-two .ec-plan{padding:2.6rem 2.4rem 2.4rem!important;border-radius:26px;overflow:hidden;isolation:isolate}
+.ec-two .ec-plan::before{content:"";position:absolute;z-index:-1;inset:-40% -20% auto auto;width:70%;height:80%;border-radius:50%;filter:blur(60px);opacity:.55}
+.ec-two .ec-plan::after{content:"";position:absolute;z-index:-1;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.07),transparent 28%);pointer-events:none}
+/* Bordeaux card */
+.ec-wine{background:linear-gradient(160deg,#3a0c1f 0%,#22061a 55%,#14041a 100%)!important;border:1px solid rgba(232,170,170,.45)!important;box-shadow:0 50px 100px -40px rgba(140,20,60,.65),inset 0 1px 0 rgba(255,220,220,.18)!important}
+.ec-wine::before{background:radial-gradient(circle,#c0395f,transparent 70%)}
+.ec-wine .ec-pn,.ec-wine .ec-tag{color:#F4C6C6!important}
+.ec-wine .ec-pp .amt,.ec-wine .ec-pp .cur{color:#FFE3DA!important;background:none!important;-webkit-text-fill-color:currentColor}
+.ec-wine .ec-pl li::before{background:#E8A0A8!important}
+.ec-wine .ec-ledger{border-color:rgba(244,198,198,.28)}
+.ec-wine .ec-ledger dt{color:#E9B8BC}
+.ec-btn-wine{background:linear-gradient(135deg,#F4C6C6,#D98A98)!important;color:#2a0614!important;border:0!important;box-shadow:0 14px 30px -12px rgba(217,138,152,.8)}
+/* Paris-night featured card */
+.ec-hot{background:linear-gradient(160deg,#0f1a52 0%,#0a0f3a 55%,#060828 100%) padding-box,linear-gradient(135deg,#F6E7C3,#D8BC85 40%,#8FD8FF) border-box!important;box-shadow:0 60px 120px -40px rgba(80,150,255,.55),0 0 0 8px rgba(143,216,255,.06)!important;margin:0!important}
+.ec-hot::before{background:radial-gradient(circle,#3d7bff,transparent 70%)}
+.ec-tag{display:inline-block;align-self:flex-start;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border:1px solid currentColor;border-radius:999px;padding:.35rem .9rem;margin-bottom:1rem}
+.ec-two .ec-pn{font-size:2.2rem!important;margin-bottom:1.1rem!important}
+.ec-two .ec-pp .amt{font-size:5.6rem!important}
+.ec-two .ec-hot .ec-pp .amt{font-size:6.4rem!important}
+.ec-two .ec-pw{font-size:1.15rem!important;line-height:1.6;margin-top:.9rem!important}
+/* ledger = the clear offer */
+.ec-ledger{margin:1.8rem 0 1.8rem;padding:0;border-top:1px solid rgba(143,216,255,.25)}
+.ec-ledger div{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.ec-ledger dt{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#9FC9EA}
+.ec-ledger dd{margin:0;font-family:var(--serif);font-size:1.7rem;font-weight:600;color:#fff}
+.ec-ledger .tot dd{color:#F1D9A6;font-size:2rem}
+.ec-ledger .tot dd s{font-family:var(--sans);font-size:1rem;margin-left:.5rem}
+/* airy bullets: hairline diamonds, no tick glyphs */
+.ec-two .ec-pl{margin:0 0 2rem!important}
+.ec-two .ec-pl li{padding:.85rem 0 .85rem 2rem!important;line-height:1.55;border-bottom:1px solid rgba(255,255,255,.07)}
+.ec-two .ec-pl li::before{content:""!important;width:8px;height:8px;top:1.35rem!important;left:.2rem!important;transform:rotate(45deg);background:#D8BC85}
+.ec-two .ec-guar{padding:1.4rem 1.4rem!important;gap:1.2rem!important;margin-bottom:2rem!important}
+.ec-two .ec-guar p{line-height:1.65!important}
+.ec-two .ec-guar b{margin-bottom:.4rem!important}
+.ec-incl ul{gap:1.1rem 2rem!important}
+.ec-incl li{line-height:1.55!important;padding-left:1.8rem!important}
+.ec-incl li::before{content:""!important;width:7px;height:7px;top:.55rem;transform:rotate(45deg);background:currentColor}
+.ec-incl li:nth-child(4n+1)::before{background:#D8BC85}.ec-incl li:nth-child(4n+2)::before{background:#8FD8FF}.ec-incl li:nth-child(4n+3)::before{background:#E8A0A8}.ec-incl li:nth-child(4n+4)::before{background:#F6E7C3}
+.ec-incl{padding:2rem 2.2rem!important}
+.ec-inclh{margin-bottom:1.4rem!important;color:#F1D9A6!important}
+.ec-guar{border-color:rgba(143,216,255,.45)!important;background:linear-gradient(135deg,rgba(143,216,255,.12),rgba(216,188,133,.08))!important}
+.ec-guar b{color:#8FD8FF!important}
+.ec-guar .seal{background:radial-gradient(circle at 35% 30%,#F6E7C3,#C8A96B 70%)!important;color:#00001F!important}
+@media(max-width:640px){
+ .ec-two .ec-plan{padding:2.2rem 1.4rem 1.6rem!important}
+ .ec-two .ec-pp .amt{font-size:4.4rem!important}.ec-two .ec-hot .ec-pp .amt{font-size:5rem!important}
+ .ec-ledger dd{font-size:1.35rem}.ec-ledger .tot dd{font-size:1.6rem}
+ .ec-incl{padding:1.6rem 1.3rem!important}
+}
+.ec-two .ec-plan.ec-hot{overflow:visible!important}
+.ec-two .ec-hot::before{inset:0 0 auto auto!important;width:60%!important;height:60%!important}
+html body .ec-two .ec-plan.ec-wine .ec-pp .amt,html body .ec-two .ec-plan.ec-wine .ec-pp .cur{color:#FFE3DA!important}
+html body .ec-two .ec-plan.ec-wine .ec-btn.ec-btn-wine{color:#2a0614!important;border:0!important;background:linear-gradient(135deg,#F7D2D2,#D98A98)!important}
+.ec-flag{top:-19px!important;z-index:3}
+.ec-save{white-space:nowrap;display:inline-block}
+@media(max-width:640px){html body .ec-ledger dd{font-size:1.5rem!important}html body .ec-ledger .tot dd{font-size:1.75rem!important}html body .ec-ledger dt{font-size:.8rem!important}}
