@@ -455,3 +455,36 @@ html body .ec-light .ec-btn-navy{color:#F6E7C3!important;-webkit-text-fill-color
 html body .ec-light .ec-pw{font-size:1.15rem!important}
 html body .ec-light .ec-pl li{font-size:1.15rem!important}
 html body .ec-light .ec-guar p{font-size:1.08rem!important}
+/* v9 — flat, textbook pricing cards (Babbel / Monday pattern) */
+.pz-head{text-align:center;margin-left:auto;margin-right:auto}
+.pz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;max-width:900px;margin:0 auto;align-items:stretch}
+.pz-card{position:relative;display:flex;flex-direction:column;background:#fff;color:#0A1128;border-radius:16px;padding:2.5rem 2.25rem 2.25rem;border:1px solid rgba(255,255,255,.6);box-shadow:0 30px 60px -30px rgba(0,0,0,.6);font-family:var(--sans)}
+.pz-pop{background:#EAF6FF;border:2px solid #0A1128}
+.pz-badge{position:absolute;top:-15px;left:2.25rem;background:#0A1128;color:#F6E7C3;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.45rem .9rem;border-radius:999px}
+.pz-badge-alt{background:#C8A96B;color:#0A1128}
+.pz-name{font-family:var(--sans);font-size:1.5rem;font-weight:700;margin:0 0 .4rem;color:#0A1128;letter-spacing:-.01em}
+.pz-desc{font-size:1.05rem;line-height:1.5;color:#4a5273;margin:0 0 1.6rem;min-height:3.1em}
+.pz-price{display:flex;align-items:baseline;gap:.6rem;margin:0 0 .5rem}
+.pz-amt{font-family:var(--sans);font-size:3.75rem;font-weight:700;letter-spacing:-.03em;line-height:1;color:#0A1128}
+.pz-unit{font-size:1.1rem;color:#4a5273;font-weight:500}
+.pz-bill{font-size:1.02rem;line-height:1.55;color:#4a5273;margin:0 0 1.5rem;min-height:3.2em}
+.pz-bill b{color:#0A1128;font-weight:600}
+.pz-bill s{color:#8a93b0}
+.pz-btn{width:100%;border:0;border-radius:10px;font-family:var(--sans);font-size:1.1rem;font-weight:700;padding:1rem 1.25rem;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.pz-btn:hover{transform:translateY(-1px)}
+.pz-btn-primary{background:#0A1128;color:#fff;box-shadow:0 10px 24px -10px rgba(10,17,40,.7)}
+.pz-btn-secondary{background:#fff;color:#0A1128;border:2px solid #0A1128}
+.pz-note{text-align:center;font-size:.9rem;color:#6a7190;margin:.8rem 0 1.5rem}
+.pz-inc{border-top:1px solid rgba(10,17,40,.12);padding-top:1.4rem;margin-top:auto}
+.pz-inch{font-size:.95rem;font-weight:700;color:#0A1128;margin:0 0 .8rem}
+.pz-inc ul{list-style:none;margin:0;padding:0}
+.pz-inc li{position:relative;padding:.45rem 0 .45rem 1.8rem;font-size:1rem;line-height:1.5;color:#2b3252}
+.pz-inc li b{color:#0A1128;font-weight:600}
+.pz-inc li::before{content:"";position:absolute;left:0;top:.75rem;width:16px;height:16px;border-radius:50%;background:#0A1128}
+.pz-inc li::after{content:"";position:absolute;left:5px;top:1.02rem;width:6px;height:3px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+.pz-pop .pz-inc li::before{background:#1f6feb}
+.pz-pay{text-align:center;font-size:.95rem;color:rgba(246,241,231,.7);margin:1.8rem 0 0}
+@media(max-width:760px){.pz-grid{grid-template-columns:1fr;max-width:520px}.pz-card{padding:2.25rem 1.5rem 1.75rem}.pz-badge{left:1.5rem}.pz-amt{font-size:3.25rem}.pz-desc,.pz-bill{min-height:0}}
+.pz-inc{margin-top:0}
+.pz-name{font-size:1.75rem}.pz-desc{font-size:1.1rem}.pz-amt{font-size:4.25rem}.pz-unit{font-size:1.2rem}.pz-bill{font-size:1.08rem}.pz-inc li{font-size:1.05rem}.pz-inch{font-size:1rem}.pz-btn{font-size:1.15rem;padding:1.1rem 1.25rem}
+.pz-pop .pz-inc{margin-top:0}
