@@ -352,3 +352,56 @@ html body .ec-two .ec-plan.ec-wine .ec-btn.ec-btn-wine{color:#2a0614!important;b
 .ec-flag{top:-19px!important;z-index:3}
 .ec-save{white-space:nowrap;display:inline-block}
 @media(max-width:640px){html body .ec-ledger dd{font-size:1.5rem!important}html body .ec-ledger .tot dd{font-size:1.75rem!important}html body .ec-ledger dt{font-size:.8rem!important}}
+/* v6 — info-rich cards */
+.ec-course-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.6rem;margin:0 auto 2.4rem;padding:1rem 1.6rem;border:1px solid rgba(216,188,133,.3);border-radius:999px;max-width:1100px;font-size:1rem;color:#F6F1E7;background:rgba(255,255,255,.03)}
+.ec-course-strip span+span::before{content:"·";margin-right:1.6rem;color:#D8BC85}
+.ec-course-strip b{color:#F1D9A6}
+.ec-two .ec-plan{align-self:start!important}
+.ec-two .ec-pd{margin:0 0 1.2rem!important;font-size:1.1rem!important;line-height:1.55}
+.ec-what{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#D8BC85;margin:0 0 .4rem}
+.ec-wine .ec-what{color:#E9B8BC}
+.ec-two .ec-pl li{font-size:1.04rem!important}
+.ec-two .ec-pl li b{color:#fff}
+.ec-two .ec-pl li.bonus{background:rgba(255,255,255,.06);border-radius:10px;padding:.85rem 1rem .85rem 2.2rem!important;border-bottom:0;margin-bottom:.3rem}
+.ec-two .ec-pl li.bonus::before{left:.9rem!important}
+.ec-two .ec-micro{margin-top:.9rem!important;font-size:.88rem!important;color:rgba(246,241,231,.65)!important}
+@media(max-width:640px){.ec-course-strip{border-radius:18px;gap:.4rem 1rem;font-size:.95rem}.ec-course-strip span+span::before{margin-right:1rem}}
+/* v7 — much bigger type inside the cards */
+.ec-plans.ec-two{max-width:1240px!important;gap:2.4rem!important}
+.ec-two .ec-plan{padding:3rem 2.8rem 2.8rem!important}
+.ec-two .ec-tag{font-size:.95rem!important;padding:.45rem 1.1rem!important}
+.ec-two .ec-pn{font-size:3rem!important;margin-bottom:.8rem!important}
+.ec-two .ec-pd{font-size:1.35rem!important;line-height:1.5!important;margin-bottom:1.6rem!important}
+.ec-two .ec-pp .amt{font-size:7rem!important}
+.ec-two .ec-hot .ec-pp .amt{font-size:8rem!important}
+.ec-two .ec-pp .cur{font-size:2.6rem!important}
+.ec-two .ec-pp .per{font-size:1.5rem!important;margin-bottom:1rem!important}
+.ec-two .ec-pw{font-size:1.45rem!important;margin-top:.6rem!important}
+.ec-two .ec-save{font-size:1.15rem!important;padding:.25rem .8rem!important}
+.ec-two .ec-ledger dt{font-size:1.05rem!important}
+.ec-two .ec-ledger dd{font-size:2.2rem!important}
+.ec-two .ec-ledger .tot dd{font-size:2.6rem!important}
+.ec-two .ec-ledger .tot dd s{font-size:1.25rem!important}
+.ec-two .ec-ledger div{padding:1.15rem 0!important}
+.ec-two .ec-guar p{font-size:1.25rem!important;line-height:1.6!important}
+.ec-two .ec-guar b{font-size:1.5rem!important}
+.ec-two .ec-guar .seal{flex:0 0 88px!important;height:88px!important;font-size:2.3rem!important}
+.ec-two .ec-guar .seal small{font-size:.75rem!important}
+.ec-two .ec-what{font-size:1rem!important;margin-bottom:.6rem!important}
+.ec-two .ec-pl li{font-size:1.3rem!important;line-height:1.5!important;padding:1rem 0 1rem 2.3rem!important}
+.ec-two .ec-pl li::before{width:10px!important;height:10px!important;top:1.6rem!important}
+.ec-two .ec-pl li.bonus{padding:1rem 1.2rem 1rem 2.6rem!important}
+.ec-two .ec-pl li.bonus::before{left:1.1rem!important}
+.ec-two .ec-btn{font-size:1.35rem!important;padding:1.35rem 2rem!important}
+.ec-two .ec-micro{font-size:1rem!important}
+.ec-course-strip{font-size:1.2rem!important;padding:1.1rem 2rem!important}
+@media(max-width:640px){
+ .ec-two .ec-plan{padding:2.4rem 1.5rem 1.8rem!important}
+ .ec-two .ec-pn{font-size:2.4rem!important}.ec-two .ec-pd{font-size:1.2rem!important}
+ .ec-two .ec-pp .amt{font-size:5.4rem!important}.ec-two .ec-hot .ec-pp .amt{font-size:6rem!important}
+ .ec-two .ec-pw{font-size:1.25rem!important}
+ html body .ec-two .ec-ledger dd{font-size:1.8rem!important}html body .ec-two .ec-ledger .tot dd{font-size:2.1rem!important}
+ .ec-two .ec-guar p{font-size:1.12rem!important}.ec-two .ec-guar b{font-size:1.3rem!important}
+ html body .ec-two .ec-pl li{font-size:1.15rem!important}
+ .ec-two .ec-btn{font-size:1.2rem!important}
+}
