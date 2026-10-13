@@ -64,7 +64,7 @@
     ],
     /* Promo codes shown in the top strip. Display-level pricing; the CRM price plan is the charge of record. */
     promos: {
-      CAPSULE20: { pct: 20, applies: ['capsule-1'], label: '20% off your first Culture Capsule', days: 7 }
+      CAPSULE20: { pct: 20, applies: ['capsule-1', 'capsule-2', 'capsule-3'], label: '20% off any Culture Capsules package', days: 7 }
     },
     classTimes: ['Weekday evenings (my timezone)', 'Weekday mornings or midday', 'Weekend', 'Any — next available start'],
     phone: '+1-888-230-5110',
@@ -108,9 +108,9 @@
       'capsule-3': {
         kind: 'capsules', packs: 3,
         title: 'All 3 Culture Capsules',
-        offerLabel: '3 monthly payments of $237 · $79 per capsule',
-        numberOfPayments: 3, monthly: 237, firstPayment: 237, total: 711, perCapsule: 79,
-        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $79 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
+        offerLabel: '3 monthly payments of $189 · $63 per capsule',
+        numberOfPayments: 3, monthly: 189, firstPayment: 189, total: 567, perCapsule: 63,
+        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $63 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'membership-12': {

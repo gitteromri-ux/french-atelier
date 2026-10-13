@@ -16,7 +16,7 @@
     var strip = document.createElement('a');
     strip.className = 'fa-strip'; strip.href = base + 'capsules.html?promo=' + CODE + '#offers'; strip.setAttribute('aria-label', 'Promo code ' + CODE + ': ' + DEF.label);
     strip.innerHTML = '<span class="fa-strip-code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>' + CODE + '</span>' +
-      '<span class="fa-strip-msg"><b>' + DEF.pct + '% off</b><span class="long"> your first Culture Capsule</span><span class="short"> 1st capsule</span></span>' +
+      '<span class="fa-strip-msg"><b>' + DEF.pct + '% off</b><span class="long"> any Culture Capsules package</span><span class="short"> any package</span></span>' +
       '<span class="fa-strip-ends"><i></i><span class="lbl">Ends in</span><b id="faStripTimer">' + left(exp - Date.now()) + '</b></span>' +
       '<span class="fa-strip-cta">Claim offer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>' +
       '<button type="button" class="fa-strip-x" aria-label="Hide this offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg></button>';
@@ -35,7 +35,7 @@
 
   /* ---- capsules page: show the applied code on the 1-capsule offer ---- */
   function decorate() {
-    if (!isCaps) return;
+    if (!isCaps || document.querySelector('.kpx-plans')) return;
     var pr = FA.promoFor('capsule-1'); if (!pr) return;
     var btn = document.querySelector('.fa-cap-offer [data-fa-buy="capsule-1"]'); if (!btn) return;
     var card = btn.closest('.fa-cap-offer'); if (!card || card.querySelector('.fa-promo-tag')) return;
@@ -53,8 +53,8 @@
   cta.className = 'fa-float-cta'; cta.id = 'faFloatCta';
   var course = FA.product('fa-course');
   if (isCaps) {
-    cta.href = '#offers'; cta.setAttribute('aria-label', 'Join the Culture Capsules — from $79 a month per capsule');
-    cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · 3 monthly payments</span><span class="fa-cta-title">Culture Capsules</span></span><span class="fa-cta-pill"><span class="price">from $79</span><span class="mo">/ MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
+    cta.href = '#offers'; cta.setAttribute('aria-label', 'Join the Culture Capsules — from $63 a month per capsule');
+    cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · 3 monthly payments</span><span class="fa-cta-title">Culture Capsules</span></span><span class="fa-cta-pill"><span class="price">from $63</span><span class="mo">/ MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
     cta.addEventListener('click', function (e) { var t = document.getElementById('offers'); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   } else {
     cta.href = base + 'pricing.html#enroll-online'; cta.setAttribute('aria-label', 'Enroll now in the French Atelier live course — ' + FA.fmt2(course.firstPayment) + ' for the first month, then ' + FA.fmt2(course.monthly) + ' a month');
