@@ -8,7 +8,7 @@
       b.parentNode.replaceChild(f,b);
     });
   });
-  document.querySelectorAll('.kpx-code').forEach(function(b){
+  document.querySelectorAll('.kpx-code, .kpz-code').forEach(function(b){
     b.addEventListener('click',function(){
       var c=b.getAttribute('data-code');
       try{navigator.clipboard.writeText(c);}catch(e){}
