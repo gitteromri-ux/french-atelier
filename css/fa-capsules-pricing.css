@@ -71,3 +71,9 @@
   .kpx-btn{width:68px;height:68px;margin:-34px 0 0 -34px}
   .kpx-eyebrow{font-size:.85rem;letter-spacing:.05em}
 }
+/* overrides of legacy list bullets and mobile button sizing */
+.kpx-feats li::before,.kpx-feats li::marker{content:none!important;display:none!important}
+html:root:root:root:root body#fa .kpx-plan .kpx-cta{font-size:1.25rem!important;padding:1.2rem 1.3rem!important;margin-top:0;letter-spacing:0;text-transform:none;min-height:56px}
+html:root:root:root:root body#fa .kpx-plan.featured .kpx-cta{font-size:1.4rem!important;padding:1.4rem 1.3rem!important;min-height:62px}
+@media (max-width:980px){.kpx-save.is-empty{display:none}}
+@media (max-width:980px){html:root:root:root:root body#fa .kpx-plan .kpx-cta{font-size:1.7rem!important}html:root:root:root:root body#fa .kpx-plan.featured .kpx-cta{font-size:1.85rem!important}.kpx-feats{margin-top:2.2rem}}
