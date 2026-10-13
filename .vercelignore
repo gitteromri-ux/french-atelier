@@ -1,7 +1,5 @@
 .git
-CNAME
+.vercel
 _*.py
 *.sh
-crush_images.py
-recompress_hq.py
-_partials
+qa_*.js
