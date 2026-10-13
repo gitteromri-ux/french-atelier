@@ -83,10 +83,19 @@
       'fa-course': {
         kind: 'course',
         title: 'The French Atelier — 20 live lessons',
-        offerLabel: 'Online enrollment · 41% off · $99 first month, then 4 × $189',
+        offerLabel: 'Start for $99 · first 2 weeks free · then 4 × $175 · $799 total (45% off)',
         listMonthly: 292, listTotal: 1460, numberOfPayments: 5,
-        monthly: 189, firstPayment: 99, total: 855, pct: 41,
-        includes: ['20 live lessons · 85 minutes each', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
+        monthly: 175, firstPayment: 99, total: 799, pct: 45,
+        includes: ['20 live lessons · 85 minutes each', 'First 2 weeks free · cancel within 14 days for a full refund', 'Cancel anytime after that · no further payments', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
+        crmCourse: null
+      },
+      'fa-course-full': {
+        kind: 'course',
+        title: 'The French Atelier — 20 live lessons · paid in full',
+        offerLabel: 'Pay in full · $799 once · 45% off · study groups included',
+        listMonthly: 1460, listTotal: 1460, numberOfPayments: 1,
+        monthly: 799, firstPayment: 799, total: 799, pct: 45,
+        includes: ['20 live lessons · 85 minutes each', 'Twice-weekly study groups included', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },
       'capsule-1': {

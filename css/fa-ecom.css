@@ -1,0 +1,90 @@
+/* FA e-commerce restructure — dark staging, 2026-10-13 */
+.ec-hero .hero-content{max-width:1100px}
+.ec-eyebrow{font-family:var(--sans);font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:#D8BC85;font-weight:600;margin:0 0 1rem}
+.ec-eyebrow.c{text-align:center}
+.ec-h1{font-family:var(--serif);font-size:clamp(2.6rem,5.6vw,4.9rem);line-height:1.04;font-weight:600;color:#fff;margin:0 0 1.2rem;max-width:20ch;text-wrap:balance}
+.ec-sub{font-family:var(--sans);font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.55;color:rgba(255,255,255,.88);max-width:46ch;margin:0 0 1.6rem}
+.ec-hero-price{display:inline-flex;align-items:center;gap:1rem;background:rgba(0,0,31,.6);border:1px solid rgba(216,188,133,.5);border-radius:16px;padding:.8rem 1.3rem;margin-bottom:1.5rem;backdrop-filter:blur(8px)}
+.ec-hero-price .big{font-family:var(--serif);font-size:3rem;line-height:1;color:#D8BC85;font-weight:700}
+.ec-hero-price .txt{font-family:var(--sans);color:#fff;font-size:1.05rem;line-height:1.4}
+.ec-hero-price .txt b{display:block;font-size:1.15rem}
+.ec-hero-price s{opacity:.6}
+.ec-trust{list-style:none;padding:0;margin:1.6rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,.85)}
+.ec-trust li::before{content:"✓ ";color:#D8BC85;font-weight:700}
+.ec-trust li:first-child::before{content:""}
+.ec-learn,.ec-pricing{background:linear-gradient(180deg,#00001F,#000034);color:#fff;padding:clamp(4rem,8vw,7rem) 0}
+.ec-h2{font-family:var(--serif);font-size:clamp(2.2rem,4.4vw,3.8rem);line-height:1.08;font-weight:600;text-align:center;margin:0 auto 1rem;max-width:22ch;color:#fff;text-wrap:balance}
+.ec-lede{font-family:var(--sans);font-size:clamp(1.08rem,1.4vw,1.25rem);line-height:1.6;text-align:center;color:rgba(255,255,255,.82);max-width:60ch;margin:0 auto 2.6rem}
+.ec-lede a{color:#D8BC85;text-decoration:underline}
+.ec-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.6rem}
+.ec-tab{cursor:pointer;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(216,188,133,.25);border-radius:14px;padding:1rem 1.1rem;color:#fff;font-family:var(--sans);transition:.2s}
+.ec-tab b{display:block;font-family:var(--serif);font-size:1.6rem;font-weight:600}
+.ec-tab span{display:block;color:#D8BC85;font-size:.95rem;font-weight:600;margin:.15rem 0}
+.ec-tab em{font-style:normal;font-size:.9rem;opacity:.75}
+.ec-tab[aria-selected="true"]{background:linear-gradient(135deg,rgba(216,188,133,.22),rgba(216,188,133,.06));border-color:#D8BC85;box-shadow:0 0 0 1px #D8BC85,0 20px 40px -20px rgba(216,188,133,.5)}
+.ec-panel{display:grid;grid-template-columns:.9fr 1.3fr;gap:2rem;align-items:start}
+.ec-panel[hidden]{display:none}
+.ec-panel-side{position:sticky;top:100px;background:rgba(255,255,255,.04);border:1px solid rgba(216,188,133,.3);border-radius:18px;padding:1.8rem}
+.ec-k{font-family:var(--sans);color:#D8BC85;font-size:.95rem;font-weight:600;margin:0 0 .6rem}
+.ec-panel-side h3{font-family:var(--serif);font-size:2rem;margin:0 0 1rem;color:#fff}
+.ec-outs{list-style:none;padding:0;margin:0 0 1.4rem;font-family:var(--sans);font-size:1.08rem;line-height:1.45}
+.ec-outs li{padding:.5rem 0 .5rem 1.8rem;position:relative;border-bottom:1px solid rgba(255,255,255,.07)}
+.ec-outs li::before{content:"✓";position:absolute;left:0;color:#D8BC85;font-weight:700}
+.ec-facts{display:flex;gap:1rem;margin-bottom:1.4rem}
+.ec-facts span{flex:1;text-align:center;font-family:var(--sans);font-size:.85rem;opacity:.85;background:rgba(0,0,0,.25);border-radius:10px;padding:.6rem .3rem}
+.ec-facts b{display:block;font-family:var(--serif);font-size:1.7rem;color:#D8BC85}
+.ec-panel-side .btn{width:100%;justify-content:center}
+.ec-more{display:block;text-align:center;margin-top:.9rem;color:#D8BC85;font-family:var(--sans);font-size:1rem}
+.ec-lessons{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;max-height:640px;overflow:auto;padding-right:.4rem}
+.ec-lessons li{display:flex;gap:.8rem;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.85rem .95rem}
+.ec-lessons .n{font-family:var(--serif);font-size:1.5rem;color:#D8BC85;font-weight:700;line-height:1;min-width:2rem}
+.ec-lessons strong{display:block;font-family:var(--sans);font-size:1rem;color:#fff;margin-bottom:.2rem;line-height:1.3}
+.ec-lessons p{margin:0;font-family:var(--sans);font-size:.92rem;line-height:1.45;color:rgba(255,255,255,.72)}
+.ec-cards{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:1.4rem;align-items:center;max-width:1180px;margin:0 auto}
+.ec-card{position:relative;background:rgba(255,255,255,.045);border:1px solid rgba(216,188,133,.28);border-radius:22px;padding:2rem 1.7rem;font-family:var(--sans);display:flex;flex-direction:column}
+.ec-card h3{font-family:var(--serif);font-size:2rem;margin:0;color:#fff}
+.ec-for{margin:.2rem 0 1.2rem;color:rgba(255,255,255,.7);font-size:1rem}
+.ec-price{margin:0;display:flex;align-items:baseline;gap:.5rem}
+.ec-price span{font-family:var(--serif);font-size:3.6rem;font-weight:700;line-height:1;color:#fff}
+.ec-price small{font-size:1.1rem;color:rgba(255,255,255,.7)}
+.ec-then{margin:.4rem 0 0;font-size:1.15rem;color:#fff}
+.ec-was{margin:.5rem 0 1.2rem;font-size:1rem;color:rgba(255,255,255,.7)}
+.ec-card ul{list-style:none;padding:0;margin:0 0 1.6rem;font-size:1.02rem;line-height:1.4}
+.ec-card li{padding:.45rem 0 .45rem 1.6rem;position:relative}
+.ec-card li::before{content:"✓";position:absolute;left:0;color:#D8BC85;font-weight:700}
+.ec-card .btn{width:100%;justify-content:center;margin-top:auto}
+.ec-best{background:linear-gradient(180deg,#141a3d,#06082a);border:2px solid #D8BC85;padding:2.6rem 2rem 2rem;box-shadow:0 40px 90px -30px rgba(216,188,133,.45);transform:scale(1.03)}
+.ec-best .ec-price span{font-size:4.6rem;color:#D8BC85}
+.ec-flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#F6E7C3,#D8BC85 45%,#B9954E);color:#00001F;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:999px;white-space:nowrap}
+.ec-risk{background:rgba(216,188,133,.12);border:1px dashed rgba(216,188,133,.6);border-radius:14px;padding:1rem 1.1rem;font-size:1rem;line-height:1.5;margin:0 0 1.2rem;color:#fff}
+.ec-risk b{color:#D8BC85;display:block;font-size:1.12rem;margin-bottom:.2rem}
+.ec-fine{margin:.8rem 0 0;font-size:.88rem;color:rgba(255,255,255,.6);text-align:center}
+.ec-pay{text-align:center;margin:2rem 0 0;font-family:var(--sans);font-size:.98rem;color:rgba(255,255,255,.72)}
+.ec-compare{max-width:900px;margin:4rem auto 0}
+.ec-compare h3{font-family:var(--serif);font-size:2.2rem;text-align:center;margin:0 0 1.4rem;color:#fff}
+.ec-compare table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:1.02rem}
+.ec-compare th,.ec-compare td{padding:.85rem .8rem;border-bottom:1px solid rgba(255,255,255,.1);text-align:center;color:rgba(255,255,255,.8)}
+.ec-compare td:first-child{text-align:left;color:#fff}
+.ec-compare th{font-size:.95rem;font-weight:600}
+.ec-compare .us{background:rgba(216,188,133,.1);color:#D8BC85;font-weight:600}
+.ec-compare th.us{border-radius:12px 12px 0 0;font-size:1.05rem}
+#taste{padding-top:clamp(3rem,6vw,5rem)}
+@media(max-width:900px){
+ .ec-tabs{grid-template-columns:1fr 1fr}
+ .ec-panel{grid-template-columns:1fr}.ec-panel-side{position:static}
+ .ec-lessons{grid-template-columns:1fr;max-height:520px}
+ .ec-cards{grid-template-columns:1fr;gap:1.8rem}.ec-best{order:-1;transform:none}
+ .ec-hero-price{display:flex}
+ .ec-compare{overflow-x:auto}.ec-compare table{font-size:.9rem;min-width:520px}
+}
+.ec-hero .btn-lg,.ec-learn .btn-lg,.ec-pricing .btn-lg,#taste .btn-lg{font-size:1.08rem!important;letter-spacing:.02em;padding:1.05rem 1.6rem;text-transform:none}
+@media(max-width:700px){
+ .ec-hero{min-height:auto!important;height:auto!important;padding:150px 0 48px!important;display:block!important}
+ .ec-hero .hero-content{padding-top:0!important;position:relative!important;transform:none!important}
+ .ec-h1{font-size:2.35rem}
+ .ec-sub{font-size:1.05rem;margin-bottom:1.1rem}
+ .ec-hero-price{padding:.7rem 1rem}.ec-hero-price .big{font-size:2.4rem}.ec-hero-price .txt{font-size:.95rem}
+ .ec-hero .hero-ctas{flex-direction:column;align-items:stretch}.ec-hero .hero-ctas .btn{width:100%;justify-content:center}
+ .ec-trust{gap:.4rem 1rem;font-size:.92rem}
+ .ec-h2{font-size:2.1rem}
+}
