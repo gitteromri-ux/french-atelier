@@ -489,3 +489,68 @@ html body .ec-light .ec-guar p{font-size:1.08rem!important}
 .pz-name{font-size:1.75rem}.pz-desc{font-size:1.1rem}.pz-amt{font-size:4.25rem}.pz-unit{font-size:1.2rem}.pz-bill{font-size:1.08rem}.pz-inc li{font-size:1.05rem}.pz-inch{font-size:1rem}.pz-btn{font-size:1.15rem;padding:1.1rem 1.25rem}
 .pz-pop .pz-inc{margin-top:0}
 @media(max-width:760px){.pz-badge{font-size:.72rem;white-space:nowrap;top:-14px}.pz-card{padding-top:2.5rem}}
+/* ============ v10 — Engraved invitations. Floor: 1.15rem anywhere. ============ */
+.pq{background:radial-gradient(90% 60% at 50% 0%,rgba(200,169,107,.14),transparent 60%),linear-gradient(180deg,#00001F 0%,#000034 100%);padding:clamp(5rem,9vw,8.5rem) 0}
+.pq *{box-sizing:border-box}
+.pq-head{max-width:960px;margin:0 auto 3.5rem;text-align:center}
+.pq-eyebrow{font-size:1.1rem!important;letter-spacing:.2em!important;color:#D8BC85!important;justify-content:center}
+.pq-h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.8rem,5.4vw,5rem)!important;line-height:1.04;color:#fff;margin:1.2rem 0 1.2rem;text-wrap:balance}
+.pq-lede{font-family:var(--sans);font-size:clamp(1.3rem,1.7vw,1.5rem);line-height:1.6;color:#F3EFE9;margin:0 auto;max-width:62ch;font-weight:300}
+.pq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem;max-width:1180px;margin:0 auto;align-items:stretch}
+.pq-card{position:relative;display:flex;flex-direction:column;border-radius:6px;padding:3.2rem 3rem 3rem;font-family:var(--sans);isolation:isolate}
+.pq-frame{position:absolute;inset:14px;border:1px solid rgba(200,169,107,.55);border-radius:2px;pointer-events:none;z-index:0}
+.pq-frame::before,.pq-frame::after{content:"";position:absolute;width:18px;height:18px;border:1px solid #C8A96B}
+.pq-frame::before{top:-1px;left:-1px;border-right:0;border-bottom:0}.pq-frame::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.pq-card>*:not(.pq-frame):not(.pq-badge){position:relative;z-index:1}
+.pq-card>.pq-badge{position:absolute;z-index:2}
+.pq-navy{background:radial-gradient(120% 70% at 50% -10%,rgba(216,188,133,.22),transparent 55%),linear-gradient(170deg,#0A0F45 0%,#02042A 60%,#00001F 100%);color:#F3EFE9;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 60px 120px -40px rgba(0,0,0,.9),0 30px 60px -30px rgba(200,169,107,.35)}
+.pq-ivory{background:radial-gradient(120% 70% at 50% -10%,#FFFFFF,transparent 55%),linear-gradient(170deg,#FBF8F2 0%,#F3EFE9 60%,#EAE3D6 100%);color:#000034;box-shadow:0 1px 0 #fff inset,0 60px 120px -40px rgba(0,0,0,.8),0 30px 60px -30px rgba(200,169,107,.45)}
+.pq-badge{position:absolute;top:-18px;right:2.6rem;font-size:1.05rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:2px;background:linear-gradient(135deg,#F6E7C3 0%,#D8BC85 40%,#B9954E 100%);color:#00001F;box-shadow:0 12px 24px -10px rgba(185,149,78,.9),inset 0 1px 0 rgba(255,255,255,.7)}
+.pq-badge-ivory{background:#000034;color:#F6E7C3;box-shadow:0 12px 24px -10px rgba(0,0,52,.8)}
+.pq-kicker{font-size:1.15rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0 0 1rem;color:#D8BC85}
+.pq-ivory .pq-kicker{color:#A98D52}
+.pq-name{font-family:var(--serif);font-weight:600;font-size:2.9rem;line-height:1.05;margin:0 0 1.8rem}
+.pq-ivory .pq-name .gold-ital{color:#A98D52}
+.pq-price{display:flex;align-items:flex-end;gap:1.2rem;margin:0 0 1.2rem}
+.pq-amt{font-family:var(--serif);font-weight:600;font-size:7rem;line-height:.82;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.pq-navy .pq-amt{background:linear-gradient(180deg,#FFF6E0 0%,#E6CF9E 55%,#C8A96B 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 24px rgba(200,169,107,.35))}
+.pq-ivory .pq-amt{color:#000034}
+.pq-side{display:flex;flex-direction:column;gap:.2rem;padding-bottom:.4rem}
+.pq-side em{font-family:var(--serif);font-style:italic;font-size:1.9rem;line-height:1;color:#D8BC85}
+.pq-ivory .pq-side em{color:#A98D52}
+.pq-side s{font-family:var(--serif);font-size:1.9rem;line-height:1;color:#D9707F;text-decoration-thickness:1.5px}
+.pq-ivory .pq-side s{color:#B33A4B}
+.pq-bill{font-size:1.45rem;line-height:1.45;margin:0 0 .5rem;font-weight:300}
+.pq-bill b{font-weight:600}
+.pq-ref{font-size:1.2rem;line-height:1.5;margin:0;color:rgba(243,239,233,.8)}
+.pq-ivory .pq-ref{color:#3a3f5c}
+.pq-ref s{color:#D9707F}.pq-ivory .pq-ref s{color:#B33A4B}
+.pq-ref b{color:#F6E7C3;font-weight:600}.pq-ivory .pq-ref b{color:#000034}
+.pq-rule{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,107,.7),transparent);margin:1.8rem 0}
+.pq-btn{width:100%;font-size:1.2rem!important;letter-spacing:.14em!important;padding:1.45rem 2rem!important;border-radius:6px!important}
+.pq-btn svg{width:20px;height:20px}
+.pq-note{text-align:center;font-size:1.15rem;line-height:1.5;margin:1.1rem 0 0;color:rgba(243,239,233,.85)}
+.pq-ivory .pq-note{color:#3a3f5c}
+.pq-inch{font-size:1.1rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#D8BC85;margin:0 0 .6rem}
+.pq-ivory .pq-inch{color:#A98D52}
+.pq-inch-2{margin-top:1.6rem}
+.pq-list{list-style:none;margin:0;padding:0}
+.pq-list li{font-size:1.25rem;line-height:1.5;padding:.95rem 0;border-top:1px solid rgba(200,169,107,.22);font-weight:300}
+.pq-list li:last-child{border-bottom:1px solid rgba(200,169,107,.22)}
+.pq-list li b{font-weight:600}
+.pq-navy .pq-list li b{color:#fff}
+.pq-list-plus li{border-top-color:rgba(200,169,107,.6);background:linear-gradient(90deg,rgba(200,169,107,.12),transparent);padding-left:1rem}
+.pq-pay{text-align:center;font-size:1.15rem;color:rgba(243,239,233,.7);margin:2.4rem 0 0}
+@media(max-width:900px){.pq-grid{grid-template-columns:1fr;max-width:620px;gap:2.6rem}}
+@media(max-width:640px){
+ .pq-card{padding:2.6rem 1.5rem 2rem}.pq-frame{inset:10px}
+ .pq-badge{right:1.4rem;font-size:.95rem;padding:.6rem 1.1rem}
+ .pq-name{font-size:2.3rem}.pq-amt{font-size:5.2rem}.pq-side em,.pq-side s{font-size:1.5rem}
+ .pq-bill{font-size:1.3rem}.pq-ref{font-size:1.15rem}
+ html body .pq-list li{font-size:1.18rem!important}
+ .pq-h2{font-size:2.6rem!important}.pq-lede{font-size:1.25rem}
+}
+html body .pq .pq-badge{display:inline-block!important;width:auto!important;left:auto!important;right:2.6rem!important;top:-18px!important;transform:none!important;max-width:none!important}
+.pq-grid{align-items:start}
+.pq-bill b{color:#fff}.pq-ivory .pq-bill b{color:#000034}
+@media(max-width:640px){html body .pq .pq-badge{right:1.4rem!important}}
