@@ -171,7 +171,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <link rel="stylesheet" href="css/fa-promo.css?v=20261008y">
 <link rel="stylesheet" href="css/fa-pop.css?v=20261008y">
 <link rel="stylesheet" href="css/fa-type.css?v=20261008y">
-<link rel="stylesheet" href="css/fa-ecom.css?v=20261013a">
+<link rel="stylesheet" href="css/fa-ecom.css?v=20261013c">
 </head>
 <body id="fa" class="home">
 
@@ -265,129 +265,222 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 
 
 <!-- ===== HERO (original WordPress banner image + text, restored verbatim) ===== -->
-<section class="hero hero-shift ec-hero">
-  <div class="hero-bg"><img src="assets/gen/hero-original.webp" alt="A distinguished gentleman seated in a grand classical French gallery" fetchpriority="high" decoding="async"></div>
-  <div class="wrap hero-content">
-    <p class="ec-eyebrow">Live online French course · by Acadomia, France</p>
-    <h1 class="ec-h1">Speak real French in 20 live lessons, <span class="gold-ital">taught live from France.</span></h1>
-    <p class="ec-sub">Small groups of 10–12. Native certified teachers. A CEFR certificate from Acadomia at the end. For adults, from absolute beginner to confident conversation.</p>
-    <div class="ec-hero-price"><span class="big">$99</span><span class="txt"><b>Start today for $99</b><s>$292</s> · first 2 weeks free · cancel anytime</span></div>
-    <div class="hero-ctas">
-      <a href="#enroll-online" class="btn btn-gold btn-lg">Start for $99 →</a>
-      <a href="#learn" class="btn btn-ghost-dark btn-lg">See what you'll learn</a>
-    </div>
-    <ul class="ec-trust"><li>★ Excellent on Trustpilot</li><li>150K students a year at Acadomia</li><li>Every lesson recorded, yours for life</li><li>24/7 AI tutor included</li></ul>
+<section class="ec-hero" aria-label="French Atelier live online French course">
+ <div class="ec-hero-bg"><img src="assets/gen/hero-original.webp" alt="" fetchpriority="high" decoding="async"></div>
+ <div class="wrap ec-hero-grid">
+  <div class="ec-hero-copy">
+   <div class="ec-eyebrow">Live online French course · by Acadomia</div>
+   <h1 class="ec-h1">Speak real French in 20&nbsp;live lessons.</h1>
+   <p class="ec-sub">Native teachers broadcasting live from France. Small groups of 10–12. A CEFR certificate from Acadomia when you finish.</p>
+   <ul class="ec-hero-ticks"><li>For adults, from zero to confident conversation</li><li>Every lesson recorded, yours for life</li><li>Julien, your 24/7 AI tutor, between classes</li></ul>
+   <div class="ec-buybox">
+    <div class="ec-bb-price"><span class="now">$99</span><div><b>to start today</b><span><s>$292</s> first month · then 4 × $175</span></div></div>
+    <a href="#enroll-online" class="btn btn-gold btn-lg ec-btn">Start for $99 · 2 weeks free</a>
+    <div class="ec-bb-risk"><b>Try the first 2 weeks free.</b> Not for you? Cancel within 14 days, full refund.</div>
+   </div>
+   <a href="#learn" class="ec-textlink">See all 20 lessons first ↓</a>
   </div>
-</section>
-<section class="ec-learn" id="learn">
-  <div class="wrap">
-    <p class="ec-eyebrow c">What you'll learn</p>
-    <h2 class="ec-h2">Pick your level. See every lesson before you pay.</h2>
-    <p class="ec-lede">Four courses, A0 to A2.2. Each one is 20 live lessons, once a week, set in a real place in France. Not sure of your level? <a href="#placement">Take the free 5-minute test.</a></p>
-    <div class="ec-tabs" role="tablist"><button role="tab" class="ec-tab" aria-selected="true" data-ec-tab="fa-foundation"><b>Foundation</b><span>A0 → A1.1</span><em>Complete beginner</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-beginner"><b>Beginner</b><span>A1.1 → A1.2</span><em>You know the basics</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-elementary"><b>Elementary</b><span>A1.2 → A2.1</span><em>You can get by</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-intermediate"><b>Intermediate</b><span>A2.1 → A2.2</span><em>You converse with effort</em></button></div>
-    <div class="ec-panel" data-ec-panel="fa-foundation">
-<div class="ec-panel-side"><p class="ec-k">FA Foundation · A0 → A1.1 · Paris · a long weekend</p><h3>After 20 lessons, you will:</h3><ul class="ec-outs"><li>Introduce yourself and make small talk with confidence</li><li>Order at a café, a boulangerie and a restaurant</li><li>Ask for directions and get around Paris by métro</li><li>Understand French people when they answer you</li></ul>
-<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
-<button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course" data-fa-level="foundation">Start Foundation for $99</button>
-<a class="ec-more" href="courses/fa-foundation.html">Full course page →</a></div>
-<ol class="ec-lessons"><li><span class="n">01</span><div><strong>Se présenter</strong><p>Greet, exchange names, and propose the use of tu with s&rsquo;appelle.</p></div></li><li><span class="n">02</span><div><strong>Épeler &amp; vérifier une information</strong><p>Ask how to spell a word, spell it back, and confirm or correct using clarification strategies.</p></div></li><li><span class="n">03</span><div><strong>Demander son chemin</strong><p>Use excusez-moi and c&rsquo;est où&nbsp;? to ask for directions.</p></div></li><li><span class="n">04</span><div><strong>Réparer + commander une boisson simple</strong><p>Signal a communication breakdown, ask for repetition or slower speech, and place a simple order at a café.</p></div></li><li><span class="n">05</span><div><strong>Commander &#91;1/5&#93; &mdash; Je voudrais… + c&rsquo;est combien&nbsp;?</strong><p>Order food and drinks using je voudrais, ask for the price, and handle numbers 0&ndash;39.</p></div></li><li><span class="n">06</span><div><strong>Commander &#91;2/5&#93; &mdash; Autre chose&nbsp;?</strong><p>Respond to Autre chose&nbsp;? and C&rsquo;est tout&nbsp;?, add items to an order, and practice numbers 40&ndash;69.</p></div></li><li><span class="n">07</span><div><strong>Proposer une sortie simple</strong><p>Use être and the pronoun y to suggest an outing, accept or decline, and make a simple decision.</p></div></li><li><span class="n">08</span><div><strong>Accepter / refuser + exprimer une préférence</strong><p>Use je préfère to choose between two options, accept or refuse politely, and reach a clear decision.</p></div></li><li><span class="n">09</span><div><strong>Échanger un numéro de téléphone</strong><p>Ask for and give a phone number, verify it using c&rsquo;est…, c&rsquo;est ça&nbsp;?, and practice numbers 70&ndash;99.</p></div></li><li><span class="n">10</span><div><strong>Commander &#91;3/5&#93; &mdash; Payer par carte</strong><p>Express hunger and thirst with j&rsquo;ai faim / soif, place an order, and pay by card.</p></div></li><li><span class="n">11</span><div><strong>Acheter un billet / demander un prix</strong><p>Buy a ticket, ask for the price, and pay.</p></div></li><li><span class="n">12</span><div><strong>Donner / échanger email &amp; adresse</strong><p>Exchange email addresses and street addresses using possessive adjectives (mon, ma).</p></div></li><li><span class="n">13</span><div><strong>Parler de son origine / où on habite</strong><p>Use venir de and habiter à to talk about where you are from and where you live.</p></div></li><li><span class="n">14</span><div><strong>Gérer un imprévu</strong><p>Handle an unexpected situation (a closed venue), propose an alternative plan, and make a decision.</p></div></li><li><span class="n">15</span><div><strong>Fixer un rendez-vous (date / heure)</strong><p>Propose a time and date, negotiate with ça va&nbsp;?, confirm, and close the exchange.</p></div></li><li><span class="n">16</span><div><strong>Commander &#91;4/5&#93; &mdash; Réactivation</strong><p>Revisit ordering sequences at a faster pace: respond to Autre chose&nbsp;? in three different ways, order one or two items, and close the interaction politely.</p></div></li><li><span class="n">17</span><div><strong>Commander &#91;5/5&#93; &mdash; Je prends… + l&rsquo;addition</strong><p>Use je prends, react to an unavailable item, and ask for the bill.</p></div></li><li><span class="n">18</span><div><strong>Exprimer une préférence + justifier</strong><p>Choose between two options, say je préfère…, and justify with parce que c&rsquo;est + adjectif.</p></div></li><li><span class="n">19</span><div><strong>Arrivée &mdash; Se présenter + orientation + réparation &#91;1/2&#93;</strong><p>Chain two micro-tasks &mdash; introducing yourself and asking for directions &mdash; with a repair strategy if needed.</p></div></li><li><span class="n">20</span><div><strong>Commander + payer + réparer + conclure &#91;2/2&#93;</strong><p>Complete a full ordering and payment scenario at speed, using at least one correct formula and closing politely.</p></div></li></ol></div><div class="ec-panel" data-ec-panel="fa-beginner" hidden>
-<div class="ec-panel-side"><p class="ec-k">FA Beginner · A1.1 → A1.2 · Normandy → Paris & Versailles</p><h3>After 20 lessons, you will:</h3><ul class="ec-outs"><li>Tell stories in the past (passé composé)</li><li>Talk about family, routines, weather and plans</li><li>Shop at a French market with quantities</li><li>Hold a 2–3 minute conversation on your own</li></ul>
-<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
-<button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course" data-fa-level="beginner">Start Beginner for $99</button>
-<a class="ec-more" href="courses/fa-beginner.html">Full course page →</a></div>
-<ol class="ec-lessons"><li><span class="n">01</span><div><strong>Se repérer : demander / indiquer une direction simple</strong><p>Ask for and give simple directions using pardon, où est… s&rsquo;il vous plaît&nbsp;? and vous tournez à gauche / à droite.</p></div></li><li><span class="n">02</span><div><strong>Se présenter : profession, nationalité &amp; tour de parole</strong><p>Introduce yourself beyond the basics: say your profession with je suis + métier, your nationality, and ask tu fais quoi&nbsp;?.</p></div></li><li><span class="n">03</span><div><strong>Dire où on est : se situer en temps réel</strong><p>Locate yourself using je suis là, devant…, juste en face de…, and c&rsquo;est à côté de….</p></div></li><li><span class="n">04</span><div><strong>Dire d&rsquo;où on vient / où on habite + relancer</strong><p>Use je viens de… and j&rsquo;habite à… to talk about origin and home, ask back (et toi&nbsp;?), and add detail with neighbourhood references.</p></div></li><li><span class="n">05</span><div><strong>Parler de sa famille + âge (avoir)</strong><p>Talk about family using avoir: say your age (j&rsquo;ai … ans), mention siblings, parents, and children.</p></div></li><li><span class="n">06</span><div><strong>Saluer + prendre des nouvelles + clôturer (tu / vous)</strong><p>Use bonjour / bonsoir, ask ça va&nbsp;?, and respond naturally.</p></div></li><li><span class="n">07</span><div><strong>Demander poliment / s&rsquo;excuser + réparer</strong><p>Use polite formulas (excusez-moi, est-ce que vous pouvez m&rsquo;aider&nbsp;?) and repair strategies.</p></div></li><li><span class="n">08</span><div><strong>Localiser : dire où est… (c&rsquo;est / il y a)</strong><p>Use c&rsquo;est and il y a to describe location: give a street, a number, and distances (près d&rsquo;ici / loin).</p></div></li><li><span class="n">09</span><div><strong>Décrire ce qu&rsquo;on voit + donner un avis simple</strong><p>Describe three elements using c&rsquo;est un/une…, il y a…, je vois… and express a simple opinion (j&rsquo;aime bien / je n&rsquo;aime pas).</p></div></li><li><span class="n">10</span><div><strong>Fixer une date / heure + parler de projets (futur proche)</strong><p>Give the date and day, talk about plans using demain, je vais… and cette semaine, je vais…, and agree on a meeting time.</p></div></li><li><span class="n">11</span><div><strong>Proposer une activité (14 juillet) + se mettre d&rsquo;accord</strong><p>Suggest Bastille Day activities (on va voir le feu d&rsquo;artifice / on va au bal), negotiate a time, and confirm with ça te va&nbsp;?.</p></div></li><li><span class="n">12</span><div><strong>Décrire ses routines + négation utile</strong><p>Talk about daily routine with reflexive verbs (je me lève à…) and negate habits (je ne travaille pas le week-end).</p></div></li><li><span class="n">13</span><div><strong>Parler de la météo + réagir</strong><p>Ask and answer about the weather using il fait beau / froid / chaud, il pleut / il neige, and predict with demain, il va faire….</p></div></li><li><span class="n">14</span><div><strong>Choisir / proposer une activité selon la météo</strong><p>Based on the weather, suggest two activities, invite someone (tu veux venir&nbsp;?), accept or decline, and fix a time.</p></div></li><li><span class="n">15</span><div><strong>Parler d&rsquo;activités (verbes en -ER) + organiser une sortie</strong><p>Use common -er verbs to describe leisure activities, plan a museum outing (on prend des billets&nbsp;? / on y va comment&nbsp;? / en métro), and arrange a meeting point.</p></div></li><li><span class="n">16</span><div><strong>Poser des questions avec « est-ce que » + mini-interview</strong><p>Form questions with est-ce que and conduct a short 5-question interview.</p></div></li><li><span class="n">17</span><div><strong>Poser des questions (mots interrogatifs) + relancer</strong><p>Use question words qui, où, quand, pourquoi, comment to ask and answer in a flowing conversation.</p></div></li><li><span class="n">18</span><div><strong>Parler de ce qu&rsquo;on mange / boit + préférences</strong><p>Discuss food and drink habits using je mange…, je bois…, j&rsquo;aime… parce que c&rsquo;est bon, and offer or decline with tu en veux&nbsp;? / oui, volontiers&nbsp;!.</p></div></li><li><span class="n">19</span><div><strong>Acheter au marché : quantités + articles partitifs</strong><p>Buy produce at a French market using quantities (un kilo de…, deux cents grammes de…) and partitive articles.</p></div></li><li><span class="n">20</span><div><strong>Parler de son expérience + dire au revoir (clôture FA1)</strong><p>Give a free 2&ndash;3 minute spoken account of your stay using at least 5 different speech acts from FA1 &mdash; directions, family, weather, food, outings &mdash; and close warmly.</p></div></li></ol></div><div class="ec-panel" data-ec-panel="fa-elementary" hidden>
-<div class="ec-panel-side"><p class="ec-k">FA Elementary · A1.2 → A2.1 · Loire → Bordeaux → Basque Country</p><h3>After 20 lessons, you will:</h3><ul class="ec-outs"><li>Hold real conversations, not just phrases</li><li>Describe experiences and explain your opinion</li><li>Handle travel, hotels, restaurants and appointments</li><li>Understand natural spoken French</li></ul>
-<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
-<button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course" data-fa-level="elementary">Start Elementary for $99</button>
-<a class="ec-more" href="courses/fa-elementary.html">Full course page →</a></div>
-<ol class="ec-lessons"><li><span class="n">01</span><div><strong>Se présenter : saluer + dire qui on est</strong><p>Reactivate greetings and introductions at a higher level: use moi, c&rsquo;est… / je suis…, maintain a coherent tu / vous register, and exchange at least 2 pieces of identity information before asking back.</p></div></li><li><span class="n">02</span><div><strong>Demander et donner une direction simple</strong><p>Ask for directions with excusez-moi, pour aller à…, c&rsquo;est par où&nbsp;? and give a simple itinerary (tout droit, puis à gauche).</p></div></li><li><span class="n">03</span><div><strong>Exprimer une préférence + justifier simplement</strong><p>Choose between two options, say je préfère… parce que c&rsquo;est plus…, and agree on a destination.</p></div></li><li><span class="n">04</span><div><strong>Demander et indiquer une direction (reprise + pression)</strong><p>Ask for two different locations and give two complete directions.</p></div></li><li><span class="n">05</span><div><strong>Proposer une mini-sortie + se mettre d&rsquo;accord</strong><p>Plan a short outing: suggest a meeting point and time (on se retrouve à…, à… heures&nbsp;?), sequence two activities (après, on va à…), and confirm.</p></div></li><li><span class="n">06</span><div><strong>Commander au bar / restaurant (poliment)</strong><p>Order two items using je voudrais…, s&rsquo;il vous plaît, respond to a follow-up (c&rsquo;est tout&nbsp;?), and ask for the bill.</p></div></li><li><span class="n">07</span><div><strong>Partager + exprimer une quantité (pronom en)</strong><p>Offer and respond to sharing using the pronoun en (vous en voulez&nbsp;? / oui, j&rsquo;en veux / j&rsquo;en prends un peu).</p></div></li><li><span class="n">08</span><div><strong>Recommander + exprimer une préférence</strong><p>Recommend a wine or dish using je te conseille celui-là, ask tu préfères rouge ou blanc&nbsp;?, and reach a joint decision.</p></div></li><li><span class="n">09</span><div><strong>Comparer + justifier (parce que / mais)</strong><p>Compare two options using je préfère… parce que…, introduce a nuance with mais l&rsquo;autre option est plus…, and decide together (bon, on prend…).</p></div></li><li><span class="n">10</span><div><strong>Exprimer ses goûts + justifier</strong><p>Share a cultural preference using j&rsquo;aime bien… parce que…, invite the other person (et toi, tu préfères quoi&nbsp;?), and respond with ah oui, je vois.</p></div></li><li><span class="n">11</span><div><strong>Proposer une sortie + se mettre d&rsquo;accord</strong><p>Suggest a weekend outing (t&rsquo;as envie de sortir&nbsp;? on pourrait aller au ciné&nbsp;?), negotiate a preference, fix a time and place, and sequence the plan (d&rsquo;abord… ensuite…).</p></div></li><li><span class="n">12</span><div><strong>Raconter un souvenir court (passé composé)</strong><p>Narrate a short memory using the passé composé (on a visité…, c&rsquo;était top, j&rsquo;ai adoré), react to someone else&rsquo;s story, and ask c&rsquo;était quand, exactement&nbsp;?.</p></div></li><li><span class="n">13</span><div><strong>Exprimer une opinion + justifier (accord / désaccord simple)</strong><p>Use je trouve que c&rsquo;est… and pour moi… to share an opinion, agree or disagree simply, and justify with parce que….</p></div></li><li><span class="n">14</span><div><strong>Décrire une œuvre + exprimer une préférence</strong><p>Describe a work of art (c&rsquo;est un tableau / une sculpture) using two adjectives and je trouve ça vraiment beau / bizarre, express a preference, and ask for the other person&rsquo;s view.</p></div></li><li><span class="n">15</span><div><strong>Présenter une œuvre (mini-exposé) + justifier</strong><p>Give a structured 30&ndash;45 second presentation of a work of art: je vais vous parler de…, c&rsquo;est une œuvre de…, ça a été créé en…, explain what you love most, and answer one question.</p></div></li><li><span class="n">16</span><div><strong>Organiser un parcours + se mettre d&rsquo;accord</strong><p>Negotiate a visit itinerary by proposing a sequence (on commence par…, et ensuite…), asking for agreement (t&rsquo;es d&rsquo;accord&nbsp;?), and closing with OK, c&rsquo;est décidé&nbsp;!.</p></div></li><li><span class="n">17</span><div><strong>Raconter / imaginer (micro-récit)</strong><p>Narrate and imagine a scene using discourse markers d&rsquo;abord…, et ensuite…, à la fin… and imaginative prompts.</p></div></li><li><span class="n">18</span><div><strong>Organiser une visite (heure / lieu / étapes) + valider</strong><p>Plan a full visit: agree on a meeting point and time, sequence three stages (après, on passe par…), and confirm (super, c&rsquo;est noté&nbsp;!).</p></div></li><li><span class="n">19</span><div><strong>Micro-récit + réagir / relancer (pré-bilan)</strong><p>Narrate a recent outing in 4 sentences, express a nuanced reaction (j&rsquo;ai adoré / j&rsquo;ai pas trop aimé), respond to ah bon&nbsp;? et alors&nbsp;?, and keep the exchange going for at least 12 turns.</p></div></li><li><span class="n">20</span><div><strong>Consolider : défendre un choix + négocier + conclure</strong><p>Defend a choice using moi, je choisis… parce que… / c&rsquo;est mieux parce que…, propose an alternative (on pourrait aussi…), and close a joint decision.</p></div></li></ol></div><div class="ec-panel" data-ec-panel="fa-intermediate" hidden>
-<div class="ec-panel-side"><p class="ec-k">FA Intermediate · A2.1 → A2.2 · Marseille → Chamonix → Alsace</p><h3>After 20 lessons, you will:</h3><ul class="ec-outs"><li>Debate, negotiate and compare cultures</li><li>Express nuance, preferences and arguments</li><li>Handle unexpected situations without switching to English</li><li>Finish certified at A2.2 by Acadomia</li></ul>
-<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
-<button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course" data-fa-level="intermediate">Start Intermediate for $99</button>
-<a class="ec-more" href="courses/fa-intermediate.html">Full course page →</a></div>
-<ol class="ec-lessons"><li><span class="n">01</span><div><strong>Inviter / proposer une sortie</strong><p>Invite someone out using et si on allait au théâtre&nbsp;?, agree on a time and place, and confirm warmly.</p></div></li><li><span class="n">02</span><div><strong>Refuser poliment + proposer une alternative</strong><p>Decline an invitation using merci, j&rsquo;aimerais bien, mais je ne peux pas ce soir, give a brief reason, and immediately offer a concrete alternative.</p></div></li><li><span class="n">03</span><div><strong>Négocier + conclure un compromis</strong><p>Raise a constraint (c&rsquo;est un peu cher), propose a practical concession (si on prend les places au fond, c&rsquo;est moins cher), and close with a clear joint decision.</p></div></li><li><span class="n">04</span><div><strong>Exprimer une préférence culturelle + comparer</strong><p>Share a preference about social customs using moi, je préfère…, justify it once (parce que), and invite comparison (et dans ton pays, on fait comment&nbsp;?).</p></div></li><li><span class="n">05</span><div><strong>Exprimer une gêne + demander conseil</strong><p>Express uncertainty about a social situation, ask for the other person&rsquo;s preference, and propose a comfortable alternative (si tu veux, on peut se serrer la main).</p></div></li><li><span class="n">06</span><div><strong>Recommander + micro-récit au passé</strong><p>Open with a short past-tense anecdote (hier, je suis allé(e) au cinéma), make a recommendation (je te conseille ce film), justify it, introduce a nuance (en revanche…), and invite the other person.</p></div></li><li><span class="n">07</span><div><strong>Donner un avis + voter entre deux options</strong><p>Share a personal opinion about a cultural event, justify it, compare two options, and reach a joint decision.</p></div></li><li><span class="n">08</span><div><strong>Donner un avis + comparer deux œuvres</strong><p>Express two opinions on works of art, compare them (celui-là est plus sombre, mais il est beau), and ask et toi, tu préfères lequel&nbsp;?.</p></div></li><li><span class="n">09</span><div><strong>Organiser un parcours + gérer un imprévu</strong><p>Plan a three-stage visit, handle an unexpected closure (mince, la salle est fermée… on fait quoi&nbsp;?), and agree on a plan B.</p></div></li><li><span class="n">10</span><div><strong>Comparer + nuancer un avis</strong><p>Compare two cultural experiences, introduce nuance with mais / en revanche / au final, and state a clear personal preference.</p></div></li><li><span class="n">11</span><div><strong>Recommander un endroit + se repérer</strong><p>Express a preference for a neighbourhood, handle a moment of disorientation (excuse-moi, je suis un peu perdu(e)…), and make a local recommendation.</p></div></li><li><span class="n">12</span><div><strong>Nuancer un avis + défendre un choix</strong><p>Assert a position (pour moi, c&rsquo;est plus intéressant), acknowledge the counterargument (oui, mais c&rsquo;est aussi plus difficile), and defend a practical decision using concessive connectors.</p></div></li><li><span class="n">13</span><div><strong>Proposer + comparer deux destinations</strong><p>Propose two travel destinations, compare them on one criterion, justify your preference (parce que), and reach a joint decision.</p></div></li><li><span class="n">14</span><div><strong>Organiser un programme + gérer un désaccord + un imprévu</strong><p>Negotiate a 3-step itinerary with a diverging view, use concessive connectors (certes…, mais / même si / pourtant), then handle an unexpected problem and agree on a plan B together.</p></div></li><li><span class="n">15</span><div><strong>Raconter une expérience (week-end) + relancer</strong><p>Narrate a past weekend in 4 sentences using the passé composé, express a reaction or emotion, and hand the floor back (et toi, tu as fait quoi&nbsp;?).</p></div></li><li><span class="n">16</span><div><strong>Comparer + recommander selon un critère</strong><p>Compare two destinations on multiple criteria, recommend one conditionally (je te recommande la Bretagne si tu aimes la nature), and introduce a counterpoint (en revanche, la Provence est mieux pour la chaleur).</p></div></li><li><span class="n">17</span><div><strong>Acheter au marché + négocier un prix</strong><p>Request a specific quantity of a product, ask a quality question, and attempt a soft negotiation (vous me faites un petit prix&nbsp;?).</p></div></li><li><span class="n">18</span><div><strong>Signaler un problème + demander une solution</strong><p>Signal a problem at a restaurant or shop calmly and factually, request a remedy (vous pouvez le réchauffer, s&rsquo;il vous plaît&nbsp;?), and conclude the interaction once the issue is resolved.</p></div></li><li><span class="n">19</span><div><strong>Raconter un événement culturel + relancer</strong><p>Narrate a past experience of a French national celebration in 4 sentences, use a time marker (l&rsquo;année dernière, j&rsquo;ai regardé…), describe the atmosphere, and invite the other person to share their experience.</p></div></li><li><span class="n">20</span><div><strong>Comparer deux cultures + exprimer un avis nuancé</strong><p>Compare a French tradition with its equivalent in your own culture, give a personal opinion (en France, je trouve ça plus festif), justify it, and introduce a counterpoint (en revanche…).</p></div></li></ol></div>
+  <div class="ec-hero-media">
+   <div class="ec-device">
+    <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata"><source src="assets/video/demo-class.mp4" type="video/mp4"></video>
+    <span class="ec-live"><i></i>Live from France</span>
+   </div>
+   <div class="ec-chip c1"><b>10–12</b><span>learners per class</span></div>
+   <div class="ec-chip c2"><b>CEFR</b><span>certificate by Acadomia</span></div>
+   <div class="ec-chip c3"><span class="st">★★★★★</span><span>Excellent on Trustpilot</span></div>
   </div>
-</section>
-<section class="section-pad bg-navy-deep on-dark" id="taste">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:64ch;margin:0 auto 2.4rem">
-      <p class="eyebrow eyebrow-line">A taste of the lesson</p>
-      <h2 class="display-md" style="margin:1.4rem 0">Watch a real teacher. <span class="gold-ital">Press sound on.</span></h2>
-      <p class="lede">This is what your live class sounds like: native teachers, real places, real French.</p>
+ </div>
+ <div class="wrap"><ul class="ec-proof">
+  <li><b>150K</b><span>students a year at Acadomia</span></li>
+  <li><b>20K+</b><span>French teachers in the group</span></li>
+  <li><b>1M+</b><span>learners on the eTeacher platform</span></li>
+  <li><b>190+</b><span>countries</span></li>
+ </ul></div>
+</section><section class="ec-sec ec-learn" id="learn">
+ <div class="wrap">
+  <header class="ec-head"><div class="ec-eyebrow">What you'll learn</div><h2 class="ec-h2">Choose your level. See every lesson before you pay.</h2>
+  <p class="ec-lede">Four courses, CEFR A0 to A2.2. Each is 20 live lessons, one a week, set in a real place in France. Not sure where you fit? <a href="#placement">Take the free 5-minute level test.</a></p></header>
+  <div class="ec-tabs" role="tablist" aria-label="Course level"><button role="tab" class="ec-tab" aria-selected="true" data-ec-tab="fa-foundation"><span class="lv">A0 → A1.1</span><b>Foundation</b><em>Complete beginner</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-beginner"><span class="lv">A1.1 → A1.2</span><b>Beginner</b><em>You know the basics</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-elementary"><span class="lv">A1.2 → A2.1</span><b>Elementary</b><em>You can get by</em></button><button role="tab" class="ec-tab" aria-selected="false" data-ec-tab="fa-intermediate"><span class="lv">A2.1 → A2.2</span><b>Intermediate</b><em>You converse with effort</em></button></div>
+  <div class="ec-panel" data-ec-panel="fa-foundation">
+<aside class="ec-pside"><div class="ec-pimg"><img src="assets/courses_webp/fa-foundation-1.webp" alt="FA Foundation course setting: Paris · a long weekend" loading="lazy"><span>Paris · a long weekend</span></div>
+<div class="ec-pbody"><div class="ec-k">FA Foundation · CEFR A0 → A1.1</div><h3>After this course you can:</h3><ul class="ec-outs"><li>Introduce yourself and make small talk</li><li>Order at a café, boulangerie and restaurant</li><li>Ask for directions and use the métro</li><li>Understand the answers people give you</li></ul>
+<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
+<button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course" data-fa-level="foundation">Start Foundation for $99</button>
+<div class="ec-micro">First 2 weeks free · cancel anytime</div>
+<a class="ec-more" href="courses/fa-foundation.html">Full course page &amp; syllabus PDF →</a></div></aside>
+<div class="ec-curr"><div class="ec-currh">The full curriculum · 20 lessons in 4 modules</div><details class="ec-mod" open><summary><span class="mn">Module 1</span><span class="ml">Lessons 1–5</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">01</span><div><strong>Se présenter</strong><p>Greet, exchange names, and propose the use of tu with s&rsquo;appelle.</p></div></li><li><span class="n">02</span><div><strong>Épeler &amp; vérifier une information</strong><p>Ask how to spell a word, spell it back, and confirm or correct using clarification strategies.</p></div></li><li><span class="n">03</span><div><strong>Demander son chemin</strong><p>Use excusez-moi and c&rsquo;est où&nbsp;? to ask for directions.</p></div></li><li><span class="n">04</span><div><strong>Réparer + commander une boisson simple</strong><p>Signal a communication breakdown, ask for repetition or slower speech, and place a simple order at a café.</p></div></li><li><span class="n">05</span><div><strong>Commander &#91;1/5&#93; &mdash; Je voudrais… + c&rsquo;est combien&nbsp;?</strong><p>Order food and drinks using je voudrais, ask for the price, and handle numbers 0&ndash;39.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 2</span><span class="ml">Lessons 6–10</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">06</span><div><strong>Commander &#91;2/5&#93; &mdash; Autre chose&nbsp;?</strong><p>Respond to Autre chose&nbsp;? and C&rsquo;est tout&nbsp;?, add items to an order, and practice numbers 40&ndash;69.</p></div></li><li><span class="n">07</span><div><strong>Proposer une sortie simple</strong><p>Use être and the pronoun y to suggest an outing, accept or decline, and make a simple decision.</p></div></li><li><span class="n">08</span><div><strong>Accepter / refuser + exprimer une préférence</strong><p>Use je préfère to choose between two options, accept or refuse politely, and reach a clear decision.</p></div></li><li><span class="n">09</span><div><strong>Échanger un numéro de téléphone</strong><p>Ask for and give a phone number, verify it using c&rsquo;est…, c&rsquo;est ça&nbsp;?, and practice numbers 70&ndash;99.</p></div></li><li><span class="n">10</span><div><strong>Commander &#91;3/5&#93; &mdash; Payer par carte</strong><p>Express hunger and thirst with j&rsquo;ai faim / soif, place an order, and pay by card.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 3</span><span class="ml">Lessons 11–15</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">11</span><div><strong>Acheter un billet / demander un prix</strong><p>Buy a ticket, ask for the price, and pay.</p></div></li><li><span class="n">12</span><div><strong>Donner / échanger email &amp; adresse</strong><p>Exchange email addresses and street addresses using possessive adjectives (mon, ma).</p></div></li><li><span class="n">13</span><div><strong>Parler de son origine / où on habite</strong><p>Use venir de and habiter à to talk about where you are from and where you live.</p></div></li><li><span class="n">14</span><div><strong>Gérer un imprévu</strong><p>Handle an unexpected situation (a closed venue), propose an alternative plan, and make a decision.</p></div></li><li><span class="n">15</span><div><strong>Fixer un rendez-vous (date / heure)</strong><p>Propose a time and date, negotiate with ça va&nbsp;?, confirm, and close the exchange.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 4</span><span class="ml">Lessons 16–20</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">16</span><div><strong>Commander &#91;4/5&#93; &mdash; Réactivation</strong><p>Revisit ordering sequences at a faster pace: respond to Autre chose&nbsp;? in three different ways, order one or two items, and close the interaction politely.</p></div></li><li><span class="n">17</span><div><strong>Commander &#91;5/5&#93; &mdash; Je prends… + l&rsquo;addition</strong><p>Use je prends, react to an unavailable item, and ask for the bill.</p></div></li><li><span class="n">18</span><div><strong>Exprimer une préférence + justifier</strong><p>Choose between two options, say je préfère…, and justify with parce que c&rsquo;est + adjectif.</p></div></li><li><span class="n">19</span><div><strong>Arrivée &mdash; Se présenter + orientation + réparation &#91;1/2&#93;</strong><p>Chain two micro-tasks &mdash; introducing yourself and asking for directions &mdash; with a repair strategy if needed.</p></div></li><li><span class="n">20</span><div><strong>Commander + payer + réparer + conclure &#91;2/2&#93;</strong><p>Complete a full ordering and payment scenario at speed, using at least one correct formula and closing politely.</p></div></li></ol></details></div></div><div class="ec-panel" data-ec-panel="fa-beginner" hidden>
+<aside class="ec-pside"><div class="ec-pimg"><img src="assets/courses_webp/fa-beginner-1.webp" alt="FA Beginner course setting: Normandy → Paris & Versailles" loading="lazy"><span>Normandy → Paris & Versailles</span></div>
+<div class="ec-pbody"><div class="ec-k">FA Beginner · CEFR A1.1 → A1.2</div><h3>After this course you can:</h3><ul class="ec-outs"><li>Tell stories in the past (passé composé)</li><li>Talk about family, routines, weather and plans</li><li>Shop at a French market with quantities</li><li>Speak on your own for 2–3 minutes</li></ul>
+<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
+<button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course" data-fa-level="beginner">Start Beginner for $99</button>
+<div class="ec-micro">First 2 weeks free · cancel anytime</div>
+<a class="ec-more" href="courses/fa-beginner.html">Full course page &amp; syllabus PDF →</a></div></aside>
+<div class="ec-curr"><div class="ec-currh">The full curriculum · 20 lessons in 4 modules</div><details class="ec-mod" open><summary><span class="mn">Module 1</span><span class="ml">Lessons 1–5</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">01</span><div><strong>Se repérer : demander / indiquer une direction simple</strong><p>Ask for and give simple directions using pardon, où est… s&rsquo;il vous plaît&nbsp;? and vous tournez à gauche / à droite.</p></div></li><li><span class="n">02</span><div><strong>Se présenter : profession, nationalité &amp; tour de parole</strong><p>Introduce yourself beyond the basics: say your profession with je suis + métier, your nationality, and ask tu fais quoi&nbsp;?.</p></div></li><li><span class="n">03</span><div><strong>Dire où on est : se situer en temps réel</strong><p>Locate yourself using je suis là, devant…, juste en face de…, and c&rsquo;est à côté de….</p></div></li><li><span class="n">04</span><div><strong>Dire d&rsquo;où on vient / où on habite + relancer</strong><p>Use je viens de… and j&rsquo;habite à… to talk about origin and home, ask back (et toi&nbsp;?), and add detail with neighbourhood references.</p></div></li><li><span class="n">05</span><div><strong>Parler de sa famille + âge (avoir)</strong><p>Talk about family using avoir: say your age (j&rsquo;ai … ans), mention siblings, parents, and children.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 2</span><span class="ml">Lessons 6–10</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">06</span><div><strong>Saluer + prendre des nouvelles + clôturer (tu / vous)</strong><p>Use bonjour / bonsoir, ask ça va&nbsp;?, and respond naturally.</p></div></li><li><span class="n">07</span><div><strong>Demander poliment / s&rsquo;excuser + réparer</strong><p>Use polite formulas (excusez-moi, est-ce que vous pouvez m&rsquo;aider&nbsp;?) and repair strategies.</p></div></li><li><span class="n">08</span><div><strong>Localiser : dire où est… (c&rsquo;est / il y a)</strong><p>Use c&rsquo;est and il y a to describe location: give a street, a number, and distances (près d&rsquo;ici / loin).</p></div></li><li><span class="n">09</span><div><strong>Décrire ce qu&rsquo;on voit + donner un avis simple</strong><p>Describe three elements using c&rsquo;est un/une…, il y a…, je vois… and express a simple opinion (j&rsquo;aime bien / je n&rsquo;aime pas).</p></div></li><li><span class="n">10</span><div><strong>Fixer une date / heure + parler de projets (futur proche)</strong><p>Give the date and day, talk about plans using demain, je vais… and cette semaine, je vais…, and agree on a meeting time.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 3</span><span class="ml">Lessons 11–15</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">11</span><div><strong>Proposer une activité (14 juillet) + se mettre d&rsquo;accord</strong><p>Suggest Bastille Day activities (on va voir le feu d&rsquo;artifice / on va au bal), negotiate a time, and confirm with ça te va&nbsp;?.</p></div></li><li><span class="n">12</span><div><strong>Décrire ses routines + négation utile</strong><p>Talk about daily routine with reflexive verbs (je me lève à…) and negate habits (je ne travaille pas le week-end).</p></div></li><li><span class="n">13</span><div><strong>Parler de la météo + réagir</strong><p>Ask and answer about the weather using il fait beau / froid / chaud, il pleut / il neige, and predict with demain, il va faire….</p></div></li><li><span class="n">14</span><div><strong>Choisir / proposer une activité selon la météo</strong><p>Based on the weather, suggest two activities, invite someone (tu veux venir&nbsp;?), accept or decline, and fix a time.</p></div></li><li><span class="n">15</span><div><strong>Parler d&rsquo;activités (verbes en -ER) + organiser une sortie</strong><p>Use common -er verbs to describe leisure activities, plan a museum outing (on prend des billets&nbsp;? / on y va comment&nbsp;? / en métro), and arrange a meeting point.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 4</span><span class="ml">Lessons 16–20</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">16</span><div><strong>Poser des questions avec « est-ce que » + mini-interview</strong><p>Form questions with est-ce que and conduct a short 5-question interview.</p></div></li><li><span class="n">17</span><div><strong>Poser des questions (mots interrogatifs) + relancer</strong><p>Use question words qui, où, quand, pourquoi, comment to ask and answer in a flowing conversation.</p></div></li><li><span class="n">18</span><div><strong>Parler de ce qu&rsquo;on mange / boit + préférences</strong><p>Discuss food and drink habits using je mange…, je bois…, j&rsquo;aime… parce que c&rsquo;est bon, and offer or decline with tu en veux&nbsp;? / oui, volontiers&nbsp;!.</p></div></li><li><span class="n">19</span><div><strong>Acheter au marché : quantités + articles partitifs</strong><p>Buy produce at a French market using quantities (un kilo de…, deux cents grammes de…) and partitive articles.</p></div></li><li><span class="n">20</span><div><strong>Parler de son expérience + dire au revoir (clôture FA1)</strong><p>Give a free 2&ndash;3 minute spoken account of your stay using at least 5 different speech acts from FA1 &mdash; directions, family, weather, food, outings &mdash; and close warmly.</p></div></li></ol></details></div></div><div class="ec-panel" data-ec-panel="fa-elementary" hidden>
+<aside class="ec-pside"><div class="ec-pimg"><img src="assets/courses_webp/fa-elementary-1.webp" alt="FA Elementary course setting: Loire → Bordeaux → Basque Country" loading="lazy"><span>Loire → Bordeaux → Basque Country</span></div>
+<div class="ec-pbody"><div class="ec-k">FA Elementary · CEFR A1.2 → A2.1</div><h3>After this course you can:</h3><ul class="ec-outs"><li>Hold real conversations, not just phrases</li><li>Describe experiences and give your opinion</li><li>Handle hotels, restaurants and appointments</li><li>Follow natural spoken French</li></ul>
+<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
+<button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course" data-fa-level="elementary">Start Elementary for $99</button>
+<div class="ec-micro">First 2 weeks free · cancel anytime</div>
+<a class="ec-more" href="courses/fa-elementary.html">Full course page &amp; syllabus PDF →</a></div></aside>
+<div class="ec-curr"><div class="ec-currh">The full curriculum · 20 lessons in 4 modules</div><details class="ec-mod" open><summary><span class="mn">Module 1</span><span class="ml">Lessons 1–5</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">01</span><div><strong>Se présenter : saluer + dire qui on est</strong><p>Reactivate greetings and introductions at a higher level: use moi, c&rsquo;est… / je suis…, maintain a coherent tu / vous register, and exchange at least 2 pieces of identity information before asking back.</p></div></li><li><span class="n">02</span><div><strong>Demander et donner une direction simple</strong><p>Ask for directions with excusez-moi, pour aller à…, c&rsquo;est par où&nbsp;? and give a simple itinerary (tout droit, puis à gauche).</p></div></li><li><span class="n">03</span><div><strong>Exprimer une préférence + justifier simplement</strong><p>Choose between two options, say je préfère… parce que c&rsquo;est plus…, and agree on a destination.</p></div></li><li><span class="n">04</span><div><strong>Demander et indiquer une direction (reprise + pression)</strong><p>Ask for two different locations and give two complete directions.</p></div></li><li><span class="n">05</span><div><strong>Proposer une mini-sortie + se mettre d&rsquo;accord</strong><p>Plan a short outing: suggest a meeting point and time (on se retrouve à…, à… heures&nbsp;?), sequence two activities (après, on va à…), and confirm.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 2</span><span class="ml">Lessons 6–10</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">06</span><div><strong>Commander au bar / restaurant (poliment)</strong><p>Order two items using je voudrais…, s&rsquo;il vous plaît, respond to a follow-up (c&rsquo;est tout&nbsp;?), and ask for the bill.</p></div></li><li><span class="n">07</span><div><strong>Partager + exprimer une quantité (pronom en)</strong><p>Offer and respond to sharing using the pronoun en (vous en voulez&nbsp;? / oui, j&rsquo;en veux / j&rsquo;en prends un peu).</p></div></li><li><span class="n">08</span><div><strong>Recommander + exprimer une préférence</strong><p>Recommend a wine or dish using je te conseille celui-là, ask tu préfères rouge ou blanc&nbsp;?, and reach a joint decision.</p></div></li><li><span class="n">09</span><div><strong>Comparer + justifier (parce que / mais)</strong><p>Compare two options using je préfère… parce que…, introduce a nuance with mais l&rsquo;autre option est plus…, and decide together (bon, on prend…).</p></div></li><li><span class="n">10</span><div><strong>Exprimer ses goûts + justifier</strong><p>Share a cultural preference using j&rsquo;aime bien… parce que…, invite the other person (et toi, tu préfères quoi&nbsp;?), and respond with ah oui, je vois.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 3</span><span class="ml">Lessons 11–15</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">11</span><div><strong>Proposer une sortie + se mettre d&rsquo;accord</strong><p>Suggest a weekend outing (t&rsquo;as envie de sortir&nbsp;? on pourrait aller au ciné&nbsp;?), negotiate a preference, fix a time and place, and sequence the plan (d&rsquo;abord… ensuite…).</p></div></li><li><span class="n">12</span><div><strong>Raconter un souvenir court (passé composé)</strong><p>Narrate a short memory using the passé composé (on a visité…, c&rsquo;était top, j&rsquo;ai adoré), react to someone else&rsquo;s story, and ask c&rsquo;était quand, exactement&nbsp;?.</p></div></li><li><span class="n">13</span><div><strong>Exprimer une opinion + justifier (accord / désaccord simple)</strong><p>Use je trouve que c&rsquo;est… and pour moi… to share an opinion, agree or disagree simply, and justify with parce que….</p></div></li><li><span class="n">14</span><div><strong>Décrire une œuvre + exprimer une préférence</strong><p>Describe a work of art (c&rsquo;est un tableau / une sculpture) using two adjectives and je trouve ça vraiment beau / bizarre, express a preference, and ask for the other person&rsquo;s view.</p></div></li><li><span class="n">15</span><div><strong>Présenter une œuvre (mini-exposé) + justifier</strong><p>Give a structured 30&ndash;45 second presentation of a work of art: je vais vous parler de…, c&rsquo;est une œuvre de…, ça a été créé en…, explain what you love most, and answer one question.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 4</span><span class="ml">Lessons 16–20</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">16</span><div><strong>Organiser un parcours + se mettre d&rsquo;accord</strong><p>Negotiate a visit itinerary by proposing a sequence (on commence par…, et ensuite…), asking for agreement (t&rsquo;es d&rsquo;accord&nbsp;?), and closing with OK, c&rsquo;est décidé&nbsp;!.</p></div></li><li><span class="n">17</span><div><strong>Raconter / imaginer (micro-récit)</strong><p>Narrate and imagine a scene using discourse markers d&rsquo;abord…, et ensuite…, à la fin… and imaginative prompts.</p></div></li><li><span class="n">18</span><div><strong>Organiser une visite (heure / lieu / étapes) + valider</strong><p>Plan a full visit: agree on a meeting point and time, sequence three stages (après, on passe par…), and confirm (super, c&rsquo;est noté&nbsp;!).</p></div></li><li><span class="n">19</span><div><strong>Micro-récit + réagir / relancer (pré-bilan)</strong><p>Narrate a recent outing in 4 sentences, express a nuanced reaction (j&rsquo;ai adoré / j&rsquo;ai pas trop aimé), respond to ah bon&nbsp;? et alors&nbsp;?, and keep the exchange going for at least 12 turns.</p></div></li><li><span class="n">20</span><div><strong>Consolider : défendre un choix + négocier + conclure</strong><p>Defend a choice using moi, je choisis… parce que… / c&rsquo;est mieux parce que…, propose an alternative (on pourrait aussi…), and close a joint decision.</p></div></li></ol></details></div></div><div class="ec-panel" data-ec-panel="fa-intermediate" hidden>
+<aside class="ec-pside"><div class="ec-pimg"><img src="assets/courses_webp/fa-intermediate-1.webp" alt="FA Intermediate course setting: Marseille → Chamonix → Alsace" loading="lazy"><span>Marseille → Chamonix → Alsace</span></div>
+<div class="ec-pbody"><div class="ec-k">FA Intermediate · CEFR A2.1 → A2.2</div><h3>After this course you can:</h3><ul class="ec-outs"><li>Debate, negotiate and compare cultures</li><li>Express nuance, preferences and arguments</li><li>Handle the unexpected without English</li><li>Finish certified at A2.2 by Acadomia</li></ul>
+<div class="ec-facts"><span><b>20</b>live lessons</span><span><b>85</b>min each</span><span><b>10–12</b>per group</span></div>
+<button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course" data-fa-level="intermediate">Start Intermediate for $99</button>
+<div class="ec-micro">First 2 weeks free · cancel anytime</div>
+<a class="ec-more" href="courses/fa-intermediate.html">Full course page &amp; syllabus PDF →</a></div></aside>
+<div class="ec-curr"><div class="ec-currh">The full curriculum · 20 lessons in 4 modules</div><details class="ec-mod" open><summary><span class="mn">Module 1</span><span class="ml">Lessons 1–5</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">01</span><div><strong>Inviter / proposer une sortie</strong><p>Invite someone out using et si on allait au théâtre&nbsp;?, agree on a time and place, and confirm warmly.</p></div></li><li><span class="n">02</span><div><strong>Refuser poliment + proposer une alternative</strong><p>Decline an invitation using merci, j&rsquo;aimerais bien, mais je ne peux pas ce soir, give a brief reason, and immediately offer a concrete alternative.</p></div></li><li><span class="n">03</span><div><strong>Négocier + conclure un compromis</strong><p>Raise a constraint (c&rsquo;est un peu cher), propose a practical concession (si on prend les places au fond, c&rsquo;est moins cher), and close with a clear joint decision.</p></div></li><li><span class="n">04</span><div><strong>Exprimer une préférence culturelle + comparer</strong><p>Share a preference about social customs using moi, je préfère…, justify it once (parce que), and invite comparison (et dans ton pays, on fait comment&nbsp;?).</p></div></li><li><span class="n">05</span><div><strong>Exprimer une gêne + demander conseil</strong><p>Express uncertainty about a social situation, ask for the other person&rsquo;s preference, and propose a comfortable alternative (si tu veux, on peut se serrer la main).</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 2</span><span class="ml">Lessons 6–10</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">06</span><div><strong>Recommander + micro-récit au passé</strong><p>Open with a short past-tense anecdote (hier, je suis allé(e) au cinéma), make a recommendation (je te conseille ce film), justify it, introduce a nuance (en revanche…), and invite the other person.</p></div></li><li><span class="n">07</span><div><strong>Donner un avis + voter entre deux options</strong><p>Share a personal opinion about a cultural event, justify it, compare two options, and reach a joint decision.</p></div></li><li><span class="n">08</span><div><strong>Donner un avis + comparer deux œuvres</strong><p>Express two opinions on works of art, compare them (celui-là est plus sombre, mais il est beau), and ask et toi, tu préfères lequel&nbsp;?.</p></div></li><li><span class="n">09</span><div><strong>Organiser un parcours + gérer un imprévu</strong><p>Plan a three-stage visit, handle an unexpected closure (mince, la salle est fermée… on fait quoi&nbsp;?), and agree on a plan B.</p></div></li><li><span class="n">10</span><div><strong>Comparer + nuancer un avis</strong><p>Compare two cultural experiences, introduce nuance with mais / en revanche / au final, and state a clear personal preference.</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 3</span><span class="ml">Lessons 11–15</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">11</span><div><strong>Recommander un endroit + se repérer</strong><p>Express a preference for a neighbourhood, handle a moment of disorientation (excuse-moi, je suis un peu perdu(e)…), and make a local recommendation.</p></div></li><li><span class="n">12</span><div><strong>Nuancer un avis + défendre un choix</strong><p>Assert a position (pour moi, c&rsquo;est plus intéressant), acknowledge the counterargument (oui, mais c&rsquo;est aussi plus difficile), and defend a practical decision using concessive connectors.</p></div></li><li><span class="n">13</span><div><strong>Proposer + comparer deux destinations</strong><p>Propose two travel destinations, compare them on one criterion, justify your preference (parce que), and reach a joint decision.</p></div></li><li><span class="n">14</span><div><strong>Organiser un programme + gérer un désaccord + un imprévu</strong><p>Negotiate a 3-step itinerary with a diverging view, use concessive connectors (certes…, mais / même si / pourtant), then handle an unexpected problem and agree on a plan B together.</p></div></li><li><span class="n">15</span><div><strong>Raconter une expérience (week-end) + relancer</strong><p>Narrate a past weekend in 4 sentences using the passé composé, express a reaction or emotion, and hand the floor back (et toi, tu as fait quoi&nbsp;?).</p></div></li></ol></details><details class="ec-mod"><summary><span class="mn">Module 4</span><span class="ml">Lessons 16–20</span><span class="mt">5 × 85 min live</span><i></i></summary><ol><li><span class="n">16</span><div><strong>Comparer + recommander selon un critère</strong><p>Compare two destinations on multiple criteria, recommend one conditionally (je te recommande la Bretagne si tu aimes la nature), and introduce a counterpoint (en revanche, la Provence est mieux pour la chaleur).</p></div></li><li><span class="n">17</span><div><strong>Acheter au marché + négocier un prix</strong><p>Request a specific quantity of a product, ask a quality question, and attempt a soft negotiation (vous me faites un petit prix&nbsp;?).</p></div></li><li><span class="n">18</span><div><strong>Signaler un problème + demander une solution</strong><p>Signal a problem at a restaurant or shop calmly and factually, request a remedy (vous pouvez le réchauffer, s&rsquo;il vous plaît&nbsp;?), and conclude the interaction once the issue is resolved.</p></div></li><li><span class="n">19</span><div><strong>Raconter un événement culturel + relancer</strong><p>Narrate a past experience of a French national celebration in 4 sentences, use a time marker (l&rsquo;année dernière, j&rsquo;ai regardé…), describe the atmosphere, and invite the other person to share their experience.</p></div></li><li><span class="n">20</span><div><strong>Comparer deux cultures + exprimer un avis nuancé</strong><p>Compare a French tradition with its equivalent in your own culture, give a personal opinion (en France, je trouve ça plus festif), justify it, and introduce a counterpoint (en revanche…).</p></div></li></ol></details></div></div>
+ </div>
+</section><section class="ec-sec ec-taste" id="taste">
+ <div class="wrap">
+  <header class="ec-head"><div class="ec-eyebrow">A taste of the lesson</div><h2 class="ec-h2">This is what your live class looks and sounds like.</h2>
+  <p class="ec-lede">Press sound on. Real teachers, real places in France, real French.</p></header>
+  <div class="ec-taste-grid">
+   <figure class="ec-vid" data-soundvideo><video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata"><source src="assets/video/demo-class.mp4" type="video/mp4"></video>
+    <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound"><span class="si-muted">Sound on</span><span class="si-on">Mute</span></button>
+    <figcaption><b>Philippe</b> · West Paris</figcaption></figure>
+   <figure class="ec-vid" data-soundvideo><video poster="assets/video/charline-ad-poster.jpg" autoplay loop muted playsinline preload="metadata"><source src="assets/video/charline-ad.mp4" type="video/mp4"></video>
+    <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound"><span class="si-muted">Sound on</span><span class="si-on">Mute</span></button>
+    <figcaption><b>Charline</b> · Paris</figcaption></figure>
+  </div>
+  <ol class="ec-week">
+   <li><span>01</span><h3>Live class, once a week</h3><p>85 minutes with a native certified teacher. Each lesson opens in a real place: a market, a gallery, a village square.</p></li>
+   <li><span>02</span><h3>You speak, every class</h3><p>Groups of 10–12, so it's a conversation, not a lecture. Times set to your timezone.</p></li>
+   <li><span>03</span><h3>Replay anytime</h3><p>Every lesson is recorded and stays in your dashboard for life.</p></li>
+   <li><span>04</span><h3>Practise with Julien</h3><p>Your 24/7 AI tutor for pronunciation, vocabulary and conversation between classes.</p></li>
+  </ol>
+ </div>
+</section><section class="ec-sec ec-pricing" id="enroll-online">
+ <div class="wrap">
+  <header class="ec-head"><div class="ec-eyebrow">Price · enroll online</div><h2 class="ec-h2">Start for $99. Try 2 weeks free. Cancel anytime.</h2>
+  <p class="ec-lede">The full course is $1,460 at the regular price. Enroll online and pay <b>$799 in total, 45% off.</b></p></header>
+  <div class="ec-plans">
+   <article class="ec-plan">
+    <div class="ec-pn">Pay in full</div>
+    <div class="ec-pp"><span class="cur">$</span><span class="amt">799</span><span class="per">one payment</span></div>
+    <div class="ec-pw"><s>$1,460</s> <b>Save $661</b></div>
+    <p class="ec-pd">One payment, and you get the twice-weekly study groups.</p>
+    <ul class="ec-pl"><li><b>Twice-weekly study groups</b></li><li>The full 20-lesson course</li></ul>
+    <button type="button" class="btn btn-outline btn-lg ec-btn" data-fa-buy="fa-course-full">Pay $799</button>
+   </article>
+   <article class="ec-plan ec-hot">
+    <div class="ec-flag">Most popular · 45% off</div>
+    <div class="ec-pn">Start for $99</div>
+    <div class="ec-pp"><span class="cur">$</span><span class="amt">99</span><span class="per">today</span></div>
+    <div class="ec-pw"><s>$292</s> first month · <b>then 4 × $175</b></div>
+    <div class="ec-sched" aria-label="Payment schedule">
+     <div class="on"><b>$99</b><span>Today</span></div><div><b>$175</b><span>Month 2</span></div><div><b>$175</b><span>Month 3</span></div><div><b>$175</b><span>Month 4</span></div><div><b>$175</b><span>Month 5</span></div>
     </div>
-    <div class="taste-grid">
-      <div class="taste-card reveal ">
-        <div class="sound-video" data-soundvideo>
-          <video poster="assets/video/demo-class-poster.jpg" autoplay loop muted playsinline preload="metadata">
-            <source src="assets/video/demo-class.mp4" type="video/mp4">
-          </video>
-          <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-            <span class="si-muted">Sound on</span><span class="si-on">Mute</span>
-          </button>
-        </div>
-        <p class="taste-line">Wine and art speak French. What about you?</p>
-        <p class="taste-who">Philippe · West Paris</p>
+    <div class="ec-tot">$799 total instead of $1,460 · about $40 a live lesson</div>
+    <div class="ec-guar"><span class="seal">14<small>days</small></span><p><b>Your first 2 weeks are free.</b> Join your first live classes. Not for you? Cancel within 14 days and get your $99 back. After that, cancel anytime and no more payments are taken.</p></div>
+    <button type="button" class="btn btn-gold btn-lg ec-btn" data-fa-buy="fa-course">Start for $99 →</button>
+   </article>
+   <article class="ec-plan">
+    <div class="ec-pn">Not sure of your level?</div>
+    <div class="ec-pp"><span class="amt">Free</span></div>
+    <div class="ec-pw">5-minute CEFR placement test</div>
+    <p class="ec-pd">Instant result, a course recommendation, and an advisor call within one business day.</p>
+    <ul class="ec-pl"><li>Instant CEFR level</li><li>Personal advisor call</li></ul>
+    <a href="#placement" class="btn btn-outline btn-lg ec-btn">Find my level</a>
+   </article>
+  </div>
+  <div class="ec-incl"><div class="ec-inclh">Every enrollment includes</div><ul>
+   <li>20 live lessons · 85 min each</li><li>Native certified teachers, live from France</li><li>Small groups of 10–12</li><li>Every lesson recorded, for life</li><li>Julien, your 24/7 AI tutor</li><li>CEFR certificate by Acadomia</li><li>$100 credit when you finish</li><li>Class times in your timezone</li></ul></div>
+  <div class="ec-paysec">Secure checkout · <img src="assets/pay/visa.svg" alt="Visa"><img src="assets/pay/mastercard.svg" alt="Mastercard"><img src="assets/pay/amex.svg" alt="Amex"><img src="assets/pay/applepay.svg" alt="Apple Pay"><img src="assets/pay/gpay.svg" alt="Google Pay"><img src="assets/pay/paypal.svg" alt="PayPal"> · all countries</div>
+  <div class="ec-compare"><h3>Why French Atelier</h3>
+   <div class="ec-tw"><table><thead><tr><th></th><th class="us">French Atelier</th><th>Private tutor</th><th>Language apps</th></tr></thead><tbody>
+   <tr><td>Live native teacher, based in France</td><td class="us">✓</td><td>Varies</td><td class="x">✕</td></tr>
+   <tr><td>Real conversation in a small group</td><td class="us">✓ 10–12</td><td>1:1 only</td><td class="x">✕</td></tr>
+   <tr><td>Structured CEFR curriculum</td><td class="us">✓</td><td>Varies</td><td>Partial</td></tr>
+   <tr><td>Certificate from Acadomia</td><td class="us">✓</td><td class="x">✕</td><td class="x">✕</td></tr>
+   <tr><td>Every lesson recorded</td><td class="us">✓ for life</td><td class="x">✕</td><td>—</td></tr>
+   <tr><td>24/7 AI practice tutor</td><td class="us">✓</td><td class="x">✕</td><td>✓</td></tr>
+   <tr><td>No long-term commitment</td><td class="us">✓ cancel anytime</td><td>Varies</td><td>✓</td></tr>
+   </tbody></table></div></div>
+ </div>
+</section><section class="tst-fold" id="testimonials" aria-label="Student stories">
+  <div class="wrap">
+    <div class="tst-head reveal">
+      <span class="tst-trust"><span class="stars">★★★★★</span> Excellent on Trustpilot</span>
+      <h2>Student Stories, <span class="gold-ital">Real Results.</span></h2>
+      <p>Real learners. Real progress. Real classrooms broadcast live from France. Here’s what they say about French Atelier by Acadomia.</p>
+    </div>
+    <div class="tst-stage">
+      <div class="tst-track reveal reveal-d1">
+        <article class="tst-card"><img src="assets/testimonials/testimonial-1.png" alt="Chaffee Kurt — It has been fun, good materials, an excellent teacher, and a learning environment." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-2.png" alt="Freddie Deckow — I have received teaching over and above what I expected." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-3.png" alt="McCollin John — A well structured and systematic course delivering high value content." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-4.png" alt="Nieuwenhuize Yaacov — I never would have thought it would be so good." loading="lazy" width="380" height="500" decoding="async"></article>
+        <article class="tst-card"><img src="assets/testimonials/testimonial-5.png" alt="Glumac Biljana — Our teacher is really great. Looking forward to the next lessons." loading="lazy" width="380" height="500" decoding="async"></article>
       </div>
-      <div class="taste-card reveal reveal-d1">
-        <div class="sound-video" data-soundvideo>
-          <video poster="assets/video/charline-ad-poster.jpg" autoplay loop muted playsinline preload="metadata">
-            <source src="assets/video/charline-ad.mp4" type="video/mp4">
-          </video>
-          <button class="sound-toggle" aria-pressed="false" aria-label="Toggle sound">
-            <span class="si-muted">Sound on</span><span class="si-on">Mute</span>
-          </button>
-        </div>
-        <p class="taste-line">Speak French with effortless Parisian poise</p>
-        <p class="taste-who">Charline · Paris</p>
-      </div>
     </div>
-    <div class="reveal" style="text-align:center;margin-top:2.2rem"><a href="#enroll-online" class="btn btn-gold btn-lg">Start for $99 · 2 weeks free</a></div>
+    <p class="tst-source">From learners of French Atelier by Acadomia</p>
   </div>
-</section>
-<section class="ec-pricing" id="enroll-online">
+</section><section class="section-pad bg-ivory" id="teachers">
   <div class="wrap">
-    <p class="ec-eyebrow c">Enroll online · price</p>
-    <h2 class="ec-h2">Start for $99. Try it for 2 weeks. Cancel anytime.</h2>
-    <p class="ec-lede">The full course is $1,460 at the regular price. Enroll online today and pay <b>$799 in total</b> — 45% off.</p>
-    <div class="ec-cards">
-      <article class="ec-card">
-        <h3>Pay in full</h3><p class="ec-for">One payment, the best extras</p>
-        <p class="ec-price"><span>$799</span><small>once</small></p>
-        <p class="ec-was"><s>$1,460</s> · you save $661</p>
-        <ul><li>The full 20-lesson course</li><li><b>+ Twice-weekly study groups</b></li><li>CEFR certificate + $100 credits</li><li>Lifetime recordings · Julien AI tutor</li></ul>
-        <button type="button" class="btn btn-outline btn-lg" data-fa-buy="fa-course-full">Pay $799 once</button>
-      </article>
-      <article class="ec-card ec-best">
-        <span class="ec-flag">Most popular · 45% off</span>
-        <h3>Start for $99</h3><p class="ec-for">Lowest start, no commitment</p>
-        <p class="ec-price"><span>$99</span><small>today</small></p>
-        <p class="ec-then">then 4 monthly payments of <b>$175</b></p>
-        <p class="ec-was"><s>$292/month</s> · $799 total instead of $1,460</p>
-        <div class="ec-risk"><b>Your first 2 weeks are free.</b> Join your first live classes. Not for you? Cancel within 14 days and get your $99 back. After that, cancel anytime — no further payments.</div>
-        <ul><li>The full 20-lesson course</li><li>CEFR certificate + $100 credits</li><li>Lifetime recordings · Julien AI tutor</li><li>That's about <b>$40 a live lesson</b></li></ul>
-        <button type="button" class="btn btn-gold btn-lg" data-fa-buy="fa-course">Start for $99 →</button>
-        <p class="ec-fine">Today you pay $99. Payments 2–5: $175 each, monthly.</p>
-      </article>
-      <article class="ec-card">
-        <h3>Not sure yet?</h3><p class="ec-for">Free level test + advisor</p>
-        <p class="ec-price"><span>$0</span><small>free</small></p>
-        <p class="ec-was">Find your level in 5 minutes</p>
-        <ul><li>CEFR placement test, instant result</li><li>Personal course recommendation</li><li>An advisor calls you back within 1 business day</li></ul>
-        <a href="#placement" class="btn btn-outline btn-lg">Find my level</a>
-      </article>
+
+    <div class="tctr-head reveal">
+      <p class="eyebrow eyebrow-line" style="justify-content:center">Meet Our Faculty</p>
+      <h2 class="display-md" style="margin:1.2rem 0">Native teachers, from <span class="gold-ital">every corner</span> of France</h2>
+      <p class="lede lede-c" style="max-width:58ch;margin:0 auto">Strasbourg, Paris, Montpellier — each certified teacher lives and broadcasts from a different corner of France. Native speakers. Certified educators. Real accents, real culture, in every live class.</p>
     </div>
-    <div class="ec-pay">Secure payment · Visa · Mastercard · Amex · Apple Pay · Google Pay · PayPal · all countries</div>
-    <div class="ec-compare"><h3>Why French Atelier</h3>
-    <table><thead><tr><th></th><th class="us">French Atelier</th><th>Private tutor</th><th>Language apps</th></tr></thead><tbody>
-    <tr><td>Live native teacher, in France</td><td class="us">✓</td><td>Varies</td><td>✕</td></tr>
-    <tr><td>Small group, real conversation</td><td class="us">✓ 10–12</td><td>1:1 only</td><td>✕</td></tr>
-    <tr><td>Structured CEFR curriculum</td><td class="us">✓</td><td>Varies</td><td>Partial</td></tr>
-    <tr><td>Certificate from Acadomia</td><td class="us">✓</td><td>✕</td><td>✕</td></tr>
-    <tr><td>Every lesson recorded</td><td class="us">✓ for life</td><td>✕</td><td>—</td></tr>
-    <tr><td>24/7 AI practice tutor</td><td class="us">✓</td><td>✕</td><td>✓</td></tr>
-    <tr><td>Cancel anytime</td><td class="us">✓</td><td>Varies</td><td>✓</td></tr>
-    <tr><td>Price per 85-min lesson</td><td class="us"><b>≈ $40</b></td><td>$60–90</td><td>—</td></tr>
-    </tbody></table></div>
+
+    <!-- Faculty badge strip -->
+    <div class="tctr-badges reveal reveal-d1">
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Native certified teachers
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Live from France
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Groups of 10–12
+      </span>
+      <span class="tctr-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        Across France
+      </span>
+    </div>
+
+    <!-- LARGE PORTRAIT GALLERY — all 7 teachers, 4 + 3 -->
+    <div class="fac-gallery reveal reveal-d2">
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
+      </a>
+      <a class="fac-card fac-card--delphine" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/delphine-reframed.jpg?v=3" alt="Delphine, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Delphine</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
+      </a>
+      <a class="fac-card" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
+      </a>
+      <a class="fac-card fac-card--christ" href="teachers.html">
+        <div class="fac-photo"><img src="assets/teachers/upscaled/christ.jpg?v=2" alt="Christ, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
+        <div class="fac-info"><p class="fac-name">Christ</p><span class="fac-region">Paris</span></div>
+      </a>
+    </div><!-- /fac-gallery -->
+
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="teachers.html" class="btn btn-outline">Meet the Full Faculty</a>
+    </div>
+
   </div>
 </section>
 
@@ -1017,73 +1110,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 <!-- ===== COURSES SHOWCASE (two clickable cluster cards → reveal horizontal slider) ===== -->
 
 <!-- ===== MEET OUR TEACHERS — Premium Faculty Section ===== -->
-<section class="section-pad bg-ivory" id="teachers">
-  <div class="wrap">
 
-    <div class="tctr-head reveal">
-      <p class="eyebrow eyebrow-line" style="justify-content:center">Meet Our Faculty</p>
-      <h2 class="display-md" style="margin:1.2rem 0">Native teachers, from <span class="gold-ital">every corner</span> of France</h2>
-      <p class="lede lede-c" style="max-width:58ch;margin:0 auto">Strasbourg, Paris, Montpellier — each certified teacher lives and broadcasts from a different corner of France. Native speakers. Certified educators. Real accents, real culture, in every live class.</p>
-    </div>
-
-    <!-- Faculty badge strip -->
-    <div class="tctr-badges reveal reveal-d1">
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        Native certified teachers
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Live from France
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Groups of 10–12
-      </span>
-      <span class="tctr-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        Across France
-      </span>
-    </div>
-
-    <!-- LARGE PORTRAIT GALLERY — all 7 teachers, 4 + 3 -->
-    <div class="fac-gallery reveal reveal-d2">
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/philippe.jpg" alt="Philippe, French teacher from West Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Philippe</p><span class="fac-region">West Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/charline.jpg" alt="Charline, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Charline</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/shanice.jpg" alt="Shanice, French teacher from Montpellier" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Shanice</p><span class="fac-region">Montpellier</span></div>
-      </a>
-      <a class="fac-card fac-card--delphine" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/delphine-reframed.jpg?v=3" alt="Delphine, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Delphine</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/caitlin.jpg" alt="Caitlin, French teacher from Strasbourg" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Caitlin</p><span class="fac-region">Strasbourg</span></div>
-      </a>
-      <a class="fac-card" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/carmele.jpg" alt="Carmèle, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Carmèle</p><span class="fac-region">Paris</span></div>
-      </a>
-      <a class="fac-card fac-card--christ" href="teachers.html">
-        <div class="fac-photo"><img src="assets/teachers/upscaled/christ.jpg?v=2" alt="Christ, French teacher from Paris" loading="lazy" width="600" height="800" decoding="async"></div>
-        <div class="fac-info"><p class="fac-name">Christ</p><span class="fac-region">Paris</span></div>
-      </a>
-    </div><!-- /fac-gallery -->
-
-    <div style="text-align:center;margin-top:3rem" class="reveal">
-      <a href="teachers.html" class="btn btn-outline">Meet the Full Faculty</a>
-    </div>
-
-  </div>
-</section>
 
 <!-- ===== WATCH A REAL CLASS ===== -->
 
@@ -1263,25 +1290,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
 .tst-source{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:2.6rem;color:rgba(243,238,227,.55);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;}
 .tst-source::before,.tst-source::after{content:'';flex:1;max-width:80px;height:1px;background:rgba(216,188,133,.25);}
 </style>
-<section class="tst-fold" id="testimonials" aria-label="Student stories">
-  <div class="wrap">
-    <div class="tst-head reveal">
-      <span class="tst-trust"><span class="stars">★★★★★</span> Excellent on Trustpilot</span>
-      <h2>Student Stories, <span class="gold-ital">Real Results.</span></h2>
-      <p>Real learners. Real progress. Real classrooms broadcast live from France. Here’s what they say about French Atelier by Acadomia.</p>
-    </div>
-    <div class="tst-stage">
-      <div class="tst-track reveal reveal-d1">
-        <article class="tst-card"><img src="assets/testimonials/testimonial-1.png" alt="Chaffee Kurt — It has been fun, good materials, an excellent teacher, and a learning environment." loading="lazy" width="380" height="500" decoding="async"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-2.png" alt="Freddie Deckow — I have received teaching over and above what I expected." loading="lazy" width="380" height="500" decoding="async"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-3.png" alt="McCollin John — A well structured and systematic course delivering high value content." loading="lazy" width="380" height="500" decoding="async"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-4.png" alt="Nieuwenhuize Yaacov — I never would have thought it would be so good." loading="lazy" width="380" height="500" decoding="async"></article>
-        <article class="tst-card"><img src="assets/testimonials/testimonial-5.png" alt="Glumac Biljana — Our teacher is really great. Looking forward to the next lessons." loading="lazy" width="380" height="500" decoding="async"></article>
-      </div>
-    </div>
-    <p class="tst-source">From learners of French Atelier by Acadomia</p>
-  </div>
-</section>
+
 
 <!-- ===== eTEACHER GROUP PLATFORM — High-tech dashboard aesthetic ===== -->
 <section class="etg2-section" id="platform">
@@ -1588,7 +1597,7 @@ if('caches' in window){ caches.keys().then(ks => ks.forEach(k => caches.delete(k
           <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg></span>
         </button>
         <div class="faq-body" id="hfaq-5">
-          <p>Enroll online for $99 today, then 4 monthly payments of $175 — $799 in total instead of $1,460 (45% off). Your first 2 weeks are free: cancel within 14 days for a full refund, and cancel anytime after that. Or pay $799 once and get twice-weekly study groups included. <a href="#enroll-online">See the price →</a></a></p>
+          <p>Enroll online for $99 today, then 4 monthly payments of $175: $799 in total instead of $1,460 (45% off). Your first 2 weeks are free: cancel within 14 days for a full refund, and cancel anytime after that. Or pay $799 once and get twice-weekly study groups included. <a href="#enroll-online">See the price →</a></a></p>
         </div>
       </div>
       <div class="faq-item">
