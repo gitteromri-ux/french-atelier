@@ -61,3 +61,23 @@ html:root:root:root:root:root body#fa .kps-hero .kps-h1{max-width:1000px!importa
 html:root:root:root:root:root body#fa .kps-hero .kps-h1 .gi{display:block!important}
 html:root:root:root:root:root body#fa .kps-hero .sub{max-width:880px!important;font-size:clamp(1.5rem,1.95vw,1.9rem)!important;line-height:1.45!important}
 @media (max-width:760px){html:root:root:root:root:root body#fa .kps-hero .kps-h1{font-size:clamp(2.7rem,10vw,3.5rem)!important;max-width:none!important}html:root:root:root:root:root body#fa .kps-hero .sub{font-size:1.25rem!important}}
+/* v3.1 — three distinct on-brand card colours: navy / ivory (best seller) / royal blue */
+.kpz-one{background:linear-gradient(180deg,#1B2660 0%,#141C4C 100%)!important;color:#fff!important;border:1px solid rgba(255,255,255,.16)!important}
+.kpz-two{background:linear-gradient(180deg,#1F4FA8 0%,#173C86 100%)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)!important}
+.kpz-all{background:linear-gradient(180deg,#FFFDF8 0%,#F7F1E3 100%)!important;color:#0F1A3C!important}
+.kpz-one .kpz-num,.kpz-two .kpz-num{color:#E3C77F}
+.kpz-one .kpz-name,.kpz-two .kpz-name{color:#fff}
+.kpz-one .kpz-sub,.kpz-two .kpz-sub{color:rgba(255,255,255,.86)}
+.kpz-one .kpz-pricebox,.kpz-two .kpz-pricebox{border-color:rgba(255,255,255,.18)}
+.kpz-one .kpz-was,.kpz-two .kpz-was,.kpz-one .kpz-reg{color:rgba(255,255,255,.62)}
+.kpz-one .kpz-cur,.kpz-one .kpz-amt,.kpz-two .kpz-cur,.kpz-two .kpz-amt{color:#fff}
+.kpz-one .kpz-unit,.kpz-two .kpz-unit{color:rgba(255,255,255,.86)}
+.kpz-one .kpz-save,.kpz-two .kpz-save{background:#E3C77F;color:#1A1206}
+.kpz-one .kpz-pay,.kpz-two .kpz-pay,.kpz-one .kpz-pay b,.kpz-two .kpz-pay b{color:#fff}
+.kpz-one .kpz-cta,.kpz-two .kpz-cta{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.9)}
+.kpz-one .kpz-cta:hover,.kpz-two .kpz-cta:hover{background:#fff;color:#0F1A3C}
+.kpz-one .kpz-inc,.kpz-two .kpz-inc{color:#E3C77F;border-top-color:rgba(255,255,255,.18)}
+.kpz-one .kpz-feats li,.kpz-two .kpz-feats li,.kpz-one .kpz-feats b,.kpz-two .kpz-feats b{color:#fff}
+.kpz-one .kpz-feats li svg,.kpz-two .kpz-feats li svg{color:#E3C77F}
+.kpz-one .kpz-per,.kpz-two .kpz-per{color:rgba(255,255,255,.8)}
+.kpz-all .kpz-cta{color:#1A1206}
