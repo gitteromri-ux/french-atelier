@@ -56,3 +56,8 @@
 .kpz-pay-row{color:rgba(255,255,255,.7)!important}
 @media (max-width:1100px){.kpz-all{transform:none}}
 @media (max-width:520px){.kpz-card{padding:2.2rem 1.4rem 1.8rem}.kpz-all{padding-top:5rem}.kpz-amt,.kpz-all .kpz-amt{font-size:4.8rem}.kpz-promo{padding:1.3rem 1rem}}
+/* hero typography v3: larger headline, tighter line width, larger subheader */
+html:root:root:root:root:root body#fa .kps-hero .kps-h1{max-width:16ch!important;width:auto!important;font-size:clamp(3.6rem,6.8vw,7.2rem)!important;line-height:1.0!important;text-wrap:balance!important}
+html:root:root:root:root:root body#fa .kps-hero .kps-h1 .gi{display:block!important}
+html:root:root:root:root:root body#fa .kps-hero .sub{max-width:880px!important;font-size:clamp(1.5rem,1.95vw,1.9rem)!important;line-height:1.45!important}
+@media (max-width:760px){html:root:root:root:root:root body#fa .kps-hero .kps-h1{font-size:clamp(2.7rem,10vw,3.5rem)!important;max-width:none!important}html:root:root:root:root:root body#fa .kps-hero .sub{font-size:1.25rem!important}}
