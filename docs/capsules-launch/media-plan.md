@@ -96,9 +96,9 @@ Per-ad-set view of the same model (ASSUMED split: Retargeting converts ~2.5× be
 
 | Ad set | 10-day spend | CPM (ASSUMED) | CPC (ASSUMED) | LPV | LPV→Purchase | Purchases | CPA | Revenue | ROAS | Role |
 |---|---|---|---|---|---|---|---|---|---|---|
-| **01 — Prospecting · Interests** | $2,000 | $43 | $2.9 | 517 | 0.5% | 2.5 | $808 | $1,064 | 0.5 | Cold reach, hook testing; feeds the RT pool |
-| **02 — Prospecting · Lookalikes (all-time FA purchasers)** | $2,000 | $41 | $2.6 | 577 | 0.5% | 2.9 | $693 | $1,241 | 0.6 | Highest-quality cold traffic; expected best prospecting CPA |
-| **03 — Retargeting** | $1,000 | $32 | $1.9 | 395 | 0.7% | 2.9 | $346 | $1,241 | 1.2 | Closes warm traffic; CPA must be lowest, frequency ≤ 4 / 7 d |
+| **01 — Prospecting · Interests** | $2,000 | $43 | $2.9 | 496 | 0.5% | 2.5 | $808 | $1,064 | 0.5 | Cold reach, hook testing; feeds the RT pool |
+| **02 — Prospecting · Lookalikes (all-time FA purchasers)** | $2,000 | $41 | $2.6 | 553 | 0.5% | 2.9 | $693 | $1,241 | 0.6 | Highest-quality cold traffic; expected best prospecting CPA |
+| **03 — Retargeting** | $1,000 | $32 | $1.9 | 378 | 0.8% | 2.9 | $346 | $1,241 | 1.2 | Closes warm traffic; CPA must be lowest, frequency ≤ 4 / 7 d |
 | **Total** | **$5,000** | **$40.8** | **$2.6** | **1,427** | **0.6%** | **8.2** | **$606** | **$3,546** | **0.7** | |
 
 
