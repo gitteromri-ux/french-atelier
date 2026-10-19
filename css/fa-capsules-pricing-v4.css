@@ -1,0 +1,123 @@
+/* Culture Capsules pricing v4 — 2026-10-19. Enterprise pricing fold (Salesforce / HubSpot pattern), brand tokens only:
+   navy #000034 · ivory #FAF7F1 · gold #C8A96B/#D8BC85 · brand blue #2FA4FF/#6FC4FF. Design-only: no copy changes. Overrides v2. */
+
+/* ---------- section ---------- */
+.kpz-pricing{background:#070C2E!important;background-image:radial-gradient(90% 60% at 50% -10%,rgba(47,164,255,.16) 0%,rgba(7,12,46,0) 60%),linear-gradient(180deg,#0B1240 0%,#060A28 100%)!important;padding:clamp(5.5rem,9vw,9rem) 0 clamp(4.5rem,7vw,7rem)!important}
+.kpz-pricing .head{max-width:1100px!important;margin:0 auto 4rem!important}
+.kpz-pricing .kps-kicker{color:#D8BC85!important;letter-spacing:.3em!important;font-size:1rem!important}
+.kpz-pricing .kps-h2{color:#fff!important;font-size:clamp(3rem,4.6vw,4.4rem)!important;line-height:1.02!important;margin-bottom:1.2rem!important}
+.kpz-pricing .kps-sub{color:rgba(255,255,255,.88)!important;font-size:clamp(1.3rem,1.7vw,1.6rem)!important;line-height:1.45!important;max-width:900px;margin:0 auto}
+.kzp-sub b,.kpz-pricing .kps-sub b{color:#F3DFA8!important;font-weight:700}
+
+/* ---------- grid: rows aligned across the three cards (subgrid) ---------- */
+.kpz-grid{display:grid!important;grid-template-columns:1fr 1.12fr 1fr!important;grid-auto-rows:auto;gap:1.75rem!important;align-items:stretch!important;perspective:none!important;max-width:1340px;margin:0 auto}
+.kpz-card{position:relative;display:grid!important;grid-row:span 7;grid-template-rows:subgrid;row-gap:0;padding:2.8rem 2.5rem 2.6rem;border-radius:24px;font-family:var(--sans,Inter,system-ui,sans-serif);text-align:left;transform:none!important;transition:box-shadow .25s ease,transform .25s ease}
+.kpz-card::before{display:none!important}
+.kpz-card::after{display:block!important;content:"";position:absolute;left:0;right:0;top:0;height:5px;border-radius:24px 24px 0 0;background:var(--edge)}
+.kpz-card:hover{transform:translateY(-3px)!important}
+
+/* card identities */
+.kpz-one{--edge:#2FA4FF;--acc:#6FC4FF;color:#fff;background:linear-gradient(172deg,#131F55 0%,#0A1239 100%)!important;border:1px solid rgba(111,196,255,.32)!important;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 70px -34px rgba(0,0,0,.9)!important}
+.kpz-two{--edge:#6FC4FF;--acc:#BFE4FF;color:#fff;background:linear-gradient(172deg,#0E4A96 0%,#072652 100%)!important;border:1px solid rgba(111,196,255,.42)!important;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 30px 70px -34px rgba(0,0,0,.9)!important}
+.kpz-all{--edge:#C8A96B;--acc:#8A6A1E;color:#000034;background:linear-gradient(176deg,#FFFEFB 0%,#FAF7F1 60%,#F4EFE6 100%)!important;border:2px solid #C8A96B!important;margin:-2rem -.25rem;padding-top:6.6rem;padding-bottom:3.4rem;z-index:2;
+  box-shadow:0 0 0 8px rgba(200,169,107,.18),0 0 90px -10px rgba(216,188,133,.35),0 44px 90px -30px rgba(0,0,0,.9)!important}
+.kpz-all::after{display:none!important}
+.kpz-all:hover{transform:translateY(-5px)!important}
+
+/* best-seller band */
+.kpz-badge{position:absolute;left:0;right:0;top:0;padding:1.15rem 1rem;text-align:center;border-radius:22px 22px 0 0;background:linear-gradient(90deg,#B99552 0%,#D8BC85 50%,#B99552 100%);color:#1B1403;font:900 1.1rem/1 var(--sans,Inter,sans-serif);letter-spacing:.2em;text-transform:uppercase;box-shadow:0 1px 0 rgba(255,255,255,.45) inset,0 6px 16px -8px rgba(0,0,0,.35)}
+.kpz-badge::before{content:"\2605";margin-right:.6rem;font-size:1.05em;vertical-align:-1px}
+
+/* ---------- row 1: title ---------- */
+.kpz-top{position:relative;padding-bottom:1.6rem}
+.kpz-num{display:block;font-weight:800;font-size:.9rem;letter-spacing:.36em;margin-bottom:1rem;color:var(--acc)!important}
+.kpz-all .kpz-num{color:#B8923E!important}
+.kpz-name{font-family:var(--serif,'Cormorant Garamond',Georgia,serif)!important;font-weight:600!important;font-size:clamp(2.4rem,2.8vw,3.1rem)!important;line-height:1.02;letter-spacing:0;margin:0 0 .7rem;min-height:0;color:inherit}
+.kpz-all .kpz-name{color:#000034}
+.kpz-sub{font-size:1.3rem;font-weight:500;line-height:1.35;margin:0;opacity:1;color:rgba(255,255,255,.84)}
+.kpz-all .kpz-sub{color:#3A3F5C}
+
+/* ---------- row 2: price (pure typography, no box) ---------- */
+.kpz-pricebox{background:transparent!important;box-shadow:none!important;border-radius:0;padding:1.5rem 0 1.4rem;border-top:1px solid rgba(255,255,255,.16);border-bottom:0;display:flex;flex-direction:column;align-items:flex-start}
+.kpz-all .kpz-pricebox{border-top-color:rgba(200,169,107,.5)}
+.kpz-was,.kpz-reg{display:inline-block;font-weight:700;margin:0 0 .3rem}
+.kpz-was{font-size:1.55rem;color:rgba(255,255,255,.62);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#E498A6}
+.kpz-reg{text-decoration:none!important;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62);padding:.55rem 0}
+.kpz-all .kpz-was{color:#8A8FA6;text-decoration-color:#B0616E}
+.kpz-price{display:flex;align-items:flex-start;gap:.3rem;line-height:.9}
+.kpz-cur{font-size:2.4rem;font-weight:700;margin-top:.9rem;color:inherit}
+.kpz-amt{font-size:clamp(5.6rem,6.4vw,6.8rem)!important;font-weight:800;letter-spacing:-.045em;color:inherit;text-shadow:none!important}
+.kpz-all .kpz-amt{font-size:clamp(6.4rem,7.4vw,7.8rem)!important;color:#000034}
+.kpz-unit{align-self:center;margin-left:.7rem;font-size:1.3rem;font-weight:600;line-height:1.15;opacity:1;color:rgba(255,255,255,.86)}
+.kpz-all .kpz-unit{color:#3A3F5C}
+.kpz-save{display:inline-block;margin-top:1.25rem;font-size:1.15rem;font-weight:800;letter-spacing:.01em;border-radius:999px;padding:.6rem 1.15rem}
+.kpz-one .kpz-save{background:rgba(47,164,255,.14);color:#BFE4FF;border:1px solid rgba(111,196,255,.45)}
+.kpz-two .kpz-save{background:rgba(111,196,255,.22);color:#fff;border:1px solid rgba(191,228,255,.6)}
+.kpz-all .kpz-save{background:linear-gradient(90deg,#C8A96B,#D8BC85);color:#1B1403;border:0;box-shadow:0 8px 20px -10px rgba(200,169,107,.9)}
+
+/* ---------- row 3: payment line ---------- */
+.kpz-pay{font-size:1.3rem;font-weight:500;margin:0;padding:.6rem 0 1.5rem;white-space:nowrap;color:rgba(255,255,255,.9)}
+.kpz-pay b{font-weight:800;color:#fff}
+.kpz-all .kpz-pay{color:#1A2740}.kpz-all .kpz-pay b{color:#000034}
+.kpz-dot{opacity:.5;margin:0 .2rem}
+
+/* ---------- row 4: CTA ---------- */
+.kpz-cta{display:flex;align-items:center;justify-content:center;gap:.8rem;width:100%;min-height:68px;border-radius:14px;font:800 1.3rem/1 var(--sans,Inter,sans-serif);cursor:pointer;transition:background .2s,color .2s,transform .2s,box-shadow .2s}
+.kpz-cta svg{width:24px;height:24px;transition:transform .2s}
+.kpz-cta:hover svg{transform:translateX(4px)}
+.kpz-one .kpz-cta{background:transparent;color:#fff;border:2px solid #2FA4FF}
+.kpz-one .kpz-cta:hover{background:#2FA4FF;color:#00001F}
+.kpz-two .kpz-cta{background:transparent;color:#fff;border:2px solid #6FC4FF}
+.kpz-two .kpz-cta:hover{background:#6FC4FF;color:#00001F}
+.kpz-all .kpz-cta{min-height:78px;font-size:1.5rem;border:0;color:#1B1403;background:linear-gradient(180deg,#DEC48F 0%,#C8A96B 100%);box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 16px 34px -12px rgba(200,169,107,.95)}
+.kpz-all .kpz-cta:hover{background:linear-gradient(180deg,#E6CF9C 0%,#D0B174 100%);box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 20px 40px -12px rgba(200,169,107,1)}
+
+/* ---------- rows 5–6: included ---------- */
+.kpz-inc{margin:2rem 0 0;padding:1.5rem 0 1rem;font-size:.9rem;font-weight:800;letter-spacing:.26em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.16);color:var(--acc)}
+.kpz-all .kpz-inc{color:#B8923E;border-top-color:rgba(200,169,107,.5)}
+.kpz-feats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.05rem}
+.kpz-feats li{display:flex;align-items:flex-start;gap:.9rem;font-size:1.3rem;line-height:1.3;font-weight:500;color:#fff}
+.kpz-feats li svg{flex:0 0 26px;width:26px;height:26px;margin-top:.05rem;padding:4px;border-radius:50%;color:#00001F;background:var(--acc)}
+.kpz-all .kpz-feats li{color:#1A2740}.kpz-feats b{font-weight:800;color:inherit}.kpz-all .kpz-feats b{color:#000034}
+.kpz-all .kpz-feats li svg{background:linear-gradient(180deg,#D8BC85,#C8A96B);color:#1B1403}
+
+/* ---------- row 7: per-session ---------- */
+.kpz-per{margin:1.8rem 0 0;padding-top:1.2rem;font-size:1.15rem;font-weight:600;opacity:1;color:rgba(255,255,255,.78);border-top:1px dashed rgba(255,255,255,.14)}
+.kpz-all .kpz-per{color:#3A3F5C;border-top-color:rgba(200,169,107,.45)}
+
+/* ---------- promo: the one element that shines ---------- */
+.kpz-promo{position:relative;max-width:1340px;margin:3.4rem auto 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 1.4rem;padding:1.9rem 2.4rem;border-radius:20px;border:0;
+  background:linear-gradient(90deg,#B99552 0%,#D8BC85 35%,#EBD7A8 50%,#D8BC85 65%,#B99552 100%);background-size:200% 100%;animation:kpzShine 6s linear infinite;
+  box-shadow:0 0 0 1px rgba(255,240,200,.7),0 0 60px -6px rgba(216,188,133,.55),0 26px 60px -22px rgba(0,0,0,.8);color:#1B1403;font:600 clamp(1.45rem,1.9vw,1.85rem)/1.2 var(--sans,Inter,sans-serif)}
+@keyframes kpzShine{0%{background-position:0 0}100%{background-position:200% 0}}
+@media (prefers-reduced-motion:reduce){.kpz-promo{animation:none}}
+.kpz-promo-tag{font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:#1B1403;text-shadow:none}
+.kpz-promo b{font-weight:800;color:#1B1403}
+.kpz-promo-msg{color:#1B1403}
+.kpz-code{display:inline-flex;align-items:center;gap:1rem;cursor:pointer;background:#000034;color:#fff;border:2px dashed #EBD7A8;border-radius:14px;padding:.7rem .7rem .7rem 1.4rem;font:inherit;box-shadow:0 10px 26px -12px rgba(0,0,0,.8)}
+.kpz-code b{font-size:1.15em;font-weight:900;letter-spacing:.16em;color:#F3DFA8}
+.kpz-code .cp{font:800 1rem var(--sans,Inter,sans-serif);text-transform:uppercase;letter-spacing:.08em;background:#fff;color:#000034;border-radius:9px;padding:.55rem .95rem}
+.kpz-code.is-copied .cp{background:#1F9D55;color:#fff}
+.kpz-pay-row{margin-top:2.2rem!important;font-size:1.1rem!important;color:rgba(255,255,255,.72)!important}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .kpz-grid{grid-template-columns:1fr!important;max-width:600px;gap:2.2rem!important}
+  .kpz-card{grid-row:auto;grid-template-rows:none;display:flex!important;flex-direction:column}
+  .kpz-all{order:-1;margin:0;padding-top:6.2rem;padding-bottom:2.8rem}
+}
+@media (max-width:520px){
+  .kpz-card{padding:2.3rem 1.4rem 2rem;border-radius:20px}
+  .kpz-all{padding-top:5.4rem}
+  .kpz-badge{font-size:.95rem;letter-spacing:.14em;padding:1rem .6rem}
+  .kpz-name{font-size:2.3rem!important}
+  .kpz-amt,.kpz-all .kpz-amt{font-size:5.2rem!important}
+  .kpz-cur{font-size:2rem}
+  .kpz-unit{font-size:1.15rem}
+  .kpz-pay{white-space:normal;font-size:1.2rem}
+  .kpz-feats li{font-size:1.2rem}
+  .kpz-cta{font-size:1.2rem!important;min-height:62px}
+  .kpz-all .kpz-cta{font-size:1.3rem!important;min-height:68px}
+  .kpz-promo{flex-direction:column;text-align:center;padding:1.5rem 1rem;font-size:1.3rem}
+  .kpz-code{width:100%;justify-content:space-between}
+}
