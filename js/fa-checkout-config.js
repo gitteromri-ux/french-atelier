@@ -21,7 +21,7 @@
   var env = (qs.get('env') === 'staging' || /github\.io$|vercel\.app$|^localhost$|^127\./.test(host)) ? 'staging' : 'production';
   try {
     sessionStorage.removeItem('fa_ck_env');
-    if (env === 'staging') document.addEventListener('DOMContentLoaded', function () {
+    if (env === 'staging' && !/\/enroll-checkout(?:\.html)?$/.test(location.pathname)) document.addEventListener('DOMContentLoaded', function () {
       var note = document.createElement('div');
       note.setAttribute('role', 'alert');
       note.textContent = 'TEST MODE: no real enrollment or payment. Do not enter real customer details.';
