@@ -20,9 +20,14 @@
   var host = location.hostname;
   var env = (qs.get('env') === 'staging' || /github\.io$|vercel\.app$|^localhost$|^127\./.test(host)) ? 'staging' : 'production';
   try {
-    if (qs.get('env') === 'staging') sessionStorage.setItem('fa_ck_env', 'staging');
-    else if (qs.get('env') === 'production') sessionStorage.removeItem('fa_ck_env');
-    if (sessionStorage.getItem('fa_ck_env') === 'staging') env = 'staging';
+    sessionStorage.removeItem('fa_ck_env');
+    if (env === 'staging' && !/\/enroll-checkout(?:\.html)?$/.test(location.pathname)) document.addEventListener('DOMContentLoaded', function () {
+      var note = document.createElement('div');
+      note.setAttribute('role', 'alert');
+      note.textContent = 'TEST MODE: no real enrollment or payment. Do not enter real customer details.';
+      note.style.cssText = 'position:relative;z-index:100000;background:#ffe49a;color:#171717;padding:12px;text-align:center;font:700 15px/1.4 sans-serif';
+      document.body.prepend(note);
+    });
   } catch (e) {}
 
   /* No placeholder course: French Atelier orders only ever bind to French Atelier CRM courses (levels 254-257, capsules 267-270). */

@@ -3,7 +3,15 @@
   'use strict';
   var FA = window.FA_CHECKOUT; if (!FA) return;
   var CFG = FA.config, CODE = 'CAPSULE20', DEF = CFG.promos && CFG.promos[CODE]; if (!DEF) return;
-  var isCaps = /capsules[a-z-]*\.html$/i.test(location.pathname);
+  var isCaps = /capsules[a-z-]*(?:\.html)?\/?$/i.test(location.pathname);
+  if (isCaps && !FA.promoGet()) FA.promoApply(CODE);
+  if (isCaps) {
+    document.body.classList.add('fa-capsule-sales');
+    var grid = document.querySelector('.kpz-grid');
+    if (grid) ['.kpz-one','.kpz-two','.kpz-all'].forEach(function(s,i){
+      var card = grid.querySelector(s); if (card) { grid.appendChild(card); var n=card.querySelector('.kpz-num'); if(n)n.textContent='0'+(i+1); }
+    });
+  }
   var base = /\/courses\//.test(location.pathname) ? '../' : '';
   var SEEN = 'fa_promo_seen_v1', HIDE = 'fa_strip_hide_v1';
   function expiry() { var pr = FA.promoGet(); if (pr && pr.code === CODE) return pr.exp; var t; try { t = parseInt(localStorage.getItem(SEEN), 10); if (!t) { t = Date.now(); localStorage.setItem(SEEN, String(t)); } } catch (e) { t = Date.now(); } return t + (DEF.days || 7) * 864e5; }
@@ -14,7 +22,7 @@
   var exp = expiry();
   if (!hidden && exp > Date.now()) {
     var strip = document.createElement('a');
-    strip.className = 'fa-strip'; strip.href = (isCaps ? location.pathname.split('/').pop() : base + 'capsules.html') + '?promo=' + CODE + '#offers'; strip.setAttribute('aria-label', 'Promo code ' + CODE + ': ' + DEF.label);
+    strip.className = 'fa-strip'; strip.href = '/culture-capsules?promo=' + CODE + '#offers'; strip.setAttribute('aria-label', 'Promo code ' + CODE + ': ' + DEF.label);
     strip.innerHTML = '<span class="fa-strip-code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>' + CODE + '</span>' +
       '<span class="fa-strip-msg"><b>' + DEF.pct + '% off</b><span class="long"> any Culture Capsules package</span><span class="short"> any package</span></span>' +
       '<span class="fa-strip-ends"><i></i><span class="lbl">Ends in</span><b id="faStripTimer">' + left(exp - Date.now()) + '</b></span>' +
