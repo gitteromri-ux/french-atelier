@@ -12,6 +12,11 @@
 <meta name="description" content="Complete your French Atelier enrollment securely. Card, Apple Pay, Google Pay and PayPal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fa-leads-proxy.vercel.app" crossorigin>
+<link rel="preconnect" href="https://checkout.airwallex.com">
+<link rel="preconnect" href="https://checkout-demo.airwallex.com">
+<link rel="preconnect" href="https://pci-api-demo.airwallex.com">
+<link rel="preconnect" href="https://pci-api.airwallex.com">
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
@@ -264,7 +269,7 @@
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/fa-geo.js?v=20261008y"></script>
 <script src="js/fa-checkout-config.js?v=20261008y"></script>
-<script src="js/fa-checkout.js?v=20261008y"></script>
+<script src="js/fa-checkout.js?v=20261020a"></script>
 <script src="js/fa-whatsapp.js?v=20261008y" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -433,9 +438,27 @@
     reserveFallback('no CRM course id for ' + sel.product, 'Online card payment for this offer opens as soon as the course is published in our enrollment system.');
     return;
   }
+  /* 2026-10-20: never a silent wait. Step-timed messages + 25 s watchdog that offers the reserve path while the form keeps loading. */
+  var formReady = false, slowShown = false, tStart = Date.now();
+  var tickTimer = setInterval(function(){
+    if (formReady || paid) { clearInterval(tickTimer); return; }
+    var sec = Math.round((Date.now() - tStart) / 1000);
+    var el = $('payStatus'); var hint = el && el.querySelector('.fa-pay-elapsed');
+    if (sec >= 8 && el && el.style.display !== 'none' && !el.classList.contains('err')) {
+      if (!hint) { hint = document.createElement('span'); hint.className = 'fa-pay-elapsed'; hint.style.cssText = 'display:block;margin-top:.35rem;font-size:.9em;opacity:.75'; el.appendChild(hint); }
+      hint.textContent = 'Our enrollment system is confirming your seat (' + sec + ' s). Please keep this page open.';
+    }
+    if (sec >= 25 && !slowShown) {
+      slowShown = true;
+      var fb = $('fallbackBox'); fb.style.display = ''; fb.className = 'fa-pay-fallback';
+      fb.innerHTML = '<strong>Taking longer than usual.</strong> The secure card form is still loading. You can keep waiting, or reserve your seat now and our advisor will complete the payment with you.<br><br><button type="button" class="btn btn-gold" id="slowReserve">Reserve my seat instead</button>';
+      $('slowReserve').addEventListener('click', function(){ this.disabled = true; this.textContent = 'Reserving…'; reserveFallback('buyer chose reserve after slow checkout (' + Math.round((Date.now() - tStart) / 1000) + 's)', 'Your seat is reserved.'); });
+    }
+  }, 1000);
+  var _status = status; status = function(msg, cls){ if (cls === 'ready') { formReady = true; if (slowShown && $('fallbackBox').className === 'fa-pay-fallback' && $('slowReserve')) { $('fallbackBox').style.display = 'none'; } } return _status(msg, cls); };
   status('Reserving your seat…');
   FA.createOrder(staged).then(function(_ids){
-    ids = _ids; status('Loading your secure payment form…');
+    ids = _ids; status('Seat reserved · preparing your secure payment form…');
     return FA.fetchDetails(ids);
   }).then(function(details){
     if (!details) throw new Error('DETAILS_FAILED');

@@ -76,22 +76,32 @@
   var ipCountryPromise = null;
   function ipCountry() {
     if (ipCountryPromise) return ipCountryPromise;
-    ipCountryPromise = fetch('https://ipapi.co/country/', { cache: 'force-cache' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) { t = (t || '').trim().toUpperCase(); return /^[A-Z]{2}$/.test(t) ? t : ''; }).catch(function () { return ''; });
+    /* 2026-10-20: only used to preselect the phone country on step 1; capped at 1.5 s so it can never hold anything up. */
+    ipCountryPromise = Promise.race([
+      fetch('https://ipapi.co/country/', { cache: 'force-cache' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) { t = (t || '').trim().toUpperCase(); return /^[A-Z]{2}$/.test(t) ? t : ''; }).catch(function () { return ''; }),
+      new Promise(function (ok) { setTimeout(function () { ok(''); }, 1500); })
+    ]);
     return ipCountryPromise;
   }
 
-  /* ---------- relay transport (3 attempts, backoff on 5xx/network) ---------- */
+  /* ---------- relay transport (2026-10-20: 20 s hard cap per call, one retry on 5xx/network; was 3 attempts, no cap) ---------- */
+  var POST_TIMEOUT_MS = 20000, POST_ATTEMPTS = 2;
   function post(url, body, attempt) {
     attempt = attempt || 1;
-    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+    var ctrl = (typeof AbortController === 'function') ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, POST_TIMEOUT_MS) : null;
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) { return r.text().then(function (t) { var j = null; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, status: r.status, body: j, raw: t }; }); })
       .then(function (res) {
-        if (res.status >= 500 && res.status !== 503 && attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
+        if (timer) clearTimeout(timer);
+        if (res.status >= 500 && res.status !== 503 && attempt < POST_ATTEMPTS) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600); });
         return res;
       })
       .catch(function (err) {
-        if (attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
-        return { ok: false, status: 0, body: null, error: String(err && err.message || err) };
+        if (timer) clearTimeout(timer);
+        var timedOut = err && err.name === 'AbortError';
+        if (attempt < POST_ATTEMPTS) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600); });
+        return { ok: false, status: 0, body: null, error: timedOut ? 'RELAY_TIMEOUT after ' + (POST_TIMEOUT_MS / 1000) + 's x' + attempt : String(err && err.message || err) };
       });
   }
   function relay(path) { return CFG.relayBase.replace(/\/$/, '') + (CFG.env === 'staging' ? '/staging' : '') + path; }
@@ -176,7 +186,8 @@
     var existing = loadIds(staged.sel);
     if (existing) return Promise.resolve(existing);
     if (orderInFlight) return orderInFlight;
-    orderInFlight = ipCountry().then(function (ip) {
+    /* 2026-10-20: geo lookup removed from the critical path; the payload uses lead.countryIso (ipIso was never sent). */
+    orderInFlight = Promise.resolve(staged.lead && staged.lead.countryIso || '').then(function (ip) {
       var payload = buildEcommPayload(staged.lead, staged.sel, ip);
       return post(relay('/api/lead/ecomm'), payload);
     }).then(function (r) {
