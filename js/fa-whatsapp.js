@@ -2,7 +2,7 @@
    Display-only: adds sibling links next to existing lead forms; never touches the form fields or submit handlers. */
 (function () {
   'use strict';
-  var NUM = '12015023701'; /* same wa.me channel as longevitylifeacademy.com — confirm the French Atelier number before go-live */
+  var NUM = '15557947802'; /* French Atelier WhatsApp (confirmed by Omri 2026-10-20). NEVER 12015023701 (Longevity) or 12067467744 (eTeacher non-branded). */
   var HREF = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent('Bonjour! I would like to know more about The French Atelier by Acadomia.');
   var base = /\/courses\//.test(location.pathname) ? '../' : '';
   var ICON = base + 'assets/wa/whatsapp.svg';
