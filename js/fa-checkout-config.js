@@ -88,10 +88,10 @@
       'fa-course': {
         kind: 'course',
         title: 'The French Atelier — 20 live lessons',
-        offerLabel: '$199 today · then 3 × $200 · $799 total · 35% off the $1,235 CRM list price',
-        /* CRM rules (USA, no trial): list $1,235, max 4 payments, max discount 44%, first payment >= 18%. 799 = 35.3% off, FP 24.9%. */
-        listMonthly: 308.75, listTotal: 1235, numberOfPayments: 4,
-        monthly: 200, firstPayment: 199, total: 799, pct: 35,
+        offerLabel: '$89 today · then 4 × $199 · $885 total · 28% off the $1,235 CRM list price',
+        /* CRM e-commerce plan for ProductID 25 (verified staging+production 2026-10-20): list $1,235 -> order $885 = $89 today + 4 x $199 (28% off). numberOfPayments counts the first payment. */
+        listMonthly: 308.75, listTotal: 1235, numberOfPayments: 5,
+        monthly: 199, firstPayment: 89, total: 885, pct: 28,
         includes: ['20 live lessons · 85 minutes each', 'First 2 weeks free · cancel within 14 days for a full refund', 'Cancel anytime after that · no further payments', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },

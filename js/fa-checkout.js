@@ -226,7 +226,7 @@
       LandingPage: location.href, UserAgent: navigator.userAgent, ReferringSite: document.referrer || location.hostname,
       QueryString: qs.slice(0, 2000), ProductID: CFG.productId,
       MainAbroadCourseId: crs.mainAbroadCourseId, LanguageId: crs.languageId != null ? crs.languageId : 101, IsTrial: crs.isTrial != null ? crs.isTrial : 0,
-      FirstPayment: p.firstPayment, NumberOfPayments: p.numberOfPayments, LeftToPay: Math.round((p.total - p.firstPayment) * 100) / 100,
+      FirstPayment: p.firstPayment, NumberOfPayments: Math.max(0, p.numberOfPayments - 1) /* CRM: payments after the first */, LeftToPay: Math.round((p.total - p.firstPayment) * 100) / 100,
       DynamicParameters: dyn.join('&').slice(0, 4000)
     };
     if (crs.abroadCourseId) payload.AbroadCourseId = crs.abroadCourseId;
@@ -271,7 +271,9 @@
     if (!a.paymentIntentId || !a.clientSecret || d.PaymentID == null) return { ok: false, reason: 'PAYMENT_DETAILS_INCOMPLETE' };
     var amount = Number(a.amount), n = Number(d.NumOfPayments);
     if (String(a.currency || d.CurrencyCode || '').toUpperCase() !== 'USD') return { ok: false, reason: 'CURRENCY_NOT_USD', amount: amount, n: n };
-    if (Math.abs(amount - p.firstPayment) > 0.005 || n !== p.numberOfPayments) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice, paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
+    var total = Number(d.OrderCoursePrice), perMonth = Number(d.PaymentPerMonth), rest = Math.max(0, p.numberOfPayments - 1);
+    /* CRM semantics (verified 2026-10-20): AmountToCharge = today's payment, NumOfPayments = payments AFTER it, PaymentPerMonth each, OrderCoursePrice = full plan. */
+    if (Math.abs(amount - p.firstPayment) > 0.005 || n !== rest || Math.abs(total - p.total) > 0.011 || (rest > 0 && Math.abs(perMonth - p.monthly) > 0.011)) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice, paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
     return { ok: true, amount: amount, currency: 'USD', paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
   }
   function reportPayment(report) {

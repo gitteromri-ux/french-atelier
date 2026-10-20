@@ -62,7 +62,7 @@
   var PRODUCT_LINE = 'french_atelier';
   var PRODUCT_NAME = 'The French Atelier by Acadomia';
   var PLANS = {
-    'fa-course':      { id: 'fa-course',      content_id: 'fa-course',      content_name: 'The French Atelier — 20 live lessons', value: 199 },
+    'fa-course':      { id: 'fa-course',      content_id: 'fa-course',      content_name: 'The French Atelier — 20 live lessons', value: 89 },
     'fa-course-full': { id: 'fa-course-full', content_id: 'fa-course-full', content_name: 'The French Atelier — paid in full',  value: 799 },
     'capsule-1':      { id: 'capsule-1',      content_id: 'capsule-1',      content_name: '1 Culture Capsule',                 value: 99 },
     'capsule-2':      { id: 'capsule-2',      content_id: 'capsule-2',      content_name: '2 Culture Capsules',                value: 178 },
