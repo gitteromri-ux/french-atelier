@@ -185,8 +185,10 @@
       /* One CRM order per checkout, on the first chosen capsule's course; the other capsules travel in DynamicParameters. */
       var first = sel && sel.capsules && sel.capsules[0], cc = first && CFG.capsules[first] && CFG.capsules[first].crm;
       if (!first && p.packs === 3) cc = CFG.capsules['fashion-art'].crm;
-      /* CRM: one course per order, list $500, max 44% off -> only the single-capsule package fits one order. 2/3-capsule packages reserve (advisor completes) until eTeacher adds bundle courses. */
-      if (p.packs === 1 && cc && cc.mainAbroadCourseId && cc.abroadCourseId) return cc;
+      /* 2026-10-20: the CRM prices the order from FirstPayment / NumberOfPayments / LeftToPay once the relay stops
+         sending ProductID (staging proof: $99x3, $178x3, $189x3 all honoured on a single capsule course, orders 8054307-8054309).
+         So every package binds to the first chosen capsule's course; the other capsules travel in DynamicParameters (facapsules=). */
+      if (cc && cc.mainAbroadCourseId && cc.abroadCourseId) return cc;
       return null;
     }
     if (p.kind === 'course' && sel && sel.level && CFG.levels[sel.level] && CFG.levels[sel.level].crm) {
@@ -454,7 +456,7 @@
     setStep(1); renderAside();
     var sel = state.sel, lead = prefill || {}, iso0 = lead.countryIso || 'US';
     var body = modal.querySelector('.fa-ck-body');
-    body.innerHTML = '<header class="fa-ck-head"><div class="fa-ck-stepline">Step 1 of 3</div><h3 id="fa-ck-title" class="fa-ck-title">Your French <span class="gi">starts here.</span></h3>' +
+    body.innerHTML = '<header class="fa-ck-head"><div class="fa-ck-stepline">Step 1 of 3</div><h3 id="fa-ck-title" class="fa-ck-title">' + (product(sel.product) && product(sel.product).kind === 'capsules' ? 'Your capsules <span class="gi">start here.</span>' : 'Your French <span class="gi">starts here.</span>') + '</h3>' +
       '<p class="fa-ck-sub">Register in a minute. Your seat is held while you complete the secure payment.</p></header>' +
       '<form class="fa-ck-form" novalidate>' +
       '<div class="fa-ck-row two">' + field('fa-ck-fn', 'First name', '<input id="fa-ck-fn" autocomplete="given-name" autocapitalize="words" required placeholder="Camille" value="' + h(lead.firstName || '') + '">') +

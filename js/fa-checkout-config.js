@@ -25,7 +25,8 @@
     if (sessionStorage.getItem('fa_ck_env') === 'staging') env = 'staging';
   } catch (e) {}
 
-  var STAGING_PIPE_PLACEHOLDER = { mainAbroadCourseId: 258, abroadCourseId: 1774, preferredCourseId: 168663, languageId: 101, isTrial: 0, placeholder: true };
+  /* No placeholder course: French Atelier orders only ever bind to French Atelier CRM courses (levels 254-257, capsules 267-270). */
+  var STAGING_PIPE_PLACEHOLDER = null;
 
   window.FA_ECOMM_CONFIG = {
     env: env,
@@ -73,11 +74,11 @@
     /* Culture Capsules — three thematic packs, 10 live one-hour Zoom conferences each, once a week. */
     capsules: {
       /* eTeacher CRM course records (supplied by Omri 2026-10-20). Campus 4204 = Culture Capsules. */
-      'fashion-art':  { name: 'Fashion & Art',      tagline: 'French aesthetics',   status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
+      'fashion-art':  { name: 'Fashion & Art',      tagline: 'French aesthetics',   status: 'Starts Sunday, December 6, 2026 · 12:00 pm ET · live on Zoom', start: 'Sunday, December 6, 2026 · 12:00 pm ET',
                         crm: { mainAbroadCourseId: 267, abroadCourseId: 1798, preferredCourseId: 170581, semesterId: 2268, campusId: 4204, groupNum: 6, mainGroupId: 4202 } },
-      'gastronomy':   { name: 'Gastronomy & Wine',  tagline: 'Terroir on the plate', status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
+      'gastronomy':   { name: 'Gastronomy & Wine',  tagline: 'Terroir on the plate', status: 'Starts Sunday, December 6, 2026 · 1:30 pm ET · live on Zoom', start: 'Sunday, December 6, 2026 · 1:30 pm ET',
                         crm: { mainAbroadCourseId: 270, abroadCourseId: 1807, preferredCourseId: 170256, semesterId: 2268, campusId: 4204, groupNum: 3, mainGroupId: 4202 } },
-      'cinema-music': { name: 'Cinema & Music',     tagline: 'Screens and songs',    status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
+      'cinema-music': { name: 'Cinema & Music',     tagline: 'Screens and songs',    status: 'Starts Sunday, January 10, 2027 · 12:00 pm ET · live on Zoom', start: 'Sunday, January 10, 2027 · 12:00 pm ET',
                         crm: { mainAbroadCourseId: 269, abroadCourseId: 1806, preferredCourseId: 170258, semesterId: 2381, campusId: 4204, groupNum: 4, mainGroupId: 4202 } }
     },
 
