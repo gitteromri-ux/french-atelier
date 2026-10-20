@@ -12,6 +12,9 @@
 <meta name="description" content="Complete your French Atelier enrollment securely. Credit card or PayPal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://checkout.airwallex.com" crossorigin>
+<link rel="preconnect" href="https://fa-leads-proxy.vercel.app" crossorigin>
+<link rel="preload" as="script" href="https://checkout.airwallex.com/assets/elements.bundle.min.js">
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
 <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
 <link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
@@ -162,7 +165,7 @@
           <div class="fa-pay-lines" id="payLines"></div>
           <div class="fa-pay-tband" id="payBand"></div>
         </div>
-        <p class="fa-pay-foot" id="payFoot">* Today&rsquo;s payment confirms your seat. The remaining monthly payments are collected automatically on the same payment method.</p>
+        <p class="fa-pay-foot" id="payFoot">* Today’s charge is the first installment of the plan shown. The remaining balance is still due. Card payments can authorize scheduled charges when you save your card; PayPal here collects only today’s payment.</p>
         <div class="fa-pay-card fa-pay-paycard" id="payCard">
           <div class="fa-pay-methods" id="payTabs" role="tablist" aria-label="Payment method">
             <button class="fa-pay-tab active" type="button" role="tab" aria-selected="true" data-tab="card"><img src="assets/pay/visa.svg" alt="Visa"><img src="assets/pay/mastercard.svg" alt="Mastercard"><img src="assets/pay/amex.svg" alt="American Express"></button>
