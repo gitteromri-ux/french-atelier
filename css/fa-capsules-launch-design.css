@@ -48,13 +48,14 @@ html:root:root:root:root:root body#fa .cap-teacher-featured .cap-portrait img {
 .cap-teacher-copy { padding: 36px 0 0; }
 .cap-theme { font: 700 17px/1.4 var(--sans); color: #70572c; margin: 0 0 10px; }
 html:root:root:root:root:root body#fa .cap-teacher h3 {
-  font: 500 clamp(34px,3.15vw,50px)/1.08 var(--serif) !important;
+  font: 500 clamp(38px,3.5vw,56px)/1.08 var(--serif) !important;
   color: #0b0b2a !important;
   letter-spacing: -.02em;
   margin: 0 0 16px;
 }
-html:root:root:root:root:root body#fa .cap-role { font: 500 22px/1.45 var(--sans) !important; min-height: 2.9em; color: #70572c; margin: 0 0 24px; }
-html:root:root:root:root:root body#fa .cap-bio { font: 400 26px/1.5 var(--sans) !important; color: #26354b; margin: 0; }
+html:root:root:root:root:root body#fa .cap-role { font: 500 25px/1.4 var(--sans) !important; min-height: 2.8em; color: #70572c; margin: 0 0 24px; }
+html:root:root:root:root:root body#fa .cap-bio { font: 400 30px/1.4 var(--sans) !important; color: #26354b; margin: 0; }
+.cap-bio br { display: none; }
 .cap-bio-break { display: none; }
 .cap-teacher-featured .cap-portrait { outline: none; }
 #watch .kpx-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
@@ -76,9 +77,9 @@ html:root:root:root:root:root body#fa .cap-bio { font: 400 26px/1.5 var(--sans) 
   .cap-role { min-height: 0; }
   .cap-faculty-head > p { font-size: 18px; }
   .cap-teacher-copy { padding-top: 28px; }
-  html:root:root:root:root:root body#fa .cap-teacher h3 { font-size: 40px !important; }
-  html:root:root:root:root:root body#fa .cap-role { font-size: 20px !important; min-height: 0; margin-bottom: 20px; }
-  html:root:root:root:root:root body#fa .cap-bio { font-size: 22px !important; }
+  html:root:root:root:root:root body#fa .cap-teacher h3 { font-size: 44px !important; }
+  html:root:root:root:root:root body#fa .cap-role { font-size: 22px !important; min-height: 0; margin-bottom: 20px; }
+  html:root:root:root:root:root body#fa .cap-bio { font-size: 25px !important; }
   .cap-bio br { display: none; }
   html:root:root:root:root:root body#fa.cap-page .kps-card .title { min-height: 0; }
   html:root:root:root:root:root body#fa.cap-page .kps-card .what { min-height: 0; }
