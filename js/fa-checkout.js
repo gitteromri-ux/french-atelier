@@ -154,6 +154,10 @@
       if (!first && p.packs === 3) cc = CFG.capsules['fashion-art'].crm;
       if (cc && cc.mainAbroadCourseId && cc.abroadCourseId) return cc;
     }
+    if (p.kind === 'course' && sel && sel.level && CFG.levels[sel.level] && CFG.levels[sel.level].crm) {
+      var lc = CFG.levels[sel.level].crm;
+      if (lc.mainAbroadCourseId && lc.abroadCourseId) return lc;
+    }
     if (p.crmCourse && p.crmCourse.mainAbroadCourseId) return p.crmCourse;
     if (CFG.env === 'staging') return CFG.stagingPipePlaceholder;
     return null; /* production without an eTeacher course id -> reserve mode */

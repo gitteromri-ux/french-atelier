@@ -41,12 +41,12 @@
     acEventEndpoint: 'https://fa-leads-proxy.vercel.app/api/ac/event',
     checkoutPage: 'enroll-checkout.html',
 
-    /* Course levels sold on the homepage / course pages. */
+    /* Course levels sold on the homepage / course pages. CRM AbroadCourseIDs from the eTeacher admin (2026-10-20). */
     levels: {
-      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1',   route: 'Paris',                         page: 'courses/fa-foundation.html' },
-      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', route: 'Normandy to Paris',             page: 'courses/fa-beginner.html' },
-      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', route: 'Loire · Bordeaux · Basque',     page: 'courses/fa-elementary.html' },
-      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', route: 'Marseille · Chamonix · Alsace', page: 'courses/fa-intermediate.html' }
+      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1',   route: 'Paris',                         page: 'courses/fa-foundation.html', crm: { abroadCourseId: 1768, studyGroupAbroadCourseId: 1737, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
+      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', route: 'Normandy to Paris',             page: 'courses/fa-beginner.html', crm: { abroadCourseId: 1770, studyGroupAbroadCourseId: 1738, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
+      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', route: 'Loire · Bordeaux · Basque',     page: 'courses/fa-elementary.html', crm: { abroadCourseId: 1772, studyGroupAbroadCourseId: 1808, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
+      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', route: 'Marseille · Chamonix · Alsace', page: 'courses/fa-intermediate.html', crm: { abroadCourseId: 1773, studyGroupAbroadCourseId: 1809, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } }
     },
     /* Course facts shown in the checkout (source: how-it-works.html, faq.html, course pages). */
     courseFacts: [
