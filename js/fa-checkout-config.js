@@ -107,8 +107,9 @@
       'capsule-1': {
         kind: 'capsules', packs: 1,
         title: '1 Culture Capsule',
-        offerLabel: '3 monthly payments of $99',
-        numberOfPayments: 3, monthly: 99, firstPayment: 99, total: 297, perCapsule: 99,
+        offerLabel: '3 monthly payments of $99 · $297 total · 41% off the $500 CRM list price',
+        /* CRM list (USA, no trial) $500 per capsule, max 44% off. 297 = 40.6% off. */
+        listTotal: 500, numberOfPayments: 3, monthly: 99, firstPayment: 99, total: 297, pct: 41, perCapsule: 99,
         includes: ['10 live one-hour conferences on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each talk', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
