@@ -36,6 +36,15 @@ body.has-fa-strip .fa-ck-overlay{top:var(--fa-top)}
 }
 
 /* floating enroll CTA — same component as the Longevity site */
+@media (max-width:960px){
+  body.fa-capsule-sales .kpz-card{order:0!important;opacity:1!important;transform:none!important}
+  body.fa-capsule-sales #offers,body.fa-capsule-sales #offers .reveal{opacity:1!important;visibility:visible!important;transform:none!important}
+  body.fa-capsule-sales .fa-wa{position:static!important;transform:none!important;opacity:1!important;margin:18px auto 100px!important;width:max-content;max-width:100%}
+  body.fa-capsule-sales.fa-ck-lock .fa-wa{display:none!important}
+  .fa-strip-msg{white-space:nowrap!important}
+  .fa-strip-msg .short{display:none!important}
+  .fa-strip-code{flex-shrink:0}
+}
 .fa-float-cta{position:fixed;top:calc(var(--fa-top) + 96px);right:32px;z-index:999;display:inline-flex;align-items:stretch;cursor:pointer;text-decoration:none;font-family:var(--sans,'Inter',sans-serif);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,#131A3C 0%,#070B22 100%);border:1px solid rgba(255,255,255,.10);box-shadow:0 0 0 1px rgba(120,180,255,.18),0 14px 36px rgba(8,30,60,.28),0 0 28px rgba(120,190,255,.18);opacity:0;transform:translateY(-12px);pointer-events:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
 .fa-float-cta.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 body.fa-ck-lock .fa-float-cta{opacity:0;pointer-events:none}

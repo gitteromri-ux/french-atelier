@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
 <link rel="stylesheet" href="css/fa-checkout.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-whatsapp.css?v=20261020a">
-<link rel="stylesheet" href="css/fa-pay-et.css?v=20261020a">
+<link rel="stylesheet" href="css/fa-pay-et.css?v=20261020-launchfix">
 <link rel="stylesheet" href="css/fa-pop.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-type.css?v=20261020a">
 </head>
@@ -76,7 +76,7 @@
             <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
             <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
             <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
-            <a href="capsules.html" class="nav-dd-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
+            <a href="/culture-capsules" class="nav-dd-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
           </div>
           <div class="nav-dd-col">
             <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Spoken &middot; Conversation</span>
@@ -131,7 +131,7 @@
     <a href="courses/lsf-beginner.html">LSF Beginner</a>
     <a href="courses/lsf-elementary.html">LSF Elementary</a>
     <a href="map.html">Interactive Map of France</a>
-      <a href="capsules.html" class="drawer-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
+      <a href="/culture-capsules" class="drawer-comingsoon">Culture Capsules <span class="cs-tag">Now Enrolling</span></a>
   </div>
   <span class="drawer-group-label">About Us</span>
   <div class="drawer-sub">
@@ -235,7 +235,7 @@
         <a href="juliane.html">Julien · AI Tutor</a>
         <a href="teachers.html">Our Teachers</a>
         <a href="culture.html">French Culture</a>
-        <a href="capsules.html">Culture Capsules</a>
+        <a href="/culture-capsules">Culture Capsules</a>
         <a href="blog.html">Cultural Journal</a>
       </div>
       <div class="footer-col">
@@ -264,8 +264,8 @@
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/fa-meta-tracking.js?v=20261020h"></script>
 <script src="js/fa-geo.js?v=20261020a"></script>
-<script src="js/fa-checkout-config.js?v=20261020g"></script>
-<script src="js/fa-checkout.js?v=20261020g"></script>
+<script src="js/fa-checkout-config.js?v=20261020-launchfix"></script>
+<script src="js/fa-checkout.js?v=20261020-launchfix"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -285,7 +285,7 @@
   var staged = FA.loadLead();
   var sel = { product: q.get('product') || (staged && staged.sel.product), level: q.get('level') || (staged && staged.sel.level), classTime: q.get('time') || (staged && staged.sel.classTime) || '', capsules: (q.get('capsules') || (staged && (staged.sel.capsules||[]).join(',')) || '').split(',').filter(Boolean) };
   var p = FA.product(sel.product);
-  var backHref = sel.product && /capsule|membership/.test(sel.product) ? 'capsules.html' : 'pricing.html';
+  var backHref = sel.product && /capsule|membership/.test(sel.product) ? '/culture-capsules' : 'pricing.html';
 
   /* Order summary */
   function renderSummary(){
@@ -306,7 +306,7 @@
     function tot(k, v){ return '<div class="fee fee-total"><div class="fee-row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div></div>'; }
     var rows;
     if (p.kind === 'course') rows = row('First month tuition', 'Charged today to confirm your seat.', '<s>' + FA.fmt2(p.listMonthly) + '</s>' + FA.fmt2(p.firstPayment)) + row('Monthly tuition fee', 'Collected monthly on the same payment method.', '<s>4 \u00d7 ' + FA.fmt2(p.listMonthly) + '</s>4 \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total \u00b7 ' + (p.pct || 35) + '% off', '<s>' + FA.fmt(p.listTotal) + '</s>' + FA.fmt2(p.total));
-    else rows = row('First monthly payment', 'Charged today to confirm your seat.', (p.promo ? '<s>' + FA.fmt2(p.baseMonthly) + '</s>' : '') + FA.fmt2(p.firstPayment)) + row('Monthly fee', 'Collected monthly on the same payment method.', (p.promo ? '<s>' + (n - 1) + ' \u00d7 ' + FA.fmt2(p.baseMonthly) + '</s>' : '') + (n - 1) + ' \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total' + (p.promo ? ' \u00b7 ' + p.promo.pct + '% off' : ''), (p.promo ? '<s>' + FA.fmt(p.baseTotal) + '</s>' : '') + FA.fmt2(p.total));
+    else rows = row('First monthly payment', 'Charged today to confirm your seat.', (p.promo ? '<s>' + FA.fmt2(p.baseMonthly) + '</s>' : '') + FA.fmt2(p.firstPayment)) + row('Remaining monthly installments', 'Remaining balance is due according to this plan. See the selected payment method for collection details.', (p.promo ? '<s>' + (n - 1) + ' \u00d7 ' + FA.fmt2(p.baseMonthly) + '</s>' : '') + (n - 1) + ' \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total' + (p.promo ? ' \u00b7 ' + p.promo.pct + '% off' : ''), (p.promo ? '<s>' + FA.fmt(p.baseTotal) + '</s>' : '') + FA.fmt2(p.total));
     $('sumRows').innerHTML = rows + FA.saveChip(p, 'fa-pay-save');
     $('payToday').innerHTML = '<span class="k">Due today</span><strong>' + FA.fmt2(p.firstPayment) + '</strong>';
     if (staged) { var l = staged.lead; $('sumBuyer').innerHTML = '<span class="k">Enrolling</span>' + FA.h(l.firstName + ' ' + l.lastName) + '<br>' + FA.h(l.email) + '<br>' + FA.h(l.e164) + ' \u00b7 ' + FA.h((window.FA_GEO.BY_ISO[l.countryIso]||{}).name || l.countryIso) + (l.stateCode ? ', ' + FA.h(l.stateCode) : '') + '<br><a href="#" id="editDetails">Edit details</a>';
@@ -336,7 +336,7 @@
   var ids = null, amount = p.firstPayment, paymentId = null, dropIn = null, paid = false, paypalRendered = false, orderReady = null, resolveOrder = null;
   orderReady = new Promise(function(res){ resolveOrder = res; });
 
-  function showDone(method){
+  function showDone(method, pending){
     paid = true;
     try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
     $('payTabs').style.display = 'none'; $('cardBox').style.display = 'none'; $('paypalBox').style.display = 'none';
@@ -344,6 +344,11 @@
     status('');
     $('fallbackBox').style.display = ''; $('fallbackBox').className = 'fa-pay-done';
     $('fallbackBox').innerHTML = '<div class="seal">' + FA.icon.check + '</div><h2>Bienvenue, ' + FA.h(staged.lead.firstName) + '.</h2><p class="lead">Your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> is confirmed.</p><dl class="fa-pay-receipt"><div><dt>Paid today</dt><dd>' + FA.fmt2(amount) + ' USD' + (method ? ' · ' + FA.h(method) : '') + '</dd></div><div><dt>Order</dt><dd>#' + FA.h(ids.orderid) + '</dd></div><div><dt>Receipt to</dt><dd>' + FA.h(staged.lead.email) + '</dd></div></dl><p>An admissions advisor will contact you to confirm your class schedule.</p><a class="fa-ck-submit fa-pay-home" href="index.html"><span>Back to The French Atelier</span>' + FA.icon.arrow + '</a>';
+    if (pending) {
+      $('fallbackBox').querySelector('h2').textContent = 'Payment received. Enrollment confirmation pending.';
+      $('fallbackBox').querySelector('.lead').textContent = 'Your payment succeeded, but our enrollment system has not confirmed it. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.';
+      $('fallbackBox').setAttribute('role','alert');
+    }
     FA.clearIds();
     FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: String(ids.orderid), num_items: 1 }, { eventId: 'fa_purchase_' + ids.orderid });
     /* Julie golden rule: payment success writes nothing to AC (CRM -> AC sync excludes buyers). */
@@ -380,13 +385,16 @@
     dropIn.mount($('awx-dropin'));
     /* The house mobile stylesheet forces iframe{height:auto!important}; re-apply the SDK's inline height as !important so the form is never clipped. */
     (function(){ var box = $('awx-dropin'); var fix = function(){ box.querySelectorAll('iframe').forEach(function(f){ var hh = f.style.height; if (hh && f.style.getPropertyPriority('height') !== 'important') f.style.setProperty('height', hh, 'important'); }); }; new MutationObserver(fix).observe(box, { attributes: true, subtree: true, childList: true, attributeFilter: ['style'] }); fix(); })();
-    dropIn.on('ready', function(){ status(CFG.env === 'staging' ? 'Sandbox · test card 4035 5010 0000 0008 · any future date · any CVC' : 'Secure card entry ready · you will be charged ' + FA.fmt2(amount) + ' USD', 'ready'); });
+    var readyTimer = setTimeout(function(){ status('The secure card form is taking longer than expected. Please wait; do not submit another payment.', 'warn'); }, 15000);
+    dropIn.on('ready', function(){ clearTimeout(readyTimer); status(CFG.env === 'staging' ? 'Sandbox · test card 4035 5010 0000 0008 · any future date · any CVC' : 'Secure card entry ready · you will be charged ' + FA.fmt2(amount) + ' USD', 'ready'); });
     dropIn.on('success', function(evt){
       if (paid) return;
+      paid = true;
       status('✓ Payment succeeded. Confirming your enrollment…', 'ok');
       var intent = evt && evt.detail && evt.detail.intent;
       FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'CreditCard', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: (intent && intent.id) || v.intentId })
-        .then(function(r){ if (!r || !r.ok) status('Your payment succeeded, but enrollment confirmation is pending. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.', 'warn'); setTimeout(function(){ showDone('card'); }, 700); });
+        .then(function(r){ showDone('card', !r || !r.ok); })
+        .catch(function(){ showDone('card', true); });
     });
     dropIn.on('error', function(evt){ var m = evt && evt.detail && ((evt.detail.error && evt.detail.error.message) || evt.detail.message); status('✗ Payment failed: ' + (m || 'error') + ' — you were not charged.', 'err'); });
   }
@@ -413,7 +421,8 @@
           if (!ok) { st.textContent = 'We could not verify the PayPal payment result for order #' + ids.orderid + '. Do not pay again. Contact ' + CFG.advisorEmail + '.'; return; }
           try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
           return FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'PayPal', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: String(cap.id || details.id || ''), PayPalPayerId: String((details.payer && details.payer.payer_id) || ''), PayPalOrderId: String(details.id || ''), PayPalPaymentId: String(cap.id || '') })
-            .then(function(r){ if (!r || !r.ok) st.textContent = 'Your PayPal payment succeeded, but enrollment confirmation is pending. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.'; setTimeout(function(){ showDone('PayPal'); }, 700); });
+            .then(function(r){ showDone('PayPal', !r || !r.ok); })
+            .catch(function(){ showDone('PayPal', true); });
         }).catch(function(){ st.textContent = 'We could not confirm the PayPal payment status. Do not pay again. Contact ' + CFG.advisorEmail + '.'; });
       },
       onError: function(){ if (!started) st.textContent = 'PayPal could not start. Please try again or pay by card.'; }
@@ -422,10 +431,11 @@
   document.querySelectorAll('.fa-pay-tab').forEach(function(t){ t.addEventListener('click', function(){
     document.querySelectorAll('.fa-pay-tab').forEach(function(x){ x.classList.toggle('active', x === t); x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
     var pp = t.getAttribute('data-tab') === 'paypal';
+    $('payFoot').textContent = pp ? 'PayPal collects today’s payment only. The remaining installments are still due; this PayPal checkout does not authorize automatic monthly debits.' : 'Today’s payment is the first installment of the plan shown. Save your card to authorize future scheduled payments.';
     $('cardBox').style.display = pp ? 'none' : ''; $('paypalBox').style.display = pp ? '' : 'none'; $('payStatus').style.display = pp ? 'none' : '';
     if (pp) renderPayPal();
   }); });
-  (function loadPayPal(){ if (!CFG.paypalClientId) return; var s = document.createElement('script'); s.async = true; s.src = 'https://www.paypal.com/sdk/js?client-id=' + CFG.paypalClientId + '&currency=USD&disable-funding=credit,card'; document.head.appendChild(s); })();
+  (function loadPayPal(){ if (!CFG.paypalClientId) return; var s = document.createElement('script'); s.async = true; s.src = 'https://www.paypal.com/sdk/js?client-id=' + CFG.paypalClientId + '&currency=USD&disable-funding=credit,card,paylater,venmo'; document.head.appendChild(s); })();
 
   /* ---- run ---- */
   function run(){

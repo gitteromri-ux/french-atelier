@@ -41,7 +41,12 @@
 #fa-pay.fa-pay-et .fa-pay-policy a:hover{text-decoration:underline}
 @media (max-width:960px){
   #fa-pay.fa-pay-et .fa-pay-plan{margin-bottom:1rem;padding:.95rem 1.1rem}
-  #fa-pay.fa-pay-et .fa-pay-grid{grid-template-columns:1fr;grid-template-areas:"side" "main";gap:1rem}
+  #fa-pay.fa-pay-et .fa-pay-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"side" "main";gap:1rem}
+  #fa-pay.fa-pay-et .fa-pay-grid > *,#fa-pay.fa-pay-et .fa-pay-side > *,#fa-pay.fa-pay-et .fa-pay-main > *{min-width:0;max-width:100%;box-sizing:border-box}
+  #fa-pay.fa-pay-et .fa-pay-sumbar{min-width:0;max-width:100%;box-sizing:border-box}
+  #fa-pay.fa-pay-et .fa-pay-sumbar > *{min-width:0}
+  #fa-pay.fa-pay-et .fa-pay-policy,#fa-pay.fa-pay-et .fa-pay-receipt{overflow-wrap:anywhere}
+  #fa-pay.fa-pay-et .fa-pay-body{min-width:0}
   #fa-pay.fa-pay-et .fa-pay-side{display:contents}
   #fa-pay.fa-pay-et .fa-pay-summary{grid-area:side}
   #fa-pay.fa-pay-et .fa-pay-main{grid-area:main}

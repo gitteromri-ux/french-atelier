@@ -143,13 +143,17 @@
   /* ---------- relay transport (3 attempts, backoff on 5xx/network) ---------- */
   function post(url, body, attempt) {
     attempt = attempt || 1;
-    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body) })
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timeout = controller ? setTimeout(function(){ controller.abort(); }, 20000) : null;
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), signal: controller ? controller.signal : undefined })
+      .finally(function(){ if (timeout) clearTimeout(timeout); })
       .then(function (r) { return r.text().then(function (t) { var j = null; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, status: r.status, body: j, raw: t }; }); })
       .then(function (res) {
         if (res.status >= 500 && res.status !== 503 && attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
         return res;
       })
       .catch(function (err) {
+        if (err && err.name === 'AbortError') throw new Error('REQUEST_TIMEOUT: result unknown; do not submit a second payment.');
         if (attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
         return { ok: false, status: 0, body: null, error: String(err && err.message || err) };
       });
@@ -242,7 +246,8 @@
   function saveLead(lead, sel) { try { sessionStorage.setItem(STORE_LEAD, JSON.stringify({ lead: lead, sel: sel, ts: Date.now(), env: CFG.env })); } catch (e) {} }
   function loadLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
   function saveIds(ids) { try { sessionStorage.setItem(STORE_IDS, JSON.stringify(Object.assign({ ts: Date.now(), env: CFG.env }, ids))); } catch (e) {} }
-  function loadIds(sel) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'); return o && o.env === CFG.env && o.product === sel.product && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
+  function orderSignature(sel) { var p = product(sel.product); return JSON.stringify([sel.product,sel.level||'',sel.capsules||[],p.firstPayment,p.total,p.numberOfPayments]); }
+  function loadIds(sel) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'); return o && o.env === CFG.env && o.signature === orderSignature(sel) && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
   function clearIds() { try { sessionStorage.removeItem(STORE_IDS); } catch (e) {} }
 
   var orderInFlight = null;
@@ -259,7 +264,7 @@
       var b = r.body || {};
       var stid = b.StudentId || b.StudentID || b.studentId, oid = b.OrderId || b.OrderID || b.orderId;
       if (!r.ok || !stid || !oid) throw new Error('LEAD_CREATE_FAILED');
-      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product };
+      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: orderSignature(staged.sel) };
       saveIds(ids); return ids;
     }).catch(function (e) { orderInFlight = null; throw e; });
     return orderInFlight;
@@ -595,7 +600,7 @@
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       btnBusy(btn, 'Opening secure payment…');
       var inSub = /\/courses\//.test(location.pathname);
-      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (sel.classTime ? '&time=' + encodeURIComponent(sel.classTime) : '');
+      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (sel.classTime ? '&time=' + encodeURIComponent(sel.classTime) : '') + (CFG.env === 'staging' ? '&env=staging' : '');
     });
   }
 
