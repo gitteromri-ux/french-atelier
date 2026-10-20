@@ -152,7 +152,9 @@
       /* One CRM order per checkout, on the first chosen capsule's course; the other capsules travel in DynamicParameters. */
       var first = sel && sel.capsules && sel.capsules[0], cc = first && CFG.capsules[first] && CFG.capsules[first].crm;
       if (!first && p.packs === 3) cc = CFG.capsules['fashion-art'].crm;
-      if (cc && cc.mainAbroadCourseId && cc.abroadCourseId) return cc;
+      /* CRM: one course per order, list $500, max 44% off -> only the single-capsule package fits one order. 2/3-capsule packages reserve (advisor completes) until eTeacher adds bundle courses. */
+      if (p.packs === 1 && cc && cc.mainAbroadCourseId && cc.abroadCourseId) return cc;
+      return null;
     }
     if (p.kind === 'course' && sel && sel.level && CFG.levels[sel.level] && CFG.levels[sel.level].crm) {
       var lc = CFG.levels[sel.level].crm;

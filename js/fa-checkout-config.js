@@ -43,10 +43,10 @@
 
     /* Course levels sold on the homepage / course pages. CRM AbroadCourseIDs from the eTeacher admin (2026-10-20). */
     levels: {
-      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1',   route: 'Paris',                         page: 'courses/fa-foundation.html', crm: { abroadCourseId: 1768, studyGroupAbroadCourseId: 1737, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
-      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', route: 'Normandy to Paris',             page: 'courses/fa-beginner.html', crm: { abroadCourseId: 1770, studyGroupAbroadCourseId: 1738, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
-      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', route: 'Loire · Bordeaux · Basque',     page: 'courses/fa-elementary.html', crm: { abroadCourseId: 1772, studyGroupAbroadCourseId: 1808, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } },
-      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', route: 'Marseille · Chamonix · Alsace', page: 'courses/fa-intermediate.html', crm: { abroadCourseId: 1773, studyGroupAbroadCourseId: 1809, mainAbroadCourseId: null, preferredCourseId: null, semesterId: null, campusId: null } }
+      foundation:   { name: 'FA Foundation',   cefr: 'A0 → A1.1',   route: 'Paris',                         page: 'courses/fa-foundation.html', crm: { abroadCourseId: 1768, studyGroupAbroadCourseId: 1737, mainAbroadCourseId: 1768, preferredCourseId: null, semesterId: null, campusId: null } },
+      beginner:     { name: 'FA Beginner',     cefr: 'A1.1 → A1.2', route: 'Normandy to Paris',             page: 'courses/fa-beginner.html', crm: { abroadCourseId: 1770, studyGroupAbroadCourseId: 1738, mainAbroadCourseId: 1770, preferredCourseId: null, semesterId: null, campusId: null } },
+      elementary:   { name: 'FA Elementary',   cefr: 'A1.2 → A2.1', route: 'Loire · Bordeaux · Basque',     page: 'courses/fa-elementary.html', crm: { abroadCourseId: 1772, studyGroupAbroadCourseId: 1808, mainAbroadCourseId: 1772, preferredCourseId: null, semesterId: null, campusId: null } },
+      intermediate: { name: 'FA Intermediate', cefr: 'A2.1 → A2.2', route: 'Marseille · Chamonix · Alsace', page: 'courses/fa-intermediate.html', crm: { abroadCourseId: 1773, studyGroupAbroadCourseId: 1809, mainAbroadCourseId: 1773, preferredCourseId: null, semesterId: null, campusId: null } }
     },
     /* Course facts shown in the checkout (source: how-it-works.html, faq.html, course pages). */
     courseFacts: [
@@ -74,11 +74,11 @@
     capsules: {
       /* eTeacher CRM course records (supplied by Omri 2026-10-20). Campus 4204 = Culture Capsules. */
       'fashion-art':  { name: 'Fashion & Art',      tagline: 'French aesthetics',   status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
-                        crm: { abroadCourseId: 1798, preferredCourseId: 170581, semesterId: 2268, campusId: 4204, groupNum: 6, mainGroupId: 4202, mainAbroadCourseId: null } },
+                        crm: { mainAbroadCourseId: 1798, abroadCourseId: 1798, preferredCourseId: 170581, semesterId: 2268, campusId: 4204, groupNum: 6, mainGroupId: 4202 } },
       'gastronomy':   { name: 'Gastronomy & Wine',  tagline: 'Terroir on the plate', status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
-                        crm: { abroadCourseId: 1807, preferredCourseId: 170256, semesterId: 2268, campusId: 4204, groupNum: 3, mainGroupId: 4202, mainAbroadCourseId: null } },
+                        crm: { mainAbroadCourseId: 1807, abroadCourseId: 1807, preferredCourseId: 170256, semesterId: 2268, campusId: 4204, groupNum: 3, mainGroupId: 4202 } },
       'cinema-music': { name: 'Cinema & Music',     tagline: 'Screens and songs',    status: 'Enrolling now · live on Sundays', start: 'Sundays · live on Zoom',
-                        crm: { abroadCourseId: 1806, preferredCourseId: 170258, semesterId: 2381, campusId: 4204, groupNum: 4, mainGroupId: 4202, mainAbroadCourseId: null } }
+                        crm: { mainAbroadCourseId: 1806, abroadCourseId: 1806, preferredCourseId: 170258, semesterId: 2381, campusId: 4204, groupNum: 4, mainGroupId: 4202 } }
     },
 
     /* OFFERS. Amounts are the ONLY source of truth for what the page shows; the
@@ -88,18 +88,19 @@
       'fa-course': {
         kind: 'course',
         title: 'The French Atelier — 20 live lessons',
-        offerLabel: 'First month $89 (50% off) · then 4 × $178 · $801 total · first 2 weeks free',
-        listMonthly: 292, listTotal: 1460, numberOfPayments: 5,
-        monthly: 178, firstPayment: 89, total: 801, pct: 45,
+        offerLabel: '$199 today · then 3 × $200 · $799 total · 35% off the $1,235 CRM list price',
+        /* CRM rules (USA, no trial): list $1,235, max 4 payments, max discount 44%, first payment >= 18%. 799 = 35.3% off, FP 24.9%. */
+        listMonthly: 308.75, listTotal: 1235, numberOfPayments: 4,
+        monthly: 200, firstPayment: 199, total: 799, pct: 35,
         includes: ['20 live lessons · 85 minutes each', 'First 2 weeks free · cancel within 14 days for a full refund', 'Cancel anytime after that · no further payments', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },
       'fa-course-full': {
         kind: 'course',
         title: 'The French Atelier — 20 live lessons · paid in full',
-        offerLabel: 'Pay in full · $799 once · 45% off · study groups included',
-        listMonthly: 1460, listTotal: 1460, numberOfPayments: 1,
-        monthly: 799, firstPayment: 799, total: 799, pct: 45,
+        offerLabel: 'Pay in full · $799 once · 35% off · study groups included',
+        listMonthly: 1235, listTotal: 1235, numberOfPayments: 1,
+        monthly: 799, firstPayment: 799, total: 799, pct: 35,
         includes: ['20 live lessons · 85 minutes each', 'Twice-weekly study groups included', 'Certified native French teachers, live from France', 'Small groups of 10–12 learners', 'Julien, your 24/7 AI French tutor', 'Lifetime access to lesson recordings', 'CEFR-aligned certificate by Acadomia + $100 in credits'],
         crmCourse: null
       },
