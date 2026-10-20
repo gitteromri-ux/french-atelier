@@ -56,7 +56,7 @@
   var RELAY_URL = 'https://fa-leads-proxy.vercel.app/api/meta/capi';
   var SOURCE = 'french-atelier';
   var PROD_HOST = 'www.frenchatelierlive.com';
-  var PROD_PATHS = ['/french-course-enroll.html', '/culture-capsules-enroll.html', '/enroll-checkout.html', '/french-course-enroll', '/culture-capsules-enroll', '/enroll-checkout'];
+  var PROD_PATHS = ['/french-course-enroll.html', '/culture-capsules.html', '/culture-capsules-enroll.html', '/enroll-checkout.html', '/french-course-enroll', '/culture-capsules', '/culture-capsules-enroll', '/enroll-checkout'];
   var COOKIE_DOMAIN = 'frenchatelierlive.com';
   var CURRENCY = 'USD';
   var PRODUCT_LINE = 'french_atelier';
