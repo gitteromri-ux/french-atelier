@@ -51,46 +51,79 @@
       return m[name];
     } catch (e) { return 'fa_' + name.toLowerCase() + '_' + Date.now().toString(36); }
   }
+  /* Golden tracking (1:1 Julie format, FA naming): FA_META (js/fa-meta-tracking.js) owns
+     AddToCart / InitiateCheckout / Purchase with ONE event_id shared by Pixel + CAPI
+     (fa_atc_<orderid>, fa_ic_<orderid>, Purchase = CRM order id). Lead stays pixel-only (reserve path). */
+  var lastProduct = '';
+  window.FA_PLAN = { get: function () { var pl = window.FA_META && window.FA_META.plans; return pl && pl[lastProduct] ? pl[lastProduct] : { id: lastProduct }; } };
+  window.FA_ECOMM = { getCheckoutIds: function () {
+    try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null');
+      if (!o || o.env !== CFG.env || !o.stid || !o.orderid || (lastProduct && o.product && o.product !== lastProduct)) return null;
+      return { stid: String(o.stid), orderid: String(o.orderid) }; } catch (e) { return null; } } };
   function track(name, params, opts) {
     params = params || {};
+    if (params.content_ids && params.content_ids[0]) lastProduct = String(params.content_ids[0]);
     var id = (opts && opts.eventId) || eventId(name + (opts && opts.suffix ? '_' + opts.suffix : ''));
     try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: 'fa_' + name.toLowerCase(), event_id: id, env: CFG.env }, params)); } catch (e) {}
-    try { if (CFG.metaPixelId && window.fbq) window.fbq('track', name, params, { eventID: id }); } catch (e) {}
-    capi(name, id, params);
+    var L = storedLead() || {};
+    if (window.FA_META && (name === 'AddToCart' || name === 'InitiateCheckout' || name === 'Purchase')) {
+      try { var plan = window.FA_PLAN.get(); return window.FA_META.track(name, { value: params.value, currency: params.currency || 'USD', content_name: plan.content_name || params.content_name, order_id: params.order_id }, L.email || ''); } catch (e) { return null; }
+    }
+    try { if (window.FA_META && window.FA_META.mode() === 'live' && window.fbq) window.fbq('track', name, params, { eventID: id }); } catch (e) {}
     return id;
   }
-  /* Golden CAPI: every browser event is mirrored server-side with the SAME event_id
-     (Meta de-duplicates), hashed identity on the server, exact fbc/fbp. Production only. */
-  function cookie(n) { var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; }
   function storedLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && o.lead ? o.lead : null; } catch (e) { return null; } }
-  function capi(name, id, params) {
-    try {
-      if (CFG.env !== 'production' || !CFG.capiEndpoint) return;
-      var L = storedLead() || {}, fbc = cookie('_fbc');
-      if (!fbc) { var fq = new URLSearchParams(location.search).get('fbclid'); if (fq) fbc = 'fb.1.' + Date.now() + '.' + fq; }
-      var b = { event_name: name, event_id: id, url: location.href, fbp: cookie('_fbp') || undefined, fbc: fbc || undefined,
-        email: L.email, phone: L.e164, fn: L.firstName, ln: L.lastName, st: L.stateCode || undefined, country: L.countryIso || undefined, external_id: L.email || undefined,
-        value: params.value, currency: params.currency, content_name: params.content_name, content_ids: params.content_ids, order_id: params.order_id };
-      var body = JSON.stringify(b);
-      if (navigator.sendBeacon && name !== 'Purchase') { navigator.sendBeacon(CFG.capiEndpoint, new Blob([body], { type: 'text/plain' })); return; }
-      fetch(CFG.capiEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: body, keepalive: true }).catch(function () {});
-    } catch (e) {}
-  }
-  /* Abandoned-checkout stages -> ActiveCampaign (French Atelier field only), same model as the other schools. */
+
+  /* FA_AC — 1:1 port of the Julie LLA_AC client (same payload fields, FA stage names):
+     {email, fullName, phone, sessionDate, stage, env, productEvent, orderId, studentId, page, ts}
+     Stages: FA_Abandoned_Cart_Name_Details (screen 1) -> FA_Abandoned_Cart_Course_Details (screen 2)
+     -> FA_Abandoned_Cart_No_Payment (payment screen, with CRM order/student ids).
+     Payment success writes NOTHING (CRM -> AC sync handles purchase exclusion), as in Julie. */
+  window.FA_AC = (function () {
+    var K = 'fa_ac_contact';
+    function saveContact(f) {
+      try { sessionStorage.setItem(K, JSON.stringify({ email: f.email || '', fullName: f.fullName || '', phone: f.phone || '', startDate: f.startDate || '' })); } catch (e) {}
+    }
+    function contact() { try { return JSON.parse(sessionStorage.getItem(K) || 'null'); } catch (e) { return null; } }
+    var lastStage = '', delivery = Promise.resolve(), lastDelivery = null;
+    function send(stage) {
+      if (CFG.env !== 'production' || !CFG.acEventEndpoint) return;   /* staging/QA never writes production AC */
+      var c = contact();
+      if (!c || !c.email) return;
+      var ids = stage === 'FA_Abandoned_Cart_No_Payment' ? (window.FA_ECOMM.getCheckoutIds() || {}) : {};
+      var productEvent = lastProduct === 'fa-course-full' ? 'VIP' : lastProduct === 'fa-course' ? 'Regular' : /^capsule-/.test(lastProduct) ? 'Capsules' : '';
+      if (!productEvent) return;
+      var stageKey = [c.email, stage, productEvent, ids.orderid || '', c.startDate || ''].join('|');
+      if (stageKey === lastStage) return;
+      lastStage = stageKey;
+      var payload = JSON.stringify({ email: c.email, fullName: c.fullName, phone: c.phone, sessionDate: c.startDate, stage: stage, env: CFG.env,
+        productEvent: productEvent, orderId: ids.orderid || '', studentId: ids.stid || '', page: location.pathname, ts: new Date().toISOString() });
+      delivery = delivery.then(function () {
+        return fetch(CFG.acEventEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload, keepalive: true })
+          .then(function (r) { return r.json().then(function (b) {
+            lastDelivery = { stage: stage, productEvent: productEvent, accepted: r.ok && b.queued === true };
+            if (!lastDelivery.accepted && lastStage === stageKey) lastStage = '';
+            return lastDelivery; }); })
+          .catch(function () { lastDelivery = { stage: stage, productEvent: productEvent, accepted: false }; if (lastStage === stageKey) lastStage = ''; return lastDelivery; });
+      });
+      return delivery;
+    }
+    return { saveContact: saveContact, send: send, settled: function () { return delivery; }, status: function () { return lastDelivery; } };
+  })();
   function acStage(stage, lead) {
     try {
-      if (CFG.env !== 'production' || !CFG.acEventEndpoint) return;
       lead = lead || storedLead(); if (!lead || !lead.email) return;
-      var key = 'fa_ac_' + stage; if (sessionStorage.getItem(key) === lead.email) return; sessionStorage.setItem(key, lead.email);
-      fetch(CFG.acEventEndpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, keepalive: true,
-        body: JSON.stringify({ email: lead.email, fullName: (lead.firstName + ' ' + lead.lastName).trim(), phone: lead.e164, stage: stage }) }).catch(function () {});
+      window.FA_AC.saveContact({ email: lead.email, fullName: ((lead.firstName || '') + ' ' + (lead.lastName || '')).trim(), phone: lead.e164 || '', startDate: lead.startDate || '' });
+      return window.FA_AC.send(stage);
     } catch (e) {}
   }
-  if (CFG.metaPixelId && !window.fbq) {
-    /* standard Meta base code, FA pixel only */
+  /* Meta Pixel base code — gated exactly like Julie: browser pixel only in FA_META live mode. */
+  if (CFG.metaPixelId && !window.fbq && (window.FA_META ? window.FA_META.mode() === 'live' : false)) {
     (function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    window.fbq('init', CFG.metaPixelId); window.fbq('track', 'PageView');
+    window.fbq('init', CFG.metaPixelId);
+    window.fbq('track', 'PageView', {}, { eventID: window.FA_META.pageViewId() });
   }
+  if (window.FA_META) window.FA_META.pageEvents();
 
   /* ---------- attribution (same storage as the lead forms, read-only) ---------- */
   var ATTR_KEYS = ['gclid', 'fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'cid', 'adGroupID'];
@@ -320,7 +353,7 @@
     renderStep1(saved && saved.lead);
     modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('fa-ck-lock');
     if (isDesktop()) setTimeout(function () { var f = modal.querySelector('#fa-ck-fn'); if (f && !f.value) f.focus(); }, 380);
-    track('InitiateCheckout', { content_name: productTitle(state.sel), content_ids: [productId], content_type: 'product', value: p.firstPayment, currency: 'USD', num_items: 1 }, { suffix: productId });
+    lastProduct = productId;   /* InitiateCheckout fires on the payment screen with the CRM order id (Julie format) */
   }
   function close() {
     if (!modal) return;
@@ -573,6 +606,7 @@
 
   window.FA_CHECKOUT = { savings: savings, saveChip: saveChip,
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
+    setProduct: function (id) { lastProduct = String(id || ''); },
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
     reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, acStage: acStage, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
   };

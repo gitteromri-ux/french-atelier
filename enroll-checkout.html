@@ -262,9 +262,10 @@
 </footer>
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
+<script src="js/fa-meta-tracking.js?v=20261020c"></script>
 <script src="js/fa-geo.js?v=20261020a"></script>
 <script src="js/fa-checkout-config.js?v=20261020a"></script>
-<script src="js/fa-checkout.js?v=20261020a"></script>
+<script src="js/fa-checkout.js?v=20261020c"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -345,7 +346,7 @@
     $('fallbackBox').innerHTML = '<div class="seal">' + FA.icon.check + '</div><h2>Bienvenue, ' + FA.h(staged.lead.firstName) + '.</h2><p class="lead">Your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> is confirmed.</p><dl class="fa-pay-receipt"><div><dt>Paid today</dt><dd>' + FA.fmt2(amount) + ' USD' + (method ? ' · ' + FA.h(method) : '') + '</dd></div><div><dt>Order</dt><dd>#' + FA.h(ids.orderid) + '</dd></div><div><dt>Receipt to</dt><dd>' + FA.h(staged.lead.email) + '</dd></div></dl><p>An admissions advisor will contact you to confirm your class schedule.</p><a class="fa-ck-submit fa-pay-home" href="index.html"><span>Back to The French Atelier</span>' + FA.icon.arrow + '</a>';
     FA.clearIds();
     FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: String(ids.orderid), num_items: 1 }, { eventId: 'fa_purchase_' + ids.orderid });
-    FA.acStage('FA_Purchased', staged.lead);
+    /* Julie golden rule: payment success writes nothing to AC (CRM -> AC sync excludes buyers). */
     try { sessionStorage.removeItem('fa_ck_lead_v1'); } catch(e){}
   }
 
@@ -428,17 +429,21 @@
 
   /* ---- run ---- */
   function run(){
-  FA.acStage('FA_Abandoned_Cart_No_Payment', staged.lead);
+  FA.setProduct(sel.product);
   if (!FA.crmCourseFor(sel.product, sel)) {
     reserveFallback('no CRM course id for ' + sel.product, 'Online card payment for this offer opens as soon as the course is published in our enrollment system.');
     return;
   }
   status('Reserving your seat…');
-  FA.createOrder(staged).then(function(_ids){
+  FA.createOrder(Object.assign({}, staged, { sel: Object.assign({}, staged.sel, sel) })).then(function(_ids){
     ids = _ids; status('Loading your secure payment form…');
+    /* Screen 3 open with a confirmed CRM order: AC No_Payment stage + InitiateCheckout (fa_ic_<orderid>) */
+    FA.acStage('FA_Abandoned_Cart_No_Payment', staged.lead);
+    FA.track('InitiateCheckout', { value: p.firstPayment, currency: 'USD', content_ids: [sel.product] });
     return FA.fetchDetails(ids);
   }).then(function(details){
     if (!details) throw new Error('DETAILS_FAILED');
+    try { if (window.FA_META && FA_META.captureCheckoutIdentity) FA_META.captureCheckoutIdentity(details, ids); } catch (trackingOnlyError) {}
     var v = FA.validateDetails(details, p);
     if (!v.ok) { var e = new Error(v.reason); e.v = v; throw e; }
     amount = v.amount; paymentId = v.paymentId; resolveOrder(true);
