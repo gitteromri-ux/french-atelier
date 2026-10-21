@@ -267,8 +267,8 @@
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/fa-meta-tracking.js?v=20261020h"></script>
 <script src="js/fa-geo.js?v=20261020a"></script>
-<script src="js/fa-checkout-config.js?v=20261020-launchfix"></script>
-<script src="js/fa-checkout.js?v=20261020-launchfix"></script>
+<script src="js/fa-checkout-config.js?v=20261021-display"></script>
+<script src="js/fa-checkout.js?v=20261021-display"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -297,7 +297,7 @@
     $('sumTitle').textContent = tp.name; $('sumSub').textContent = tp.sub; $('sumBarName').textContent = tp.name; $('sumThumb').src = img;
     $('sumBarPrice').textContent = FA.fmt2(p.firstPayment);
     if (p.kind === 'course') { $('payPlanV').innerHTML = 'Pay monthly \u00b7 <span class="amt">' + FA.fmt2(p.firstPayment) + '</span> today'; $('payPlanS').textContent = 'then ' + (p.numberOfPayments - 1) + ' \u00d7 ' + FA.fmt2(p.monthly) + ' \u00b7 ' + FA.fmt2(p.total) + ' total \u00b7 ' + (p.pct || 35) + '% off ' + FA.fmt(p.listTotal); }
-    else { $('payPlanV').innerHTML = 'Pay monthly \u00b7 <span class="amt">' + FA.fmt2(p.monthly) + '</span> \u00d7 ' + n + ' months'; $('payPlanS').textContent = FA.fmt2(p.total) + ' total' + (p.promo ? ' \u00b7 code ' + p.promo.code + ' applied (' + p.promo.pct + '% off)' : ''); }
+    else { $('payPlanV').innerHTML = 'Due today <span class="amt">' + FA.fmt2(p.firstPayment) + '</span>'; $('payPlanS').textContent = 'Then ' + (n-1) + ' monthly payments of ' + FA.fmt2(p.monthly) + '. Total payable: ' + FA.fmt2(p.total) + (p.promo ? '. Code ' + p.promo.code + ' applied.' : '.'); }
     (function(){ var old = document.querySelector('#payPlan .fa-pay-save'); if (old) old.remove(); var d = document.createElement('span'); d.innerHTML = FA.saveChip(p, 'fa-pay-save'); if (d.firstChild) $('payPlan').appendChild(d.firstChild); })();
     var L;
     if (p.kind === 'course') L = [['Course', (lv.name || 'French Atelier course') + (lv.cefr ? ' \u00b7 ' + lv.cefr : '') + (lv.route ? ' \u00b7 ' + lv.route : '')], ['Course duration', '20 weeks'], ['Schedule', '20 live lessons, one class a week'], ['Class time', sel.classTime || 'As selected in step 2'], ['Lesson duration', '85 minutes'], ['Location', 'Online \u00b7 live from France \u00b7 group of 10\u201312']];
@@ -309,7 +309,7 @@
     function tot(k, v){ return '<div class="fee fee-total"><div class="fee-row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div></div>'; }
     var rows;
     if (p.kind === 'course') rows = row('First month tuition', 'Charged today to confirm your seat.', '<s>' + FA.fmt2(p.listMonthly) + '</s>' + FA.fmt2(p.firstPayment)) + row('Monthly tuition fee', 'Collected monthly on the same payment method.', '<s>4 \u00d7 ' + FA.fmt2(p.listMonthly) + '</s>4 \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total \u00b7 ' + (p.pct || 35) + '% off', '<s>' + FA.fmt(p.listTotal) + '</s>' + FA.fmt2(p.total));
-    else rows = row('First monthly payment', 'Charged today to confirm your seat.', (p.promo ? '<s>' + FA.fmt2(p.baseMonthly) + '</s>' : '') + FA.fmt2(p.firstPayment)) + row('Remaining monthly installments', 'Remaining balance is due according to this plan. See the selected payment method for collection details.', (p.promo ? '<s>' + (n - 1) + ' \u00d7 ' + FA.fmt2(p.baseMonthly) + '</s>' : '') + (n - 1) + ' \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total' + (p.promo ? ' \u00b7 ' + p.promo.pct + '% off' : ''), (p.promo ? '<s>' + FA.fmt(p.baseTotal) + '</s>' : '') + FA.fmt2(p.total));
+    else rows = row('Due today', 'First payment for your selected package.', FA.fmt2(p.firstPayment)) + row('Remaining payments', 'The remaining ' + (n-1) + ' monthly payments are ' + FA.fmt2(p.monthly) + ' each.', (n - 1) + ' \u00d7 ' + FA.fmt2(p.monthly)) + tot('Total payable for this package', FA.fmt2(p.total));
     $('sumRows').innerHTML = rows + FA.saveChip(p, 'fa-pay-save');
     $('payToday').innerHTML = '<span class="k">Due today</span><strong>' + FA.fmt2(p.firstPayment) + '</strong>';
     if (staged) { var l = staged.lead; $('sumBuyer').innerHTML = '<span class="k">Enrolling</span>' + FA.h(l.firstName + ' ' + l.lastName) + '<br>' + FA.h(l.email) + '<br>' + FA.h(l.e164) + ' \u00b7 ' + FA.h((window.FA_GEO.BY_ISO[l.countryIso]||{}).name || l.countryIso) + (l.stateCode ? ', ' + FA.h(l.stateCode) : '') + '<br><a href="#" id="editDetails">Edit details</a>';

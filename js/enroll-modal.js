@@ -19,6 +19,15 @@
     else if (window.__eTeacherBind) window.__eTeacherBind(f);
     return overlay;
   }
+  function openEnrollment(e){
+    if (e) e.preventDefault();
+    // Enrollment CTAs go to package selection, never a consultation lead form.
+    var capsules = /(?:culture-)?capsules(?:-enroll)?(?:\.html)?\/?$/i.test(location.pathname);
+    var offers = document.getElementById('offers') || document.getElementById('enroll-online');
+    if (capsules && offers) { offers.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+    if (/french-course-enroll(?:\.html)?\/?$/i.test(location.pathname) && offers) { offers.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+    location.href = ROOT + (capsules ? 'culture-capsules#offers' : 'french-course-enroll.html#enroll-online');
+  }
   function open(e){
     if (e) e.preventDefault();
     build().classList.add('is-open'); document.body.classList.add('em-lock');
@@ -30,7 +39,7 @@
   function wire(){
     document.querySelectorAll('a,button').forEach(function(a){
       if (a.__em || !isEnroll(a)) return;
-      a.__em = true; a.setAttribute('data-enroll-modal','1'); a.addEventListener('click', open);
+      a.__em = true; a.removeAttribute('data-enroll-modal'); a.addEventListener('click', openEnrollment);
     });
     // pre-build so eTeacher's init (DOMContentLoaded) can bind the form
     build();

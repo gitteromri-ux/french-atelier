@@ -43,7 +43,31 @@
 
   /* ---- capsules page: show the applied code on the 1-capsule offer ---- */
   function decorate() {
-    if (!isCaps || document.querySelector('.kpx-plans')) return;
+    if (!isCaps) return;
+    var cards = document.querySelectorAll('.kpz-card[data-plan]');
+    if (cards.length) {
+      cards.forEach(function(card) {
+        var p = FA.product(card.getAttribute('data-plan')); if (!p) return;
+        var amount = card.querySelector('.kpz-amt'), unit = card.querySelector('.kpz-unit'), pay = card.querySelector('.kpz-pay');
+        var was = card.querySelector('.kpz-was'), saving = card.querySelector('.kpz-save'), per = card.querySelector('.kpz-per');
+        if (amount) amount.textContent = FA.fmt2(p.monthly).replace('$','');
+        if (unit) unit.innerHTML = 'per month<br>for ' + (p.packs === 1 ? '1 capsule' : 'all ' + p.packs + ' capsules');
+        if (pay) pay.innerHTML = p.numberOfPayments + ' payments of ' + FA.fmt2(p.monthly) + '<br><b>Total payable: ' + FA.fmt2(p.total) + '</b>';
+        if (was) was.textContent = p.promo ? 'Was ' + FA.fmt2(p.baseMonthly) + ' / month' : 'Package price';
+        if (saving) { saving.classList.remove('kpz-save-none'); saving.textContent = p.promo ? p.promo.code + ' discount: ' + FA.fmt2(Math.round((p.baseTotal-p.total)*100)/100) : 'No promo code applied'; }
+        if (per) per.textContent = 'Due today: ' + FA.fmt2(p.firstPayment) + ' for the package';
+        var enroll = card.querySelector('[data-fa-buy]');
+        if (enroll) {
+          enroll.innerHTML = '<span class="kpz-enroll-title">Enroll Online</span>';
+          enroll.setAttribute('aria-label','Enroll online in ' + p.packs + (p.packs === 1 ? ' capsule' : ' capsules'));
+        }
+      });
+      var intro = document.querySelector('#offers .head .kps-sub');
+      if (intro) intro.textContent = 'The price shown is for your whole package, paid in 3 monthly payments. Any applied promo discount is already included.';
+      var floating = document.querySelector('#faFloatCta .price'), lowest = FA.product('capsule-1');
+      if (floating && lowest) floating.textContent = 'from ' + FA.fmt2(lowest.monthly);
+      return;
+    }
     var pr = FA.promoFor('capsule-1'); if (!pr) return;
     var btn = document.querySelector('.fa-cap-offer [data-fa-buy="capsule-1"]'); if (!btn) return;
     var card = btn.closest('.fa-cap-offer'); if (!card || card.querySelector('.fa-promo-tag')) return;
@@ -65,11 +89,16 @@
     cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · 3 monthly payments</span><span class="fa-cta-title">Culture Capsules</span></span><span class="fa-cta-pill"><span class="price">from $63</span><span class="mo">/ MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
     cta.addEventListener('click', function (e) { var t = document.getElementById('offers'); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
   } else {
-    cta.href = base + 'pricing.html#enroll-online'; cta.setAttribute('aria-label', 'Enroll now in the French Atelier live course — ' + FA.fmt2(course.firstPayment) + ' for the first month, then ' + FA.fmt2(course.monthly) + ' a month');
+    cta.href = base + 'french-course-enroll.html#enroll-online'; cta.setAttribute('aria-label', 'Enroll now in the French Atelier live course — ' + FA.fmt2(course.firstPayment) + ' for the first month, then ' + FA.fmt2(course.monthly) + ' a month');
     cta.innerHTML = '<span class="fa-cta-text"><span class="fa-cta-eyebrow">Enroll now · then ' + FA.fmt2(course.monthly) + ' / mo</span><span class="fa-cta-title">French Atelier · Live Course</span></span><span class="fa-cta-pill"><span class="price">' + FA.fmt2(course.firstPayment) + '</span><span class="mo">/ 1ST MO</span><svg class="fa-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>';
     cta.addEventListener('click', function (e) { e.preventDefault(); FA.open('fa-course'); });
   }
   document.body.appendChild(cta); document.body.classList.add('has-fa-float');
+  decorate();
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#fa-ck-code-go,#fa-ck-code-rm,.kpz-code,.kpx-code,.fa-ck-close')) setTimeout(decorate,0);
+  });
+  window.addEventListener('focus', decorate);
   function onScroll() { cta.classList.toggle('is-visible', window.scrollY > 140); }
   window.addEventListener('scroll', onScroll, { passive: true });
   setTimeout(function () { cta.classList.add('is-visible'); }, 800);

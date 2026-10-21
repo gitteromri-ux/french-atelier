@@ -391,6 +391,7 @@
   function factsFor(p) { return p.kind === 'capsules' ? CFG.capsuleFacts : CFG.courseFacts; }
   function factRows(p) { return '<dl class="fa-ck-facts">' + factsFor(p).map(function (f) { return '<div><dt>' + h(f[0]) + '</dt><dd>' + h(f[1]) + '</dd></div>'; }).join('') + '</dl>'; }
   function tuitionBand(p) {
+    if (p.kind === 'capsules') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Your package price' + (p.promo ? ' · ' + h(p.promo.code) + ' applied' : '') + '</div><div class="fa-ck-band-v"><span>' + fmt2(p.firstPayment) + ' due today</span></div><div class="fa-ck-band-s">Then ' + (p.numberOfPayments - 1) + ' monthly payments of ' + fmt2(p.monthly) + '.<br><b>Total payable: ' + fmt2(p.total) + '</b></div></div>';
     if (p.kind === 'course') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Course tuition · online enrollment</div><div class="fa-ck-band-v"><s>' + fmt(p.listTotal) + '</s><span>' + fmt2(p.total) + ' for the full course</span><em class="fa-ck-off">' + (p.pct || 41) + '% off</em></div><div class="fa-ck-band-s">First month only <b>' + fmt2(p.firstPayment) + ' today</b> — your first two weeks free — then ' + (p.numberOfPayments - 1) + ' × ' + fmt2(p.monthly) + ' · ' + fmt2(p.total) + ' in total instead of ' + fmt(p.listTotal) + '</div></div>';
     if (p.kind === 'membership') return '<div class="fa-ck-band"><div class="fa-ck-band-k">Atelier Membership</div><div class="fa-ck-band-v"><span>' + fmt(p.monthly) + ' a month for 12 months</span></div><div class="fa-ck-band-s">1 language course + all 3 Culture Capsules + the Atelier Benefits · ' + fmt2(p.total) + ' in total</div></div>';
     if (p.promo) return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsule tuition · code ' + h(p.promo.code) + '</div><div class="fa-ck-band-v"><s>' + fmt(p.baseMonthly) + '</s><span>' + fmt2(p.monthly) + ' a month for 3 months</span><em class="fa-ck-off">' + p.promo.pct + '% off</em></div><div class="fa-ck-band-s">' + fmt2(p.total) + ' in total instead of ' + fmt(p.baseTotal) + '</div></div>';
@@ -399,10 +400,11 @@
     return '<div class="fa-ck-band"><div class="fa-ck-band-k">Culture Capsules tuition</div><div class="fa-ck-band-v">' + (p.packs > 1 ? '<s>$99</s>' : '') + '<span>' + per + ' a month per capsule · 3 months</span>' + (p.packs > 1 ? '<em class="fa-ck-off">' + (p.packs === 2 ? 'Save $20 a month' : 'Save $108 a month') + '</em>' : '') + '</div><div class="fa-ck-band-s">' + fmt2(p.monthly) + ' a month for 3 months · ' + fmt2(p.total) + ' in total</div></div>';
   }
   function savings(p) {
+    if (p.kind === 'capsules' && !p.promo && p.packs === 1) return null;
     var base = p.kind === 'course' ? p.listTotal : p.promo ? p.baseTotal : (p.kind === 'capsules' && p.packs > 1 ? 99 * 3 * p.packs : p.listTotal || 0);
     var s = base ? Math.round((base - p.total) * 100) / 100 : 0; if (s <= 0) return null;
     var why = p.kind === 'course' ? 'vs. the ' + fmt(p.listTotal) + ' list price' : p.promo ? 'with code ' + p.promo.code : p.packs > 1 ? 'vs. buying each capsule alone' : 'vs. the $500 list price';
-    return { amount: s, label: 'You save ' + fmt2(s) + ' ' + why };
+    return { amount: s, label: p.promo ? p.promo.code + ' savings: ' + fmt2(s) : 'You save ' + fmt2(s) + ' ' + why };
   }
   var SAVE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
   function saveChip(p, cls) { var s = savings(p); return s ? '<span class="' + cls + '">' + SAVE_ICON + h(s.label) + '</span>' : ''; }
@@ -410,9 +412,9 @@
     if (p.kind === 'course') return '<div class="fa-ck-sum-row is-accent"><span>Today · first month</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
       '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
       '<div class="fa-ck-sum-row is-total"><span>Total · ' + (p.pct || 41) + '% off ' + fmt(p.listTotal) + '</span><strong>' + fmt2(p.total) + '</strong></div>' + saveChip(p, 'fa-ck-save');
-    return '<div class="fa-ck-sum-row is-accent"><span>Today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
-      '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
-      '<div class="fa-ck-sum-row is-total"><span>Total' + (p.promo ? ' · ' + p.promo.pct + '% off ' + fmt(p.baseTotal) : p.listTotal && p.pct ? ' · ' + p.pct + '% off ' + fmt(p.listTotal) : '') + '</span><strong>' + fmt2(p.total) + '</strong></div>' + saveChip(p, 'fa-ck-save');
+    return '<div class="fa-ck-sum-row is-accent"><span>Due today</span><strong>' + fmt2(p.firstPayment) + '</strong></div>' +
+      '<div class="fa-ck-sum-row"><span>Then ' + (p.numberOfPayments - 1) + ' monthly payments of</span><strong>' + fmt2(p.monthly) + '</strong></div>' +
+      '<div class="fa-ck-sum-row is-total"><span>Total payable for this package</span><strong>' + fmt2(p.total) + '</strong></div>' + saveChip(p, 'fa-ck-save');
   }
   function renderAside() {
     var sel = state.sel, p = product(sel.product); if (!modal || !p) return;
@@ -432,7 +434,7 @@
           '<h3 class="fa-ck-aside-title">' + h(tp.name) + '</h3>' + (tp.sub ? '<div class="fa-ck-aside-sub">' + h(tp.sub) + '</div>' : '') +
           '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">due today<br>' + (p.kind === 'course' ? 'first month · 2 weeks free' : 'then monthly') + '</span></div>' +
           '<div class="fa-ck-rows">' + sumRows(p) + '</div>' +
-          '<ul class="fa-ck-trust">' + p.includes.slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
+          '<ul class="fa-ck-trust">' + p.includes.filter(function(i) { return p.kind !== 'capsules' || !/capsule at .*month/i.test(i); }).slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
         '</div>' +
       '</div>';
     aside.querySelector('.fa-ck-sumbar').addEventListener('click', function () { state.asideOpen = !state.asideOpen; renderAside(); });
@@ -564,7 +566,7 @@
     }
     html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
       (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
-      '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · ' + (p.pct || 41) + '% off · ' + fmt2(p.firstPayment) + ' first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : p.packs > 1 ? 'Multi-capsule price applied · ' + (p.packs === 2 ? '$89' : '$63') + ' per capsule' : 'Capsule price · $99 a month') + '</span></div>' +
+      '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · ' + (p.pct || 41) + '% off · ' + fmt2(p.firstPayment) + ' first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : 'Package price: ' + fmt2(p.monthly) + ' per month for ' + p.packs + (p.packs === 1 ? ' capsule' : ' capsules')) + '</span></div>' +
       (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">I have a promo code</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code"><button type="button" class="fa-ck-code-go" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +
       '<p class="fa-ck-error" hidden></p>' +
       '<div class="fa-ck-go"><button type="button" class="fa-ck-submit" id="fa-ck-pay"><span>Continue to secure payment</span><span class="fa-ck-submit-amt">' + fmt2(p.firstPayment) + ' today</span>' + ICON.arrow + '</button></div>' +
