@@ -4,7 +4,6 @@
   var FA = window.FA_CHECKOUT; if (!FA) return;
   var CFG = FA.config, CODE = 'CAPSULE20', DEF = CFG.promos && CFG.promos[CODE]; if (!DEF) return;
   var isCaps = /capsules[a-z-]*(?:\.html)?\/?$/i.test(location.pathname);
-  if (isCaps && !FA.promoGet()) FA.promoApply(CODE);
   if (isCaps) {
     document.body.classList.add('fa-capsule-sales');
     var grid = document.querySelector('.kpz-grid');
@@ -22,7 +21,7 @@
   var exp = expiry();
   if (!hidden && exp > Date.now()) {
     var strip = document.createElement('a');
-    strip.className = 'fa-strip'; strip.href = '/culture-capsules?promo=' + CODE + '#offers'; strip.setAttribute('aria-label', 'Promo code ' + CODE + ': ' + DEF.label);
+    strip.className = 'fa-strip'; strip.href = '/culture-capsules#offers'; strip.setAttribute('aria-label', 'Promo code ' + CODE + ': ' + DEF.label);
     strip.innerHTML = '<span class="fa-strip-code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>' + CODE + '</span>' +
       '<span class="fa-strip-msg"><b>' + DEF.pct + '% off</b><span class="long"> any Culture Capsules package</span><span class="short"> any package</span></span>' +
       '<span class="fa-strip-ends"><i></i><span class="lbl">Ends in</span><b id="faStripTimer">' + left(exp - Date.now()) + '</b></span>' +
@@ -36,7 +35,7 @@
     function remove() { strip.remove(); document.body.classList.remove('has-fa-strip'); document.documentElement.style.setProperty('--fa-top', '0px'); }
     strip.querySelector('.fa-strip-x').addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); try { sessionStorage.setItem(HIDE, '1'); } catch (err) {} remove(); });
     strip.addEventListener('click', function (e) {
-      FA.promoApply(CODE); decorate();
+      decorate();
       if (isCaps) { e.preventDefault(); var t = document.getElementById('offers'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   }
@@ -53,8 +52,8 @@
         if (amount) amount.textContent = FA.fmt2(p.monthly).replace('$','');
         if (unit) unit.innerHTML = 'per month<br>for ' + (p.packs === 1 ? '1 capsule' : 'all ' + p.packs + ' capsules');
         if (pay) pay.innerHTML = p.numberOfPayments + ' payments of ' + FA.fmt2(p.monthly) + '<br><b>Total payable: ' + FA.fmt2(p.total) + '</b>';
-        if (was) was.textContent = p.promo ? 'Was ' + FA.fmt2(p.baseMonthly) + ' / month' : 'Package price';
-        if (saving) { saving.classList.remove('kpz-save-none'); saving.textContent = p.promo ? p.promo.code + ' discount: ' + FA.fmt2(Math.round((p.baseTotal-p.total)*100)/100) : 'No promo code applied'; }
+        if (was) { was.textContent = p.promo ? 'Was ' + FA.fmt2(p.baseMonthly) + ' / month' : 'Standard package price'; was.style.textDecoration = p.promo ? 'line-through' : 'none'; }
+        if (saving) { saving.classList.remove('kpz-save-none'); saving.textContent = p.promo ? p.promo.code + ' discount: ' + FA.fmt2(Math.round((p.baseTotal-p.total)*100)/100) : 'Enter CAPSULE20 in checkout for 20% off'; }
         if (per) per.textContent = 'Due today: ' + FA.fmt2(p.firstPayment) + ' for the package';
         var enroll = card.querySelector('[data-fa-buy]');
         if (enroll) {

@@ -12,7 +12,7 @@
     b.addEventListener('click',function(){
       var c=b.getAttribute('data-code');
       try{navigator.clipboard.writeText(c);}catch(e){}
-      try{window.FA_CHECKOUT&&window.FA_CHECKOUT.promoApply&&window.FA_CHECKOUT.promoApply(c);}catch(e){}
+      // Copying a code is not consent to apply it. Apply is inside checkout.
       b.classList.add('is-copied'); var s=b.querySelector('.cp'); if(s){s.textContent='Copied';setTimeout(function(){s.textContent='Copy';b.classList.remove('is-copied');},2200);}
     });
   });

@@ -162,15 +162,19 @@
 
   /* ---------- product helpers ---------- */
   /* ---------- promo codes (top strip / step 2 field). Stored for 7 days from first use. ---------- */
-  var STORE_PROMO = 'fa_promo_v1';
-  function promoGet() { try { var o = JSON.parse(localStorage.getItem(STORE_PROMO) || 'null'); if (!o || !CFG.promos || !CFG.promos[o.code]) return null; if (o.exp && Date.now() > o.exp) { localStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
-  function promoApply(code) { code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { localStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp })); } catch (e) {} return { code: code, exp: exp, def: def }; }
-  function promoClear() { try { localStorage.removeItem(STORE_PROMO); } catch (e) {} }
+  var STORE_PROMO = 'fa_promo_manual_v2';
+  // Discard legacy auto-applied coupons. Only an explicit checkout Apply action
+  // may activate a code; the current tab retains it through payment navigation.
+  try { localStorage.removeItem('fa_promo_v1'); } catch (e) {}
+  function promoGet() { try { var o = JSON.parse(sessionStorage.getItem(STORE_PROMO) || 'null'); if (!o || o.source !== 'manual' || !CFG.promos || !CFG.promos[o.code]) return null; if (o.exp && Date.now() > o.exp) { sessionStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
+  function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
+  function promoClear() { try { sessionStorage.removeItem(STORE_PROMO); } catch (e) {} }
   function promoFor(id) { var pr = promoGet(); return pr && pr.def.applies.indexOf(id) > -1 ? pr : null; }
   function product(id) {
     var base = CFG.products[id] || null; if (!base) return null;
     var pr = promoFor(id); if (!pr) return base;
-    var k = 1 - pr.def.pct / 100, m = Math.round(base.monthly * k * 100) / 100, f = Math.round(base.firstPayment * k * 100) / 100;
+    // User-approved whole-dollar charges, not display-only rounding.
+    var k = 1 - pr.def.pct / 100, m = Math.round(base.monthly * k), f = Math.round(base.firstPayment * k);
     var p = {}; for (var key in base) p[key] = base[key];
     p.monthly = m; p.firstPayment = f; p.total = Math.round((f + m * (base.numberOfPayments - 1)) * 100) / 100;
     p.baseMonthly = base.monthly; p.baseTotal = base.total; p.promo = { code: pr.code, pct: pr.def.pct, label: pr.def.label, exp: pr.exp };
@@ -575,7 +579,7 @@
     body.innerHTML = html;
     function refresh() { renderAside(); var n = body.querySelector('#fa-ck-course-name'); if (n) n.textContent = productTitle(state.sel); }
     var codeGo = body.querySelector('#fa-ck-code-go'), codeRm = body.querySelector('#fa-ck-code-rm');
-    function tryCode() { var inp = body.querySelector('#fa-ck-code-in'), msg = body.querySelector('#fa-ck-code-msg'), v = (inp.value || '').trim(); if (!v) { inp.focus(); return; } var r = promoApply(v); if (!r) { msg.hidden = false; msg.textContent = 'This code is not valid for this offer.'; inp.setAttribute('aria-invalid', 'true'); return; } if (r.def.applies.indexOf(sel.product) < 0) { msg.hidden = false; msg.textContent = r.code + ' applies to ' + r.def.label.toLowerCase() + ' (1 Culture Capsule).'; return; } renderStep2(lead); }
+    function tryCode() { var inp = body.querySelector('#fa-ck-code-in'), msg = body.querySelector('#fa-ck-code-msg'), v = (inp.value || '').trim(); if (!v) { inp.focus(); return; } var r = promoApply(v, 'manual'); if (!r) { msg.hidden = false; msg.textContent = 'This code is not valid for this offer.'; inp.setAttribute('aria-invalid', 'true'); return; } if (r.def.applies.indexOf(sel.product) < 0) { msg.hidden = false; msg.textContent = r.code + ' applies to ' + r.def.label.toLowerCase() + ' (1 Culture Capsule).'; return; } renderStep2(lead); }
     if (codeGo) { codeGo.addEventListener('click', tryCode); body.querySelector('#fa-ck-code-in').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); tryCode(); } }); }
     if (codeRm) codeRm.addEventListener('click', function () { promoClear(); renderStep2(lead); });
     body.querySelectorAll('input[name="fa-ck-lv"]').forEach(function (r) { r.addEventListener('change', function () { state.sel.level = r.value; refresh(); }); });
@@ -612,7 +616,7 @@
     e.preventDefault();
     open(el.getAttribute('data-fa-buy'), { level: el.getAttribute('data-fa-level') || undefined, capsules: (el.getAttribute('data-fa-capsules') || '').split(',').filter(Boolean) });
   });
-  try { var qp = new URLSearchParams(location.search); if (qp.get('promo')) promoApply(qp.get('promo')); } catch (e) {}
+  // URL parameters never apply a coupon; the customer must enter it in checkout.
   /* ?buy=<product>&level=<level> deep link (e.g. from ads) */
   try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy'))) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
 
