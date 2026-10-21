@@ -268,7 +268,7 @@
 <script src="js/fa-meta-tracking.js?v=20261020h"></script>
 <script src="js/fa-geo.js?v=20261020a"></script>
 <script src="js/fa-checkout-config.js?v=20261021-display"></script>
-<script src="js/fa-checkout.js?v=20261021-display"></script>
+<script src="js/fa-checkout.js?v=20261021-recovery"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -313,7 +313,7 @@
     $('sumRows').innerHTML = rows + FA.saveChip(p, 'fa-pay-save');
     $('payToday').innerHTML = '<span class="k">Due today</span><strong>' + FA.fmt2(p.firstPayment) + '</strong>';
     if (staged) { var l = staged.lead; $('sumBuyer').innerHTML = '<span class="k">Enrolling</span>' + FA.h(l.firstName + ' ' + l.lastName) + '<br>' + FA.h(l.email) + '<br>' + FA.h(l.e164) + ' \u00b7 ' + FA.h((window.FA_GEO.BY_ISO[l.countryIso]||{}).name || l.countryIso) + (l.stateCode ? ', ' + FA.h(l.stateCode) : '') + '<br><a href="#" id="editDetails">Edit details</a>';
-      $('editDetails').addEventListener('click', function(e){ e.preventDefault(); FA.open(sel.product, { level: sel.level, capsules: sel.capsules }); }); }
+      $('editDetails').addEventListener('click', function(e){ e.preventDefault(); if (window.FA_PAYMENT_LOCKED) { status('Payment is processing. Wait for confirmation before editing.', 'warn'); return; } FA.open(sel.product, { level: sel.level, capsules: sel.capsules }); }); }
   }
   $('paySumToggle').addEventListener('click', function(){ var s = $('paySummary'), o = !s.classList.contains('is-open'); s.classList.toggle('is-open', o); this.setAttribute('aria-expanded', o ? 'true' : 'false'); $('sumBarHint').textContent = o ? 'Hide payment summary' : 'Show payment summary'; });
   renderSummary();
@@ -336,8 +336,26 @@
     FA.open(sel.product, { level: sel.level, capsules: sel.capsules });
   }
 
-  var ids = null, amount = p.firstPayment, paymentId = null, dropIn = null, paid = false, paypalRendered = false, orderReady = null, resolveOrder = null;
-  orderReady = new Promise(function(res){ resolveOrder = res; });
+  var ids = null, amount = p.firstPayment, paymentId = null, dropIn = null, paid = false, paypalRendered = false, orderReady = null, resolveOrder = null, rejectOrder = null;
+  var quoteChanged = false, quoteReloading = false;
+  function quoteKey(x){ return JSON.stringify([x.firstPayment,x.monthly,x.total,x.numberOfPayments]); }
+  window.addEventListener('fa:quotechange', function(){
+    if (paid || window.FA_PAYMENT_LOCKED || quoteKey(FA.product(sel.product)) === quoteKey(p)) return;
+    quoteChanged = true;
+    if (dropIn) { try { if (dropIn.destroy) dropIn.destroy(); else if (dropIn.unmount) dropIn.unmount(); } catch(e) {} }
+    $('awx-dropin').innerHTML = ''; $('paypal-buttons').innerHTML = '';
+    $('payCard').style.pointerEvents = 'none'; $('payCard').setAttribute('aria-busy','true');
+    p = FA.product(sel.product); amount = p.firstPayment; renderSummary();
+    status('Your price changed. Close this editor or continue to refresh secure payment.', 'warn');
+  });
+  new MutationObserver(function(){
+    if (quoteChanged && !paid && !quoteReloading && !document.body.classList.contains('fa-ck-lock')) {
+      quoteReloading = true; location.reload();
+    }
+  }).observe(document.body,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('beforeunload',function(e){ if(window.FA_PAYMENT_LOCKED && !paid){ e.preventDefault(); e.returnValue=''; } });
+  orderReady = new Promise(function(res,rej){ resolveOrder = res; rejectOrder = rej; });
+  orderReady.catch(function(){});
 
   function showDone(method, pending){
     paid = true;
@@ -374,6 +392,7 @@
   }
 
   function mountAirwallex(details, v){
+    var cardSnapshot = { amount:Number(v.amount), paymentId:v.paymentId, ids:{stid:ids.stid,orderid:ids.orderid}, product:p };
     var awx = window.Airwallex || window.AirwallexElements;
     if (!awx || !awx.init) throw new Error('AIRWALLEX_SDK_MISSING');
     awx.init({ env: CFG.env === 'staging' ? 'demo' : 'prod', origin: location.origin, locale: 'en', fonts: [{ src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '400' }, { src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '600' }] });
@@ -385,53 +404,69 @@
       showPayButton: true, appearance: (window.FA_CKT ? { mode: 'light', variables: { colorBrand: window.FA_CKT === 'ivory' ? '#2FA4FF' : '#A98D52', colorText: '#1A1E33', colorBackground: '#FFFFFF' }, rules: { '.Input': { backgroundColor: '#FFFFFF', border: '1px solid rgba(26,30,51,.16)', borderRadius: '12px', color: '#1A1E33', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(26,30,51,.3)' }, '.Input:active': { border: '1px solid ' + (window.FA_CKT === 'ivory' ? '#2FA4FF' : '#C8A96B'), boxShadow: '0 0 0 4px ' + (window.FA_CKT === 'ivory' ? 'rgba(47,164,255,.18)' : 'rgba(200,169,107,.22)') }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } } : { mode: 'dark', variables: { colorBrand: '#6FC4FF', colorText: '#F6FAFF', colorBackground: '#0B1634' }, rules: { '.Input': { backgroundColor: 'rgba(8,16,40,.85)', border: '1px solid rgba(111,196,255,.28)', borderRadius: '12px', color: '#F6FAFF', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(111,196,255,.5)' }, '.Input:active': { border: '1px solid #6FC4FF', boxShadow: '0 0 0 4px rgba(47,164,255,.18)' }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } })
     });
     if (!dropIn) throw new Error('DROPIN_NULL');
+    function lockPayment(){ window.FA_PAYMENT_LOCKED=true; }
+    if (dropIn.addEventListener) {
+      dropIn.addEventListener('onSubmit',lockPayment);
+      dropIn.addEventListener('onClickConfirmButton',lockPayment);
+    }
+    if (dropIn.on) {
+      try { dropIn.on('submit',lockPayment); } catch(e){}
+      try { dropIn.on('clickConfirmButton',lockPayment); } catch(e){}
+    }
     dropIn.mount($('awx-dropin'));
     /* The house mobile stylesheet forces iframe{height:auto!important}; re-apply the SDK's inline height as !important so the form is never clipped. */
     (function(){ var box = $('awx-dropin'); var fix = function(){ box.querySelectorAll('iframe').forEach(function(f){ var hh = f.style.height; if (hh && f.style.getPropertyPriority('height') !== 'important') f.style.setProperty('height', hh, 'important'); }); }; new MutationObserver(fix).observe(box, { attributes: true, subtree: true, childList: true, attributeFilter: ['style'] }); fix(); })();
-    var readyTimer = setTimeout(function(){ status('The secure card form is taking longer than expected. Please wait; do not submit another payment.', 'warn'); }, 15000);
-    dropIn.on('ready', function(){ clearTimeout(readyTimer); status(CFG.env === 'staging' ? 'Sandbox · test card 4035 5010 0000 0008 · any future date · any CVC' : 'Secure card entry ready · you will be charged ' + FA.fmt2(amount) + ' USD', 'ready'); });
+    var readyTimer = setTimeout(function(){ if(!quoteChanged)status('The secure card form is taking longer than expected. Please wait; do not submit another payment.', 'warn'); }, 15000);
+    dropIn.on('ready', function(){ clearTimeout(readyTimer); if(quoteChanged)return; status(CFG.env === 'staging' ? 'Sandbox · test card 4035 5010 0000 0008 · any future date · any CVC' : 'Secure card entry ready · you will be charged ' + FA.fmt2(cardSnapshot.amount) + ' USD', 'ready'); });
     dropIn.on('success', function(evt){
       if (paid) return;
       paid = true;
+      window.FA_PAYMENT_LOCKED = false;
+      amount = cardSnapshot.amount; paymentId = cardSnapshot.paymentId; ids = cardSnapshot.ids; p = cardSnapshot.product;
       status('✓ Payment succeeded. Confirming your enrollment…', 'ok');
       var intent = evt && evt.detail && evt.detail.intent;
       FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'CreditCard', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: (intent && intent.id) || v.intentId })
         .then(function(r){ showDone('card', !r || !r.ok); })
         .catch(function(){ showDone('card', true); });
     });
-    dropIn.on('error', function(evt){ var m = evt && evt.detail && ((evt.detail.error && evt.detail.error.message) || evt.detail.message); status('✗ Payment failed: ' + (m || 'error') + ' — you were not charged.', 'err'); });
+    dropIn.on('error', function(evt){ if(quoteChanged)return; var m = evt && evt.detail && ((evt.detail.error && evt.detail.error.message) || evt.detail.message); status('Payment did not complete normally: ' + (m || 'error') + '. Check the payment status before retrying.', 'err'); });
   }
 
   function renderPayPal(){
+    if (quoteChanged || paid) return;
     if (paypalRendered) return; paypalRendered = true;
     var st = $('paypal-status');
     if (!window.paypal || !window.paypal.Buttons) { paypalRendered = false; st.textContent = 'Loading PayPal…'; setTimeout(renderPayPal, 600); return; }
     st.textContent = '';
-    var started = false;
+    var started = false, ppSnapshot = null;
     window.paypal.Buttons({
       style: { layout: 'vertical', height: 55, shape: 'rect', color: 'white', label: 'paypal' },
       createOrder: function(data, actions){
-        if (started) return Promise.reject(new Error('PAYMENT_ALREADY_SUBMITTED'));
+        if (paid || started || quoteChanged || window.FA_PAYMENT_LOCKED) return Promise.reject(new Error('PAYMENT_ALREADY_SUBMITTED_OR_PRICE_CHANGED'));
         if (CFG.env === 'staging') { st.textContent = 'Staging: PayPal capture is disabled in the test environment.'; return Promise.reject(new Error('STAGING_PAYPAL_DISABLED')); }
-        return orderReady.then(function(){ return actions.order.create({ purchase_units: [{ amount: { value: Number(amount).toFixed(2), currency_code: 'USD' }, description: CFG.brand + ' — ' + FA.productTitle(sel) + ' — order ' + ids.orderid }] }); });
+        window.FA_PAYMENT_LOCKED = true;
+        return orderReady.then(function(){ ppSnapshot={amount:amount,paymentId:paymentId,ids:{stid:ids.stid,orderid:ids.orderid},product:p}; return actions.order.create({ purchase_units: [{ amount: { value: Number(ppSnapshot.amount).toFixed(2), currency_code: 'USD' }, description: CFG.brand + ' — ' + FA.productTitle(sel) + ' — order ' + ppSnapshot.ids.orderid }] }); }).catch(function(e){ window.FA_PAYMENT_LOCKED=false; throw e; });
       },
       onApprove: function(data, actions){
         if (started) return Promise.resolve(); started = true;
         st.textContent = 'Confirming your PayPal payment…';
         return actions.order.capture().then(function(details){
           var cap = (details.purchase_units && details.purchase_units[0] && details.purchase_units[0].payments && details.purchase_units[0].payments.captures && details.purchase_units[0].payments.captures[0]) || {};
-          var ok = details.status === 'COMPLETED' && cap.status === 'COMPLETED' && (cap.amount||{}).currency_code === 'USD' && Math.abs(Number((cap.amount||{}).value) - amount) < 0.005;
+          var ok = ppSnapshot && details.status === 'COMPLETED' && cap.status === 'COMPLETED' && (cap.amount||{}).currency_code === 'USD' && Math.abs(Number((cap.amount||{}).value) - ppSnapshot.amount) < 0.005;
           if (!ok) { st.textContent = 'We could not verify the PayPal payment result for order #' + ids.orderid + '. Do not pay again. Contact ' + CFG.advisorEmail + '.'; return; }
           try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
+          paid=true; window.FA_PAYMENT_LOCKED=false; amount=ppSnapshot.amount; paymentId=ppSnapshot.paymentId; ids=ppSnapshot.ids; p=ppSnapshot.product;
           return FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'PayPal', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: String(cap.id || details.id || ''), PayPalPayerId: String((details.payer && details.payer.payer_id) || ''), PayPalOrderId: String(details.id || ''), PayPalPaymentId: String(cap.id || '') })
             .then(function(r){ showDone('PayPal', !r || !r.ok); })
             .catch(function(){ showDone('PayPal', true); });
         }).catch(function(){ st.textContent = 'We could not confirm the PayPal payment status. Do not pay again. Contact ' + CFG.advisorEmail + '.'; });
       },
-      onError: function(){ if (!started) st.textContent = 'PayPal could not start. Please try again or pay by card.'; }
+      onCancel: function(){ if(!started)window.FA_PAYMENT_LOCKED=false; },
+      onError: function(){ if (!started) { window.FA_PAYMENT_LOCKED=false; st.textContent = 'PayPal could not start. Please try again or pay by card.'; } }
     }).render('#paypal-buttons');
   }
   document.querySelectorAll('.fa-pay-tab').forEach(function(t){ t.addEventListener('click', function(){
+    if(paid || window.FA_PAYMENT_LOCKED || quoteChanged)return;
     document.querySelectorAll('.fa-pay-tab').forEach(function(x){ x.classList.toggle('active', x === t); x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
     var pp = t.getAttribute('data-tab') === 'paypal';
     $('payFoot').textContent = pp ? 'PayPal collects today’s payment only. The remaining installments are still due; this PayPal checkout does not authorize automatic monthly debits.' : 'Today’s payment is the first installment of the plan shown. Save your card to authorize future scheduled payments.';
@@ -442,6 +477,17 @@
 
   /* ---- run ---- */
   function run(){
+  var detailAttempts = 0;
+  function readyDetails(){
+    return FA.fetchDetails(ids).then(function(d){
+      var check = FA.validateDetails(d,p);
+      if (!check.ok && check.reason === 'PAYMENT_DETAILS_INCOMPLETE' && ++detailAttempts < 3) {
+        status('Waiting for the payment provider to prepare secure card entry…');
+        return new Promise(function(resolve){ setTimeout(resolve,1200); }).then(readyDetails);
+      }
+      return d;
+    });
+  }
   FA.setProduct(sel.product);
   if (!FA.crmCourseFor(sel.product, sel)) {
     reserveFallback('no CRM course id for ' + sel.product, 'Online card payment for this offer opens as soon as the course is published in our enrollment system.');
@@ -453,8 +499,9 @@
     /* Screen 3 open with a confirmed CRM order: AC No_Payment stage + InitiateCheckout (fa_ic_<orderid>) */
     FA.acStage('FA_Abandoned_Cart_No_Payment', staged.lead);
     FA.track('InitiateCheckout', { value: p.firstPayment, currency: 'USD', content_ids: [sel.product] });
-    return FA.fetchDetails(ids);
+    return readyDetails();
   }).then(function(details){
+    if (quoteChanged) return;
     if (!details) throw new Error('DETAILS_FAILED');
     try { if (window.FA_META && FA_META.captureCheckoutIdentity) FA_META.captureCheckoutIdentity(details, ids); } catch (trackingOnlyError) {}
     var v = FA.validateDetails(details, p);
@@ -462,6 +509,8 @@
     amount = v.amount; paymentId = v.paymentId; resolveOrder(true);
     mountAirwallex(details, v);
   }).catch(function(e){
+    if (quoteChanged) return;
+    rejectOrder(e);
     var m = e && e.message || '';
     if (m === 'ENV_NOT_CONFIGURED') return reserveFallback('production CRM credentials not configured', 'Our online card payment is being switched on.');
     if (m === 'PAYMENT_PLAN_MISMATCH' && CFG.env === 'staging' && e.v && e.v.intentId) {
@@ -474,7 +523,7 @@
     if (m === 'PAYMENT_PLAN_MISMATCH' || m === 'CURRENCY_NOT_USD') { FA.clearIds(); return reserveFallback('CRM price plan differs from offer (' + m + (e.v ? ': CRM ' + e.v.amount + ' x ' + e.v.n : '') + ')', 'Our enrollment system still shows the standard price plan for this course, so we did not charge your card.'); }
     if (m === 'LEAD_CREATE_FAILED' || m === 'DETAILS_FAILED') return reserveFallback(m, 'Our enrollment system did not respond in time.');
     if (m === 'AIRWALLEX_SDK_MISSING' || m === 'DROPIN_NULL') return status('The secure card form could not load. Please refresh, or pay with PayPal.', 'err');
-    status('Something went wrong (' + FA.h(m || 'error') + '). Nothing has been charged. Please refresh or contact ' + CFG.advisorEmail + '.', 'err');
+    status('Payment could not be prepared (' + FA.h(m || 'error') + '). Nothing has been charged. ' + (ids ? 'Support reference: order ' + ids.orderid + ', student ' + ids.stid + '. ' : '') + 'Please retry this page or contact ' + CFG.advisorEmail + '.', 'err');
   });
   }
   if (staged && staged.sel.product === sel.product) run();

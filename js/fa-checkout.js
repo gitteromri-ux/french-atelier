@@ -168,7 +168,7 @@
   try { localStorage.removeItem('fa_promo_v1'); } catch (e) {}
   function promoGet() { try { var o = JSON.parse(sessionStorage.getItem(STORE_PROMO) || 'null'); if (!o || o.source !== 'manual' || !CFG.promos || !CFG.promos[o.code]) return null; if (o.exp && Date.now() > o.exp) { sessionStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
   function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
-  function promoClear() { try { sessionStorage.removeItem(STORE_PROMO); } catch (e) {} }
+  function promoClear() { try { sessionStorage.removeItem(STORE_PROMO); } catch (e) {} window.dispatchEvent(new Event('fa:quotechange')); }
   function promoFor(id) { var pr = promoGet(); return pr && pr.def.applies.indexOf(id) > -1 ? pr : null; }
   function product(id) {
     var base = CFG.products[id] || null; if (!base) return null;
@@ -283,6 +283,7 @@
     var amount = Number(a.amount), n = Number(d.NumOfPayments);
     if (String(a.currency || d.CurrencyCode || '').toUpperCase() !== 'USD') return { ok: false, reason: 'CURRENCY_NOT_USD', amount: amount, n: n };
     var total = Number(d.OrderCoursePrice), perMonth = Number(d.PaymentPerMonth), rest = Math.max(0, p.numberOfPayments - 1);
+    if (![amount,n,total,perMonth].every(Number.isFinite) || amount <= 0 || total <= 0 || n < 0 || (rest > 0 && perMonth <= 0)) return { ok:false, reason:'PAYMENT_DETAILS_INCOMPLETE' };
     /* CRM semantics (verified 2026-10-20): AmountToCharge = today's payment, NumOfPayments = payments AFTER it, PaymentPerMonth each, OrderCoursePrice = full plan. */
     if (Math.abs(amount - p.firstPayment) > 0.005 || n !== rest || Math.abs(total - p.total) > 0.011 || (rest > 0 && Math.abs(perMonth - p.monthly) > 0.011)) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice, paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
     return { ok: true, amount: amount, currency: 'USD', paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
@@ -357,6 +358,7 @@
   }
   function isDesktop() { return window.matchMedia('(min-width: 901px)').matches; }
   function open(productId, opts) {
+    if (window.FA_PAYMENT_LOCKED) { window.alert('Payment is processing. Wait for confirmation before editing.'); return; }
     opts = opts || {};
     var p = product(productId); if (!p) return;
     ensureModal(); lastFocus = document.activeElement;
@@ -578,10 +580,22 @@
       payMarks();
     body.innerHTML = html;
     function refresh() { renderAside(); var n = body.querySelector('#fa-ck-course-name'); if (n) n.textContent = productTitle(state.sel); }
+    var codeBox = body.querySelector('#fa-ck-code');
+    var stepHeader = body.querySelector('.fa-ck-head');
+    if (codeBox && stepHeader) body.insertBefore(codeBox, stepHeader.nextSibling);
     var codeGo = body.querySelector('#fa-ck-code-go'), codeRm = body.querySelector('#fa-ck-code-rm');
-    function tryCode() { var inp = body.querySelector('#fa-ck-code-in'), msg = body.querySelector('#fa-ck-code-msg'), v = (inp.value || '').trim(); if (!v) { inp.focus(); return; } var r = promoApply(v, 'manual'); if (!r) { msg.hidden = false; msg.textContent = 'This code is not valid for this offer.'; inp.setAttribute('aria-invalid', 'true'); return; } if (r.def.applies.indexOf(sel.product) < 0) { msg.hidden = false; msg.textContent = r.code + ' applies to ' + r.def.label.toLowerCase() + ' (1 Culture Capsule).'; return; } renderStep2(lead); }
+    function tryCode() {
+      var inp=body.querySelector('#fa-ck-code-in'),msg=body.querySelector('#fa-ck-code-msg'),v=(inp.value||'').trim().toUpperCase().replace(/\s+/g,'');
+      if(!v){inp.focus();return;}
+      if(window.FA_PAYMENT_LOCKED){msg.hidden=false;msg.textContent='Payment is processing. Wait for confirmation before changing the code.';return;}
+      var def=CFG.promos&&CFG.promos[v];
+      if(!def || def.applies.indexOf(sel.product)<0){msg.hidden=false;msg.textContent='This code is not valid for this offer.';inp.setAttribute('aria-invalid','true');return;}
+      var r=promoApply(v,'manual');
+      if(!r){msg.hidden=false;msg.textContent='This code could not be applied.';return;}
+      renderStep2(lead);window.dispatchEvent(new Event('fa:quotechange'));
+    }
     if (codeGo) { codeGo.addEventListener('click', tryCode); body.querySelector('#fa-ck-code-in').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); tryCode(); } }); }
-    if (codeRm) codeRm.addEventListener('click', function () { promoClear(); renderStep2(lead); });
+    if (codeRm) codeRm.addEventListener('click', function () { if(window.FA_PAYMENT_LOCKED)return; promoClear(); renderStep2(lead); });
     body.querySelectorAll('input[name="fa-ck-lv"]').forEach(function (r) { r.addEventListener('change', function () { state.sel.level = r.value; refresh(); }); });
     body.querySelectorAll('input[name="fa-ck-time"]').forEach(function (r) { if (r.checked) sel.classTime = r.value; r.addEventListener('change', function () { state.sel.classTime = r.value; }); });
     var caps = body.querySelectorAll('input[name="fa-ck-cap"]');
