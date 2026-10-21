@@ -7,7 +7,7 @@
   if (isCaps) {
     document.body.classList.add('fa-capsule-sales');
     var grid = document.querySelector('.kpz-grid');
-    if (grid) ['.kpz-one','.kpz-two','.kpz-all'].forEach(function(s,i){
+    if (grid) ['.kpz-one','.kpz-all','.kpz-two'].forEach(function(s,i){
       var card = grid.querySelector(s); if (card) { grid.appendChild(card); var n=card.querySelector('.kpz-num'); if(n)n.textContent='0'+(i+1); }
     });
   }

@@ -64,10 +64,10 @@
       ['Recordings', 'Every lesson recorded · on-demand in your dashboard']
     ],
     capsuleFacts: [
-      ['Format', '10 live one-hour conferences · once a week'],
+      ['Format', '10 live one-hour classes · once a week'],
       ['Speaker', 'Bilingual signature speaker · 15–20 min Q&A'],
       ['Language', 'No French required'],
-      ['Platform', 'Live on Zoom · 10 weeks, one conference a week']
+      ['Platform', 'Live on Zoom · 10 weeks, one class a week']
     ],
     /* Promo codes shown in the top strip. Display-level pricing; the CRM price plan is the charge of record. */
     promos: {
@@ -76,7 +76,7 @@
     classTimes: ['Weekday evenings (my timezone)', 'Weekday mornings or midday', 'Weekend', 'Any — next available start'],
     phone: '+1-888-230-5110',
 
-    /* Culture Capsules — three thematic packs, 10 live one-hour Zoom conferences each, once a week. */
+    /* Culture Capsules — three thematic packs, 10 live one-hour Zoom classes each, once a week. */
     capsules: {
       /* eTeacher CRM course records (supplied by Omri 2026-10-20). Campus 4204 = Culture Capsules. */
       'fashion-art':  { name: 'Fashion & Art',      tagline: 'French aesthetics',   status: 'Starts Sunday, December 6, 2026 · 1:00 pm EST · 6:00 pm GMT · 10:00 am PST · live on Zoom', start: 'Sunday, December 6, 2026 · 1:00 pm EST · 6:00 pm GMT · 10:00 am PST',
@@ -116,7 +116,7 @@
         offerLabel: '3 monthly payments of $99 · $297 total · 41% off the $500 CRM list price',
         /* CRM list (USA, no trial) $500 per capsule, max 44% off. 297 = 40.6% off. */
         listTotal: 500, numberOfPayments: 3, monthly: 99, firstPayment: 99, total: 297, pct: 41, perCapsule: 99,
-        includes: ['10 live one-hour conferences on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each talk', 'No French required', 'Sold independently of the language courses'],
+        includes: ['10 live one-hour classes on Zoom', 'Bilingual signature speaker', '15–20 minutes of questions after each class', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-2': {
@@ -124,7 +124,7 @@
         title: '2 Culture Capsules',
         offerLabel: '3 monthly payments of $178 · $89 per capsule',
         numberOfPayments: 3, monthly: 178, firstPayment: 178, total: 534, perCapsule: 89,
-        includes: ['20 live one-hour conferences on Zoom', 'Bilingual signature speakers', 'Each capsule at $89 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
+        includes: ['20 live one-hour classes on Zoom', 'Bilingual signature speakers', 'Each capsule at $89 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'capsule-3': {
@@ -132,7 +132,7 @@
         title: 'All 3 Culture Capsules',
         offerLabel: '3 monthly payments of $189 · $63 per capsule',
         numberOfPayments: 3, monthly: 189, firstPayment: 189, total: 567, perCapsule: 63,
-        includes: ['30 live one-hour conferences on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $63 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
+        includes: ['30 live one-hour classes on Zoom', 'Fashion & Art · Gastronomy & Wine · Cinema & Music', 'Every capsule at $63 a month instead of $99', 'No French required', 'Sold independently of the language courses'],
         crmCourse: null
       },
       'membership-12': {
@@ -140,7 +140,7 @@
         title: 'Atelier Membership — 12 months',
         offerLabel: 'Best value · $99 a month for 12 months',
         numberOfPayments: 12, monthly: 99, firstPayment: 99, total: 1188,
-        includes: ['1 French Atelier language course (one of our 4 levels)', 'All 3 Culture Capsules — 30 conferences', 'The Atelier Benefits hub: ~10% at partner French restaurants, 15% on famous macarons, travel-in-France perks', 'Julien, your 24/7 AI French tutor', 'Private community & cultural resources'],
+        includes: ['1 French Atelier language course (one of our 4 levels)', 'All 3 Culture Capsules — 30 classes', 'The Atelier Benefits hub: ~10% at partner French restaurants, 15% on famous macarons, travel-in-France perks', 'Julien, your 24/7 AI French tutor', 'Private community & cultural resources'],
         crmCourse: null
       }
     },

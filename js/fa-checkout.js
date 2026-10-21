@@ -246,7 +246,7 @@
     return payload;
   }
 
-  /* ---------- session state ---------- */
+  /* ---------- class state ---------- */
   function saveLead(lead, sel) { try { sessionStorage.setItem(STORE_LEAD, JSON.stringify({ lead: lead, sel: sel, ts: Date.now(), env: CFG.env })); } catch (e) {} }
   function loadLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
   function saveIds(ids) { try { sessionStorage.setItem(STORE_IDS, JSON.stringify(Object.assign({ ts: Date.now(), env: CFG.env }, ids))); } catch (e) {} }
@@ -450,6 +450,7 @@
           '<h3 class="fa-ck-aside-title">' + h(tp.name) + '</h3>' + (tp.sub ? '<div class="fa-ck-aside-sub">' + h(tp.sub) + '</div>' : '') +
           '<div class="fa-ck-price"><span class="fa-ck-price-num">' + fmt2(p.firstPayment) + '</span><span class="fa-ck-price-lab">due today<br>' + (p.kind === 'course' ? 'first month · 2 weeks free' : 'then monthly') + '</span></div>' +
           '<div class="fa-ck-rows">' + sumRows(p) + '</div>' +
+          (p.kind === 'capsules' ? '<p class="fa-ck-refund">' + ICON.check + '14-day full refund</p>' : '') +
           '<ul class="fa-ck-trust">' + p.includes.filter(function(i) { return p.kind !== 'capsules' || !/capsule at .*month/i.test(i); }).slice(0, 4).map(function (i) { return '<li>' + h(i) + '</li>'; }).join('') + '</ul>' +
         '</div>' +
       '</div>';
@@ -578,9 +579,9 @@
       var locked = p.packs === 3;
       html += '<fieldset class="fa-ck-group"><legend>' + (p.packs === 1 ? 'Choose your capsule' : p.packs === 2 ? 'Choose your 2 capsules' : 'Your 3 capsules') + (p.packs === 2 ? ' <span class="fa-ck-count" id="fa-ck-count"></span>' : '') + '</legend><div class="fa-ck-picks">' +
         Object.keys(CFG.capsules).map(function (k) { var c = CFG.capsules[k]; return '<label class="fa-ck-pick"><input type="' + (p.packs === 1 ? 'radio' : 'checkbox') + '" name="fa-ck-cap" value="' + k + '"' + (locked || sel.capsules.indexOf(k) > -1 ? ' checked' : '') + (locked ? ' disabled' : '') + '><span class="fa-ck-pick-in"><span class="fa-ck-pick-img"><img src="' + assetBase() + CAP_IMG[k] + '" alt=""></span><span class="fa-ck-pick-txt"><b>' + h(c.name) + '</b><span>' + h(c.status) + '</span></span><i class="fa-ck-opt-dot">' + ICON.check + '</i></span></label>'; }).join('') +
-        '</div><p class="fa-ck-hint">Each capsule is 10 live one-hour conferences on Zoom, once a week. No French required.</p></fieldset>';
+        '</div><p class="fa-ck-hint">Each capsule is 10 live one-hour classes on Zoom, once a week. No French required.</p></fieldset>';
     }
-    html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + '</div>' +
+    html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + (p.kind === 'capsules' ? '<p class="fa-ck-refund">' + ICON.check + '14-day full refund</p>' : '') + '</div>' +
       (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
       '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · ' + (p.pct || 41) + '% off · ' + fmt2(p.firstPayment) + ' first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : 'Package price: ' + fmt2(p.monthly) + ' per month for ' + p.packs + (p.packs === 1 ? ' capsule' : ' capsules')) + '</span></div>' +
       (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">I have a promo code</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code"><button type="button" class="fa-ck-code-go" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +

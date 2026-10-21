@@ -114,27 +114,8 @@
   };
   var US_STATES = {AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming',PR:'Puerto Rico'};
   function toE164(raw, iso){
-    var c = BY_ISO[iso]; if(!c) return {ok:false, reason:'unknown_country'};
-    var s = String(raw||'').trim(); var kept = s.replace(/[^\d+]/g,''); var digits;
-    if(kept.charAt(0)==='+'){ digits = kept.slice(1).replace(/\D/g,''); }
-    else {
-      digits = kept.replace(/\D/g,'');
-      if(digits.charAt(0)==='0') digits = digits.replace(/^0+/,'');
-      if(c.dial==='1'){ if(digits.length===10) digits='1'+digits; }
-      else if(digits.indexOf(c.dial)!==0){ digits = c.dial + digits; }
-    }
-    if(!/^\d{7,15}$/.test(digits)) return {ok:false, reason:'phone_length'};
-    if(iso==='US'){
-      var d = digits.charAt(0)==='1' ? digits.slice(1) : digits;
-      if(d.length!==10) return {ok:false, reason:'us_format'};
-      var ac = d.substring(0,3);
-      if(/^[01]/.test(ac) || /^[01]/.test(d.charAt(3))) return {ok:false, reason:'us_format'};
-      if(!NANP[ac]) return {ok:false, reason:'non_us_area_code'};
-      return {ok:true, e164:'+1'+d, state:NANP[ac]};
-    }
-    var LEN = {CA:[10],FR:[9],GB:[10],IL:[8,9],AU:[9],CH:[9],BE:[8,9],ES:[9],IT:[9,10],NL:[9],DE:[10,11],MX:[10],BR:[10,11],IN:[10],IE:[9],PT:[9],LU:[6,7,8,9],MC:[8,9]};
-    if(LEN[iso]){ var nat = digits.slice(c.dial.length); if(LEN[iso].indexOf(nat.length)<0) return {ok:false, reason:'phone_length'}; }
-    return {ok:true, e164:'+'+digits};
+    if(!window.FA_PHONE) return {ok:false,reason:'phone_validator_unavailable'};
+    return window.FA_PHONE.toE164(raw,iso,{BY_ISO:BY_ISO,NANP:NANP});
   }
   window.FA_GEO = { LIST:LIST, BY_ISO:BY_ISO, NANP:NANP, US_STATES:US_STATES, toE164:toE164,
     stateForPhone:function(raw){ var d=String(raw||'').replace(/\D/g,''); if(d.length===11&&d.charAt(0)==='1') d=d.slice(1); return d.length>=3 ? (NANP[d.substring(0,3)]||'') : ''; } };

@@ -1,0 +1,84 @@
+/* Approved-scope presentation layer. No offer values or integration hooks. */
+html:root:root:root:root:root:root:root body#fa .kps-hero .bg::after { background:transparent!important; }
+html:root:root:root:root:root:root:root body#fa .kps-hero::before {
+  background:linear-gradient(90deg,rgba(0,8,26,.52),rgba(0,8,26,.22) 60%,rgba(0,8,26,.08)),linear-gradient(180deg,rgba(0,8,26,.05),rgba(0,8,26,.08) 48%,rgba(0,8,26,.68))!important;
+}
+html:root:root:root:root:root:root:root body#fa .kps-hero .bg video,
+html:root:root:root:root:root:root:root body#fa .kps-stage video,
+html:root:root:root:root:root:root:root body#fa .kps-method .bg video,
+html:root:root:root:root:root:root:root body#fa .kps-final > video { filter:brightness(1.18) saturate(1.06)!important; }
+html:root:root:root:root:root:root:root body#fa .kps-stage::before { background:linear-gradient(180deg,rgba(0,8,26,.06),rgba(0,8,26,.12) 48%,rgba(0,8,26,.72))!important; }
+html:root:root:root:root:root:root:root body#fa .kps-method::before { background:linear-gradient(90deg,rgba(0,8,26,.7),rgba(0,8,26,.35) 50%,rgba(0,8,26,.12)),linear-gradient(180deg,transparent,rgba(0,8,26,.5))!important; }
+html:root:root:root:root:root:root:root body#fa .kps-final::before { background:radial-gradient(70% 80% at 50% 50%,rgba(0,8,26,.32),rgba(0,8,26,.65))!important; }
+body#fa .kps-hero :is(h1,.sub,.kpx-eyebrow),body#fa .kps-stage :is(h2,p),body#fa .kps-method :is(h2,p),body#fa .kps-final :is(h2,p) { text-shadow:0 2px 8px rgba(0,0,20,.75),0 8px 28px rgba(0,0,20,.45); }
+html:root:root:root:root:root:root:root body#fa .kpz-grid { grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-pricing .head > .kps-kicker { display:none!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-card {
+  margin:0!important;padding:64px 30px 30px!important;border-radius:20px!important;
+  transform:none!important;min-width:0;box-sizing:border-box;
+}
+html:root:root:root:root:root:root:root body#fa .kpz-all {
+  border:1px solid #86bfff!important;
+  box-shadow:0 0 0 1px rgba(117,187,255,.15),0 0 44px -16px rgba(48,153,255,.5),0 28px 60px -35px #000!important;
+}
+html:root:root:root:root:root:root:root body#fa .kpz-card:hover { transform:none!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-num { display:none!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-save.spacer { visibility:hidden!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-name { font:700 30px/1.15 var(--sans)!important;letter-spacing:-.035em!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-sub { font:400 18px/1.5 var(--sans)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-badge {
+  top:22px;left:30px;right:auto;width:auto;padding:0;background:none;box-shadow:none;
+  color:#0961b8;font:700 16px/1.2 var(--sans);letter-spacing:0;text-transform:none;border-radius:0;
+}
+html:root:root:root:root:root:root:root body#fa .kpz-badge::before { display:none; }
+html:root:root:root:root:root:root:root body#fa .kpz-amt { font:750 72px/.95 var(--sans)!important;letter-spacing:-.065em!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-unit { font:500 17px/1.35 var(--sans)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-pay { font:500 18px/1.55 var(--sans)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-inc { text-transform:none!important;letter-spacing:0!important;font:650 18px/1.4 var(--sans)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-feats li { font:400 17px/1.55 var(--sans)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-cta {
+  min-height:62px!important;border-radius:12px!important;border:1px solid rgba(149,208,255,.5)!important;
+  background:linear-gradient(135deg,#0877dc,#0756b5)!important;color:#fff!important;
+  font:700 21px/1.25 var(--sans)!important;letter-spacing:-.01em!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.22) inset,0 14px 30px -18px rgba(0,103,255,.9)!important;
+}
+html:root:root:root:root:root:root:root body#fa .kpz-cta:hover { background:linear-gradient(135deg,#1283e6,#075fca)!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-enroll-title { font:inherit!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-per { opacity:1!important;font:600 17px/1.4 var(--sans)!important; }
+.fa-refund { display:flex;gap:10px;align-items:center; }
+.fa-refund svg { width:22px;height:22px;flex:0 0 22px;color:#61c3ff; }
+.kpz-all .fa-refund svg { color:#075cb5; }
+html:root:root:root:root:root:root:root body#fa .kpz-promo {
+  display:grid!important;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;
+  margin:28px auto 0!important;padding:14px 24px!important;min-height:0!important;
+  background:linear-gradient(110deg,#06152f,#0c2a55,#06152f)!important;
+  border:1px solid #368bd9!important;border-radius:16px!important;animation:none!important;
+  box-shadow:0 0 30px -12px rgba(52,163,255,.7),inset 0 1px 0 rgba(160,220,255,.17)!important;color:#eaf6ff!important;
+}
+html:root:root:root:root:root:root:root body#fa .kpz-promo::before,
+html:root:root:root:root:root:root:root body#fa .kpz-promo::after { display:none!important; }
+.kpz-promo-offer { margin:0!important;font:400 18px/1.4 var(--sans); }
+.kpz-promo-offer strong { font-size:22px;color:#fff; }
+html:root:root:root:root:root:root:root body#fa .kpz-code { display:inline-flex!important;flex-wrap:nowrap!important;gap:10px!important;padding:8px 12px!important;border-radius:9px!important;border:1px solid #69baff!important;background:rgba(45,140,245,.18)!important;color:#fff!important;box-shadow:0 0 18px -7px #369cff!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-code b,html:root:root:root:root:root:root:root body#fa .kpz-code .code { font:750 21px/1.25 var(--sans)!important;letter-spacing:.04em!important;color:#fff!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-code .cp { font:600 15px/1.25 var(--sans)!important;color:#06284d!important;background:#c3e5ff!important;padding:5px 8px!important;margin:0!important;border-radius:5px!important; }
+html:root:root:root:root:root:root:root body#fa .kpz-promo-msg { font:400 16px/1.4 var(--sans)!important;color:#c2dcf6!important;justify-self:end; }
+.fa-refund-banner { font:600 18px/1.5 var(--sans);display:flex;gap:10px;align-items:center;justify-content:center;margin:22px 0;color:inherit; }
+@media(max-width:900px){
+  html:root:root:root:root:root:root:root body#fa .kpz-grid { grid-template-columns:1fr!important;max-width:560px!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-grid { grid-auto-rows:1fr!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-card { grid-row:auto!important;grid-template-rows:auto auto auto auto auto 1fr auto!important; }
+}
+@media(max-width:600px){
+  html:root:root:root:root:root:root:root body#fa .kpz-pricing > .kps-wrap { width:calc(100% - 32px)!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-grid { width:100%!important;margin-left:0!important;margin-right:0!important; }
+  html:root:root:root:root:root:root:root body#fa .kps-hero::before { background:linear-gradient(180deg,rgba(0,8,26,.16),rgba(0,8,26,.34) 42%,rgba(0,8,26,.68))!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-card { padding:58px 24px 26px!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-promo { grid-template-columns:1fr auto;gap:8px;padding:12px!important; }
+  .kpz-promo-detail { display:none; }
+  .kpz-promo-offer strong { font-size:20px;white-space:nowrap; }
+  html:root:root:root:root:root:root:root body#fa .kpz-promo-msg { grid-column:1/-1;justify-self:center; }
+  html:root:root:root:root:root:root:root body#fa .kpz-code { padding:8px 6px!important;gap:8px!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-code > :first-child { font-size:18px!important; }
+  html:root:root:root:root:root:root:root body#fa .kpz-code .cp { padding:4px 6px!important; }
+}

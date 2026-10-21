@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css/fa-checkout.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-whatsapp.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-pay-et.css?v=20261020-launchfix">
+<link rel="stylesheet" href="css/fa-checkout-refinement.css?v=20261021-polish">
 <link rel="stylesheet" href="css/fa-pop.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-type.css?v=20261020a">
 </head>
@@ -158,7 +159,8 @@
   <div class="fa-pay-atmos" aria-hidden="true"></div>
   <div class="wrap">
     <ol class="fa-ck-progress fa-pay-progress" aria-label="Checkout steps"><li class="fa-ck-step is-done"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Register</span></li><li class="fa-ck-step is-done"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Your course</span></li><li class="fa-ck-step is-on" aria-current="step"><i>3</i><span>Secure payment</span></li></ol>
-    <div class="fa-pay-plan" id="payPlan"><span class="k">Your plan</span><strong id="payPlanV">&mdash;</strong><span class="s" id="payPlanS"></span></div>
+    <div class="fa-pay-plan" id="payPlan"><span class="k">Your plan</span><strong id="payPlanV">&mdash;</strong><div class="s" id="payPlanS"></div></div>
+    <div class="fa-secure-assurance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><div><strong>Secure payment</strong><span>Your payment is securely processed by eTeacher Group.</span></div></div>
     <div class="fa-pay-grid">
       <div class="fa-pay-main">
         <div class="fa-pay-card fa-pay-course" id="payCourse">
@@ -176,7 +178,7 @@
             <div class="fa-pay-today" id="payToday"></div>
             <div class="fa-pay-form">
               <div id="cardBox"><div id="awx-dropin"></div></div>
-              <div id="paypalBox" style="display:none"><div id="paypal-buttons"></div><p class="fa-pay-status" id="paypal-status"></p></div>
+              <div id="paypalBox" style="display:none"><p class="fa-pay-transfer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>To complete your payment, you will continue on PayPal's secure servers.</p><div id="paypal-buttons"></div><p class="fa-pay-status" id="paypal-status"></p></div>
               <div id="fallbackBox" style="display:none"></div>
               <p class="fa-pay-status" id="payStatus" aria-live="polite"><span class="fa-ck-spin" aria-hidden="true"></span> Preparing your secure payment form&hellip;</p>
             </div>
@@ -197,6 +199,7 @@
               <div class="fa-ck-brandline">The French Atelier by Acadomia</div>
               <h2 id="sumTitle">&mdash;</h2><div class="fa-ck-aside-sub" id="sumSub"></div>
               <div id="sumRows" class="fa-pay-fees"></div>
+              <div id="sumRefund" class="fa-refund-note" hidden>14-day full refund</div>
               <div class="buyer" id="sumBuyer"></div>
               <div class="fa-pay-policy">
                 <p>Your seat and class time are confirmed by email as soon as your payment is accepted.</p>
@@ -266,9 +269,11 @@
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/fa-meta-tracking.js?v=20261020h"></script>
-<script src="js/fa-geo.js?v=20261020a"></script>
-<script src="js/fa-checkout-config.js?v=20261021-tz"></script>
-<script src="js/fa-checkout.js?v=20261021-lock"></script>
+<script src="js/vendor/libphonenumber-max.js?v=1.13.15"></script>
+<script src="js/fa-phone-validation.js?v=20261021-polish"></script>
+<script src="js/fa-geo.js?v=20261021-polish"></script>
+<script src="js/fa-checkout-config.js?v=20261021-refinement"></script>
+<script src="js/fa-checkout.js?v=20261021-refinement"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -294,17 +299,23 @@
   function renderSummary(){
     if (!p) return;
     var tp = FA.titleParts(sel), img = FA.productImage(sel), n = p.numberOfPayments, lv = CFG.levels[sel.level] || {};
-    $('sumTitle').textContent = tp.name; $('sumSub').textContent = tp.sub; $('sumBarName').textContent = tp.name; $('sumThumb').src = img;
+    $('sumTitle').textContent = tp.name;
+    if(p.kind==='capsules') $('sumSub').innerHTML='<ul class="fa-pay-plan-list">'+(sel.capsules||[]).map(function(c){return '<li>'+FA.h(CFG.capsules[c].name)+'</li>';}).join('')+'</ul>';
+    else $('sumSub').textContent=tp.sub;
+    $('sumBarName').textContent = tp.name; $('sumThumb').src = img;
+    $('sumRefund').hidden=p.kind!=='capsules';
     $('sumBarPrice').textContent = FA.fmt2(p.firstPayment);
     if (p.kind === 'course') { $('payPlanV').innerHTML = 'Pay monthly \u00b7 <span class="amt">' + FA.fmt2(p.firstPayment) + '</span> today'; $('payPlanS').textContent = 'then ' + (p.numberOfPayments - 1) + ' \u00d7 ' + FA.fmt2(p.monthly) + ' \u00b7 ' + FA.fmt2(p.total) + ' total \u00b7 ' + (p.pct || 35) + '% off ' + FA.fmt(p.listTotal); }
-    else { $('payPlanV').innerHTML = 'Due today <span class="amt">' + FA.fmt2(p.firstPayment) + '</span>'; $('payPlanS').textContent = 'Then ' + (n-1) + ' monthly payments of ' + FA.fmt2(p.monthly) + '. Total payable: ' + FA.fmt2(p.total) + (p.promo ? '. Code ' + p.promo.code + ' applied.' : '.'); }
+    else { $('payPlanV').innerHTML = 'Due today <span class="amt">' + FA.fmt2(p.firstPayment) + '</span>'; $('payPlanS').innerHTML='<ul class="fa-pay-plan-list"><li>'+ (n-1)+' remaining monthly payments of '+FA.fmt2(p.monthly)+'</li><li><strong>Total payable: '+FA.fmt2(p.total)+'</strong></li>'+(p.promo?'<li>'+FA.h(p.promo.code)+' applied</li>':'')+'</ul>'; }
     (function(){ var old = document.querySelector('#payPlan .fa-pay-save'); if (old) old.remove(); var d = document.createElement('span'); d.innerHTML = FA.saveChip(p, 'fa-pay-save'); if (d.firstChild) $('payPlan').appendChild(d.firstChild); })();
     var L;
     if (p.kind === 'course') L = [['Course', (lv.name || 'French Atelier course') + (lv.cefr ? ' \u00b7 ' + lv.cefr : '') + (lv.route ? ' \u00b7 ' + lv.route : '')], ['Course duration', '20 weeks'], ['Schedule', '20 live lessons, one class a week'], ['Class time', sel.classTime || 'As selected in step 2'], ['Lesson duration', '85 minutes'], ['Location', 'Online \u00b7 live from France \u00b7 group of 10\u201312']];
-    else if (p.kind === 'capsules') { var caps = sel.capsules || []; L = [['Course', p.title + (caps.length ? ' \u00b7 ' + caps.map(function(c){ return CFG.capsules[c].name; }).join(' + ') : '')], ['Duration', '10 weeks per capsule'], ['Schedule', '10 live conferences per capsule, one a week'], ['Start', caps.map(function(c){ return CFG.capsules[c].name + ': ' + CFG.capsules[c].start; }).join(' \u00b7 ') || 'Chosen in step 2'], ['Conference', '1 hour, then 15\u201320 minutes of questions'], ['Location', 'Online \u00b7 live on Zoom \u00b7 no French required']]; }
-    else L = [['Membership', 'Atelier Membership \u00b7 12 months'], ['Language course', lv.name ? lv.name + ' \u00b7 ' + lv.cefr : 'One of our 4 levels'], ['Culture Capsules', 'All 3 packs \u00b7 30 conferences'], ['Benefits', 'The Atelier Benefits hub'], ['Tutor', 'Julien, your 24/7 AI French tutor'], ['Location', 'Online \u00b7 live from France']];
-    $('payLines').innerHTML = L.map(function(r){ return '<div class="ln"><b>' + FA.h(r[0]) + ':</b> <span>' + FA.h(r[1]) + '</span></div>'; }).join('');
-    $('payBand').innerHTML = FA.tuitionBand(p);
+    else if (p.kind === 'capsules') { var caps = sel.capsules || []; L = [['Course', p.title + (caps.length ? ' \u00b7 ' + caps.map(function(c){ return CFG.capsules[c].name; }).join(' + ') : '')], ['Duration', '10 weeks per capsule'], ['Schedule', '10 live classes per capsule, one a week'], ['Start', caps.map(function(c){ return CFG.capsules[c].name + ': ' + CFG.capsules[c].start; }).join(' \u00b7 ') || 'Chosen in step 2'], ['Class', '1 hour, then 15\u201320 minutes of questions'], ['Location', 'Online \u00b7 live on Zoom \u00b7 no French required']]; }
+    else L = [['Membership', 'Atelier Membership \u00b7 12 months'], ['Language course', lv.name ? lv.name + ' \u00b7 ' + lv.cefr : 'One of our 4 levels'], ['Culture Capsules', 'All 3 packs \u00b7 30 classes'], ['Benefits', 'The Atelier Benefits hub'], ['Tutor', 'Julien, your 24/7 AI French tutor'], ['Location', 'Online \u00b7 live from France']];
+    if(p.kind==='capsules'){
+      $('payLines').innerHTML='<ul class="fa-pay-class-list">'+(sel.capsules||[]).map(function(c){var v=CFG.capsules[c];return '<li><strong>'+FA.h(v.name)+'</strong><span>'+FA.h(v.start).replace(' · ','<br>')+'</span></li>';}).join('')+'</ul><ul class="fa-pay-facts-list"><li>10 weekly live classes per capsule</li><li>60 minutes + live Q&amp;A</li><li>In English on Zoom. No French required.</li></ul>';
+    } else $('payLines').innerHTML = L.map(function(r){ return '<div class="ln"><b>' + FA.h(r[0]) + ':</b> <span>' + FA.h(r[1]) + '</span></div>'; }).join('');
+    $('payBand').innerHTML = p.kind==='capsules' ? '' : FA.tuitionBand(p);
     function row(k, note, v){ return '<div class="fee"><div class="fee-row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div><p class="fee-note">' + note + '</p></div>'; }
     function tot(k, v){ return '<div class="fee fee-total"><div class="fee-row"><span class="k">' + k + '</span><span class="v">' + v + '</span></div></div>'; }
     var rows;
