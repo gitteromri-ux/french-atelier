@@ -268,7 +268,7 @@
 <script src="js/fa-meta-tracking.js?v=20261020h"></script>
 <script src="js/fa-geo.js?v=20261020a"></script>
 <script src="js/fa-checkout-config.js?v=20261021-display"></script>
-<script src="js/fa-checkout.js?v=20261021-recovery"></script>
+<script src="js/fa-checkout.js?v=20261021-provider"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -504,9 +504,14 @@
     if (quoteChanged) return;
     if (!details) throw new Error('DETAILS_FAILED');
     try { if (window.FA_META && FA_META.captureCheckoutIdentity) FA_META.captureCheckoutIdentity(details, ids); } catch (trackingOnlyError) {}
+    var plan = FA.validatePaymentAmounts(details,p);
+    if (!plan.ok) { var e = new Error(plan.reason); e.v=plan; throw e; }
+    amount = plan.amount; paymentId = plan.paymentId; resolveOrder(true);
     var v = FA.validateDetails(details, p);
-    if (!v.ok) { var e = new Error(v.reason); e.v = v; throw e; }
-    amount = v.amount; paymentId = v.paymentId; resolveOrder(true);
+    if (!v.ok) {
+      status('Secure card entry is unavailable (' + v.reason + '). No payment has been made. You can select PayPal. Support reference: order ' + ids.orderid + ', student ' + ids.stid + '.', 'err');
+      return;
+    }
     mountAirwallex(details, v);
   }).catch(function(e){
     if (quoteChanged) return;

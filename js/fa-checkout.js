@@ -277,16 +277,26 @@
     return post(relay('/api/checkout/details'), { StudentId: String(ids.stid), OrderId: String(ids.orderid) }).then(function (r) { return r.ok && r.body && typeof r.body === 'object' ? r.body : null; });
   }
   /* The CRM decides the charge. Accept it only if it equals the displayed offer. */
-  function validateDetails(d, p) {
+  function validatePaymentAmounts(d, p) {
     var a = (d && d.Airwallex) || {};
-    if (!a.paymentIntentId || !a.clientSecret || d.PaymentID == null) return { ok: false, reason: 'PAYMENT_DETAILS_INCOMPLETE' };
-    var amount = Number(a.amount), n = Number(d.NumOfPayments);
-    if (String(a.currency || d.CurrencyCode || '').toUpperCase() !== 'USD') return { ok: false, reason: 'CURRENCY_NOT_USD', amount: amount, n: n };
+    if (!d || d.PaymentID == null || String(d.PaymentID).trim() === '') return { ok:false, reason:'PAYMENT_DETAILS_INCOMPLETE' };
+    var amount = Number(d.AmountToCharge != null ? d.AmountToCharge : a.amount), n = Number(d.NumOfPayments);
+    if (String(d.CurrencyCode || a.currency || '').toUpperCase() !== 'USD') return { ok: false, reason: 'CURRENCY_NOT_USD', amount: amount, n: n };
     var total = Number(d.OrderCoursePrice), perMonth = Number(d.PaymentPerMonth), rest = Math.max(0, p.numberOfPayments - 1);
     if (![amount,n,total,perMonth].every(Number.isFinite) || amount <= 0 || total <= 0 || n < 0 || (rest > 0 && perMonth <= 0)) return { ok:false, reason:'PAYMENT_DETAILS_INCOMPLETE' };
     /* CRM semantics (verified 2026-10-20): AmountToCharge = today's payment, NumOfPayments = payments AFTER it, PaymentPerMonth each, OrderCoursePrice = full plan. */
     if (Math.abs(amount - p.firstPayment) > 0.005 || n !== rest || Math.abs(total - p.total) > 0.011 || (rest > 0 && Math.abs(perMonth - p.monthly) > 0.011)) return { ok: false, reason: 'PAYMENT_PLAN_MISMATCH', amount: amount, n: n, perMonth: d.PaymentPerMonth, total: d.OrderCoursePrice, paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
-    return { ok: true, amount: amount, currency: 'USD', paymentId: d.PaymentID, intentId: a.paymentIntentId, clientSecret: a.clientSecret };
+    return { ok:true, amount:amount, currency:'USD', paymentId:d.PaymentID };
+  }
+  function validateDetails(d, p) {
+    var plan = validatePaymentAmounts(d,p);
+    if (!plan.ok) return plan;
+    var a=d.Airwallex||{};
+    if (d.AirwallexEnabled === false) return {ok:false,reason:'CARD_PROVIDER_UNAVAILABLE'};
+    if (!a.paymentIntentId || !a.clientSecret || !Number.isFinite(Number(a.amount))) return {ok:false,reason:'PAYMENT_DETAILS_INCOMPLETE'};
+    if (String(a.currency||'').toUpperCase()!=='USD') return {ok:false,reason:'CURRENCY_NOT_USD'};
+    if (Math.abs(Number(a.amount)-plan.amount)>0.005) return {ok:false,reason:'PAYMENT_PLAN_MISMATCH'};
+    return {ok:true,amount:plan.amount,currency:'USD',paymentId:plan.paymentId,intentId:a.paymentIntentId,clientSecret:a.clientSecret};
   }
   function reportPayment(report) {
     for (var k in report) if (/^(card_?number|pan|cvc|cvv|expiry)$/i.test(k)) delete report[k];
@@ -637,7 +647,7 @@
   window.FA_CHECKOUT = { savings: savings, saveChip: saveChip,
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     setProduct: function (id) { lastProduct = String(id || ''); },
-    loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails,
+    loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails, validatePaymentAmounts: validatePaymentAmounts,
     reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, acStage: acStage, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
   };
 })();
