@@ -1,0 +1,42 @@
+/* Sleek price cards (Omri 2026-10-21): package price leads, per-capsule price beneath. No pills, no boxes, one rhythm. */
+html:root:root:root:root:root:root body#fa .kpz-card{padding:2.2rem 2rem 2rem!important}
+html:root:root:root:root:root:root body#fa .kpz-top{padding-bottom:1.1rem!important}
+html:root:root:root:root:root:root body#fa .kpz-pricebox{padding:1.3rem 0 0!important;gap:0!important;min-height:0!important}
+html:root:root:root:root:root:root body#fa .kpz-price{display:flex!important;flex-wrap:nowrap!important;align-items:baseline!important;gap:0!important;margin:0!important}
+html:root:root:root:root:root:root body#fa .kpz-cur{font-size:32px!important;font-weight:700!important;margin:0 .1rem 0 0!important;align-self:flex-start!important;padding-top:.55rem!important}
+html:root:root:root:root:root:root body#fa .kpz-amt{font-size:clamp(60px,5vw,76px)!important;line-height:1!important;letter-spacing:-.045em!important;font-weight:700!important}
+html:root:root:root:root:root:root body#fa .kpz-unit{width:auto!important;font-size:19px!important;line-height:1!important;font-weight:500!important;margin-left:.35rem!important;opacity:.7!important;white-space:nowrap}
+html:root:root:root:root:root:root body#fa .kpz-percap{margin:.7rem 0 0;font-size:17px;line-height:1.35;font-weight:500;color:rgba(255,255,255,.78)}
+html:root:root:root:root:root:root body#fa .kpz-percap b{font-weight:700;color:#fff}
+html:root:root:root:root:root:root body#fa .kpz-percap s{margin-left:.35rem;opacity:.5}
+html:root:root:root:root:root:root body#fa .kpz-off{margin-left:.35rem;font-weight:700;color:#7CC8FF}
+html:root:root:root:root:root:root body#fa .kpz-all .kpz-percap{color:#3A4256}
+html:root:root:root:root:root:root body#fa .kpz-all .kpz-percap b{color:#0F1A3C}
+html:root:root:root:root:root:root body#fa .kpz-all .kpz-off{color:#A8822F}
+html:root:root:root:root:root:root body#fa .kpz-pay{margin:.35rem 0 1.4rem!important;font-size:15px!important;line-height:1.4!important;font-weight:500!important;opacity:.62!important;white-space:normal!important}
+html:root:root:root:root:root:root body#fa .kpz-pay b{font-weight:600!important}
+html:root:root:root:root:root:root body#fa .kpz-cta{min-height:58px!important;border-radius:999px!important;font-size:18px!important;font-weight:700!important}
+html:root:root:root:root:root:root body#fa .kpz-all .kpz-cta{min-height:58px!important;font-size:18px!important}
+html:root:root:root:root:root:root body#fa .kpz-inc{margin:1.6rem 0 0!important;padding:1.2rem 0 .7rem!important;font-size:12px!important;letter-spacing:.18em!important}
+html:root:root:root:root:root:root body#fa .kpz-feats{gap:.65rem!important}
+html:root:root:root:root:root:root body#fa .kpz-feats li{font-size:16px!important;line-height:1.35!important;font-weight:500!important}
+html:root:root:root:root:root:root body#fa .kpz-feats li svg{flex:0 0 20px!important;width:20px!important;height:20px!important;padding:3px!important}
+html:root:root:root:root:root:root body#fa .kpz-per{margin:1.2rem 0 0!important;padding-top:.9rem!important;font-size:14px!important;border-top-style:solid!important;opacity:.75}
+@media (max-width:900px){
+html:root:root:root:root:root:root body#fa .kpz-card{padding:1.8rem 1.4rem 1.6rem!important}
+html:root:root:root:root:root:root body#fa .kpz-amt{font-size:64px!important}
+}
+html:root:root:root:root:root:root body#fa .kpz-cta{margin-top:0!important;align-self:start!important}
+html:root:root:root:root:root:root body#fa .kpz-pay{margin-bottom:1.1rem!important}
+html:root:root:root:root:root:root body#fa .kpz-feats{justify-content:flex-start!important;align-self:start!important}
+html:root:root:root:root:root:root body#fa .kpz-percap{font-size:21px!important;line-height:1.3!important;margin-top:.8rem!important}
+html:root:root:root:root:root:root body#fa .kpz-percap b{font-size:24px!important}
+html:root:root:root:root:root:root body#fa .kpz-off{font-size:21px!important}
+html:root:root:root:root:root:root body#fa .kpz-feats li{font-size:16.5px!important}
+html:root:root:root:root:root:root body#fa .kpz-feats li b{font-weight:700!important}
+html:root:root:root:root:root:root body#fa .kpz-card{row-gap:0!important}
+html:root:root:root:root:root:root body#fa .kpz-all{padding-top:3.7rem!important}
+html:root:root:root:root:root:root body#fa .kpz-off,html:root:root:root:root:root:root body#fa .kpz-percap s{white-space:nowrap}
+html:root:root:root:root:root:root body#fa .kpz-per{justify-self:stretch!important;text-align:left!important}
+@media (min-width:901px){html:root:root:root:root:root:root body#fa .kpz-percap{font-size:18px!important}html:root:root:root:root:root:root body#fa .kpz-percap b{font-size:21px!important}html:root:root:root:root:root:root body#fa .kpz-off{font-size:18px!important}}
+@media (max-width:900px){html:root:root:root:root:root:root body#fa .kpz-pay{padding:0!important;margin:.3rem 0 .9rem!important;min-height:0!important}html:root:root:root:root:root:root body#fa .kpz-pricebox{padding-bottom:0!important;margin-bottom:0!important}}
