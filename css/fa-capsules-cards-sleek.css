@@ -40,3 +40,16 @@ html:root:root:root:root:root:root body#fa .kpz-off,html:root:root:root:root:roo
 html:root:root:root:root:root:root body#fa .kpz-per{justify-self:stretch!important;text-align:left!important}
 @media (min-width:901px){html:root:root:root:root:root:root body#fa .kpz-percap{font-size:18px!important}html:root:root:root:root:root:root body#fa .kpz-percap b{font-size:21px!important}html:root:root:root:root:root:root body#fa .kpz-off{font-size:18px!important}}
 @media (max-width:900px){html:root:root:root:root:root:root body#fa .kpz-pay{padding:0!important;margin:.3rem 0 .9rem!important;min-height:0!important}html:root:root:root:root:root:root body#fa .kpz-pricebox{padding-bottom:0!important;margin-bottom:0!important}}
+/* v-d: per-capsule price is the hero number */
+html:root:root:root:root:root:root body#fa .kpz-price{align-items:center!important}
+html:root:root:root:root:root:root body#fa .kpz-unit{font-size:17px!important;line-height:1.2!important;margin-left:.6rem!important;opacity:.8!important}
+html:root:root:root:root:root:root body#fa .kpz-percap{display:flex!important;align-items:baseline;gap:.6rem;font-size:22px!important;font-weight:700!important;margin-top:.7rem!important}
+html:root:root:root:root:root:root body#fa .kpz-percap s{margin:0!important;opacity:.55!important;font-weight:600}
+html:root:root:root:root:root:root body#fa .kpz-off{margin:0!important;font-size:22px!important;font-weight:800!important}
+html:root:root:root:root:root:root body#fa .kpz-reg2{font-size:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+html:root:root:root:root:root:root body#fa .kpz-pay{font-size:15.5px!important;opacity:.78!important;margin-top:.6rem!important}
+html:root:root:root:root:root:root body#fa .kpz-pay b{font-weight:700!important}
+@media (min-width:901px){html:root:root:root:root:root:root body#fa .kpz-percap,html:root:root:root:root:root:root body#fa .kpz-off{font-size:19px!important}html:root:root:root:root:root:root body#fa .kpz-pay{font-size:14.5px!important}}
+html:root:root:root:root:root:root body#fa .kpz-pay{white-space:normal!important}
+@media (min-width:901px){html:root:root:root:root:root:root body#fa .kpz-pay{font-size:13.5px!important}}
+@media (max-width:900px){html:root:root:root:root:root:root body#fa .kpz-pay{font-size:14px!important;letter-spacing:-.005em!important}}
