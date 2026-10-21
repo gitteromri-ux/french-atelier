@@ -47,24 +47,13 @@
     if (cards.length) {
       cards.forEach(function(card) {
         var p = FA.product(card.getAttribute('data-plan')); if (!p) return;
-        var amount = card.querySelector('.kpz-amt'), unit = card.querySelector('.kpz-unit'), pay = card.querySelector('.kpz-pay');
-        var was = card.querySelector('.kpz-was'), saving = card.querySelector('.kpz-save'), per = card.querySelector('.kpz-per');
-        if (amount) amount.textContent = FA.fmt2(p.monthly).replace('$','');
-        if (unit) unit.innerHTML = 'per month<br>for ' + (p.packs === 1 ? '1 capsule' : 'all ' + p.packs + ' capsules');
-        if (pay) pay.innerHTML = p.numberOfPayments + ' payments of ' + FA.fmt2(p.monthly) + '<br><b>Total payable: ' + FA.fmt2(p.total) + '</b>';
-        if (was) { was.textContent = p.promo ? 'Was ' + FA.fmt2(p.baseMonthly) + ' / month' : 'Standard package price'; was.style.textDecoration = p.promo ? 'line-through' : 'none'; }
-        if (saving) { saving.classList.remove('kpz-save-none'); saving.textContent = p.promo ? p.promo.code + ' discount: ' + FA.fmt2(Math.round((p.baseTotal-p.total)*100)/100) : 'Enter CAPSULE20 in checkout for 20% off'; }
-        if (per) per.textContent = 'Due today: ' + FA.fmt2(p.firstPayment) + ' for the package';
+        /* Card prices stay as authored (per-capsule display, Omri 2026-10-21). Only the button label is set. */
         var enroll = card.querySelector('[data-fa-buy]');
         if (enroll) {
           enroll.innerHTML = '<span class="kpz-enroll-title">Enroll Online</span>';
           enroll.setAttribute('aria-label','Enroll online in ' + p.packs + (p.packs === 1 ? ' capsule' : ' capsules'));
         }
       });
-      var intro = document.querySelector('#offers .head .kps-sub');
-      if (intro) intro.textContent = 'The price shown is for your whole package, paid in 3 monthly payments. Any applied promo discount is already included.';
-      var floating = document.querySelector('#faFloatCta .price'), lowest = FA.product('capsule-1');
-      if (floating && lowest) floating.textContent = 'from ' + FA.fmt2(lowest.monthly);
       return;
     }
     var pr = FA.promoFor('capsule-1'); if (!pr) return;
