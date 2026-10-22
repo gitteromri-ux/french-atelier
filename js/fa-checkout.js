@@ -631,7 +631,20 @@
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       btnBusy(btn, 'Opening secure payment…');
       var inSub = /\/courses\//.test(location.pathname);
-      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?product=' + encodeURIComponent(sel.product) + (sel.level ? '&level=' + encodeURIComponent(sel.level) : '') + (sel.capsules && sel.capsules.length ? '&capsules=' + encodeURIComponent(sel.capsules.join(',')) : '') + (sel.classTime ? '&time=' + encodeURIComponent(sel.classTime) : '') + (CFG.env === 'staging' ? '&env=staging' : '');
+      var checkoutKeys = { product: true, level: true, capsules: true, time: true, env: true };
+      var rawQuery = (location.search || '').replace(/^\?/, '');
+      var carried = rawQuery ? rawQuery.split('&').filter(function (part) {
+        var rawKey = part.split('=')[0], key;
+        try { key = decodeURIComponent(rawKey.replace(/\+/g, ' ')); }
+        catch (e) { return true; }
+        return !Object.prototype.hasOwnProperty.call(checkoutKeys, key);
+      }) : [];
+      carried.push('product=' + encodeURIComponent(sel.product));
+      if (sel.level) carried.push('level=' + encodeURIComponent(sel.level));
+      if (sel.capsules && sel.capsules.length) carried.push('capsules=' + encodeURIComponent(sel.capsules.join(',')));
+      if (sel.classTime) carried.push('time=' + encodeURIComponent(sel.classTime));
+      if (CFG.env === 'staging') carried.push('env=staging');
+      location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?' + carried.join('&');
     });
   }
 
