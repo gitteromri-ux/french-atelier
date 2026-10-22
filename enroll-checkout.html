@@ -381,8 +381,8 @@
       $('fallbackBox').querySelector('.lead').textContent = 'Your payment succeeded, but our enrollment system has not confirmed it. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.';
       $('fallbackBox').setAttribute('role','alert');
     }
-    FA.clearIds();
     FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: String(ids.orderid), num_items: 1 }, { eventId: 'fa_purchase_' + ids.orderid });
+    FA.clearIds();
     /* Julie golden rule: payment success writes nothing to AC (CRM -> AC sync excludes buyers). */
     try { sessionStorage.removeItem('fa_ck_lead_v1'); } catch(e){}
   }
