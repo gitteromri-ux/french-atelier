@@ -269,7 +269,7 @@
 </footer>
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-meta-tracking.js?v=20261022-delivery2"></script>
+<script src="js/fa-meta-tracking.js?v=20261022-golden3"></script>
 <script src="js/vendor/libphonenumber-max.js?v=1.13.15"></script>
 <script src="js/fa-phone-validation.js?v=20261021-polish"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
@@ -370,6 +370,16 @@
   orderReady = new Promise(function(res,rej){ resolveOrder = res; rejectOrder = rej; });
   orderReady.catch(function(){});
 
+  /* Golden timing (G-H L3398/L3539): Purchase fires on verified payment success, BEFORE the CRM
+   * report, exactly once per order; identity is captured synchronously inside FA.track, before clearIds(). */
+  var purchaseTracked = {};
+  function trackPurchase(){
+    var oid = String(ids.orderid);
+    if (purchaseTracked[oid]) return;
+    purchaseTracked[oid] = true;
+    try { FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: oid, num_items: 1 }, { eventId: oid }); } catch(e){}
+  }
+
   function showDone(method, pending){
     paid = true;
     try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
@@ -383,7 +393,7 @@
       $('fallbackBox').querySelector('.lead').textContent = 'Your payment succeeded, but our enrollment system has not confirmed it. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.';
       $('fallbackBox').setAttribute('role','alert');
     }
-    FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: String(ids.orderid), num_items: 1 }, { eventId: 'fa_purchase_' + ids.orderid });
+    /* Purchase already fired by trackPurchase() on verified payment success, before the CRM report. */
     FA.clearIds();
     /* Julie golden rule: payment success writes nothing to AC (CRM -> AC sync excludes buyers). */
     try { sessionStorage.removeItem('fa_ck_lead_v1'); } catch(e){}
@@ -438,6 +448,7 @@
       amount = cardSnapshot.amount; paymentId = cardSnapshot.paymentId; ids = cardSnapshot.ids; p = cardSnapshot.product;
       status('✓ Payment succeeded. Confirming your enrollment…', 'ok');
       var intent = evt && evt.detail && evt.detail.intent;
+      trackPurchase();
       FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'CreditCard', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: (intent && intent.id) || v.intentId })
         .then(function(r){ showDone('card', !r || !r.ok); })
         .catch(function(){ showDone('card', true); });
@@ -469,6 +480,7 @@
           if (!ok) { st.textContent = 'We could not verify the PayPal payment result for order #' + ids.orderid + '. Do not pay again. Contact ' + CFG.advisorEmail + '.'; return; }
           try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
           paid=true; window.FA_PAYMENT_LOCKED=false; amount=ppSnapshot.amount; paymentId=ppSnapshot.paymentId; ids=ppSnapshot.ids; p=ppSnapshot.product;
+          trackPurchase();
           return FA.reportPayment({ StudentId: String(ids.stid), OrderId: String(ids.orderid), PaymentId: String(paymentId), PaymentMethod: 'PayPal', AmountCharged: String(amount), ChargeType: 'RegistrationFee', IsApproved: true, TransactionId: String(cap.id || details.id || ''), PayPalPayerId: String((details.payer && details.payer.payer_id) || ''), PayPalOrderId: String(details.id || ''), PayPalPaymentId: String(cap.id || '') })
             .then(function(r){ showDone('PayPal', !r || !r.ok); })
             .catch(function(){ showDone('PayPal', true); });

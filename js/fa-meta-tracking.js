@@ -47,11 +47,11 @@
  *   'test' ?meta_test=TESTnnnnn -> server copies only, flagged with test_event_code, no Pixel.
  *   'live' Pixel + Conversions API.
  *
- * Release: fa-meta-20261022-2
+ * Release: fa-meta-20261022-3
  */
 (function (root) {
   'use strict';
-  var RELEASE = 'fa-meta-20261022-2';
+  var RELEASE = 'fa-meta-20261022-3';
   var PIXEL_ID = '4075596186030950';
   var RELAY_URL = 'https://fa-leads-proxy.vercel.app/api/meta/capi';
   var SOURCE = 'french-atelier';
@@ -220,6 +220,50 @@
     } catch (e) { return ''; }
   }
   function fbp() { var v = ck('_fbp'); return FBP_RE.test(v) ? v : ''; }
+  /* Golden port (G-B L223-257, julie-meta-20261015-1). If no valid _fbp exists yet, write one in Meta's
+   * documented format (fb.1.<ms>.<random10>) BEFORE the Pixel base init; fbevents.js reuses an existing
+   * valid _fbp, so browser and server copies carry the same value. Never written in 'off' mode. */
+  function setCookie(n, v, maxAge) {
+    try {
+      var host = String(loc.hostname || '');
+      var attrs = '; path=/; max-age=' + maxAge + '; SameSite=Lax';
+      if (host === COOKIE_DOMAIN || host.slice(-(COOKIE_DOMAIN.length + 1)) === '.' + COOKIE_DOMAIN) attrs += '; domain=.' + COOKIE_DOMAIN;
+      if (loc.protocol === 'https:') attrs += '; Secure';
+      doc.cookie = n + '=' + v + attrs;
+    } catch (e) {}
+  }
+  function ensureFbp() {
+    var v = fbp(); if (v) return v;
+    if (mode() === 'off') return '';
+    v = 'fb.1.' + Date.now() + '.' + String(Math.floor(Math.random() * 9e9) + 1e9);
+    setCookie('_fbp', v, 7776000);
+    return fbp() || v;
+  }
+  /* First-party visitor id -> external_id on events without a CRM student id. */
+  var VID_RE = /^[a-z0-9]{12,40}$/;
+  function visitorId() {
+    var v = ls('fa_vid_v1') || ck('fa_vid');
+    if (mode() === 'off') return VID_RE.test(v || '') ? v : '';
+    if (!VID_RE.test(v || '')) v = Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+    lsSet('fa_vid_v1', v); setCookie('fa_vid', v, 365 * 86400);
+    return v;
+  }
+  /* Returning buyer (G-B L245-257): the checkout-validated contact (sessionStorage, this tab) is mirrored
+   * to localStorage for 7 days so a return visit's anonymous PageView/ViewContent carries the same buyer.
+   * Never applied over a bound order or a current form/explicit email. Cleared on accepted Purchase. */
+  var KNOWN_KEY = 'fa_known_contact_v1', KNOWN_MAX_AGE = 7 * 86400000;
+  function rememberContact(c) {
+    try {
+      if (mode() === 'off') return;
+      if (c && normEmail(c.email)) lsSet(KNOWN_KEY, JSON.stringify({ email: normEmail(c.email), phone: String(c.phone || ''), fullName: String(c.fullName || ''), ts: Date.now() }));
+    } catch (e) {}
+  }
+  function knownContact() {
+    var k = json(ls(KNOWN_KEY));
+    if (!k || !normEmail(k.email) || !fresh(millis(k.ts), KNOWN_MAX_AGE)) return null;
+    return k;
+  }
+  function forgetContact() { try { root.localStorage.removeItem(KNOWN_KEY); } catch (e) {} }
 
   /* ---------- buyer identity (this event's buyer only; nothing persisted) ---------- */
   function normEmail(v) { var s = String(v || '').trim().toLowerCase(); return EMAIL_RE.test(s) ? s : ''; }
@@ -332,6 +376,7 @@
     var explicit = normEmail(emailArg);
     var formEmail = normEmail(val('fa-ck-em')) || normEmail(val('emEmail'));
     var c = json(ss('fa_ac_contact'));                          /* checkout-validated contact (E.164 phone) */
+    if (c && normEmail(c.email)) rememberContact(c);             /* Golden G-B L363: mirror for return visits (7 days) */
     if (b && b.email) {                                          /* CRM-link buyer of THIS order: a stale form never overrides */
       out.email = b.email; out.phone = b.phone; out.fn = b.fn; out.ln = b.ln; out.st = b.st; out.country = b.country;
       out.external_id = b.stid; out.source = 'order_bound';
@@ -358,6 +403,15 @@
       out.phone = b.phone; out.fn = b.fn; out.ln = b.ln; out.st = b.st; out.country = b.country;   /* CRM fields only */
       out.external_id = b.stid; out.source = 'order_bound';
     }                                                            /* a form email with an email-less CRM record is never mixed with CRM PII */
+    if (!b && !out.email) {                                      /* Golden G-B L390-397: anonymous return visit -> remembered buyer, never over a form/bound buyer */
+      var k = knownContact();
+      if (k) {
+        out.email = k.email; out.source = 'returning';
+        var kp = digits(k.phone); if (kp.length >= 7) out.phone = kp;
+        nameInto(out, k.fullName);
+      }
+    }
+    if (!out.external_id) out.external_id = visitorId();          /* Golden G-B L398: first-party visitor id when no CRM student id */
     return out;
   }
 
@@ -610,6 +664,7 @@
       if (row.status === 'accepted' && payload.event_name === 'Purchase') {
         purchaseConfirmed[payload.event_id] = { event_id: payload.event_id, ts: Date.now() };
         ssSet('fa_meta_purchase_confirmed', JSON.stringify(purchaseConfirmed));
+        forgetContact();
       }
       persistOutbox();
       if (again) {
@@ -630,7 +685,7 @@
     if (flushed) return; flushed = true;
     var q = deferred; deferred = [];
     q.forEach(function (item) {
-      item.payload.fbp = fbp() || item.payload.fbp;
+      item.payload.fbp = ensureFbp() || item.payload.fbp;
       item.payload.fbc = fbc() || item.payload.fbc;
       post(item.payload, 1, item.done);
     });
@@ -677,7 +732,7 @@
       url: String(loc.href || ''), referrer: String((doc && doc.referrer) || ''),
       email: i.email, phone: i.phone, fn: i.fn, ln: i.ln, st: i.st, country: i.country, external_id: i.external_id,
       identity_source: i.source || 'anonymous',                 /* diagnostic only: anonymous | form | order_bound */
-      fbp: fbp(), fbc: fbc(), fbclid: urlClickId()
+      fbp: ensureFbp(), fbc: fbc(), fbclid: urlClickId()
     };
   }
   var purchaseConfirmed = json(ss('fa_meta_purchase_confirmed')) || {};
@@ -686,6 +741,7 @@
       name = String(name || '');
       data = data || {};
       if (name !== 'AddToCart' && name !== 'InitiateCheckout' && name !== 'Purchase') return null;
+      if (mode() === 'off') return null;                        /* off: nothing sent, no identity/cookie writes */
       var value = Number(data.value);
       var currency = String(data.currency || CURRENCY).toUpperCase();
       var order = '';
@@ -718,7 +774,7 @@
       var opts = { onResult: null };
       if (name === 'Purchase') {
         opts.onResult = function (row) {
-          if (row.status === 'accepted') { purchaseConfirmed[order] = { event_id: eventId, ts: Date.now() }; ssSet('fa_meta_purchase_confirmed', JSON.stringify(purchaseConfirmed)); }
+          if (row.status === 'accepted') { purchaseConfirmed[order] = { event_id: eventId, ts: Date.now() }; ssSet('fa_meta_purchase_confirmed', JSON.stringify(purchaseConfirmed)); forgetContact(); }
         };
       }
       return dispatch(name, pixelData, payload, opts);
@@ -747,8 +803,9 @@
     } catch (e) {}
   }
 
+  try { if (mode() !== 'off') { ensureFbp(); visitorId(); } } catch (e) {}   /* Golden G-B L593: _fbp + visitor id exist before the Pixel base init */
   root.FA_META = {
-    track: track, release: RELEASE, mode: mode, fbc: fbc, fbp: fbp, identity: identity,
+    track: track, release: RELEASE, mode: mode, fbc: fbc, fbp: fbp, ensureFbp: ensureFbp, identity: identity, visitorId: visitorId,
     captureCheckoutIdentity: captureCheckoutIdentity, boundOrder: boundOrder,
     receipts: receipts, plans: PLANS, pageEvents: pageEvents, pageViewId: pageViewId,
     waitFor: waitForEvent, waitForEvent: waitForEvent, resumePending: resumePending,
