@@ -274,7 +274,7 @@
 <script src="js/fa-phone-validation.js?v=20261021-polish"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
 <script src="js/fa-checkout-config.js?v=20261021-refinement"></script>
-<script src="js/fa-checkout.js?v=20261022-delivery2"></script>
+<script src="js/fa-checkout.js?v=20261023-bundle1"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -378,6 +378,8 @@
     if (purchaseTracked[oid]) return;
     purchaseTracked[oid] = true;
     try { FA.track('Purchase', { value: amount, currency: 'USD', content_name: FA.productTitle(sel), content_ids: [sel.product], content_type: 'product', order_id: oid, num_items: 1 }, { eventId: oid }); } catch(e){}
+    /* Bundles: assign every other capsule in the package to this same student, at no extra charge. */
+    try { var bundleLead = (staged && staged.lead) || ((FA.loadLead() || {}).lead); FA.attachBundleCourses({ stid: String(ids.stid), orderid: oid }, Object.assign({}, sel, { capsules: (sel.capsules || []).slice() }), bundleLead).then(function(r){ window.FA_BUNDLE_RESULT = r; }); } catch(e){}
   }
 
   function showDone(method, pending){

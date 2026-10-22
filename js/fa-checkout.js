@@ -333,6 +333,57 @@
     return post(relay('/api/checkout/payments/crm'), report);
   }
 
+  /* ---------- bundle: every capsule assigned to the SAME student (2026-10-23) ----------
+     The paid order carries the whole package price on the first capsule's course (unchanged).
+     After the payment succeeds, each other capsule in the package is added to the same student
+     (StudentId) as its own course order at DiscountPercent 100, so nothing more is billed.
+     Staging proof 2026-10-23: student 11674899, paid order 8054357 stays AmountToCharge 189 / 567;
+     attached order 8054358 (course 270) returns no amount and PaymentID -1 (nothing to charge).
+     Runs once per paid order (sessionStorage guard); never before payment. */
+  function bundleExtras(sel) {
+    var p = product(sel.product); if (!p || p.kind !== 'capsules' || !(p.packs > 1)) return [];
+    var keys = p.packs === 3 ? Object.keys(CFG.capsules) : (sel.capsules || []).slice();
+    var first = (sel.capsules && sel.capsules[0]) || (p.packs === 3 ? 'fashion-art' : null);
+    return keys.filter(function (k) { return k !== first && CFG.capsules[k] && CFG.capsules[k].crm; });
+  }
+  function attachBundleCourses(ids, sel, lead) {
+    var extras = bundleExtras(sel || {});
+    if (!ids || !ids.stid || !ids.orderid || !lead || !extras.length) return Promise.resolve({ ok: true, attached: [] });
+    var guardKey = 'fa_bundle_attached_' + CFG.env + '_' + ids.orderid, done = {};
+    try { done = JSON.parse(sessionStorage.getItem(guardKey) || '{}') || {}; } catch (e) {}
+    function save() { try { sessionStorage.setItem(guardKey, JSON.stringify(done)); } catch (e) {} }
+    return ipCountry().then(function (ip) {
+      return extras.reduce(function (chain, key) {
+        return chain.then(function () {
+          if (done[key]) return;
+          var one = Object.assign({}, sel, { capsules: [key].concat((sel.capsules || []).filter(function (c) { return c !== key; })) });
+          var payload = buildEcommPayload(lead, one, ip);
+          payload.StudentId = Number(ids.stid);
+          payload.FirstPayment = 0; payload.NumberOfPayments = 0; payload.LeftToPay = 0;
+          payload.DiscountPercent = 100;
+          payload.DiscountReason = 'Culture Capsules bundle, paid on order ' + ids.orderid;
+          payload.DynamicParameters = ('fabundleprimaryorder=' + ids.orderid + '&fabundlecapsule=' + key + '&' + payload.DynamicParameters).slice(0, 4000);
+          function attempt(n) {
+            return post(relay('/api/lead/ecomm'), payload).then(function (r) {
+              var b = r.body || {}, sid = String(b.StudentId || b.StudentID || ''), oid = b.OrderId || b.OrderID;
+              if (r.ok && oid && sid === String(ids.stid)) { done[key] = String(oid); save(); return; }
+              if (n < 3) return new Promise(function (ok) { setTimeout(ok, 2000 * n); }).then(function () { return attempt(n + 1); });
+              done['err_' + key] = r.status || 'network';
+            }, function (e) {
+              /* The CRM can be slow; retry. A rare duplicate is a second $0 course order on the same student. */
+              if (n < 3) return new Promise(function (ok) { setTimeout(ok, 2000 * n); }).then(function () { return attempt(n + 1); });
+              done['err_' + key] = String(e && e.message || e);
+            });
+          }
+          return attempt(1);
+        });
+      }, Promise.resolve());
+    }).then(function () {
+      var attached = extras.filter(function (k) { return done[k]; });
+      return { ok: attached.length === extras.length, attached: attached.map(function (k) { return { capsule: k, orderid: done[k] }; }), expected: extras };
+    }).catch(function (e) { return { ok: false, error: String(e && e.message || e), expected: extras }; });
+  }
+
   /* Reserve mode: proven lead path, nothing charged. */
   function reserveViaLeads(staged, reason) {
     var lead = staged.lead, sel = staged.sel, p = product(sel.product);
@@ -696,6 +747,6 @@
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     setProduct: function (id) { lastProduct = String(id || ''); },
     loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails, validatePaymentAmounts: validatePaymentAmounts,
-    reportPayment: reportPayment, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, acStage: acStage, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
+    reportPayment: reportPayment, attachBundleCourses: attachBundleCourses, bundleExtras: bundleExtras, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, acStage: acStage, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
   };
 })();
