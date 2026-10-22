@@ -47,11 +47,11 @@
  *   'test' ?meta_test=TESTnnnnn -> server copies only, flagged with test_event_code, no Pixel.
  *   'live' Pixel + Conversions API.
  *
- * Release: fa-meta-20261020-1
+ * Release: fa-meta-20261022-2
  */
 (function (root) {
   'use strict';
-  var RELEASE = 'fa-meta-20261020-1';
+  var RELEASE = 'fa-meta-20261022-2';
   var PIXEL_ID = '4075596186030950';
   var RELAY_URL = 'https://fa-leads-proxy.vercel.app/api/meta/capi';
   var SOURCE = 'french-atelier';
@@ -241,12 +241,19 @@
   function blankIdentity() { return { email: '', phone: '', fn: '', ln: '', st: '', country: '', external_id: '', source: 'anonymous' }; }
   /* Visible form fields for the buyer whose email the form carries. onlyMissing: bound buyer wins. */
   function formInto(out, onlyMissing) {
-    if (!onlyMissing || !out.fn) nameInto(out, val('emName'));
-    var country = iso2(val('emCountry'));
+    /* Select one complete form by matching email; never take geography/phone from
+     * the other form when legacy fields and the checkout modal coexist. */
+    var modal = normEmail(val('fa-ck-em')) === out.email;
+    if (!modal && normEmail(val('emEmail')) !== out.email) return;
+    if (modal) {
+      if (!onlyMissing || !out.fn) out.fn = letters(val('fa-ck-fn'));
+      if (!onlyMissing || !out.ln) out.ln = letters(val('fa-ck-ln'));
+    } else if (!onlyMissing || !out.fn) nameInto(out, val('emName'));
+    var country = iso2(val(modal ? 'fa-ck-co' : 'emCountry'));
     if (country && (!onlyMissing || !out.country)) out.country = country;
-    var st = iso2(val('emState'));
+    var st = iso2(val(modal ? 'fa-ck-st' : 'emState'));
     if (st && (!out.country || out.country === 'us') && (!onlyMissing || !out.st)) out.st = st;
-    var ph = digits(val('emPhone'));
+    var ph = digits(val(modal ? 'fa-ck-ph' : 'emPhone'));
     if (ph.length === 10 && out.country === 'us') ph = '1' + ph;   /* explicit US selection only */
     if (ph.length >= 7 && (!onlyMissing || !out.phone)) out.phone = ph;
   }
@@ -323,7 +330,7 @@
     var ids = checkoutIds();
     var b = boundFor(ids);
     var explicit = normEmail(emailArg);
-    var formEmail = normEmail(val('emEmail'));
+    var formEmail = normEmail(val('fa-ck-em')) || normEmail(val('emEmail'));
     var c = json(ss('fa_ac_contact'));                          /* checkout-validated contact (E.164 phone) */
     if (b && b.email) {                                          /* CRM-link buyer of THIS order: a stale form never overrides */
       out.email = b.email; out.phone = b.phone; out.fn = b.fn; out.ln = b.ln; out.st = b.st; out.country = b.country;
@@ -384,21 +391,188 @@
   }
   function receipts() { return json(ss('fa_meta_receipts')) || []; }
 
+  /* Tab-scoped delivery journal. The original event's buyer snapshot is retained
+   * only while delivery is pending, never rebuilt from the next checkout's identity.
+   * Exact attribution, event time, value and event_id are immutable across retries.
+   * Browser "dispatched" means SDK invocation, NOT a verified network delivery. */
+  var OUTBOX_KEY = 'fa_meta_outbox_v1', OUTBOX_TTL = 15 * 60000, OUTBOX_LIMIT = 20;
+  var outbox = {}, active = {}, retryTimers = {}, waiters = {}, nativeTimer = null;
+  var nativePolls = 0, nativeReady = false, expiryTimer = null;
+  function eventKey(name, id, eventMode, code) {
+    return (eventMode || mode()) + ':' + (code === undefined ? testCode() : code) + ':' + name + ':' + id;
+  }
+  function persistOutbox() {
+    var now = Date.now(), rows = Object.keys(outbox).map(function (k) { return outbox[k]; });
+    rows.forEach(function (entry) {
+      if (now - entry.created >= OUTBOX_TTL) {
+        entry.payload = { event_name: entry.payload.event_name, event_id: entry.payload.event_id };
+        entry.pixel = null;
+      }
+    });
+    rows = rows.filter(function (e) { return now - e.created < OUTBOX_TTL; }).slice(-OUTBOX_LIMIT).map(function (entry) {
+      /* Accepted relay bodies are no longer needed. Keep only dedup/native state. */
+      if (terminal(entry.status)) {
+        entry.payload = { event_name: entry.payload.event_name, event_id: entry.payload.event_id };
+        if (entry.native !== 'pending') entry.pixel = null;
+      }
+      return entry;
+    });
+    ssSet(OUTBOX_KEY, JSON.stringify(rows));
+    if (expiryTimer !== null && root.clearTimeout) root.clearTimeout(expiryTimer);
+    expiryTimer = null;
+    if (rows.length) {
+      var expires = Math.min.apply(null, rows.map(function (entry) { return entry.created + OUTBOX_TTL; }));
+      expiryTimer = root.setTimeout(function () { expiryTimer = null; persistOutbox(); }, Math.max(1, expires - now));
+    }
+  }
+  function durablePayload(payload) {
+    /* Immutable event snapshot. No form/session lookup on retry, and no prehash
+     * contract change: the relay continues hashing these original buyer values. */
+    return JSON.parse(JSON.stringify(payload));
+  }
+  function journal(payload, pixelData) {
+    var eventMode = payload.test_event_code ? 'test' : 'live', code = payload.test_event_code || '';
+    var key = eventKey(payload.event_name, payload.event_id, eventMode, code), entry = outbox[key];
+    if (!entry) {
+      entry = outbox[key] = {
+        key: key, created: Date.now(), mode: eventMode, test_code: code,
+        payload: durablePayload(payload), pixel: pixelData || null, attempts: 0,
+        status: 'pending', native: mode() === 'live' && pixelData ? 'pending' : 'not_required'
+      };
+      persistOutbox();
+    }
+    return entry;
+  }
+  function allowed(entry) {
+    return mode() !== 'off' && entry.mode === mode() &&
+      (entry.mode !== 'test' || entry.test_code === testCode()) &&
+      Date.now() - entry.created < OUTBOX_TTL;
+  }
+  function terminal(status) { return status === 'accepted' || status === 'skipped' || status === 'rejected' || status === 'exhausted'; }
+  function notify(key, row) {
+    var list = waiters[key] || []; delete waiters[key];
+    list.forEach(function (resolve) { resolve(row); });
+  }
+  function waitForEvent(name, id, timeoutMs) {
+    if (mode() === 'off' || !id) return Promise.resolve({ event_name: name, event_id: id || '', status: 'off' });
+    var key = eventKey(name, id), entry = outbox[key];
+    var row = receipts().filter(function (r) { return r.event_name === name && r.event_id === id && (!r.mode || r.mode === mode()) && (!r.test_code || r.test_code === testCode()); }).pop();
+    if (row && (terminal(row.status) || (entry && terminal(entry.status)))) return Promise.resolve(row);
+    if (entry && terminal(entry.status)) return Promise.resolve({
+      event_name: name, event_id: id, status: entry.status, native_status: entry.native, attempt: entry.attempts
+    });
+    return new Promise(function (resolve) {
+      var settled = false;
+      function finish(value) {
+        if (settled) return; settled = true;
+        waiters[key] = (waiters[key] || []).filter(function (fn) { return fn !== finish; });
+        resolve(value);
+      }
+      (waiters[key] || (waiters[key] = [])).push(finish);
+      root.setTimeout(function () {
+        finish({ event_name: name, event_id: id, status: 'timeout', native_status: entry ? entry.native : 'unknown' });
+      }, Math.min(10000, Math.max(0, Number(timeoutMs) || 2500)));
+    });
+  }
+  function flushNative() {
+    if (mode() !== 'live') return;
+    /* A back/forward-cached document may hold older in-memory state than the
+     * next page in this tab. Never replay a native copy that page dispatched. */
+    var saved = json(ss(OUTBOX_KEY));
+    if (Array.isArray(saved)) saved.forEach(function (entry) {
+      if (entry && outbox[entry.key] && entry.native === 'dispatched') outbox[entry.key].native = 'dispatched';
+    });
+    var pending = Object.keys(outbox).filter(function (k) { return allowed(outbox[k]) && outbox[k].native === 'pending'; });
+    if (!pending.length) return;
+    /* A queue-only fbq bootstrap is not readiness: navigation discards its queue.
+     * pageEvents marks init complete; plain function integrations remain supported. */
+    var fb = root.fbq;
+    if (typeof fb === 'function' && (!fb.queue || (typeof fb.callMethod === 'function' && nativeReady))) {
+      pending.forEach(function (key) {
+        var entry = outbox[key];
+        try {
+          fb('track', entry.payload.event_name, entry.pixel, { eventID: entry.payload.event_id });
+          entry.native = 'dispatched';
+          persistOutbox();
+          var row = receipts().filter(function (r) {
+            return r.event_name === entry.payload.event_name && r.event_id === entry.payload.event_id &&
+              r.mode === entry.mode && r.test_code === entry.test_code;
+          }).pop();
+          if (row) { row.native_status = 'dispatched'; receipt(row); }
+        } catch (e) { /* preserve the pending copy for the next readiness check */ }
+      });
+    }
+    if (Object.keys(outbox).some(function (k) { return allowed(outbox[k]) && outbox[k].native === 'pending'; }) &&
+        nativeTimer === null && nativePolls < 120) {
+      nativePolls++;
+      nativeTimer = root.setTimeout(function () { nativeTimer = null; flushNative(); }, 250);
+    }
+  }
+  function restoreOutbox() {
+    var rows = json(ss(OUTBOX_KEY));
+    if (!Array.isArray(rows)) return;
+    rows.slice(-OUTBOX_LIMIT).forEach(function (entry) {
+      if (!entry || !entry.payload || !entry.key || !isFinite(entry.created) ||
+          entry.created > Date.now() || Date.now() - entry.created >= OUTBOX_TTL) return;
+      if (entry.key !== eventKey(entry.payload.event_name, entry.payload.event_id, entry.mode, entry.test_code || '')) return;
+      if (['PageView', 'ViewContent', 'AddToCart', 'InitiateCheckout', 'Purchase'].indexOf(entry.payload.event_name) < 0) return;
+      if (!terminal(entry.status)) {
+        var payload = entry.payload, url;
+        try { url = new URL(payload.url); } catch (e) { return; }
+        if (payload.source !== SOURCE || QA_RE.test(url.search) || new URLSearchParams(url.search).get('env') === 'staging') return;
+        if (entry.mode === 'live' && (!onFaPage(payload.url) || payload.test_event_code)) return;
+        if (entry.mode === 'test' && payload.test_event_code !== entry.test_code) return;
+        if (payload.event_name === 'Purchase' &&
+            (!payload.order_id || payload.event_id !== payload.order_id || !isFinite(Number(payload.value)) || Number(payload.value) <= 0)) return;
+      }
+      /* Reuse only this event's saved snapshot, never current buyer/form values. */
+      entry.payload = durablePayload(entry.payload);
+      entry.attempts = Math.max(0, Math.min(MAX_ATTEMPTS, Number(entry.attempts) || 0));
+      outbox[entry.key] = entry;
+    });
+    persistOutbox();
+  }
+  function resumePending(keys) {
+    if (mode() === 'off') return;
+    (Array.isArray(keys) ? keys : Object.keys(outbox)).forEach(function (key) {
+      var entry = outbox[key];
+      if (!allowed(entry) || terminal(entry.status) || active[key] || retryTimers[key]) return;
+      if (entry.attempts >= MAX_ATTEMPTS) {
+        entry.status = 'exhausted'; persistOutbox();
+        var row = { event_name: entry.payload.event_name, event_id: entry.payload.event_id, status: 'exhausted', attempt: entry.attempts, ts: Date.now() };
+        receipt(row); notify(key, row); return;
+      }
+      var delay = Math.max(0, (entry.next_at || 0) - Date.now());
+      if (delay) retryTimers[key] = root.setTimeout(function () {
+        delete retryTimers[key]; post(entry.payload, entry.attempts + 1);
+      }, delay);
+      else post(entry.payload, entry.attempts + 1);
+    });
+    flushNative();
+  }
+
   /* ---------- relay delivery ----------
    * accepted  : HTTP 2xx AND body.ok === true AND events_received >= 1 (Meta acknowledged)
    * skipped   : relay refused on purpose (e.g. qa_excluded) - terminal
    * rejected  : 4xx, Meta 4xx behind the relay, or unparseable/unsuccessful body - terminal, no retry
    * transient / network_error : 5xx, 429 or no response - retried up to MAX_ATTEMPTS with the SAME event_id */
   function post(payload, attempt, done) {
-    attempt = attempt || 1;
+    var entry = journal(payload), key = entry.key;
+    if (!allowed(entry) || terminal(entry.status) || active[key] || entry.attempts >= MAX_ATTEMPTS) return Promise.resolve(null);
+    attempt = entry.attempts + 1;
+    entry.payload = durablePayload(payload);  /* include cookies refreshed by deferred flush */
+    entry.attempts = attempt; entry.status = 'pending';
+    entry.next_at = Date.now() + (RETRY_MS[attempt - 1] || 4000);
+    active[key] = true; persistOutbox();  /* durable BEFORE fetch or navigation */
     var body = JSON.stringify(payload);
-    var row = { event_name: payload.event_name, event_id: payload.event_id, release: RELEASE, ts: Date.now(), attempt: attempt, status: 'sent', identity_source: payload.identity_source || '' };
+    var row = { event_name: payload.event_name, event_id: payload.event_id, release: RELEASE, ts: Date.now(), attempt: attempt, status: 'sent', identity_source: payload.identity_source || '', mode: entry.mode, test_code: entry.test_code };
     receipt(row);
     var p;
     try {
       p = root.fetch(RELAY_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: body, keepalive: true });
     } catch (e) { p = Promise.reject(e); }
-    return p.then(function (r) {
+    var timeout;
+    var request = p.then(function (r) {
       row.http = r.status;
       try { row.fbc_state = r.headers && r.headers.get ? (r.headers.get('x-fa-fbc') || '') : ''; row.relay = r.headers && r.headers.get ? (r.headers.get('x-fa-release') || '') : ''; } catch (e) {}
       var parsed;
@@ -414,14 +588,36 @@
         else row.status = 'rejected';
         return row;
       });
-    }).catch(function () {
+    });
+    /* A hung request/body must not leave a permanent "sent" receipt in this tab. */
+    var bounded = request;
+    try {
+      bounded = Promise.race([request, new Promise(function (resolve, reject) {
+        timeout = root.setTimeout(function () { reject(new Error('relay_timeout')); }, 6000);
+      })]);
+    } catch (e) {}
+    return bounded.catch(function () {
       row.status = 'network_error';
       return row;
     }).then(function (row) {
+      if (timeout && root.clearTimeout) root.clearTimeout(timeout);
+      delete active[key];
+      entry.status = row.status;
+      row.native_status = entry.native;
       receipt(row);
       var again = (row.status === 'network_error' || row.status === 'transient') && attempt < MAX_ATTEMPTS;
-      if (again) return new Promise(function (res) { root.setTimeout(res, RETRY_MS[attempt - 1] || RETRY_MS[RETRY_MS.length - 1]); }).then(function () { return post(payload, attempt + 1, done); });
+      if (!again && (row.status === 'network_error' || row.status === 'transient')) entry.status = 'exhausted';
+      if (row.status === 'accepted' && payload.event_name === 'Purchase') {
+        purchaseConfirmed[payload.event_id] = { event_id: payload.event_id, ts: Date.now() };
+        ssSet('fa_meta_purchase_confirmed', JSON.stringify(purchaseConfirmed));
+      }
+      persistOutbox();
+      if (again) {
+        retryTimers[key] = root.setTimeout(function () { delete retryTimers[key]; post(payload, attempt + 1, done); }, RETRY_MS[attempt - 1]);
+        return row;
+      }
       if (done) { try { done(row); } catch (e) {} }
+      notify(key, row);
       return row;
     });
   }
@@ -430,6 +626,7 @@
    * A 2-second fallback runs independently of window load. Page exit/backgrounding flushes
    * immediately; cookie values are re-read at send time. Commerce events are not deferred. */
   function flushDeferred() {
+    if (mode() === 'off') return;
     if (flushed) return; flushed = true;
     var q = deferred; deferred = [];
     q.forEach(function (item) {
@@ -455,13 +652,15 @@
   function dispatch(name, pixelData, payload, opts) {
     var m = mode();
     if (m === 'off') return null;
-    var key = name + ':' + payload.event_id;
+    var key = eventKey(name, payload.event_id);
+    var existing = outbox[key];
+    if (existing && allowed(existing)) { flushNative(); return payload.event_id; }
     var state = sent[key];
-    if (state === 'inflight' || state === 'accepted' || state === 'skipped') return null;
-    var first = !state;
+    if (state === 'inflight' || state === 'accepted' || state === 'skipped') return payload.event_id;
     sent[key] = 'inflight';
     if (m === 'test') payload.test_event_code = testCode();
-    else if (first) { try { if (root.fbq) root.fbq('track', name, pixelData, { eventID: payload.event_id }); } catch (e) {} }  /* Pixel copy exactly once */
+    journal(payload, pixelData);
+    flushNative();
     var done = function (row) {
       sent[key] = (row.status === 'accepted' || row.status === 'skipped') ? row.status : 'failed';   /* failed -> a later call may retry, same id */
       if (opts && opts.onResult) { try { opts.onResult(row); } catch (e) {} }
@@ -531,11 +730,14 @@
     try {
       var m = mode();
       if (m === 'off') return;
+      nativeReady = true;
+      flushNative();
       var i = identity('');
       if (!pvQueued) {
         pvQueued = true;
         var pv = basePayload('PageView', pageViewId(), i);       /* browser copy came from the base code (live) */
         if (m === 'test') pv.test_event_code = testCode();
+        journal(pv);
         deferred.push({ payload: pv, done: null }); if (deferred.length === 1) scheduleFlush();
       }
       var vcData = { content_ids: Object.keys(PLANS), content_type: 'product', content_name: PRODUCT_NAME, product_line: PRODUCT_LINE };
@@ -549,6 +751,27 @@
     track: track, release: RELEASE, mode: mode, fbc: fbc, fbp: fbp, identity: identity,
     captureCheckoutIdentity: captureCheckoutIdentity, boundOrder: boundOrder,
     receipts: receipts, plans: PLANS, pageEvents: pageEvents, pageViewId: pageViewId,
+    waitFor: waitForEvent, waitForEvent: waitForEvent, resumePending: resumePending,
     _flushDeferred: flushDeferred
   };
+  restoreOutbox();
+  if (mode() !== 'off') {
+    /* Base Pixel init runs after this script. Resume asynchronously, not before init. */
+    var restoredKeys = Object.keys(outbox);
+    if (restoredKeys.length) root.setTimeout(function () { resumePending(restoredKeys); }, 0);
+    try {
+      root.addEventListener('pageshow', resumePending);
+      root.addEventListener('online', resumePending);
+      root.addEventListener('load', flushNative);
+      doc.addEventListener('load', function (event) {
+        var src = event && event.target && event.target.src;
+        if (src && /^https:\/\/connect\.facebook\.net\/.*\/fbevents\.js(?:[?#]|$)/.test(src)) {
+          nativePolls = 0; flushNative();
+        }
+      }, true);  /* late SDK load after bounded polling, without another page navigation */
+      doc.addEventListener('visibilitychange', function () {
+        if (doc.visibilityState === 'visible') { nativePolls = 0; resumePending(); }
+      });
+    } catch (e) {}
+  }
 })(typeof window !== 'undefined' ? window : globalThis);

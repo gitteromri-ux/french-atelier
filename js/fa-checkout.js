@@ -57,8 +57,10 @@
   var lastProduct = '';
   window.FA_PLAN = { get: function () { var pl = window.FA_META && window.FA_META.plans; return pl && pl[lastProduct] ? pl[lastProduct] : { id: lastProduct }; } };
   window.FA_ECOMM = { getCheckoutIds: function () {
-    try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null');
-      if (!o || o.env !== CFG.env || !o.stid || !o.orderid || (lastProduct && o.product && o.product !== lastProduct)) return null;
+    try { var staged = loadLead();
+      if (!staged || !staged.sel || (lastProduct && staged.sel.product !== lastProduct)) return null;
+      var o = loadIds(staged.sel, staged.lead);
+      if (!o) return null;
       return { stid: String(o.stid), orderid: String(o.orderid) }; } catch (e) { return null; } } };
   function track(name, params, opts) {
     params = params || {};
@@ -67,12 +69,26 @@
     try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: 'fa_' + name.toLowerCase(), event_id: id, env: CFG.env }, params)); } catch (e) {}
     var L = storedLead() || {};
     if (window.FA_META && (name === 'AddToCart' || name === 'InitiateCheckout' || name === 'Purchase')) {
-      try { var plan = window.FA_PLAN.get(); return window.FA_META.track(name, { value: params.value, currency: params.currency || 'USD', content_name: plan.content_name || params.content_name, order_id: params.order_id }, L.email || ''); } catch (e) { return null; }
+      /* Invoke synchronously: Purchase must capture its identity before clearIds(). */
+      try {
+        var plan = window.FA_PLAN.get();
+        var delivery = window.FA_META.track(name, { value: params.value, currency: params.currency || 'USD', content_name: plan.content_name || params.content_name, order_id: params.order_id }, L.email || '');
+        if (delivery && typeof window.FA_META.waitFor === 'function') delivery = window.FA_META.waitFor(name, delivery, 1500);
+        return Promise.resolve(delivery).catch(function () { return null; });
+      } catch (e) { return Promise.resolve(null); }
     }
     try { if (window.FA_META && window.FA_META.mode() === 'live' && window.fbq) window.fbq('track', name, params, { eventID: id }); } catch (e) {}
     return id;
   }
-  function storedLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && o.lead ? o.lead : null; } catch (e) { return null; } }
+  function storedLead() { var o = loadLead(); return o && o.lead ? o.lead : null; }
+  /* Tracking must not strand checkout when a relay rejects or never answers. */
+  function deliveryBeforePayment(delivery) {
+    return new Promise(function (resolve) {
+      var timer = setTimeout(function () { resolve(null); }, 1500);
+      Promise.resolve(delivery).then(done, done);
+      function done(result) { clearTimeout(timer); resolve(result); }
+    });
+  }
 
   /* FA_AC — 1:1 port of the Julie LLA_AC client (same payload fields, FA stage names):
      {email, fullName, phone, sessionDate, stage, env, productEvent, orderId, studentId, page, ts}
@@ -248,30 +264,44 @@
 
   /* ---------- class state ---------- */
   function saveLead(lead, sel) { try { sessionStorage.setItem(STORE_LEAD, JSON.stringify({ lead: lead, sel: sel, ts: Date.now(), env: CFG.env })); } catch (e) {} }
-  function loadLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
+  function freshRecord(o) { var age = o && Date.now() - o.ts; return !!o && typeof o.ts === 'number' && age >= 0 && age < 2 * 36e5; }
+  function loadLead() { try { var o = JSON.parse(sessionStorage.getItem(STORE_LEAD) || 'null'); return o && o.env === CFG.env && freshRecord(o) ? o : null; } catch (e) { return null; } }
   function saveIds(ids) { try { sessionStorage.setItem(STORE_IDS, JSON.stringify(Object.assign({ ts: Date.now(), env: CFG.env }, ids))); } catch (e) {} }
-  function orderSignature(sel) { var p = product(sel.product); return JSON.stringify([sel.product,sel.level||'',sel.capsules||[],p.firstPayment,p.total,p.numberOfPayments]); }
-  function loadIds(sel) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'); return o && o.env === CFG.env && o.signature === orderSignature(sel) && Date.now() - o.ts < 2 * 36e5 ? o : null; } catch (e) { return null; } }
+  function buyerIdentity(lead) {
+    if (!lead) return null;
+    function text(v) { return String(v || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+    var email = text(lead.email), phone = String(lead.e164 || '').replace(/\D/g, '');
+    if (!email || !phone) return null; /* Legacy/unbound entries are never reused. */
+    return [email, phone, text(lead.firstName), text(lead.lastName), text(lead.countryIso), text(lead.stateCode)];
+  }
+  function orderSignature(sel, lead) { var p = product(sel.product), buyer = buyerIdentity(lead); return buyer ? JSON.stringify([sel.product,sel.level||'',sel.capsules||[],p.firstPayment,p.total,p.numberOfPayments,buyer]) : null; }
+  function loadIds(sel, lead) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'), signature = orderSignature(sel, lead); return o && signature && o.stid && o.orderid && o.product === sel.product && o.env === CFG.env && o.signature === signature && freshRecord(o) ? o : null; } catch (e) { return null; } }
   function clearIds() { try { sessionStorage.removeItem(STORE_IDS); } catch (e) {} }
 
   var orderInFlight = null;
   function createOrder(staged) {
-    var existing = loadIds(staged.sel);
+    /* Snapshot the submitted buyer: editing details cannot retarget an in-flight request. */
+    staged = { lead: Object.assign({}, staged.lead), sel: Object.assign({}, staged.sel, { capsules: (staged.sel.capsules || []).slice() }) };
+    var signature = orderSignature(staged.sel, staged.lead);
+    if (!signature) return Promise.reject(new Error('BUYER_IDENTITY_REQUIRED'));
+    var existing = loadIds(staged.sel, staged.lead);
     if (existing) return Promise.resolve(existing);
-    if (orderInFlight) return orderInFlight;
-    orderInFlight = ipCountry().then(function (ip) {
+    if (orderInFlight && orderInFlight.signature === signature) return orderInFlight.promise;
+    var request = { signature: signature, promise: null };
+    orderInFlight = request;
+    request.promise = ipCountry().then(function (ip) {
       var payload = buildEcommPayload(staged.lead, staged.sel, ip);
       return post(relay('/api/lead/ecomm'), payload);
     }).then(function (r) {
-      orderInFlight = null;
       if (r.status === 503 && r.body && r.body.error === 'ENV_NOT_CONFIGURED') throw new Error('ENV_NOT_CONFIGURED');
       var b = r.body || {};
       var stid = b.StudentId || b.StudentID || b.studentId, oid = b.OrderId || b.OrderID || b.orderId;
       if (!r.ok || !stid || !oid) throw new Error('LEAD_CREATE_FAILED');
-      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: orderSignature(staged.sel) };
-      saveIds(ids); return ids;
-    }).catch(function (e) { orderInFlight = null; throw e; });
-    return orderInFlight;
+      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: signature };
+      if (orderInFlight === request) { saveIds(ids); orderInFlight = null; }
+      return ids;
+    }).catch(function (e) { if (orderInFlight === request) orderInFlight = null; throw e; });
+    return request.promise;
   }
   function fetchDetails(ids) {
     return post(relay('/api/checkout/details'), { StudentId: String(ids.stid), OrderId: String(ids.orderid) }).then(function (r) { return r.ok && r.body && typeof r.body === 'object' ? r.body : null; });
@@ -624,12 +654,15 @@
     body.querySelector('#fa-ck-back').addEventListener('click', function () { renderStep1(lead); });
     body.querySelector('#fa-ck-pay').addEventListener('click', function () {
       var err = body.querySelector('.fa-ck-error'), btn = this; err.hidden = true;
+      if (btn.disabled) return;
       if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) { err.textContent = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.'); err.hidden = false; return; }
-      track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
-      saveLead(lead, sel);
-      acStage('FA_Abandoned_Cart_Course_Details', lead);
-      if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       btnBusy(btn, 'Opening secure payment…');
+      saveLead(lead, sel);
+      var delivery = track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
+      acStage('FA_Abandoned_Cart_Course_Details', lead);
+      return deliveryBeforePayment(delivery).then(goPayment);
+      function goPayment() {
+      if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       var inSub = /\/courses\//.test(location.pathname);
       var checkoutKeys = { product: true, level: true, capsules: true, time: true, env: true };
       var rawQuery = (location.search || '').replace(/^\?/, '');
@@ -645,6 +678,7 @@
       if (sel.classTime) carried.push('time=' + encodeURIComponent(sel.classTime));
       if (CFG.env === 'staging') carried.push('env=staging');
       location.href = (inSub ? '../' : '') + CFG.checkoutPage + '?' + carried.join('&');
+      }
     });
   }
 
