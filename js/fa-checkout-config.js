@@ -71,7 +71,9 @@
     ],
     /* Promo codes shown in the top strip. Display-level pricing; the CRM price plan is the charge of record. */
     promos: {
-      CAPSULE20: { pct: 20, applies: ['capsule-1', 'capsule-2', 'capsule-3'], label: '20% off any Culture Capsules package', days: 7 }
+      CAPSULE20: { pct: 20, applies: ['capsule-1', 'capsule-2', 'capsule-3'], label: '20% off any Culture Capsules package', days: 7 },
+      /* Private end-to-end attribution test (Omri, 2026-10-23). Not shown anywhere on the site; expires automatically. */
+      TEST: { pct: 99, applies: ['capsule-1', 'capsule-2', 'capsule-3'], label: 'Internal test', days: 1, until: 1792711138000 }
     },
     classTimes: ['Weekday evenings (my timezone)', 'Weekday mornings or midday', 'Weekend', 'Any — next available start'],
     phone: '+1-888-230-5110',

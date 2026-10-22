@@ -182,8 +182,9 @@
   // Discard legacy auto-applied coupons. Only an explicit checkout Apply action
   // may activate a code; the current tab retains it through payment navigation.
   try { localStorage.removeItem('fa_promo_v1'); } catch (e) {}
-  function promoGet() { try { var o = JSON.parse(sessionStorage.getItem(STORE_PROMO) || 'null'); if (!o || o.source !== 'manual' || !CFG.promos || !CFG.promos[o.code]) return null; if (o.exp && Date.now() > o.exp) { sessionStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
-  function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
+  function promoLive(def) { return !!def && (def.until === undefined || (def.until > 0 && Date.now() < def.until)); }
+  function promoGet() { try { var o = JSON.parse(sessionStorage.getItem(STORE_PROMO) || 'null'); if (!o || o.source !== 'manual' || !CFG.promos || !CFG.promos[o.code]) return null; if (!promoLive(CFG.promos[o.code])) { sessionStorage.removeItem(STORE_PROMO); return null; } if (o.exp && Date.now() > o.exp) { sessionStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
+  function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def || !promoLive(def)) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
   function promoClear() { try { sessionStorage.removeItem(STORE_PROMO); } catch (e) {} window.dispatchEvent(new Event('fa:quotechange')); }
   function promoFor(id) { var pr = promoGet(); return pr && pr.def.applies.indexOf(id) > -1 ? pr : null; }
   function product(id) {
@@ -367,6 +368,7 @@
             return post(relay('/api/lead/ecomm'), payload).then(function (r) {
               var b = r.body || {}, sid = String(b.StudentId || b.StudentID || ''), oid = b.OrderId || b.OrderID;
               if (r.ok && oid && sid === String(ids.stid)) { done[key] = String(oid); save(); return; }
+              if (r.ok && oid) { done['err_' + key] = 'student_mismatch_' + sid; save(); return; } /* never retry onto another student */
               if (n < 3) return new Promise(function (ok) { setTimeout(ok, 2000 * n); }).then(function () { return attempt(n + 1); });
               done['err_' + key] = r.status || 'network';
             }, function (e) {
