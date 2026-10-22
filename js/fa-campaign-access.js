@@ -46,7 +46,15 @@
           var href=u.pathname+u.search+u.hash;
           if(a.getAttribute('href')!==href) a.href=href;
         } catch(e) {}
-      }); }
+      });
+        var header=document.querySelector('.site-header');
+        if(header) Array.prototype.forEach.call(document.body.children,function(node){
+          if(node.getAttribute && node.getAttribute('role')==='alert' &&
+            (node.textContent||'').indexOf('TEST MODE:')===0) {
+            node.style.marginTop=Math.ceil(header.getBoundingClientRect().height)+'px';
+          }
+        });
+      }
       reviewLinks();
       if(window.MutationObserver) new MutationObserver(reviewLinks).observe(document.body,{childList:true,subtree:true});
     } else if (grant && grant.query) {
