@@ -6,13 +6,21 @@
   var pairs = {'116980:108761':true,'116939:108758':true,'116939:108757':true};
   function one(k) { var a=q.getAll(k); return a.length===1 ? a[0] : ''; }
   var review=one('fa_review')==='capsules' && one('qa')==='1' && one('env')==='staging';
-  var entry = !!pairs[one('cid')+':'+one('adGroupID')] &&
+  var tagged = !!pairs[one('cid')+':'+one('adGroupID')] &&
     one('utm_source').toLowerCase()==='facebook' && one('cq_src').toLowerCase()==='facebook';
+  /* Real Meta ad clicks: Meta always adds fbclid, and the in-app browsers send a Facebook/Instagram referrer.
+     Per-placement (asset feed) ads can arrive without the creative url_tags, so these also count as ad entry. */
+  var refHost=''; try { refHost=document.referrer ? new URL(document.referrer).hostname.toLowerCase() : ''; } catch(e) {}
+  var metaClick = /^[A-Za-z0-9_-]{10,}$/.test(one('fbclid')) ||
+    /(^|\.)(facebook|instagram|messenger|fb)\.com$/.test(refHost) || refHost==='fb.me' ||
+    (one('utm_source').toLowerCase()==='facebook' && one('cq_src').toLowerCase()==='facebook');
+  var entry = tagged || metaClick;
+  pairs['meta-click']=true;
   var grant = null;
   try { grant=JSON.parse(sessionStorage.getItem(K)||'null'); } catch(e) {}
   if (!grant || !pairs[grant.pair] || !Number.isFinite(grant.ts) || Date.now()-grant.ts>TTL || grant.ts>Date.now()) grant=null;
   if (entry && !review) {
-    grant={pair:one('cid')+':'+one('adGroupID'),ts:Date.now(),query:location.search.slice(1)};
+    grant={pair:tagged ? one('cid')+':'+one('adGroupID') : 'meta-click',ts:Date.now(),query:location.search.slice(1)};
     try { sessionStorage.setItem(K,JSON.stringify(grant)); } catch(e) {}
   }
   var capsulePage=/(?:^|\/)(?:culture-capsules(?:-enroll)?|capsules)(?:\.html)?$/.test(path);
