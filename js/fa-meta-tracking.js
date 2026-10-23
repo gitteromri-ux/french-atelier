@@ -796,6 +796,14 @@
         journal(pv);
         deferred.push({ payload: pv, done: null }); if (deferred.length === 1) scheduleFlush();
       }
+      /* 2026-10-23: real-visitor proof. The neutral welcome page must not count as ViewContent;
+         it sends its own browser event so Meta shows offer vs welcome separately. */
+      var acc = root.FA_CAPSULE_ACCESS, onOffer = /\/culture-capsules(\.html)?\/?$/.test(root.location.pathname);
+      if (acc && acc.denied) {
+        if (m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_WelcomeShown', { page: 'culture-capsules' });
+        return;
+      }
+      if (acc && acc.allowed && onOffer && m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_OfferShown', { page: 'culture-capsules' });
       var vcData = { content_ids: Object.keys(PLANS), content_type: 'product', content_name: PRODUCT_NAME, product_line: PRODUCT_LINE };
       var vc = basePayload('ViewContent', eventIdFor('ViewContent', {}, null), i);
       vc.content_ids = vcData.content_ids; vc.content_type = 'product'; vc.content_name = PRODUCT_NAME;
