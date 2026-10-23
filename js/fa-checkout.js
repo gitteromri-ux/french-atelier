@@ -82,12 +82,34 @@
   }
   function storedLead() { var o = loadLead(); return o && o.lead ? o.lead : null; }
   /* Tracking must not strand checkout when a relay rejects or never answers. */
-  function deliveryBeforePayment(delivery) {
+  /* Resolves when the browser Pixel request that started after t0 has finished (Meta answered),
+     so a page change cannot abort it (2026-10-23: browser AddToCart was ERR_ABORTED by navigation). */
+  function pixelSettled(t0, ms) {
     return new Promise(function (resolve) {
+      var done = false, obs = null;
+      function check() {
+        try {
+          var hit = (performance.getEntriesByType('resource') || []).some(function (e) {
+            return /facebook\.com\/tr/.test(e.name) && e.startTime >= t0 - 5 && e.responseEnd > 0;
+          });
+          if (hit) finish(true);
+        } catch (e) { finish(false); }
+      }
+      function finish(v) { if (done) return; done = true; clearInterval(iv); clearTimeout(tm); try { obs && obs.disconnect(); } catch (e) {} resolve(v); }
+      var iv = setInterval(check, 100), tm = setTimeout(function () { finish(false); }, ms);
+      try { obs = new PerformanceObserver(check); obs.observe({ type: 'resource', buffered: true }); } catch (e) {}
+      check();
+    });
+  }
+  function deliveryBeforePayment(delivery, t0) {
+    var server = new Promise(function (resolve) {
       var timer = setTimeout(function () { resolve(null); }, 1500);
       Promise.resolve(delivery).then(done, done);
       function done(result) { clearTimeout(timer); resolve(result); }
     });
+    var live = window.FA_META && window.FA_META.mode && window.FA_META.mode() === 'live' && window.fbq;
+    var browser = (live && typeof t0 === 'number' && window.performance) ? pixelSettled(t0, 2500) : Promise.resolve(null);
+    return Promise.all([server, browser]).then(function (r) { return r[0]; });
   }
 
   /* FA_AC — 1:1 port of the Julie LLA_AC client (same payload fields, FA stage names):
@@ -620,7 +642,7 @@
       var iso = co.value, phone = GEO.toE164(ph.value, iso);
       var leadObj = { firstName: $f('fa-ck-fn').value.trim(), lastName: $f('fa-ck-ln').value.trim(), email: em.value.trim(), countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!$f('fa-ck-sms').checked };
       saveLead(leadObj, sel);
-      track('Lead', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product' }, { suffix: sel.product });
+      /* No Meta 'Lead': ecommerce funnel is AddToCart -> InitiateCheckout -> Purchase only, as in Golden. */
       registerLead(leadObj, sel);
       acStage('FA_Abandoned_Cart_Name_Details', leadObj);
       renderStep2(leadObj);
@@ -711,9 +733,10 @@
       if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) { err.textContent = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.'); err.hidden = false; return; }
       btnBusy(btn, 'Opening secure payment…');
       saveLead(lead, sel);
+      var atcT0 = (window.performance && performance.now) ? performance.now() : 0;
       var delivery = track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
       acStage('FA_Abandoned_Cart_Course_Details', lead);
-      return deliveryBeforePayment(delivery).then(goPayment);
+      return deliveryBeforePayment(delivery, atcT0).then(goPayment);
       function goPayment() {
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       var inSub = /\/courses\//.test(location.pathname);
