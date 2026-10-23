@@ -19,7 +19,8 @@
   }
 
   function goTo(track, card, smooth) {
-    var left = Math.max(0, card.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft || 0));
+    var tr = track.getBoundingClientRect(), pad = parseFloat(getComputedStyle(track).paddingLeft || 0);
+    var left = Math.max(0, track.scrollLeft + card.getBoundingClientRect().left - tr.left - pad);
     if (smooth) { try { track.scrollTo({ left: left, behavior: 'smooth' }); return; } catch (e) {} }
     track.scrollLeft = left;
   }
@@ -59,8 +60,11 @@
     wrap.appendChild(track);
     wrap.appendChild(next);
     function current() {
-      var x = track.scrollLeft + 4, best = 0;
-      cards.forEach(function (c, i) { if (c.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft || 0) <= x) best = i; });
+      /* the card whose left edge is closest to the slider's start edge */
+      var tr = track.getBoundingClientRect(), start = tr.left + parseFloat(getComputedStyle(track).paddingLeft || 0);
+      var best = 0, bestD = 1e9;
+      cards.forEach(function (c, i) { var d = Math.abs(c.getBoundingClientRect().left - start); if (d < bestD) { bestD = d; best = i; } });
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) best = cards.length - 1;
       return best;
     }
     function sync() {
