@@ -733,10 +733,10 @@
       if (p.kind === 'capsules' && p.packs < 3 && sel.capsules.length !== p.packs) { err.textContent = 'Please choose ' + (p.packs === 1 ? 'one capsule.' : 'exactly two capsules.'); err.hidden = false; return; }
       btnBusy(btn, 'Opening secure payment…');
       saveLead(lead, sel);
-      var atcT0 = (window.performance && performance.now) ? performance.now() : 0;
-      var delivery = track('AddToCart', { content_name: productTitle(sel), content_ids: [sel.product], content_type: 'product', value: p.firstPayment, currency: 'USD' }, { suffix: sel.product });
+      /* Golden order (julie index.html L3185): AddToCart fires only after the CRM order exists,
+         on the payment screen (enroll-checkout.html), with event_id fa_atc_<orderid>. */
       acStage('FA_Abandoned_Cart_Course_Details', lead);
-      return deliveryBeforePayment(delivery, atcT0).then(goPayment);
+      return goPayment();
       function goPayment() {
       if (typeof window.FA_CK_START === 'function') { close(); window.FA_CK_START({ lead: lead, sel: sel }); return; }
       var inSub = /\/courses\//.test(location.pathname);

@@ -269,12 +269,12 @@
 </footer>
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-meta-tracking.js?v=20261023-welcome1"></script>
+<script src="js/fa-meta-tracking.js?v=20261024-golden1"></script>
 <script src="js/vendor/libphonenumber-max.js?v=1.13.15"></script>
 <script src="js/fa-phone-validation.js?v=20261021-polish"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
 <script src="js/fa-checkout-config.js?v=20261023-test1"></script>
-<script src="js/fa-checkout.js?v=20261023-atc1"></script>
+<script src="js/fa-checkout.js?v=20261024-golden1"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -525,6 +525,9 @@
     ids = _ids; status('Loading your secure payment form…');
     /* Screen 3 open with a confirmed CRM order: AC No_Payment stage + InitiateCheckout (fa_ic_<orderid>) */
     FA.acStage('FA_Abandoned_Cart_No_Payment', staged.lead);
+    /* Golden order: AddToCart right after the CRM order is created (julie L3185), then InitiateCheckout
+       when the payment screen opens (julie L3210). Same page, so no navigation can cut either off. */
+    FA.track('AddToCart', { value: p.firstPayment, currency: 'USD', content_ids: [sel.product] });
     FA.track('InitiateCheckout', { value: p.firstPayment, currency: 'USD', content_ids: [sel.product] });
     return readyDetails();
   }).then(function(details){
