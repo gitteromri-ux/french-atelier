@@ -82,6 +82,8 @@
   html:root:root:root:root:root:root:root:root body#fa #capsule-teachers .cap-faculty-head{margin-bottom:20px!important}
   html:root:root:root:root:root:root:root:root body#fa #capsule-teachers .cap-faculty-head h2{font-size:38px!important;line-height:1.05!important}
   html:root:root:root:root:root:root:root:root body#fa #capsule-teachers .cap-faculty-head h2 br{display:none}
+  /* keep the space where that line break is hidden: "Meet your French" */
+  html:root:root:root:root:root:root:root:root body#fa #capsule-teachers .cap-faculty-head h2 br + span::before{content:" "}
   html body#fa .cap-mtdots{color:#0F1A3C;margin-top:6px!important}
 }
 
