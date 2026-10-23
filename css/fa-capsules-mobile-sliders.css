@@ -29,12 +29,12 @@
   #capsules .kps-cards > .kps-card,
   #capsule-teachers .cap-faculty-grid > .cap-teacher,
   #offers .kpz-grid > .kpz-card {
-    flex: 0 0 calc(100% - 52px) !important;
-    width: calc(100% - 52px) !important;
-    max-width: calc(100% - 52px) !important;
+    flex: 0 0 calc(100% - 34px) !important;
+    width: calc(100% - 34px) !important;
+    max-width: calc(100% - 34px) !important;
     min-width: 0 !important;
     margin: 0 !important;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     scroll-snap-stop: always;
     transform: none !important;
   }
@@ -48,21 +48,75 @@
   #capsules .kps-card .meta { flex-wrap: wrap !important; column-gap: 18px !important; row-gap: 8px !important; max-width: 100% !important; }
   #capsules .kps-card .ph { max-width: 100% !important; }
 
-  /* dots under each slider */
-  .fa-sl-dots { display: flex; justify-content: center; gap: 18px; margin: 4px 0 6px; }
-  .fa-sl-dots button {
-    -webkit-appearance: none; appearance: none; border: 0; background: none; padding: 6px 2px;
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-    font: inherit; font-size: 14px; line-height: 1.2; color: inherit; opacity: .6; cursor: pointer;
-  }
-  .fa-sl-dots button::before {
-    content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; opacity: .45;
-  }
-  .fa-sl-dots button[aria-current="true"] { opacity: 1; font-weight: 600; }
-  .fa-sl-dots button[aria-current="true"]::before { opacity: 1; background: #C9A45C; }
-  #capsules .fa-sl-dots, #capsule-teachers .fa-sl-dots { color: #0F1A3C; }
-  #offers .fa-sl-dots { color: #fff; }
 }
 @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
   #capsules .kps-cards, #capsule-teachers .cap-faculty-grid, #offers .kpz-grid { scroll-behavior: auto; }
+}
+
+/* 2026-10-23 b: floating button text must never be cut off; larger pricing text on phones */
+@media (max-width: 767px) {
+  html:root:root:root:root:root body .fa-float-cta .fa-cta-text { min-width: 0 !important; flex: 1 1 auto !important; padding: 12px 10px 12px 16px !important; }
+  html:root:root:root:root:root body .fa-float-cta .fa-cta-eyebrow { font-size: 13px !important; letter-spacing: .02em !important; white-space: normal !important; line-height: 1.25 !important; }
+  html:root:root:root:root:root body .fa-float-cta .fa-cta-title { white-space: normal !important; line-height: 1.15 !important; }
+  html:root:root:root:root:root body .fa-float-cta .fa-cta-pill { padding: 0 14px !important; gap: 6px !important; flex: 0 0 auto !important; }
+
+  html:root:root:root:root:root body #offers .kpz-card .kpz-badge { font-size: 16px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-name { font-size: 33px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-sub { font-size: 20px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-percap s { font-size: 23px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-pay,
+  html:root:root:root:root:root body #offers .kpz-card .kpz-pay * ,
+  html:root:root:root:root:root body #offers .kpz-card .kpz-pricebox p:not(.kpz-percap),
+  html:root:root:root:root:root body #offers .kpz-card .kpz-pricebox p:not(.kpz-percap) * { font-size: 20px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-off { font-size: 23px !important; white-space: normal !important; display: inline-block !important; max-width: 100% !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-percap { display: flex !important; flex-wrap: wrap !important; column-gap: 10px !important; row-gap: 2px !important; max-width: 100% !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-inc { font-size: 20px !important; }
+  html:root:root:root:root:root body #offers .kpz-card li,
+  html:root:root:root:root:root body #offers .kpz-card li * ,
+  html:root:root:root:root:root body #offers .kpz-card .fa-refund { font-size: 19px !important; line-height: 1.4 !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-enroll-title { font-size: 22px !important; }
+}
+
+/* 2026-10-23 v3: slider marker ABOVE each slider + visible next arrow */
+@media (max-width: 767px) {
+  .fa-sl-bar { margin: 0 0 12px; }
+  .fa-sl-tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 8px; }
+  .fa-sl-tabs::-webkit-scrollbar { display: none; }
+  .fa-sl-tab {
+    -webkit-appearance: none; appearance: none; flex: 0 0 auto; cursor: pointer;
+    font: inherit; font-size: 15px; font-weight: 600; line-height: 1.2; color: inherit;
+    padding: 10px 14px; border-radius: 12px; border: 1.5px solid currentColor; background: transparent; opacity: .55;
+  }
+  .fa-sl-tab[aria-current="true"] { opacity: 1; background: #C9A45C; border-color: #C9A45C; color: #0F1A3C; }
+  .fa-sl-hint { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; transition: opacity .2s; }
+  .fa-sl-arrow { display: inline-block; animation: faSlNudge 1.6s ease-in-out infinite; }
+  @keyframes faSlNudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+  #capsules .fa-sl-bar, #capsule-teachers .fa-sl-bar { color: #0F1A3C; }
+  #offers .fa-sl-bar { color: #fff; }
+  .fa-sl-wrap { position: relative; }
+  .fa-sl-next {
+    position: absolute; right: 8px; top: 50%; transform: translateY(-50%); z-index: 3;
+    width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
+    background: #C9A45C; color: #0F1A3C; font-size: 24px; font-weight: 700; line-height: 46px; text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.35); transition: opacity .2s;
+  }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) { .fa-sl-arrow { animation: none; } }
+
+/* theme and teacher cards keep the wider slide so the approved card layout never collides */
+@media (max-width: 767px) {
+  html:root:root:root:root:root body #capsules .kps-cards > .kps-card,
+  html:root:root:root:root:root body #capsule-teachers .cap-faculty-grid > .cap-teacher {
+    flex: 0 0 calc(100% - 30px) !important; width: calc(100% - 30px) !important; max-width: calc(100% - 30px) !important;
+  }
+}
+@media (max-width: 767px) {
+  html:root:root:root:root:root body #offers .kpz-card .kpz-unit { margin-left: 10px !important; }
+}
+/* very small phones (320-360px): keep the approved layout from colliding */
+@media (max-width: 360px) {
+  html:root:root:root:root:root body #capsules .kps-card .title { font-size: 34px !important; line-height: 1.05 !important; }
+  html:root:root:root:root:root body #capsules .kps-card .eyebrow { font-size: 12px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-amt { font-size: 58px !important; }
+  html:root:root:root:root:root body #offers .kpz-card .kpz-price { flex-wrap: wrap !important; }
 }
