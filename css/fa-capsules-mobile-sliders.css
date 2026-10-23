@@ -1,0 +1,68 @@
+/* Culture Capsules: mobile swipe sliders on the ORIGINAL cards (2026-10-23).
+   Layout only: no fonts, colours, copy or card markup change. Desktop untouched. */
+@media (max-width: 767px) {
+  #capsules .kps-cards,
+  #capsule-teachers .cap-faculty-grid,
+  #offers .kpz-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    gap: 14px !important;
+    width: calc(100% + 40px) !important;
+    max-width: none !important;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+    box-sizing: border-box !important;
+    padding: 6px 20px 14px !important;
+    scroll-padding: 0 20px;
+  }
+  #capsules .kps-cards::-webkit-scrollbar,
+  #capsule-teachers .cap-faculty-grid::-webkit-scrollbar,
+  #offers .kpz-grid::-webkit-scrollbar { display: none; }
+
+  #capsules .kps-cards > .kps-card,
+  #capsule-teachers .cap-faculty-grid > .cap-teacher,
+  #offers .kpz-grid > .kpz-card {
+    flex: 0 0 calc(100% - 52px) !important;
+    width: calc(100% - 52px) !important;
+    max-width: calc(100% - 52px) !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: none !important;
+  }
+
+  /* let price-card rows wrap inside the narrower slide (nothing cut off) */
+  #offers .kpz-card .kpz-pricebox, #offers .kpz-card .kpz-pricebox * { flex-wrap: wrap !important; min-width: 0 !important; }
+  #offers .kpz-card { overflow: hidden; }
+  #capsules .kps-wrap, #capsule-teachers .kps-wrap, #offers .kps-wrap { overflow: visible !important; }
+
+  /* theme card bottom row (10 / 60' / Q&A): wrap instead of cutting off on narrow phones */
+  #capsules .kps-card .meta { flex-wrap: wrap !important; column-gap: 18px !important; row-gap: 8px !important; max-width: 100% !important; }
+  #capsules .kps-card .ph { max-width: 100% !important; }
+
+  /* dots under each slider */
+  .fa-sl-dots { display: flex; justify-content: center; gap: 18px; margin: 4px 0 6px; }
+  .fa-sl-dots button {
+    -webkit-appearance: none; appearance: none; border: 0; background: none; padding: 6px 2px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font: inherit; font-size: 14px; line-height: 1.2; color: inherit; opacity: .6; cursor: pointer;
+  }
+  .fa-sl-dots button::before {
+    content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; opacity: .45;
+  }
+  .fa-sl-dots button[aria-current="true"] { opacity: 1; font-weight: 600; }
+  .fa-sl-dots button[aria-current="true"]::before { opacity: 1; background: #C9A45C; }
+  #capsules .fa-sl-dots, #capsule-teachers .fa-sl-dots { color: #0F1A3C; }
+  #offers .fa-sl-dots { color: #fff; }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  #capsules .kps-cards, #capsule-teachers .cap-faculty-grid, #offers .kpz-grid { scroll-behavior: auto; }
+}
