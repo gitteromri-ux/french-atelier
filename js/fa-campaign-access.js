@@ -19,9 +19,23 @@
   var grant = null;
   try { grant=JSON.parse(sessionStorage.getItem(K)||'null'); } catch(e) {}
   if (!grant || !pairs[grant.pair] || !Number.isFinite(grant.ts) || Date.now()-grant.ts>TTL || grant.ts>Date.now()) grant=null;
+  /* Returning ad visitors: Meta credits purchases up to 7 days after an ad click, and buyers often come back
+     later from a bookmark, history or a typed address. A real ad entry is remembered on this device for 30 days
+     (same window as Golden's julie_attribution_v2), so they see the offer again instead of the welcome page. */
+  var LK='fa_capsules_ad_entry_v1', LTTL=30*24*60*60*1000;
   if (entry && !review) {
     grant={pair:tagged ? one('cid')+':'+one('adGroupID') : 'meta-click',ts:Date.now(),query:location.search.slice(1)};
     try { sessionStorage.setItem(K,JSON.stringify(grant)); } catch(e) {}
+    try { localStorage.setItem(LK,JSON.stringify(grant)); } catch(e) {}
+  }
+  if (!grant && !review) {
+    try {
+      var back=JSON.parse(localStorage.getItem(LK)||'null');
+      if (back && pairs[back.pair] && Number.isFinite(back.ts) && back.ts<=Date.now() && Date.now()-back.ts<LTTL) {
+        grant={pair:back.pair,ts:Date.now(),query:back.query||'',returning:true};
+        try { sessionStorage.setItem(K,JSON.stringify(grant)); } catch(e) {}
+      }
+    } catch(e) {}
   }
   var capsulePage=/(?:^|\/)(?:culture-capsules(?:-enroll)?|capsules)(?:\.html)?$/.test(path);
   var checkout=/(?:^|\/)enroll-checkout(?:\.html)?$/.test(path);

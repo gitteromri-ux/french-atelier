@@ -279,7 +279,21 @@
     /* Select one complete form by matching email; never take geography/phone from
      * the other form when legacy fields and the checkout modal coexist. */
     var modal = normEmail(val('fa-ck-em')) === out.email;
-    if (!modal && normEmail(val('emEmail')) !== out.email) return;
+    if (!modal && normEmail(val('emEmail')) !== out.email) {
+      /* FA adaptation of Golden's single-page form: on enroll-checkout.html the buyer's form
+         (screen 1) is no longer in the DOM, so use the same buyer's saved screen-1 answers
+         (fa_ck_lead_v1, this tab, < 2 h, email must match) exactly as Golden reads its live form. */
+      try {
+        var rec = JSON.parse(root.sessionStorage.getItem('fa_ck_lead_v1') || 'null'), L = rec && rec.lead;
+        if (!L || !rec.ts || Date.now() - rec.ts > 2 * 36e5 || normEmail(L.email) !== out.email) return;
+        if (!onlyMissing || !out.fn) out.fn = letters(L.firstName);
+        if (!onlyMissing || !out.ln) out.ln = letters(L.lastName);
+        var c2 = iso2(L.countryIso); if (c2 && (!onlyMissing || !out.country)) out.country = c2;
+        var s2 = iso2(L.stateCode); if (s2 && (!out.country || out.country === 'us') && (!onlyMissing || !out.st)) out.st = s2;
+        var p2 = digits(L.e164); if (p2.length >= 7 && (!onlyMissing || !out.phone)) out.phone = p2;
+      } catch (e) {}
+      return;
+    }
     if (modal) {
       if (!onlyMissing || !out.fn) out.fn = letters(val('fa-ck-fn'));
       if (!onlyMissing || !out.ln) out.ln = letters(val('fa-ck-ln'));
@@ -371,7 +385,7 @@
     if (b && b.email) {                                          /* CRM-link buyer of THIS order: a stale form never overrides */
       out.email = b.email; out.phone = b.phone; out.fn = b.fn; out.ln = b.ln; out.st = b.st; out.country = b.country;
       out.external_id = b.stid; out.source = 'order_bound';
-      if (formEmail === out.email) formInto(out, true);          /* same buyer: only fill gaps */
+      if (formEmail === out.email || !formEmail) formInto(out, true);   /* same buyer (live form or saved screen-1 answers): only fill gaps */
       if (c && normEmail(c.email) === out.email) {
         var bp = digits(c.phone);
         if (!out.phone && bp.length >= 7) out.phone = bp;
@@ -383,6 +397,7 @@
     if (out.email) {
       out.source = 'form';
       if (formEmail && formEmail === out.email) formInto(out, false);   /* the visible form belongs to this buyer */
+      else if (!formEmail) formInto(out, true);                  /* FA: screen-1 answers saved for this same buyer (email must match) */
       if (c && normEmail(c.email) === out.email) {
         var cp = digits(c.phone);
         if (cp.length >= 7) out.phone = cp;

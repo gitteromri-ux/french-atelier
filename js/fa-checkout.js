@@ -167,6 +167,8 @@
   var ATTR_KEYS = ['gclid', 'fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'cid', 'adGroupID'];
   function attribution() {
     var out = {};
+    /* Golden: julie-attribution.js keeps all 22 ad keys for 30 days (fa_attribution_v2 here). */
+    try { if (window.FA_ATTR) { var a2 = window.FA_ATTR.read(); if (a2) window.FA_ATTR.keys.forEach(function (k) { if (a2[k]) out[k] = String(a2[k]); }); } } catch (e) {}
     try { var o = JSON.parse(localStorage.getItem('fa_attribution_v1') || 'null'); if (o && o.ts && Date.now() - o.ts < 30 * 864e5) ATTR_KEYS.forEach(function (k) { if (o[k]) out[k] = o[k]; }); } catch (e) {}
     try { var p = new URLSearchParams(location.search); ATTR_KEYS.forEach(function (k) { if (p.get(k)) out[k] = p.get(k); }); } catch (e) {}
     return out;
@@ -254,6 +256,8 @@
     var attr = attribution(), dyn = [];
     Object.keys(attr).forEach(function (k) { if (k !== 'cid' && k !== 'adGroupID') dyn.push(k + '=' + encodeURIComponent(attr[k])); });
     var qs = (location.search || '').replace(/^\?/, '');
+    /* Golden (index.html L2474): fill any ad key missing from this URL from the stored attribution. */
+    try { if (window.FA_ATTR) qs = window.FA_ATTR.queryString(qs, attr); } catch (e) {}
     if (attr.cid && !/(^|&)cid=/.test(qs)) qs = (qs ? qs + '&' : '') + 'cid=' + attr.cid;
     var noteWords = ['SELF', 'SERVICE', 'ECOMM', 'CHECKOUT', 'French', 'Atelier', 'Product', sel.product, 'Buyer', 'country', lead.countryIso];
     if (lead.stateCode) noteWords = noteWords.concat(['US', 'State', lead.stateCode]);
