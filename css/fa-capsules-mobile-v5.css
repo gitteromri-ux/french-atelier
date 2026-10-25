@@ -196,3 +196,55 @@
   html:root:root:root:root:root:root body#fa .kps-hero .cta .tp img { height: 26px !important; width: auto !important; }
   html:root:root:root:root:root:root body#fa .kps-hero .cta .tp .stars i { width: 20px !important; height: 20px !important; }
 }
+
+/* v5.2 · text hierarchy on phones: white for the statement, light blue (#6FC4FF) for the second voice,
+   soft blue (#BFE4FF) for body copy. No fold is white-only. Bold removed from body copy. */
+@media (max-width: 600px) {
+  /* second voice in light blue */
+  html:root:root:root:root:root:root body#fa .kps-h1 .gi,
+  html:root:root:root:root:root:root body#fa .kps-h2 .gi,
+  html:root:root:root:root:root:root body#fa .kps-stage h3 .gi,
+  html:root:root:root:root:root:root body#fa .kps-final h2 .gi { color: #6FC4FF !important; }
+  html:root:root:root:root:root:root body#fa .kps-kicker,
+  html:root:root:root:root:root:root body#fa .kps-learn .col .lab,
+  html:root:root:root:root:root:root body#fa .kps-tile .sub,
+  html:root:root:root:root:root:root body#fa .kps-step .r,
+  html:root:root:root:root:root:root body#fa .kps-read .rc div span,
+  html:root:root:root:root:root:root body#fa .kps-grid::before,
+  html:root:root:root:root:root:root body#fa .kps-steps::before,
+  html:root:root:root:root:root:root body#fa .kps-learn .cols::before,
+  html:root:root:root:root:root:root body#fa .kps-read .grid::before { color: #6FC4FF !important; }
+  html:root:root:root:root:root:root body#fa .kps-grid::before { color: #0A6BD6 !important; }
+  html:root:root:root:root:root:root body#fa .kps-stats b,
+  html:root:root:root:root:root:root body#fa .kps-stat b,
+  html:root:root:root:root:root:root body#fa .kps-learn .col .big b { color: #6FC4FF !important; }
+  html:root:root:root:root:root:root body#fa .kps-stats b small,
+  html:root:root:root:root:root:root body#fa .kps-stat b small { color: #BFE4FF !important; }
+
+  /* body copy in soft blue, regular weight, no bold runs */
+  html:root:root:root:root:root:root body#fa .kps-hero .sub,
+  html:root:root:root:root:root:root body#fa .kps-hero .sub b,
+  html:root:root:root:root:root:root body#fa .kps-stage p,
+  html:root:root:root:root:root:root body#fa .kps-stat span,
+  html:root:root:root:root:root:root body#fa .kps-sub,
+  html:root:root:root:root:root:root body#fa .kps-sub b,
+  html:root:root:root:root:root:root body#fa .kps-tile p,
+  html:root:root:root:root:root:root body#fa .kps-step p,
+  html:root:root:root:root:root:root body#fa .kps-learn .col p,
+  html:root:root:root:root:root:root body#fa .kps-learn .col .big span,
+  html:root:root:root:root:root:root body#fa .kps-final p,
+  html:root:root:root:root:root:root body#fa .kps-stats span { color: #BFE4FF !important; font-weight: 400 !important; }
+  html:root:root:root:root:root:root body#fa .kps-sub.dark,
+  html:root:root:root:root:root:root body#fa .kps-sub.dark b { color: #26354b !important; font-weight: 400 !important; }
+  html:root:root:root:root:root:root body#fa .kps-stat em { color: #8FBFEA !important; }
+
+  /* statements stay white */
+  html:root:root:root:root:root:root body#fa .kps-h1,
+  html:root:root:root:root:root:root body#fa .kps-h2:not(.dark),
+  html:root:root:root:root:root:root body#fa .kps-stage h3,
+  html:root:root:root:root:root:root body#fa .kps-tile h5,
+  html:root:root:root:root:root:root body#fa .kps-step h4,
+  html:root:root:root:root:root:root body#fa .kps-learn .col h3,
+  html:root:root:root:root:root:root body#fa .kps-read .rc div b,
+  html:root:root:root:root:root:root body#fa .kps-final h2 { color: #fff !important; }
+}
