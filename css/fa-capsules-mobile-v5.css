@@ -1,0 +1,146 @@
+/* French Atelier · Culture Capsules · mobile readability release v5 (25.10.26)
+   Scope: phones only (max-width 600px). CSS only. No tracking, checkout, attribution
+   or campaign-access files are touched by this release.
+   Goals: bigger type everywhere, no gold text on imagery, no price line in the hero,
+   horizontal snap sliders for the long folds (classes, how it works, speakers,
+   what you learn, cultural resources). Approved sliders (themes, teachers, prices)
+   and approved price cards are left exactly as they are. */
+
+@media (max-width: 600px) {
+
+  /* ---------- palette for text on dark imagery ---------- */
+  html:root:root:root:root:root:root body#fa .kps-h1 .gi,
+  html:root:root:root:root:root:root body#fa .kps-h2 .gi,
+  html:root:root:root:root:root:root body#fa .kps-stage h3 .gi,
+  html:root:root:root:root:root:root body#fa .kps-final h2 .gi { color: #FFF6E0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-h2.dark .gi { color: #0A6BD6 !important; }
+  html:root:root:root:root:root:root body#fa .kps-kicker { color: #FFF6E0 !important; font-size: 1rem !important; letter-spacing: .1em !important; margin-bottom: 1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-kicker.dark { color: #0A6BD6 !important; }
+  html:root:root:root:root:root:root body#fa .kps-learn .col .lab { color: #FFF6E0 !important; font-size: 1rem !important; letter-spacing: .1em !important; }
+
+  /* ---------- hero ---------- */
+  html:root:root:root:root:root:root body#fa .kpx-eyebrow { display: none !important; }
+  html:root:root:root:root:root:root body#fa .kps-hero .kps-wrap { padding-top: 6.6rem !important; padding-left: 1.1rem !important; padding-right: 1.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-reel { gap: .55rem !important; margin-bottom: 1.4rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-reel .kps-pill { font-size: .95rem !important; padding: .62rem 1rem !important; letter-spacing: .04em !important; }
+  html:root:root:root:root:root:root body#fa .kps-h1 { font-size: clamp(3.5rem, 15.6vw, 4.2rem) !important; line-height: .96 !important; letter-spacing: -.025em !important; margin: 0 0 1.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-h1 .gi { font-size: .8em !important; margin-top: .14em !important; }
+  html:root:root:root:root:root:root body#fa .kps-hero .sub { font-size: 1.28rem !important; line-height: 1.42 !important; color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-hero .sub b { color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-hero .sub .kps-hero-price { display: none !important; }
+  html:root:root:root:root:root:root body#fa .kps-hero .fa-refund-banner { font-size: 1.05rem !important; color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-stats b { font-size: 3rem !important; color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-stats span { font-size: 1.05rem !important; color: #E8F0FF !important; line-height: 1.3 !important; }
+
+  /* ---------- buttons ---------- */
+  html:root:root:root:root:root:root body#fa .kps-btn { font-size: 1.15rem !important; padding: 1.05rem 1.3rem !important; }
+
+  /* ---------- section headlines and intros ---------- */
+  html:root:root:root:root:root:root body#fa .kps-h2 { font-size: clamp(2.6rem, 11.2vw, 3.05rem) !important; line-height: .98 !important; }
+  html:root:root:root:root:root:root body#fa .kps-sub { font-size: 1.18rem !important; line-height: 1.5 !important; color: #E8F0FF !important; }
+  html:root:root:root:root:root:root body#fa .kps-sub.dark { color: #26354b !important; }
+  html:root:root:root:root:root:root body#fa .kps-three .head,
+  html:root:root:root:root:root:root body#fa .kps-how .head,
+  html:root:root:root:root:root:root body#fa .kps-learn .head,
+  html:root:root:root:root:root:root body#fa .kps-read .head,
+  html:root:root:root:root:root:root body#fa .kps-method .kps-wrap > .kps-kicker,
+  html:root:root:root:root:root:root body#fa .kps-method .kps-wrap > .kps-h2,
+  html:root:root:root:root:root:root body#fa .kps-method .kps-wrap > .kps-sub,
+  html:root:root:root:root:root:root body#fa .kps-faq .kps-wrap > .kps-kicker,
+  html:root:root:root:root:root:root body#fa .kps-faq .kps-wrap > .kps-h2 { padding-left: 1.1rem !important; padding-right: 1.1rem !important; }
+
+  /* ---------- capsule stage (big card per theme) ---------- */
+  html:root:root:root:root:root:root body#fa .kps-stage .inner { padding: 4.2rem 1.2rem 2rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-stage .eyebrow.kps-pill { font-size: .95rem !important; padding: .55rem .95rem !important; letter-spacing: .04em !important; }
+  html:root:root:root:root:root:root body#fa .kps-stage h3 { font-size: 2.35rem !important; line-height: 1.02 !important; }
+  html:root:root:root:root:root:root body#fa .kps-stage p { font-size: 1.18rem !important; line-height: 1.45 !important; color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-stat b { font-size: 3rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-stat span { font-size: 1.12rem !important; line-height: 1.4 !important; color: #fff !important; }
+  html:root:root:root:root:root:root body#fa .kps-stat em { font-size: 1rem !important; color: #D6E4FF !important; }
+
+  /* ---------- generic snap slider ---------- */
+  html:root:root:root:root:root:root body#fa .kps-grid,
+  html:root:root:root:root:root:root body#fa .kps-rail,
+  html:root:root:root:root:root:root body#fa .kps-steps,
+  html:root:root:root:root:root:root body#fa .kps-learn .cols,
+  html:root:root:root:root:root:root body#fa .kps-read .grid {
+    display: flex !important; flex-wrap: nowrap !important; grid-template-columns: none !important;
+    overflow-x: auto !important; overflow-y: hidden !important; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: .9rem !important;
+    padding: 2.6rem 1.1rem 1.4rem !important; scroll-padding-left: 1.1rem; position: relative;
+    border-radius: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important;
+  }
+  html:root:root:root:root:root:root body#fa .kps-grid::-webkit-scrollbar,
+  html:root:root:root:root:root:root body#fa .kps-rail::-webkit-scrollbar,
+  html:root:root:root:root:root:root body#fa .kps-steps::-webkit-scrollbar,
+  html:root:root:root:root:root:root body#fa .kps-learn .cols::-webkit-scrollbar,
+  html:root:root:root:root:root:root body#fa .kps-read .grid::-webkit-scrollbar { display: none; }
+  html:root:root:root:root:root:root body#fa .kps-grid > *,
+  html:root:root:root:root:root:root body#fa .kps-steps > *,
+  html:root:root:root:root:root:root body#fa .kps-learn .cols > *,
+  html:root:root:root:root:root:root body#fa .kps-read .grid > * { flex: 0 0 84vw !important; width: 84vw !important; max-width: 84vw !important; scroll-snap-align: start; min-width: 0; }
+  html:root:root:root:root:root:root body#fa .kps-rail > * { flex: 0 0 64vw !important; width: 64vw !important; max-width: 64vw !important; scroll-snap-align: start; }
+
+  /* marker above each slider (the swipe hint sits above, never below) */
+  html:root:root:root:root:root:root body#fa .kps-grid::before,
+  html:root:root:root:root:root:root body#fa .kps-rail::before,
+  html:root:root:root:root:root:root body#fa .kps-steps::before,
+  html:root:root:root:root:root:root body#fa .kps-learn .cols::before,
+  html:root:root:root:root:root:root body#fa .kps-read .grid::before {
+    position: absolute; top: .55rem; left: 1.1rem; font: 700 1rem/1.2 var(--sans, Inter, system-ui, sans-serif);
+    color: #FFF6E0; letter-spacing: .02em; white-space: nowrap;
+  }
+  html:root:root:root:root:root:root body#fa .kps-grid::before { content: "Swipe through the 10 classes  \2192"; color: #000034; }
+  html:root:root:root:root:root:root body#fa .kps-rail::before { content: "Swipe for all 6 facts  \2192"; color: #0A6BD6; }
+  html:root:root:root:root:root:root body#fa .kps-steps::before { content: "Swipe through the 3 steps  \2192"; }
+  html:root:root:root:root:root:root body#fa .kps-learn .cols::before { content: "Swipe through the 3 capsules  \2192"; }
+  html:root:root:root:root:root:root body#fa .kps-read .grid::before { content: "Swipe through the chapters  \2192"; }
+
+  /* ---------- the 10 class tiles as slides ---------- */
+  html:root:root:root:root:root:root body#fa .kps-tile { flex-direction: column !important; align-items: stretch !important; border-radius: 22px !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile .img { flex: none !important; width: 100% !important; aspect-ratio: 16 / 10 !important; min-height: 0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile .img::after { display: block !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile .n { width: 40px !important; height: 40px !important; font-size: 1.2rem !important; top: .8rem !important; left: .8rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile .body { padding: 1.15rem 1.15rem 1.35rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile .sub { font-size: .98rem !important; letter-spacing: .06em !important; color: #FFF6E0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile h5 { font-size: 1.6rem !important; line-height: 1.05 !important; margin: .35rem 0 .5rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-tile p { font-size: 1.1rem !important; line-height: 1.45 !important; color: #E8F0FF !important; }
+
+  /* ---------- how it works rail ---------- */
+  html:root:root:root:root:root:root body#fa .kps-rail .cell { min-height: 190px !important; padding: 1.6rem 1.3rem 1.4rem !important; border-radius: 20px !important; background: #fff !important; border: 1px solid rgba(0,0,52,.1) !important; box-shadow: 0 18px 40px -30px rgba(0,0,52,.3) !important; }
+  html:root:root:root:root:root:root body#fa .kps-rail .cell .n { font-size: 3.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-rail .cell .k { font-size: 1.3rem !important; line-height: 1.15 !important; }
+  html:root:root:root:root:root:root body#fa .kps-rail .cell .s { font-size: 1.08rem !important; line-height: 1.35 !important; }
+
+  /* ---------- who is speaking ---------- */
+  html:root:root:root:root:root:root body#fa .kps-step { padding: 1.7rem 1.4rem 1.6rem !important; border-radius: 22px !important; }
+  html:root:root:root:root:root:root body#fa .kps-step .r { font-size: 2.4rem !important; color: #FFF6E0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-step h4 { font-size: 1.95rem !important; line-height: 1.05 !important; }
+  html:root:root:root:root:root:root body#fa .kps-step p { font-size: 1.15rem !important; line-height: 1.5 !important; color: #E8F0FF !important; }
+
+  /* ---------- what you will learn ---------- */
+  html:root:root:root:root:root:root body#fa .kps-learn .col { padding: 1.7rem 1.4rem 1.6rem !important; border-radius: 22px !important; }
+  html:root:root:root:root:root:root body#fa .kps-learn .col h3 { font-size: 2.1rem !important; line-height: 1.04 !important; }
+  html:root:root:root:root:root:root body#fa .kps-learn .col p { font-size: 1.15rem !important; line-height: 1.5 !important; color: #E8F0FF !important; }
+  html:root:root:root:root:root:root body#fa .kps-learn .col .big b { font-size: 3.4rem !important; color: #FFF6E0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-learn .col .big span { font-size: 1.12rem !important; line-height: 1.4 !important; }
+
+  /* ---------- FAQ, trust, resources, final, footer ---------- */
+  html:root:root:root:root:root:root body#fa .kps-faq .list { padding: 0 1.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-faq summary { font-size: 1.38rem !important; line-height: 1.15 !important; padding: 1.3rem 0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-faq p { font-size: 1.12rem !important; line-height: 1.5 !important; }
+  html:root:root:root:root:root:root body#fa .kps-trust .row { grid-template-columns: 1fr 1fr !important; gap: .8rem !important; padding: 0 1.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-trust .t { padding: 1.3rem 1.1rem 1.2rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-trust .t .n { font-size: 2.3rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-trust .t p { font-size: 1.05rem !important; line-height: 1.35 !important; }
+  html:root:root:root:root:root:root body#fa .kps-read .rc div span { font-size: 1rem !important; color: #FFF6E0 !important; }
+  html:root:root:root:root:root:root body#fa .kps-read .rc div b { font-size: 1.7rem !important; line-height: 1.05 !important; }
+  html:root:root:root:root:root:root body#fa .kps-read .head a { font-size: 1.1rem !important; }
+  html:root:root:root:root:root:root body#fa .kps-final h2 { font-size: clamp(2.9rem, 12.2vw, 3.4rem) !important; line-height: .98 !important; }
+  html:root:root:root:root:root:root body#fa .kps-final p { font-size: 1.18rem !important; line-height: 1.5 !important; color: #E8F0FF !important; }
+  html:root:root:root:root:root:root body#fa .site-footer a,
+  html:root:root:root:root:root:root body#fa .site-footer li,
+  html:root:root:root:root:root:root body#fa .site-footer p,
+  html:root:root:root:root:root:root body#fa .site-footer h4 { font-size: 1.05rem !important; line-height: 1.5 !important; }
+  html:root:root:root:root:root:root body#fa .site-footer h4 { font-size: 1.15rem !important; }
+}
