@@ -276,7 +276,7 @@
 <script src="js/fa-phone-validation.js?v=20261021-polish"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
 <script src="js/fa-checkout-config.js?v=20261023-test1"></script>
-<script src="js/fa-checkout.js?v=20261026-write-guard"></script>
+<script src="js/fa-checkout.js?v=20261026-write-guard2"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -410,6 +410,12 @@
     status('');
     $('fallbackBox').style.display = ''; $('fallbackBox').className = 'fa-pay-fallback';
     $('fallbackBox').innerHTML = '<strong>Reserving your seat…</strong>';
+    /* Unknown creation is not a confirmed reservation, and must not create a queue lead. */
+    if (!ids && (reason === 'CREATE_OUTCOME_UNKNOWN' || reason === 'LEAD_CREATE_FAILED' ||
+        (FA.hasEcommerceAttempt && FA.hasEcommerceAttempt(Object.assign({}, staged, { sel: Object.assign({}, staged.sel, sel) }))))) {
+      $('fallbackBox').innerHTML = '<strong>Your enrollment request needs confirmation.</strong> We could not confirm whether our enrollment system created your order, so we have not submitted another request. No payment was initiated on this page. Please contact <a href="mailto:' + CFG.advisorEmail + '">' + CFG.advisorEmail + '</a> before starting another checkout.';
+      return;
+    }
     /* An existing ecommerce record must never generate a second lead on fallback. */
     (ids ? Promise.resolve({ ok: true, existing: true }) : FA.reserveViaLeads(staged, reason)).then(function(r){
       if (r && r.ok) {
@@ -561,7 +567,7 @@
       return;
     }
     if (m === 'PAYMENT_PLAN_MISMATCH' || m === 'CURRENCY_NOT_USD') { FA.clearIds(); return reserveFallback('CRM price plan differs from offer (' + m + (e.v ? ': CRM ' + e.v.amount + ' x ' + e.v.n : '') + ')', 'Our enrollment system still shows the standard price plan for this course, so we did not charge your card.'); }
-    if (m === 'LEAD_CREATE_FAILED' || m === 'DETAILS_FAILED') return reserveFallback(m, 'Our enrollment system did not respond in time.');
+    if (m === 'CREATE_OUTCOME_UNKNOWN' || m === 'LEAD_CREATE_FAILED' || m === 'DETAILS_FAILED') return reserveFallback(m, 'Our enrollment system did not respond in time.');
     if (m === 'AIRWALLEX_SDK_MISSING' || m === 'DROPIN_NULL') return status('The secure card form could not load. Please refresh, or pay with PayPal.', 'err');
     status('Payment could not be prepared (' + FA.h(m || 'error') + '). Nothing has been charged. ' + (ids ? 'Support reference: order ' + ids.orderid + ', student ' + ids.stid + '. ' : '') + 'Please retry this page or contact ' + CFG.advisorEmail + '.', 'err');
   });

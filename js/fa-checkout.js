@@ -180,21 +180,23 @@
     return ipCountryPromise;
   }
 
-  /* ---------- relay transport (3 attempts, backoff on 5xx/network) ---------- */
+  /* Reads/reports retain their existing policy. Ecommerce creation is never replayed:
+     a failed response can follow a committed upstream write. */
   function post(url, body, attempt) {
     attempt = attempt || 1;
+    var creation = /\/api\/lead\/ecomm\/?(?:[?#]|$)/i.test(url);
     var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
     var timeout = controller ? setTimeout(function(){ controller.abort(); }, 20000) : null;
     return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), signal: controller ? controller.signal : undefined })
       .finally(function(){ if (timeout) clearTimeout(timeout); })
       .then(function (r) { return r.text().then(function (t) { var j = null; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, status: r.status, body: j, raw: t }; }); })
       .then(function (res) {
-        if (res.status >= 500 && res.status !== 503 && attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
+        if (!creation && res.status >= 500 && res.status !== 503 && attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
         return res;
       })
       .catch(function (err) {
         if (err && err.name === 'AbortError') throw new Error('REQUEST_TIMEOUT: result unknown; do not submit a second payment.');
-        if (attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
+        if (!creation && attempt < 3) return new Promise(function (ok) { setTimeout(function () { ok(post(url, body, attempt + 1)); }, 600 * Math.pow(2, attempt - 1)); });
         return { ok: false, status: 0, body: null, error: String(err && err.message || err) };
       });
   }
@@ -305,7 +307,17 @@
   function loadIds(sel, lead) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'), signature = orderSignature(sel, lead); return o && signature && o.stid && o.orderid && o.product === sel.product && o.env === CFG.env && o.signature === signature && freshRecord(o) ? o : null; } catch (e) { return null; } }
   function clearIds() { try { sessionStorage.removeItem(STORE_IDS); } catch (e) {} }
 
-  var orderInFlight = null;
+  var orderFlights = Object.create(null), orderAttempts = Object.create(null);
+  var STORE_ATTEMPTS = 'fa_ck_create_attempts_v1_' + CFG.env;
+  try {
+    var storedAttempts = JSON.parse(sessionStorage.getItem(STORE_ATTEMPTS) || '{}');
+    if (storedAttempts && typeof storedAttempts === 'object' && !Array.isArray(storedAttempts)) orderAttempts = storedAttempts;
+  } catch (e) {}
+  function saveOrderAttempts() { try { sessionStorage.setItem(STORE_ATTEMPTS, JSON.stringify(orderAttempts)); } catch (e) {} }
+  function hasEcommerceAttempt(staged) {
+    var signature = staged && staged.sel && orderSignature(staged.sel, staged.lead);
+    return !!(signature && orderAttempts[signature]);
+  }
   function createOrder(staged) {
     /* Snapshot the submitted buyer: editing details cannot retarget an in-flight request. */
     staged = { lead: Object.assign({}, staged.lead), sel: Object.assign({}, staged.sel, { capsules: (staged.sel.capsules || []).slice() }) };
@@ -313,21 +325,42 @@
     if (!signature) return Promise.reject(new Error('BUYER_IDENTITY_REQUIRED'));
     var existing = loadIds(staged.sel, staged.lead);
     if (existing) return Promise.resolve(existing);
-    if (orderInFlight && orderInFlight.signature === signature) return orderInFlight.promise;
+    if (orderFlights[signature]) return orderFlights[signature].promise;
+    var previous = orderAttempts[signature];
+    if (previous && previous.state === 'created' && previous.ids && previous.ids.stid && previous.ids.orderid &&
+        previous.ids.env === CFG.env && previous.ids.product === staged.sel.product &&
+        previous.ids.signature === signature && freshRecord(previous.ids)) return Promise.resolve(previous.ids);
+    if (previous && previous.state !== 'created') return Promise.reject(new Error('CREATE_OUTCOME_UNKNOWN'));
     var request = { signature: signature, promise: null };
-    orderInFlight = request;
+    orderFlights[signature] = request;
     request.promise = ipCountry().then(function (ip) {
       var payload = buildEcommPayload(staged.lead, staged.sel, ip);
+      /* Persist before sending. Refresh must not turn an unknown write into a new order.
+         This is tab-local containment, not server or cross-tab idempotency. */
+      orderAttempts[signature] = { state: 'pending', ts: Date.now() }; saveOrderAttempts();
       return post(relay('/api/lead/ecomm'), payload);
     }).then(function (r) {
-      if (r.status === 503 && r.body && r.body.error === 'ENV_NOT_CONFIGURED') throw new Error('ENV_NOT_CONFIGURED');
+      if (r.status === 503 && r.body && r.body.error === 'ENV_NOT_CONFIGURED') {
+        /* Relay explicitly rejected before CRM submission: reserve mode remains available. */
+        delete orderAttempts[signature]; saveOrderAttempts();
+        throw new Error('ENV_NOT_CONFIGURED');
+      }
       var b = r.body || {};
       var stid = b.StudentId || b.StudentID || b.studentId, oid = b.OrderId || b.OrderID || b.orderId;
-      if (!r.ok || !stid || !oid) throw new Error('LEAD_CREATE_FAILED');
-      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: signature };
-      if (orderInFlight === request) { saveIds(ids); orderInFlight = null; }
+      if (!r.ok || !stid || !oid) throw new Error('CREATE_OUTCOME_UNKNOWN');
+      var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: signature, ts: Date.now(), env: CFG.env };
+      orderAttempts[signature] = { state: 'created', ids: ids, ts: Date.now() }; saveOrderAttempts();
+      saveIds(ids);
+      delete orderFlights[signature];
       return ids;
-    }).catch(function (e) { if (orderInFlight === request) orderInFlight = null; throw e; });
+    }).catch(function (e) {
+      delete orderFlights[signature];
+      if (orderAttempts[signature] && orderAttempts[signature].state === 'pending') {
+        orderAttempts[signature].state = 'unknown'; saveOrderAttempts();
+        throw new Error('CREATE_OUTCOME_UNKNOWN');
+      }
+      throw e;
+    });
     return request.promise;
   }
   function fetchDetails(ids) {
@@ -360,24 +393,45 @@
     return post(relay('/api/checkout/payments/crm'), report);
   }
 
-  /* ---------- bundle: every capsule assigned to the SAME student (2026-10-23) ----------
+  /* ---------- bundle: extra course orders on the SAME student ----------
      The paid order carries the whole package price on the first capsule's course (unchanged).
      After the payment succeeds, each other capsule in the package is added to the same student
      (StudentId) as its own course order at DiscountPercent 100, so nothing more is billed.
-     Staging proof 2026-10-23: student 11674899, paid order 8054357 stays AmountToCharge 189 / 567;
-     attached order 8054358 (course 270) returns no amount and PaymentID -1 (nothing to charge).
-     Runs once per paid order (sessionStorage guard); never before payment. */
+     Creation success is NOT verified CRM class assignment. A generic PaymentID -1
+     quote does not establish assignment status. Guards here are tab-local only. */
   function bundleExtras(sel) {
     var p = product(sel.product); if (!p || p.kind !== 'capsules' || !(p.packs > 1)) return [];
     var keys = p.packs === 3 ? Object.keys(CFG.capsules) : (sel.capsules || []).slice();
     var first = (sel.capsules && sel.capsules[0]) || (p.packs === 3 ? 'fashion-art' : null);
     return keys.filter(function (k) { return k !== first && CFG.capsules[k] && CFG.capsules[k].crm; });
   }
+  var bundleFlights = Object.create(null), bundleRecords = Object.create(null);
   function attachBundleCourses(ids, sel, lead) {
+    if (!ids || !ids.stid || !ids.orderid) return Promise.resolve({ ok: true, attached: [] });
+    var key = CFG.env + '_' + ids.orderid + '_' + ids.stid;
+    var snapshotIds = Object.assign({}, ids), snapshotLead = lead && Object.assign({}, lead);
+    var snapshotSel = Object.assign({}, sel || {}, { capsules: ((sel || {}).capsules || []).slice() });
+    /* Queue callbacks for the same order; each reads the previous result before writing.
+       A queue (rather than returning a different selection's promise) preserves scope. */
+    var queued = (bundleFlights[key] || Promise.resolve()).then(function () {
+      return attachBundleCoursesOnce(snapshotIds, snapshotSel, snapshotLead);
+    });
+    var flight = queued.then(function (result) {
+      if (bundleFlights[key] === flight) delete bundleFlights[key];
+      return result;
+    }, function (e) {
+      if (bundleFlights[key] === flight) delete bundleFlights[key];
+      throw e;
+    });
+    bundleFlights[key] = flight;
+    return flight;
+  }
+  function attachBundleCoursesOnce(ids, sel, lead) {
     var extras = bundleExtras(sel || {});
     if (!ids || !ids.stid || !ids.orderid || !lead || !extras.length) return Promise.resolve({ ok: true, attached: [] });
-    var guardKey = 'fa_bundle_attached_' + CFG.env + '_' + ids.orderid, done = {};
-    try { done = JSON.parse(sessionStorage.getItem(guardKey) || '{}') || {}; } catch (e) {}
+    var guardKey = 'fa_bundle_attached_' + CFG.env + '_' + ids.orderid, done = bundleRecords[guardKey];
+    if (!done) { done = {}; try { done = JSON.parse(sessionStorage.getItem(guardKey) || '{}') || {}; } catch (e) {} }
+    bundleRecords[guardKey] = done;
     function save() { try { sessionStorage.setItem(guardKey, JSON.stringify(done)); } catch (e) {} }
     return ipCountry().then(function (ip) {
       return extras.reduce(function (chain, key) {
@@ -389,9 +443,10 @@
           payload.StudentId = Number(ids.stid);
           payload.FirstPayment = 0; payload.NumberOfPayments = 0; payload.LeftToPay = 0;
           payload.DiscountPercent = 100;
-          payload.DiscountReason = 'Culture Capsules bundle, paid on order ' + ids.orderid;
-          payload.DynamicParameters = ('fabundleprimaryorder=' + ids.orderid + '&fabundlecapsule=' + key + '&' + payload.DynamicParameters).slice(0, 4000);
-          function attempt(n) {
+          /* DiscountReason is an int32 enum, not a free-text field. */
+          delete payload.DiscountReason;
+          payload.DynamicParameters = ('fabundleprimaryorder=' + ids.orderid + '&fabundlecapsule=' + key + '&fabundlenote=' + encodeURIComponent('Culture Capsules bundle, paid on order ' + ids.orderid) + '&' + payload.DynamicParameters).slice(0, 4000);
+          function attempt() {
             /* A timed-out write may already exist in CRM. Never replay it blindly. */
             done['attempted_' + key] = true; save();
             return post(relay('/api/lead/ecomm'), payload).then(function (r) {
@@ -405,7 +460,7 @@
               save();
             });
           }
-          return attempt(1);
+          return attempt();
         });
       }, Promise.resolve());
     }).then(function () {
@@ -416,6 +471,7 @@
 
   /* Reserve mode: proven lead path, nothing charged. */
   function reserveViaLeads(staged, reason) {
+    if (hasEcommerceAttempt(staged)) return Promise.resolve({ ok: false, error: 'ECOMMERCE_ATTEMPT_EXISTS' });
     var lead = staged.lead, sel = staged.sel, p = product(sel.product);
     if (!window.eTeacherLeads || typeof window.eTeacherLeads.submit !== 'function') return Promise.resolve({ ok: false, error: 'leads_unavailable' });
     if (CFG.env === 'staging') { try { console.info('[FA checkout] staging: reserve lead NOT sent to production CRM', { product: sel.product, reason: reason }); } catch (e) {} return Promise.resolve({ ok: true, simulated: true }); }
@@ -777,7 +833,7 @@
   window.FA_CHECKOUT = { savings: savings, saveChip: saveChip,
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     setProduct: function (id) { lastProduct = String(id || ''); },
-    loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, fetchDetails: fetchDetails, validateDetails: validateDetails, validatePaymentAmounts: validatePaymentAmounts,
+    loadLead: loadLead, saveLead: saveLead, createOrder: createOrder, hasEcommerceAttempt: hasEcommerceAttempt, fetchDetails: fetchDetails, validateDetails: validateDetails, validatePaymentAmounts: validatePaymentAmounts,
     reportPayment: reportPayment, attachBundleCourses: attachBundleCourses, bundleExtras: bundleExtras, reserveViaLeads: reserveViaLeads, productImage: productImage, factRows: factRows, tuitionBand: tuitionBand, payMarks: payMarks, routeFor: routeFor, sumRows: sumRows, icon: ICON, progressHtml: progressHtml, titleParts: titleParts, clearIds: clearIds, track: track, eventId: eventId, acStage: acStage, fmt: fmt, fmt2: fmt2, h: h, promoGet: promoGet, promoApply: promoApply, promoClear: promoClear, promoFor: promoFor
   };
 })();
