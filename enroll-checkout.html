@@ -385,8 +385,23 @@
   }
 
   function showDone(method, pending){
-    /* Creating extra orders is not proof of course assignment. */
-    pending = pending || FA.bundleExtras(sel).length > 0;
+    /* Bundles: the extra capsules are created, class-assigned and read back by FA.attachBundleCourses (started in
+       trackPurchase). The confirmation stays confirmed; only a failed or unverified bundle result flips it to pending. */
+    var bundleExpected = FA.bundleExtras(sel).length > 0;
+    if (bundleExpected && !pending) {
+      var waited = 0, bundleTimer = setInterval(function(){
+        var r = window.FA_BUNDLE_RESULT; waited += 500;
+        if (r || waited >= 40000) {
+          clearInterval(bundleTimer);
+          if (!r || !r.ok) {
+            var box = $('fallbackBox'); if (!box || !box.querySelector('h2')) return;
+            box.querySelector('h2').textContent = 'Payment received. Enrollment confirmation pending.';
+            box.querySelector('.lead').textContent = 'Your payment succeeded. One of your capsules is still being confirmed by our enrollment system. Do not pay again. Contact ' + CFG.advisorEmail + ' with order #' + ids.orderid + '.';
+            box.setAttribute('role','alert');
+          }
+        }
+      }, 500);
+    }
     paid = true;
     try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
     $('payTabs').style.display = 'none'; $('cardBox').style.display = 'none'; $('paypalBox').style.display = 'none';
