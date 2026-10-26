@@ -309,7 +309,7 @@
 
   /* Verified buyer -> CRM student, independent of the quote (promo, package). Tab-local, per environment. */
   var STORE_STUDENT = 'fa_ck_student_v1';
-  function buyerKey(lead) { var e = String(lead && lead.email || '').trim().toLowerCase(), ph = String(lead && lead.phone || '').replace(/[^0-9]/g, ''); return e && ph ? e + '|' + ph : ''; }
+  function buyerKey(lead) { var b = buyerIdentity(lead); return b ? b[0] + '|' + b[1] : ''; }
   function knownStudentFor(lead) { try { var k = buyerKey(lead); if (!k) return ''; var o = JSON.parse(sessionStorage.getItem(STORE_STUDENT) || 'null'); return o && o.env === CFG.env && o.key === k && o.stid && (Date.now() - (o.ts || 0)) < 2 * 3600e3 ? String(o.stid) : ''; } catch (e) { return ''; } }
   function rememberStudent(lead, stid) { try { var k = buyerKey(lead); if (k && stid) sessionStorage.setItem(STORE_STUDENT, JSON.stringify({ key: k, stid: String(stid), env: CFG.env, ts: Date.now() })); } catch (e) {} }
   var orderFlights = Object.create(null), orderAttempts = Object.create(null);
