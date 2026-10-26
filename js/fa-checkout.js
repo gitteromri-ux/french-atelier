@@ -383,6 +383,7 @@
       return extras.reduce(function (chain, key) {
         return chain.then(function () {
           if (done[key]) return;
+          if (done['attempted_' + key] || done['err_' + key]) return;
           var one = Object.assign({}, sel, { capsules: [key].concat((sel.capsules || []).filter(function (c) { return c !== key; })) });
           var payload = buildEcommPayload(lead, one, ip);
           payload.StudentId = Number(ids.stid);
@@ -391,16 +392,17 @@
           payload.DiscountReason = 'Culture Capsules bundle, paid on order ' + ids.orderid;
           payload.DynamicParameters = ('fabundleprimaryorder=' + ids.orderid + '&fabundlecapsule=' + key + '&' + payload.DynamicParameters).slice(0, 4000);
           function attempt(n) {
+            /* A timed-out write may already exist in CRM. Never replay it blindly. */
+            done['attempted_' + key] = true; save();
             return post(relay('/api/lead/ecomm'), payload).then(function (r) {
               var b = r.body || {}, sid = String(b.StudentId || b.StudentID || ''), oid = b.OrderId || b.OrderID;
               if (r.ok && oid && sid === String(ids.stid)) { done[key] = String(oid); save(); return; }
               if (r.ok && oid) { done['err_' + key] = 'student_mismatch_' + sid; save(); return; } /* never retry onto another student */
-              if (n < 3) return new Promise(function (ok) { setTimeout(ok, 2000 * n); }).then(function () { return attempt(n + 1); });
               done['err_' + key] = r.status || 'network';
+              save();
             }, function (e) {
-              /* The CRM can be slow; retry. A rare duplicate is a second $0 course order on the same student. */
-              if (n < 3) return new Promise(function (ok) { setTimeout(ok, 2000 * n); }).then(function () { return attempt(n + 1); });
               done['err_' + key] = String(e && e.message || e);
+              save();
             });
           }
           return attempt(1);

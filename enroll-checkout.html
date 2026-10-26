@@ -276,7 +276,7 @@
 <script src="js/fa-phone-validation.js?v=20261021-polish"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
 <script src="js/fa-checkout-config.js?v=20261023-test1"></script>
-<script src="js/fa-checkout.js?v=20261024-golden2"></script>
+<script src="js/fa-checkout.js?v=20261026-write-guard"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -385,6 +385,8 @@
   }
 
   function showDone(method, pending){
+    /* Creating extra orders is not proof of course assignment. */
+    pending = pending || FA.bundleExtras(sel).length > 0;
     paid = true;
     try { if (dropIn && dropIn.destroy) dropIn.destroy(); } catch(e){}
     $('payTabs').style.display = 'none'; $('cardBox').style.display = 'none'; $('paypalBox').style.display = 'none';
@@ -408,7 +410,8 @@
     status('');
     $('fallbackBox').style.display = ''; $('fallbackBox').className = 'fa-pay-fallback';
     $('fallbackBox').innerHTML = '<strong>Reserving your seat…</strong>';
-    FA.reserveViaLeads(staged, reason).then(function(r){
+    /* An existing ecommerce record must never generate a second lead on fallback. */
+    (ids ? Promise.resolve({ ok: true, existing: true }) : FA.reserveViaLeads(staged, reason)).then(function(r){
       if (r && r.ok) {
         $('fallbackBox').innerHTML = '<strong>Your seat is reserved, ' + FA.h(staged.lead.firstName) + '.</strong> ' + friendly + ' Nothing has been charged. A French Atelier advisor will confirm your enrollment in <strong>' + FA.h(FA.productTitle(sel)) + '</strong> at <strong>' + FA.fmt2(p.firstPayment) + ' today</strong> (' + p.numberOfPayments + ' payments, ' + FA.fmt2(p.total) + ' total) and send your secure payment link.<br><br><a class="btn btn-gold" href="index.html">Back to The French Atelier</a>';
         /* No Meta 'Lead' (ecommerce only, as in Golden). */
