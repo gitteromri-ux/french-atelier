@@ -307,6 +307,11 @@
   function loadIds(sel, lead) { try { var o = JSON.parse(sessionStorage.getItem(STORE_IDS) || 'null'), signature = orderSignature(sel, lead); return o && signature && o.stid && o.orderid && o.product === sel.product && o.env === CFG.env && o.signature === signature && freshRecord(o) ? o : null; } catch (e) { return null; } }
   function clearIds() { try { sessionStorage.removeItem(STORE_IDS); } catch (e) {} }
 
+  /* Verified buyer -> CRM student, independent of the quote (promo, package). Tab-local, per environment. */
+  var STORE_STUDENT = 'fa_ck_student_v1';
+  function buyerKey(lead) { var e = String(lead && lead.email || '').trim().toLowerCase(), ph = String(lead && lead.phone || '').replace(/[^0-9]/g, ''); return e && ph ? e + '|' + ph : ''; }
+  function knownStudentFor(lead) { try { var k = buyerKey(lead); if (!k) return ''; var o = JSON.parse(sessionStorage.getItem(STORE_STUDENT) || 'null'); return o && o.env === CFG.env && o.key === k && o.stid && (Date.now() - (o.ts || 0)) < 2 * 3600e3 ? String(o.stid) : ''; } catch (e) { return ''; } }
+  function rememberStudent(lead, stid) { try { var k = buyerKey(lead); if (k && stid) sessionStorage.setItem(STORE_STUDENT, JSON.stringify({ key: k, stid: String(stid), env: CFG.env, ts: Date.now() })); } catch (e) {} }
   var orderFlights = Object.create(null), orderAttempts = Object.create(null);
   var STORE_ATTEMPTS = 'fa_ck_create_attempts_v1_' + CFG.env;
   try {
@@ -335,6 +340,12 @@
     orderFlights[signature] = request;
     request.promise = ipCountry().then(function (ip) {
       var payload = buildEcommPayload(staged.lead, staged.sel, ip);
+      /* 2026-10-26: same buyer (email+phone), new quote (promo / package change) -> reuse the student.
+         StudentId on AddNewECommerceLeadAndOrder attaches the new order to that student (proven on staging
+         with the bundle extras); without it the CRM opens another student record. OrderId is never reused:
+         that would overwrite the first order's course. */
+      var known = knownStudentFor(staged.lead);
+      if (known) payload.StudentId = Number(known);
       /* Persist before sending. Refresh must not turn an unknown write into a new order.
          This is tab-local containment, not server or cross-tab idempotency. */
       orderAttempts[signature] = { state: 'pending', ts: Date.now() }; saveOrderAttempts();
@@ -351,6 +362,7 @@
       var ids = { stid: String(stid), orderid: String(oid), product: staged.sel.product, signature: signature, ts: Date.now(), env: CFG.env };
       orderAttempts[signature] = { state: 'created', ids: ids, ts: Date.now() }; saveOrderAttempts();
       saveIds(ids);
+      rememberStudent(staged.lead, ids.stid);
       delete orderFlights[signature];
       return ids;
     }).catch(function (e) {
@@ -436,7 +448,7 @@
     return ipCountry().then(function (ip) {
       return extras.reduce(function (chain, key) {
         return chain.then(function () {
-          if (done[key]) return;
+          if (done[key]) return assignExtra(key, done[key]);
           if (done['attempted_' + key] || done['err_' + key]) return;
           var one = Object.assign({}, sel, { capsules: [key].concat((sel.capsules || []).filter(function (c) { return c !== key; })) });
           var payload = buildEcommPayload(lead, one, ip);
@@ -446,12 +458,28 @@
           /* DiscountReason is an int32 enum, not a free-text field. */
           delete payload.DiscountReason;
           payload.DynamicParameters = ('fabundleprimaryorder=' + ids.orderid + '&fabundlecapsule=' + key + '&fabundlenote=' + encodeURIComponent('Culture Capsules bundle, paid on order ' + ids.orderid) + '&' + payload.DynamicParameters).slice(0, 4000);
+          function assignExtra(capKey, extraOrderId) {
+            /* Class assignment for the $0 extra order: the paid order gets its class from the payment report;
+               the extras have no payment, so they stay "Registration -> new" unless assigned here.
+               POST /Students/ProfileInfo (documented: StudentID, OrderID, SecondaryCourseID, AssignNotes), then read back. */
+            if (done['assigned_' + capKey]) return;
+            var cls = CFG.capsules && CFG.capsules[capKey] && CFG.capsules[capKey].crm && CFG.capsules[capKey].crm.preferredCourseId;
+            if (!cls) { done['assign_err_' + capKey] = 'no_class_configured'; save(); return; }
+            var body = { StudentID: Number(ids.stid), OrderID: Number(extraOrderId), SecondaryCourseID: Number(cls), AssignNotes: 'Culture Capsules bundle, paid on order ' + ids.orderid };
+            return post(relay('/api/checkout/assign'), body).then(function (a) {
+              if (!(a.status === 204 || a.ok)) { done['assign_err_' + capKey] = a.status || 'network'; save(); return; }
+              return post(relay('/api/checkout/assign/read'), { orderId: Number(extraOrderId) }).then(function (rb) {
+                var left = rb && rb.body && rb.body.AvailableClasses;
+                done['assigned_' + capKey] = { cls: cls, status: a.status, readback: Array.isArray(left) ? left.length : null, ts: Date.now() }; save();
+              }, function () { done['assigned_' + capKey] = { cls: cls, status: a.status, readback: null, ts: Date.now() }; save(); });
+            }, function (e) { done['assign_err_' + capKey] = String(e && e.message || e); save(); });
+          }
           function attempt() {
             /* A timed-out write may already exist in CRM. Never replay it blindly. */
             done['attempted_' + key] = true; save();
             return post(relay('/api/lead/ecomm'), payload).then(function (r) {
               var b = r.body || {}, sid = String(b.StudentId || b.StudentID || ''), oid = b.OrderId || b.OrderID;
-              if (r.ok && oid && sid === String(ids.stid)) { done[key] = String(oid); save(); return; }
+              if (r.ok && oid && sid === String(ids.stid)) { done[key] = String(oid); save(); return assignExtra(key, String(oid)); }
               if (r.ok && oid) { done['err_' + key] = 'student_mismatch_' + sid; save(); return; } /* never retry onto another student */
               done['err_' + key] = r.status || 'network';
               save();
@@ -465,7 +493,8 @@
       }, Promise.resolve());
     }).then(function () {
       var attached = extras.filter(function (k) { return done[k]; });
-      return { ok: attached.length === extras.length, attached: attached.map(function (k) { return { capsule: k, orderid: done[k] }; }), expected: extras };
+      var assigned = extras.filter(function (k) { return done['assigned_' + k]; });
+      return { ok: attached.length === extras.length && assigned.length === extras.length, attached: attached.map(function (k) { return { capsule: k, orderid: done[k], assigned: done['assigned_' + k] || null }; }), expected: extras };
     }).catch(function (e) { return { ok: false, error: String(e && e.message || e), expected: extras }; });
   }
 
