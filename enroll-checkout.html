@@ -17,9 +17,8 @@
 <link rel="preconnect" href="https://fa-leads-proxy.vercel.app" crossorigin>
 <link rel="preload" as="script" href="https://checkout.airwallex.com/assets/elements.bundle.min.js">
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
-<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
-<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1790665240">
+<link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
 <link rel="stylesheet" href="css/fa-checkout.css?v=20261020a">
@@ -28,6 +27,9 @@
 <link rel="stylesheet" href="css/fa-checkout-refinement.css?v=20261021-polish">
 <link rel="stylesheet" href="css/fa-pop.css?v=20261020a">
 <link rel="stylesheet" href="css/fa-type.css?v=20261020a">
+<link rel="stylesheet" href="css/fa-capsules-mobile-pack.css?v=20261030-m1">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body id="fa" class="light-hero">
 
@@ -161,7 +163,7 @@
   <div class="wrap">
     <ol class="fa-ck-progress fa-pay-progress" aria-label="Checkout steps"><li class="fa-ck-step is-done"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Register</span></li><li class="fa-ck-step is-done"><i><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Your course</span></li><li class="fa-ck-step is-on" aria-current="step"><i>3</i><span>Secure payment</span></li></ol>
     <div class="fa-pay-plan" id="payPlan"><span class="k">Your plan</span><strong id="payPlanV">&mdash;</strong><div class="s" id="payPlanS"></div></div>
-    <div class="fa-secure-assurance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><div><strong>Secure payment</strong><span>Your payment is securely processed by eTeacher Group.</span></div></div>
+    <div class="fa-secure-assurance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><div><strong>Secure payment</strong><span>The French Atelier by Acadomia &middot; payment securely processed by our partner eTeacher Group. The name eTeacher Group will appear on your card statement.</span></div></div>
     <div class="fa-pay-grid">
       <div class="fa-pay-main">
         <div class="fa-pay-card fa-pay-course" id="payCourse">
@@ -267,16 +269,16 @@
     <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2026. All Rights Reserved.</p>
   </div>
 </footer>
-<script src="js/fa.js?v=1790665240" defer></script>
+<script src="js/fa.js?v=20261030-m1" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 <script src="js/fa-attribution.js?v=20261024-1"></script>
 <script>try{window.FA_ATTR&&FA_ATTR.capture();}catch(e){}</script>
 <script src="js/fa-meta-tracking.js?v=20261024-golden2"></script>
 <script src="js/vendor/libphonenumber-max.js?v=1.13.15"></script>
-<script src="js/fa-phone-validation.js?v=20261021-polish"></script>
+<script src="js/fa-phone-validation.js?v=20261030-m1"></script>
 <script src="js/fa-geo.js?v=20261021-polish"></script>
-<script src="js/fa-checkout-config.js?v=20261023-test1"></script>
-<script src="js/fa-checkout.js?v=20261026-bundle-assign2"></script>
+<script src="js/fa-checkout-config.js?v=20261030-m1"></script>
+<script src="js/fa-checkout.js?v=20261030-m1"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
 <script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
 <script>
@@ -428,7 +430,9 @@
     /* Unknown creation is not a confirmed reservation, and must not create a queue lead. */
     if (!ids && (reason === 'CREATE_OUTCOME_UNKNOWN' || reason === 'LEAD_CREATE_FAILED' ||
         (FA.hasEcommerceAttempt && FA.hasEcommerceAttempt(Object.assign({}, staged, { sel: Object.assign({}, staged.sel, sel) }))))) {
-      $('fallbackBox').innerHTML = '<strong>Your enrollment request needs confirmation.</strong> We could not confirm whether our enrollment system created your order, so we have not submitted another request. No payment was initiated on this page. Please contact <a href="mailto:' + CFG.advisorEmail + '">' + CFG.advisorEmail + '</a> before starting another checkout.';
+      /* 2026-10-30: same rule (never a second creation request), warmer and actionable wording. */
+      var waHref = 'https://wa.me/15557947802?text=' + encodeURIComponent('Hello, I was enrolling in ' + FA.productTitle(sel) + ' on frenchatelierlive.com and the page asked me to confirm my enrollment. My email: ' + (staged.lead.email || ''));
+      $('fallbackBox').innerHTML = '<strong>' + FA.h(staged.lead.firstName || 'Hello') + ', your details are saved and nothing has been charged.</strong> Our enrollment system was slow to answer, so to avoid creating a duplicate order we paused here instead of sending it again. An advisor will confirm your <strong>' + FA.h(FA.productTitle(sel)) + '</strong> enrollment and send you a secure payment link.<br><br>Prefer to finish now? <a class="btn btn-gold" href="' + waHref + '" target="_blank" rel="noopener">Message us on WhatsApp</a> &nbsp; or email <a href="mailto:' + CFG.advisorEmail + '">' + CFG.advisorEmail + '</a>. Please do not start another checkout.';
       return;
     }
     /* An existing ecommerce record must never generate a second lead on fallback. */

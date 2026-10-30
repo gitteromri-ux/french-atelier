@@ -70,7 +70,11 @@
   // including Julien character clips (.jul-video, .jul-vid-card, .pm-main, .pm-sm),
   // even ones that mount below the fold (IntersectionObserver kicks them off).
   var ambient=[].slice.call(document.querySelectorAll('video[autoplay], video[muted], .video-bg video, .video-frame video, .video-band video, .jul-video-frame video, .jul-vid-card video, .pm-main video, .pm-sm video'));
-  ambient.forEach(function(v){ v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.loop=true; v.play().catch(function(){}); });
+  // 2026-10-30: clips marked preload="none" (and the Capsules hero reel, owned by fa-capsules.js) are never
+  // force-started here; they play only when their own script or the IntersectionObserver asks for it.
+  function lazyClip(v){ return v.getAttribute('preload')==='none' || !!(v.closest && v.closest('.kps-hero')); }
+  ambient=ambient.filter(function(v){ return !(v.closest && v.closest('.kps-hero')); });
+  ambient.forEach(function(v){ v.muted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.loop=true; if(!lazyClip(v)) v.play().catch(function(){}); });
   if('IntersectionObserver' in window && ambient.length){
     var vio=new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ e.target.play().catch(function(){}); } });
@@ -133,7 +137,7 @@
       // ensure autoplay actually fires (muted is required by browsers)
       v.muted=true; v.setAttribute('muted','');
       v.setAttribute('playsinline','');
-      if(v.play){ var p=v.play(); if(p&&p.catch){ p.catch(function(){}); } }
+      if(v.play && !(v.getAttribute('preload')==='none' || (v.closest && v.closest('.kps-hero')))){ var p=v.play(); if(p&&p.catch){ p.catch(function(){}); } }
       applyRate(v);
     });
   })();

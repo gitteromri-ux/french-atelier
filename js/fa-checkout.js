@@ -186,7 +186,8 @@
     attempt = attempt || 1;
     var creation = /\/api\/lead\/ecomm\/?(?:[?#]|$)/i.test(url);
     var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    var timeout = controller ? setTimeout(function(){ controller.abort(); }, 20000) : null;
+    /* 2026-10-30: 45 s. Staging order creation measured at 12.6 s; a slow CRM minute must not become an unknown outcome. */
+    var timeout = controller ? setTimeout(function(){ controller.abort(); }, 45000) : null;
     return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), signal: controller ? controller.signal : undefined })
       .finally(function(){ if (timeout) clearTimeout(timeout); })
       .then(function (r) { return r.text().then(function (t) { var j = null; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, status: r.status, body: j, raw: t }; }); })
@@ -210,7 +211,10 @@
   try { localStorage.removeItem('fa_promo_v1'); } catch (e) {}
   function promoLive(def) { return !!def && (def.until === undefined || (def.until > 0 && Date.now() < def.until)); }
   function promoGet() { try { var o = JSON.parse(sessionStorage.getItem(STORE_PROMO) || 'null'); if (!o || o.source !== 'manual' || !CFG.promos || !CFG.promos[o.code]) return null; if (!promoLive(CFG.promos[o.code])) { sessionStorage.removeItem(STORE_PROMO); return null; } if (o.exp && Date.now() > o.exp) { sessionStorage.removeItem(STORE_PROMO); return null; } return { code: o.code, exp: o.exp, def: CFG.promos[o.code] }; } catch (e) { return null; } }
-  function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def || !promoLive(def)) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
+  function promoApply(code, source) { if (source !== 'manual') return null; code = String(code || '').trim().toUpperCase().replace(/\s+/g, ''); var def = CFG.promos && CFG.promos[code]; if (!def || !promoLive(def)) return null; var cur = promoGet(); var exp = cur && cur.code === code ? cur.exp : Date.now() + (def.days || 7) * 864e5; if (def.until && exp > def.until) exp = def.until; try { sessionStorage.setItem(STORE_PROMO, JSON.stringify({ code: code, exp: exp, source: 'manual' })); } catch (e) {} return { code: code, exp: exp, def: def }; }
+  /* 2026-10-30: visitors who arrived from the campaign get CAPSULE20 pre-filled in the step-2 field. It is still
+     applied only by the explicit Apply tap, so the quote never changes under an existing order. */
+  function adCode() { try { var a = window.FA_CAPSULE_ACCESS; var def = CFG.promos && CFG.promos.CAPSULE20; return a && a.allowed && !a.preview && def && promoLive(def) ? 'CAPSULE20' : ''; } catch (e) { return ''; } }
   function promoClear() { try { sessionStorage.removeItem(STORE_PROMO); } catch (e) {} window.dispatchEvent(new Event('fa:quotechange')); }
   function promoFor(id) { var pr = promoGet(); return pr && pr.def.applies.indexOf(id) > -1 ? pr : null; }
   function product(id) {
@@ -682,8 +686,11 @@
       '<div class="fa-ck-row two">' + field('fa-ck-fn', 'First name', '<input id="fa-ck-fn" autocomplete="given-name" autocapitalize="words" required placeholder="Camille" value="' + h(lead.firstName || '') + '">') +
         field('fa-ck-ln', 'Last name', '<input id="fa-ck-ln" autocomplete="family-name" autocapitalize="words" required placeholder="Durand" value="' + h(lead.lastName || '') + '">') + '</div>' +
       field('fa-ck-em', 'Email', '<input id="fa-ck-em" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required placeholder="camille@example.com" value="' + h(lead.email || '') + '">') +
-      field('fa-ck-co', 'Country', '<select id="fa-ck-co" autocomplete="country">' + countryOptions(iso0) + '</select>') +
-      '<div class="fa-ck-row two">' + field('fa-ck-ph', 'Mobile number', '<div class="fa-ck-tel"><span class="fa-ck-dial" id="fa-ck-dial">+1</span><input id="fa-ck-ph" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="(212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div>') +
+      field('fa-ck-ph', 'Mobile number', '<div class="fa-ck-tel"><span class="fa-ck-dial" id="fa-ck-dial">+1</span><input id="fa-ck-ph" type="tel" autocomplete="tel-national" inputmode="tel" required placeholder="(212) 555-0147" value="' + h(lead.phoneRaw || '') + '"></div>') +
+      /* 2026-10-30: country and state are detected (IP, area code) and shown as one line with "Change";
+         the selects stay in the DOM so the CRM receives exactly the same fields as before. */
+      '<p class="fa-ck-auto" id="fa-ck-auto" hidden><span id="fa-ck-auto-txt"></span> <button type="button" class="fa-ck-auto-change" id="fa-ck-auto-change">Change</button></p>' +
+      '<div class="fa-ck-row two fa-ck-locrow" id="fa-ck-locrow">' + field('fa-ck-co', 'Country', '<select id="fa-ck-co" autocomplete="country">' + countryOptions(iso0) + '</select>') +
         field('fa-ck-st', 'State', '<select id="fa-ck-st" autocomplete="address-level1">' + stateOptions() + '</select>', iso0 === 'US' ? '' : 'is-hidden') + '</div>' +
       '<label class="fa-ck-consent"><input type="checkbox" id="fa-ck-sms"' + (lead.consent === false ? '' : ' checked') + '><span>I agree to receive a call, SMS and email from The French Atelier by Acadomia about my enrollment. Message frequency varies, message and data rates may apply.</span></label>' +
       '<p class="fa-ck-error" hidden></p>' +
@@ -697,7 +704,7 @@
     function syncDial() { var g = GEO.BY_ISO[co.value]; dial.textContent = g ? '+' + g.dial : '+'; stWrap.classList.toggle('is-hidden', co.value !== 'US'); ph.placeholder = nanp() ? '(212) 555-0147' : 'Mobile number'; if (nanp() && ph.value) ph.value = fmtNanp(ph.value); }
     if (lead.stateCode) st.value = lead.stateCode;
     syncDial();
-    if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } });
+    if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} });
     var rules = {
       'fa-ck-fn': function () { return $f('fa-ck-fn').value.trim() ? '' : 'Please enter your first name.'; },
       'fa-ck-ln': function () { return $f('fa-ck-ln').value.trim() ? '' : 'Please enter your last name.'; },
@@ -721,15 +728,38 @@
       if (el.value) mark(id, false);
     });
     co.addEventListener('change', function () { syncDial(); if (ph.value) mark('fa-ck-ph', true); mark('fa-ck-st', false); });
-    var stateTouched = false; st.addEventListener('change', function () { stateTouched = true; });
+    var stateTouched = false; st.addEventListener('change', function () { stateTouched = true; autoLine(); });
+    /* Folded location line: "United States · New York  Change". Opens the real selects on tap or when detection is incomplete. */
+    var locRow = $f('fa-ck-locrow'), autoP = $f('fa-ck-auto'), autoTxt = $f('fa-ck-auto-txt'), autoBtn = $f('fa-ck-auto-change'), locOpen = false;
+    function autoLine() {
+      if (!locRow || !autoP) return;
+      var g = GEO.BY_ISO[co.value], digits = String(ph.value || '').replace(/\D/g, ''), stName = co.value === 'US' ? GEO.US_STATES[st.value] : '';
+      /* Unfold when the visitor asked for it, when the country is unknown, or when a full US number gave no state. */
+      var unfold = locOpen || !g || (co.value === 'US' && !stName && digits.length >= 10);
+      if (unfold) { locRow.classList.remove('is-folded'); autoP.hidden = true; return; }
+      autoTxt.textContent = g.name + (stName ? ' · ' + stName : '');
+      locRow.classList.add('is-folded'); autoP.hidden = false;
+    }
+    if (autoBtn) autoBtn.addEventListener('click', function () { locOpen = true; autoLine(); try { (co.value === 'US' ? st : co).focus(); } catch (x) {} });
+    co.addEventListener('change', autoLine);
+    autoLine();
     ph.addEventListener('input', function () {
       if (nanp()) { var end = ph.selectionStart === ph.value.length; var f = fmtNanp(ph.value); if (end && f !== ph.value) ph.value = f; }
       if (co.value === 'US' && !stateTouched) { var s = GEO.stateForPhone(ph.value); if (s && GEO.US_STATES[s]) { st.value = s; mark('fa-ck-st', false); } }
+      autoLine();
     });
     body.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
+      /* 2026-10-30: the phone library loads lazily on phones; if it is still arriving, wait for it (max 8 s) and resubmit. */
+      if (!window.libphonenumber) {
+        var errP = body.querySelector('.fa-ck-error'), btnS = body.querySelector('.fa-ck-submit'), waited = 0;
+        if (!document.querySelector('script[src*="libphonenumber-max"]')) { var sc = document.createElement('script'); sc.src = assetBase() + 'js/vendor/libphonenumber-max.js?v=1.13.15'; sc.async = true; document.head.appendChild(sc); }
+        if (btnS) btnS.disabled = true; if (errP) { errP.hidden = false; errP.textContent = 'One moment, checking your number…'; }
+        var tick = setInterval(function () { waited += 200; if (window.libphonenumber || waited >= 8000) { clearInterval(tick); if (btnS) btnS.disabled = false; if (errP) { errP.hidden = true; errP.textContent = ''; } if (window.libphonenumber) { var f = body.querySelector('form'); if (f) f.dispatchEvent(new Event('submit', { cancelable: true })); } else mark('fa-ck-ph', true); } }, 200);
+        return;
+      }
       var bad = Object.keys(rules).filter(function (id) { return !(id === 'fa-ck-st' && co.value !== 'US') && !mark(id, true); });
-      if (bad.length) { var first = $f(bad[0]); first.focus(); try { first.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (x) {} return; }
+      if (bad.length) { if (bad.indexOf('fa-ck-st') > -1 || bad.indexOf('fa-ck-co') > -1) { locOpen = true; autoLine(); } var first = $f(bad[0]); first.focus(); try { first.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (x) {} return; }
       var iso = co.value, phone = GEO.toE164(ph.value, iso);
       var leadObj = { firstName: $f('fa-ck-fn').value.trim(), lastName: $f('fa-ck-ln').value.trim(), email: em.value.trim(), countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!$f('fa-ck-sms').checked };
       saveLead(leadObj, sel);
@@ -780,7 +810,7 @@
     html += '<div class="fa-ck-course"><div class="fa-ck-course-name" id="fa-ck-course-name">' + h(productTitle(sel)) + '</div>' + factRows(p) + tuitionBand(p) + (p.kind === 'capsules' ? '<p class="fa-ck-refund">' + ICON.check + '14-day full refund</p>' : '') + '</div>' +
       (p.kind === 'membership' ? '<p class="fa-ck-hint">Fashion &amp; Art has already started, you join the running capsule. Gastronomy &amp; Wine and Cinema &amp; Music start in November.</p>' : '') +
       '<div class="fa-ck-promo"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>' + (p.kind === 'course' ? 'Online offer applied · ' + (p.pct || 41) + '% off · ' + fmt2(p.firstPayment) + ' first month' : p.kind === 'membership' ? 'Membership price applied · $99 a month' : 'Package price: ' + fmt2(p.monthly) + ' per month for ' + p.packs + (p.packs === 1 ? ' capsule' : ' capsules')) + '</span></div>' +
-      (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">I have a promo code</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code"><button type="button" class="fa-ck-code-go" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +
+      (p.kind === 'capsules' ? '<div class="fa-ck-code" id="fa-ck-code">' + (p.promo ? '<div class="fa-ck-code-on"><span class="fa-ck-promo-k">' + ICON.check + '</span><span>Promo code <b>' + h(p.promo.code) + '</b> applied · ' + h(p.promo.label) + '</span><button type="button" class="fa-ck-code-x" id="fa-ck-code-rm">Remove</button></div>' : '<label class="fa-ck-code-lb" for="fa-ck-code-in">' + (adCode() ? 'Your 20% launch code is filled in. Tap Apply.' : 'I have a promo code') + '</label><div class="fa-ck-code-row"><input id="fa-ck-code-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter promo code" value="' + h(adCode()) + '"><button type="button" class="fa-ck-code-go' + (adCode() ? ' is-ready' : '') + '" id="fa-ck-code-go">Apply</button></div><p class="fa-ck-code-msg" id="fa-ck-code-msg" hidden></p>') + '</div>' : '') +
       '<p class="fa-ck-error" hidden></p>' +
       '<div class="fa-ck-go"><button type="button" class="fa-ck-submit" id="fa-ck-pay">' + ICON.lock + '<span>Continue to secure payment</span><span class="fa-ck-submit-amt">' + fmt2(p.firstPayment) + ' today</span>' + ICON.arrow + '</button></div>' +
       '<button type="button" class="fa-ck-back" id="fa-ck-back">&larr; Edit my details</button>' +
@@ -859,6 +889,8 @@
   /* ?buy=<product>&level=<level> deep link (e.g. from ads) */
   try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy'))) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
 
+  /* 2026-10-30: replay a buy-button tap that landed before this engine was ready (queued by the inline loader). */
+  setTimeout(function () { var pb = window.__faPendingBuy; if (!pb) return; window.__faPendingBuy = null; try { pb.classList.remove('is-waiting'); } catch (x) {} open(pb.getAttribute('data-fa-buy'), { level: pb.getAttribute('data-fa-level') || undefined, capsules: (pb.getAttribute('data-fa-capsules') || '').split(',').filter(Boolean) }); }, 0);
   window.FA_CHECKOUT = { savings: savings, saveChip: saveChip,
     config: CFG, open: open, close: close, product: product, productTitle: productTitle, crmCourseFor: crmCourseFor,
     setProduct: function (id) { lastProduct = String(id || ''); },

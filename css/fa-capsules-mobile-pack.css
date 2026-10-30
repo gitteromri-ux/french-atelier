@@ -1,0 +1,12 @@
+/* ==== css/fa-capsules-mobile-pack.css (2026-10-30) ==== */
+/* Folded location line in step 1: country + state detected, one tap to change. Selects stay in the DOM. */
+.fa-ck-locrow.is-folded{display:none!important}
+.fa-ck-auto{margin:-.25rem 0 1rem;font-size:.98rem;line-height:1.4;color:#5a5446;display:flex;gap:.55rem;align-items:center;flex-wrap:wrap}
+.fa-ck-auto::before{content:"";width:8px;height:8px;border-radius:50%;background:#2e9e5b;flex:0 0 auto}
+.fa-ck-auto-change{background:none;border:0;padding:0;margin:0;color:#8a6d1f;font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+/* Buy button tapped before the checkout engine finished loading: visible feedback, tap is replayed automatically. */
+.kpz-cta.is-waiting{opacity:.72;pointer-events:none;position:relative}
+.kpz-cta.is-waiting::after{content:"";position:absolute;right:14px;top:50%;width:16px;height:16px;margin-top:-8px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:fa-ck-spin .8s linear infinite}
+@keyframes fa-ck-spin{to{transform:rotate(360deg)}}
+/* Pre-filled launch code: the Apply button reads as the next step. */
+.fa-ck-code-go.is-ready{background:#1d2a5a;color:#fff;border-color:#1d2a5a}

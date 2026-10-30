@@ -13,10 +13,13 @@
   }
   var base = /\/courses\//.test(location.pathname) ? '../' : '';
   var SEEN = 'fa_promo_seen_v1', HIDE = 'fa_strip_hide_v1';
-  function expiry() { var pr = FA.promoGet(); if (pr && pr.code === CODE) return pr.exp; var t; try { t = parseInt(localStorage.getItem(SEEN), 10); if (!t) { t = Date.now(); localStorage.setItem(SEEN, String(t)); } } catch (e) { t = Date.now(); } return t + (DEF.days || 7) * 864e5; }
+  /* 2026-10-30: a fixed campaign deadline (config until) replaces the per-visitor 7-day clock. */
+  function expiry() { if (DEF.until) return DEF.until; var pr = FA.promoGet(); if (pr && pr.code === CODE) return pr.exp; var t; try { t = parseInt(localStorage.getItem(SEEN), 10); if (!t) { t = Date.now(); localStorage.setItem(SEEN, String(t)); } } catch (e) { t = Date.now(); } return t + (DEF.days || 7) * 864e5; }
   function left(ms) { if (ms <= 0) return 'now'; var d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4), s = Math.floor(ms % 6e4 / 1e3); return (d ? d + 'd ' : '') + (h < 10 ? '0' : '') + h + 'h ' + (m < 10 ? '0' : '') + m + 'm' + (d ? '' : ' ' + (s < 10 ? '0' : '') + s + 's'); }
 
   /* ---- strip ---- */
+  /* 2026-10-30: once the fixed deadline has passed, the static 20% block under the prices goes too. */
+  if (DEF.until && Date.now() > DEF.until) { document.querySelectorAll('.kpz-promo').forEach(function (k) { k.remove(); }); }
   var hidden = false; try { hidden = sessionStorage.getItem(HIDE) === '1'; } catch (e) {}
   var exp = expiry();
   if (!hidden && exp > Date.now()) {

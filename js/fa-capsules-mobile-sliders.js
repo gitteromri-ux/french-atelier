@@ -1,21 +1,29 @@
 /* Culture Capsules mobile sliders (2026-10-23 v3).
    - Slider marker sits ABOVE each slider (tabs + "Swipe" hint), never only at the bottom.
-   - Prices start on the normal package (One capsule); swipe right for All three capsules, then Two.
-   - Prices one section higher (before the films) on mobile only. Desktop untouched. */
+   - 2026-10-30: prices start on All three capsules ($63 a month per capsule, as in the ads); swipe for One, then Two.
+   - Prices sit right under the three capsules (before How it works) on mobile only. Desktop untouched. */
 (function () {
   var mq = window.matchMedia('(max-width: 767px)');
-  var offers, watch, homeNext;
+  var offers, anchor, homeNext, allCard, oneCard;
 
+  /* 2026-10-30 mobile pack: on phones the prices sit directly under the three capsules (before "How it
+     works"), and the slider opens on "All three capsules" at $63 a month per capsule, the price the ads
+     quote. Desktop order and desktop card order are untouched. */
   function placeOffers() {
     offers = offers || document.getElementById('offers');
-    watch = watch || document.getElementById('watch');
-    if (!offers || !watch) return;
+    anchor = anchor || document.getElementById('how') || document.getElementById('watch');
+    if (!offers || !anchor) return;
     if (homeNext === undefined) homeNext = offers.nextElementSibling;
+    allCard = allCard || offers.querySelector('.kpz-card.kpz-all');
+    oneCard = oneCard || offers.querySelector('.kpz-card.kpz-one');
     if (mq.matches) {
-      if (offers.nextElementSibling !== watch) watch.parentNode.insertBefore(offers, watch);
-    } else if (homeNext && offers.nextElementSibling !== homeNext) {
-      homeNext.parentNode.insertBefore(offers, homeNext);
+      if (offers.nextElementSibling !== anchor) anchor.parentNode.insertBefore(offers, anchor);
+      if (allCard && oneCard && allCard.nextElementSibling !== oneCard) oneCard.parentNode.insertBefore(allCard, oneCard);
+    } else {
+      if (homeNext && offers.nextElementSibling !== homeNext) homeNext.parentNode.insertBefore(offers, homeNext);
+      if (allCard && oneCard && oneCard.nextElementSibling !== allCard) oneCard.parentNode.insertBefore(allCard, oneCard.nextElementSibling);
     }
+    var n = 0; offers.querySelectorAll('.kpz-card .kpz-num').forEach(function (el) { n += 1; el.textContent = (n < 10 ? '0' : '') + n; });
   }
 
   function goTo(track, card, smooth) {

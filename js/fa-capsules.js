@@ -16,14 +16,19 @@
     var vids=[].slice.call(hero.querySelectorAll('.bg video'));
     var pills=[].slice.call(hero.querySelectorAll('.kps-reel .kps-pill'));
     var idx=0, timer=null;
+    /* 2026-10-30 mobile pack: on phones only the opening clip plays; the other two worlds crossfade as
+       poster stills, so the 11 MB and 3 MB clips are never downloaded on cellular. Desktop unchanged. */
+    var phone = window.matchMedia && window.matchMedia('(max-width: 767px)').matches;
+    var first=vids.findIndex(function(v){return v.classList.contains('is-on');}); if(first<0) first=0;
+    /* Phones open on the lightest clip (2.4 MB Gastronomy world) instead of the 11 MB Cinema one; the reel still cycles all three as stills. */
+    if(phone){ var light=vids.findIndex(function(v){return v.getAttribute('data-theme')==='gastro';}); if(light>=0) first=light; }
     function show(i){
       idx=(i+vids.length)%vids.length;
-      vids.forEach(function(v,k){ var on=k===idx; v.classList.toggle('is-on',on); if(on){ v.currentTime=0; playSafe(v);} else { try{v.pause();}catch(e){} } });
+      vids.forEach(function(v,k){ var on=k===idx; v.classList.toggle('is-on',on); if(on){ if(!phone || k===first){ try{ v.currentTime=0; }catch(e){} playSafe(v);} } else { try{v.pause();}catch(e){} } });
       pills.forEach(function(p,k){ p.classList.toggle('is-on',k===idx); p.setAttribute('aria-selected',k===idx?'true':'false'); });
     }
     function arm(){ if(reduce) return; clearInterval(timer); timer=setInterval(function(){ show(idx+1); }, 7000); }
     pills.forEach(function(p,k){ p.addEventListener('click',function(){ show(k); arm(); }); });
-    var first=vids.findIndex(function(v){return v.classList.contains('is-on');}); if(first<0) first=0;
     vids.forEach(function(v){ v.muted=true; });
     show(first); arm();
     document.addEventListener('visibilitychange',function(){ if(document.hidden){ clearInterval(timer);} else { arm(); playSafe(vids[idx]); } });
@@ -38,19 +43,23 @@
     var vids=[].slice.call(rev.querySelectorAll('.kps-stage video'));
     var dots=[].slice.call(rev.querySelectorAll('.kps-stage .reel i'));
     if(!vids.length) return;
-    vids.forEach(loadSrc);
     var i=0;
     function go(n){
       i=n%vids.length;
-      vids.forEach(function(v,k){ var on=k===i; v.classList.toggle('is-on',on); if(on){ v.currentTime=0; playSafe(v);} else { try{v.pause();}catch(e){} } });
+      vids.forEach(function(v,k){ var on=k===i; v.classList.toggle('is-on',on); if(on){ loadSrc(v); try{ v.currentTime=0; }catch(e){} playSafe(v);} else { try{v.pause();}catch(e){} } });
       dots.forEach(function(d,k){ d.classList.toggle('is-on',k===i); });
     }
-    go(0);
-    clearInterval(stageTimers[rev.id]);
-    if(!reduce) stageTimers[rev.id]=setInterval(function(){ go(i+1); }, 7000);
+    function begin(){ go(0); clearInterval(stageTimers[rev.id]); if(!reduce) stageTimers[rev.id]=setInterval(function(){ go(i+1); }, 7000); }
+    /* 2026-10-30: nothing downloads until the reveal is actually on screen. */
+    var r=rev.getBoundingClientRect(), onScreen=r.bottom>0 && r.top<(window.innerHeight||800);
+    if(onScreen || !('IntersectionObserver' in window)){ begin(); return; }
+    if(stageTimers[rev.id+'_io']) return;
+    var io=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting;})){ io.disconnect(); stageTimers[rev.id+'_io']=null; if(rev.classList.contains('is-open')) begin(); } },{threshold:.05});
+    stageTimers[rev.id+'_io']=io; io.observe(rev);
   }
   function stageStop(rev){
     clearInterval(stageTimers[rev.id]);
+    if(stageTimers[rev.id+'_io']){ try{ stageTimers[rev.id+'_io'].disconnect(); }catch(e){} stageTimers[rev.id+'_io']=null; }
     rev.querySelectorAll('.kps-stage video').forEach(function(v){ try{v.pause();}catch(e){} });
   }
 

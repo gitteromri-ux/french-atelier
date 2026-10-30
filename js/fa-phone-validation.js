@@ -8,9 +8,12 @@
   } else {
     root.FA_PHONE = factory(root.libphonenumber);
   }
-}(typeof window !== 'undefined' ? window : globalThis, function (lib) {
+}(typeof window !== 'undefined' ? window : globalThis, function (libArg) {
   'use strict';
+  /* 2026-10-30: the vendored library may load after this file (lazy on mobile); resolve it per call. */
+  function current() { return libArg || (typeof window !== 'undefined' ? window.libphonenumber : undefined); }
   function validate(raw, iso, options) {
+    var lib = current();
     options = options || {};
     iso = String(iso || '').toUpperCase();
     if (!lib || typeof lib.parsePhoneNumberFromString !== 'function') {
@@ -45,6 +48,7 @@
   }
   function toE164(raw, iso, geo) {
     if (!geo || !geo.BY_ISO[iso]) return { ok: false, reason: 'unknown_country' };
+    var lib = current();
     var result = validate(raw, iso);
     // Some NANP selectors display +1 plus the territory's area code.
     // Retry ONLY a seven-digit local subscriber number rejected as invalid.

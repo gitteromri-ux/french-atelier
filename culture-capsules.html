@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <script src="js/fa-campaign-access.js?v=20261024-return1"></script>
+<script>
+/* Capsules mobile pack 2026-10-30: (a) phone library loads on first touch or when the page is idle, not before paint;
+   (b) a tap on a buy button before the checkout engine is ready is remembered and replayed, never lost. */
+(function(){
+  var done=false;function lib(){if(done)return;done=true;var s=document.createElement('script');s.src='js/vendor/libphonenumber-max.js?v=1.13.15';s.async=true;document.head.appendChild(s);}
+  ['touchstart','pointerdown','keydown'].forEach(function(t){document.addEventListener(t,lib,{once:true,passive:true,capture:true});});
+  window.addEventListener('load',function(){('requestIdleCallback' in window)?requestIdleCallback(lib,{timeout:4000}):setTimeout(lib,2500);});
+  document.addEventListener('click',function(e){if(window.FA_CHECKOUT)return;var el=e.target.closest&&e.target.closest('[data-fa-buy]');if(!el)return;e.preventDefault();window.__faPendingBuy=el;el.classList.add('is-waiting');},true);
+})();
+</script>
+
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
 <meta http-equiv="Pragma" content="no-cache">
@@ -16,9 +27,8 @@
 <link rel="preconnect" href="https://checkout.airwallex.com" crossorigin>
 <link rel="preconnect" href="https://fa-leads-proxy.vercel.app" crossorigin>
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
-<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
-<link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
-<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="css/mobile-fix.css?v=1790665240">
+<link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
 <link rel="stylesheet" href="css/fa-checkout.css?v=20261020a">
@@ -36,7 +46,10 @@
 <link rel="stylesheet" href="css/fa-capsules-refinement.css?v=20261021-polish">
 <link rel="stylesheet" href="css/fa-checkout-refinement.css?v=20261021-polish">
 <link rel="stylesheet" href="css/fa-capsules-mobile-sliders.css?v=20261023-s3">
-<link rel="stylesheet" href="css/fa-capsules-mobile-v5.css?v=20261025-m53">
+<link rel="stylesheet" href="css/fa-capsules-mobile-v5.css?v=20261030-m1">
+<link rel="stylesheet" href="css/fa-capsules-mobile-pack.css?v=20261030-m1">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body id="fa" class="cap-page">
 
@@ -132,9 +145,9 @@
 <!-- ===== HERO ===== -->
 <section class="kps-hero" id="top">
   <div class="bg">
-    <video data-theme="fashion" muted loop playsinline preload="auto" poster="assets/video/capsule-hero-couture-poster.jpg"><source src="assets/video/capsule-hero-couture.mp4" type="video/mp4"></video>
-    <video data-theme="gastro" muted loop playsinline preload="auto" poster="assets/video/capsule-hero-crayere-poster.jpg"><source src="assets/video/capsule-hero-crayere.mp4" type="video/mp4"></video>
-    <video class="is-on" data-theme="cinema" autoplay muted loop playsinline preload="auto" poster="assets/video/capsule-hero-garnier-poster.jpg"><source src="assets/video/capsule-hero-garnier.mp4" type="video/mp4"></video>
+    <video data-theme="fashion" muted loop playsinline preload="none" poster="assets/video/capsule-hero-couture-poster.jpg"><source src="assets/video/capsule-hero-couture.mp4" type="video/mp4"></video>
+    <video data-theme="gastro" muted loop playsinline preload="none" poster="assets/video/capsule-hero-crayere-poster.jpg"><source src="assets/video/capsule-hero-crayere.mp4" type="video/mp4"></video>
+    <video class="is-on" data-theme="cinema" muted loop playsinline preload="none" poster="assets/video/capsule-hero-garnier-poster.jpg"><source src="assets/video/capsule-hero-garnier.mp4" type="video/mp4"></video>
   </div>
   <div class="kps-wrap">
     <div class="kps-reel" role="tablist" aria-label="Three Culture Capsules">
@@ -523,21 +536,20 @@
   </div>
 </footer>
 
-<script src="js/fa.js?v=1790665240" defer></script>
+<script src="js/fa.js?v=20261030-m1" defer></script>
 <script src="js/fa-attribution.js?v=20261024-1"></script>
 <script>try{window.FA_ATTR&&FA_ATTR.capture();}catch(e){}</script>
 <script src="js/fa-meta-tracking.js?v=20261024-golden2"></script>
-<script src="js/vendor/libphonenumber-max.js?v=1.13.15" defer></script>
-<script src="js/fa-phone-validation.js?v=20261021-polish" defer></script>
+<script src="js/fa-phone-validation.js?v=20261030-m1" defer></script>
 <script src="js/fa-geo.js?v=20261021-polish" defer></script>
-<script src="js/fa-checkout-config.js?v=20261023-test1" defer></script>
-<script src="js/fa-checkout.js?v=20261026-bundle-assign2" defer></script>
+<script src="js/fa-checkout-config.js?v=20261030-m1" defer></script>
+<script src="js/fa-checkout.js?v=20261030-m1" defer></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
-<script src="js/fa-promo.js?v=20261021-refinement" defer></script>
+<script src="js/fa-promo.js?v=20261030-m1" defer></script>
 <script src="js/enroll-modal.js?v=20261021-display"></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
-<script src="js/fa-capsules.js?v=20261020a" defer></script>
+<script src="js/fa-capsules.js?v=20261030-m1" defer></script>
 <script src="js/fa-capsules-pricing.js?v=20261021-manual" defer></script>
-<script src="js/fa-capsules-mobile-sliders.js?v=20261023-s4" defer></script>
+<script src="js/fa-capsules-mobile-sliders.js?v=20261030-m1" defer></script>
 </body>
 </html>
