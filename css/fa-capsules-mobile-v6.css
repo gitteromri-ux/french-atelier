@@ -285,36 +285,6 @@ html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch .kps-sub, ht
   html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio br { display: none !important; }
 }
 
-/* ==== 2026-11-02 How it works: visual version (Omri 19:25) ==== */
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks { margin: 0 0 22px; padding: 22px 24px 20px; border-radius: 20px; background: #fff; border: 1px solid rgba(11,12,49,.08); box-shadow: 0 10px 30px rgba(0,0,31,.06); }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 14px; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-lbl { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; color: #0B0C31; line-height: 1; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-note { font-size: 1rem; color: #3f4160; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li { position: relative; height: 54px; border-radius: 12px; background: linear-gradient(90deg, #0B1340 0 76%, #6FC4FF 76% 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li b { color: #fff; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 600; line-height: 1; position: relative; left: -6%; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; font-size: .95rem; color: #3f4160; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend span { display: inline-flex; align-items: center; gap: 8px; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-wk-class { background: #0B1340; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-wk-qa { background: #6FC4FF; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { justify-content: flex-start !important; min-height: 0 !important; padding: 22px 20px 22px !important; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .ic { width: 34px; height: 34px; margin-bottom: 14px; display: block; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n { font-size: 3rem !important; line-height: .95 !important; margin: 0 0 8px !important; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n small { font-size: .95rem !important; margin-left: 4px; }
-html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .k { font-size: 1.1rem !important; font-weight: 600 !important; line-height: 1.2 !important; }
-@media (max-width: 767px) {
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks { padding: 18px 16px 16px; margin-bottom: 16px; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row { grid-template-columns: repeat(5, 1fr); gap: 7px; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li { height: 46px; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-lbl { font-size: 1.4rem; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-note { font-size: .95rem; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { padding: 16px 14px 16px !important; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .ic { width: 26px; height: 26px; margin-bottom: 10px; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n { font-size: 2.3rem !important; }
-  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .k { font-size: 1rem !important; }
-}
-
 /* ==== 2026-11-02 Pricing cards: premium 3D (Omri 19:30) ==== */
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card { position: relative; isolation: isolate; overflow: hidden !important; border-radius: 22px !important; background: linear-gradient(160deg, #142057 0%, #0B1340 48%, #060B2A 100%) !important; border: 1px solid rgba(255,255,255,.10) !important; box-shadow: 0 32px 70px -28px rgba(0,0,31,.75), 0 12px 28px -14px rgba(0,0,31,.45), inset 0 1px 0 rgba(255,255,255,.10) !important; color: #fff !important; transition: transform .35s ease, box-shadow .35s ease; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card::before { content: ""; position: absolute; inset: -40% auto auto -20%; width: 90%; height: 70%; background: radial-gradient(closest-side, rgba(111,196,255,.22), rgba(111,196,255,0)); z-index: -1; pointer-events: none; }
@@ -347,3 +317,25 @@ html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-cta { background: linear-gradient(180deg, #F0DFB6 0%, #D9BC85 100%) !important; color: #0B0C31 !important; box-shadow: 0 14px 30px -10px rgba(217,188,133,.65), inset 0 1px 0 rgba(255,255,255,.5) !important; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers { background: radial-gradient(120% 90% at 50% 0%, #1A2766 0%, #0D154A 45%, #060A28 100%) !important; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-reg { color: #E8D3A6 !important; }
+
+/* ==== 2026-11-02 Pricing: one colour per card (Omri 19:45) ==== */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one { background: linear-gradient(160deg, #142057 0%, #0B1340 48%, #060B2A 100%) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two { background: linear-gradient(160deg, #3A9BF0 0%, #2E8BE6 40%, #1B4FAE 100%) !important; border-color: rgba(255,255,255,.22) !important; box-shadow: 0 32px 70px -28px rgba(27,79,174,.8), 0 12px 28px -14px rgba(0,0,31,.45), inset 0 1px 0 rgba(255,255,255,.25) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two::before { background: radial-gradient(closest-side, rgba(255,255,255,.22), rgba(255,255,255,0)); }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-sub, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-unit { color: #E6F3FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-percap, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-inc { color: #FFF1CC !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-strike { color: rgba(255,255,255,.6) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-cta { background: linear-gradient(180deg, #FFFFFF 0%, #E9F3FF 100%) !important; color: #0B2A5E !important; box-shadow: 0 12px 26px -10px rgba(0,0,31,.5), inset 0 1px 0 #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li::before, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li i, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li svg { color: #fff !important; background: rgba(255,255,255,.18) !important; border-color: rgba(255,255,255,.45) !important; }
+/* featured: ivory with gold, dark type */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { background: linear-gradient(165deg, #FFFEFA 0%, #F8F1E3 55%, #EFE3CC 100%) !important; color: #0B0C31 !important; border: 1px solid rgba(201,169,107,.85) !important; box-shadow: 0 0 0 1px rgba(201,169,107,.25), 0 44px 90px -30px rgba(0,0,31,.75), 0 0 70px -10px rgba(232,211,166,.45), inset 0 1px 0 #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all::before { background: radial-gradient(closest-side, rgba(232,211,166,.55), rgba(232,211,166,0)); }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all::after { background: linear-gradient(90deg, rgba(201,169,107,0), rgba(201,169,107,.9), rgba(201,169,107,0)); }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-name, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-amt, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-cur, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-pay b, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li b { color: #0B0C31 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-sub, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-unit, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-pay, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-refund, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-foot { color: #3b3a52 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-strike { color: rgba(11,12,49,.4) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-percap, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-inc, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge { color: #8a6d1f !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li::before, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li i, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg { color: #8a6d1f !important; background: rgba(201,169,107,.18) !important; border-color: rgba(201,169,107,.5) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all hr, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-rule, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-refund, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-foot { border-color: rgba(11,12,49,.12) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all hr, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-rule { background: rgba(11,12,49,.12) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-cta { background: linear-gradient(180deg, #F0DFB6 0%, #D4B578 100%) !important; color: #0B0C31 !important; box-shadow: 0 14px 30px -10px rgba(201,169,107,.7), inset 0 1px 0 rgba(255,255,255,.6) !important; }
