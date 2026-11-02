@@ -1,0 +1,49 @@
+{
+  "checks": [
+    "app-icon-1024.png: (1024, 1024), RGB, pass",
+    "android-adaptive-foreground-1024.png: (1024, 1024), RGBA, pass",
+    "android-adaptive-background-1024.png: (1024, 1024), RGB, pass",
+    "splash-1024.png: (1024, 1024), RGBA, pass",
+    "android-notification-96.png: (96, 96), RGBA, pass",
+    "google-play-icon-512.png: (512, 512), RGB, pass",
+    "google-play-feature-1024x500.png: (1024, 500), RGB, pass",
+    "Adaptive foreground: all nonzero alpha pixels within 66% diameter safe circle; max radius 329.23px",
+    "Notification: every visible RGB pixel is pure white; genuine transparent background",
+    "Opaque icon/background corners are exact #000034",
+    "Parisian pink mark contains exact #F3D3D9 interior fill",
+    "Relative Markdown links checked; missing=0",
+    "App name: 14/30",
+    "iOS subtitle: 25/30",
+    "iOS keywords: 82/100",
+    "Google Play short description: 65/80",
+    "All packaged PNG/JPEG/WebP files decoded successfully"
+  ],
+  "store_copy": [
+    {
+      "field": "App name",
+      "text": "French Atelier",
+      "characters": 14,
+      "limit": 30
+    },
+    {
+      "field": "iOS subtitle",
+      "text": "French language & culture",
+      "characters": 25,
+      "limit": 30
+    },
+    {
+      "field": "iOS keywords",
+      "text": "learn french,lessons,speaking,vocabulary,pronunciation,conversation,culture,Julien",
+      "characters": 82,
+      "limit": 100
+    },
+    {
+      "field": "Google Play short description",
+      "text": "Learn French through language, culture and everyday conversation.",
+      "characters": 65,
+      "limit": 80
+    }
+  ],
+  "failures": [],
+  "julien_media_count": 39
+}

@@ -1,0 +1,186 @@
+[
+  {
+    "file": "app-icon-1024.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "visible_bbox": null
+  },
+  {
+    "file": "google-play-icon-512.png",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "visible_bbox": null
+  },
+  {
+    "file": "android-adaptive-foreground-1024.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      315,
+      244,
+      698,
+      780
+    ]
+  },
+  {
+    "file": "source-logo-white.png",
+    "size": [
+      527,
+      165
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      14,
+      14,
+      513,
+      151
+    ]
+  },
+  {
+    "file": "source-logo-navy.png",
+    "size": [
+      541,
+      167
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      14,
+      14,
+      527,
+      153
+    ]
+  },
+  {
+    "file": "splash-1024.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      255,
+      442,
+      768,
+      581
+    ]
+  },
+  {
+    "file": "login-wordmark-white.png",
+    "size": [
+      513,
+      139
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      0,
+      0,
+      513,
+      139
+    ]
+  },
+  {
+    "file": "login-wordmark-navy.png",
+    "size": [
+      513,
+      139
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      0,
+      0,
+      513,
+      139
+    ]
+  },
+  {
+    "file": "source-logo-gold.png",
+    "size": [
+      527,
+      165
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      14,
+      14,
+      513,
+      151
+    ]
+  },
+  {
+    "file": "android-adaptive-background-1024.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "visible_bbox": null
+  },
+  {
+    "file": "android-notification-96.png",
+    "size": [
+      96,
+      96
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      22,
+      14,
+      73,
+      82
+    ]
+  },
+  {
+    "file": "google-play-feature-1024x500.png",
+    "size": [
+      1024,
+      500
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "visible_bbox": null
+  }
+]

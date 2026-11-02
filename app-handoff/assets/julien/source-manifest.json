@@ -1,0 +1,688 @@
+{
+  "assets": [
+    {
+      "file": "originals/posters/julian-307-poster.webp",
+      "bytes": 60548,
+      "sha256": "7d8c16887484ccfe11cb22e3c084396fe622140249349f363c995e5208eed882",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-307-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 980,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-307.webm",
+      "bytes": 834249,
+      "sha256": "678359af7e64d4dcaafb66fb6c0e8737967ee446c81858e70c9257035c4b899a",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-307.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.533,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 720,
+          "height": 980,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:02.533000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-309-poster.webp",
+      "bytes": 68962,
+      "sha256": "4cb4e4bc6822a60f181f0efc1f597466f51a2e718642f133b04537e63f9e7dd6",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-309-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 980,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-309.webm",
+      "bytes": 950367,
+      "sha256": "77c438e088fdcc4549fd4911f8281d13e65d6b47ec3cb0a0a2b1da7f44b38225",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-309.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.166,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 720,
+          "height": 980,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:02.166000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-336-poster.webp",
+      "bytes": 69828,
+      "sha256": "af7b43664d9152e66b4c4ba7a4510ffedc53f752b0d896bc83430670b5fc220d",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-336-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 970,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-336.webm",
+      "bytes": 670853,
+      "sha256": "120a842abdeeaf9605cb972b6335fbf1f1fdba1232444a9707c93b70512d6dfc",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-336.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.292,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 720,
+          "height": 970,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:02.292000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-719-poster.webp",
+      "bytes": 58288,
+      "sha256": "27c15b204deb7d8d879350a2696a8912c9aa8c0f099015e1b9249d4ea149502f",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-719-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 980,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-719.webm",
+      "bytes": 1019722,
+      "sha256": "2bc098eddf49fe396131166e0e513fcc382c8634ce77e73137f4e2127feac8e1",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-719.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.666,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 720,
+          "height": 980,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:02.666000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-735-poster.webp",
+      "bytes": 58730,
+      "sha256": "51c098cd09d0b6aa85696fd072284d16641bddbd8c8b295170756c965987e30f",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 980,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-735.webm",
+      "bytes": 1474827,
+      "sha256": "5bb70fddc660b9db20f3db0995f6021cf63019eea1dbc7d95a4163de1308c002",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.066,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 900,
+          "height": 1224,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:03.066000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-base-poster.webp",
+      "bytes": 31714,
+      "sha256": "e072dfdc5afd7eadb526a5b69bf055c5a091e1142b16374608a2675ccb3f2cdf",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-base-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 760,
+      "height": 1022,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/posters/julian-base-still.webp",
+      "bytes": 34796,
+      "sha256": "204b05a3c69e5d0e0397b44d5cc3c664531bd34b7c7903349749a91538629e97",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-base-still.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 760,
+      "height": 1022,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/webm/julian-base.webm",
+      "bytes": 1263461,
+      "sha256": "7c70dca4dc337d72323b562432c4f76172161a8a90b639dc8b4946a078301bc0",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-base.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.366,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 760,
+          "height": 1022,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "alpha_mode": "1",
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "HANDLER_NAME": "VideoHandler",
+            "VENDOR_ID": "[0][0][0][0]",
+            "DURATION": "00:00:03.366000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/julian-kling2-poster.webp",
+      "bytes": 61722,
+      "sha256": "0cfd63387baf77f967ae45188d8f65cddd0aa92096e1b5565cfa7f513c9e76ef",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-kling2-poster.webp",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 966,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "originals/webm/julian-kling2.webm",
+      "bytes": 1802808,
+      "sha256": "0fdc99ebf331ea2d3532ef92423c5ce3cb616ed3897074342c096913e476844a",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-kling2.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 5.042,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 720,
+          "height": 966,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "ENCODER": "Lavc62.11.100 libvpx-vp9",
+            "ALPHA_MODE": "1",
+            "DURATION": "00:00:05.042000000"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/juliane-307.mp4",
+      "bytes": 121189,
+      "sha256": "8d6f71a46063e1f0deed89971a7f055d2bad16adf13ac083f931d8d068c3806c",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-307.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.533333,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 600,
+          "height": 816,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/juliane-309.mp4",
+      "bytes": 129994,
+      "sha256": "8af32fa30ec813566551814441e4aa20371fd8f074cfe1d2a9dcb7df38c8c32b",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-309.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.166667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 600,
+          "height": 816,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/juliane-336.mp4",
+      "bytes": 119618,
+      "sha256": "1dcd6ed03fc69f0f81ec1e14df012d07560e427cb279669d9b857fe894c51092",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-336.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.291667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 600,
+          "height": 808,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/juliane-719.mp4",
+      "bytes": 151290,
+      "sha256": "10300dccf65843e58f60b89689699f42de3422bc5df4155fffec107996706353",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-719.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.666667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 600,
+          "height": 816,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/juliane-735.mp4",
+      "bytes": 164734,
+      "sha256": "05ba4d6307def8068140a1cbb409d9757bf7d0a6f11095f2a687c102be7366e4",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-735.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.066667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 600,
+          "height": 816,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/posters/juliane-hero-2-poster.jpg",
+      "bytes": 38877,
+      "sha256": "a5b9f38cf014e701f0defe102971be185ccdbc12e0d2d6f0f8b2492ec2032b56",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-hero-2-poster.jpg",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 966,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/posters/juliane-hero-poster.jpg",
+      "bytes": 37540,
+      "sha256": "8cc389129ec18d6862b8587c3f44886b51db34af4d770b1864dac391e1dcf07b",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video/juliane-hero-poster.jpg",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "width": 720,
+      "height": 966,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/audio/alternate/julien-735.mp3",
+      "bytes": 75378,
+      "sha256": "6ce51c132ed94726d9bed58aab18668d61fb97f8c5f26867388a53a419fb6001",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/audio/julien-735.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.067007,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/mp4/julien-hero-master.mp4",
+      "bytes": 406995,
+      "sha256": "d7adfec6713520c50747df06236155ddc2a65d3ee037163e030d8741e96c226b",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-master/julien-hero-master.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.095011,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "pix_fmt": "yuv420p",
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/alternate/julien-lipsync.mp3",
+      "bytes": 50719,
+      "sha256": "0df2a90977d4a768861f90b672d3045bd0c9b6bb6ca6c81cd03d7c27b8f3dca7",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/audio/julien-lipsync.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.107914,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/site/julien-307.mp3",
+      "bytes": 31493,
+      "sha256": "c521eafcea7531945b0ac107b220bf429d6cef0de4a0031cd7f05adf44facc78",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/julien/audio/julien-307.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.550635,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/site/julien-309.mp3",
+      "bytes": 27732,
+      "sha256": "e7c9f86c8da784c4dc552001190990a91f6f1b3db489a99a36b5a55ba869fe48",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/julien/audio/julien-309.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.225556,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/site/julien-719.mp3",
+      "bytes": 33061,
+      "sha256": "2212c8284395d319a3fc1299f53e3e892842629b4ba5d68b55727c4b0a22765b",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/julien/audio/julien-719.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 2.689955,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/site/julien-735.mp3",
+      "bytes": 38076,
+      "sha256": "da956333b2dce732fa6fc0967307bc7be69736c61b894f30247f8a4bc52969db",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/julien/audio/julien-735.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 3.107914,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "originals/audio/site/julien_intro_fr.mp3",
+      "bytes": 307724,
+      "sha256": "e94ef3548ec6350175c362431bd2258cf944d7bf19314012a726027ef6f87495",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/julien/audio/julien_intro_fr.mp3",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "duration_seconds": 15.290958,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    {
+      "file": "stills/julien-portrait-640.png",
+      "bytes": 318032,
+      "sha256": "2aeb23517d2303ab084c743323c5d45ff2eb138d7c6b9d92a1cfa337c44ce308",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Crop (110,35,750,675) of exact decoded 735 first frame; no resizing.",
+      "width": 640,
+      "height": 640,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "stills/julien-portrait-640.webp",
+      "bytes": 166072,
+      "sha256": "9d0a827e6c35f6798d932c4daa40464f31ba95ced1f39e51eafc9220fe022412",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Crop (110,35,750,675) of exact decoded 735 first frame; no resizing.",
+      "width": 640,
+      "height": 640,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "stills/julien-upper-body-transparent-900x1224.png",
+      "bytes": 698456,
+      "sha256": "48b68c7c46d7bbc285a3e598c18e7cf96ccba0e085e24d39b40ca3ba5d712bce",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Exact first decoded video frame; no pixel enlargement or retouching.",
+      "width": 900,
+      "height": 1224,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "stills/julien-alpha-first-frame.png",
+      "bytes": 697284,
+      "sha256": "a13e550dd9e4f83a2ca0fd4c02204a85917e1e68e3d66b39db5c287b47988179",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Exact first decoded video frame; no pixel enlargement or retouching.",
+      "width": 900,
+      "height": 1224,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "stills/julien-master-first-frame.png",
+      "bytes": 543732,
+      "sha256": "ba1d63dc5fdb98756b988532440ff031682c013e3b35f33956996b4bdfd911ac",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-master/julien-hero-master.mp4",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Exact first decoded video frame; no pixel enlargement or retouching.",
+      "width": 800,
+      "height": 1088,
+      "mode": "RGB"
+    },
+    {
+      "file": "stills/julien-portrait-640-edge-clean.png",
+      "bytes": 310075,
+      "sha256": "ee944322c0d60215425fd3d04f6119b57a515f5afb10f2324156737cb41cb8f7",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Source-preserving derivative: RGB of semitransparent pixels only replaced by nearest fully opaque interior RGB (interior eroded 2 px); alpha and all opaque/fully transparent pixels unchanged. No scaling, generation or sharpening.",
+      "width": 640,
+      "height": 640,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "stills/julien-upper-body-transparent-900x1224-edge-clean.png",
+      "bytes": 687628,
+      "sha256": "fc8f4540c832f0e90d4df47e7937b10c3a652f3441ff3a9d77ea0b2e725c8ac5",
+      "repository": "gitteromri-ux/french-atelier",
+      "source_path": "assets/juliane/video-alpha/julian-735.webm",
+      "source_commit": "028c12e1a695c81ee4ed0a666d09a449c1495c2c",
+      "transformation": "Source-preserving derivative: RGB of semitransparent pixels only replaced by nearest fully opaque interior RGB (interior eroded 2 px); alpha and all opaque/fully transparent pixels unchanged. No scaling, generation or sharpening.",
+      "width": 900,
+      "height": 1224,
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ]
+    }
+  ],
+  "excluded_assets": {
+    "julian-kling.webm": "Visible Kling watermark at 2.5 seconds, lower-right area. Original retained in source/tutor, not curated.",
+    "julian-kling-poster.webp": "Excluded together with its watermarked motion clip to avoid accidental selection."
+  },
+  "edge_cleanup_audit": [
+    {
+      "file": "julien-portrait-640-edge-clean.png",
+      "eligible_semtransparent_pixels": 14572,
+      "changed_rgb_pixels": 14540,
+      "alpha_unchanged": true,
+      "opaque_pixels_unchanged": true,
+      "dimensions_unchanged": true
+    },
+    {
+      "file": "julien-upper-body-transparent-900x1224-edge-clean.png",
+      "eligible_semtransparent_pixels": 23115,
+      "changed_rgb_pixels": 23028,
+      "alpha_unchanged": true,
+      "opaque_pixels_unchanged": true,
+      "dimensions_unchanged": true
+    }
+  ]
+}

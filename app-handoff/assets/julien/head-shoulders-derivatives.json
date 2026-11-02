@@ -1,0 +1,34 @@
+[
+  {
+    "file": "stills/julien-head-shoulders-900.png",
+    "source": "julien-upper-body-transparent-900x1224-edge-clean.png",
+    "source_crop": [
+      0,
+      0,
+      900,
+      900
+    ],
+    "dimensions": [
+      900,
+      900
+    ],
+    "upscaled": false,
+    "sha256": "c6239bdef3b86ba52fcb4c752b2725e9b0c83e032fa9e44dda72aa703cb7b439"
+  },
+  {
+    "file": "stills/julien-head-shoulders-640.png",
+    "source": "julien-upper-body-transparent-900x1224-edge-clean.png",
+    "source_crop": [
+      0,
+      0,
+      900,
+      900
+    ],
+    "dimensions": [
+      640,
+      640
+    ],
+    "upscaled": false,
+    "sha256": "0707f9fe6b20d9267a6095ad3a2bdbe2cf0d6985e05a8ca98e66537bf7175a99"
+  }
+]

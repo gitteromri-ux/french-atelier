@@ -1,0 +1,232 @@
+{
+  "note": "Recovered existing French Atelier assets; repository presence does not independently establish licensing or photographic authenticity. Filenames describe visible subjects; gallery original coffee/cinema filenames are swapped. No teacher/Julien portrait included.",
+  "assets": [
+    {
+      "file": "colmar-canal.png",
+      "width": 1200,
+      "height": 700,
+      "bytes": 1530174,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-onboarding/main/images/hero_06_colmar.png",
+      "repository": "french-atelier-onboarding",
+      "source_path": "images/hero_06_colmar.png",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "france-rail-journey.png",
+      "width": 1200,
+      "height": 700,
+      "bytes": 1387606,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-onboarding/main/images/hero_03_train_france.png",
+      "repository": "french-atelier-onboarding",
+      "source_path": "images/hero_03_train_france.png",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "french-food-symbols.png",
+      "width": 1200,
+      "height": 700,
+      "bytes": 1086983,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-onboarding/main/images/hero_02b_french_symbols.png",
+      "repository": "french-atelier-onboarding",
+      "source_path": "images/hero_02b_french_symbols.png",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "brittany-saint-malo.jpg",
+      "width": 1200,
+      "height": 700,
+      "bytes": 378079,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-acq-drip/main/stage-4/assets/images/e01-email.jpg",
+      "repository": "french-atelier-acq-drip",
+      "source_path": "stage-4/assets/images/e01-email.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "paris-black-dress.jpg",
+      "width": 1200,
+      "height": 700,
+      "bytes": 346379,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-acq-drip/main/stage-4/assets/images/e02-email.jpg",
+      "repository": "french-atelier-acq-drip",
+      "source_path": "stage-4/assets/images/e02-email.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "french-dishes-table.jpg",
+      "width": 1200,
+      "height": 700,
+      "bytes": 467112,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-acq-drip/main/stage-4/assets/images/e04-email.jpg",
+      "repository": "french-atelier-acq-drip",
+      "source_path": "stage-4/assets/images/e04-email.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "buche-chocolate-dessert.jpg",
+      "width": 1792,
+      "height": 897,
+      "bytes": 799717,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-acq-drip/main/stage-4/assets/images/w01.jpg",
+      "repository": "french-atelier-acq-drip",
+      "source_path": "stage-4/assets/images/w01.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "lyon-arched-courtyard.jpg",
+      "width": 1792,
+      "height": 897,
+      "bytes": 795176,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-acq-drip/main/stage-4/assets/images/w08.jpg",
+      "repository": "french-atelier-acq-drip",
+      "source_path": "stage-4/assets/images/w08.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "paris-coffee-counter.jpg",
+      "width": 1920,
+      "height": 502,
+      "bytes": 243840,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-emails-gallery/main/heroes/email10_cinema.jpg",
+      "repository": "french-atelier-emails-gallery",
+      "source_path": "heroes/email10_cinema.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "french-cinema-audience.jpg",
+      "width": 1920,
+      "height": 502,
+      "bytes": 184043,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-emails-gallery/main/heroes/email9_coffee.jpg",
+      "repository": "french-atelier-emails-gallery",
+      "source_path": "heroes/email9_coffee.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "paris-street-musicians.jpg",
+      "width": 1920,
+      "height": 502,
+      "bytes": 355982,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-emails-gallery/main/heroes/email11_sings.jpg",
+      "repository": "french-atelier-emails-gallery",
+      "source_path": "heroes/email11_sings.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "cafe-window-reflection.jpg",
+      "width": 1920,
+      "height": 502,
+      "bytes": 196972,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier-emails-gallery/main/heroes/email8_tu_me_manques.jpg",
+      "repository": "french-atelier-emails-gallery",
+      "source_path": "heroes/email8_tu_me_manques.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "versailles-grand-gallery.jpg",
+      "width": 1600,
+      "height": 892,
+      "bytes": 270726,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/hero-versailles.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/hero-versailles.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "paris-rooftops.jpg",
+      "width": 1600,
+      "height": 893,
+      "bytes": 186124,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/bg-rooftops.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/bg-rooftops.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "french-salon.jpg",
+      "width": 2000,
+      "height": 1116,
+      "bytes": 275043,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/bg-salon.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/bg-salon.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "grand-staircase.jpg",
+      "width": 1100,
+      "height": 1473,
+      "bytes": 306853,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/bg-staircase.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/bg-staircase.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "capsule-impressionism.jpg",
+      "width": 1200,
+      "height": 896,
+      "bytes": 278432,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/capsule-impressionism.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/capsule-impressionism.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "capsule-louis.jpg",
+      "width": 1200,
+      "height": 896,
+      "bytes": 197937,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/capsule-louis.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/capsule-louis.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "capsule-chanel.jpg",
+      "width": 1200,
+      "height": 896,
+      "bytes": 158287,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/capsule-chanel.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/capsule-chanel.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    },
+    {
+      "file": "french-book-detail.jpg",
+      "width": 1200,
+      "height": 896,
+      "bytes": 90857,
+      "source_url": "https://raw.githubusercontent.com/gitteromri-ux/french-atelier/main/assets/capsules/detail-book.jpg",
+      "repository": "french-atelier",
+      "source_path": "assets/capsules/detail-book.jpg",
+      "processing": "Original binary copied without resizing or recompression",
+      "review": "Dimensions independently verified; subject visually reviewed in contact sheet"
+    }
+  ],
+  "feature_graphic": {
+    "file": "source/feature-photo.jpg",
+    "copied_from": "assets/brand-library/versailles-grand-gallery.jpg",
+    "width": 1600,
+    "height": 892,
+    "notes": "Text-free architecture; original binary unchanged"
+  }
+}

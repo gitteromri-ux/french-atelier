@@ -1,0 +1,36 @@
+{
+  "verification_scope": "Mappings verified from repository juliane.html data-speak attributes, not by listening or independent lip-sync validation.",
+  "site_verified": [
+    {
+      "video": "originals/webm/julian-307.webm",
+      "audio": "originals/audio/site/julien-307.mp3",
+      "evidence": "juliane.html uses data-speak=assets/julien/audio/julien-307.mp3 on the corresponding video element"
+    },
+    {
+      "video": "originals/webm/julian-309.webm",
+      "audio": "originals/audio/site/julien-309.mp3",
+      "evidence": "juliane.html uses data-speak=assets/julien/audio/julien-309.mp3 on the corresponding video element"
+    },
+    {
+      "video": "originals/webm/julian-719.webm",
+      "audio": "originals/audio/site/julien-719.mp3",
+      "evidence": "juliane.html uses data-speak=assets/julien/audio/julien-719.mp3 on the corresponding video element"
+    },
+    {
+      "video": "originals/webm/julian-735.webm",
+      "audio": "originals/audio/site/julien-735.mp3",
+      "evidence": "juliane.html uses data-speak=assets/julien/audio/julien-735.mp3 on the corresponding video element"
+    }
+  ],
+  "embedded": [
+    {
+      "video": "originals/mp4/julien-hero-master.mp4",
+      "audio": "Embedded AAC stream, present and technically non-silent; spoken content not certified."
+    }
+  ],
+  "unverified": [
+    "No separate track mapping verified for 336, base, kling2 or five opaque numbered MP4 derivatives.",
+    "Alternate julien-735.mp3 and julien-lipsync.mp3 retained as original source tracks, not assigned to video by filename alone.",
+    "julien_intro_fr.mp3 retained without a verified matching video."
+  ]
+}
