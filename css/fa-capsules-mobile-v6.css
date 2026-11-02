@@ -404,3 +404,37 @@ html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-
 }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg * { color: #E6CC92 !important; stroke: #E6CC92 !important; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg { padding: 5px !important; }
+
+/* ==== 2026-11-02 21:10 (Omri): brand ink and brand serif on the pricing cards ==== */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card * { color: #000034 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-sub, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-unit, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-pay, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li span, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-refund, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-foot { color: rgba(0,0,52,.74) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-name, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cur, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-pay b, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li b, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-inc { color: #000034 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-strike { color: rgba(0,0,52,.42) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-reg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-off { color: #0A6BD6 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-percap { color: #5B3A0E !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-off { color: #000034 !important; }
+/* serif titles and prices, like every heading on the site */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-name { font-family: 'Cormorant Garamond', Georgia, serif !important; font-weight: 600 !important; font-size: 2.4rem !important; line-height: 1 !important; letter-spacing: -.005em !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-name { font-size: 2.8rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt { font-family: 'Cormorant Garamond', Georgia, serif !important; font-weight: 600 !important; letter-spacing: -.02em !important; line-height: .9 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cur { font-family: 'Cormorant Garamond', Georgia, serif !important; font-weight: 500 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt { font-size: 4.8rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-amt { font-size: 6.2rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-inc { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.35rem !important; font-weight: 600 !important; letter-spacing: 0 !important; text-transform: none !important; }
+/* buttons and the Best value bar keep their own colours */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cta, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cta * { color: #F3EEE3 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge::before { color: #E6CC92 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge::after { color: #F3EEE3 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg * { color: #E6CC92 !important; stroke: #E6CC92 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li svg { background: #000034 !important; border-color: #000034 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one .kpz-feats li svg *, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two .kpz-feats li svg * { color: #F3EEE3 !important; stroke: #F3EEE3 !important; }
+@media (max-width: 767px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-name { font-size: 2.2rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-name { font-size: 2.5rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt { font-size: 4.4rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-amt { font-size: 5.4rem !important; }
+}
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cur { font-variant-numeric: lining-nums !important; font-feature-settings: "lnum" 1, "onum" 0 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cur { font-size: 2rem !important; align-self: flex-start !important; margin-top: .35em !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-price { align-items: flex-start !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-unit { align-self: flex-end !important; margin-bottom: .45em !important; }
