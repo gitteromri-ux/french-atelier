@@ -162,7 +162,7 @@
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-amt { font-size: 4.2rem !important; line-height: .9 !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-unit { font-size: 1rem !important; line-height: 1.2 !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-percap { font-size: 1.05rem !important; margin: 8px 0 0 !important; }
-  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay { display: block !important; margin: 12px 0 16px !important; padding: 0 !important; background: none !important; font-size: 1.02rem !important; line-height: 1.4 !important; white-space: nowrap !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay { display: block !important; margin: 12px 0 16px !important; padding: 0 !important; background: none !important; font-size: .98rem !important; line-height: 1.4 !important; white-space: normal !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay .kpz-payline { display: block !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-cta { width: 100% !important; min-height: 56px !important; font-size: 1.1rem !important; justify-content: center !important; margin: 0 0 14px !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-feats li { font-size: 1rem !important; line-height: 1.4 !important; }
