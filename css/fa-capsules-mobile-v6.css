@@ -370,3 +370,37 @@ html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-t
 @media (max-width: 767px) {
   html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge { font-size: .95rem !important; }
 }
+
+/* ==== 2026-11-02 20:55 (Omri): featured card dominant, Best value bar, larger bullets everywhere ==== */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { padding-top: 78px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge { position: absolute !important; left: 0 !important; right: 0 !important; top: 0 !important; height: 52px !important; margin: 0 !important; padding: 0 1rem !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: .6rem !important; border-radius: 0 !important; background: linear-gradient(180deg, #000049 0%, #000034 70%, #00001F 100%) !important; color: #E6CC92 !important; font-size: 1.1rem !important; font-weight: 800 !important; letter-spacing: .06em !important; text-transform: none !important; box-shadow: 0 1px 0 rgba(255,255,255,.12) inset, 0 8px 20px -10px rgba(0,0,31,.6) !important; z-index: 2 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge::before { content: "\2605" !important; font-size: 1em !important; margin: 0 !important; color: #E6CC92 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge::after { content: "· Save 36%"; font-weight: 600; color: #F3EEE3; letter-spacing: .02em; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-amt { font-size: 5.6rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-name { font-size: 2.2rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-cta { min-height: 62px !important; font-size: 1.2rem !important; }
+/* bullets: larger on every card */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats { gap: 14px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li { font-size: 1.1rem !important; line-height: 1.45 !important; gap: 12px !important; align-items: flex-start !important; margin: 0 0 12px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li svg { flex: 0 0 26px !important; width: 26px !important; height: 26px !important; padding: 4px !important; border-radius: 50% !important; margin-top: 1px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li { font-size: 1.16rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg { background: #000034 !important; color: #E6CC92 !important; border-color: #000034 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-inc { font-size: 1.05rem !important; letter-spacing: .04em !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-pay { font-size: 1.08rem !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-reg { font-size: 1.1rem !important; }
+@media (min-width: 900px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-grid { align-items: center !important; gap: 28px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { transform: translateY(-18px) scale(1.08) !important; z-index: 3 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all:hover { transform: translateY(-24px) scale(1.08) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two { transform: scale(.97) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-one:hover, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-two:hover { transform: translateY(-6px) scale(.97) !important; }
+}
+@media (max-width: 767px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { padding-top: 70px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-badge { height: 48px !important; font-size: 1.02rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-amt { font-size: 4.8rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li { font-size: 1.05rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li { font-size: 1.08rem !important; }
+}
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg * { color: #E6CC92 !important; stroke: #E6CC92 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-feats li svg { padding: 5px !important; }
