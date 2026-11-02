@@ -1,0 +1,596 @@
+{
+  "downloadsPassed": 97,
+  "expected": 97,
+  "desktop": {
+    "overflow": false,
+    "brandImages": 20,
+    "buttons": 97
+  },
+  "mobile": {
+    "overflow": false
+  },
+  "files": [
+    {
+      "file": "assets/brand-library/colmar-canal.png",
+      "filename": "colmar-canal.png",
+      "bytes": 1530174,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/france-rail-journey.png",
+      "filename": "france-rail-journey.png",
+      "bytes": 1387606,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/french-food-symbols.png",
+      "filename": "french-food-symbols.png",
+      "bytes": 1086983,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/brittany-saint-malo.jpg",
+      "filename": "brittany-saint-malo.jpg",
+      "bytes": 378079,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/paris-black-dress.jpg",
+      "filename": "paris-black-dress.jpg",
+      "bytes": 346379,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/french-dishes-table.jpg",
+      "filename": "french-dishes-table.jpg",
+      "bytes": 467112,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/buche-chocolate-dessert.jpg",
+      "filename": "buche-chocolate-dessert.jpg",
+      "bytes": 799717,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/lyon-arched-courtyard.jpg",
+      "filename": "lyon-arched-courtyard.jpg",
+      "bytes": 795176,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/paris-coffee-counter.jpg",
+      "filename": "paris-coffee-counter.jpg",
+      "bytes": 243840,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/french-cinema-audience.jpg",
+      "filename": "french-cinema-audience.jpg",
+      "bytes": 184043,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/paris-street-musicians.jpg",
+      "filename": "paris-street-musicians.jpg",
+      "bytes": 355982,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/cafe-window-reflection.jpg",
+      "filename": "cafe-window-reflection.jpg",
+      "bytes": 196972,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/versailles-grand-gallery.jpg",
+      "filename": "versailles-grand-gallery.jpg",
+      "bytes": 270726,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/paris-rooftops.jpg",
+      "filename": "paris-rooftops.jpg",
+      "bytes": 186124,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/french-salon.jpg",
+      "filename": "french-salon.jpg",
+      "bytes": 275043,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/grand-staircase.jpg",
+      "filename": "grand-staircase.jpg",
+      "bytes": 306853,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/capsule-impressionism.jpg",
+      "filename": "capsule-impressionism.jpg",
+      "bytes": 278432,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/capsule-louis.jpg",
+      "filename": "capsule-louis.jpg",
+      "bytes": 197937,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/capsule-chanel.jpg",
+      "filename": "capsule-chanel.jpg",
+      "bytes": 158287,
+      "pass": true
+    },
+    {
+      "file": "assets/brand-library/french-book-detail.jpg",
+      "filename": "french-book-detail.jpg",
+      "bytes": 90857,
+      "pass": true
+    },
+    {
+      "file": "assets/app/android-adaptive-background-1024.png",
+      "filename": "android-adaptive-background-1024.png",
+      "bytes": 5335,
+      "pass": true
+    },
+    {
+      "file": "assets/app/android-adaptive-foreground-1024.png",
+      "filename": "android-adaptive-foreground-1024.png",
+      "bytes": 24609,
+      "pass": true
+    },
+    {
+      "file": "assets/app/android-notification-96.png",
+      "filename": "android-notification-96.png",
+      "bytes": 1411,
+      "pass": true
+    },
+    {
+      "file": "assets/app/app-icon-1024.png",
+      "filename": "app-icon-1024.png",
+      "bytes": 22153,
+      "pass": true
+    },
+    {
+      "file": "assets/app/google-play-feature-1024x500.png",
+      "filename": "google-play-feature-1024x500.png",
+      "bytes": 498323,
+      "pass": true
+    },
+    {
+      "file": "assets/app/google-play-icon-512.png",
+      "filename": "google-play-icon-512.png",
+      "bytes": 10535,
+      "pass": true
+    },
+    {
+      "file": "assets/app/login-wordmark-navy.png",
+      "filename": "login-wordmark-navy.png",
+      "bytes": 17463,
+      "pass": true
+    },
+    {
+      "file": "assets/app/login-wordmark-white.png",
+      "filename": "login-wordmark-white.png",
+      "bytes": 17342,
+      "pass": true
+    },
+    {
+      "file": "assets/app/source-logo-gold.png",
+      "filename": "source-logo-gold.png",
+      "bytes": 34104,
+      "pass": true
+    },
+    {
+      "file": "assets/app/source-logo-navy.png",
+      "filename": "source-logo-navy.png",
+      "bytes": 25183,
+      "pass": true
+    },
+    {
+      "file": "assets/app/source-logo-white.png",
+      "filename": "source-logo-white.png",
+      "bytes": 20362,
+      "pass": true
+    },
+    {
+      "file": "assets/app/splash-1024.png",
+      "filename": "splash-1024.png",
+      "bytes": 24434,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-alpha-first-frame.png",
+      "filename": "julien-alpha-first-frame.png",
+      "bytes": 697284,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-avatar-640.png",
+      "filename": "julien-avatar-640.png",
+      "bytes": 627783,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-full-body-1800x2400.png",
+      "filename": "julien-full-body-1800x2400.png",
+      "bytes": 1634190,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-full-body-native-887x1774.png",
+      "filename": "julien-full-body-native-887x1774.png",
+      "bytes": 1999186,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-head-shoulders-640.png",
+      "filename": "julien-head-shoulders-640.png",
+      "bytes": 326661,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-head-shoulders-900.png",
+      "filename": "julien-head-shoulders-900.png",
+      "bytes": 471147,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-master-first-frame.png",
+      "filename": "julien-master-first-frame.png",
+      "bytes": 543732,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640-edge-clean.png",
+      "filename": "julien-portrait-640-edge-clean.png",
+      "bytes": 310075,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640.png",
+      "filename": "julien-portrait-640.png",
+      "bytes": 318032,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640.webp",
+      "filename": "julien-portrait-640.webp",
+      "bytes": 166072,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-upper-body-transparent-900x1224-edge-clean.png",
+      "filename": "julien-upper-body-transparent-900x1224-edge-clean.png",
+      "bytes": 687628,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/stills/julien-upper-body-transparent-900x1224.png",
+      "filename": "julien-upper-body-transparent-900x1224.png",
+      "bytes": 698456,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julian-336-intro-loop.webm",
+      "filename": "julian-336-intro-loop.webm",
+      "bytes": 5342618,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julian-hero-lipsync.webm",
+      "filename": "julian-hero-lipsync.webm",
+      "bytes": 1890128,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien-hero-master-alpha.webm",
+      "filename": "julien-hero-master-alpha.webm",
+      "bytes": 1480951,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien-hero-master.webm",
+      "filename": "julien-hero-master.webm",
+      "bytes": 527010,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_coffee.png",
+      "filename": "julien_coffee.png",
+      "bytes": 1943844,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_laughing.png",
+      "filename": "julien_laughing.png",
+      "bytes": 2044189,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_pointing.png",
+      "filename": "julien_pointing.png",
+      "bytes": 1929180,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_teaching.png",
+      "filename": "julien_teaching.png",
+      "bytes": 1791021,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_thinking.png",
+      "filename": "julien_thinking.png",
+      "bytes": 1966344,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_thumbsup.png",
+      "filename": "julien_thumbsup.png",
+      "bytes": 1981821,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/307-3.mp4",
+      "filename": "307-3.mp4",
+      "bytes": 295014,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/309-3.mp4",
+      "filename": "309-3.mp4",
+      "bytes": 391763,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/336-3.mp4",
+      "filename": "336-3.mp4",
+      "bytes": 600275,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/719-3.mp4",
+      "filename": "719-3.mp4",
+      "bytes": 375872,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/735-2.mp4",
+      "filename": "735-2.mp4",
+      "bytes": 406995,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/Base-3.mp4",
+      "filename": "Base-3.mp4",
+      "bytes": 2465539,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/Julian-Kling-2.1-1-1.mp4",
+      "filename": "Julian-Kling-2.1-1-1.mp4",
+      "bytes": 5298653,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-307.mp4",
+      "filename": "juliane-307.mp4",
+      "bytes": 121189,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-309.mp4",
+      "filename": "juliane-309.mp4",
+      "bytes": 129994,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-336.mp4",
+      "filename": "juliane-336.mp4",
+      "bytes": 119618,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-719.mp4",
+      "filename": "juliane-719.mp4",
+      "bytes": 151290,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-735.mp4",
+      "filename": "juliane-735.mp4",
+      "bytes": 164734,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/mp4/julien-hero-master.mp4",
+      "filename": "julien-hero-master.mp4",
+      "bytes": 406995,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-307.webm",
+      "filename": "julian-307.webm",
+      "bytes": 834249,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-309.webm",
+      "filename": "julian-309.webm",
+      "bytes": 950367,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-336.webm",
+      "filename": "julian-336.webm",
+      "bytes": 670853,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-719.webm",
+      "filename": "julian-719.webm",
+      "bytes": 1019722,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-735.webm",
+      "filename": "julian-735.webm",
+      "bytes": 1474827,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-base.webm",
+      "filename": "julian-base.webm",
+      "bytes": 1263461,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-kling2.webm",
+      "filename": "julian-kling2.webm",
+      "bytes": 1802808,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-307-poster.webp",
+      "filename": "julian-307-poster.webp",
+      "bytes": 60548,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-309-poster.webp",
+      "filename": "julian-309-poster.webp",
+      "bytes": 68962,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-336-poster.webp",
+      "filename": "julian-336-poster.webp",
+      "bytes": 69828,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-719-poster.webp",
+      "filename": "julian-719-poster.webp",
+      "bytes": 58288,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-735-poster.webp",
+      "filename": "julian-735-poster.webp",
+      "bytes": 58730,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-base-poster.webp",
+      "filename": "julian-base-poster.webp",
+      "bytes": 31714,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-base-still.webp",
+      "filename": "julian-base-still.webp",
+      "bytes": 34796,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-kling2-poster.webp",
+      "filename": "julian-kling2-poster.webp",
+      "bytes": 61722,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/juliane-hero-2-poster.jpg",
+      "filename": "juliane-hero-2-poster.jpg",
+      "bytes": 38877,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/posters/juliane-hero-poster.jpg",
+      "filename": "juliane-hero-poster.jpg",
+      "bytes": 37540,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/alternate/julien-735.mp3",
+      "filename": "julien-735.mp3",
+      "bytes": 75378,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/alternate/julien-lipsync.mp3",
+      "filename": "julien-lipsync.mp3",
+      "bytes": 50719,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-307.mp3",
+      "filename": "julien-307.mp3",
+      "bytes": 31493,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-309.mp3",
+      "filename": "julien-309.mp3",
+      "bytes": 27732,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-719.mp3",
+      "filename": "julien-719.mp3",
+      "bytes": 33061,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-735.mp3",
+      "filename": "julien-735.mp3",
+      "bytes": 38076,
+      "pass": true
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien_intro_fr.mp3",
+      "filename": "julien_intro_fr.mp3",
+      "bytes": 307724,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/Cormorant-Garamond-OFL.txt",
+      "filename": "Cormorant-Garamond-OFL.txt",
+      "bytes": 4387,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/Cormorant-Garamond-variable.ttf",
+      "filename": "Cormorant-Garamond-variable.ttf",
+      "bytes": 120272,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/Inter-OFL.txt",
+      "filename": "Inter-OFL.txt",
+      "bytes": 4377,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/Inter-variable.ttf",
+      "filename": "Inter-variable.ttf",
+      "bytes": 122592,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/cormorant-normal.woff2",
+      "filename": "cormorant-normal.woff2",
+      "bytes": 37640,
+      "pass": true
+    },
+    {
+      "file": "assets/fonts/inter.woff2",
+      "filename": "inter.woff2",
+      "bytes": 48256,
+      "pass": true
+    }
+  ]
+}

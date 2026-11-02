@@ -1,0 +1,491 @@
+{
+  "revision": "navy-gold-downloads-v4",
+  "files": [
+    {
+      "file": "assets/brand-library/colmar-canal.png",
+      "specification": "1200 \u00d7 700 \u00b7 PNG",
+      "filename": "colmar-canal.png"
+    },
+    {
+      "file": "assets/brand-library/france-rail-journey.png",
+      "specification": "1200 \u00d7 700 \u00b7 PNG",
+      "filename": "france-rail-journey.png"
+    },
+    {
+      "file": "assets/brand-library/french-food-symbols.png",
+      "specification": "1200 \u00d7 700 \u00b7 PNG",
+      "filename": "french-food-symbols.png"
+    },
+    {
+      "file": "assets/brand-library/brittany-saint-malo.jpg",
+      "specification": "1200 \u00d7 700 \u00b7 JPG",
+      "filename": "brittany-saint-malo.jpg"
+    },
+    {
+      "file": "assets/brand-library/paris-black-dress.jpg",
+      "specification": "1200 \u00d7 700 \u00b7 JPG",
+      "filename": "paris-black-dress.jpg"
+    },
+    {
+      "file": "assets/brand-library/french-dishes-table.jpg",
+      "specification": "1200 \u00d7 700 \u00b7 JPG",
+      "filename": "french-dishes-table.jpg"
+    },
+    {
+      "file": "assets/brand-library/buche-chocolate-dessert.jpg",
+      "specification": "1792 \u00d7 897 \u00b7 JPG",
+      "filename": "buche-chocolate-dessert.jpg"
+    },
+    {
+      "file": "assets/brand-library/lyon-arched-courtyard.jpg",
+      "specification": "1792 \u00d7 897 \u00b7 JPG",
+      "filename": "lyon-arched-courtyard.jpg"
+    },
+    {
+      "file": "assets/brand-library/paris-coffee-counter.jpg",
+      "specification": "1920 \u00d7 502 \u00b7 JPG",
+      "filename": "paris-coffee-counter.jpg"
+    },
+    {
+      "file": "assets/brand-library/french-cinema-audience.jpg",
+      "specification": "1920 \u00d7 502 \u00b7 JPG",
+      "filename": "french-cinema-audience.jpg"
+    },
+    {
+      "file": "assets/brand-library/paris-street-musicians.jpg",
+      "specification": "1920 \u00d7 502 \u00b7 JPG",
+      "filename": "paris-street-musicians.jpg"
+    },
+    {
+      "file": "assets/brand-library/cafe-window-reflection.jpg",
+      "specification": "1920 \u00d7 502 \u00b7 JPG",
+      "filename": "cafe-window-reflection.jpg"
+    },
+    {
+      "file": "assets/brand-library/versailles-grand-gallery.jpg",
+      "specification": "1600 \u00d7 892 \u00b7 JPG",
+      "filename": "versailles-grand-gallery.jpg"
+    },
+    {
+      "file": "assets/brand-library/paris-rooftops.jpg",
+      "specification": "1600 \u00d7 893 \u00b7 JPG",
+      "filename": "paris-rooftops.jpg"
+    },
+    {
+      "file": "assets/brand-library/french-salon.jpg",
+      "specification": "2000 \u00d7 1116 \u00b7 JPG",
+      "filename": "french-salon.jpg"
+    },
+    {
+      "file": "assets/brand-library/grand-staircase.jpg",
+      "specification": "1100 \u00d7 1473 \u00b7 JPG",
+      "filename": "grand-staircase.jpg"
+    },
+    {
+      "file": "assets/brand-library/capsule-impressionism.jpg",
+      "specification": "1200 \u00d7 896 \u00b7 JPG",
+      "filename": "capsule-impressionism.jpg"
+    },
+    {
+      "file": "assets/brand-library/capsule-louis.jpg",
+      "specification": "1200 \u00d7 896 \u00b7 JPG",
+      "filename": "capsule-louis.jpg"
+    },
+    {
+      "file": "assets/brand-library/capsule-chanel.jpg",
+      "specification": "1200 \u00d7 896 \u00b7 JPG",
+      "filename": "capsule-chanel.jpg"
+    },
+    {
+      "file": "assets/brand-library/french-book-detail.jpg",
+      "specification": "1200 \u00d7 896 \u00b7 JPG",
+      "filename": "french-book-detail.jpg"
+    },
+    {
+      "file": "assets/app/android-adaptive-background-1024.png",
+      "specification": "1024 \u00d7 1024 \u00b7 PNG",
+      "filename": "android-adaptive-background-1024.png"
+    },
+    {
+      "file": "assets/app/android-adaptive-foreground-1024.png",
+      "specification": "1024 \u00d7 1024 \u00b7 PNG \u00b7 transparent",
+      "filename": "android-adaptive-foreground-1024.png"
+    },
+    {
+      "file": "assets/app/android-notification-96.png",
+      "specification": "96 \u00d7 96 \u00b7 PNG \u00b7 transparent",
+      "filename": "android-notification-96.png"
+    },
+    {
+      "file": "assets/app/app-icon-1024.png",
+      "specification": "1024 \u00d7 1024 \u00b7 PNG",
+      "filename": "app-icon-1024.png"
+    },
+    {
+      "file": "assets/app/google-play-feature-1024x500.png",
+      "specification": "1024 \u00d7 500 \u00b7 PNG",
+      "filename": "google-play-feature-1024x500.png"
+    },
+    {
+      "file": "assets/app/google-play-icon-512.png",
+      "specification": "512 \u00d7 512 \u00b7 PNG",
+      "filename": "google-play-icon-512.png"
+    },
+    {
+      "file": "assets/app/login-wordmark-navy.png",
+      "specification": "513 \u00d7 139 \u00b7 PNG \u00b7 transparent",
+      "filename": "login-wordmark-navy.png"
+    },
+    {
+      "file": "assets/app/login-wordmark-white.png",
+      "specification": "513 \u00d7 139 \u00b7 PNG \u00b7 transparent",
+      "filename": "login-wordmark-white.png"
+    },
+    {
+      "file": "assets/app/source-logo-gold.png",
+      "specification": "527 \u00d7 165 \u00b7 PNG \u00b7 transparent",
+      "filename": "source-logo-gold.png"
+    },
+    {
+      "file": "assets/app/source-logo-navy.png",
+      "specification": "541 \u00d7 167 \u00b7 PNG \u00b7 transparent",
+      "filename": "source-logo-navy.png"
+    },
+    {
+      "file": "assets/app/source-logo-white.png",
+      "specification": "527 \u00d7 165 \u00b7 PNG \u00b7 transparent",
+      "filename": "source-logo-white.png"
+    },
+    {
+      "file": "assets/app/splash-1024.png",
+      "specification": "1024 \u00d7 1024 \u00b7 PNG \u00b7 transparent",
+      "filename": "splash-1024.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-alpha-first-frame.png",
+      "specification": "900 \u00d7 1224 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-alpha-first-frame.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-avatar-640.png",
+      "specification": "640 \u00d7 640 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-avatar-640.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-full-body-1800x2400.png",
+      "specification": "1800 \u00d7 2400 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-full-body-1800x2400.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-full-body-native-887x1774.png",
+      "specification": "887 \u00d7 1774 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-full-body-native-887x1774.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-head-shoulders-640.png",
+      "specification": "640 \u00d7 640 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-head-shoulders-640.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-head-shoulders-900.png",
+      "specification": "900 \u00d7 900 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-head-shoulders-900.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-master-first-frame.png",
+      "specification": "800 \u00d7 1088 \u00b7 PNG",
+      "filename": "julien-master-first-frame.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640-edge-clean.png",
+      "specification": "640 \u00d7 640 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-portrait-640-edge-clean.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640.png",
+      "specification": "640 \u00d7 640 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-portrait-640.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-portrait-640.webp",
+      "specification": "640 \u00d7 640 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julien-portrait-640.webp"
+    },
+    {
+      "file": "assets/julien/stills/julien-upper-body-transparent-900x1224-edge-clean.png",
+      "specification": "900 \u00d7 1224 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-upper-body-transparent-900x1224-edge-clean.png"
+    },
+    {
+      "file": "assets/julien/stills/julien-upper-body-transparent-900x1224.png",
+      "specification": "900 \u00d7 1224 \u00b7 PNG \u00b7 transparent",
+      "filename": "julien-upper-body-transparent-900x1224.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julian-336-intro-loop.webm",
+      "specification": "900 \u00d7 1212 \u00b7 WEBM \u00b7 15.366s",
+      "filename": "julian-336-intro-loop.webm"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julian-hero-lipsync.webm",
+      "specification": "900 \u00d7 1224 \u00b7 WEBM \u00b7 3.066s",
+      "filename": "julian-hero-lipsync.webm"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien-hero-master-alpha.webm",
+      "specification": "800 \u00d7 1088 \u00b7 WEBM \u00b7 3.115s",
+      "filename": "julien-hero-master-alpha.webm"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien-hero-master.webm",
+      "specification": "800 \u00d7 1088 \u00b7 WEBM \u00b7 3.115s",
+      "filename": "julien-hero-master.webm"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_coffee.png",
+      "specification": "1086 \u00d7 1448 \u00b7 PNG",
+      "filename": "julien_coffee.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_laughing.png",
+      "specification": "1086 \u00d7 1448 \u00b7 PNG",
+      "filename": "julien_laughing.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_pointing.png",
+      "specification": "1086 \u00d7 1448 \u00b7 PNG",
+      "filename": "julien_pointing.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_teaching.png",
+      "specification": "887 \u00d7 1774 \u00b7 PNG",
+      "filename": "julien_teaching.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_thinking.png",
+      "specification": "1086 \u00d7 1448 \u00b7 PNG",
+      "filename": "julien_thinking.png"
+    },
+    {
+      "file": "assets/julien/originals/recovered/julien_thumbsup.png",
+      "specification": "1086 \u00d7 1448 \u00b7 PNG",
+      "filename": "julien_thumbsup.png"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/307-3.mp4",
+      "specification": "800 \u00d7 1088 \u00b7 MP4 \u00b7 2.546s",
+      "filename": "307-3.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/309-3.mp4",
+      "specification": "800 \u00d7 1088 \u00b7 MP4 \u00b7 2.207s",
+      "filename": "309-3.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/336-3.mp4",
+      "specification": "1248 \u00d7 1680 \u00b7 MP4 \u00b7 2.311s",
+      "filename": "336-3.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/719-3.mp4",
+      "specification": "800 \u00d7 1088 \u00b7 MP4 \u00b7 2.677s",
+      "filename": "719-3.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/735-2.mp4",
+      "specification": "800 \u00d7 1088 \u00b7 MP4 \u00b7 3.095s",
+      "filename": "735-2.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/Base-3.mp4",
+      "specification": "1240 \u00d7 1668 \u00b7 MP4 \u00b7 3.367s",
+      "filename": "Base-3.mp4"
+    },
+    {
+      "file": "assets/julien/originals/original-uploads/Julian-Kling-2.1-1-1.mp4",
+      "specification": "828 \u00d7 1112 \u00b7 MP4 \u00b7 5.042s",
+      "filename": "Julian-Kling-2.1-1-1.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-307.mp4",
+      "specification": "600 \u00d7 816 \u00b7 MP4 \u00b7 2.533s",
+      "filename": "juliane-307.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-309.mp4",
+      "specification": "600 \u00d7 816 \u00b7 MP4 \u00b7 2.167s",
+      "filename": "juliane-309.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-336.mp4",
+      "specification": "600 \u00d7 808 \u00b7 MP4 \u00b7 2.292s",
+      "filename": "juliane-336.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-719.mp4",
+      "specification": "600 \u00d7 816 \u00b7 MP4 \u00b7 2.667s",
+      "filename": "juliane-719.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/juliane-735.mp4",
+      "specification": "600 \u00d7 816 \u00b7 MP4 \u00b7 3.067s",
+      "filename": "juliane-735.mp4"
+    },
+    {
+      "file": "assets/julien/originals/mp4/julien-hero-master.mp4",
+      "specification": "800 \u00d7 1088 \u00b7 MP4 \u00b7 3.095s",
+      "filename": "julien-hero-master.mp4"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-307.webm",
+      "specification": "720 \u00d7 980 \u00b7 WEBM \u00b7 2.533s",
+      "filename": "julian-307.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-309.webm",
+      "specification": "720 \u00d7 980 \u00b7 WEBM \u00b7 2.166s",
+      "filename": "julian-309.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-336.webm",
+      "specification": "720 \u00d7 970 \u00b7 WEBM \u00b7 2.292s",
+      "filename": "julian-336.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-719.webm",
+      "specification": "720 \u00d7 980 \u00b7 WEBM \u00b7 2.666s",
+      "filename": "julian-719.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-735.webm",
+      "specification": "900 \u00d7 1224 \u00b7 WEBM \u00b7 3.066s",
+      "filename": "julian-735.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-base.webm",
+      "specification": "760 \u00d7 1022 \u00b7 WEBM \u00b7 3.366s",
+      "filename": "julian-base.webm"
+    },
+    {
+      "file": "assets/julien/originals/webm/julian-kling2.webm",
+      "specification": "720 \u00d7 966 \u00b7 WEBM \u00b7 5.042s",
+      "filename": "julian-kling2.webm"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-307-poster.webp",
+      "specification": "720 \u00d7 980 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-307-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-309-poster.webp",
+      "specification": "720 \u00d7 980 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-309-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-336-poster.webp",
+      "specification": "720 \u00d7 970 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-336-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-719-poster.webp",
+      "specification": "720 \u00d7 980 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-719-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-735-poster.webp",
+      "specification": "720 \u00d7 980 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-735-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-base-poster.webp",
+      "specification": "760 \u00d7 1022 \u00b7 WEBP",
+      "filename": "julian-base-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-base-still.webp",
+      "specification": "760 \u00d7 1022 \u00b7 WEBP",
+      "filename": "julian-base-still.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/julian-kling2-poster.webp",
+      "specification": "720 \u00d7 966 \u00b7 WEBP \u00b7 transparent",
+      "filename": "julian-kling2-poster.webp"
+    },
+    {
+      "file": "assets/julien/originals/posters/juliane-hero-2-poster.jpg",
+      "specification": "720 \u00d7 966 \u00b7 JPG",
+      "filename": "juliane-hero-2-poster.jpg"
+    },
+    {
+      "file": "assets/julien/originals/posters/juliane-hero-poster.jpg",
+      "specification": "720 \u00d7 966 \u00b7 JPG",
+      "filename": "juliane-hero-poster.jpg"
+    },
+    {
+      "file": "assets/julien/originals/audio/alternate/julien-735.mp3",
+      "specification": "MP3 \u00b7 3.067s",
+      "filename": "julien-735.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/alternate/julien-lipsync.mp3",
+      "specification": "MP3 \u00b7 3.108s",
+      "filename": "julien-lipsync.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-307.mp3",
+      "specification": "MP3 \u00b7 2.551s",
+      "filename": "julien-307.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-309.mp3",
+      "specification": "MP3 \u00b7 2.226s",
+      "filename": "julien-309.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-719.mp3",
+      "specification": "MP3 \u00b7 2.690s",
+      "filename": "julien-719.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien-735.mp3",
+      "specification": "MP3 \u00b7 3.108s",
+      "filename": "julien-735.mp3"
+    },
+    {
+      "file": "assets/julien/originals/audio/site/julien_intro_fr.mp3",
+      "specification": "MP3 \u00b7 15.291s",
+      "filename": "julien_intro_fr.mp3"
+    },
+    {
+      "file": "assets/fonts/Cormorant-Garamond-OFL.txt",
+      "specification": "TXT",
+      "filename": "Cormorant-Garamond-OFL.txt"
+    },
+    {
+      "file": "assets/fonts/Cormorant-Garamond-variable.ttf",
+      "specification": "TTF",
+      "filename": "Cormorant-Garamond-variable.ttf"
+    },
+    {
+      "file": "assets/fonts/Inter-OFL.txt",
+      "specification": "TXT",
+      "filename": "Inter-OFL.txt"
+    },
+    {
+      "file": "assets/fonts/Inter-variable.ttf",
+      "specification": "TTF",
+      "filename": "Inter-variable.ttf"
+    },
+    {
+      "file": "assets/fonts/cormorant-normal.woff2",
+      "specification": "WOFF2",
+      "filename": "cormorant-normal.woff2"
+    },
+    {
+      "file": "assets/fonts/inter.woff2",
+      "specification": "WOFF2",
+      "filename": "inter.woff2"
+    }
+  ],
+  "count": 97
+}

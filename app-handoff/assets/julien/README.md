@@ -1,11 +1,11 @@
 # Julien curated media library
 
-This library contains 39 media assets recovered from the French Atelier repository or derived directly from its original decoded pixels. Original files are preserved byte-for-byte; source details are recorded in `source-manifest.json`, with the two square head-and-shoulders exports documented in `head-shoulders-derivatives.json`.
+This library contains 59 media assets, including the original curated set, recovered historical scenes and motion, original uploaded videos, and exact-size full-body/avatar exports. Original files are preserved byte-for-byte; the original inventory is in `source-manifest.json`, additions are in `recovered-manifest.json`, and [recovery notes](RECOVERY-NOTES.md) explain the standing artwork and uploaded sources.
 
 ## Start here
 
-- **Recommended head-and-shoulders avatar:** `stills/julien-head-shoulders-640.png`, 640×640 RGBA, downsampled from a 900×900 crop without enlargement.
-- **Native square master:** `stills/julien-head-shoulders-900.png`, 900×900 RGBA, cropped from the cleaned upper-body source.
+- **Recommended head-and-shoulders avatar:** `stills/julien-avatar-640.png`, exact 640×640 RGBA native crop from the recovered standing original's transparent cutout.
+- **Alternative square still:** `stills/julien-head-shoulders-900.png`, 900×900 RGBA, cropped from the older cleaned upper-body source.
 - **Alternative close face crop:** `stills/julien-portrait-640-edge-clean.png`, 640×640 RGBA.
 - **Upper body:** `stills/julien-upper-body-transparent-900x1224-edge-clean.png`, 900×1224 RGBA.
 - **Transparent motion:** `originals/webm/julian-735.webm`, 900×1224 VP9 alpha, 3.066 seconds, no embedded sound.
@@ -51,7 +51,7 @@ The hero master contains its own AAC track. No separate audio pairing has been v
 
 The files under `originals/audio/alternate/` came from `assets/juliane/audio/`, not `assets/julien/audio/`. Their names do not establish a verified audio-video match; retain them as source material, not automatically assigned playback tracks.
 
-The longer spoken intro is `originals/audio/site/julien_intro_fr.mp3`, verified at 15.290958 seconds. Repository `juliane.html` describes this intro playing separately while the short cutout videos remain silent and decorative; no corresponding 15-second lip-synced video was recovered, and `originals/audio/alternate/julien-lipsync.mp3` itself is only 3.107914 seconds.
+The longer spoken intro is `originals/audio/site/julien_intro_fr.mp3`, verified at 15.290958 seconds. Historical recovery also supplies `originals/recovered/julian-336-intro-loop.webm`, a 900×1212, 15.366-second video-only loop; it is not presented as a newly certified lip-synchronised take.
 
 ## Edge-clean derivatives and visibility
 
@@ -71,7 +71,7 @@ The result reduces semitransparent edge contamination without smearing the face 
 - **Kling2:** Included after reviewing start/middle/end and ten distributed frames; no watermark was visible in those checks. Its original motion softness is preserved rather than retouched.
 - **Old/backups:** All `OLD` and `.bak` files are excluded.
 - **Wrong-identity images:** Onboarding photographs and T-shirt artwork are excluded.
-- **Full-body original:** No full-body source was found in the inspected repository assets and related repository candidates. The available character ends around the waist; no legs or feet exist in these sources, and no 1800×2400 full-body asset has been fabricated.
+- **Full-body original and export:** `originals/recovered/julien_teaching.png` is the genuine 887×1774 standing source, with both feet visible. `stills/julien-full-body-1800x2400.png` is its exact-size transparent cutout derivative; `full-body-derivative.json` documents the modest resampling, extraction and placement, and the native-size cutout is preserved.
 - **Room overlay:** Not generated or included.
 
 ## Verification

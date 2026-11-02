@@ -1,0 +1,15 @@
+{
+  "file": "stills/julien-avatar-640.png",
+  "source": "stills/julien-full-body-native-887x1774.png",
+  "crop": [
+    120,
+    40,
+    760,
+    680
+  ],
+  "size": [
+    640,
+    640
+  ],
+  "resampled": false
+}

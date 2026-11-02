@@ -1,0 +1,380 @@
+{
+  "assets": [
+    {
+      "file": "originals/recovered/julien_teaching.png",
+      "bytes": 1791021,
+      "sha256": "15c737210c6ccca98525270e3efdac5d94c7a4881e141553afda66618c41e360",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 887,
+      "height": 1774,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julien_pointing.png",
+      "bytes": 1929180,
+      "sha256": "d4a9dfb045a4c630f67aa70c9e530c4cb0f67972f8dce052a43bb1525fbc0f12",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julien_coffee.png",
+      "bytes": 1943844,
+      "sha256": "26d99eeea3e32cf1dcd152f9b89d44c1e2615c06d4bfd1613c7b277ab58938e0",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julien_laughing.png",
+      "bytes": 2044189,
+      "sha256": "19a230071c094f054dc1bb47b28c569a135d72acf3d7d44dff7a042f8852f5da",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julien_thinking.png",
+      "bytes": 1966344,
+      "sha256": "b53a6e9d53f0845ad10c3f69b2a1cc161e987d7fc1d23721f477f5f6685007ab",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julien_thumbsup.png",
+      "bytes": 1981821,
+      "sha256": "83e529e5b3cb637cee341a5c9da4713bbc77e66973dc249fea16c35bce9de06a",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGB"
+    },
+    {
+      "file": "originals/recovered/julian-336-intro-loop.webm",
+      "bytes": 5342618,
+      "sha256": "a448fd5e9d653d689bb3751f1cd36250e4b6fdda47d09f2caa874ae11da235cd",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 15.366,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 900,
+          "height": 1212,
+          "tags": {
+            "VENDOR_ID": "[0][0][0][0]",
+            "HANDLER_NAME": "VideoHandler",
+            "ALPHA_MODE": "1",
+            "ENCODER": "Lavc61.19.101 libvpx-vp9",
+            "DURATION": "00:00:15.366000000"
+          }
+        }
+      ],
+      "source_watermark_status": "Not independently certified across every frame."
+    },
+    {
+      "file": "originals/recovered/julian-hero-lipsync.webm",
+      "bytes": 1890128,
+      "sha256": "50ae0507795c9cfe85f5e234bb14295f3d7ff4d18a24af0df7dd5dd7e570a44e",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 3.066,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 900,
+          "height": 1224,
+          "tags": {
+            "VENDOR_ID": "[0][0][0][0]",
+            "HANDLER_NAME": "VideoHandler",
+            "ALPHA_MODE": "1",
+            "ENCODER": "Lavc61.19.101 libvpx-vp9",
+            "DURATION": "00:00:03.066000000"
+          }
+        }
+      ],
+      "source_watermark_status": "Not independently certified across every frame."
+    },
+    {
+      "file": "originals/recovered/julien-hero-master-alpha.webm",
+      "bytes": 1480951,
+      "sha256": "af328b6d3438eaa4fc6635850c99f0e1822e91b45e22649d089b5235aa83e6da",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 3.115,
+      "streams": [
+        {
+          "codec_name": "vp8",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "VENDOR_ID": "[0][0][0][0]",
+            "HANDLER_NAME": "VideoHandler",
+            "ALPHA_MODE": "1",
+            "ENCODER": "Lavc61.19.101 libvpx",
+            "DURATION": "00:00:03.066000000"
+          }
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "tags": {
+            "HANDLER_NAME": "SoundHandler",
+            "VENDOR_ID": "[0][0][0][0]",
+            "ENCODER": "Lavc61.19.101 libopus",
+            "DURATION": "00:00:03.115000000"
+          }
+        }
+      ],
+      "source_watermark_status": "Not independently certified across every frame."
+    },
+    {
+      "file": "originals/recovered/julien-hero-master.webm",
+      "bytes": 527010,
+      "sha256": "b7240b7c88903ff831e5775d81e39f029b0e9adcfdfc41122c22019c29025ee1",
+      "origin": "GitHub commit 29dea6cdd751cf3d2b16d69a61841b0c53ee0520, gitteromri-ux/french-atelier",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 3.115,
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "HANDLER_NAME": "VideoHandler",
+            "VENDOR_ID": "[0][0][0][0]",
+            "ENCODER": "Lavc61.19.101 libvpx-vp9",
+            "DURATION": "00:00:03.066000000"
+          }
+        },
+        {
+          "codec_name": "opus",
+          "codec_type": "audio",
+          "tags": {
+            "HANDLER_NAME": "SoundHandler",
+            "VENDOR_ID": "[0][0][0][0]",
+            "ENCODER": "Lavc61.19.101 libopus",
+            "DURATION": "00:00:03.115000000"
+          }
+        }
+      ],
+      "source_watermark_status": "Not independently certified across every frame."
+    },
+    {
+      "file": "originals/original-uploads/Julian-Kling-2.1-1-1.mp4",
+      "bytes": 5298653,
+      "sha256": "03894ada6be7c69b2882693fac8dd1fab67258175c81050ad59491a3c586d4c6",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 5.041667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 828,
+          "height": 1112,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.31.102 h264_slapi"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/309-3.mp4",
+      "bytes": 391763,
+      "sha256": "dac5cc43d033e2e2ab59281327948544ed0232f2c67a901197389f65b22ac48c",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 2.207007,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/307-3.mp4",
+      "bytes": 295014,
+      "sha256": "57902c0627a3ceb50a39a83a3a8597042ecf6df79aaf589bc37c7557268f4f46",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 2.546009,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/719-3.mp4",
+      "bytes": 375872,
+      "sha256": "e59ab56def7815087c04788a23800e0ec423c835243aa5e9e8faa78042ea2f57",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 2.677007,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/336-3.mp4",
+      "bytes": 600275,
+      "sha256": "5ba158600facad8ce21bac8f216c598d43f9d561f16ef262eb4e100db9c69b85",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 2.310998,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1248,
+          "height": 1680,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/Base-3.mp4",
+      "bytes": 2465539,
+      "sha256": "cb1cc770517bbd2847a5e2d5beb02b3d73ba1b71a930dbc4b0f05a5c19eb6c0e",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 3.366667,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1240,
+          "height": 1668,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    },
+    {
+      "file": "originals/original-uploads/735-2.mp4",
+      "bytes": 406995,
+      "sha256": "d7adfec6713520c50747df06236155ddc2a65d3ee037163e030d8741e96c226b",
+      "origin": "Registered original session attachment (resolved session c08d8f56-a66b-4ad5-8e5a-a6da90843a52)",
+      "treatment": "Unmodified original; no generation, scaling, watermark removal or retouching.",
+      "duration_seconds": 3.095011,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 1088,
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "source_watermark_status": "Original uploads may contain visible platform watermark; 309 and Julian-Kling visibly contain one. These are archival originals, not clean substitutes."
+    }
+  ],
+  "full_body": "Confirmed standing legs and feet in originals/recovered/julien_teaching.png, 887x1774 opaque RGB navy background. No native1800x2400 transparent fullbody recovered."
+}

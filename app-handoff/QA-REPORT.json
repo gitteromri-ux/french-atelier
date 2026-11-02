@@ -10,7 +10,9 @@
     "Adaptive foreground: all nonzero alpha pixels within 66% diameter safe circle; max radius 329.23px",
     "Notification: every visible RGB pixel is pure white; genuine transparent background",
     "Opaque icon/background corners are exact #000034",
-    "Parisian pink mark contains exact #F3D3D9 interior fill",
+    "Gold mark contains exact #C8A96B interior fill",
+    "julien-full-body-1800x2400.png: exact (1800, 2400), RGBA, genuine transparency",
+    "julien-avatar-640.png: exact (640, 640), RGBA, genuine transparency",
     "Relative Markdown links checked; missing=0",
     "App name: 14/30",
     "iOS subtitle: 25/30",
@@ -45,5 +47,5 @@
     }
   ],
   "failures": [],
-  "julien_media_count": 39
+  "julien_media_count": 59
 }

@@ -1,0 +1,29 @@
+{
+  "source": "originals/recovered/julien_teaching.png",
+  "source_dimensions": [
+    887,
+    1774
+  ],
+  "output_dimensions": [
+    1800,
+    2400
+  ],
+  "native_alpha_bbox": [
+    98,
+    61,
+    821,
+    1725
+  ],
+  "placed_content_dimensions": [
+    965,
+    2220
+  ],
+  "scale_factor": 1.3341346153846154,
+  "placement_xy": [
+    417,
+    90
+  ],
+  "foreground_components_before_filter": 1,
+  "method": "Color-seeded GrabCut; largest connected figure, subpixel edge smoothing and nearest-interior RGB on semitransparent edge only; Lanczos resample and transparent canvas. No generated/redrawn body or background.",
+  "sha256": "c887a93c93c79c7ae73bc9f5e3020b74be8cd34578ac54a900b7a68b9e048152"
+}

@@ -14,8 +14,8 @@ Use this small core palette for the app. Do not import colour variations from ol
 | Role | Colour | Exact hex | Application |
 |---|---|---|---|
 | Primary | Deep navy | `#000034` | Navigation, primary controls, dark surfaces |
-| Secondary | Parisian pink | `#F3D3D9` | Brand mark, soft category backgrounds and selected surfaces |
-| Accent | Muted terracotta | `#C76F50` | Editorial accents, cultural headings and highlighted details |
+| Signature accent | Gold | `#C8A96B` | Brand mark, primary highlights and key controls |
+| Light surface | Warm ivory | `#F3EFE9` | Main light content surface |
 | Dark/text | Deep navy | `#000034` | Body text and headings on light surfaces |
 | Background | Warm ivory / white | `#F3EFE9` / `#FFFFFF` | Ivory for app surfaces; white for the requested launch screen |
 
@@ -23,24 +23,27 @@ These values follow the current website's explicit brand-deck-locked palette, ra
 
 ### Supporting colours
 
-Parisian pink and muted terracotta are integral to the brand, not optional omissions. Use the supporting neutrals and gold below to complement navy, pink and terracotta.
+Deep navy and gold anchor the identity. Parisian pink, muted terracotta and the existing light-blue family support that identity; they do not replace gold or become the primary app theme.
 
 | Supporting colour | Exact hex | Recommended use |
 |---|---|---|
-| Warm ivory | `#F3EFE9` | Main light app surface |
-| Gold | `#C8A96B` | Restrained supporting highlights, not the dominant identity |
+| Parisian pink | `#F3D3D9` | Supporting editorial details and soft surfaces |
+| Muted terracotta | `#C76F50` | Supporting culture accents and headings |
+| Light blue | `#BDD7F2` | Existing learning-platform card mid-tone |
+| Pale blue | `#E8F1FB` | Light-blue surface / gradient start |
+| Deeper light blue | `#8FB8E0` | Light-blue gradient end |
 | Warm taupe | `#D8CAB5` | Supporting neutral panels and dividers |
 
-The supporting values are present in the [same current brand palette](https://www.frenchatelierlive.com/css/fa.css). Use navy for readable text on pale surfaces; do not use gold as small body text on white.
+The pink/terracotta values and the platform card's `#E8F1FB` → `#BDD7F2` → `#8FB8E0` gradient are present in the [current website stylesheet](https://www.frenchatelierlive.com/css/fa.css). Its Acadomia hero treatment also uses blue tint `#A7C9EB` and pale-blue text `#CFE1F5`; these are component-specific tints, not replacements for the core navy/gold identity.
 
 ### Typography
 
 | Role | Font | Weights to use | Guidance |
 |---|---|---|---|
-| Primary brand/display | Cormorant Garamond | 600 and 700; 400 italic for limited editorial emphasis | Titles, introductions and culture headlines |
+| Primary brand/display | Cormorant Garamond | 500 and 600 for site-style titles; 700 reserved for the existing F mark | Titles, introductions and culture headlines |
 | Supporting/body/UI | Inter | 400 body, 500 labels, 600 controls | Navigation, lessons, buttons, forms and longer text |
 
-Cormorant Garamond is the existing display family and Inter is the existing UI/body family ([website font declarations](https://www.frenchatelierlive.com/css/fa.css)). These are the French Atelier fonts; whether they are already bundled in Rosen/IIBS must be checked in that app's codebase, not assumed.
+The current website declares Cormorant Garamond for display and Inter for UI/body ([website font declarations](https://www.frenchatelierlive.com/css/fa.css)). This handoff uses those verified website families with correctly declared variable-weight ranges; whether they are already bundled in Rosen/IIBS must be checked in that app's codebase, not assumed.
 
 Recommended app type sizes: 28-36px display titles, 17-18px body and 14-16px labels. Preserve native accessibility text scaling and use Inter for dense learning interfaces.
 
@@ -64,7 +67,7 @@ The library is organised around destinations, food, fashion, architecture, cinem
 
 ### Design decision for approval
 
-Use the existing serif **F** mark for small app icons, in deep navy and Parisian pink. Use the full **French Atelier by Acadomia** wordmark on splash and login screens, where the name and endorsement can remain legible.
+Use the existing serif **F** mark for small app icons, in deep navy and gold. Use the full **French Atelier by Acadomia** wordmark on splash and login screens, where the name and endorsement can remain legible.
 
 The icon is an adaptation of the existing email favicon, not a newly invented symbol. It is rendered afresh from the brand font rather than enlarged from the small favicon raster; the wordmark exports preserve existing logo pixels and their native detail.
 
@@ -96,27 +99,29 @@ Use the established animated character with dark swept-back hair, a salt-and-pep
 
 | Asset | Package location | What it is |
 |---|---|---|
-| Head-and-shoulders avatar | [640px transparent avatar](assets/julien/stills/julien-head-shoulders-640.png) | 640×640 transparent PNG, downsampled from a 900×900 source crop; no enlargement |
+| Standing full-body artwork | [1800×2400 transparent PNG](assets/julien/stills/julien-full-body-1800x2400.png) | Exact 1800×2400 PNG; both legs and feet visible; cut out from the recovered original standing pose |
+| Head-and-shoulders avatar | [640px transparent avatar](assets/julien/stills/julien-avatar-640.png) | Exact 640×640 transparent PNG; native-pixel crop from the recovered original standing artwork |
 | Larger square avatar | [900px transparent avatar](assets/julien/stills/julien-head-shoulders-900.png) | 900×900 transparent PNG; native square crop from the cleaned upper-body still |
-| Largest recovered transparent still | [900px upper-body still](assets/julien/stills/julien-upper-body-transparent-900x1224-edge-clean.png) | 900×1224 upper-body image, not full body |
+| Alternative upper-body still | [900px upper-body still](assets/julien/stills/julien-upper-body-transparent-900x1224-edge-clean.png) | 900×1224 upper-body image, separate from the full-body export |
 | Transparent animated character | [julian-735.webm](assets/julien/originals/webm/julian-735.webm) | 900×1224 VP9 alpha, approximately 3.07 seconds, video only |
 | Matching first frame | [Exact transparent first frame](assets/julien/stills/julien-alpha-first-frame.png) | Transparent first frame decoded directly from that WebM, unretouched |
 | Existing talking master | [julien-hero-master.mp4](assets/julien/originals/mp4/julien-hero-master.mp4) | 800×1088, approximately 3.10 seconds, opaque background, embedded audio |
 | Existing spoken introduction | [Julien French introduction](assets/julien/originals/audio/site/julien_intro_fr.mp3) | 15.291-second original audio; separate from the short motion clips |
+| Recovered longer intro loop | [Original 15.366-second WebM](assets/julien/originals/recovered/julian-336-intro-loop.webm) | 900×1212, video only; preserved source file |
+| Original uploaded videos | [Recovery notes](assets/julien/RECOVERY-NOTES.md) | Seven recovered original MP4 uploads, with exact native dimensions and durations |
 | Master first-frame still | [Exact master first frame](assets/julien/stills/julien-master-first-frame.png) | Exact first frame with the original background preserved |
-| Motion, posters and audio library | [Julien media guide](assets/julien/README.md) and [file index](assets/julien/FILE-INDEX.md) | 39 media assets, with formats, durations and audio/source distinctions |
+| Motion, posters and audio library | [Julien media guide](assets/julien/README.md) and [file index](assets/julien/FILE-INDEX.md) | 59 media assets, with formats, durations and audio/source distinctions |
 
 The current website already uses these character assets ([existing Julien media page](https://www.frenchatelierlive.com/juliane.html)). The package preserves the source clips; file presence does not mean the dialogue has been approved for the app or that separate audio has been certified lip-synchronised.
 
-Some source hair edges and motion retain compression softness or light fringing. The cleaned stills reduce semitransparent edge contamination without altering the face or inventing higher-resolution detail; they are not represented as newly rendered perfect mattes.
+The full-body export is made from the recovered 887×1774 standing original: its background is removed, the figure is resampled to 2220px high and centred on a transparent 1800×2400 canvas. It is not mislabelled as a native 1800×2400 original; the native source and native-size cutout are also supplied.
 
-One recovered Kling clip has a visible watermark and is excluded from the app-ready library. Its source is retained outside the handoff rather than silently supplied as clean artwork.
+Original uploaded videos are retained as source material, including originals with visible platform watermarks. The original-upload group is not presented as a set of clean production replacements.
 
-The inspected repository branches contain short character motion clips, not a recovered 15-second talking-head movie. The longer website introduction is a separate audio file played alongside decorative character motion; no new lip-synchronised composite has been fabricated.
+Historical recovery added the longer 15.366-second intro loop, source audio and additional originals. No new lip-synchronised composite has been fabricated; the files remain separately available.
 
 ### Requirements still needing a decision
 
-- **Standing full-body artwork:** No genuine full-body source was recovered. The inspected sources stop around the waist; they cannot honestly be delivered as 1800×2400 standing art. Approve a new full-body extension of Julien, or supply the existing full-body original if there is one.
 - **Room/background overlay:** No separate Rosie-style room/background overlay was recovered. Transparent character WebMs are included, but they are not a room overlay.
 - **Speaking Practice treatment:** Proposed approach is the existing Julien character on an ivory app surface. A dedicated room scene is optional and would be a new creative asset, not an existing recovered file.
 
@@ -249,7 +254,7 @@ The package is ready to review, not yet approved for store submission.
 
 - **Visual direction:** Approve the current website palette, font hierarchy, F app mark and full-wordmark splash/login treatment.
 - **Store copy:** Approve or edit the proposed app name, subtitle, keywords and descriptions.
-- **Julien full body:** Approve creating a matching standing full-body extension, or identify the original source.
+- **Julien full body:** Supplied from the recovered standing original, with exact-size transparent and native-source downloads.
 - **Tutor background:** Approve the simple ivory app background, or request a separate room/overlay.
 - **Contact and referral:** Confirm the app-support inbox and referral owner/offer.
 - **Product:** Confirm interface languages, editor/cadence and launch practice features.
