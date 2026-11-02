@@ -284,3 +284,66 @@ html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch .kps-sub, ht
   html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio { font-size: .98rem !important; line-height: 1.45 !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio br { display: none !important; }
 }
+
+/* ==== 2026-11-02 How it works: visual version (Omri 19:25) ==== */
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks { margin: 0 0 22px; padding: 22px 24px 20px; border-radius: 20px; background: #fff; border: 1px solid rgba(11,12,49,.08); box-shadow: 0 10px 30px rgba(0,0,31,.06); }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-cap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 14px; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-lbl { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; color: #0B0C31; line-height: 1; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-note { font-size: 1rem; color: #3f4160; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li { position: relative; height: 54px; border-radius: 12px; background: linear-gradient(90deg, #0B1340 0 76%, #6FC4FF 76% 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li b { color: #fff; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.45rem; font-weight: 600; line-height: 1; position: relative; left: -6%; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 12px; font-size: .95rem; color: #3f4160; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend span { display: inline-flex; align-items: center; gap: 8px; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-wk-class { background: #0B1340; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-wk-qa { background: #6FC4FF; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { justify-content: flex-start !important; min-height: 0 !important; padding: 22px 20px 22px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .ic { width: 34px; height: 34px; margin-bottom: 14px; display: block; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n { font-size: 3rem !important; line-height: .95 !important; margin: 0 0 8px !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n small { font-size: .95rem !important; margin-left: 4px; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .k { font-size: 1.1rem !important; font-weight: 600 !important; line-height: 1.2 !important; }
+@media (max-width: 767px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks { padding: 18px 16px 16px; margin-bottom: 16px; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row { grid-template-columns: repeat(5, 1fr); gap: 7px; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-row li { height: 46px; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-lbl { font-size: 1.4rem; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-weeks-note { font-size: .95rem; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { padding: 16px 14px 16px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .ic { width: 26px; height: 26px; margin-bottom: 10px; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n { font-size: 2.3rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .k { font-size: 1rem !important; }
+}
+
+/* ==== 2026-11-02 Pricing cards: premium 3D (Omri 19:30) ==== */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card { position: relative; isolation: isolate; overflow: hidden !important; border-radius: 22px !important; background: linear-gradient(160deg, #142057 0%, #0B1340 48%, #060B2A 100%) !important; border: 1px solid rgba(255,255,255,.10) !important; box-shadow: 0 32px 70px -28px rgba(0,0,31,.75), 0 12px 28px -14px rgba(0,0,31,.45), inset 0 1px 0 rgba(255,255,255,.10) !important; color: #fff !important; transition: transform .35s ease, box-shadow .35s ease; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card::before { content: ""; position: absolute; inset: -40% auto auto -20%; width: 90%; height: 70%; background: radial-gradient(closest-side, rgba(111,196,255,.22), rgba(111,196,255,0)); z-index: -1; pointer-events: none; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); pointer-events: none; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { background: linear-gradient(165deg, #1B2A6B 0%, #0E1750 45%, #080D33 100%) !important; border: 1px solid rgba(232,211,166,.70) !important; box-shadow: 0 0 0 1px rgba(232,211,166,.22), 0 44px 90px -30px rgba(0,0,31,.85), 0 0 60px -10px rgba(232,211,166,.22), inset 0 1px 0 rgba(255,255,255,.14) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all::before { background: radial-gradient(closest-side, rgba(232,211,166,.26), rgba(232,211,166,0)); }
+@media (min-width: 900px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-grid { align-items: center !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all { transform: translateY(-10px) scale(1.035); z-index: 2; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -28px rgba(0,0,31,.8), 0 14px 30px -14px rgba(0,0,31,.5), inset 0 1px 0 rgba(255,255,255,.12) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all:hover { transform: translateY(-16px) scale(1.035); }
+}
+/* type and colour inside every card */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-name { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-sub { color: #BFE4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-amt, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cur { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-unit { color: #BFE4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-strike { color: rgba(255,255,255,.45) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-save, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-percap { color: #E8D3A6 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-pay { color: rgba(255,255,255,.82) !important; opacity: 1 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-pay b { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-inc { color: #E8D3A6 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li { color: rgba(255,255,255,.9) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li b { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li::before, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li i, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-feats li svg { color: #E8D3A6 !important; background: rgba(232,211,166,.14) !important; border-color: rgba(232,211,166,.4) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-refund, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-foot { color: rgba(255,255,255,.8) !important; border-color: rgba(255,255,255,.12) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-badge { color: #E8D3A6 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card hr, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-rule { border-color: rgba(255,255,255,.12) !important; background: rgba(255,255,255,.12) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-cta { background: linear-gradient(180deg, #5EB6FF 0%, #2E8BE6 100%) !important; color: #06243F !important; border: 0 !important; box-shadow: 0 12px 26px -10px rgba(46,139,230,.7), inset 0 1px 0 rgba(255,255,255,.35) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card.kpz-all .kpz-cta { background: linear-gradient(180deg, #F0DFB6 0%, #D9BC85 100%) !important; color: #0B0C31 !important; box-shadow: 0 14px 30px -10px rgba(217,188,133,.65), inset 0 1px 0 rgba(255,255,255,.5) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers { background: radial-gradient(120% 90% at 50% 0%, #1A2766 0%, #0D154A 45%, #060A28 100%) !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-off, html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-reg { color: #E8D3A6 !important; }
