@@ -227,3 +227,9 @@
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay .chip { background: none; border: 0; padding: 0; border-radius: 0; box-shadow: none; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay .kpz-payline { display: block; }
 html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay { opacity: .88 !important; }
+/* 2026-11-02 hero text: white statements + light-blue second voice, no gold text (all widths). Approved by Omri. */
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 .gi { color: #6FC4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow { color: #6FC4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub b,
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub .kps-hero-price { color: #fff !important; }
