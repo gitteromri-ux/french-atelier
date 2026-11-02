@@ -1,0 +1,231 @@
+/* ==== css/fa-capsules-mobile-v6.css (2026-11-02) ====
+   Culture Capsules phone layout rebuild. CSS only. Tracking, checkout, attribution and all JS untouched.
+   - Header scrolls away; promo strip is one compact line; floating CTA is a small pill. ~90px fixed instead of 240px.
+   - Every horizontal swipe slider becomes a vertical stack (or a 2-column grid). Nothing is ever cut off.
+   - Hero fits in the first screen with the CTA visible. Section rhythm tightened. Large type kept.
+   - Pricing: cards stacked full width, plain-text payment logos, badge without pill. */
+@media (max-width: 767px) {
+
+  /* ---------- fixed chrome budget ---------- */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip { height: 40px !important; padding: 0 40px 0 12px !important; gap: 8px !important; justify-content: flex-start !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-code { height: 24px !important; padding: 0 8px !important; font-size: 12px !important; letter-spacing: .08em !important; animation: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-code svg { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-msg { font-size: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-msg .long,
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-msg .short { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-ends { font-size: 13px !important; gap: 5px !important; margin-left: auto !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-ends i { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-cta { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-x { width: 34px !important; height: 40px !important; right: 2px !important; top: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip::before { animation: none !important; display: none !important; }
+
+  /* header: part of the page, not pinned. The hero already reserves room for it. */
+  html:root:root:root:root:root:root:root body#fa.cap-page .site-header,
+  html:root:root:root:root:root:root:root body#fa.cap-page .site-header.scrolled { position: absolute !important; top: var(--fa-top, 0px) !important; left: 0 !important; right: 0 !important; background: transparent !important; box-shadow: none !important; border: 0 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; height: 64px !important; min-height: 0 !important; z-index: 60 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .site-header .nav { height: 64px !important; min-height: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .site-header .nav-logo-img { height: 36px !important; width: auto !important; }
+
+  /* floating CTA: one small pill, bottom right */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta,
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta.is-visible { left: auto !important; right: 14px !important; bottom: 14px !important; top: auto !important; width: auto !important; max-width: calc(100% - 28px) !important; border-radius: 999px !important; background: #0B1340 !important; border: 1px solid rgba(255,255,255,.14) !important; box-shadow: 0 10px 28px rgba(0,0,31,.45) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-text { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-pill { margin: 0 !important; padding: 0 18px 0 16px !important; height: 46px !important; border-radius: 999px !important; gap: 7px !important; font-size: 15px !important; background: linear-gradient(180deg,#E8D3A6,#C8A96B) !important; color: #0B0C31 !important; box-shadow: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-pill::before { content: "Enroll"; font-weight: 800; font-size: 15px; letter-spacing: .01em; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-pill .price { font-size: 15px !important; font-weight: 600 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-pill .price::before { content: "· "; font-weight: 400; opacity: .6; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-pill .mo { font-size: 12px !important; font-weight: 600 !important; opacity: .8 !important; letter-spacing: 0 !important; text-transform: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-float-cta .fa-cta-arrow { width: 16px !important; height: 16px !important; color: #0B0C31 !important; }
+
+  /* ---------- kill every horizontal swipe slider ---------- */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sl-bar,
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sl-next,
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sl-hint,
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sl-tabs { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sl-wrap { position: static !important; margin: 0 !important; padding: 0 !important; width: auto !important; overflow: visible !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-cards,
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsule-teachers .cap-faculty-grid,
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-grid,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-steps,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-grid,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .cols,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-read .grid,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-trust .row,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kpx-vids,
+  html:root:root:root:root:root:root:root body#fa.cap-page [data-fa-sl] {
+    display: grid !important; grid-template-columns: 1fr !important; grid-auto-flow: row !important;
+    flex-wrap: wrap !important; overflow: visible !important; overflow-x: visible !important;
+    scroll-snap-type: none !important; width: 100% !important; max-width: 100% !important;
+    margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important;
+    gap: 14px !important; scroll-padding: 0 !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail::before,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-steps::before,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-grid::before,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .cols::before,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-read .grid::before { display: none !important; content: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-cards > .kps-card,
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsule-teachers .cap-faculty-grid > .cap-teacher,
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-grid > .kpz-card,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-steps > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-grid > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .cols > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-read .grid > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-trust .row > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kpx-vids > *,
+  html:root:root:root:root:root:root:root body#fa.cap-page [data-fa-sl] > * {
+    flex: none !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; margin: 0 !important; scroll-snap-align: none !important; transform: none !important;
+  }
+  /* small facts and the 10 classes read better two per row */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { padding: 16px 14px !important; min-height: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .n { font-size: 2.1rem !important; line-height: 1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .k { font-size: 1.05rem !important; margin-top: 6px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell .s { font-size: .95rem !important; line-height: 1.35 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile { padding: 0 !important; border-radius: 14px !important; overflow: hidden !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .img { aspect-ratio: 4 / 3 !important; height: auto !important; min-height: 0 !important; max-height: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .body { padding: 12px 12px 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .n { font-size: .8rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .sub { font-size: .82rem !important; line-height: 1.3 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile h5 { font-size: 1.18rem !important; line-height: 1.15 !important; margin: 4px 0 6px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile p { font-size: .95rem !important; line-height: 1.4 !important; margin: 0 !important; }
+
+  /* ---------- hero fits the first screen ---------- */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero { min-height: 0 !important; align-items: flex-start !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-wrap { padding: 84px 0 28px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-reel { margin: 0 0 14px !important; gap: 6px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-reel .kps-pill { font-size: 12px !important; padding: 6px 10px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 { font-size: 2.55rem !important; line-height: 1.02 !important; letter-spacing: -.01em !important; margin: 0 0 12px !important; max-width: 100% !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 .gi { font-size: .9em !important; display: block !important; margin-top: 4px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub { font-size: 1.08rem !important; line-height: 1.45 !important; margin: 0 0 18px !important; max-width: 100% !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub .kps-hero-price { display: block !important; margin-top: 8px !important; color: #F3E3BE !important; font-size: 1.1rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta { display: grid !important; grid-template-columns: 1fr !important; gap: 10px !important; margin: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .kps-btn { width: 100% !important; min-height: 54px !important; font-size: 1.08rem !important; justify-content: center !important; margin: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .tp { justify-content: center !important; margin: 4px 0 0 !important; font-size: .95rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .fa-refund-banner { margin: 10px 0 0 !important; text-align: center !important; font-size: .95rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px 14px !important; margin: 18px 0 0 !important; padding: 16px !important; border-radius: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-stats b { font-size: 1.9rem !important; line-height: 1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-stats span { font-size: .9rem !important; line-height: 1.25 !important; }
+
+  /* ---------- section rhythm and type ---------- */
+  html:root:root:root:root:root:root:root body#fa.cap-page section { padding-top: 48px !important; padding-bottom: 48px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero { padding-top: 0 !important; padding-bottom: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-wrap { padding-left: 18px !important; padding-right: 18px !important; width: 100% !important; max-width: 100% !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .head { margin-bottom: 20px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-h2,
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty-head h2 { font-size: 2.15rem !important; line-height: 1.05 !important; margin: 0 0 10px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-sub { font-size: 1.05rem !important; line-height: 1.45 !important; margin: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-kicker { margin-bottom: 8px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-h2 br,
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty-head h2 br { display: none !important; }
+
+  /* three capsule cards */
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card { min-height: 0 !important; height: auto !important; aspect-ratio: auto !important; border-radius: 16px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .ph,
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .what { font-size: 1rem !important; line-height: 1.4 !important; }
+
+  /* the capsule stage (video + chapters) and the ten classes */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage { min-height: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage .inner { padding: 20px 16px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage .eyebrow.kps-pill { background: rgba(0,0,31,.55) !important; color: #F3E3BE !important; border: 1px solid rgba(243,227,190,.4) !important; font-size: .8rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage h3 { font-size: 1.75rem !important; line-height: 1.1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage p { font-size: 1rem !important; line-height: 1.45 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-lessons .lhead { margin-bottom: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-lessons .lhead h3 { font-size: 1.7rem !important; line-height: 1.1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-lessons .lhead p { font-size: 1rem !important; }
+
+  /* teachers: full width, portrait short enough to see name and role with the face */
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher { display: grid !important; grid-template-columns: 112px 1fr !important; gap: 14px !important; align-items: center !important; padding: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher .cap-portrait { width: 112px !important; aspect-ratio: 3 / 4 !important; height: auto !important; border-radius: 12px !important; overflow: hidden !important; margin: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher .cap-portrait img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: 50% 18% !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy { text-align: left !important; padding: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy h3 { font-size: 1.5rem !important; line-height: 1.05 !important; margin: 0 0 4px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-role { font-size: .95rem !important; margin: 0 0 6px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio { font-size: .95rem !important; line-height: 1.4 !important; margin: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio br { display: none !important; }
+
+  /* films: one under the other, sound button never over a CTA */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-sound-btn { top: 10px !important; right: 10px !important; bottom: auto !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-method .sound-toggle,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-final .sound-toggle { top: 10px !important; right: 10px !important; bottom: auto !important; }
+
+  /* ---------- pricing ---------- */
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card { padding: 22px 18px 20px !important; border-radius: 18px !important; overflow: visible !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-badge { position: static !important; display: inline-block !important; margin: 0 0 8px !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; font-size: .85rem !important; font-weight: 700 !important; letter-spacing: .06em !important; text-transform: uppercase !important; color: #8a6d1f !important; transform: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-top { margin-bottom: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-name { font-size: 1.75rem !important; line-height: 1.05 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-sub { font-size: 1rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-price { align-items: baseline !important; gap: 6px !important; flex-wrap: nowrap !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-amt { font-size: 4.2rem !important; line-height: .9 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-unit { font-size: 1rem !important; line-height: 1.2 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-percap { font-size: 1.05rem !important; margin: 8px 0 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay { display: block !important; margin: 14px 0 16px !important; padding: 12px 14px !important; border-radius: 12px !important; background: rgba(11,12,49,.05) !important; font-size: 1rem !important; line-height: 1.5 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-all .kpz-pay { background: rgba(255,255,255,.08) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay .kpz-dot { display: none !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay .kpz-payline { display: block !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-cta { width: 100% !important; min-height: 56px !important; font-size: 1.1rem !important; justify-content: center !important; margin: 0 0 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-feats li { font-size: 1rem !important; line-height: 1.4 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-promo { margin-top: 18px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay { display: block !important; text-align: center !important; font-size: .95rem !important; line-height: 1.5 !important; margin-top: 16px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay .chip { display: inline !important; background: none !important; border: 0 !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important; box-shadow: none !important; font: inherit !important; color: inherit !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay .chip + .chip::before { content: ", "; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay > span:first-child::after { content: ": "; }
+
+  /* FAQ, trust, final */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-faq summary { font-size: 1.05rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-final h2 { font-size: 2.1rem !important; }
+
+  /* v6b fixes after first render */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip { flex-wrap: nowrap !important; white-space: nowrap !important; overflow: hidden !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip > * { flex: 0 0 auto !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-ends { flex: 0 1 auto !important; min-width: 0 !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .fa-sound-btn { top: auto !important; bottom: 14px !important; right: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage .inner { background: linear-gradient(180deg, rgba(0,0,31,.30) 0%, rgba(0,0,31,.78) 45%, rgba(0,0,31,.92) 100%) !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-stage .inner p { color: #fff !important; text-shadow: 0 1px 12px rgba(0,0,31,.8) !important; }
+  /* ten classes: list rows, image left, all copy kept */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile { display: grid !important; grid-template-columns: 104px 1fr !important; align-items: stretch !important; min-height: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .img { aspect-ratio: auto !important; height: 100% !important; min-height: 124px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .img img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .body { padding: 12px 14px 12px 12px !important; display: flex !important; flex-direction: column !important; justify-content: center !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile h5 { font-size: 1.15rem !important; margin: 2px 0 4px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile .sub { font-size: .8rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-tile p { font-size: .92rem !important; line-height: 1.35 !important; }
+  /* speakers and learn: tighter cards */
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-steps > *, html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .col { padding: 18px 16px !important; min-height: 0 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .col .big b { font-size: 2.4rem !important; line-height: 1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-step .r { font-size: 1.6rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-step h4 { font-size: 1.35rem !important; line-height: 1.1 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-step p, html:root:root:root:root:root:root:root body#fa.cap-page .kps-learn .col p { font-size: 1rem !important; line-height: 1.4 !important; }
+
+  /* v6c: strip is a single flex row; capsule cards keep their image height */
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip { display: flex !important; grid-template-columns: none !important; grid-template-areas: none !important; align-items: center !important; height: 40px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-msg { display: inline !important; flex: 0 0 auto !important; width: auto !important; white-space: nowrap !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-ends { display: inline-flex !important; margin-left: auto !important; align-items: center !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-ends span.lbl { display: inline !important; margin-right: 4px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .fa-strip-x { top: 0 !important; bottom: auto !important; height: 40px !important; width: 36px !important; display: grid !important; place-items: center !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card { min-height: 440px !important; justify-content: flex-end !important; padding: 20px 18px 18px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .eyebrow { top: 16px !important; left: 16px !important; right: auto !important; font-size: 12px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .title { font-size: 2.3rem !important; line-height: 1 !important; margin: 0 0 8px !important; display: block !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .what { font-size: 1.1rem !important; margin: 0 0 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta { gap: 22px !important; padding: 12px 0 14px !important; margin-bottom: 14px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta b { font-size: 1.5rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta small { font-size: .9rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .action { width: 100% !important; justify-content: center !important; min-height: 50px !important; font-size: 1.05rem !important; }
+
+  /* v6d: capsule card eyebrow in flow at the top; meta on one row; faculty heading spacing */
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card { min-height: 470px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .eyebrow { position: static !important; order: -1 !important; margin: 0 auto auto 0 !important; align-self: flex-start !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta { display: grid !important; grid-template-columns: repeat(3, auto) !important; justify-content: start !important; gap: 0 22px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta small { white-space: nowrap !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty-head h2 > span,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-h2 > .gi { display: block !important; }
+}
+
+/* all widths: payment logos read as text, never as pills */
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kps-pay .chip { background: none; border: 0; padding: 0; border-radius: 0; box-shadow: none; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay .kpz-payline { display: block; }
+html:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-pay { opacity: .88 !important; }
