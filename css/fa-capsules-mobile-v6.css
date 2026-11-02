@@ -233,3 +233,15 @@ html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 .gi {
 html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow { color: #6FC4FF !important; }
 html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub b,
 html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub .kps-hero-price { color: #fff !important; }
+/* 2026-11-02 hero copy fixes (Omri): plain larger eyebrow, lead sentence, refund inline with the CTA row */
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow { font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 1.25rem !important; color: #fff !important; opacity: .92; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub .kps-hero-lead { display: block; color: #fff; font-weight: 500; margin-bottom: .5em; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refund-banner { margin: 0 0 0 1.1rem !important; display: inline-flex !important; align-items: center !important; font-size: 1rem !important; color: #fff !important; white-space: nowrap; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refund-banner::before { content: "·"; margin-right: .7rem; opacity: .6; }
+@media (max-width: 767px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow { display: block !important; font-size: 1.05rem !important; margin: 0 0 8px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refund-banner { margin: 2px 0 0 !important; justify-content: center !important; font-size: .95rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refund-banner::before { content: none; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 { font-size: 2.3rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub { font-size: 1.02rem !important; }
+}
