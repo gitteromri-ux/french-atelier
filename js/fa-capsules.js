@@ -86,7 +86,12 @@
     c.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(c.dataset.pack); } });
   });
   if(location.hash && /^#capsule-(fashion|gastro|cinema)$/.test(location.hash)){ open(location.hash.replace('#capsule-',''),true); }
-  else if(cards.length){ open(cards[0].dataset.pack,false); }
+  /* 2026-11-02: all three capsules start closed; a capsule opens on hover (mouse) or tap/click. */
+  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(fine){ var hoverT=null; cards.forEach(function(c){
+    c.addEventListener('mouseenter',function(){ clearTimeout(hoverT); hoverT=setTimeout(function(){ if(!c.classList.contains('is-open')) open(c.dataset.pack,false); },180); });
+    c.addEventListener('mouseleave',function(){ clearTimeout(hoverT); });
+  }); }
 
   /* ---- speakers background: lazy clip ---- */
   var sp=document.querySelector('.kps-method .bg video');

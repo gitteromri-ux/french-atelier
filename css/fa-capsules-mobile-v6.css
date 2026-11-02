@@ -245,3 +245,42 @@ html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refu
   html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 { font-size: 2.3rem !important; }
   html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub { font-size: 1.02rem !important; }
 }
+
+/* ==== 2026-11-02 restructure (Omri 18:10) — all widths ==== */
+/* capsule cards: readable text over imagery */
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,31,.10) 0%, rgba(0,0,31,.28) 35%, rgba(0,0,31,.82) 68%, rgba(0,0,31,.96) 100%); pointer-events: none; }
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .title { color: #fff !important; text-shadow: 0 2px 18px rgba(0,0,31,.75); }
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .what { color: #fff !important; opacity: .96; text-shadow: 0 1px 12px rgba(0,0,31,.8); }
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta b { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta small { color: #BFE4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .eyebrow { color: #fff !important; background: rgba(0,0,31,.55) !important; border: 1px solid rgba(255,255,255,.28) !important; }
+/* how it works: six coloured squares */
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell { border: 0 !important; border-radius: 18px !important; box-shadow: 0 10px 30px rgba(0,0,31,.08); }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail { gap: 14px !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(1) { background: #0B1340 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(2) { background: #6FC4FF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(3) { background: #F3E6C4 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(4) { background: #1D2A5A !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(5) { background: #D8ECFF !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(6) { background: #2E8BE6 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(1) *, html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(4) *, html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(6) * { color: #fff !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(2) *, html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(3) *, html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell:nth-child(5) * { color: #0B0C31 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell::before, html:root:root:root:root:root:root:root body#fa.cap-page .kps-rail .cell::after { display: none !important; }
+/* films section: warm ivory so the page alternates */
+html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch { background: #F6F1E7 !important; color: #0B0C31 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch .kps-h2, html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch figcaption, html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch figcaption * { color: #0B0C31 !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch .kps-h2 .gi { color: #8a6d1f !important; }
+html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch .kps-sub, html:root:root:root:root:root:root:root body#fa.cap-page .kpx-watch figcaption span { color: #4a4860 !important; }
+/* teachers: compact */
+@media (min-width: 768px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty-head h2 { font-size: clamp(2rem, 3vw, 2.6rem) !important; margin-bottom: 1.6rem !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-faculty-grid { max-width: 980px !important; margin: 0 auto !important; gap: 28px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher .cap-portrait { aspect-ratio: 4 / 5 !important; max-height: 300px !important; width: auto !important; max-width: 240px !important; margin: 0 auto 14px !important; border-radius: 14px !important; overflow: hidden !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher .cap-portrait img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: 50% 15% !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy { text-align: center !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy h3 { font-size: 1.5rem !important; margin-bottom: 2px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-role { font-size: .95rem !important; margin-bottom: 6px !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio { font-size: .98rem !important; line-height: 1.45 !important; }
+  html:root:root:root:root:root:root:root body#fa.cap-page .cap-teacher-copy .cap-bio br { display: none !important; }
+}
