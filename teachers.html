@@ -40,6 +40,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="css/house-style.css?v=1790665240">
 <link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
+<link rel="stylesheet" href="css/teacher-bios.css?v=20261103">
 </head>
 <body id="fa">
 
@@ -268,7 +269,7 @@
   <div class="wrap">
     <div style="text-align:center;margin-bottom:4rem">
       <p class="eyebrow eyebrow-line reveal" style="justify-content:center">The Faculty</p>
-      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Five teachers. Many <span class="gold-ital">regions</span>. One France.</h2>
+      <h2 class="display-sm reveal reveal-d1" style="margin-top:1rem">Seven teachers. Many <span class="gold-ital">regions</span>. One France.</h2>
       <p class="lede reveal reveal-d2 lede-c" style="max-width:58ch;margin:1rem auto 0">Each a native speaker, each deeply rooted in a distinct corner of France — together, they cover the full cultural breadth of the country.</p>
     </div>
 
@@ -294,7 +295,7 @@
       </div>
 
       <!-- Carmèle — Paris -->
-      <div class="fc reveal reveal-d1">
+      <div class="fc reveal reveal-d1" data-teacher-bio="carmele">
         <div class="fc-photo">
           <img src="assets/teachers/carmele.webp" alt="Carmèle, French teacher from Paris" loading="lazy" decoding="async">
           <div class="fc-photo-overlay"></div>
@@ -303,7 +304,8 @@
         <div class="fc-body">
           <div class="fc-name">Carmèle</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Paris</div>
-          <p class="fc-bio">A Parisienne by birth and by sensibility, Carmèle brings the capital's intellectual rigour and social grace into every class — teaching the French of the gallery, the salon, and the café terrace with the easy authority of someone who has lived it all her life.</p>
+          <p class="fc-bio">A passionate FLE instructor with experience at the Alliance Française in Manila, she also creates fun and effective learning content. From the heart of Paris — city of lights, style and café culture — she brings elegance and energy to every lesson.</p>
+          <span class="fc-readmore">Read full bio</span>
           <div class="fc-quals">
             <span class="fc-cefr">A1 → B1</span>
             <span class="fc-qual"><svg><use href="#i-certificate"/></svg>Master FLE</span>
@@ -351,7 +353,7 @@
       </div>
 
       <!-- Shanice — Montpellier -->
-      <div class="fc reveal reveal-d2">
+      <div class="fc reveal reveal-d2" data-teacher-bio="shanice">
         <div class="fc-photo">
           <img src="assets/teachers/shanice.webp" alt="Shanice, French teacher from Montpellier" loading="lazy" decoding="async">
           <div class="fc-photo-overlay"></div>
@@ -360,11 +362,53 @@
         <div class="fc-body">
           <div class="fc-name">Shanice</div>
           <div class="fc-location"><span class="fc-location-dot"></span>Montpellier</div>
-          <p class="fc-bio">Shanice teaches the warm, sun-drenched French of the Mediterranean coast — where Occitan inflections colour the vowels, the rhythm of life is generous and unhurried, and the language opens like a window onto a France that is vivid and utterly alive.</p>
+          <p class="fc-bio">A cheerful and dynamic Franco-Canadian from sunny Montpellier, Shanice brings 15 years of teaching experience — and a whole lot of good vibes. She’s here to make French fun, fresh and full of culture.</p>
+          <span class="fc-readmore">Read full bio</span>
           <div class="fc-quals">
             <span class="fc-cefr">A0 → A2.1</span>
             <span class="fc-qual"><svg><use href="#i-certificate"/></svg>FLE Certified</span>
             <span class="fc-qual"><svg><use href="#i-check"/></svg>CECRL Trained</span>
+          </div>
+        </div>
+      </div>
+
+    
+      <!-- Delphine — Florensac, Occitanie -->
+      <div class="fc reveal reveal-d3" data-teacher-bio="delphine">
+        <div class="fc-photo">
+          <img src="assets/teachers/upscaled/delphine-reframed.jpg?v=3" alt="Delphine Sauzéat, French teacher from Occitanie" loading="lazy" decoding="async">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Florensac · Occitanie</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Delphine</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Florensac, Hérault</div>
+          <p class="fc-bio">A French as a Foreign Language educator with more than a decade across hospitality, tourism and international cooperation, Delphine designs dynamic programmes that intertwine language acquisition with intercultural awareness.</p>
+          <span class="fc-readmore">Read full bio</span>
+          <div class="fc-quals">
+            <span class="fc-cefr">7 years</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>Master’s in Teaching FLE</span>
+            <span class="fc-qual"><svg><use href="#i-globe"/></svg>FR · ES · EN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Christ — Strasbourg -->
+      <div class="fc reveal reveal-d4" data-teacher-bio="christ">
+        <div class="fc-photo">
+          <img src="assets/teachers/upscaled/christ.jpg?v=2" alt="Christ Fadel, French teacher from Strasbourg" loading="lazy" decoding="async">
+          <div class="fc-photo-overlay"></div>
+          <span class="fc-region-tag">Strasbourg · Alsace</span>
+        </div>
+        <div class="fc-body">
+          <div class="fc-name">Christ</div>
+          <div class="fc-location"><span class="fc-location-dot"></span>Strasbourg</div>
+          <p class="fc-bio">A Classics teacher and stage actor with a very wide array of interests, Christ has been teaching since the age of 17 and reads about a dozen ancient languages for fun.</p>
+          <span class="fc-readmore">Read full bio</span>
+          <div class="fc-quals">
+            <span class="fc-cefr">12 years</span>
+            <span class="fc-qual"><svg><use href="#i-certificate"/></svg>BA Classics, Strasbourg</span>
+            <span class="fc-qual"><svg><use href="#i-globe"/></svg>FR · EN · IT · AR · DE</span>
           </div>
         </div>
       </div>
@@ -632,6 +676,7 @@
 
 <script src="js/fa.js?v=1790665240" defer></script>
 <script src="js/enroll-modal.js?v=20261021-display"></script>
+<script src="js/fa-teacher-bios.js?v=20261103" defer></script>
 <script src="js/eteacher-leads.js?v=1790665240" defer></script>
 </body>
 </html>
