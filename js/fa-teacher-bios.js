@@ -1,8 +1,18 @@
 /* French Atelier — teacher bio dialogs (teachers.html). Bios verbatim from Acadomia
    (Craig Taylor, "FA Teachers info.xlsx", 12 Jun 2025; Charline Georges → Keren Ziv,
-   "New teachers info september 2026.xlsx", 19 Oct 2026). */
+   "New teachers info september 2026.xlsx", 19 Oct 2026) and, for Caitlin, Charline and Philippe,
+   from the previous site livefrenchatelier.com/teacher/{beta,zeta,delta}. */
 (function(){
   var T = {
+    caitlin: {name:'Caitlin', full:'Caitlin', region:'Strasbourg · Alsace', img:'assets/teachers/upscaled/caitlin.jpg', quote:'Great French isn’t just spoken—it’s understood between the lines. We practice the subtleties that shape connection.',
+      bio:['French-American and raised between two cultures, Caitlin blends clarity, empathy, and insight into each session. She’s especially skilled at bridging cultural nuances for learners navigating both.','Living in Strasbourg, she draws daily inspiration from the city’s blend of German and French architecture — and teaches you how language reflects identity.'],
+      facts:[['Role','Senior French Tutor'],['Experience','12+ years']]},
+    charline: {name:'Charline', full:'Charline', region:'Paris · Île-de-France', img:'assets/teachers/upscaled/charline.jpg', quote:'Language becomes meaningful when tied to real life. That’s when it moves from memory to instinct.',
+      bio:['With a background in teaching French in the UK and the US, Charline brings a refined sensibility and a love for elegance to every class. Her teaching embodies French poise, precision, and cultural finesse.','Based in Paris, she’ll guide you through the subtleties of French etiquette — from café conversations to the art of saying just enough.'],
+      facts:[['Role','Senior French Teacher'],['Experience','15+ years']]},
+    philippe: {name:'Philippe', full:'Philippe', region:'West Paris · Île-de-France', img:'assets/teachers/upscaled/philippe.jpg', quote:'Fluency is not speed—it’s depth. Together, we shape how you sound, think, and respond in French.',
+      bio:['With over 15 years abroad, Philippe brings global perspective and a deep passion for French history. His lessons are rich in context, always linking grammar to cultural meaning.','From his home in the west of Paris, Philippe often leads his students on linguistic journeys through centuries — from the Sun King to the Empire.'],
+      facts:[['Role','Senior French Teacher'],['Experience','15 years']]},
     carmele: {name:'Carmèle', full:'Carmela Savarino', region:'Paris · Île-de-France', img:'assets/teachers/upscaled/carmele.jpg',
       bio:['Say bonjour to Carmela! A passionate FLE instructor with experience at the Alliance Française in Manila, she also creates fun and effective learning content. From the heart of Paris—city of lights, style, and café culture—she brings elegance and energy to every lesson!'],
       facts:[]},
@@ -21,7 +31,7 @@
   function build(){
     if(root) return root;
     root=document.createElement('div'); root.className='tb-overlay'; root.setAttribute('aria-hidden','true');
-    root.innerHTML='<div class="tb-dialog" role="dialog" aria-modal="true" aria-labelledby="tbName"><button type="button" class="tb-close" aria-label="Close">×</button><div class="tb-photo"><img alt=""></div><div class="tb-body"><p class="tb-eyebrow"></p><h3 id="tbName" class="tb-name"></h3><div class="tb-bio"></div><dl class="tb-facts"></dl></div></div>';
+    root.innerHTML='<div class="tb-dialog" role="dialog" aria-modal="true" aria-labelledby="tbName"><button type="button" class="tb-close" aria-label="Close">×</button><div class="tb-photo"><img alt=""></div><div class="tb-body"><p class="tb-eyebrow"></p><h3 id="tbName" class="tb-name"></h3><blockquote class="tb-quote"></blockquote><div class="tb-bio"></div><dl class="tb-facts"></dl></div></div>';
     document.body.appendChild(root);
     root.addEventListener('click',function(e){ if(e.target===root||e.target.closest('.tb-close')) close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&root.classList.contains('is-open')) close(); });
@@ -33,6 +43,7 @@
     r.querySelector('.tb-photo img').src=t.img; r.querySelector('.tb-photo img').alt=t.full+', French teacher';
     r.querySelector('.tb-eyebrow').textContent=t.region;
     r.querySelector('.tb-name').textContent=t.full;
+    var q=r.querySelector('.tb-quote'); q.textContent=t.quote||''; q.style.display=t.quote?'':'none';
     r.querySelector('.tb-bio').innerHTML=t.bio.map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
     r.querySelector('.tb-facts').innerHTML=t.facts.map(function(f){return '<div><dt>'+esc(f[0])+'</dt><dd>'+esc(f[1])+'</dd></div>';}).join('');
     lastFocus=document.activeElement;
