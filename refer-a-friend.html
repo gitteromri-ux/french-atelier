@@ -49,20 +49,26 @@
 .social-row svg{width:16px;height:16px}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
 /* refer-a-friend */
-.refer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:5rem;align-items:start}
-.refer-intro h2{margin-bottom:1.2rem}
-.refer-intro p{font-size:1.08rem;line-height:1.75;color:var(--on-light-soft)}
-.form-group-label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:.4rem 0 -.4rem}
-.contact-form .two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.contact-form.is-success .ff-hide{display:none}
-.refer-success{display:none;text-align:center;padding:2.4rem 1rem}
-.contact-form.is-success + .refer-success{display:block;animation:fade-rise .6s var(--ease-out)}
-.refer-success h3{font-size:1.6rem;margin:.6rem 0 .6rem}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.step{padding:2.4rem 2rem;border:1px solid var(--gold-line-soft);text-align:center;background:var(--white)}
-.step .num{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-deep);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--serif);font-size:1.4rem}
-.step p{font-size:1.02rem;line-height:1.6;color:var(--on-light)}
-@media(max-width:860px){.refer-grid{grid-template-columns:1fr;gap:3rem}.steps{grid-template-columns:1fr}.contact-form .two{grid-template-columns:1fr}}
+.refer-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:center}
+.refer-intro p{font-size:1.08rem;line-height:1.75;color:var(--on-light-soft);margin-top:1.2rem}
+.refer-card .advisor-head h3{font-size:clamp(1.6rem,2.3vw,2rem)}
+/* steps — editorial, numbered in serif, gold hairline connector */
+.steps-wrap{position:relative;max-width:1040px;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.steps::before{content:"";position:absolute;left:16.66%;right:16.66%;top:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-deep) 12%,var(--gold-deep) 88%,transparent)}
+.step{position:relative;text-align:center;padding:0 2rem}
+.step .num{width:68px;height:68px;border-radius:50%;margin:0 auto 1.6rem;display:grid;place-items:center;position:relative;
+  background:radial-gradient(120% 120% at 30% 25%,#1A2456,var(--navy) 60%,var(--navy-deep));color:var(--gold-soft);
+  font-family:var(--serif);font-size:1.7rem;font-style:italic;line-height:1;
+  box-shadow:0 14px 30px -12px rgba(11,19,64,.55),0 0 0 6px var(--paper),0 0 0 7px var(--gold-line-soft)}
+.step .step-label{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:.6rem}
+.step h3{font-family:var(--serif);font-size:1.45rem;font-weight:600;line-height:1.2;color:var(--on-light);margin-bottom:.5rem}
+.step p{font-size:.98rem;line-height:1.65;color:var(--on-light-soft);max-width:28ch;margin:0 auto}
+.steps-title{text-align:center;max-width:620px;margin:0 auto 3.4rem}
+.steps-title h2{white-space:nowrap}
+@media(max-width:640px){.steps-title h2{white-space:normal}}
+.steps-title p{color:var(--on-light-soft);margin-top:.9rem;font-size:1.05rem;line-height:1.7}
+@media(max-width:860px){.refer-grid{grid-template-columns:1fr;gap:3rem}.steps{grid-template-columns:1fr;gap:2.6rem}.steps::before{display:none}.step{padding:0}}
 </style>
 <link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -219,51 +225,66 @@
         <p>Invite a friend to join French Atelier and help them unlock the beauty of French culture, fluency, and connection. When they enroll, you both receive a special reward — because language, like culture, is meant to be shared.</p>
       </div>
 
-      <div class="contact-card reveal reveal-d1">
-        <p class="eyebrow eyebrow-line" style="margin-bottom:1.8rem">Leave your friend's details</p>
-        <form class="contact-form" id="refer-form" data-form-id="refer-a-friend" data-admin-notes="Source: Refer-a-Friend LP" action="#" method="post" novalidate>
-          <div class="ff-hide two">
-            <div class="float-field">
-              <input type="text" id="rf-first" name="first_name" placeholder=" " autocomplete="off">
-              <label for="rf-first">Friend's First Name</label>
-            </div>
-            <div class="float-field">
-              <input type="text" id="rf-last" name="last_name" placeholder=" " autocomplete="off">
-              <label for="rf-last">Friend's Last Name</label>
-            </div>
+      <div class="advisor-card refer-card reveal reveal-d1">
+        <div class="advisor-head">
+          <p class="eyebrow eyebrow-line">Refer a friend</p>
+          <h3>Leave their details</h3>
+          <p>We&rsquo;ll reach out with a personal welcome and your shared reward.</p>
+        </div>
+        <form class="advisor-form" id="refer-form" data-form-id="refer-a-friend" data-admin-notes="Source: Refer-a-Friend LP" novalidate>
+          <div class="field">
+            <label for="rf-first">First Name *</label>
+            <input id="rf-first" name="first_name" type="text" autocomplete="off" placeholder="Type their first name">
+            <span class="err-msg" aria-live="polite"></span>
           </div>
-          <div class="float-field ff-hide">
-            <input type="email" id="rf-email" name="email" placeholder=" " autocomplete="off">
-            <label for="rf-email">Friend's Email Address</label>
+          <div class="field">
+            <label for="rf-last">Last Name *</label>
+            <input id="rf-last" name="last_name" type="text" autocomplete="off" placeholder="Type their last name">
+            <span class="err-msg" aria-live="polite"></span>
           </div>
-          <div class="float-field ff-hide">
-            <input type="tel" id="rf-phone" name="phone" placeholder=" " autocomplete="off">
-            <label for="rf-phone">Friend's Phone Number</label>
+          <div class="field full">
+            <label for="rf-email">Email *</label>
+            <input id="rf-email" name="email" type="email" autocomplete="off" placeholder="friend@email.com">
+            <span class="err-msg" aria-live="polite"></span>
           </div>
-          <div class="float-field ff-hide">
-            <input type="text" id="rf-country" name="country" placeholder=" " autocomplete="off">
-            <label for="rf-country">Friend's Country</label>
+          <div class="field">
+            <label for="rf-country">Country *</label>
+            <select id="rf-country" name="country">
+              <option value="US" selected>United States (+1)</option>
+              <option value="CA">Canada (+1)</option>
+              <option value="GB">United Kingdom (+44)</option>
+              <option value="AU">Australia (+61)</option>
+              <option value="IL">Israel (+972)</option>
+              <option value="FR">France (+33)</option>
+              <option value="DE">Germany (+49)</option>
+              <option value="ES">Spain (+34)</option>
+              <option value="IT">Italy (+39)</option>
+              <option value="MX">Mexico (+52)</option>
+              <option value="BR">Brazil (+55)</option>
+              <option value="ZA">South Africa (+27)</option>
+              <option value="IN">India (+91)</option>
+              <option value="AE">UAE (+971)</option>
+              <option value="SG">Singapore (+65)</option>
+              <option value="PH">Philippines (+63)</option>
+            </select>
+            <span class="err-msg" aria-live="polite"></span>
           </div>
-          <p class="form-group-label ff-hide">About you (the referrer)</p>
-          <div class="ff-hide two">
-            <div class="float-field">
-              <input type="text" id="rf-ref-name" placeholder=" " autocomplete="name">
-              <label for="rf-ref-name">Your Name</label>
-            </div>
-            <div class="float-field">
-              <input type="email" id="rf-ref-email" placeholder=" " autocomplete="email">
-              <label for="rf-ref-email">Your Email</label>
-            </div>
+          <div class="field">
+            <label for="rf-phone">Mobile Phone *</label>
+            <input id="rf-phone" name="phone" type="tel" autocomplete="off" placeholder="201-555-0123">
+            <span class="err-msg" aria-live="polite"></span>
           </div>
-          <p class="form-note ff-hide">By submitting, you confirm your friend is happy to hear from The French Atelier.</p>
-          <button type="submit" class="btn contact-submit ff-hide">Submit referral
-            <svg class="fa-icon" style="font-size:17px"><use href="#i-arrow-right"/></svg>
-          </button>
+          <div class="form-submit">
+            <button class="btn btn-3d btn-3d-primary" type="submit">Submit referral
+              <svg class="fa-icon" style="font-size:17px"><use href="#i-arrow-right"/></svg>
+            </button>
+          </div>
+          <p class="advisor-fineprint">By submitting, you confirm your friend is happy to hear from The French Atelier.</p>
         </form>
-        <div class="refer-success">
-          <p class="eyebrow" style="color:var(--gold-deep)">Merci</p>
+        <div class="advisor-success" role="status">
+          <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
           <h3>Referral received</h3>
-          <p class="muted">Thank you. We'll reach out to your friend shortly with a personal welcome and your shared reward.</p>
+          <p>Thank you. We&rsquo;ll reach out to your friend shortly with a personal welcome and your shared reward.</p>
         </div>
       </div>
 
@@ -272,32 +293,36 @@
 </section>
 
 <!-- ===== STEPS ===== -->
-<section class="section-pad-sm bg-paper">
+<section class="section-pad bg-paper">
   <div class="wrap">
-    <h2 class="display-md reveal" style="text-align:center;margin-bottom:2.4rem">Invite. Enroll. Enjoy.</h2>
-    <div class="steps reveal reveal-d1">
-      <div class="step"><div class="num">1</div><p>Refer your friend to<br>become a student</p></div>
-      <div class="step"><div class="num">2</div><p>They`ll receive a discount on<br>their next course</p></div>
-      <div class="step"><div class="num">3</div><p>You`ll earn free cash credits for each registration</p></div>
+    <div class="steps-title reveal">
+      <p class="eyebrow eyebrow-line" style="margin-bottom:1rem">How it works</p>
+      <h2 class="display-md">Invite. Enroll. <span class="gold-ital">Enjoy.</span></h2>
+    </div>
+    <div class="steps-wrap">
+      <div class="steps reveal reveal-d1">
+        <div class="step">
+          <div class="num">1</div>
+          <p class="step-label">Invite</p>
+          <h3>Refer your friend</h3>
+          <p>Refer your friend to become a student.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <p class="step-label">Enroll</p>
+          <h3>They receive a discount</h3>
+          <p>They&rsquo;ll receive a discount on their next course.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <p class="step-label">Enjoy</p>
+          <h3>You earn cash credits</h3>
+          <p>You&rsquo;ll earn free cash credits for each registration.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-/* Referrer -> AdminNotes (read by eteacher-leads.js at submit via form.dataset.adminNotes). */
-(function(){
-  var f=document.getElementById('refer-form'); if(!f) return;
-  var n=document.getElementById('rf-ref-name'), e=document.getElementById('rf-ref-email');
-  var ref=document.referrer||'';
-  function upd(){
-    var parts=['Source: Refer-a-Friend LP'];
-    var nm=(n.value||'').trim(), em=(e.value||'').trim();
-    if(nm||em) parts.push('Referred by: '+(nm||'-')+(em?' <'+em+'>':''));
-    f.dataset.adminNotes=parts.join(' | ');
-  }
-  n.addEventListener('input',upd); e.addEventListener('input',upd); f.addEventListener('submit',upd,true); upd();
-})();
-</script>
 
 <footer class="site-footer">
   <div class="wrap">
