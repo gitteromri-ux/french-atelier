@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="js/fa-campaign-access.js?v=20261024-return1"></script>
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Refer a Friend — The French Atelier by Acadomia</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Invite a friend to join French Atelier. When they enroll, you both receive a special reward.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/fa.css?v=1790665240">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<style>
+/* ===== Contact — split layout, premium fields ===== */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:5rem;align-items:stretch}
+.contact-detail-block{display:flex;flex-direction:column;gap:2.2rem}
+.cdb-item{display:flex;gap:1.2rem;align-items:flex-start}
+.cdb-icon{width:46px;height:46px;border:1px solid var(--gold-line-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold-deep);transition:border-color .3s,background .3s}
+.cdb-item:hover .cdb-icon{border-color:var(--gold-deep)}
+.cdb-icon svg{width:19px;height:19px}
+.cdb-label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.4rem;font-weight:600}
+.cdb-value{font-size:1.02rem;color:var(--on-light);line-height:1.55}
+.cdb-value a{color:inherit;text-decoration:none;border-bottom:1px solid var(--gold-line-soft);transition:border-color .25s}
+.cdb-value a:hover{color:var(--gold-deep);border-color:var(--gold-deep)}
+.cdb-divider{height:1px;background:var(--gold-line-soft);margin:.4rem 0}
+/* form card */
+.contact-card{background:var(--white);border:1px solid var(--gold-line-soft);box-shadow:0 24px 60px -40px rgba(11,19,64,.45);padding:clamp(2rem,4vw,3.2rem)}
+.contact-form{display:flex;flex-direction:column;gap:1.5rem}
+/* floating-label field */
+.float-field{position:relative}
+.float-field input,.float-field textarea{width:100%;box-sizing:border-box;background:var(--paper);border:1px solid var(--gold-line-soft);padding:1.5rem 1.1rem .65rem;font-family:var(--sans);font-size:1rem;color:var(--on-light);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;border-radius:4px;line-height:1.3}
+.float-field textarea{min-height:150px;resize:vertical;padding-top:1.7rem}
+.float-field label{position:absolute;left:1.12rem;top:1.05rem;font-size:1rem;color:var(--on-light-faint);pointer-events:none;transition:all .22s var(--ease);transform-origin:left top}
+.float-field input:focus,.float-field textarea:focus{border-color:var(--gold-deep);background:var(--white);box-shadow:0 0 0 3px rgba(200,169,107,.14)}
+.float-field input:focus+label,.float-field textarea:focus+label,
+.float-field input:not(:placeholder-shown)+label,.float-field textarea:not(:placeholder-shown)+label{top:.5rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.contact-submit{align-self:flex-start;margin-top:.3rem;background:linear-gradient(135deg,var(--gold-soft),var(--gold-deep));color:var(--navy-deep);box-shadow:0 14px 32px -16px rgba(168,141,82,.7)}
+.contact-submit:hover{transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(168,141,82,.8)}
+.form-note{font-size:.9rem;color:var(--on-light-soft);font-style:italic}
+.form-note a{color:var(--gold-deep)}
+.social-row{display:flex;gap:1rem;margin-top:.5rem}
+.social-row a{width:42px;height:42px;border:1px solid var(--gold-line-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-deep);transition:background .25s,border-color .25s,color .25s}
+.social-row a:hover{background:var(--gold-deep);border-color:var(--gold-deep);color:var(--white)}
+.social-row svg{width:16px;height:16px}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
+/* refer-a-friend */
+.refer-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:5rem;align-items:start}
+.refer-intro h2{margin-bottom:1.2rem}
+.refer-intro p{font-size:1.08rem;line-height:1.75;color:var(--on-light-soft)}
+.form-group-label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:.4rem 0 -.4rem}
+.contact-form .two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.contact-form.is-success .ff-hide{display:none}
+.refer-success{display:none;text-align:center;padding:2.4rem 1rem}
+.contact-form.is-success + .refer-success{display:block;animation:fade-rise .6s var(--ease-out)}
+.refer-success h3{font-size:1.6rem;margin:.6rem 0 .6rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.step{padding:2.4rem 2rem;border:1px solid var(--gold-line-soft);text-align:center;background:var(--white)}
+.step .num{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-deep);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:var(--serif);font-size:1.4rem}
+.step p{font-size:1.02rem;line-height:1.6;color:var(--on-light)}
+@media(max-width:860px){.refer-grid{grid-template-columns:1fr;gap:3rem}.steps{grid-template-columns:1fr}.contact-form .two{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="css/mobile-fix.css?v=1790665240"><link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="css/house-style.css?v=1790665240">
+<link rel="stylesheet" href="css/enroll-modal.css?v=1790665240">
+</head>
+<body id="fa">
+
+<!-- ============================================================
+     FRENCH ATELIER — BESPOKE SVG ICON SPRITE  (Agent 5)
+     Paste ONCE near the top of <body> on any page.
+     Use anywhere with:  <svg class="fa-icon" style="font-size:24px"><use href="#i-NAME"/></svg>
+     Icons use currentColor stroke. Stroke width set via .fa-icon in fa.css.
+     Available ids: i-arrow, i-arrow-right, i-chevron-down, i-close, i-menu,
+     i-check, i-calendar, i-clock, i-chat, i-play, i-globe, i-certificate,
+     i-sparkle, i-user, i-mail, i-phone, i-pin, i-facebook, i-instagram, i-youtube
+     ============================================================ -->
+<svg class="fa-icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9S9.5 5.5 12 3z"/></symbol>
+    <symbol id="i-certificate" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L16 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V8.5A.5.5 0 0 1 14 8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.7" cy="7.3" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9.5l4 2.5-4 2.5z" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="nav-logo" href="index.html">
+      <img class="nav-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" decoding="async" fetchpriority="high" decoding="async">
+    </a>
+    <nav class="nav-menu" aria-label="Primary">
+      <div class="nav-item">
+        <a class="nav-link" href="courses.html">Courses <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown nav-dropdown-wide">
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">French Atelier &middot; Structured &middot; A0&rarr;A2.2</span>
+            <a href="courses/fa-foundation.html">FA Foundation <em>A0&rarr;A1.1</em></a>
+            <a href="courses/fa-beginner.html">FA Beginner <em>A1.1&rarr;A1.2</em></a>
+            <a href="courses/fa-elementary.html">FA Elementary <em>A1.2&rarr;A2.1</em></a>
+            <a href="courses/fa-intermediate.html">FA Intermediate <em>A2.1&rarr;A2.2</em></a>
+            <a href="/culture-capsules" class="nav-dd-comingsoon">Culture Capsules <span class="cs-tag">Coming Soon</span></a>
+          </div>
+          <div class="nav-dd-col">
+            <span class="nav-dd-head">Let&rsquo;s Speak French &middot; Spoken &middot; Conversation</span>
+            <a href="courses/lsf-foundation.html">LSF Foundation <em>Spoken</em></a>
+            <a href="courses/lsf-beginner.html">LSF Beginner <em>Spoken</em></a>
+            <a href="courses/lsf-elementary.html">LSF Elementary <em>Spoken</em></a>
+
+            <span class="nav-dd-divide"></span>
+            <a href="courses.html">All Courses</a>
+            <a href="map.html">Interactive Map of France</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></div>
+      
+      <div class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></div>
+      
+      <div class="nav-item"><a class="nav-link" href="method.html">Our Method</a></div>
+      
+      <div class="nav-item"><a class="nav-link" href="juliane.html">Julien AI Tutor</a></div>
+      
+      <div class="nav-item"><a class="nav-link" href="culture.html">French Culture</a></div>
+      <div class="nav-item">
+        <a class="nav-link" href="about.html">About Us <svg class="nav-caret" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.4"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="about.html">About French Atelier</a>
+          <a href="acadomia.html">The Acadomia Group</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      
+      
+      <a class="btn btn-gold nav-cta" href="pricing.html">Enroll Now</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="nav-drawer" aria-hidden="true">
+  <button class="nav-drawer-close" aria-label="Close menu">&times;</button>
+  <span class="drawer-group-label">Courses</span>
+  <div class="drawer-sub">
+    <a href="courses.html">All Courses</a>
+    <a href="courses/fa-foundation.html">FA Foundation</a>
+    <a href="courses/fa-beginner.html">FA Beginner</a>
+    <a href="courses/fa-elementary.html">FA Elementary</a>
+    <a href="courses/fa-intermediate.html">FA Intermediate</a>
+    <a href="courses/lsf-foundation.html">LSF Foundation</a>
+    <a href="courses/lsf-beginner.html">LSF Beginner</a>
+    <a href="courses/lsf-elementary.html">LSF Elementary</a>
+    <a href="map.html">Interactive Map of France</a>
+      <a href="/culture-capsules" class="drawer-comingsoon">Culture Capsules <span class="cs-tag">Coming Soon</span></a>
+  </div>
+  <span class="drawer-group-label">About Us</span>
+  <div class="drawer-sub">
+    <a href="about.html">About French Atelier</a>
+    <a href="acadomia.html">The Acadomia Group</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="method.html">Our Method</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="juliane.html">Julien AI Tutor</a>
+  <a href="culture.html">French Culture</a>
+  <a href="pricing.html" class="btn btn-gold" style="margin-top:1.6rem">Enroll Now</a>
+</div>
+
+<!-- ===== PAGE HERO (video-bg) ===== -->
+<section class="page-hero page-hero--premium">
+  <div class="video-bg tint-soft">
+    <video poster="assets/video/paris-seine-poster.jpg" autoplay loop muted playsinline preload="metadata">
+      <source src="assets/video/paris-seine.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="wrap hero-content">
+    <p class="eyebrow eyebrow-line reveal" style="color:var(--gold-soft)">Refer a friend</p>
+    <h1 class="display-lg reveal reveal-d1">Fluency is better<br>when <span class="gold-ital">Shared</span></h1>
+    <p class="hero-sub reveal reveal-d2">Invite a friend to join French Atelier and help them unlock the beauty of French culture, fluency, and connection. When they enroll, you both receive a special reward — because language, like culture, is meant to be shared.</p>
+  </div>
+</section>
+
+<!-- ===== REFER SECTION ===== -->
+<section class="section-pad bg-ivory">
+  <div class="wrap">
+    <div class="refer-grid">
+
+      <div class="refer-intro reveal">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:1.2rem">Invite. Enroll. Enjoy.</p>
+        <h2 class="display-md">Fluency is better when Shared</h2>
+        <p>Invite a friend to join French Atelier and help them unlock the beauty of French culture, fluency, and connection. When they enroll, you both receive a special reward — because language, like culture, is meant to be shared.</p>
+      </div>
+
+      <div class="contact-card reveal reveal-d1">
+        <p class="eyebrow eyebrow-line" style="margin-bottom:1.8rem">Leave your friend's details</p>
+        <form class="contact-form" id="refer-form" data-form-id="refer-a-friend" data-admin-notes="Source: Refer-a-Friend LP" action="#" method="post" novalidate>
+          <div class="ff-hide two">
+            <div class="float-field">
+              <input type="text" id="rf-first" name="first_name" placeholder=" " autocomplete="off">
+              <label for="rf-first">Friend's First Name</label>
+            </div>
+            <div class="float-field">
+              <input type="text" id="rf-last" name="last_name" placeholder=" " autocomplete="off">
+              <label for="rf-last">Friend's Last Name</label>
+            </div>
+          </div>
+          <div class="float-field ff-hide">
+            <input type="email" id="rf-email" name="email" placeholder=" " autocomplete="off">
+            <label for="rf-email">Friend's Email Address</label>
+          </div>
+          <div class="float-field ff-hide">
+            <input type="tel" id="rf-phone" name="phone" placeholder=" " autocomplete="off">
+            <label for="rf-phone">Friend's Phone Number</label>
+          </div>
+          <div class="float-field ff-hide">
+            <input type="text" id="rf-country" name="country" placeholder=" " autocomplete="off">
+            <label for="rf-country">Friend's Country</label>
+          </div>
+          <p class="form-group-label ff-hide">About you (the referrer)</p>
+          <div class="ff-hide two">
+            <div class="float-field">
+              <input type="text" id="rf-ref-name" placeholder=" " autocomplete="name">
+              <label for="rf-ref-name">Your Name</label>
+            </div>
+            <div class="float-field">
+              <input type="email" id="rf-ref-email" placeholder=" " autocomplete="email">
+              <label for="rf-ref-email">Your Email</label>
+            </div>
+          </div>
+          <p class="form-note ff-hide">By submitting, you confirm your friend is happy to hear from The French Atelier.</p>
+          <button type="submit" class="btn contact-submit ff-hide">Submit referral
+            <svg class="fa-icon" style="font-size:17px"><use href="#i-arrow-right"/></svg>
+          </button>
+        </form>
+        <div class="refer-success">
+          <p class="eyebrow" style="color:var(--gold-deep)">Merci</p>
+          <h3>Referral received</h3>
+          <p class="muted">Thank you. We'll reach out to your friend shortly with a personal welcome and your shared reward.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section class="section-pad-sm bg-paper">
+  <div class="wrap">
+    <h2 class="display-md reveal" style="text-align:center;margin-bottom:2.4rem">Invite. Enroll. Enjoy.</h2>
+    <div class="steps reveal reveal-d1">
+      <div class="step"><div class="num">1</div><p>Refer your friend to<br>become a student</p></div>
+      <div class="step"><div class="num">2</div><p>They`ll receive a discount on<br>their next course</p></div>
+      <div class="step"><div class="num">3</div><p>You`ll earn free cash credits for each registration</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Referrer -> AdminNotes (read by eteacher-leads.js at submit via form.dataset.adminNotes). */
+(function(){
+  var f=document.getElementById('refer-form'); if(!f) return;
+  var n=document.getElementById('rf-ref-name'), e=document.getElementById('rf-ref-email');
+  var ref=document.referrer||'';
+  function upd(){
+    var parts=['Source: Refer-a-Friend LP'];
+    var nm=(n.value||'').trim(), em=(e.value||'').trim();
+    if(nm||em) parts.push('Referred by: '+(nm||'-')+(em?' <'+em+'>':''));
+    f.dataset.adminNotes=parts.join(' | ');
+  }
+  n.addEventListener('input',upd); e.addEventListener('input',upd); f.addEventListener('submit',upd,true); upd();
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/logo/logo-white.png" alt="The French Atelier by Acadomia" width="527" height="165" style="height:54px;width:auto;margin-bottom:.9rem;display:block" loading="lazy" decoding="async">
+        <p>Culture speaks French. What about you? An exclusive, culturally immersive, certified, live French language program — presented by one of France's leading private education groups.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="courses/fa-foundation.html">FA Foundation</a>
+        <a href="courses/fa-beginner.html">FA Beginner</a>
+        <a href="courses/fa-elementary.html">FA Elementary</a>
+        <a href="courses/fa-intermediate.html">FA Intermediate</a>
+        <a href="courses.html">Let's Speak French</a>
+        <a href="map.html">Map of France</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="method.html">Our Method</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="juliane.html">Julien · AI Tutor</a>
+        <a href="teachers.html">Our Teachers</a>
+        <a href="culture.html">French Culture</a>
+        <a href="/culture-capsules">Culture Capsules</a>
+        <a href="blog.html">Cultural Journal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="acadomia.html">Acadomia Group</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>7 rue de la Baume, 75008 Paris, France &nbsp;·&nbsp; +1-888-230-5110 &nbsp;·&nbsp; advisor@eTeacherGroup.com</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61577106456673" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.8.3-1.5 1.5-1.5H18V.2C17.5.1 16.3 0 15 0c-2.7 0-4.5 1.6-4.5 4.6V6H8v3h2.5v9H14V9z"/></svg></a>
+        <a href="https://www.instagram.com/livefrenchatelier" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.youtube.com/@FrenchbyAtelier" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.1 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.7 15V9l5.2 3-5.2 3z"/></svg></a>
+      </div>
+    </div>
+    <p style="color:var(--on-dark-faint);font-size:.78rem;text-align:center;margin-top:1.6rem">Copyright ACADOMIA © 2026. All Rights Reserved.</p>
+  </div>
+</footer>
+<!-- ============================================================
+     FRENCH ATELIER — ADVISOR MODAL  (Agent 5)
+     Paste ONCE per page, just before </body>. Opened by ANY element
+     with the data-advisor attribute (e.g. the nav CTA). JS handles
+     open/close, ESC, backdrop click, validation + success.
+     Submission: mailto fallback. ▶ Wire a real endpoint in js/fa.js
+     (search for "TO WIRE A REAL ENDPOINT").
+     ============================================================ -->
+<div class="advisor-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="advisorModalTitle">
+  <div class="advisor-card">
+    <button class="advisor-modal-close" aria-label="Close" type="button">
+      <svg class="fa-icon" style="font-size:16px"><use href="#i-close"/></svg>
+    </button>
+
+    <div class="advisor-head">
+      <span class="eyebrow eyebrow-line">Speak with us</span>
+      <h3 id="advisorModalTitle">Talk to an Advisor</h3>
+      <p>Tell us a little about you and a French Atelier academic advisor will be in touch to plan your start.</p>
+    </div>
+
+    <form class="advisor-form" novalidate>
+      <div class="field">
+        <label for="adv-name">Name</label>
+        <input id="adv-name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+        <span class="err-msg" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="adv-email">Email</label>
+        <input id="adv-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+        <span class="err-msg" aria-live="polite"></span>
+      </div>
+          <div class="field">
+            <label for="adv-phone">Phone</label>
+            <input id="adv-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="adv-country">Country</label>
+            <input id="adv-country" name="country" type="text" autocomplete="country-name" placeholder="United States">
+            <span class="err-msg" aria-live="polite"></span>
+          </div>
+      <div class="field">
+        <label for="adv-level">French level</label>
+        <select id="adv-level" name="level">
+          <option value="" disabled selected>Select your level</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+        <span class="err-msg" aria-live="polite"></span>
+      </div>
+      <div class="field">
+        <label for="adv-time">Preferred time</label>
+        <input id="adv-time" name="time" type="text" placeholder="e.g. Weekday evenings (CET)">
+        <span class="err-msg" aria-live="polite"></span>
+      </div>
+      <div class="form-submit">
+        <button class="btn btn-3d btn-3d-primary" type="submit">
+          Request a Call
+          <svg class="fa-icon" style="font-size:17px"><use href="#i-arrow-right"/></svg>
+        </button>
+      </div>
+      <p class="advisor-fineprint">Native French teachers, live from France &middot; Certified &middot; CEFR-aligned</p>
+    </form>
+
+    <div class="advisor-success" role="status">
+      <div class="success-mark"><svg class="fa-icon" style="font-size:28px"><use href="#i-check"/></svg></div>
+      <h3>Merci&nbsp;!</h3>
+      <p>Your request is on its way to our advisor. We&rsquo;ll be in touch shortly to plan your French journey.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/fa.js?v=1790665240" defer></script>
+<script src="js/enroll-modal.js?v=20261021-display"></script>
+<script src="js/eteacher-leads.js?v=1790665240" defer></script>
+</body>
+</html>
