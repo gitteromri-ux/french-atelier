@@ -609,10 +609,10 @@
          it sends its own browser event so Meta shows offer vs welcome separately. */
       var acc = root.FA_CAPSULE_ACCESS, onOffer = /\/culture-capsules(\.html)?\/?$/.test(root.location.pathname);
       if (acc && acc.denied) {
-        if (m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_WelcomeShown', { page: 'culture-capsules' });
+        if (m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_WelcomeShown', { page: 'culture-capsules' }, { eventID: 'fa_welcome_' + pageSession });   /* 2026-11-04: event id */
         return;
       }
-      if (acc && acc.allowed && onOffer && m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_OfferShown', { page: 'culture-capsules' });
+      if (acc && acc.allowed && onOffer && m === 'live' && root.fbq) root.fbq('trackCustom', 'FA_OfferShown', { page: 'culture-capsules' }, { eventID: 'fa_offer_' + pageSession });   /* 2026-11-04: event id */
       var vcData = { content_ids: Object.keys(PLANS), content_type: 'product', content_name: PRODUCT_NAME, product_line: PRODUCT_LINE };
       var vc = basePayload('ViewContent', eventIdFor('ViewContent', {}, null), i);
       vc.content_ids = vcData.content_ids; vc.content_type = 'product'; vc.content_name = PRODUCT_NAME;

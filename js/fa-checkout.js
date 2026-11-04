@@ -158,6 +158,7 @@
   /* Meta Pixel base code — gated exactly like Julie: browser pixel only in FA_META live mode. */
   if (CFG.metaPixelId && !window.fbq && (window.FA_META ? window.FA_META.mode() === 'live' : false)) {
     (function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('set', 'autoConfig', false, CFG.metaPixelId);   /* 2026-11-04: no automatic SubscribedButtonClick (404s on iPhone); standard events unaffected */
     window.fbq('init', CFG.metaPixelId);
     window.fbq('track', 'PageView', {}, { eventID: window.FA_META.pageViewId() });
   }
@@ -172,6 +173,15 @@
     try { var o = JSON.parse(localStorage.getItem('fa_attribution_v1') || 'null'); if (o && o.ts && Date.now() - o.ts < 30 * 864e5) ATTR_KEYS.forEach(function (k) { if (o[k]) out[k] = o[k]; }); } catch (e) {}
     try { var p = new URLSearchParams(location.search); ATTR_KEYS.forEach(function (k) { if (p.get(k)) out[k] = p.get(k); }); } catch (e) {}
     return out;
+  }
+  var US_CAMPAIGN_IDS = { '116939': 1, '116980': 1 };
+  function usCampaign() {
+    try {
+      var p = new URLSearchParams(location.search);
+      if (US_CAMPAIGN_IDS[String(p.get('cid') || '')] || p.get('fbclid')) return true;
+      var a = attribution();
+      return !!(a && (US_CAMPAIGN_IDS[String(a.cid || '')] || a.fbclid));
+    } catch (e) { return false; }
   }
   var ipCountryPromise = null;
   function ipCountry() {
@@ -704,7 +714,13 @@
     function syncDial() { var g = GEO.BY_ISO[co.value]; dial.textContent = g ? '+' + g.dial : '+'; stWrap.classList.toggle('is-hidden', co.value !== 'US'); ph.placeholder = nanp() ? '(212) 555-0147' : 'Mobile number'; if (nanp() && ph.value) ph.value = fmtNanp(ph.value); }
     if (lead.stateCode) st.value = lead.stateCode;
     syncDial();
-    if (!prefill) ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} });
+    /* 2026-11-04: US campaigns default to US. The visitor's IP country is used only when the buyer did not
+       arrive from a US campaign (cid 116939 / 116980 or a Meta click) — a US buyer abroad / on a VPN must never
+       be forced to a foreign phone format. */
+    if (!prefill) {
+      if (usCampaign()) { if (!ph.value && GEO.BY_ISO.US) { co.value = 'US'; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} }
+      else ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} });
+    }
     var rules = {
       'fa-ck-fn': function () { return $f('fa-ck-fn').value.trim() ? '' : 'Please enter your first name.'; },
       'fa-ck-ln': function () { return $f('fa-ck-ln').value.trim() ? '' : 'Please enter your last name.'; },
