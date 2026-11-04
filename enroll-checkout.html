@@ -553,10 +553,22 @@
   /* ---- run ---- */
   function run(){
   var detailAttempts = 0;
+  /* Golden (lla-course-checkout checkout.html L818): the CRM provisions the order asynchronously. Fetched too
+     soon it answers OrderId -1 / PaymentID -1 with the generic list plan and no Airwallex intent; 1-5 s later the
+     same order returns the real plan + intent (observed live 2026-11-04, order 8072427: -1 first, then $99 / 2 x $99).
+     That provisional quote must never be judged as a price mismatch: poll (8 x 1.5 s, as Golden) until the
+     intent exists, then validate exactly as before. */
+  function provisional(d){
+    return !d || Number(d.OrderId) <= 0 || Number(d.PaymentID) <= 0 || !(d.Airwallex && d.Airwallex.paymentIntentId);
+  }
   function readyDetails(){
     return FA.fetchDetails(ids).then(function(d){
+      if (provisional(d) && ++detailAttempts < 8) {
+        status('Preparing your secure payment form (' + detailAttempts + '/8)…');
+        return new Promise(function(resolve){ setTimeout(resolve,1500); }).then(readyDetails);
+      }
       var check = FA.validateDetails(d,p);
-      if (!check.ok && check.reason === 'PAYMENT_DETAILS_INCOMPLETE' && ++detailAttempts < 3) {
+      if (!check.ok && check.reason === 'PAYMENT_DETAILS_INCOMPLETE' && ++detailAttempts < 10) {
         status('Waiting for the payment provider to prepare secure card entry…');
         return new Promise(function(resolve){ setTimeout(resolve,1200); }).then(readyDetails);
       }
