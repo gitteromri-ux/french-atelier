@@ -780,7 +780,9 @@
       var leadObj = { firstName: $f('fa-ck-fn').value.trim(), lastName: $f('fa-ck-ln').value.trim(), email: em.value.trim(), countryIso: iso, phoneRaw: ph.value, e164: phone.e164, stateCode: iso === 'US' ? st.value : '', consent: !!$f('fa-ck-sms').checked };
       saveLead(leadObj, sel);
       /* No Meta 'Lead': ecommerce funnel is AddToCart -> InitiateCheckout -> Purchase only, as in Golden. */
-      registerLead(leadObj, sel);
+      /* 2026-11-05: Step-1 CRM lead removed. It opened a second StudentID (lead/opportunity) next to the
+         ecommerce StudentID created by AddNewECommerceLeadAndOrder at payment. Prospect follow-up stays in
+         ActiveCampaign (acStage below); the CRM lead is only sent by reserveViaLeads when the order creation fails. */
       acStage('FA_Abandoned_Cart_Name_Details', leadObj);
       renderStep2(leadObj);
     });
