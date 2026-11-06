@@ -1,0 +1,70 @@
+/* Mobile hero only. No checkout, analytics, attribution or event changes. */
+@media (max-width: 767px) {
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-wrap {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: calc(var(--fa-top, 40px) + 72px) 20px 28px !important;
+    transform: none !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kpx-eyebrow {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    margin: 0 0 10px !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 {
+    font-size: clamp(30px, 8.4vw, 38px) !important;
+    line-height: 1.04 !important;
+    margin: 0 0 12px !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .kps-h1 .gi {
+    font-size: .82em !important;
+    line-height: 1.08 !important;
+    margin-top: 6px !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    margin: 0 0 14px !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .sub .kps-hero-price {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    margin-top: 8px !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .kps-btn {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-height: 48px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .tp,
+  html:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .cta .fa-refund-banner {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    margin: 2px 0 0 !important;
+  }
+}
