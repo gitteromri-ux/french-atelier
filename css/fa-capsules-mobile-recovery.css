@@ -187,38 +187,38 @@
     grid-column:1/-1 !important;
   }
   /* Readability scale across every mobile section, not only the hero. */
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section :is(p,li,.kps-sub,.what,.cap-bio,.cap-role,.kpz-sub,.kpz-pay,.kpz-pay *,.kpz-feats li span) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section :is(p,li,.kps-sub,.what,.cap-bio,.cap-role,.kpz-sub,.kpz-pay,.kpz-pay *,.kpz-feats li span) {
     font-family:Inter,Arial,sans-serif !important; font-size:20px !important;
     line-height:1.45 !important; letter-spacing:normal !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section :is(h2,.kps-h2) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section :is(h2,.kps-h2) {
     font-size:38px !important; line-height:1.1 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section :is(h3,h4) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section :is(h3,h4) {
     font-size:30px !important; line-height:1.15 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section .kpz-name {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section .kpz-name {
     font-size:34px !important; line-height:1.12 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section h5 {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section h5 {
     font-size:26px !important; line-height:1.15 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page .kps-lessons .kps-grid {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-lessons .kps-grid {
     grid-template-columns:minmax(0,1fr) !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section :is(.lab,.s,.k,.cap-film-caption,.kpz-percap,.kpz-promo-msg,.kpz-per,.meta small,.fa-sl-hint,.fa-mobile-rail-nav,.kps-pay,.kps-pay span,.kps-stats span,.big>span,.rc span,.eyebrow,.tp) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section :is(.lab,.s,.k,.cap-film-caption,.kpz-percap,.kpz-promo-msg,.kpz-per,.meta small,.fa-sl-hint,.fa-mobile-rail-nav,.kps-pay,.kps-pay span,.kps-stats span,.big>span,.rc span,.eyebrow,.tp) {
     font-family:Inter,Arial,sans-serif !important; font-size:18px !important; line-height:1.4 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page section :is(.kps-btn,.kpz-cta,.fa-sl-tab,.kps-card .action) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section :is(.kps-btn,.kpz-cta,.fa-sl-tab,.kps-card .action) {
     font-size:18px !important; line-height:1.3 !important; min-height:48px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page #faq summary {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #faq summary {
     font-size:22px !important; line-height:1.3 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page .site-footer :is(p,a) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .site-footer :is(p,a) {
     font-size:18px !important; line-height:1.5 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa.cap-page #top .kps-hero-facts p {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #top .kps-hero-facts p {
     font-size:20px !important; color:#fff !important;
   }
 }
