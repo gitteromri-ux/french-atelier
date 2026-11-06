@@ -92,4 +92,38 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) {
     background-attachment:scroll !important;
   }
+  /* One clear hero hierarchy: statement, description, facts, price, action. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-h1 {
+    font-size:clamp(36px,10vw,42px) !important; line-height:1.02 !important;
+    margin-bottom:20px !important; letter-spacing:-.02em !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-h1 .gi {
+    font-size:.72em !important; line-height:1.15 !important; margin-top:10px !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-intro {
+    font-size:18px !important; line-height:1.45 !important; margin:0 0 20px !important;
+    color:#fff !important; max-width:100% !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-facts {
+    border-top:1px solid rgba(255,255,255,.24); padding-top:14px; margin-bottom:20px;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-facts p {
+    font-size:16px !important; line-height:1.45 !important; margin:0 0 3px !important;
+    color:#e4eaf2 !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-offer {
+    margin:0 0 18px !important; color:#fff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-offer > strong {
+    display:block; font:600 26px/1.2 Inter,Arial,sans-serif !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-offer strong span {
+    font:400 16px/1.4 Inter,Arial,sans-serif !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .kps-hero-offer > span {
+    display:block; font:400 15px/1.4 Inter,Arial,sans-serif !important; margin-top:5px; color:#d7e2ef;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page.fa-hero-visible .fa-float-cta {
+    display:none !important;
+  }
 }
