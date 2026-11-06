@@ -242,4 +242,22 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #capsules .kps-card .title {
     font-size:38px !important; line-height:1.08 !important;
   }
+  /* Secondary hero details stay subordinate to the headline and opening copy. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-facts p {
+    font-size:20px !important; line-height:1.4 !important; color:#fff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-facts strong {
+    color:#fff !important; -webkit-text-fill-color:#fff !important; font-weight:600 !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer > strong {
+    font-size:28px !important; color:#fff !important; -webkit-text-fill-color:#fff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer strong span,
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer > span {
+    font-size:18px !important; line-height:1.35 !important; color:#fff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .cta :is(.tp,.fa-refund-banner),
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats span {
+    font-size:18px !important; line-height:1.35 !important; color:#fff !important;
+  }
 }
