@@ -2,57 +2,57 @@
    Presentation only. Checkout, forms, tracking and attribution untouched. */
 @media (max-width:767px) {
   html:root:root:root:root:root:root:root:root:root:root { scroll-behavior:auto !important; overflow-x:clip !important; }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page {
     overflow-x:clip !important; overscroll-behavior-y:auto !important;
     font-family:Inter,Arial,sans-serif !important; -webkit-text-size-adjust:100%; text-size-adjust:100%;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#fa-mobile-override) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) {
     background-attachment:scroll !important; scroll-margin-top:56px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#top):not(#fa-mobile-override) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#top):not(#fa-mobile-override) {
     padding-top:40px !important; padding-bottom:40px !important;
     padding-left:0 !important; padding-right:0 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#top):not(#fa-mobile-override) .kps-wrap {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#top):not(#fa-mobile-override) .kps-wrap {
     box-sizing:border-box !important; width:100% !important; max-width:100% !important;
     padding-left:22px !important; padding-right:22px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#fa-mobile-override) :is(p,li,.kps-sub,.what,.kps-hero-lead) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) :is(p,li,.kps-sub,.what,.kps-hero-lead) {
     font-family:Inter,Arial,sans-serif !important; font-size:17px !important; line-height:1.5 !important;
-    letter-spacing:normal !important;
+    letter-spacing:normal !important; font-style:normal !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#fa-mobile-override) :is(h2,.kps-h2) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) :is(h2,.kps-h2) {
     font-family:"Cormorant Garamond",Georgia,serif !important; font-size:34px !important; line-height:1.1 !important;
     letter-spacing:-.02em !important; margin-bottom:16px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#fa-mobile-override) h3 {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) h3 {
     font-family:"Cormorant Garamond",Georgia,serif !important; font-size:28px !important; line-height:1.15 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #top .sub,
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #top .sub .kps-hero-price {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .sub,
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #top .sub .kps-hero-price {
     font-size:17px !important; line-height:1.45 !important;
   }
   /* Restore the existing slider controls and event handlers, previously hidden by v6. */
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-bar {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-bar {
     display:block !important; margin:0 0 14px !important; color:#0B1340 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-tabs {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-tabs {
     display:flex !important; gap:8px !important; overflow-x:auto !important; padding:2px 0 10px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-tab {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-tab {
     font:600 15px/1.25 Inter,Arial,sans-serif !important; min-height:44px !important;
     padding:10px 12px !important; border-radius:6px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-hint {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-hint {
     display:flex !important; font:500 15px/1.4 Inter,Arial,sans-serif !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-wrap {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-wrap {
     position:relative !important; width:100% !important; overflow:visible !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-next {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) .fa-sl-next {
     display:block !important; width:44px !important; height:44px !important; right:-8px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) [data-fa-sl] {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) [data-fa-sl] {
     display:flex !important; flex-flow:row nowrap !important; grid-template-columns:none !important;
     width:100% !important; max-width:100% !important; margin:0 !important;
     padding:6px 0 18px !important; gap:14px !important;
@@ -61,35 +61,35 @@
     overscroll-behavior:auto !important; touch-action:auto !important;
     -webkit-overflow-scrolling:touch; scrollbar-width:thin;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page :is(#capsules,#offers,#capsule-teachers) [data-fa-sl] > * {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) [data-fa-sl] > * {
     box-sizing:border-box !important; flex:0 0 calc(100% - 20px) !important;
     width:calc(100% - 20px) !important; max-width:calc(100% - 20px) !important;
     min-width:0 !important; margin:0 !important; scroll-snap-align:start !important;
     scroll-snap-stop:normal !important; transform:none !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-grid article.kpz-card.fa-cap-offer {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #offers .kpz-grid article.kpz-card.fa-cap-offer {
     padding:28px 20px 24px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card :is(.kpz-sub,.kpz-pay,.kpz-percap,.kpz-feats li,.kpz-feats li span) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #offers .kpz-card :is(.kpz-sub,.kpz-pay,.kpz-pay *,.kpz-percap,.kpz-feats li,.kpz-feats li span) {
     font-family:Inter,Arial,sans-serif !important; font-size:17px !important; line-height:1.45 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #offers .kpz-card .kpz-name {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #offers .kpz-card .kpz-name {
     font-family:"Cormorant Garamond",Georgia,serif !important; font-size:32px !important; line-height:1.1 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .title {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #capsules .kps-card .title {
     font-family:"Cormorant Garamond",Georgia,serif !important; font-size:34px !important; line-height:1.08 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #capsules .kps-card .meta {
     display:flex !important; flex-wrap:wrap !important; gap:12px 18px !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #capsules .kps-card .meta small {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #capsules .kps-card .meta small {
     font:500 14px/1.3 Inter,Arial,sans-serif !important; white-space:normal !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page #capsule-teachers .cap-teacher p {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page #capsule-teachers .cap-teacher p {
     font-size:17px !important; line-height:1.5 !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page .kps-hero .bg video,
-  html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#fa-mobile-override) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page .kps-hero .bg video,
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section:not(#fa-mobile-override) {
     background-attachment:scroll !important;
   }
 }
