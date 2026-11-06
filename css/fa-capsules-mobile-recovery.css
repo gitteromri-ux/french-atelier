@@ -221,4 +221,19 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #top .kps-hero-facts p {
     font-size:20px !important; color:#fff !important;
   }
+  /* Distinct hero colour hierarchy: gold statement, cyan subheading, white copy. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 .gi {
+    color:#79d8ff !important; -webkit-text-fill-color:#79d8ff !important;
+    background:none !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-highlight,
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer > strong {
+    color:#ffdb7a !important; -webkit-text-fill-color:#ffdb7a !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-facts strong {
+    color:#79d8ff !important; -webkit-text-fill-color:#79d8ff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer strong span {
+    color:#fff !important; -webkit-text-fill-color:#fff !important;
+  }
 }
