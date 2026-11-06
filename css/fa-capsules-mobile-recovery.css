@@ -11,6 +11,7 @@
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#top):not(#fa-mobile-override) {
     padding-top:40px !important; padding-bottom:40px !important;
+    padding-left:0 !important; padding-right:0 !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa.cap-page section:not(#top):not(#fa-mobile-override) .kps-wrap {
     box-sizing:border-box !important; width:100% !important; max-width:100% !important;
