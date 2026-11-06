@@ -310,6 +310,7 @@
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats b small {
     font:400 20px/1 Inter,Arial,sans-serif !important; margin:0 !important; color:#fff !important;
+    letter-spacing:normal !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats > div:nth-child(n+3) span {
     margin:0 !important;
