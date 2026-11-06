@@ -274,7 +274,7 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats {
     display:grid !important; grid-template-columns:1.15fr .85fr !important;
     gap:24px !important; margin:30px -20px -28px !important; padding:28px 20px !important;
-    width:calc(100% + 40px) !important; box-sizing:border-box !important;
+    width:calc(100% + 40px) !important; max-width:none !important; box-sizing:border-box !important;
     border:0 !important; border-top:1px solid rgba(255,219,122,.45) !important;
     border-bottom:1px solid rgba(255,255,255,.18) !important;
     border-radius:0 !important; background:#080e27 !important; box-shadow:none !important;
