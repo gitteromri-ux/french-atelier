@@ -96,8 +96,10 @@
   }
   /* One clear hero hierarchy: statement, description, facts, price, action. */
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-h1 {
-    font-size:clamp(40px,10.7vw,44px) !important; line-height:1.02 !important;
-    margin-bottom:16px !important; letter-spacing:-.02em !important; color:#fff !important;
+    font-family:Inter,Arial,sans-serif !important; font-weight:700 !important; font-style:normal !important;
+    font-size:clamp(36px,10vw,42px) !important; line-height:1.08 !important;
+    margin-bottom:16px !important; letter-spacing:-.025em !important; color:#fff !important;
+    text-wrap:balance; text-shadow:none !important; filter:none !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-hero-highlight {
     color:#ffdb7a !important; -webkit-text-fill-color:#ffdb7a !important; background:none !important;
@@ -266,7 +268,9 @@
     margin-bottom:30px !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 .gi {
-    font-size:36px !important; line-height:1.12 !important;
+    font-family:Inter,Arial,sans-serif !important; font-weight:600 !important; font-style:normal !important;
+    font-size:clamp(28px,8.2vw,32px) !important; line-height:1.15 !important;
+    letter-spacing:-.01em !important; text-shadow:none !important; filter:none !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer {
     margin-top:24px !important; margin-bottom:16px !important;
@@ -290,7 +294,7 @@
     text-align:right !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats > div:nth-child(-n+2) b {
-    font:500 80px/.92 "Cormorant Garamond",Georgia,serif !important;
+    font:700 72px/1 Inter,Arial,sans-serif !important;
     letter-spacing:-.03em !important; color:#ffdb7a !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats > div:nth-child(2) b {
@@ -306,7 +310,7 @@
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats > div:nth-child(n+3) b {
     display:flex !important; align-items:baseline !important; gap:5px !important;
-    font:500 42px/1 "Cormorant Garamond",Georgia,serif !important; color:#fff !important;
+    font:600 40px/1 Inter,Arial,sans-serif !important; color:#fff !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats b small {
     font:400 20px/1 Inter,Arial,sans-serif !important; margin:0 !important; color:#fff !important;
@@ -316,9 +320,16 @@
     margin:0 !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats > div:last-child b {
-    font-size:34px !important; align-items:center !important; gap:8px !important;
+    font-size:30px !important; align-items:center !important; gap:8px !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stat-broadcast {
     display:block !important; flex:none !important; color:#79d8ff !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top :is(.kps-h1,.kps-h1 span,.kps-hero-intro,.kps-hero-facts,.kps-hero-offer,.kps-stats,.kps-stats b) {
+    text-shadow:none !important; filter:none !important; font-synthesis:none !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats b {
+    font-variant-numeric:lining-nums tabular-nums !important;
+    font-feature-settings:"lnum" 1,"tnum" 1 !important; font-style:normal !important;
   }
 }
