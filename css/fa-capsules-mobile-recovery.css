@@ -109,11 +109,11 @@
     color:#fff !important; -webkit-text-fill-color:#fff !important; background:none !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-intro {
-    font-size:22px !important; line-height:1.4 !important; margin:0 0 14px !important;
+    font-size:20px !important; line-height:1.4 !important; margin:0 0 24px !important;
     color:#fff !important; max-width:100% !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-hero-facts {
-    border-top:1px solid rgba(255,255,255,.35); padding-top:12px; margin-bottom:14px;
+    border-top:1px solid rgba(255,255,255,.35); padding-top:16px; margin-bottom:14px;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-hero-facts p {
     font-size:19px !important; line-height:1.38 !important; margin:0 0 4px !important;
@@ -253,11 +253,11 @@
     color:#fff !important; -webkit-text-fill-color:#fff !important; font-weight:600 !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer > strong {
-    font-size:28px !important; color:#fff !important; -webkit-text-fill-color:#fff !important;
+    font-size:14px !important; line-height:1.4 !important; color:#fff !important; -webkit-text-fill-color:#fff !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer strong span,
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer > span {
-    font-size:18px !important; line-height:1.35 !important; color:#fff !important;
+    font-size:14px !important; line-height:1.4 !important; color:#fff !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .cta :is(.tp,.fa-refund-banner),
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats span {
@@ -265,11 +265,11 @@
   }
   /* More air around the opening copy and price; format facts form one editorial strip. */
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 {
-    margin-bottom:18px !important;
+    margin-bottom:28px !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 .gi {
     font-family:var(--serif) !important; font-weight:500 !important; font-style:italic !important;
-    font-size:clamp(24px,6.7vw,27px) !important; line-height:1.15 !important; margin-top:10px !important;
+    font-size:clamp(30px,8.2vw,32px) !important; line-height:1.15 !important; margin-top:10px !important;
     letter-spacing:-.01em !important; text-shadow:none !important; filter:none !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-highlight {
@@ -341,5 +341,26 @@
     font-variant-numeric:lining-nums tabular-nums !important;
     font-feature-settings:"lnum" 1,"tnum" 1 !important;
     text-shadow:none !important; filter:none !important; font-synthesis:none !important;
+  }
+  /* Existing Trustpilot vector assets, aligned on one clean mobile row. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .cta {
+    gap:10px !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .cta .tp {
+    display:grid !important; grid-template-columns:minmax(0,100px) minmax(0,128px) auto !important;
+    align-items:center !important; justify-content:center !important; gap:8px !important;
+    width:100% !important; max-width:100% !important; margin:12px 0 0 !important;
+    white-space:nowrap !important; text-shadow:none !important; filter:none !important; transform:none !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .tp :is(.tp-logo,.tp-stars) {
+    display:block !important; width:100% !important; height:auto !important; max-width:100% !important;
+    filter:none !important; transform:none !important; image-rendering:auto !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .tp .tp-rating-label {
+    font:600 16px/1.25 var(--sans) !important; color:#fff !important;
+    letter-spacing:normal !important; text-shadow:none !important; filter:none !important;
+  }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .fa-refund-banner {
+    margin-top:4px !important;
   }
 }
