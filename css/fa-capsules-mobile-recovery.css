@@ -332,4 +332,11 @@
     font-variant-numeric:lining-nums tabular-nums !important;
     font-feature-settings:"lnum" 1,"tnum" 1 !important; font-style:normal !important;
   }
+  /* Keep numerical displays crisp across the course cards and programme sections. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.kps-stats b,#how .n,#learn .big b,.kps-reveal .kps-stat b,.kps-card .meta b) {
+    font-family:Inter,Arial,sans-serif !important; font-weight:700 !important; font-style:normal !important;
+    font-variant-numeric:lining-nums tabular-nums !important;
+    font-feature-settings:"lnum" 1,"tnum" 1 !important;
+    text-shadow:none !important; filter:none !important; font-synthesis:none !important;
+  }
 }
