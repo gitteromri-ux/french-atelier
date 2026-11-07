@@ -355,6 +355,7 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .tp :is(.tp-logo,.tp-stars) {
     display:block !important; width:100% !important; height:auto !important; max-width:100% !important;
     filter:none !important; transform:none !important; image-rendering:auto !important;
+    border-radius:0 !important; clip-path:none !important; box-shadow:none !important; object-fit:contain !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .tp .tp-rating-label {
     font:600 16px/1.25 var(--sans) !important; color:#fff !important;
