@@ -97,7 +97,7 @@
   /* One clear hero hierarchy: statement, description, facts, price, action. */
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-h1 {
     font-family:var(--serif) !important; font-weight:600 !important; font-style:normal !important;
-    font-size:clamp(40px,10.7vw,44px) !important; line-height:1.04 !important;
+    font-size:clamp(44px,12vw,50px) !important; line-height:.98 !important;
     margin-bottom:16px !important; letter-spacing:-.025em !important; color:#fff !important;
     text-wrap:balance; text-shadow:none !important; filter:none !important;
   }
@@ -108,8 +108,8 @@
     font-size:32px !important; line-height:1.1 !important; margin-top:8px !important;
     color:#fff !important; -webkit-text-fill-color:#fff !important; background:none !important;
   }
-  html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-hero-intro {
-    font-size:20px !important; line-height:1.4 !important; margin:0 0 16px !important;
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-intro {
+    font-size:22px !important; line-height:1.4 !important; margin:0 0 14px !important;
     color:#fff !important; max-width:100% !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa.cap-page section#top .kps-hero-facts {
@@ -265,15 +265,18 @@
   }
   /* More air around the opening copy and price; format facts form one editorial strip. */
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 {
-    margin-bottom:30px !important;
+    margin-bottom:18px !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-h1 .gi {
-    font-family:var(--serif) !important; font-weight:600 !important; font-style:normal !important;
-    font-size:36px !important; line-height:1.12 !important;
+    font-family:var(--serif) !important; font-weight:500 !important; font-style:italic !important;
+    font-size:clamp(24px,6.7vw,27px) !important; line-height:1.15 !important; margin-top:10px !important;
     letter-spacing:-.01em !important; text-shadow:none !important; filter:none !important;
   }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-highlight {
+    color:var(--gold-soft) !important; -webkit-text-fill-color:var(--gold-soft) !important;
+  }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-hero-offer {
-    margin-top:24px !important; margin-bottom:16px !important;
+    margin-top:16px !important; margin-bottom:16px !important;
   }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page section#top .kps-stats {
     display:grid !important; grid-template-columns:1.15fr .85fr !important;
