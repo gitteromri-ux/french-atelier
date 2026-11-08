@@ -173,6 +173,19 @@
           ProductID: FA_PRODUCT_ID
         };
         if (ipCountry) payload.CountryIsoCodeByIp = ipCountry;
+        // eTeacher's Refer-a-Friend requirement: forward the incoming RequestID.
+        // Only the referral form supplies this field; ordinary leads are unchanged.
+        if (fields.referralRequestId) {
+          payload.RequestID = String(fields.referralRequestId);
+          var referralQuery = new URLSearchParams(payload.QueryString);
+          var referralKeys = [];
+          referralQuery.forEach(function (_, key) {
+            if (key.toLowerCase() === 'requestid') referralKeys.push(key);
+          });
+          referralKeys.forEach(function (key) { referralQuery.delete(key); });
+          referralQuery.set('RequestID', payload.RequestID);
+          payload.QueryString = referralQuery.toString();
+        }
 
         // Roll level / timing / preferred-time into AdminNotes so advisors have
         // context (these are FA-specific and not first-class CRM fields).
@@ -296,6 +309,10 @@
       campaignId: (window.FA_CAMPAIGN_IDS && window.FA_CAMPAIGN_IDS[form.dataset.formId || form.id]) || '',
       googleCampaignId: ''
     };
+    if (form.dataset.formId === 'refer-a-friend' && window.FA_REFERRAL_REQUEST) {
+      fields.referralRequestId = window.FA_REFERRAL_REQUEST.get();
+      fields.referralError = window.FA_REFERRAL_REQUEST.error();
+    }
     if (countryIso && window.FA_GOOGLE_CAMPAIGN_IDS) {
       fields.googleCampaignId = window.FA_GOOGLE_CAMPAIGN_IDS[String(countryIso).toUpperCase()] || '';
     }
@@ -310,6 +327,7 @@
       e.preventDefault();
       clearError(form);
       var f = collectFields(form);
+      if (f.referralError) { showError(form, f.referralError); return; }
 
       if (!f.firstName || !f.lastName) { showError(form, 'Please enter your full name (first and last).'); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) { showError(form, 'Please enter a valid email address.'); return; }
