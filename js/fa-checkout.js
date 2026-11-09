@@ -528,7 +528,7 @@
   var modal = null, state = { sel: null, step: 1, asideOpen: false };
   function h(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function countryOptions(selected) {
-    return GEO.LIST.map(function (c) { return '<option value="' + c.iso + '"' + (c.iso === selected ? ' selected' : '') + '>' + h(c.name) + ' (+' + c.dial + ')</option>'; }).join('');
+    return '<option value=""' + (selected ? '' : ' selected') + ' disabled hidden>Select your country</option>' + GEO.LIST.map(function (c) { return '<option value="' + c.iso + '"' + (c.iso === selected ? ' selected' : '') + '>' + h(c.name) + ' (+' + c.dial + ')</option>'; }).join('');
   }
   function stateOptions() { return '<option value="">Select your state</option>' + Object.keys(GEO.US_STATES).map(function (k) { return '<option value="' + k + '">' + h(GEO.US_STATES[k]) + '</option>'; }).join(''); }
   function levelOptions(sel) { return Object.keys(CFG.levels).map(function (k) { return '<option value="' + k + '"' + (k === sel ? ' selected' : '') + '>' + h(CFG.levels[k].name) + ' · ' + h(CFG.levels[k].cefr) + '</option>'; }).join(''); }
@@ -688,7 +688,7 @@
   /* ---------- step 1: Register ---------- */
   function renderStep1(prefill) {
     setStep(1); renderAside();
-    var sel = state.sel, lead = prefill || {}, iso0 = lead.countryIso || 'US';
+    var sel = state.sel, lead = prefill || {}, iso0 = lead.countryIso || '';  /* 2026-11-09: no default country; the buyer chooses */
     var body = modal.querySelector('.fa-ck-body');
     body.innerHTML = '<header class="fa-ck-head"><div class="fa-ck-stepline">Step 1 of 3</div><h3 id="fa-ck-title" class="fa-ck-title">' + (product(sel.product) && product(sel.product).kind === 'capsules' ? 'Your capsules <span class="gi">start here.</span>' : 'Your French <span class="gi">starts here.</span>') + '</h3>' +
       '<p class="fa-ck-sub">Register in a minute. Your seat is held while you complete the secure payment.</p></header>' +
@@ -717,15 +717,14 @@
     /* 2026-11-04: US campaigns default to US. The visitor's IP country is used only when the buyer did not
        arrive from a US campaign (cid 116939 / 116980 or a Meta click) — a US buyer abroad / on a VPN must never
        be forced to a foreign phone format. */
-    if (!prefill) {
-      if (usCampaign()) { if (!ph.value && GEO.BY_ISO.US) { co.value = 'US'; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} }
-      else ipCountry().then(function (ip) { if (ip && GEO.BY_ISO[ip] && !ph.value) { co.value = ip; syncDial(); } try { co.dispatchEvent(new Event('change')); } catch (x) {} });
-    }
+    /* 2026-11-09 (Omri): no automatic country selection of any kind (campaign default, IP lookup or phone prefix).
+       The buyer picks the country; the dial code and phone format follow the choice. */
     var rules = {
       'fa-ck-fn': function () { return $f('fa-ck-fn').value.trim() ? '' : 'Please enter your first name.'; },
       'fa-ck-ln': function () { return $f('fa-ck-ln').value.trim() ? '' : 'Please enter your last name.'; },
       'fa-ck-em': function () { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim()) ? '' : 'Please enter a valid email address.'; },
-      'fa-ck-ph': function () { var r = GEO.toE164(ph.value, co.value); return r.ok ? '' : (co.value === 'US' ? 'Please enter a 10-digit US mobile number.' : 'Please enter a valid mobile number for ' + (GEO.BY_ISO[co.value] || {}).name + '.'); },
+      'fa-ck-co': function () { return co.value ? '' : 'Please select your country.'; },
+      'fa-ck-ph': function () { if (!co.value) return 'Please select your country first.'; var r = GEO.toE164(ph.value, co.value); return r.ok ? '' : (co.value === 'US' ? 'Please enter a 10-digit US mobile number.' : 'Please enter a valid mobile number for ' + (GEO.BY_ISO[co.value] || {}).name + '.'); },
       'fa-ck-st': function () { return co.value !== 'US' || GEO.US_STATES[st.value] ? '' : 'Please select your state.'; }
     };
     function mark(id, show) {
