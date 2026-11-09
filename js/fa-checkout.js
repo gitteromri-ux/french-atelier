@@ -582,6 +582,8 @@
     opts = opts || {};
     var p = product(productId); if (!p) return;
     ensureModal(); lastFocus = document.activeElement;
+    /* 2026-11-09: load the phone validator as soon as checkout opens, so the number is checked on the spot. */
+    if (!window.libphonenumber && !document.querySelector('script[src*="libphonenumber-max"]')) { try { var plib = document.createElement('script'); plib.src = assetBase() + 'js/vendor/libphonenumber-max.js?v=1.13.15'; plib.async = true; document.head.appendChild(plib); } catch (x) {} }
     state.sel = { product: productId, level: opts.level || (p.kind !== 'capsules' ? 'beginner' : undefined), classTime: '', capsules: opts.capsules && opts.capsules.length ? opts.capsules : (productId === 'capsule-3' ? Object.keys(CFG.capsules) : []) };
     state.asideOpen = false;
     var saved = loadLead();
@@ -724,7 +726,7 @@
       'fa-ck-ln': function () { return $f('fa-ck-ln').value.trim() ? '' : 'Please enter your last name.'; },
       'fa-ck-em': function () { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim()) ? '' : 'Please enter a valid email address.'; },
       'fa-ck-co': function () { return co.value ? '' : 'Please select your country.'; },
-      'fa-ck-ph': function () { if (!co.value) return 'Please select your country first.'; var r = GEO.toE164(ph.value, co.value); return r.ok ? '' : (co.value === 'US' ? 'Please enter a 10-digit US mobile number.' : 'Please enter a valid mobile number for ' + (GEO.BY_ISO[co.value] || {}).name + '.'); },
+      'fa-ck-ph': function () { if (!co.value) return 'Please select your country first.'; var r = GEO.toE164(ph.value, co.value); if (!r.ok && r.reason === 'phone_validator_unavailable') return ''; /* validator still loading: no false error; Continue waits for it */ return r.ok ? '' : (co.value === 'US' ? 'Please enter a 10-digit US mobile number.' : 'Please enter a valid mobile number for ' + (GEO.BY_ISO[co.value] || {}).name + '.'); },
       'fa-ck-st': function () { return co.value !== 'US' || GEO.US_STATES[st.value] ? '' : 'Please select your state.'; }
     };
     function mark(id, show) {
