@@ -913,7 +913,7 @@
   });
   // URL parameters never apply a coupon; the customer must enter it in checkout.
   /* ?buy=<product>&level=<level> deep link (e.g. from ads) */
-  try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy'))) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
+  try { var q = new URLSearchParams(location.search); if (q.get('buy') && product(q.get('buy')) && !/enroll-checkout/.test(location.pathname) && !document.querySelector('.fa-pay-page')) window.addEventListener('load', function () { open(q.get('buy'), { level: q.get('level') || undefined }); }); } catch (e) {}
 
   /* 2026-10-30: replay a buy-button tap that landed before this engine was ready (queued by the inline loader). */
   setTimeout(function () { var pb = window.__faPendingBuy; if (!pb) return; window.__faPendingBuy = null; try { pb.classList.remove('is-waiting'); } catch (x) {} open(pb.getAttribute('data-fa-buy'), { level: pb.getAttribute('data-fa-level') || undefined, capsules: (pb.getAttribute('data-fa-capsules') || '').split(',').filter(Boolean) }); }, 0);
