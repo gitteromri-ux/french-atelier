@@ -463,3 +463,27 @@ html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-page.has-rib
 /* 2026-11-09: one arrow only, every browser (Android Chrome tiled the previous data-URI). */
 .fa-ck-field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-size:18px 18px!important;background-position:right 1rem center!important}
 body[class*="fa-ckt-"] .fa-ck-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23A98D52' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")!important}
+
+/* 2026-11-09 (Omri): step 2 compaction - less scrolling on mobile. */
+.fa-ck-auto[hidden]{display:none!important}
+.fa-ck-pick-txt small{display:block;margin-top:.15rem;font-family:var(--sans);font-size:.78rem;line-height:1.35;color:var(--nx-ice-2);opacity:.8}
+.fa-ck-code-row.is-collapsed{display:none}
+.fa-ck-code-lb.is-link{cursor:pointer;text-decoration:underline;text-underline-offset:3px;color:var(--nx-ice)}
+.fa-ck-facts-dx summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.3rem;font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--nx-ice);border-bottom:1px solid var(--nx-line)}
+.fa-ck-facts-dx summary::-webkit-details-marker{display:none}
+.fa-ck-facts-dx summary svg{width:16px;height:16px;transform:rotate(90deg);transition:transform .2s}
+.fa-ck-facts-dx[open] summary svg{transform:rotate(-90deg)}
+@media (max-width:760px){
+  .fa-ck-picks{gap:.5rem}
+  .fa-ck-pick-in{gap:.75rem;padding:.55rem 2.8rem .55rem .55rem;border-radius:14px}
+  .fa-ck-pick-img{flex-basis:52px;height:52px;border-radius:10px}
+  .fa-ck-pick-txt b{font-size:1.15rem}
+  .fa-ck-pick-txt span{margin-top:.1rem;font-size:.86rem}
+  .fa-ck-hint{margin-top:.5rem;font-size:.84rem}
+  .fa-ck-course-name{padding:.8rem 1.1rem;font-size:1.15rem}
+  .fa-ck-band{padding:.9rem 1.1rem 1rem;gap:.25rem}
+  .fa-ck-band-v{font-size:1.3rem}
+  .fa-ck-band-s{font-size:.92rem}
+  .fa-ck-facts{padding:.2rem 1.1rem .4rem}
+  .fa-ck-facts>div{padding:.55rem 0}
+}
