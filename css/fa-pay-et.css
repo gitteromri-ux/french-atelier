@@ -97,3 +97,15 @@ html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-w
   html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-wallet img{height:13px!important}
   html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-tab{gap:.35rem!important;padding:.8rem .4rem!important}
 }
+
+/* 2026-11-09 (Omri): mobile payment page - card form right under the price, course details and policy text below it. */
+@media (max-width:900px){
+  #fa-pay.fa-pay-et .fa-pay-main{display:contents}
+  #fa-pay.fa-pay-et .fa-pay-grid{grid-template-areas:none}
+  #fa-pay.fa-pay-et #paySummary{order:1}
+  #fa-pay.fa-pay-et #payCard{order:2}
+  #fa-pay.fa-pay-et #payCourse{order:3}
+  #fa-pay.fa-pay-et #payFoot{order:4;margin-top:0}
+  #fa-pay.fa-pay-et .fa-pay-help{order:5}
+  #fa-pay.fa-pay-et .fa-secure-assurance{display:none}
+}
