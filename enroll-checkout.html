@@ -470,8 +470,19 @@
     if (!awx || !awx.init) throw new Error('AIRWALLEX_SDK_MISSING');
     awx.init({ env: CFG.env === 'staging' ? 'demo' : 'prod', origin: location.origin, locale: 'en', fonts: [{ src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '400' }, { src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '600' }] });
     var methods = ['card']; /* French Atelier: credit cards + PayPal only — no Apple Pay / Google Pay */
+    /* GOLDEN RECURRING (French Atelier, 2026-11-09, ordered by Omri): any plan with more than one
+     * payment must store a merchant-triggered card consent on the CRM's Airwallex customer, so the
+     * CRM charges installments 2+ automatically instead of sending payment links. Same contract as
+     * the Longevity checkout. Do not change, remove or reorder without Omri's written authorization. */
+    var faNum = Number(p && p.numberOfPayments) || 1;
+    var faCustomerId = (details && ((details.Airwallex && details.Airwallex.customerId) || (details.AirwallexOptions && details.AirwallexOptions.customer_id))) || null;
+    var faRecurring = faNum > 1 && !!faCustomerId;
+    window.FA_RECURRING_STATE = { installments: faNum, customer: !!faCustomerId, recurring: faRecurring };
     dropIn = awx.createElement('dropIn', {
-      intent_id: v.intentId, client_secret: v.clientSecret, currency: 'USD', mode: 'payment',
+      intent_id: v.intentId, client_secret: v.clientSecret, currency: 'USD', mode: faRecurring ? 'recurring' : 'payment',
+      customer_id: faRecurring ? faCustomerId : undefined,
+      recurringOptions: faRecurring ? { next_triggered_by: 'merchant', currency: 'USD', merchant_trigger_reason: 'unscheduled' } : undefined,
+      payment_consent: faRecurring ? { next_triggered_by: 'merchant', merchant_trigger_reason: 'unscheduled' } : undefined,
       country_code: staged.lead.countryIso || 'US',
       methods: methods, payment_methods: methods, paymentMethods: methods, payment_method_types: methods,
       showPayButton: true, appearance: (window.FA_CKT ? { mode: 'light', variables: { colorBrand: window.FA_CKT === 'ivory' ? '#2FA4FF' : '#A98D52', colorText: '#1A1E33', colorBackground: '#FFFFFF' }, rules: { '.Input': { backgroundColor: '#FFFFFF', border: '1px solid rgba(26,30,51,.16)', borderRadius: '12px', color: '#1A1E33', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(26,30,51,.3)' }, '.Input:active': { border: '1px solid ' + (window.FA_CKT === 'ivory' ? '#2FA4FF' : '#C8A96B'), boxShadow: '0 0 0 4px ' + (window.FA_CKT === 'ivory' ? 'rgba(47,164,255,.18)' : 'rgba(200,169,107,.22)') }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } } : { mode: 'dark', variables: { colorBrand: '#6FC4FF', colorText: '#F6FAFF', colorBackground: '#0B1634' }, rules: { '.Input': { backgroundColor: 'rgba(8,16,40,.85)', border: '1px solid rgba(111,196,255,.28)', borderRadius: '12px', color: '#F6FAFF', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(111,196,255,.5)' }, '.Input:active': { border: '1px solid #6FC4FF', boxShadow: '0 0 0 4px rgba(47,164,255,.18)' }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } })
