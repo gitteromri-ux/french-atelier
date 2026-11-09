@@ -487,3 +487,6 @@ body[class*="fa-ckt-"] .fa-ck-field select{background-image:url("data:image/svg+
   .fa-ck-facts{padding:.2rem 1.1rem .4rem}
   .fa-ck-facts>div{padding:.55rem 0}
 }
+body[class*="fa-ckt-"] .fa-ck-pick-txt small{color:#6f6757;opacity:1}
+body[class*="fa-ckt-"] .fa-ck-facts-dx summary{color:#3d3526}
+body[class*="fa-ckt-"] .fa-ck-facts-dx summary svg{color:#8a7a52}
