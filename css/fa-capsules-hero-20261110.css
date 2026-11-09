@@ -144,3 +144,22 @@ html:root body#fa .kps-hero .kps-hero-price .plan{white-space:nowrap!important}
   html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .kps-hero-price .sep,html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .kps-hero-price .sep:first-of-type{display:none!important}
   html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .kps-hero-price .plan{display:block!important;margin-top:.2rem!important}
 }
+/* h7 — CEO: lead and facts larger; price not larger; CTAs/Trustpilot slightly smaller to keep the fold */
+@media (min-width:768px){
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .sub.kps-hero-lead{font-size:clamp(2rem,2.65vw,2.75rem)!important;line-height:1.2!important;max-width:44ch!important;margin-top:1.4rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-facts3{grid-template-columns:1.85fr 1.1fr 1fr!important;max-width:1220px!important;margin-top:1.6rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-facts3 li{padding-top:1rem!important;gap:.35rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-facts3 .k{font-size:1.55rem!important;line-height:1.15!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-facts3 .v{font-size:1.3rem!important;line-height:1.3!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-price{font-size:1.2rem!important;margin:1.4rem 0 1.5rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .kps-hero-price strong{font-size:1.6rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .cta .kps-btn{font-size:1.05rem!important;padding:.95rem 1.6rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .cta .tp{font-size:1.05rem!important;gap:.6rem!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .cta .tp .tp-logo,html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .cta .tp .tp-stars{height:24px!important}
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa .kps-hero .cta .tp .tp-rating-label{font-size:1.05rem!important}
+}
+@media (max-width:767px){
+  html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .sub.kps-hero-lead{font-size:1.7rem!important;line-height:1.2!important}
+  html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .kps-hero-facts3 .k{font-size:1.25rem!important}
+  html:root:root:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .kps-hero .kps-hero-facts3 .v{font-size:1.1rem!important}
+}
