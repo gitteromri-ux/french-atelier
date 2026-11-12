@@ -98,13 +98,4 @@ html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-w
   html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-tab{gap:.35rem!important;padding:.8rem .4rem!important}
 }
 
-/* 2026-11-09 (Omri): mobile payment page - card form right under the price, course details and policy text below it. */
-@media (max-width:900px){
-  #fa-pay.fa-pay-et .fa-pay-main{display:contents}
-  #fa-pay.fa-pay-et .fa-pay-grid{grid-template-areas:none}
-  #fa-pay.fa-pay-et #paySummary{order:1}
-  #fa-pay.fa-pay-et #payCard{order:2}
-  #fa-pay.fa-pay-et #payCourse{order:3}
-  #fa-pay.fa-pay-et #payFoot{order:4;margin-top:0}
-  #fa-pay.fa-pay-et .fa-pay-help{order:5}
-}
+/* 2026-11-12: the 9 Nov mobile re-order (display:contents on .fa-pay-main) collapsed the card form to 0px width on phones; removed. Rollback target 4088a61. */
