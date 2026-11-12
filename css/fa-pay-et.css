@@ -98,4 +98,14 @@ html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-w
   html:root:root:root:root:root:root:root:root body#fa #fa-pay.fa-pay-et .fa-pay-tab{gap:.35rem!important;padding:.8rem .4rem!important}
 }
 
-/* 2026-11-12: the 9 Nov mobile re-order (display:contents on .fa-pay-main) collapsed the card form to 0px width on phones; removed. Rollback target 4088a61. */
+/* 2026-11-09 (Omri): mobile payment page - card form right under the price, course details and policy text below it.
+   2026-11-12 rebuilt: the first version dissolved .fa-pay-main (display:contents), which left #payCard in a grid slot with no
+   width and collapsed the Airwallex Drop-In to 0px on every phone. Same visual order, but the wrapper keeps its grid area and
+   width; only its children are re-ordered with flexbox. */
+@media (max-width:900px){
+  #fa-pay.fa-pay-et .fa-pay-main{display:flex;flex-direction:column;min-width:0}
+  #fa-pay.fa-pay-et .fa-pay-main > *{width:100%}
+  #fa-pay.fa-pay-et #payCard{order:1}
+  #fa-pay.fa-pay-et #payCourse{order:2}
+  #fa-pay.fa-pay-et #payFoot{order:3;margin-top:0}
+}
