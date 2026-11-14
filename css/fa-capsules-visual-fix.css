@@ -1,0 +1,157 @@
+/* Presentation only: compact offer spacing and readable modal overflow.
+   Repeated IDs match the existing high-specificity mobile presentation layer.
+   No prices, copy, functional hooks, scripts or payment elements are changed. */
+
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-card {
+  padding:42px 24px 18px !important;
+  min-height:0 !important;
+  grid-row:span 6 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-top {
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 0 8px !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-name {
+  margin:0 0 4px !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-pricebox {
+  padding:8px 0 0 !important;
+  margin:0 !important;
+  min-height:0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-percap {
+  margin:6px 0 0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-pay {
+  padding:0 !important;
+  margin:8px 0 12px !important;
+  min-height:0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-cta {
+  margin:0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-inc {
+  margin:0 !important;
+  padding:12px 0 !important;
+  display:flex !important;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  font-size:18px !important;
+  letter-spacing:0 !important;
+  cursor:pointer;
+  list-style:none;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-details {
+  margin:12px 0 0;
+  min-width:0;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-inc::-webkit-details-marker {
+  display:none;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-inc::after {
+  content:"+";
+  font:500 26px/1 var(--sans);
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-details[open] > .kpz-inc::after {
+  content:"−";
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-inc:focus-visible {
+  outline:2px solid currentColor;
+  outline-offset:3px;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-feats {
+  margin:0 !important;
+  padding:0 !important;
+  gap:0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-feats li {
+  padding:6px 0 !important;
+  margin:0 !important;
+}
+body#fa#fa#fa#fa.cap-page #offers#offers .kpz-per {
+  margin:10px 0 0 !important;
+  padding:10px 0 0 !important;
+}
+
+/* A dark, persistent scroll track makes overflow evident on the light modal. */
+body#fa #fa-ck :is(.fa-ck-main,.fa-ck-aside,.fa-ck-modal) {
+  scrollbar-width:auto;
+  scrollbar-color:#253658 #dce3ec;
+}
+body#fa #fa-ck :is(.fa-ck-main,.fa-ck-aside,.fa-ck-modal)::-webkit-scrollbar {
+  width:14px;
+}
+body#fa #fa-ck :is(.fa-ck-main,.fa-ck-aside,.fa-ck-modal)::-webkit-scrollbar-track {
+  background:#dce3ec;
+}
+body#fa #fa-ck :is(.fa-ck-main,.fa-ck-aside,.fa-ck-modal)::-webkit-scrollbar-thumb {
+  background:#253658;
+  border:3px solid #dce3ec;
+  border-radius:10px;
+}
+body#fa #fa-ck .fa-ck-aside .fa-ck-save {
+  white-space:normal;
+  max-width:100%;
+}
+@media (min-width:901px) {
+  body#fa #fa-ck .fa-ck-modal {
+    grid-template-rows:minmax(0,1fr);
+  }
+  body#fa #fa-ck :is(.fa-ck-aside,.fa-ck-main) {
+    min-height:0;
+    max-height:calc(100dvh - 2.8rem - 2px);
+    overflow-y:auto;
+    scrollbar-gutter:stable;
+    overscroll-behavior:contain;
+  }
+  body#fa #fa-ck .fa-ck-aside-full {
+    flex:0 0 auto;
+  }
+  body#fa #fa-ck .fa-ck-aside-img {
+    height:clamp(90px,16dvh,150px);
+  }
+  body#fa #fa-ck .fa-ck-aside-body {
+    padding:16px 22px 20px;
+    gap:10px;
+  }
+  body#fa #fa-ck .fa-ck-price {
+    padding:10px 14px;
+    margin:0;
+  }
+  body#fa #fa-ck .fa-ck-sum-row {
+    padding:10px 0;
+  }
+}
+@media (max-width:900px) {
+  body#fa#fa#fa#fa.cap-page #offers#offers .kpz-card {
+    padding:42px 18px 18px !important;
+    grid-row:auto !important;
+    grid-template-rows:auto !important;
+    align-content:start !important;
+  }
+  body#fa#fa#fa#fa.cap-page #offers#offers .kpz-badge {
+    width:max-content !important;
+    max-width:calc(100% - 24px);
+    white-space:nowrap;
+  }
+}
+@media (min-width:901px) and (max-height:700px) {
+  body#fa #fa-ck .fa-ck-aside-img {
+    height:104px;
+  }
+  body#fa #fa-ck .fa-ck-aside-body {
+    gap:8px;
+  }
+  body#fa #fa-ck .fa-ck-sum-row {
+    padding:8px 0 !important;
+  }
+}
+@media (min-width:901px) and (max-width:1100px) {
+  body#fa #fa-ck .fa-ck-progress {
+    flex-wrap:wrap;
+    row-gap:10px;
+  }
+}
