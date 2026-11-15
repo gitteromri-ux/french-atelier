@@ -33,6 +33,22 @@
     staging:    'https://fa-leads-proxy.vercel.app/leads/staging',
     production: 'https://fa-leads-proxy.vercel.app/leads/production'
   };
+  var REFERRAL_ENDPOINT = 'https://eteacher-leads-proxy.gitter-omri.workers.dev/api/lead/referral';
+
+  // Referrals must not be replayed after an ambiguous response.
+  function postReferralOnce(payload) {
+    return fetch(REFERRAL_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'X-CRM-Brand': 'fa' },
+      body: JSON.stringify(payload), credentials: 'omit', mode: 'cors', redirect: 'error'
+    }).then(function (res) {
+      return res.json().then(function (body) {
+        return { ok: res.ok && body.ok === true, status: res.status, retryable: false };
+      });
+    }).catch(function () {
+      return { ok: false, status: 0, retryable: false, error: 'Referral result unknown' };
+    });
+  }
 
   // French Atelier product id in the eTeacher CRM.
   var FA_PRODUCT_ID = 25;
@@ -150,6 +166,10 @@
     productId: FA_PRODUCT_ID,
     getAttribution: getAttribution,
     submit: function (fields) {
+      fields = fields || {};
+      if (fields.isReferral && !fields.referralRequestId) {
+        return Promise.resolve({ ok: false, status: 0, error: 'Missing referral RequestId' });
+      }
       return getIpCountry().then(function (ipCountry) {
         var countryIso = normalizeCountryIso(fields.countryIso, ipCountry);
 
@@ -177,13 +197,14 @@
         // Only the referral form supplies this field; ordinary leads are unchanged.
         if (fields.referralRequestId) {
           payload.RequestID = String(fields.referralRequestId);
+          payload.MemberID = -1;
           var referralQuery = new URLSearchParams(payload.QueryString);
           var referralKeys = [];
           referralQuery.forEach(function (_, key) {
             if (key.toLowerCase() === 'requestid') referralKeys.push(key);
           });
           referralKeys.forEach(function (key) { referralQuery.delete(key); });
-          referralQuery.set('RequestID', payload.RequestID);
+          referralQuery.set('RequestId', payload.RequestID);
           payload.QueryString = referralQuery.toString();
         }
 
@@ -210,7 +231,9 @@
           payload.CampaignID = parseInt(fields.campaignId, 10);
         }
 
-        return postWithRetry(ENDPOINTS[ETEACHER_ENV], payload);
+        return fields.isReferral || fields.referralRequestId
+          ? postReferralOnce(payload)
+          : postWithRetry(ENDPOINTS[ETEACHER_ENV], payload);
       });
     }
   };
@@ -309,9 +332,11 @@
       campaignId: (window.FA_CAMPAIGN_IDS && window.FA_CAMPAIGN_IDS[form.dataset.formId || form.id]) || '',
       googleCampaignId: ''
     };
-    if (form.dataset.formId === 'refer-a-friend' && window.FA_REFERRAL_REQUEST) {
-      fields.referralRequestId = window.FA_REFERRAL_REQUEST.get();
-      fields.referralError = window.FA_REFERRAL_REQUEST.error();
+    if (form.dataset.formId === 'refer-a-friend') {
+      fields.isReferral = true;
+      fields.referralRequestId = window.FA_REFERRAL_REQUEST ? window.FA_REFERRAL_REQUEST.get() : '';
+      fields.referralError = window.FA_REFERRAL_REQUEST ? window.FA_REFERRAL_REQUEST.error() : '';
+      if (!fields.referralRequestId) fields.referralError = fields.referralError || 'Please open the original referral link from your invitation.';
     }
     if (countryIso && window.FA_GOOGLE_CAMPAIGN_IDS) {
       fields.googleCampaignId = window.FA_GOOGLE_CAMPAIGN_IDS[String(countryIso).toUpperCase()] || '';
@@ -325,6 +350,7 @@
     form.setAttribute('novalidate', '');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (form.dataset.referralSent === '1' || form.classList.contains('is-submitting')) return;
       clearError(form);
       var f = collectFields(form);
       if (f.referralError) { showError(form, f.referralError); return; }
@@ -338,6 +364,7 @@
       if (form.querySelector('select[name="timing"]') && !f.timing) { showError(form, 'Please choose when you would like to start.'); return; }
 
       form.classList.add('is-submitting');
+      if (f.isReferral) form.dataset.referralSent = '1';
       window.eTeacherLeads.submit(f).then(function (res) {
         form.classList.remove('is-submitting');
         var attr = (window.eTeacherLeads.getAttribution && window.eTeacherLeads.getAttribution()) || {};
@@ -358,7 +385,9 @@
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: 'lead_form_submit_error', form_id: form.dataset.formId || form.id || 'fa-form', crm_status: res.status, product_id: 25, env: window.eTeacherLeads.env });
           } catch (err) {}
-          showError(form, "We couldn't submit your details right now. Please try again in a moment, or email advisor@eTeacherGroup.com.");
+          showError(form, f.isReferral
+            ? "We couldn't confirm your referral. Please don't submit again, to avoid a duplicate. Contact advisor@eTeacherGroup.com for help."
+            : "We couldn't submit your details right now. Please try again in a moment, or email advisor@eTeacherGroup.com.");
         }
       });
     });
