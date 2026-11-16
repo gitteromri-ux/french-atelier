@@ -404,3 +404,14 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar, .fa-mobile-rail-nav) > button:disabled { opacity:.3 !important; }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .fa-sl-hint .fa-sl-arrow { display:none !important; }
 }
+/* 2026-11-16c: less gold, no yellow numbers, no pills (phones). Blue = same blue as the Enroll button. */
+@media (max-width:767px) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page #offers :is(.kpz-cur,.kpz-amt,.kpz-off,.kpz-pay,.kpz-pay b,.kpz-dot) { color:#fff !important; -webkit-text-fill-color:#fff !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page #offers .kpz-sub { color:#9fd0ff !important; -webkit-text-fill-color:#9fd0ff !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(a.kps-btn.kps-btn-gold, button.kpz-cta, a.btn.btn-gold) { background:linear-gradient(#5eb6ff,#2e8be6) !important; color:#fff !important; -webkit-text-fill-color:#fff !important; border-color:transparent !important; box-shadow:none !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-card span.action.kps-pill { background:transparent !important; color:#fff !important; -webkit-text-fill-color:#fff !important; border:2px solid #fff !important; border-radius:10px !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kpz-badge { background:#2e8be6 !important; color:#fff !important; -webkit-text-fill-color:#fff !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .cs-tag { color:#9fd0ff !important; -webkit-text-fill-color:#9fd0ff !important; }
+  /* floating Enroll hides while the price cards or a slider control row are on screen, so it never covers them */
+  body.fa-float-hide #faFloatCta { opacity:0 !important; pointer-events:none !important; }
+}

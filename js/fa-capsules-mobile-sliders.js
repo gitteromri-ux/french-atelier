@@ -117,6 +117,15 @@
   function init() {
     placeOffers();
     if (!mq.matches) return;
+    /* 2026-11-16: floating Enroll never covers the price cards or slider controls. */
+    if ('IntersectionObserver' in window) {
+      var seen = new Set();
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });
+        document.body.classList.toggle('fa-float-hide', seen.size > 0);
+      }, { rootMargin: '0px 0px -0px 0px', threshold: 0 });
+      setTimeout(function () { document.querySelectorAll('#offers .kpz-card, .fa-mobile-rail-nav').forEach(function (n) { io.observe(n); }); }, 1200);
+    }
     slider(document.querySelector('#capsules .kps-cards'), themeLabel, 'Swipe for all 3 capsules');
     slider(document.querySelector('#capsule-teachers .cap-faculty-grid'), teacherLabel, 'Swipe to meet all 3');
     slider(document.querySelector('#offers .kpz-grid'), planLabel, 'Swipe to compare packages');
