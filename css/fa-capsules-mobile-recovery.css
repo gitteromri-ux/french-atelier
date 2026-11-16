@@ -375,3 +375,32 @@
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #capsule-teachers .cap-teacher-copy h3 { font-size:28px !important; margin:0 0 4px !important; }
   html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page #capsule-teachers .cap-teacher-copy .cap-role { font-size:17px !important; margin:0 0 8px !important; }
 }
+/* 2026-11-16: no clipped chip/tab rows on phones; swiping + the "Swipe to…" hint stay. */
+@media (max-width:767px) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .fa-sl-tabs { display:none !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa.cap-page .fa-sl-bar { margin-top:0 !important; }
+}
+/* 2026-11-16b: one type scale on phones (titles 40/32/24-30, numbers 30-56, body 17, labels 15). */
+@media (max-width:767px) {
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page section.kps-hero h1.kps-h1 { font-size:40px !important; line-height:1.08 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page section.kps-hero h1.kps-h1 .gi { font-size:inherit !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page section.kps-hero p.kps-hero-lead { font:400 18px/1.5 Inter,Arial,sans-serif !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-hero-price strong { font-size:20px !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-stats > div > b { font-size:40px !important; line-height:1 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-stat > b { font-size:34px !important; line-height:1 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.kps-rail .cell .n, .row .t .n) { font-size:30px !important; line-height:1.05 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kpz-price .kpz-amt { font-size:56px !important; line-height:1 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kpz-price .kpz-cur { font-size:30px !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-cards .kps-card .title { font-size:30px !important; line-height:1.1 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(span.meta b, a.rc b, figure.kpx-vid figcaption b) { font-size:19px !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .kps-steps .kps-step .r { font-size:22px !important; }
+  /* Sliders: next card clearly peeks; one control row (counter + arrows) above every slider. */
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(#capsules,#offers,#capsule-teachers) [data-fa-sl] > * { flex:0 0 84% !important; width:84% !important; max-width:84% !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page [data-fa-mobile-rail] > * { flex:0 0 84% !important; width:84% !important; max-width:84% !important; min-width:0 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar.fa-mobile-rail-nav, .fa-mobile-rail-nav) { display:flex !important; align-items:center !important; gap:10px !important; margin:0 0 12px !important; font:600 15px/1.3 Inter,Arial,sans-serif !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar.fa-mobile-rail-nav, .fa-mobile-rail-nav) > span, html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .fa-sl-bar .fa-sl-hint { flex:1 !important; font:600 15px/1.3 Inter,Arial,sans-serif !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar, .fa-mobile-rail-nav) > button { width:48px !important; height:48px !important; min-height:48px !important; border-radius:10px !important; border:2px solid #0b1b3f !important; background:#fff !important; color:#0b1b3f !important; font:700 22px/1 Inter,Arial,sans-serif !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; opacity:1 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar, .fa-mobile-rail-nav) > button:last-child { background:#0b1b3f !important; color:#fff !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page :is(.fa-sl-bar, .fa-mobile-rail-nav) > button:disabled { opacity:.3 !important; }
+  html:root:root:root:root:root:root:root:root:root:root body#fa#fa#fa#fa#fa.cap-page .fa-sl-hint .fa-sl-arrow { display:none !important; }
+}

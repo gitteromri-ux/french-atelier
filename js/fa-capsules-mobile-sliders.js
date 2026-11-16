@@ -56,6 +56,12 @@
     hintEl.innerHTML = '<span>' + hint + '</span><span class="fa-sl-arrow" aria-hidden="true">&rarr;</span>';
     bar.appendChild(tabs);
     bar.appendChild(hintEl);
+    /* 2026-11-16: same control row as the other sliders - "1 / 3 · hint" + previous/next buttons in the bar. */
+    bar.className = 'fa-sl-bar fa-mobile-rail-nav';
+    var prevB = document.createElement('button'), nextB = document.createElement('button');
+    prevB.type = nextB.type = 'button'; prevB.textContent = '\u2190'; nextB.textContent = '\u2192';
+    prevB.setAttribute('aria-label', 'Previous'); nextB.setAttribute('aria-label', 'Next');
+    bar.appendChild(prevB); bar.appendChild(nextB);
     track.parentNode.insertBefore(bar, track);
     var next = document.createElement('button');
     next.type = 'button';
@@ -81,8 +87,12 @@
       var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
       next.style.opacity = atEnd ? '0' : '1';
       next.style.pointerEvents = atEnd ? 'none' : 'auto';
-      hintEl.style.opacity = atEnd ? '.45' : '1';
+      hintEl.style.opacity = '1';
+      hintEl.firstChild.textContent = (i + 1) + ' / ' + cards.length + ' \u00b7 ' + hint;
+      prevB.disabled = i === 0; nextB.disabled = atEnd;
     }
+    prevB.addEventListener('click', function () { var i = current(); if (cards[i - 1]) goTo(track, cards[i - 1], true); });
+    nextB.addEventListener('click', function () { var i = current(); if (cards[i + 1]) goTo(track, cards[i + 1], true); });
     next.addEventListener('click', function () { var i = current(); if (cards[i + 1]) goTo(track, cards[i + 1], true); });
     track.addEventListener('scroll', function () { window.requestAnimationFrame(sync); }, { passive: true });
     track.scrollLeft = 0;
