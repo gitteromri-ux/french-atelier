@@ -14,8 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://checkout.airwallex.com" crossorigin>
+<link rel="preconnect" href="https://static.airwallex.com" crossorigin>
 <link rel="preconnect" href="https://fa-leads-proxy.vercel.app" crossorigin>
-<link rel="preload" as="script" href="https://checkout.airwallex.com/assets/elements.bundle.min.js">
+<link rel="preload" as="script" href="https://static.airwallex.com/components/sdk/v1/index.js">
 <link rel="stylesheet" href="css/fa.css?v=1790665240">
 <link rel="stylesheet" href="css/mobile-fix.css?v=1790665240">
 <link rel="stylesheet" href="css/homepage-mobile-polish.css?v=1790665240">
@@ -281,7 +282,7 @@
 <script src="js/fa-checkout-config.js?v=20261109-x9"></script>
 <script src="js/fa-checkout.js?v=20261109-c4"></script>
 <script src="js/fa-whatsapp.js?v=20261020b" defer></script>
-<script src="https://checkout.airwallex.com/assets/elements.bundle.min.js"></script>
+<script src="https://static.airwallex.com/components/sdk/v1/index.js"></script>
 <script>
 /* Step 3 — payment. Same sequence as the proven Longevity checkout:
    staged lead -> createOrder (AddNewECommerceLeadAndOrder) -> fetchDetails
@@ -466,27 +467,28 @@
 
   function mountAirwallex(details, v){
     var cardSnapshot = { amount:Number(v.amount), paymentId:v.paymentId, ids:{stid:ids.stid,orderid:ids.orderid}, product:p };
-    var awx = window.Airwallex || window.AirwallexElements;
-    if (!awx || !awx.init) throw new Error('AIRWALLEX_SDK_MISSING');
-    awx.init({ env: CFG.env === 'staging' ? 'demo' : 'prod', origin: location.origin, locale: 'en', fonts: [{ src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '400' }, { src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '600' }] });
-    var methods = ['card']; /* French Atelier: credit cards + PayPal only — no Apple Pay / Google Pay */
-    /* GOLDEN RECURRING (French Atelier, 2026-11-09, ordered by Omri): any plan with more than one
-     * payment must store a merchant-triggered card consent on the CRM's Airwallex customer, so the
-     * CRM charges installments 2+ automatically instead of sending payment links. Same contract as
-     * the Longevity checkout. Do not change, remove or reorder without Omri's written authorization. */
-    var faNum = Number(p && p.numberOfPayments) || 1;
-    var faCustomerId = (details && ((details.Airwallex && details.Airwallex.customerId) || (details.AirwallexOptions && details.AirwallexOptions.customer_id))) || null;
-    var faRecurring = faNum > 1 && !!faCustomerId;
-    window.FA_RECURRING_STATE = { installments: faNum, customer: !!faCustomerId, recurring: faRecurring };
-    dropIn = awx.createElement('dropIn', {
-      intent_id: v.intentId, client_secret: v.clientSecret, currency: 'USD', mode: faRecurring ? 'recurring' : 'payment',
-      customer_id: faRecurring ? faCustomerId : undefined,
-      recurringOptions: faRecurring ? { next_triggered_by: 'merchant', currency: 'USD', merchant_trigger_reason: 'unscheduled' } : undefined,
-      payment_consent: faRecurring ? { next_triggered_by: 'merchant', merchant_trigger_reason: 'unscheduled' } : undefined,
-      country_code: staged.lead.countryIso || 'US',
-      methods: methods, payment_methods: methods, paymentMethods: methods, payment_method_types: methods,
-      showPayButton: true, appearance: (window.FA_CKT ? { mode: 'light', variables: { colorBrand: window.FA_CKT === 'ivory' ? '#2FA4FF' : '#A98D52', colorText: '#1A1E33', colorBackground: '#FFFFFF' }, rules: { '.Input': { backgroundColor: '#FFFFFF', border: '1px solid rgba(26,30,51,.16)', borderRadius: '12px', color: '#1A1E33', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(26,30,51,.3)' }, '.Input:active': { border: '1px solid ' + (window.FA_CKT === 'ivory' ? '#2FA4FF' : '#C8A96B'), boxShadow: '0 0 0 4px ' + (window.FA_CKT === 'ivory' ? 'rgba(47,164,255,.18)' : 'rgba(200,169,107,.22)') }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } } : { mode: 'dark', variables: { colorBrand: '#6FC4FF', colorText: '#F6FAFF', colorBackground: '#0B1634' }, rules: { '.Input': { backgroundColor: 'rgba(8,16,40,.85)', border: '1px solid rgba(111,196,255,.28)', borderRadius: '12px', color: '#F6FAFF', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(111,196,255,.5)' }, '.Input:active': { border: '1px solid #6FC4FF', boxShadow: '0 0 0 4px rgba(47,164,255,.18)' }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } })
-    });
+    /* 17 Nov 2026: eTeacher FE guide (DEV-9922/9915). Components SDK v1; the CRM AirwallexOptions object is passed
+     * as it is. The backend decides methods (card/applepay/googlepay), mode, payment_consent, customer_id and wallet
+     * countryCode, which keeps Golden Recurring (merchant-triggered consent) for installments. We add display options only.
+     * PayPal stays on its own tab (not Airwallex). Authorized by Omri 17 Nov 2026: "Apple pay must be enabled". */
+    var awx = window.AirwallexComponentsSDK;
+    if (!awx || !awx.init || !awx.createElement) throw new Error('AIRWALLEX_SDK_MISSING');
+    var faOpts = details && details.AirwallexOptions;
+    if (!faOpts) {
+      status('Card, Apple Pay and Google Pay are temporarily unavailable for this order. Nothing has been charged. You can select PayPal, or contact ' + CFG.advisorEmail + '. Support reference: order ' + ids.orderid + '.', 'err');
+      try { console.warn('AIRWALLEX_OPTIONS_NULL'); } catch(e){}
+      return;
+    }
+    window.FA_RECURRING_STATE = { installments: Number(p && p.numberOfPayments) || 1, customer: !!faOpts.customer_id, recurring: faOpts.mode === 'recurring', methods: faOpts.methods };
+    Promise.resolve(awx.init({ env: CFG.env === 'staging' ? 'demo' : 'prod', enabledElements: ['payments'], locale: 'en', fonts: [{ src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '400' }, { src: 'https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', family: 'Inter', weight: '600' }] }))
+    .then(function(){
+      return awx.createElement('dropIn', Object.assign({}, faOpts, {
+        showPayButton: true, appearance: (window.FA_CKT ? { mode: 'light', variables: { colorBrand: window.FA_CKT === 'ivory' ? '#2FA4FF' : '#A98D52', colorText: '#1A1E33', colorBackground: '#FFFFFF' }, rules: { '.Input': { backgroundColor: '#FFFFFF', border: '1px solid rgba(26,30,51,.16)', borderRadius: '12px', color: '#1A1E33', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(26,30,51,.3)' }, '.Input:active': { border: '1px solid ' + (window.FA_CKT === 'ivory' ? '#2FA4FF' : '#C8A96B'), boxShadow: '0 0 0 4px ' + (window.FA_CKT === 'ivory' ? 'rgba(47,164,255,.18)' : 'rgba(200,169,107,.22)') }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } } : { mode: 'dark', variables: { colorBrand: '#6FC4FF', colorText: '#F6FAFF', colorBackground: '#0B1634' }, rules: { '.Input': { backgroundColor: 'rgba(8,16,40,.85)', border: '1px solid rgba(111,196,255,.28)', borderRadius: '12px', color: '#F6FAFF', fontFamily: 'Inter, sans-serif', fontSize: '16px' }, '.Input:hover': { border: '1px solid rgba(111,196,255,.5)' }, '.Input:active': { border: '1px solid #6FC4FF', boxShadow: '0 0 0 4px rgba(47,164,255,.18)' }, '.Button': { backgroundColor: '#D8BC85', color: '#00001F', height: '56px', borderRadius: '13px', fontFamily: 'Inter, sans-serif', fontSize: '16px', fontWeight: '600' }, '.Button:hover': { backgroundColor: '#E8D3A6' } } })
+      }));
+    })
+    .then(function(el){ dropIn = el; wireDropIn(); })
+    .catch(function(err){ if (quoteChanged) return; try { console.error('AIRWALLEX_MOUNT_FAILED', err); } catch(e){} status('The secure card form could not load. Please refresh, or pay with PayPal.', 'err'); });
+    function wireDropIn(){
     if (!dropIn) throw new Error('DROPIN_NULL');
     function lockPayment(){ window.FA_PAYMENT_LOCKED=true; }
     if (dropIn.addEventListener) {
@@ -515,6 +517,7 @@
         .catch(function(){ showDone('card', true); });
     });
     dropIn.on('error', function(evt){ if(quoteChanged)return; var m = evt && evt.detail && ((evt.detail.error && evt.detail.error.message) || evt.detail.message); status('Payment did not complete normally: ' + (m || 'error') + '. Check the payment status before retrying.', 'err'); });
+    }
   }
 
   function renderPayPal(){
@@ -606,7 +609,7 @@
     if (!details) throw new Error('DETAILS_FAILED');
     try { if (window.FA_META && FA_META.captureCheckoutIdentity) FA_META.captureCheckoutIdentity(details, ids); } catch (trackingOnlyError) {}
     var plan = FA.validatePaymentAmounts(details,p);
-    if (!plan.ok) { var e = new Error(plan.reason); e.v=plan; throw e; }
+    if (!plan.ok) { var e = new Error(plan.reason); e.v=plan; e.details=details; throw e; }
     amount = plan.amount; paymentId = plan.paymentId; resolveOrder(true);
     var v = FA.validateDetails(details, p);
     if (!v.ok) {
@@ -622,7 +625,7 @@
     if (m === 'PAYMENT_PLAN_MISMATCH' && CFG.env === 'staging' && e.v && e.v.intentId) {
       /* Staging only: the staging catalog prices the test order; mount the sandbox form anyway so the full card / Apple Pay / Google Pay flow can be exercised with test money. */
       amount = e.v.amount; paymentId = e.v.paymentId; resolveOrder(true);
-      try { mountAirwallex(null, e.v); } catch (err) { return status('The secure card form could not load (' + FA.h(err.message) + ').', 'err'); }
+      try { mountAirwallex(e.details, e.v); } catch (err) { return status('The secure card form could not load (' + FA.h(err.message) + ').', 'err'); }
       (function(){ var nb = $('paySandboxNote') || (function(){ var d = document.createElement('p'); d.id = 'paySandboxNote'; d.className = 'fa-pay-sbnote'; $('payLead').parentNode.insertBefore(d, $('payToday')); return d; })(); nb.innerHTML = '<span class="fa-pay-sandbox">Sandbox</span> The staging test order charges the staging catalog amount (' + FA.fmt2(e.v.amount) + '). Live checkout charges ' + FA.fmt2(p.firstPayment) + ' once the French Atelier courses are published in the enrollment system.'; })();
       return;
     }
